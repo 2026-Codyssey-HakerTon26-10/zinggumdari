@@ -91,7 +91,8 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
     } // 상세 보기 토글을 마쳐요.
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) { // 폼을 제출할 때 백엔드 인증 API를 호출해요.
-        event.preventDefault(); // 기본 폼 제출로 입력값이 주소에 붙거나 전송되는 것을 막아요.
+        event.preventDefault(); if (loading) return; // 중복 제출과 입력값이 주소에 붙는 것을 막아요.
+        if (isSignup && nickname.trim().length < 2) { setFeedback("닉네임을 공백 제외 2자 이상 입력해 주세요."); return; } // 공백만 있는 닉네임은 서버로 보내지 않아요.
         if (isSignup && (!pwStrength.min8 || !pwStrength.hasLetter || !pwStrength.hasNumber)) { // 비밀번호 조건을 서버에 보내기 전에 먼저 확인해요.
             setFeedback("비밀번호는 8자 이상이며 문자와 숫자를 포함해야 해요.");
             return;
@@ -108,13 +109,14 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
         setFeedback(""); // 이전 오류 메시지를 지워요.
         try {
             if (isSignup) {
-                const data = await apiSignup(email, password, nickname.trim(), { terms: consents.terms, privacy: consents.privacy }); // 계정·닉네임·필수 동의를 저장하고 세션 쿠키를 발급받아요.
+                const data = await apiSignup(email.trim(), password, nickname.trim(), { terms: consents.terms, privacy: consents.privacy }); // 계정·닉네임·필수 동의를 저장하고 세션 쿠키를 발급받아요.
                 // 닉네임과 필수 안내 확인만 계정별 임시 보관하고 미지원 선택 동의는 항상 false로 둬요.
                 setAccountData(data.account_id, { nickname: nickname.trim(), consents: { ...consents, email: false, sensitive: false } });
             } else {
-                await apiLogin(email, password); // 이메일·비밀번호를 인증하고 세션 쿠키를 받아요.
+                await apiLogin(email.trim(), password); // 이메일·비밀번호를 인증하고 세션 쿠키를 받아요.
             }
-            router.push("/my"); // 인증 성공 후 내 징검다리 화면으로 이동해요.
+            setPassword(""); setConfirmation(""); // 성공한 인증 정보는 입력 상태에서 지워요.
+            router.replace("/my"); // 인증 성공 후 내 징검다리 화면으로 이동해요.
         } catch (err) {
             setFeedback(err instanceof AuthError ? err.message : "일시적인 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
             setLoading(false); // 오류 시 다시 시도할 수 있도록 버튼을 활성화해요.
@@ -139,7 +141,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                         <div className="auth-consent-all">
                             <label className="auth-checkbox-label auth-checkbox-label--all">
                                 <input className="auth-checkbox" type="checkbox" ref={allCheckRef} checked={allChecked} onChange={(e) => toggleAll(e.target.checked)} aria-label="필수 항목 전체 동의" />
-                                <span className="auth-consent-all-text">필수 항목 전체 동의 <em className="auth-consent-all-sub">선택 항목은 연결 준비 중</em></span>
+                                <span className="auth-consent-all-text">필수 항목 전체 동의 <em className="auth-consent-all-sub">알림·민감정보는 가입 후 선택</em></span>
                             </label>
                         </div>
                         <div className="auth-consent-divider" role="separator" aria-hidden="true" /> {/* 전체 동의와 개별 항목을 회색 선으로 구분해요. */}
@@ -161,8 +163,8 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                         <ConsentItem id="consent-privacy" label="개인정보 수집·이용 동의" required checked={consents.privacy} onCheck={(v) => toggleOne("privacy", v)} open={consentDetail.privacy} onToggle={() => toggleDetail("privacy")}>
                             <table className="auth-consent-table">
                                 <tbody>
-                                    <tr><th>수집 항목</th><td>무작위 식별자(자동 생성), 닉네임</td></tr>
-                                    <tr><th>수집 목적</th><td>프로필 저장, 생애주기 맞춤 제도 추천</td></tr>
+                                    <tr><th>수집 항목</th><td>이메일, 비밀번호의 암호화된 검증값, 닉네임, 무작위 식별자, 필수 동의 내역</td></tr>
+                                    <tr><th>수집 목적</th><td>계정 인증과 프로필 저장, 생애주기 맞춤 제도 추천</td></tr>
                                     <tr><th>보유 기간</th><td>회원 탈퇴 즉시 삭제</td></tr>
                                     <tr><th>동의 거부 시</th><td>서비스 이용이 불가합니다.</td></tr>
                                 </tbody>
@@ -170,18 +172,19 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                             <p className="auth-consent-detail-note">실명·전화번호·주민번호는 수집하지 않습니다.</p>
                         </ConsentItem>
 
-                        <p className="auth-consent-detail-note">이메일 알림과 민감정보 동의는 가입 후 <Link href="/my/alerts">② 알림 설정</Link>에서 별도로 선택하고 저장합니다. 회원가입만으로 해당 동의가 활성화되지 않습니다.</p> {/* 저장 가능한 별도 설정 화면으로 안내해요. */}
+                        <p className="auth-consent-detail-note">이메일 알림과 민감정보 동의는 가입 후 <Link href="/my/alerts">알림 설정</Link>에서 별도로 선택하고 저장합니다. 회원가입만으로 해당 동의가 활성화되지 않습니다.</p> {/* 저장 가능한 별도 설정 화면으로 안내해요. */}
                     </div>
                 ) : (
                     // 로그인 화면에는 비밀번호 찾기 보조 안내만 표시해요.
                     <div className="auth-form-options"><span>나의 다음 걸음을 이어서</span><button type="button" className="auth-inline-link" onClick={() => setShowHelp((previous) => !previous)} aria-expanded={showHelp} aria-controls="auth-password-help">비밀번호를 잊으셨나요?</button></div>
                 )}
                 {!isSignup && showHelp && <p id="auth-password-help" className="auth-consent-detail-panel auth-consent-detail-panel--login">비밀번호 재설정은 아직 지원하지 않습니다. 이메일을 발송하지 않습니다.</p>} {/* 없는 비밀번호 재설정 기능이 작동한 것처럼 표시하지 않아요. */}
+                {loading && <p className="auth-status" role="status">서버에 연결하고 있어요. 첫 연결은 조금 더 걸릴 수 있어요.</p>} {/* 느린 첫 연결도 진행 상태를 알려줘요. */}
                 {feedback && <p className="auth-status" role="status" aria-live="polite">{feedback}</p>} {/* 제출 후 안내를 화면과 보조기기에 함께 전달해요. */}
                 <button className="button button-primary auth-submit" type="submit" disabled={loading} aria-busy={loading}>{loading ? (isSignup ? "가입하는 중…" : "로그인 중…") : (isSignup ? "가입하고 시작하기" : "로그인")}{!loading && <Icon name="arrow-right" />}</button> {/* 요청 중에는 버튼을 비활성화하고 상태를 글자로 알려줘요. */}
             </form> {/* 로그인과 회원가입 입력 영역을 마쳐요. */}
             <div className="auth-divider"><span>또는</span></div> {/* 계정 입력과 화면 둘러보기를 구분해요. */}
-            <Link className="button button-secondary auth-guest" href="/my">가상 사례로 화면 둘러보기<Icon name="chevron-right" /></Link> {/* 입력 없이 기존 시연 화면으로 이동할 수 있어요. */}
+            <Link className="button button-secondary auth-guest" href="/demo">가상 사례로 화면 둘러보기<Icon name="chevron-right" /></Link> {/* 입력 없이 기존 시연 화면으로 이동할 수 있어요. */}
             <p className="auth-switch">{isSignup ? "이미 징검다리 계정이 있으신가요?" : "징검다리가 처음이신가요?"}<Link href={isSignup ? "/login" : "/signup"}>{isSignup ? "로그인" : "회원가입"}<Icon name="arrow-right" /></Link></p> {/* 두 계정 화면을 서로 연결해요. */}
         </section> // 폼 카드의 구성을 마쳐요.
     ); // 폼 화면을 반환해요.

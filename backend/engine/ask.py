@@ -6,7 +6,7 @@
 - 민감정보는 동의가 없으면 묻지 않는다(엔진도 그 칸을 확인 필요로 둔다).
 """
 
-from backend.engine.fields import is_sensitive_qual
+from backend.engine.fields import PARENT_PROFILE_FIELDS, is_sensitive_qual  # 저장 가능한 부모님 칸과 민감 자격 여부를 함께 확인해요.
 
 MIN_CANDIDATES = 6   # 남은 후보가 5개 이하면 묻지 않는다
 
@@ -92,6 +92,8 @@ def _qual_to_ask(rule: dict, me: dict, sensitive_ok: bool) -> str | None:
 
 
 def _question(subject: str, field: str, rule: dict, profile: dict) -> dict | None:
+    if subject == "parent" and field not in PARENT_PROFILE_FIELDS:  # 예전 카드나 다른 경로에서도 부모님 저장 불가 질문을 내보내지 않아요.
+        return None  # 부모님 소득이나 본인 전용 가구원 수는 질문 대신 확인 필요로 남겨요.
     me = profile.get("self", profile)
     sensitive_ok = bool((profile.get("consents") or {}).get("sensitive"))
     if field == "qual_code":
