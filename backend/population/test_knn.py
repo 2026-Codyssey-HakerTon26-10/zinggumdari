@@ -43,3 +43,20 @@ def test_unreviewed_ai_never_enters_table(tmp_path):
         assert saved["rule_ids"].tolist() == ["a"]
     with pytest.raises(ValueError):
         build_table([{"user_id": "u"}], rules, lambda p, r: {}, tmp_path / "bad.npz")
+
+
+def test_labels_threshold_ranking_and_type_caps():
+    rules = [dict(id=str(i), name=str(i), subject="self", benefit_type="cash" if i < 4 else str(i)) for i in range(9)]
+    verdicts = {r["id"]: dict(verdict="needs_check", deadline="상시", blocking_fields=["income_self"]) for r in rules}
+    y = np.ones((10, 9), dtype=bool)
+    y[:, 8] = False
+    y[:2, 8] = True  # 20%: 문턱 미달
+    result = recommend(np.zeros((10, 1)), [0], y, rules, verdicts,
+                       tags=[["homeless", "youth", "서울"]] * 10, known_fields=3)
+    assert result["label"] == "주로 청년·무주택·서울 가구"
+    assert [r["rule_id"] for r in result["items"]] == ["0", "1", "4", "5", "6"]
+    verdicts["0"]["blocking_fields"] = ["a", "b"]
+    verdicts["1"]["deadline"] = "미정"
+    result = recommend(np.zeros((10, 1)), [0], y, rules, verdicts,
+                       tags=[[]] * 10, known_fields=3)
+    assert result["items"][0]["rule_id"] == "1"
