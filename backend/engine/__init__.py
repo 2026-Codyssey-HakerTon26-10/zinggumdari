@@ -8,6 +8,7 @@ from datetime import date
 
 from backend.engine.evaluate import condition, context, rule_verdict
 from backend.engine.read_as import read_as
+from backend.search.corpus import short_sido
 
 RANK = {"eligible": 0, "opens_later": 1, "needs_check": 2, "ineligible": 3}
 
@@ -16,10 +17,38 @@ def _ai_eligible() -> bool:
     return os.environ.get("AI_ELIGIBLE", "").lower() in ("1", "true", "yes", "on")
 
 
+def _region(rule: dict, person: dict) -> tuple[dict, dict] | None:
+    """조건표 region(api.md §1)을 대상자의 지역과 비교한다. 전국(null)이면 None.
+    시도 이름은 search.corpus.short_sido로 맞춘다("서울특별시" = "서울"). 다른 지역이면 탈락(시간이 지나도 안 풀림)."""
+    region = rule.get("region")
+    if not region:
+        return None
+    if region.get("unknown"):
+        return {"grade": "확인 필요", "ok": None, "why": "지역 미상"}, {"read_as": "거주지(원문 지역 미상)"}
+    want_sido, want_sgg = short_sido(region.get("sido")), region.get("sigungu")
+    label = " ".join(x for x in (want_sido, want_sgg) if x)
+    row = {"read_as": f"거주지 {label}"}
+    have_sido = short_sido(person.get("sido"))
+    if want_sido:
+        if not person.get("sido"):
+            return {"grade": "질문", "ok": None, "ask": "sido"}, row
+        if have_sido != want_sido:
+            return {"grade": "확정", "ok": False, "fixable": False}, row
+    if want_sgg:
+        if not person.get("sigungu"):
+            return {"grade": "질문", "ok": None, "ask": "sigungu"}, row
+        if str(person["sigungu"]).strip() != str(want_sgg).strip():
+            return {"grade": "확정", "ok": False, "fixable": False}, row
+    return {"grade": "확정", "ok": True}, row
+
+
 def _card(rule: dict, subject_profile: dict, profile: dict, today: date, ai_eligible: bool) -> dict:
     ctx = context(profile, rule, today)
     conds = rule.get("conditions") or []
     results = [condition(subject_profile, c, ctx) for c in conds]
+    region = _region(rule, subject_profile)
+    if region:
+        results.append(region[0])
     verdict, why = rule_verdict(results, rule, ai_eligible)
     rows = []
     for c, r in zip(conds, results):
@@ -31,6 +60,10 @@ def _card(rule: dict, subject_profile: dict, profile: dict, today: date, ai_elig
         if "checks" in c:
             row["checks"] = c["checks"]
         rows.append(row)
+    if region:   # 지역 줄은 맨 끝(조건 줄과 순서가 맞아야 하는 플래너는 앞의 조건 줄만 본다)
+        r, row = region
+        rows.append({**row, "grade": r["grade"], "ok": r["ok"], "status": "reviewed", "evidence": [],
+                     **{k: r[k] for k in ("ask", "why", "fixable") if k in r}})
     review = (rule.get("review") or {}).get("status", "unreviewed")
     return {
         "rule_id": rule["id"], "subject": rule.get("subject", "self"), "name": rule.get("name"),

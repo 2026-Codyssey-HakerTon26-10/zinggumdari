@@ -14,7 +14,7 @@
   "source": "manual",                       // gov24 | local | central | manual | upload
   "name": "신혼부부전용 전세자금",
   "org": "주택도시기금",
-  "region": null,                           // null = 전국, {"sido": "서울특별시", "sigungu": null} = 시도 전체, {"unknown": true} = 미상. API 메타데이터(시도·시군구, 소관기관)에서 채우고 없으면 sido 조건에서 계산한다. LLM이 쓰지 않는다
+  "region": null,                           // null = 전국, {"sido": "서울특별시", "sigungu": null} = 시도 전체, {"unknown": true} = 미상. API 메타데이터(시도·시군구, 소관기관)에서 채우고 없으면 sido 조건에서 계산한다. LLM이 쓰지 않는다. 엔진은 대상자(나 또는 부모님)의 `sido`·`sigungu`와 비교해(시도 이름은 `search.corpus.short_sido`로 맞춤) 다르면 탈락, 모르면 질문, 미상이면 확인 필요로 카드 조건 줄 끝에 "거주지 …" 줄을 단다
   "domain": "fund_loan",                    // housing(임대, 주거급여, 월세) | fund_loan(기금 대출은 항상 이것) | subscription(청약) | elderly | welfare
   "subject": "self",                        // self | parent, 어느 대상자의 프로필에 매칭하나
   "benefit_type": "loan",                   // loan | rent | cash | service | discount. 검색 필터 전용, 판정에 쓰지 않는다
