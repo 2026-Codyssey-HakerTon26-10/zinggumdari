@@ -27,8 +27,8 @@ def test_closed_by_default(monkeypatch):
 
 
 def test_profile_crud(dev):
-    user_id = client.post("/profiles", json={"self": {"nickname": "지원", "birth_year": 1999}}).json()["user_id"]
-    assert client.get(f"/profiles/{user_id}").json()["self"]["birth_year"] == 1999
+    user_id = client.post("/profiles", json={"self": {"nickname": "지원", "birth_date": "1999-04-15"}}).json()["user_id"]
+    assert client.get(f"/profiles/{user_id}").json()["self"]["birth_date"] == "1999-04-15"
 
     patched = client.patch(f"/profiles/{user_id}", json={"self": {"employment_status": "재직"}}).json()
     assert patched["self"]["employment_status"] == "재직" and patched["self"]["nickname"] == "지원"
@@ -43,12 +43,12 @@ def test_new_profile_has_no_consent(dev):
 
 
 def test_sensitive_dropped_without_consent(dev):
-    body = {"self": {"birth_year": 1999, "income_self": 270, "pregnant": "N"},
-            "parents": [{"relation": "모", "birth_year": 1966}]}
+    body = {"self": {"birth_date": "1999-04-15", "income_self": 270, "pregnant": "N"},
+            "parents": [{"relation": "모", "birth_date": "1966-07-03"}]}
     user_id = client.post("/profiles", json=body).json()["user_id"]
     p = client.get(f"/profiles/{user_id}").json()
     assert "income_self" not in p["self"] and "pregnant" not in p["self"]
-    assert p["self"]["birth_year"] == 1999
+    assert p["self"]["birth_date"] == "1999-04-15"
     assert p["parents"] == []
 
     p = client.patch(f"/profiles/{user_id}", json={"self": {"income_self": 270}}).json()
@@ -57,7 +57,7 @@ def test_sensitive_dropped_without_consent(dev):
 
 def test_sensitive_kept_with_consent(dev):
     body = {"consents": {"sensitive": True, "parent": True}, "self": {"income_self": 270},
-            "parents": [{"relation": "모", "birth_year": 1966, "ltc_grade": "없음"}]}
+            "parents": [{"relation": "모", "birth_date": "1966-07-03", "ltc_grade": "없음"}]}
     user_id = client.post("/profiles", json=body).json()["user_id"]
     p = client.get(f"/profiles/{user_id}").json()
     assert p["self"]["income_self"] == 270 and p["parents"][0]["ltc_grade"] == "없음"
@@ -114,9 +114,9 @@ def test_preset_creates_new_profile_each_time(dev):
     assert a != b   # 매번 새 프로필. 다른 사람 프로필을 덮어쓰지 않는다
     p = client.get(f"/profiles/{a}").json()
     me, mom = p["self"], p["parents"][0]
-    assert (me["nickname"], me["birth_year"], me["marital_status"], me["sigungu"]) == ("지원", 1999, "예비부부", "마포구")
+    assert (me["nickname"], me["birth_date"], me["marital_status"], me["sigungu"]) == ("지원", "1999-04-15", "예비부부", "마포구")
     assert (me["deposit"], me["monthly_rent"], me["income_self"], me["joined_date"]) == (1000, 55, 270, "2021-03-01")
-    assert (mom["relation"], mom["birth_year"], mom["sigungu"], mom["care_wanted"]) == ("모", 1966, "고양시", "Y")
+    assert (mom["relation"], mom["birth_date"], mom["sigungu"], mom["care_wanted"]) == ("모", "1966-07-03", "고양시", "Y")
     assert p["consents"] == {"sensitive": True, "parent": True}   # 가상 페르소나라 동의한 것으로 둔다
     client.patch(f"/profiles/{a}", json={"self": {"marital_status": "신혼"}})
     assert client.get(f"/profiles/{b}").json()["self"]["marital_status"] == "예비부부"
@@ -151,11 +151,11 @@ def test_rejected_patch_changes_nothing(dev, bad):
 
 def test_withdraw_consent_clears_self_and_parents(dev):
     body = {"consents": {"sensitive": True, "parent": True}, "self": {"income_self": 270, "pregnant": "N"},
-            "parents": [{"relation": "모", "ltc_grade": "3등급", "basic_pension": "Y", "birth_year": 1950}]}
+            "parents": [{"relation": "모", "ltc_grade": "3등급", "basic_pension": "Y", "birth_date": "1950-05-05"}]}
     user_id = client.post("/profiles", json=body).json()["user_id"]
     p = client.patch(f"/profiles/{user_id}", json={"consents": {"sensitive": False}}).json()
     assert "income_self" not in p["self"] and "pregnant" not in p["self"]
-    assert p["parents"] == [{"relation": "모", "birth_year": 1950}]
+    assert p["parents"] == [{"relation": "모", "birth_date": "1950-05-05"}]
 
 
 @pytest.mark.parametrize("bad", [{"self": "x"}, {"self": {"qualifications": [1]}}, {"parents": [1]}])

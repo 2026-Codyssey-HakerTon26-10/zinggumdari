@@ -6,6 +6,7 @@ LLM이 쓴 값은 없다. 근거 줄이 없는 해둘 일은 만들지 않고, �
 from datetime import date
 
 from backend.engine import judge
+from backend.engine.values import birth_year_of
 from backend.planner import dates
 from backend.planner.steps import STEPS, apply_step, assume, upcoming
 from backend.planner.todo import ACTION, ltc_todos, todos
@@ -100,8 +101,8 @@ def _parent_steps(profile: dict, rules: list[dict], today: date, now: dict) -> l
             out.append({"step": "ltc_apply", "now": True, "relation": p.get("relation"),
                         "why": "돌봄 희망 + 장기요양등급 없음", "opens": [r["id"] for r in ltc],
                         "todo": [t for r in ltc for t in ltc_todos(r)]})
-        by = p.get("birth_year")
-        if not isinstance(by, int):
+        by = birth_year_of(p)   # 생년월일의 연도(옛 데이터는 birth_year)
+        if by is None:
             continue
         groups: dict[int, list[dict]] = {}
         for r in parent_rules:
@@ -120,7 +121,8 @@ def _parent_steps(profile: dict, rules: list[dict], today: date, now: dict) -> l
 
 def _dated(profile: dict, rules: list[dict], today: date, now: dict) -> list[dict]:
     me, out = profile.get("self", {}), []
-    by = me.get("birth_year")
+    by = birth_year_of(me)
+    src = "birth_date" if me.get("birth_date") else "birth_year"
     for r in rules:
         if r.get("subject", "self") != "self" or not _available(now[r["id"]]) or by is None:
             continue
@@ -129,7 +131,7 @@ def _dated(profile: dict, rules: list[dict], today: date, now: dict) -> list[dic
                     and isinstance(c.get("value"), (int, float)) and c["value"] <= 39:
                 limit = c["value"] if c["op"] == "<=" else c["value"] - 1
                 # 카드 closes_at과 같은 해: 만 limit+1세가 되는 해(그해 생일부터 해당 안 됨)
-                out.append({"what": f"청년 나이 상한(만 {limit}세) 지남", "year": int(by) + limit + 1, "from": "birth_year",
+                out.append({"what": f"청년 나이 상한(만 {limit}세) 지남", "year": by + limit + 1, "from": src,
                             "note": f"만 {limit + 1}세 생일부터 해당 안 됨"})
         if (d := dates.deadline(r)) and d >= today.isoformat():
             out.append({"what": f"{r.get('name')} 접수 마감", "date": d, "from": "apply_date"})
@@ -141,7 +143,9 @@ def _dated(profile: dict, rules: list[dict], today: date, now: dict) -> list[dic
     for s in _parent_steps(profile, rules, today, now):
         if s["step"].startswith("age"):
             who = RELATION.get(s.get("relation"), "부모님")
-            out.append({"what": f"{who} 만 {s['age']}세", "year": s["year"], "from": "parents.birth_year"})
+            p = next((x for x in profile.get("parents") or [] if x.get("relation") == s.get("relation")), {})
+            src = "parents.birth_date" if p.get("birth_date") else "parents.birth_year"
+            out.append({"what": f"{who} 만 {s['age']}세", "year": s["year"], "from": src})
     uniq = {tuple(sorted(d.items())): d for d in out}
     return sorted(uniq.values(), key=lambda d: d.get("date") or f"{d['year']}-01-01")
 
