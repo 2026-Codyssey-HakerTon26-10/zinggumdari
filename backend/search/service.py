@@ -8,8 +8,10 @@ from datetime import date
 
 from backend.search.corpus import build_corpus, short_sido
 from backend.search.index import SearchIndex, snippet
+from backend.search.rank import rerank
 from backend.search.ports import LIFE_STAGES, ports, profile_tags
 
+CANDIDATES = 100   # 2단계로 넘길 BM25 후보 수
 BADGE = {"eligible": "eligible", "needs_check": "needs_check", "opens_later": "needs_check", "ineligible": "ineligible"}
 
 _MARRIAGE = {
@@ -74,9 +76,11 @@ def search(q: str, profile_id: str | None = None, tag: str | None = None, subjec
     index = get_index()
     profile = (ports.load_profile(profile_id) if profile_id else None) or {}
     similar = ports.similar_rule_ids(profile_id) if profile_id else set()
-    hits = [d for d, _ in index.search(q, limit=limit, tag=tag, subject=subject,
-                                       sido=short_sido(region) if region else None)]
-    rules = [index.rules[d["rule_id"]] for d in hits if d["rule_id"] in index.rules]
+    # 1단계: BM25로 후보를 넉넉히 뽑는다. 2단계: 관련도·마감·지역·배지 구간으로 다시 줄 세우고 같은 이름을 묶는다
+    candidates = index.search(q, limit=CANDIDATES, tag=tag, subject=subject,
+                              sido=short_sido(region) if region else None)
+    docs = [d for d, _ in candidates]
+    rules = [index.rules[d["rule_id"]] for d in docs if d["rule_id"] in index.rules]
     verdicts = ports.verdicts(profile, rules, today) if rules and profile_id else {}
 
     def badge(doc: dict) -> str | None:
@@ -87,11 +91,17 @@ def search(q: str, profile_id: str | None = None, tag: str | None = None, subjec
         v = verdicts[doc["rule_id"]]
         return "similar" if v == "needs_check" and doc["rule_id"] in similar else BADGE.get(v, "needs_check")
 
+    badges = {d["service_id"]: badge(d) for d in docs}
+    me = profile.get("self") or {}
+    ranked = rerank(candidates, q, rules=index.rules, badges=badges if profile_id else {},
+                    sido=me.get("sido"), sigungu=me.get("sigungu"), today=today)[:limit]
+    hits = [d for d, _ in ranked]
     results = [{
         "service_id": d["service_id"], "rule_id": d["rule_id"], "name": d["name"], "org": d["org"],
         "region": d["region"], "subject": d["subject"], "snippet": snippet(d, q), "stage_tags": d["stage_tags"],
-        "badge": badge(d), "detail_url": d["detail_url"], "updated": d["updated"],
-    } for d in hits]
+        "badge": badges[d["service_id"]], "detail_url": d["detail_url"], "updated": d["updated"],
+        "same_name": n,
+    } for d, n in ranked]
     return {"q": q, "results": results, "nudge": nudge_for(hits, profile, today) if profile_id and profile else None,
             "judge": "engine" if ports.engine_connected else "fake"}
 
