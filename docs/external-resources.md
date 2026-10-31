@@ -14,8 +14,8 @@
 | 외부 API | 한국고용정보원 온통청년 「청년정책 API」 (youthcenter.go.kr) | 덤프 코드(`youth`)만 있다. 인증키를 발급받지 않아 받은 데이터가 없고 서비스에 쓰지 않는다 | 온통청년 회원 전용, 담당자 심사 후 인증키 발급(오픈 API 안내 페이지). 그 밖의 이용 조건은 안내 페이지에 표기 없음 |
 | 외부 서비스(채택·실발송 검증 전) | Google Gmail SMTP | 수신을 선택한 프로필의 이메일 알림. 2026-11-01 사용자 확인으로 Gmail 채택, 실제 계정 인증·수신 검증은 별도 | [Google 서비스 약관](https://policies.google.com/terms?hl=ko), [Gmail 공식 연결 안내](https://support.google.com/mail/answer/7126229?hl=ko) |
 | 외부 API | 네이토 API(대회 지급, Anthropic 방식): Claude Opus 4.8(`claude-opus-4-8`), Claude Haiku 4.5(`claude-haiku-4`) | 공고 원문에서 조건 추출(원문당 1회). Opus는 시연 공고와 개발용 평가, Haiku는 행안부 대량 추출. 스캔 PDF의 글자 인식(tesseract가 없을 때) | 대회 지급 |
-| 외부 서비스 | OpenAI ChatGPT(정확한 모델명은 채울 것), Anthropic Claude(정확한 모델명은 채울 것) | 팀 개발 질의·코드 작성 보조에 사용(2026-11-01 사용자 확인). 발표 비교 실험 완료로 간주하지 않음 | 각 서비스 이용약관 |
-| 지급 자원 | GPU V100 서버(대회 지급) | 사용 중(2026-11-01 사용자 확인). 실제 수행 작업은 채울 것. L4와 동일 자원으로 간주하지 않음 | 대회 |
+| 외부 서비스 | OpenAI ChatGPT, Anthropic Claude(정확한 모델명은 채울 것 — 사용자 요청으로 확인 보류) | 팀 개발 질의·코드 작성 보조에 사용(2026-11-01 사용자 확인). 발표 비교 실험 완료로 간주하지 않음 | 각 서비스 이용약관 |
+| 지급 자원 | GPU V100 서버(대회 지급) | 사용 중. KNN·CuPy 구성이 GPU 서버에 배치돼 있다는 사용자 파악 내용을 2026-11-01 기록. 실제 서버 기종·설치 버전·GPU 연산·성능은 직접 검증하지 않았고 L4와 동일 자원으로 간주하지 않음 | 대회 |
 | 오픈소스 | FastAPI, uv | API 서버, 패키지 관리 | MIT |
 | 오픈소스 | pydantic | 조건 JSON·프로필 스키마 검증 | MIT |
 | 오픈소스 | httpx | API 덤프 | BSD-3 |
@@ -29,7 +29,7 @@
 | 오픈소스 | psycopg 3 (`psycopg[binary]`) | 파이썬에서 PostgreSQL 연결 | LGPL-3.0 |
 | 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표. NumPy는 검색 점수(글자 2-gram BM25, `backend/search/index.py`에 직접 구현)에도 쓴다 | BSD-3 |
-| 오픈소스(채택·설치 전) | [CuPy](https://github.com/cupy/cupy) — GPU 전용 패키지 계열 `cupy-cuda13x` 또는 `cupy-cuda12x` 중 호환성 검증 후 하나만 고정 | L4 GPU 서버에서 기존 NumPy KNN의 거리 계산·이웃 선택을 GPU로 실행. 결측 제외·k번째 동거리 포함·원본 행 순서 유지. 일반 서버는 전처리·규칙 판정·추천 후처리 담당 | [MIT — CuPy 본체](https://github.com/cupy/cupy/blob/main/LICENSE). [공식 설치 안내](https://docs.cupy.dev/en/stable/install.html). 사용 버전은 설치·GPU 연산 검증 후 기록하며 현재 설치·연동 미완료 |
+| 오픈소스(사용자 배치 보고·서버 검증 대기) | [CuPy](https://github.com/cupy/cupy) — 실제 GPU 전용 패키지명·버전은 서버 설치 내역 확인 대기 | GPU 서버에서 기존 NumPy KNN의 거리 계산·이웃 선택을 실행하는 구성. 설계의 L4 구성과 V100 사용 보고를 구분한다. 결측 제외·k번째 동거리 포함·원본 행 순서 유지. 일반 서버는 전처리·규칙 판정·추천 후처리 담당 | [MIT — CuPy 본체](https://github.com/cupy/cupy/blob/main/LICENSE). [공식 설치 안내](https://docs.cupy.dev/en/stable/install.html). 사용자는 GPU 서버의 KNN·CuPy 배치를 보고했으며, 정확한 설치 버전·연동·GPU 연산은 직접 검증 전 |
 | 오픈소스 | pandas, pyarrow | 가상 인구 표 저장(parquet) | BSD-3, Apache-2.0 |
 | 오픈소스 | DuckDB | Hugging Face의 parquet에서 필요한 열·행만 읽기(가상 인구 원본) | MIT |
 | 오픈소스 | openpyxl | 가상 인구를 팀 시트와 같은 탭의 xlsx로 내보내기 | MIT |
@@ -57,6 +57,6 @@ PostgreSQL 드라이버는 psycopg 3, 마이그레이션은 별도 도구 없이
 ## GPU 실행 자원 기록 (CuPy 채택)
 
 - CuPy 사용 방향은 채택했으며 GPU 서버에만 추가한다. 실제 의존성 파일·잠금 파일의 변경은 설치할 패키지와 버전을 확정한 뒤 수행한다. 이 문서 추가만으로 패키지 설치나 GPU 연동이 완료된 것은 아니다.
-- NVIDIA L4는 실행 확인된 GPU다. V100도 사용 중임을 사용자가 2026-11-01 확인했다. 두 자원을 동일 서버로 간주하지 않으며 V100의 실제 수행 작업은 추가 확인한다.
+- 기존 설계에는 NVIDIA L4가 기록돼 있고, 사용자는 V100 사용 및 GPU 서버의 KNN·CuPy 배치를 2026-11-01 보고했다. 두 자원을 동일 서버로 간주하지 않는다. 이 기록은 사용자 파악 내용이며 실제 GPU 기종·패키지 버전·연산 결과를 직접 점검한 보고가 아니다.
 - `[ctk]` 옵션 등을 통해 NVIDIA CUDA 런타임·컴파일 구성요소를 설치하면, 실제 설치된 패키지명·버전·공식 출처·해당 이용 조건을 별도로 기록한다. 이 구성요소는 CuPy 본체의 MIT 라이선스에 포함된 것으로 취급하지 않는다. 설치 내역이 아직 없으므로 사용 완료 자원으로 기재하지 않는다.
 - 별도 GPU 전송 데이터 생성기는 채택 보류 중이며, 이번 CuPy 채택에 포함되지 않는다.
