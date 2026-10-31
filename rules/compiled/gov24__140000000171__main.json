@@ -51,14 +51,14 @@
    "status": "auto_verified"
   },
   {
-   "field": "sido",
+   "field": "sigungu",
    "op": "==",
    "value": "순천시",
    "evidence": [
     "gov24-140000000171:l4"
    ],
    "checks": {
-    "schema": "fail:value_not_in_vocab:순천시",
+    "schema": "ok",
     "evidence": "ok",
     "value": "ok",
     "comparator": "ok",
@@ -67,7 +67,7 @@
     "pair": "na",
     "layer": "ok"
    },
-   "status": "needs_review"
+   "status": "auto_verified"
   },
   {
    "field": "age",

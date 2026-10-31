@@ -54,14 +54,14 @@
    "status": "auto_verified"
   },
   {
-   "field": "sido",
+   "field": "sigungu",
    "op": "==",
    "value": "동작구",
    "evidence": [
     "gov24-319000000122:l5"
    ],
    "checks": {
-    "schema": "fail:value_not_in_vocab:동작구",
+    "schema": "ok",
     "evidence": "ok",
     "value": "ok",
     "comparator": "ok",

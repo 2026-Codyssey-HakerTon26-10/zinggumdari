@@ -36,7 +36,7 @@
    "status": "auto_verified"
   },
   {
-   "field": "sido",
+   "field": "sigungu",
    "op": "==",
    "value": "강남구",
    "as_of": "application_date",
@@ -44,7 +44,7 @@
     "gov24-322000000125:l2"
    ],
    "checks": {
-    "schema": "fail:value_not_in_vocab:강남구",
+    "schema": "ok",
     "evidence": "ok",
     "value": "ok",
     "comparator": "ok",
@@ -53,7 +53,7 @@
     "pair": "na",
     "layer": "ok"
    },
-   "status": "needs_review"
+   "status": "auto_verified"
   },
   {
    "field": "residence_months",

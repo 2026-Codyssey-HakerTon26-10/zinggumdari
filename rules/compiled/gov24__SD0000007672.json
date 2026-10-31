@@ -14,123 +14,35 @@
  ],
  "conditions": [
   {
-   "field": "pregnant",
-   "op": "==",
-   "value": "Y",
-   "evidence": [
-    "gov24-sd0000007672:l2"
-   ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "ok",
-    "comparator": "ok",
-    "unit": "na",
-    "keyword": "ok",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "auto_verified"
-  },
-  {
-   "field": "children_count",
-   "op": ">=",
-   "value": 1,
-   "evidence": [
-    "gov24-sd0000007672:l2"
-   ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "fail:not_in_evidence",
-    "comparator": "fail:no_value",
-    "unit": "fail:no_value",
-    "keyword": "ok",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
-  },
-  {
-   "field": "age",
-   "op": "<",
-   "value": 2,
-   "evidence": [
-    "gov24-sd0000007672:l3"
-   ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "ok",
-    "comparator": "ok",
-    "unit": "ok",
-    "keyword": "ok",
-    "pair": "ok",
-    "layer": "ok"
-   },
-   "status": "auto_verified"
-  },
-  {
-   "field": "qual_code",
-   "op": "not_in",
-   "value": [
-    "의료급여수급자",
-    "건강보험적용배제",
-    "건강보험자격상실",
-    "급여정지"
+   "any_of": [
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "youngest_child_age",
+      "op": "<",
+      "value": 2
+     }
+    ]
    ],
    "evidence": [
-    "gov24-sd0000007672:l4"
-   ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "fail:unverifiable",
-    "comparator": "na",
-    "unit": "na",
-    "keyword": "na",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
-  },
-  {
-   "field": "apply_date",
-   "op": "<=",
-   "value": "2025-12-31",
-   "as_of": "application_date",
-   "evidence": [
+    "gov24-sd0000007672:l2",
     "gov24-sd0000007672:l6"
    ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "fail:not_in_evidence",
-    "comparator": "fail:no_value",
-    "unit": "fail:no_value",
-    "keyword": "fail:keyword_not_in_evidence",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
+   "status": "reviewed"
   },
   {
    "field": "other",
-   "text": "원문 조건 미반영",
-   "reason": "unaccounted",
+   "text": "의료급여 수급권자, 건강보험 적용배제 신청자, 자격상실자, 급여정지자는 제외",
    "evidence": [
     "gov24-sd0000007672:l4"
    ],
-   "status": "needs_review"
-  },
-  {
-   "field": "other",
-   "text": "원문 조건 미반영",
-   "reason": "unaccounted",
-   "evidence": [
-    "gov24-sd0000007672:l6"
-   ],
-   "status": "needs_review"
+   "status": "reviewed"
   }
  ],
  "exclusive_evidence": [],
@@ -138,7 +50,10 @@
  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999124&bnefType=all&svcId=SD0000007672",
  "updated": "2026-10-31",
  "review": {
-  "status": "unreviewed"
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01",
+  "note": "AI는 「2세 미만」을 신청자 나이(age < 2)로 읽었고 자동 검증을 통과했지만, 원문의 2세 미만은 아이 나이다. 임신 중이거나 출산(유산, 사산 포함) 후 2년 안(신청기한 l6)으로 고쳤다. 원문에 없는 신청 마감일(2025-12-31)은 검증기가 떨어뜨렸고 지웠다. 제외 대상은 자격 코드 대신 other로 두었다"
  },
  "coverage": {
   "marked": 6,

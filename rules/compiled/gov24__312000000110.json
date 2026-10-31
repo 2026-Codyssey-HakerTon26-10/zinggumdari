@@ -39,7 +39,7 @@
   {
    "field": "sido",
    "op": "==",
-   "value": "서울특별시",
+   "value": "서울",
    "as_of": "application_date",
    "evidence": [
     "gov24-312000000110:l2"
@@ -47,7 +47,7 @@
    "checks": {
     "schema": "ok",
     "evidence": "ok",
-    "value": "fail:not_in_evidence:서울특별시",
+    "value": "fail:not_in_evidence:서울",
     "comparator": "na",
     "unit": "na",
     "keyword": "ok",

@@ -45,7 +45,7 @@
       ]
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "종로구"
      }
@@ -59,7 +59,7 @@
       ]
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "종로구"
      }
@@ -78,7 +78,7 @@
       ]
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "종로구"
      }
@@ -92,7 +92,7 @@
       ]
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "종로구"
      }
@@ -104,7 +104,7 @@
       "value": 65
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "종로구"
      }
@@ -118,7 +118,7 @@
       ]
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "종로구"
      }
@@ -146,7 +146,7 @@
       ]
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "종로구"
      }
@@ -161,7 +161,7 @@
     "gov24-300000000161:l20"
    ],
    "checks": {
-    "schema": "fail:b2.1:value_not_in_vocab:종로구",
+    "schema": "ok",
     "evidence": "ok",
     "value": "fail:b0.0:unverifiable",
     "comparator": "fail:b4.0:no_value",

@@ -19,7 +19,7 @@
   {
    "field": "sido",
    "op": "==",
-   "value": "서울특별시",
+   "value": "서울",
    "evidence": [
     "gov24-611000019617:l2"
    ],
@@ -33,7 +33,7 @@
     "pair": "na",
     "layer": "ok"
    },
-   "status": "auto_verified"
+   "status": "reviewed"
   },
   {
    "field": "age",
@@ -52,7 +52,7 @@
     "pair": "ok",
     "layer": "ok"
    },
-   "status": "auto_verified"
+   "status": "reviewed"
   },
   {
    "field": "age",
@@ -71,7 +71,7 @@
     "pair": "ok",
     "layer": "ok"
    },
-   "status": "auto_verified"
+   "status": "reviewed"
   }
  ],
  "exclusive_evidence": [],
@@ -79,7 +79,10 @@
  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2147841&bnefType=all&svcId=611000019617",
  "updated": "2026-10-31",
  "review": {
-  "status": "unreviewed"
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01",
+  "note": "원문 그대로 맞고 빠진 조건이 없다. 분기별 모집(1, 3, 7, 9월)은 조건이 아니라 신청 시기라 넣지 않았다"
  },
  "coverage": {
   "marked": 3,

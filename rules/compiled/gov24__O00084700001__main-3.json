@@ -54,14 +54,14 @@
    "status": "auto_verified"
   },
   {
-   "field": "sido",
+   "field": "sigungu",
    "op": "==",
    "value": "금천구",
    "evidence": [
     "gov24-o00084700001:l3"
    ],
    "checks": {
-    "schema": "fail:value_not_in_vocab:금천구",
+    "schema": "ok",
     "evidence": "ok",
     "value": "ok",
     "comparator": "ok",
@@ -70,7 +70,7 @@
     "pair": "na",
     "layer": "ok"
    },
-   "status": "needs_review"
+   "status": "auto_verified"
   },
   {
    "field": "other",

@@ -30,7 +30,7 @@
     "pair": "ok",
     "layer": "ok"
    },
-   "status": "auto_verified"
+   "status": "reviewed"
   },
   {
    "field": "youngest_child_age",
@@ -49,7 +49,7 @@
     "pair": "ok",
     "layer": "ok"
    },
-   "status": "auto_verified"
+   "status": "reviewed"
   }
  ],
  "exclusive_evidence": [],
@@ -57,7 +57,10 @@
  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999002&bnefType=all&svcId=131200000008",
  "updated": "2026-10-31",
  "review": {
-  "status": "unreviewed"
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01",
+  "note": "원문은 「만 18세 미만 자녀 2명 이상」이다. 프로필에는 막내 나이만 있어 막내 기준으로 판정하므로 첫째가 18세 이상이면 넓게 통과할 수 있다. 감면은 자동차를 취득할 때 신청한다"
  },
  "coverage": {
   "marked": 3,
