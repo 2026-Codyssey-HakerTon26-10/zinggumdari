@@ -9,7 +9,7 @@ EXAMPLE_PROFILE = {
     "consents": {"sensitive": True, "parent": True},
     "self": {
         # ① users
-        "nickname": "지원", "gender": "여", "birth_year": 1999, "sido": "서울", "sigungu": "마포구",
+        "nickname": "지원", "gender": "여", "birth_date": "1999-04-15", "sido": "서울", "sigungu": "마포구",
         "marital_status": "예비부부", "marriage_date": None, "pregnant": "N", "due_month": None,
         "children_count": 0, "youngest_child_age": None, "household_size": 1, "employment_status": "재직",
         # ② user_housing, user_income, user_subscription, user_alert
@@ -24,11 +24,11 @@ EXAMPLE_PROFILE = {
         "history": [],
     },
     "parents": [
-        {"relation": "모", "birth_year": 1966, "sido": "경기", "sigungu": "고양시", "lives_alone": "Y",
+        {"relation": "모", "birth_date": "1966-07-03", "sido": "경기", "sigungu": "고양시", "lives_alone": "Y",
          "lives_with_child": "N", "ltc_grade": "없음", "disability_registered": "N", "basic_pension": "N",
          "livelihood_status": "해당없음", "care_wanted": "Y"},
     ],
-    "derived": {"age": [26, 27], "income_couple": None, "tags": ["youth", "marriage_planned", "homeless"],
+    "derived": {"age": [27], "income_couple": None, "tags": ["youth", "marriage_planned", "homeless"],
                 "income_band_median": None, "income_band_urban": None},
 }
 
@@ -84,11 +84,11 @@ EXAMPLE_JUDGE = {
             {"step": "ltc_apply", "now": True, "why": "돌봄 희망 + 장기요양등급 없음", "opens": ["manual:ltc-insurance"],
              "todo": [{"action": "ltc_grade_apply", "evidence": ["…"]}]},
             {"step": "age65", "year": 2031, "opens": ["manual:basic-pension"],
-             "apply_from": "2031년 생일이 속한 달의 1개월 전부터(생일 달은 출생연도만 있어 확인 필요)"},
+             "apply_from": "2031년 6월부터"},
         ],
         "dated": [
-            {"what": "청년 나이 상한(만 34세) 도달", "year": 2033, "from": "birth_year"},
-            {"what": "어머니 만 65세", "year": 2031, "from": "parents.birth_year"},
+            {"what": "청년 나이 상한(만 34세) 지남", "year": 2034, "from": "birth_date", "note": "만 35세 생일부터 해당 안 됨"},
+            {"what": "어머니 만 65세", "year": 2031, "from": "parents.birth_date"},
         ],
     },
     "similar": {

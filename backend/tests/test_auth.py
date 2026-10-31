@@ -126,6 +126,8 @@ def client(monkeypatch):
             return c
 
         monkeypatch.setattr("backend.app.routers.auth.connect", _connect)
+        from backend.app.routers import auth as auth_router
+        monkeypatch.setattr(auth_router, "limiter", auth_router.LoginLimiter())   # 테스트끼리 실패 횟수를 나누지 않게
 
         from fastapi.testclient import TestClient
         from backend.app.main import app
@@ -247,3 +249,95 @@ def test_signup_rejects_bad_input(body):
 @pytest.mark.parametrize("password", ["x" * 8, "x" * 128])
 def test_signup_accepts_boundary_lengths(client, password):
     assert client.post("/auth/signup", json={"email": "edge@test.com", "password": password}).status_code == 201
+
+
+# ── 가입 닉네임·필수 동의 (SPEC §4.1). 지금 화면은 이메일·비밀번호만 보내므로 둘 다 선택 칸 ─────────
+
+@pytest.mark.parametrize("extra", [
+    {"nickname": "a"},                                        # 1자
+    {"nickname": "가" * 17},                                  # 17자
+    {"nickname": "   "},
+    {"consents": {"terms": True, "privacy": False}},          # 필수 동의 빠짐
+    {"consents": {"terms": True}},
+    {"consents": {"terms": "true", "privacy": True}},         # JSON true만
+    {"consents": {"terms": True, "privacy": True, "email": True}},   # 선택 동의는 여기서 받지 않는다
+])
+def test_signup_rejects_bad_nickname_or_consents(extra):
+    from fastapi.testclient import TestClient
+
+    from backend.app.main import app
+    r = TestClient(app).post("/auth/signup", json={"email": "ok@test.com", "password": "pass1234", **extra})
+    assert r.status_code == 422
+
+
+@_db
+def test_signup_saves_nickname_and_consents(client):
+    r = client.post("/auth/signup", json={"email": "n@test.com", "password": "pass1234", "nickname": " 지원 ",
+                                          "consents": {"terms": True, "privacy": True}})
+    assert r.status_code == 201
+    me = client.get("/auth/me").json()
+    assert me["nickname"] == "지원" and me["consents"]["terms"] and me["consents"]["privacy"]
+
+
+@_db
+def test_signup_without_new_fields_still_works(client):
+    assert client.post("/auth/signup", json={"email": "old@test.com", "password": "pass1234"}).status_code == 201
+    me = client.get("/auth/me").json()
+    assert me["nickname"] is None and me["consents"] == {"terms": None, "privacy": None}
+
+
+# ── 로그인 반복 요청 제한 ─────────────────────────────────────────────────────
+
+def test_login_limiter_blocks_after_failures():
+    from backend.app.routers.auth import LoginLimiter
+    now = [0.0]
+    lim = LoginLimiter(max_fails=3, window=60, clock=lambda: now[0])
+    for _ in range(3):
+        assert lim.retry_after("a@x.com", "1.1.1.1") == 0
+        lim.failed("a@x.com", "1.1.1.1")
+    assert lim.retry_after("A@X.com", "2.2.2.2") > 0          # 이메일은 대소문자 무시, 다른 IP에서도 막힌다
+    assert lim.retry_after("b@x.com", "2.2.2.2") == 0         # 다른 계정은 막지 않는다
+    now[0] = 61
+    assert lim.retry_after("a@x.com", "1.1.1.1") == 0         # 창이 지나면 풀린다
+
+
+def test_login_limiter_success_clears_email():
+    from backend.app.routers.auth import LoginLimiter
+    lim = LoginLimiter(max_fails=2, window=60, clock=lambda: 0.0)
+    lim.failed("a@x.com", "ip")
+    lim.succeeded("a@x.com")
+    lim.failed("a@x.com", "ip")
+    assert lim.retry_after("a@x.com", "ip") == 0
+
+
+def test_login_limiter_caps_one_ip_across_emails():
+    from backend.app.routers.auth import LoginLimiter
+    lim = LoginLimiter(max_fails=100, window=60, ip_max_fails=3, clock=lambda: 0.0)
+    for i in range(3):
+        lim.failed(f"u{i}@x.com", "9.9.9.9")
+    assert lim.retry_after("new@x.com", "9.9.9.9") > 0       # 한 IP가 여러 이메일을 두드리는 것도 막는다
+
+
+@_db
+def test_login_returns_429_with_retry_after(client, monkeypatch):
+    from backend.app.routers import auth as auth_router
+    monkeypatch.setattr(auth_router, "limiter", auth_router.LoginLimiter(max_fails=2, window=60))
+    client.post("/auth/signup", json={"email": "rl@test.com", "password": "pass1234"})
+    for _ in range(2):
+        assert client.post("/auth/login", json={"email": "rl@test.com", "password": "wrong123"}).status_code == 401
+    r = client.post("/auth/login", json={"email": "rl@test.com", "password": "pass1234"})   # 맞는 비밀번호여도
+    assert r.status_code == 429 and int(r.headers["Retry-After"]) > 0
+    assert "rl@test.com" not in r.text
+
+
+# ── 탈퇴: 프로필 없이 올린 업로드도 계정 기준으로 지운다 ──────────────────────────
+
+@_db
+def test_delete_me_deletes_uploads_without_profile(client, monkeypatch):
+    import backend.collector.ingest as ing
+    seen = []
+    monkeypatch.setattr(ing, "delete_uploads", lambda account_id: seen.append(account_id) or 0)
+    account_id = client.post("/auth/signup", json={"email": "up@test.com", "password": "pass1234"}).json()["account_id"]
+    assert client.get("/auth/me").json()["user_id"] is None
+    assert client.delete("/auth/me").status_code == 204
+    assert seen == [account_id]
