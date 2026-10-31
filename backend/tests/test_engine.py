@@ -305,3 +305,11 @@ def test_ltc_grade_none_opens_by_action():
 
 def test_no_account_opens_by_action():
     assert one(P(has_account="N"), R([C("has_account", "==", "Y")]))["verdict"] == "opens_later"
+
+
+def test_youngest_child_age_without_children_fails():
+    # 자녀가 없으면 막내 나이 조건은 묻지 않고 탈락(혼인 전의 혼인 기간과 같다). 자녀 단계에서 열린다
+    rule = R([C("youngest_child_age", "<", 2)])
+    card = one(P(children_count=0), rule)
+    assert card["verdict"] == "ineligible" and card["blocking_fields"] == []
+    assert one(P(children_count=1), rule)["conditions"][0]["ask"] == "youngest_child_age"
