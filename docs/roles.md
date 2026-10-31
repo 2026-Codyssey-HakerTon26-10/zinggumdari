@@ -51,7 +51,7 @@ API가 오기 전에는 api.md 예시 JSON을 목업으로 붙이고, 스텁이 
 
 ### 임준현 · AI
 
-1. LLM 호출 래퍼: Codyssey API(Anthropic 방식), 모델은 `LLM_MODEL`·`LLM_MODEL_BULK`, JSON 스키마 강제 출력(SPEC §9.2). 모델 확인은 끝났다(Background §5).
+1. LLM 호출 래퍼: 네이토 API(Anthropic 방식), 모델은 `LLM_MODEL`·`LLM_MODEL_BULK`, JSON 스키마 강제 출력(SPEC §9.2). 모델 확인은 끝났다(Background §5).
 2. `compile()`, `verify()` 스텁 커밋(api.md 예시를 그대로 돌려준다).
 3. 시연 투입 PDF 2건으로 자격 구간 → LLM 1회 → 검증기 → 빠짐 검사를 끝까지 돌리고 결과를 캐시한다.
 4. 한국어 수·날짜 정규화와 검사마다 pytest.
