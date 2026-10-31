@@ -387,7 +387,8 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 - `mark`는 조건 신호어가 있는 줄이다(SPEC §9.2). LLM은 표시된 줄마다 근거로 쓰거나 라벨을 단다.
 - PDF 보기는 `file`을 pdf.js(react-pdf)로 그리고, 카드 조건의 `evidence[].page`·`bbox`로 해당 줄을 칠한다. 텍스트 원문은 줄 목록을 그리고 근거 줄을 칠한다. 런타임에 텍스트 검색으로 위치를 찾지 않는다.
 - `GET /notices`는 볼 수 있는 원문의 머리 목록이다. 사용자 업로드(`source: "upload"`)는 올린 본인 세션에만 보이고 다른 사람에게는 없는 원문과 같은 404다. 올린 계정(`uploaded_by`)은 응답에 싣지 않는다.
-- `GET /notices/{doc_id}/file`은 PDF면 `application/pdf`, 웹 원문·API 산문은 원문을 그리지 않고 `text/plain`으로 준다(남의 페이지 HTML을 우리 화면에서 실행하지 않는다).
+- `GET /notices/{doc_id}/file`은 PDF면 `application/pdf`, HWP·HWPX는 내려받기(`application/octet-stream`), 웹 원문·API 산문은 원문을 그리지 않고 `text/plain`으로 준다(남의 페이지 HTML을 우리 화면에서 실행하지 않는다).
+- 줄 목록은 원문 등록(`backend.notices.store`)과 AI 공고 읽기가 같은 `backend.compiler.lines.read_document`로 만든다. 같은 원문이면 어디서 만들어도 줄 ID가 같다. 머리의 `unread_pages`는 글자 인식으로도 읽지 못한 쪽이다.
 
 ## 인증·소유권 계약 (구현 전환 요구사항)
 
