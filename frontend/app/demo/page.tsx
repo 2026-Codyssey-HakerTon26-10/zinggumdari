@@ -2,9 +2,10 @@
 import Link from "next/link"; // 기존 화면으로 돌아가는 링크를 사용해요.
 import { useRef, useState } from "react"; // 요청 순서와 화면 상태를 관리해요.
 import { SiteFooter, SiteHeader } from "../components/ui"; // 기존 서비스의 공통 머리말과 꼬리말이에요.
-import { demoProfile, demoStages, loadDemoRecommendation, type DemoStage, type DemoResult } from "./demo-data"; // 가상 데이터와 API 응답 모양을 가져와요.
+import { demoProfile, demoNotice, demoStages, loadDemoRecommendation, type DemoStage, type DemoResult } from "./demo-data"; // 가상 데이터와 API 응답 모양을 가져와요.
 import { DemoTimeline } from "./demo-timeline"; // 추천 응답의 다음 단계와 비교표를 보여줘요.
 import { DemoSearch } from "./demo-search"; // 시연 경로의 정책명 검색과 배지 예시를 연결해요.
+import { DemoEvidence } from "./demo-evidence"; // 각 조건에서 근거 ID로 연결한 텍스트 줄을 펼쳐요.
 import "./demo.css"; // 흰색 바탕의 시연 화면 스타일을 적용해요.
 type View = { status: "idle" | "loading" | "error"; result: null } | { status: "ready"; result: DemoResult }; // 결과가 없을 때와 준비됐을 때를 구분해요.
 export default function DemoPage() { // 실제 계정과 분리된 가상 사례 화면이에요.
@@ -59,7 +60,7 @@ export default function DemoPage() { // 실제 계정과 분리된 가상 사례
                         <article className="demo-panel demo-card" key={card.rule_id}> {/* 제도 ID를 안정된 목록 키로 사용해요. */}
                             <p className="demo-disclaimer">참고용 모의 판정, 실제 자격은 접수 기관 심사로 결정</p> {/* 카드 맨 위에 필수 고지를 표시해요. */}
                             <span className="demo-verdict">확인 필요 · 화면 예시</span><h3>{card.name}</h3> {/* 신청 가능이라고 단정하지 않아요. */}
-                            <ul>{card.conditions.map((condition) => <li key={condition.read_as}><span>{condition.read_as}</span><strong>{condition.grade}</strong></li>)}</ul> {/* 상태를 색뿐 아니라 글자로도 표시해요. */}
+                            <ul>{card.conditions.map((condition) => <li key={condition.read_as}><DemoEvidence condition={condition} notice={demoNotice} /></li>)}</ul> {/* 상태를 색뿐 아니라 글자로도 표시해요. */}
                             <p>예시 데이터 기준일: <time dateTime={card.updated}>{card.updated}</time></p> {/* 실제 최신 공고 기준일과 구분해요. */}
                             {card.detail_url ? <a href={card.detail_url} target="_blank" rel="noopener noreferrer">공식 원문 보기</a> : <p>공식 공고 원문 미연결 · 자격 조건은 원문 연결 후 확인해 주세요.</p>} {/* 없는 원문 주소를 지어내지 않아요. */}
                         </article> // 한 장의 카드를 마쳐요.

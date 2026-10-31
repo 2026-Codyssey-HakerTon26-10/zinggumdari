@@ -34,3 +34,13 @@
 .demo-search-form input:focus-visible, .demo-search-mode input:focus-visible { outline: 3px solid #00809a; outline-offset: 3px; } /* 검색 입력과 체크박스의 키보드 초점을 표시해요. */
 .demo-search-form [role="alert"] { color: #9d2727; } /* 입력 오류를 글자와 색으로 알려줘요. */
 .demo-search-mode { display: flex; gap: 10px; align-items: center; margin-block: 16px; font-weight: 600; } /* 배지 체험 선택을 체크박스와 함께 보여줘요. */
+.demo-evidence { width: 100%; } /* 조건 한 줄 안에서 펼침 영역이 전체 너비를 사용해요. */
+.demo-evidence summary { cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 4px; } /* 조건 제목을 클릭하기 쉬운 크기로 보여줘요. */
+.demo-evidence summary strong { margin-left: auto; } /* 판정 상태를 조건과 구분해요. */
+.demo-evidence summary:focus-visible { outline: 3px solid #00809a; outline-offset: 3px; } /* 키보드 초점을 명확히 표시해요. */
+.demo-evidence-action { text-decoration: underline; color: #006b80; } /* 펼칠 수 있는 동작임을 글자로 알려줘요. */
+.demo-evidence section { margin-top: 16px; padding: 20px; border: 1px solid #d9e1e5; border-radius: 10px; background: #fff; overflow-wrap: anywhere; } /* 원문 예시를 흰색 패널로 구분해요. */
+.demo-source-lines { padding: 0; list-style: none; } /* 줄 번호는 API의 ID로 직접 표시해요. */
+.demo-source-lines li { display: grid; grid-template-columns: 50px minmax(0, 1fr); } /* 줄 ID와 본문을 나란히 배치해요. */
+.demo-source-lines mark { color: #263e4b; background: #fff0b3; padding: 8px; border-left: 4px solid #806018; } /* 근거 줄은 대비가 높은 배경과 테두리로 강조해요. */
+.demo-evidence-label { display: block; font-size: 12px; font-weight: 700; margin-top: 8px; } /* 색을 구분하지 못해도 선택 근거를 알 수 있게 해요. */
