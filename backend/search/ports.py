@@ -9,13 +9,19 @@
   {"account_id", "profile_id"}, 아니면 None. 프로필 내용은 connect(load_profile=…)로 profile_id에서 읽는다.
   docs/api.md 「인증·소유권 계약」: 검색은 로그인 없이 되지만 개인화 배지는 로그인한 본인 프로필로만 단다.
   사용자 업로드(/ingest)는 로그인이 필수다. 세션이 아직 연결되지 않았으면 로그인하지 않은 것으로 본다.
-- 비슷한 가구: connect(similar_rule_ids=…)로 꽂는다. 인자는 profile_id.
+- 비슷한 가구: backend.engine.similar.similar_for가 있으면 자동으로 그것을 쓴다. 판정 카드와 함께
+  검색 색인의 조건표 전부를 넘겨서, /judge의 비슷한 가구 묶음과 같은 제도에 배지가 붙는다.
+  가상 인구 캐시(data/population/)가 없으면 배지를 달지 않는다. connect(similar_rule_ids=…)로 꽂으면
+  그것이 우선이다(인자는 profile_id).
 """
 
 from __future__ import annotations
 
+import logging
 from datetime import date
 from typing import Any, Callable
+
+log = logging.getLogger(__name__)
 
 VERDICTS = ("eligible", "needs_check", "ineligible", "opens_later")
 FINAL = ("reviewed", "auto_verified")   # 확정 판정에 쓰는 조건 상태
@@ -119,6 +125,14 @@ def _engine_judge() -> Callable | None:
     return judge
 
 
+def _engine_similar() -> Callable | None:
+    try:
+        from backend.engine.similar import similar_for
+    except ImportError:
+        return None
+    return similar_for
+
+
 def _cards(out: Any) -> list[dict]:
     """엔진 결과를 카드 목록으로. 세 모양을 받는다.
 
@@ -139,7 +153,7 @@ class Ports:
         self._judge: Callable | None = None
         self.session_user: Callable[[Any], dict | None] = lambda request: None
         self.load_profile: Callable[[str], dict | None] = lambda profile_id: None
-        self.similar_rule_ids: Callable[[str], set[str]] = lambda profile_id: set()
+        self.similar_rule_ids: Callable[[str], set[str]] | None = None   # connect로 꽂으면 엔진 대신 이것
 
     @property
     def engine_connected(self) -> bool:
@@ -163,6 +177,21 @@ class Ports:
                 v = "needs_check" if r.get("subject") == "parent" and not profile.get("parents") else "ineligible"
             result[r["id"]] = v if v in VERDICTS else "needs_check"
         return result
+
+    def similar(self, profile_id: str, profile: dict, rules: list[dict], today: date | None = None) -> set[str]:
+        """비슷한 가구 배지를 달 rule_id. rules는 색인의 조건표 전부(검색 후보만 넘기면 /judge와 고르는 제도가 달라진다)."""
+        if self.similar_rule_ids is not None:
+            return set(self.similar_rule_ids(profile_id))
+        judge, similar_for = self._judge or _engine_judge(), _engine_similar()
+        if judge is None or similar_for is None or not profile:
+            return set()
+        try:
+            cards = {c["rule_id"]: c for c in _cards(judge(profile, rules, today=today))}
+            out = similar_for(profile, cards, rules, today=today)
+        except Exception:   # 비슷한 가구는 덤이라 검색을 막지 않는다. 프로필·검색어는 남기지 않는다
+            log.warning("비슷한 가구 계산 실패, 배지 없이 검색", exc_info=True)
+            return set()
+        return {item["rule_id"] for item in (out or {}).get("items", [])}
 
 
 ports = Ports()

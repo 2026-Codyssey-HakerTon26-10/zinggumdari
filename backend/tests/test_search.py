@@ -221,6 +221,46 @@ def test_abbreviation_counts_for_relevance():
     assert relevance_band(multi, "다자녀 특공") == STRONG
     assert relevance_band(newlywed, "다자녀 특공") != STRONG
 
+
+def _cards_judge(profile, rules, today=None):
+    return {r["id"]: {"rule_id": r["id"], "verdict": "needs_check", "blocking_fields": []} for r in rules}
+
+
+def test_similar_badge_from_engine(client, monkeypatch):
+    seen = {}
+
+    def similar_for(profile, cards, rules, today=None):
+        seen.update(cards=cards, rules={r["id"] for r in rules})
+        return {"items": [{"rule_id": "manual:seoul-newlywed-interest"}]}
+
+    ports._judge = _cards_judge
+    monkeypatch.setattr("backend.search.ports._engine_similar", lambda: similar_for)
+    body = client.get("/search", params={"q": "서울 신혼부부 이자"}, headers=AS_U1).json()
+    assert {r["name"]: r["badge"] for r in body["results"]}["서울 신혼부부 임차보증금 이자지원"] == "similar"
+    # 검색 후보가 아니라 색인의 조건표 전부로 고른다(/judge의 비슷한 가구 묶음과 같은 제도)
+    assert "manual:basic-pension" in seen["rules"] and seen["cards"]["manual:basic-pension"]["verdict"] == "needs_check"
+
+
+def test_similar_badge_needs_login_and_survives_failure(client, monkeypatch):
+    calls = []
+    ports._judge = _cards_judge
+    monkeypatch.setattr("backend.search.ports._engine_similar", lambda: lambda *a, **k: calls.append(1) or 1 / 0)
+    assert client.get("/search", params={"q": "서울 신혼부부 이자"}).status_code == 200
+    assert calls == []   # 로그인하지 않으면 부르지 않는다
+    body = client.get("/search", params={"q": "서울 신혼부부 이자"}, headers=AS_U1).json()
+    assert calls == [1] and "similar" not in {r["badge"] for r in body["results"]}
+
+
+def test_similar_badge_without_population_cache(client, monkeypatch, tmp_path):
+    from backend.engine import similar
+    monkeypatch.setattr(similar, "POP_DIR", tmp_path / "no-population")
+    similar.clear_cache()
+    ports._judge = _cards_judge
+    body = client.get("/search", params={"q": "서울 신혼부부 이자"}, headers=AS_U1).json()
+    assert "similar" not in {r["badge"] for r in body["results"]}
+    similar.clear_cache()
+
+
 def test_filters(client):
     assert all("parent" in r["stage_tags"] for r in client.get("/search", params={"q": "연금 노인", "tag": "parent"}).json()["results"])
     assert "기초연금" not in names(client.get("/search", params={"q": "기초연금", "subject": "self"}).json())
