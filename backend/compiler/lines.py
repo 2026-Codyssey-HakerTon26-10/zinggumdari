@@ -39,15 +39,16 @@ _WS = re.compile(r"\s+")
 # --- 공개 함수 ---
 
 def read_document(doc_id: str, src: str | Path, *, ocr_cache: Path | None = None,
-                  reuse_ocr: bool = True) -> tuple[dict, list[dict]]:
+                  reuse_ocr: bool = True, llm_ocr: bool = False) -> tuple[dict, list[dict]]:
     """원문 → (meta, 줄 목록). src가 Path면 파일, str이면 언제나 원문 텍스트다(파일 경로처럼 보여도 열지 않는다).
-    읽을 수 없는 원문이면 UnsupportedDocument. ocr_cache·reuse_ocr는 PDF 글자 인식 캐시(readers/pdf.py)."""
+    읽을 수 없는 원문이면 UnsupportedDocument. ocr_cache·reuse_ocr는 PDF 글자 인식 캐시(readers/pdf.py).
+    llm_ocr: 스캔 쪽을 네이토 API로 글자 인식해도 되나. 사용자 업로드는 False(기본, tesseract만), 우리가 넣는 공고 원문만 True."""
     _check_id(doc_id)
     if isinstance(src, Path):
         if not src.is_file():
             raise FileNotFoundError(src)
         data = src.read_bytes()
-        doc = _read_file(src, data, ocr_cache, reuse_ocr)
+        doc = _read_file(src, data, ocr_cache, reuse_ocr, llm_ocr)
     else:
         data = src.encode("utf-8")
         doc = _text_doc(src)
@@ -59,8 +60,8 @@ def read_document(doc_id: str, src: str | Path, *, ocr_cache: Path | None = None
     return meta, lines
 
 
-def to_lines(doc_id: str, src: str | Path) -> list[dict]:
-    return read_document(doc_id, src)[1]
+def to_lines(doc_id: str, src: str | Path, *, llm_ocr: bool = False) -> list[dict]:
+    return read_document(doc_id, src, llm_ocr=llm_ocr)[1]
 
 
 def save_lines(doc_id: str, lines: list[dict], meta: dict | None = None,
@@ -105,10 +106,11 @@ def _sniff(data: bytes) -> str | None:
     return None
 
 
-def _read_file(path: Path, data: bytes, ocr_cache: Path | None = None, reuse_ocr: bool = True) -> dict:
+def _read_file(path: Path, data: bytes, ocr_cache: Path | None = None, reuse_ocr: bool = True,
+               llm_ocr: bool = False) -> dict:
     kind = _sniff(data) or _SUFFIX.get(path.suffix.lower())
     if kind == "pdf":
-        return read_pdf(path, ocr_cache=ocr_cache, reuse=reuse_ocr)
+        return read_pdf(path, ocr_cache=ocr_cache, reuse=reuse_ocr, llm_ocr=llm_ocr)
     if kind in _READERS:
         return _READERS[kind](path)
     if b"\0" in data:

@@ -23,6 +23,7 @@ from backend.compiler.vocab import LABELS
 REPO_ROOT = llm.REPO_ROOT
 OUT_DIR = REPO_ROOT / "rules/compiled"
 RAW_DIR = OUT_DIR / "_raw"
+UPLOAD_RAW_DIR = REPO_ROOT / "rules/uploads/_raw"  # 사용자 업로드의 원응답·글자 인식. 커밋하지 않고(.gitignore) 탈퇴 때 지운다
 MAX_CONTENT = 300_000  # 이보다 긴 자격 구간은 트랙마다 나눠 보낸다
 KST = timezone(timedelta(hours=9))
 RRN_MESSAGE = "주민등록번호가 있는 문서는 받지 않습니다. 개인 서류를 올리지 마세요."
@@ -41,13 +42,29 @@ def resolve_model(model: str | None) -> str:
     return llm.model_name(model or "main") if model in (None, "main", "bulk") else model
 
 
+def raw_dir_for(source: str) -> Path:
+    """원응답·글자 인식 캐시 폴더. 사용자 업로드(upload)는 커밋하는 rules/compiled/_raw와 나눈다."""
+    return UPLOAD_RAW_DIR if source == "upload" else RAW_DIR
+
+
+def delete_raw(doc_id: str, source: str = "upload") -> int:
+    """회원 탈퇴 때 그 업로드의 원응답과 글자 인식 캐시를 지운다. 지운 파일 수."""
+    _check_id(doc_id)
+    gone = 0
+    for p in (raw_dir_for(source) / f"{doc_id}.json", raw_dir_for(source) / f"{doc_id}.ocr.json"):
+        if p.exists():
+            p.unlink()
+            gone += 1
+    return gone
+
+
 def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dict | None = None,
-            model: str | None = None, use_cache: bool = True, raw_dir: Path = RAW_DIR,
+            model: str | None = None, use_cache: bool = True, raw_dir: Path | None = None,
             return_log: bool = False) -> list[dict] | tuple[list[dict], dict]:
     """줄 목록 → AI 조건표 목록(api.md §1). return_log면 (조건표, 로그 api.md §6).
 
     meta(선택): title(프롬프트 머리), org, region(API 메타데이터), source_url(→ detail_url),
-    fetched_at(→ updated, 없으면 오늘), sha256(원문 해시).
+    fetched_at(→ updated, 없으면 오늘), sha256(원문 해시). raw_dir를 안 주면 raw_dir_for(source).
     """
     _check_id(doc_id)
     _check_id(source)
@@ -60,7 +77,7 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
         lines = mark_lines(lines)
     section, info = cut_section(lines, source=source)
     parts = _parts(section, meta.get("title"))
-    raw_path = Path(raw_dir) / f"{doc_id}.json"
+    raw_path = Path(raw_dir or raw_dir_for(source)) / f"{doc_id}.json"
     outputs, raw, calls = _llm_outputs(parts, resolve_model(model), use_cache=use_cache, path=raw_path)
     drafts, labels = parse_output(_merge(parts, outputs), doc_id)
 

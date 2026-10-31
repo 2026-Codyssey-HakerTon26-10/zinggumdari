@@ -27,16 +27,16 @@ def _tesseract_kor() -> bool:
     return "kor" in (r.stdout + r.stderr).split()  # 버전에 따라 목록이 stderr로 나온다
 
 
-def ocr_backend() -> str | None:
-    """쓸 글자 인식: "tesseract" | "llm" | None(없음)."""
+def ocr_backend(*, allow_llm: bool = True) -> str | None:
+    """쓸 글자 인식: "tesseract" | "llm" | None(없음). allow_llm=False(사용자 업로드)면 네이토는 고르지 않는다."""
     forced = llm.setting("ZINGGUM_OCR").strip().lower()
-    if forced in ("tesseract", "llm"):
-        return forced
     if forced == "off":
         return None
+    if forced == "tesseract" or (forced == "llm" and allow_llm):
+        return forced
     if _tesseract_kor():
         return "tesseract"
-    return "llm" if llm.available() else None
+    return "llm" if allow_llm and llm.available() else None
 
 
 def _png(page) -> bytes:

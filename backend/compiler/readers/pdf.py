@@ -27,6 +27,8 @@ CID_SHARE = 0.3     # 글자 중 "(cid:N)"이 이 비율 이상이면 글자 층
 GAP = 5             # 같은 높이라도 단어 사이가 글자 폭의 이 배수보다 넓으면 다른 줄
 NARROW_GAP = 2.5    # 이 배수보다 넓은 틈이 다른 줄의 틈과 같은 가로 자리에 있으면 단 사이(2단 편집)
 NO_OCR = "텍스트 층이 없는 스캔 PDF입니다. 글자 인식(tesseract 또는 네이토 API 키)이 없어 읽을 수 없습니다."
+NO_OCR_UPLOAD = ("텍스트 층이 없는 스캔 PDF입니다. 올린 파일은 개인정보 보호를 위해 서버 안의 글자 인식(tesseract)으로만 "
+                 "읽는데, 서버에 없어 읽을 수 없습니다. 텍스트를 고를 수 있는 PDF나 HWP를 올려 주세요.")
 OCR_FAILED = "스캔 PDF의 글자 인식에 실패했습니다. 잠시 뒤 다시 올리거나 텍스트 층이 있는 PDF를 올려 주세요."
 _CID = re.compile(r"\(cid:\d+\)")
 
@@ -141,11 +143,11 @@ def _load_cache(path: Path | None, sha: str) -> dict:
     return data if data.get("sha256") == sha else {}
 
 
-def read_pdf(path: str | Path, *, ocr_cache: Path | None = None, reuse: bool = True) -> dict:
+def read_pdf(path: str | Path, *, ocr_cache: Path | None = None, reuse: bool = True, llm_ocr: bool = True) -> dict:
     """PDF → reader 출력(readers/__init__.py).
     스캔 쪽은 글자 인식으로 읽는다. 인식 수단이 없거나 인식이 실패한 쪽은 빼고 unread_pages에 적는다(이유는 ocr_errors).
     읽은 줄이 하나도 없으면 UnsupportedDocument. ocr_cache(JSON 경로)를 주면 인식한 줄을 원문 해시와 함께 남기고,
-    reuse면 다음에 다시 부르지 않고 읽는다(캐시 재생)."""
+    reuse면 다음에 다시 부르지 않고 읽는다(캐시 재생). llm_ocr=False면 쪽 이미지를 네이토 API로 보내지 않는다(사용자 업로드)."""
     try:
         pdf = pdfplumber.open(path)
     except Exception as e:  # 암호, 손상
@@ -157,7 +159,7 @@ def read_pdf(path: str | Path, *, ocr_cache: Path | None = None, reuse: bool = T
         pages = [p.dedupe_chars() for p in pdf.pages]  # 겹쳐 찍은 가짜 굵은 글씨("112200%%")
         kinds = {p.page_number: page_kind(p) for p in pages}
         need = [no for no, k in kinds.items() if k == "scan" and str(no) not in cached]
-        backend = ocr.ocr_backend() if need else cache.get("ocr")
+        backend = ocr.ocr_backend(allow_llm=llm_ocr) if need else cache.get("ocr")
         lines: list[dict] = []
         usage, info, unread, errors, done = {}, {}, [], [], {}
         for page in pages:
@@ -181,7 +183,7 @@ def read_pdf(path: str | Path, *, ocr_cache: Path | None = None, reuse: bool = T
                "lines": lines}
     if unread:
         if not lines:
-            raise UnsupportedDocument(OCR_FAILED if errors else NO_OCR)
+            raise UnsupportedDocument(OCR_FAILED if errors else NO_OCR if llm_ocr else NO_OCR_UPLOAD)
         out["unread_pages"] = unread
     if errors:
         out["ocr_errors"] = errors

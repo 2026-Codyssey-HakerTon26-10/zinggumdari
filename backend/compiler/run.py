@@ -21,7 +21,7 @@ from pathlib import Path
 
 from backend.compiler import llm
 from backend.compiler.lines import read_document, save_lines, to_lines
-from backend.compiler.pipeline import KST, OUT_DIR, RAW_DIR, compile, resolve_model, write_rules
+from backend.compiler.pipeline import KST, OUT_DIR, RAW_DIR, compile, raw_dir_for, resolve_model, write_rules
 
 # --stage-filter: 생애 단계(청년·신혼·출산·주거·노인) 말이 있는 산문만 남긴다
 STAGE_WORDS = ["청년", "신혼", "결혼", "임신", "출산", "자녀", "다자녀", "주거", "전세", "월세", "청약", "주택",
@@ -29,10 +29,12 @@ STAGE_WORDS = ["청년", "신혼", "결혼", "임신", "출산", "자녀", "다�
 
 
 def run_one(src: str | Path, doc_id: str, *, source: str = "upload", model: str | None = None, use_cache: bool = True,
-            save: bool = False, out_dir: Path = OUT_DIR, raw_dir: Path = RAW_DIR, title: str | None = None,
+            save: bool = False, out_dir: Path = OUT_DIR, raw_dir: Path | None = None, title: str | None = None,
             org: str | None = None, url: str | None = None) -> tuple[dict, list[Path]]:
     """원문 한 건(Path는 파일, str은 원문 텍스트) → 조건표 파일. (로그, 쓴 파일)을 돌려준다."""
-    meta, lines = read_document(doc_id, src, ocr_cache=Path(raw_dir) / f"{doc_id}.ocr.json", reuse_ocr=use_cache)
+    raw_dir = Path(raw_dir or raw_dir_for(source))
+    meta, lines = read_document(doc_id, src, ocr_cache=raw_dir / f"{doc_id}.ocr.json", reuse_ocr=use_cache,
+                                llm_ocr=source != "upload")  # 사용자 업로드 스캔은 네이토로 보내지 않는다
     meta |= {"source": source, "title": title, "org": org, "source_url": url,
              "fetched_at": datetime.now(KST).date().isoformat()}
     rules, log = compile(doc_id, lines, source, meta=meta, model=model, use_cache=use_cache, raw_dir=raw_dir,
@@ -106,14 +108,14 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--no-cache", action="store_true", help="원응답 캐시를 쓰지 않고 다시 부른다")
     p.add_argument("--save-lines", action="store_true", help="data/notices/{doc_id}.lines.json·meta.json도 쓴다")
     p.add_argument("--out", type=Path, default=OUT_DIR)
-    p.add_argument("--raw-dir", type=Path, default=RAW_DIR)
+    p.add_argument("--raw-dir", type=Path, default=None, help="기본: upload는 rules/uploads/_raw, 그 밖은 rules/compiled/_raw")
     p.add_argument("--stage-filter", action="store_true")
     p.add_argument("--limit", type=int)
     p.add_argument("--workers", type=int, default=4)
     a = p.parse_args(argv)
 
     if a.bulk:
-        summary = run_bulk(a.bulk, out_dir=a.out, raw_dir=a.raw_dir, model=a.model or "bulk",
+        summary = run_bulk(a.bulk, out_dir=a.out, raw_dir=a.raw_dir or RAW_DIR, model=a.model or "bulk",
                            stage_filter=a.stage_filter, limit=a.limit, workers=a.workers)
         print(json.dumps(summary, ensure_ascii=False))
         return 0

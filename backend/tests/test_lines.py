@@ -12,7 +12,7 @@ import pytest
 
 from backend.compiler import llm
 from backend.compiler.lines import UNSUPPORTED, has_rrn, read_document, save_lines, to_lines
-from backend.compiler.readers import UnsupportedDocument
+from backend.compiler.readers import UnsupportedDocument, ocr
 from backend.tests.hwp_fixture import SAMPLE_LINES, hwpx_bytes, sample_hwp, sample_hwpx, sample_hwpx_sections
 
 FIX = Path(__file__).parent / "fixtures"
@@ -110,11 +110,22 @@ def test_scanned_pdf_ocr(monkeypatch):
     monkeypatch.setattr(llm, "ocr_page", lambda png, *, model=None: llm.LLMResult(
         data={"lines": ["1. 지원대상", "자녀 수 | 금리", "1명 | 0.2%p", "○ 연소득 7천 5백만 원 이하 ○ 무주택"]},
         raw_text="", model="fake", usage=usage))
-    meta, lines = read_document("scan", FIX / "notice_scan.pdf")
+    meta, lines = read_document("scan", FIX / "notice_scan.pdf", llm_ocr=True)
     assert (meta["text_layer"], meta["ocr"], meta["ocr_usage"]) == (False, "llm", usage)
     assert [(l["id"], l.get("table")) for l in lines] == [("p1-l1", None), ("p1-l2", "p1-t1"), ("p1-l3", "p1-t1"), ("p1-l4", None)]
     assert lines[3]["text"] == "○ 연소득 7천 5백만 원 이하 ○ 무주택"  # PDF 줄은 나누지 않는다
     assert all(l["src"] == "ocr" and l["bbox"] is None and l["page"] == 1 for l in lines)
+
+
+def test_upload_scan_never_goes_to_llm(monkeypatch):
+    """기본(사용자 업로드)은 쪽 이미지를 네이토로 보내지 않는다. tesseract가 없으면 거부."""
+    monkeypatch.setenv("ZINGGUM_OCR", "llm")
+    monkeypatch.setattr(ocr, "_tesseract_kor", lambda: False)
+    sent = []
+    monkeypatch.setattr(llm, "ocr_page", lambda png, *, model=None: sent.append(png))
+    with pytest.raises(UnsupportedDocument, match="tesseract"):
+        to_lines("scan", FIX / "notice_scan.pdf")
+    assert sent == []
 
 
 def test_scanned_pdf_without_ocr(monkeypatch):

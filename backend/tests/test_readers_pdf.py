@@ -183,6 +183,11 @@ def test_ocr_backend(monkeypatch):
     for v, want in (("off", None), ("llm", "llm"), ("tesseract", "tesseract")):
         monkeypatch.setenv("ZINGGUM_OCR", v)
         assert ocr.ocr_backend() == want
+    # 사용자 업로드: 네이토는 고르지 않는다(ZINGGUM_OCR=llm이어도)
+    monkeypatch.setenv("ZINGGUM_OCR", "llm")
+    assert ocr.ocr_backend(allow_llm=False) == "tesseract"
+    monkeypatch.setattr(ocr, "_tesseract_kor", lambda: False)
+    assert ocr.ocr_backend(allow_llm=False) is None
 
 
 KEY_TOKENS = ["2026-77", "7년", "7천 5백만 원", "3억 원", "6개월", "1.5%", "150만 원", "0.2%p", "0.5%p",
@@ -215,7 +220,7 @@ def _pdf(tmp_path, pages, objs=None, name="t.pdf"):
 
 
 def _fake_ocr(monkeypatch, calls, fail=False):
-    monkeypatch.setattr(ocr, "ocr_backend", lambda: "llm")
+    monkeypatch.setattr(ocr, "ocr_backend", lambda **_: "llm")
 
     def fake(page, *, backend, usage=None, info=None):
         calls.append(page.page_number)
@@ -232,7 +237,7 @@ def test_scan_with_text_footer_is_still_a_scan(tmp_path, monkeypatch):
     _fake_ocr(monkeypatch, calls)
     r = read_pdf(path)
     assert calls == [1] and [l["text"] for l in r["lines"]] == ["1. 지원대상"] and r["text_layer"] is False
-    monkeypatch.setattr(ocr, "ocr_backend", lambda: None)
+    monkeypatch.setattr(ocr, "ocr_backend", lambda **_: None)
     with pytest.raises(UnsupportedDocument, match="스캔 PDF"):  # 인식 수단이 없으면 꼬리말만 읽고 넘어가지 않는다
         read_pdf(path)
 
@@ -294,7 +299,7 @@ def test_ocr_failure_on_one_page_keeps_text_pages(tmp_path, monkeypatch):
     assert r["unread_pages"] == [2] and "HTTP 529" in r["ocr_errors"][0]
     assert [l["text"] for l in r["lines"]] == ["Income 120% or less for all applicants"]
     monkeypatch.setenv("ZINGGUM_OCR", "tesseract")  # 깔리지 않은 tesseract를 고르면 FileNotFoundError 대신 안내
-    monkeypatch.setattr(ocr, "ocr_backend", lambda: "tesseract")
+    monkeypatch.setattr(ocr, "ocr_backend", lambda **_: "tesseract")
     monkeypatch.setattr(ocr, "ocr_page", lambda page, **kw: (_ for _ in ()).throw(FileNotFoundError("tesseract")))
     with pytest.raises(UnsupportedDocument, match="글자 인식에 실패"):
         read_pdf(SCAN_PDF)

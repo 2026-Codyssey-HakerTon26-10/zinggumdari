@@ -451,7 +451,7 @@ def test_scan_ocr_counted_and_cached(fake, tmp_path, monkeypatch):
                          usage={"input_tokens": 5000})
     monkeypatch.setattr(llm, "ocr_page", ocr_ok)
     fake(lambda content: {"rules": [], "labels": []})
-    kw = {"out_dir": tmp_path / "out", "raw_dir": tmp_path / "raw"}
+    kw = {"out_dir": tmp_path / "out", "raw_dir": tmp_path / "raw", "source": "lh"}   # 우리가 넣는 공고 원문만 네이토 글자 인식
     log, _ = run_one(SCAN, "scan-c", **kw)
     assert len(calls) == 1 and log["llm_calls"] == 2 and log["ocr_calls"] == 1      # 글자 인식 1 + 조건 읽기 1
     assert (log["ocr"], log["ocr_model"], log["ocr_usage"]) == ("llm", "ocr-model", {"input_tokens": 5000})
@@ -463,3 +463,19 @@ def test_scan_ocr_counted_and_cached(fake, tmp_path, monkeypatch):
     assert log["cache"] is True and log["llm_calls"] == 0 and log.get("ocr_calls") is None
     with pytest.raises(UnsupportedDocument, match="글자 인식에 실패"):           # 캐시를 안 쓰면 인식 실패를 알린다
         run_one(SCAN, "scan-c", use_cache=False, **kw)
+
+
+def test_upload_raw_goes_to_uncommitted_dir(fake, tmp_path, monkeypatch):
+    """사용자 업로드 원응답은 커밋하는 rules/compiled/_raw가 아니라 rules/uploads/_raw에 쓰고, 탈퇴 때 지운다."""
+    monkeypatch.setattr(pipeline, "UPLOAD_RAW_DIR", tmp_path / "uploads_raw")
+    monkeypatch.setattr(pipeline, "RAW_DIR", tmp_path / "compiled_raw")
+    fake(lambda content: {"rules": [], "labels": []})
+    lines = to_lines("upload-1", "1. 신청자격\n○ 만 19세 이상 무주택자")
+    compile("upload-1", lines, "upload")
+    compile("lh-1", to_lines("lh-1", "1. 신청자격\n○ 만 19세 이상 무주택자"), "lh")
+    assert (tmp_path / "uploads_raw" / "upload-1.json").exists()
+    assert (tmp_path / "compiled_raw" / "lh-1.json").exists()
+    assert not (tmp_path / "compiled_raw" / "upload-1.json").exists()
+    (tmp_path / "uploads_raw" / "upload-1.ocr.json").write_text("{}")
+    assert pipeline.delete_raw("upload-1") == 2
+    assert list((tmp_path / "uploads_raw").iterdir()) == []

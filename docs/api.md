@@ -2,7 +2,7 @@
 
 > 백엔드, AI, 프론트가 주고받는 데이터 모양이다. 맞춘 뒤에는 팀 합의 없이 바꾸지 않는다. 코드보다 이 문서를 먼저 고친다.
 > 아홉 모양이다. ① 조건 JSON(규칙표 한 행) ② 프로필(폼 결과, 나, 부모) ③ 판정 결과 ④ 서류 사전 ⑤ 알림 ⑥ 공고 투입. ①이 핵심이다: AI 공고 읽기의 출력, 손 조건표의 양식, 규칙 엔진의 입력, 공고 투입의 출력이 전부 이 모양이다. ⑦ 비슷한 가구(`data/population/`) ⑧ 검색 결과(`GET /search`) ⑨ 원문과 줄(`GET /notices/…`, `data/notices/*.lines.json`).
-> AI 공고 읽기 진입점(스텁을 먼저 커밋해 다른 사람이 붙을 수 있게): `to_lines(doc_id: str, src: str | Path) -> list[Line]`(원문 → 줄, §8. `str`은 언제나 원문 텍스트, 파일은 `Path`로 준다), `compile(doc_id: str, lines: list[Line], source: str) -> list[Rule]`(자격 구간 → LLM 1회 → 검증기 → 빠짐 검사), `verify(rule: Rule, lines: list[Line]) -> Rule`(검증기만. 손 조건표에도 돌린다).
+> AI 공고 읽기 진입점(스텁을 먼저 커밋해 다른 사람이 붙을 수 있게): `to_lines(doc_id: str, src: str | Path) -> list[Line]`(원문 → 줄, §8. `str`은 언제나 원문 텍스트, 파일은 `Path`로 준다. `llm_ocr=True`는 우리가 넣는 공고 원문만: 스캔 쪽을 네이토로 글자 인식한다), `compile(doc_id: str, lines: list[Line], source: str) -> list[Rule]`(자격 구간 → LLM 1회 → 검증기 → 빠짐 검사), `verify(rule: Rule, lines: list[Line]) -> Rule`(검증기만. 손 조건표에도 돌린다).
 
 ## 1. 조건 JSON (`rules/compiled/*.json`, `rules/manual/*.json`)
 
@@ -297,7 +297,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 ## 6. 공고 투입 (`POST /ingest`)
 
-입력: PDF·HWP·HWPX·텍스트 파일 또는 URL (안내문: "개인 서류를 올리지 마세요", 주민번호 패턴 거부. 이미지 스캔 PDF는 글자 인식으로 읽고, 암호·배포용 HWP와 HWP 3.x는 거부). 출력: §1 조건 JSON(`source: "upload"`, `review.status: "unreviewed"`) + 로그.
+입력: PDF·HWP·HWPX·텍스트 파일 또는 URL (안내문: "개인 서류를 올리지 마세요", 주민번호 패턴 거부. 이미지 스캔 PDF는 서버 안의 tesseract로만 읽고(없으면 거부. 업로드는 네이토로 보내지 않는다), 암호·배포용 HWP와 HWP 3.x는 거부). 출력: §1 조건 JSON(`source: "upload"`, `review.status: "unreviewed"`) + 로그.
 
 ```jsonc
 {"doc_id": "upload-20261031-01", "lines": 412, "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"}, "marked": 21,
