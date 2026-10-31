@@ -52,6 +52,9 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
     const [nickname, setNickname] = useState(""); // 로그인 계정에 연결된 닉네임이에요.
     const [draftNickname, setDraftNickname] = useState(""); // 닉네임 편집 중인 임시 값이에요.
     const [accountId, setAccountId] = useState<string | null>(null); // getMe()로 얻은 로그인 계정 ID예요.
+    const [logoutPending, setLogoutPending] = useState(false); // 서버 세션 폐기 요청 중 중복 클릭을 막아요.
+    const [logoutError, setLogoutError] = useState(""); // 로그아웃 실패는 화면에 남겨 재시도할 수 있게 해요.
+    const logoutBusy = useRef(false); // 같은 순간의 중복 요청도 차단해요.
     const [alertSettings, setAlertSettings] = useState([true, true, false]); // 알림 스위치의 시연 상태를 기억해요.
     const [toast, setToast] = useState(""); // 버튼을 눌렀을 때 짧은 안내를 보여줘요.
     const detailDialog = useRef<HTMLDialogElement>(null); // 정책 미리보기 대화상자를 가리켜요.
@@ -75,8 +78,15 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
         return () => window.clearTimeout(timer); // 화면을 떠나거나 안내가 바뀌면 예약을 취소해요.
     }, [toast]); // 안내 문구가 바뀔 때만 실행해요.
     async function handleLogout() { // 세션을 폐기하고 로그인 화면으로 이동해요.
-        try { await logout(); } catch { /* 세션이 이미 만료됐어도 로그인 화면으로 이동해요. */ }
-        router.push("/login");
+        if (logoutBusy.current) return; // 이미 진행 중인 세션 폐기 요청은 중복 전송하지 않아요.
+        logoutBusy.current = true; setLogoutPending(true); setLogoutError(""); // 요청 시작과 이전 오류 정리를 함께 처리해요.
+        try { // 서버 성공 응답을 확인하기 전에는 이동하지 않아요.
+            await logout(); // 204 응답일 때만 다음 줄로 진행해요.
+            setAccountId(null); setNickname(""); setDraftNickname(""); // 성공한 뒤에만 화면의 계정 표시를 지워요.
+            router.replace("/login"); // 로그아웃이 확인되면 로그인 화면으로 이동해요.
+        } catch { // 통신 오류와 서버 오류를 세션 만료로 가정하지 않아요.
+            setLogoutError("로그아웃하지 못했습니다. 로그인 상태가 남아 있을 수 있습니다. 다시 시도해 주세요."); // 현재 화면과 계정 표시를 유지해 실패를 알리죠.
+        } finally { logoutBusy.current = false; setLogoutPending(false); } // 성공·실패 후 요청 잠금을 해제해요.
     } // 로그아웃 처리를 마쳐요.
     function toggleBookmark(id: string) { // 카드의 저장 상태를 바꿔요.
         setBookmarks((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]); // 이미 저장했다면 빼고 아니라면 추가해요.
@@ -100,9 +110,10 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
                     <div className="my-profile-info"><div><strong>{nickname || "닉네임"} 님</strong><span>닉네임</span></div><p>프로필과 공고가 연결되면 내 조건에 맞는 정보를 보여드려요.</p><div className="my-profile-tags"><span>청년</span><span>주거 관심</span><span>소득 정보 미입력</span></div></div> {/* 민감정보 없이 예시 프로필 상태를 보여줘요. */}
                     <div className="my-profile-actions"> {/* 닉네임 편집과 로그아웃 버튼을 나란히 배치해요. */}
                         <button className="button button-secondary" type="button" onClick={() => { setDraftNickname(nickname); profileDialog.current?.showModal(); }}><Icon name="settings" />닉네임 바꾸기</button>
-                        {accountId && <button className="button button-secondary" type="button" onClick={handleLogout}><Icon name="log-out" />로그아웃</button>}
+                        {accountId && <button className="button button-secondary" type="button" onClick={handleLogout} disabled={logoutPending} aria-busy={logoutPending}><Icon name="log-out" />{logoutPending ? "로그아웃 중…" : logoutError ? "로그아웃 다시 시도" : "로그아웃"}</button>}
                     </div> {/* 현재 화면의 가상 닉네임만 바꿀 수 있어요. */}
                 </section> {/* 프로필 요약 영역을 마쳐요. */}
+                {logoutError && <p role="alert" className="my-logout-error">{logoutError}</p>} {/* 자동으로 사라지지 않는 실패 안내를 제공해요. */}
                 <div className="my-subject-tabs" role="tablist" aria-label="추천 대상"> {/* 본인과 부모님 정보를 명확히 구분해요. */}
                     <button role="tab" type="button" id="my-tab-self" aria-controls="my-subject-panel" aria-selected={subject === "self"} onClick={() => { setSubject("self"); setFilter("all"); }}><Icon name="user" />나의 징검다리</button> {/* 본인 예시로 이동해요. */}
                     <button role="tab" type="button" id="my-tab-parent" aria-controls="my-subject-panel" aria-selected={subject === "parent"} onClick={() => { setSubject("parent"); setFilter("all"); }}><Icon name="family" />부모님 챙김<span>함께</span></button> {/* 부모님 예시로 이동해요. */}

@@ -204,3 +204,4 @@
 @media (prefers-reduced-motion: reduce) { /* 움직임을 줄이는 운영체제 설정을 존중해요. */
     .my-page *, .my-page *::after { transition: none !important; } /* 카드와 스위치의 움직이는 전환을 없애요. */
 } /* 움직임 설정을 마쳐요. */
+.my-logout-error { padding: 14px 18px; margin-block: 16px; border: 1px solid #ad3535; border-radius: 10px; color: #912626; background: #fff; line-height: 1.8; } /* 로그아웃 실패를 명확하게 알리고 재시도 전까지 유지해요. */

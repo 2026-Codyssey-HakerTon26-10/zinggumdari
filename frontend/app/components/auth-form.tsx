@@ -1,6 +1,6 @@
 "use client"; // 비밀번호 표시와 폼 안내가 사용자의 조작에 반응하게 해요.
 
-import { useState, useRef, type FormEvent, type ReactNode } from "react"; // 입력값을 잠시 기억하고 폼 제출 동작을 제어해요.
+import { useState, useRef, useEffect, type FormEvent, type ReactNode } from "react"; // 입력값을 잠시 기억하고 폼 제출 동작을 제어해요.
 import { useRouter } from "next/navigation"; // 인증 성공 시 다음 화면으로 이동해요.
 import Link from "next/link"; // 로그인과 회원가입 화면을 서로 연결해요.
 import { Icon } from "./ui"; // 기존 서비스와 같은 선 아이콘을 사용해요.
@@ -26,12 +26,12 @@ function PasswordField({ id, label, value, onChange, autoComplete, hint, describ
 type ConsentKey = "terms" | "privacy" | "email" | "sensitive";
 
 // 동의 항목 하나를 체크박스·보기/접기 버튼·상세 내용으로 구성해요.
-function ConsentItem({ id, label, required, checked, onCheck, open, onToggle, children }: { id: string; label: string; required: boolean; checked: boolean; onCheck: (v: boolean) => void; open: boolean; onToggle: () => void; children: ReactNode }) {
+function ConsentItem({ id, label, required, checked, onCheck, open, onToggle, children, disabled = false }: { id: string; label: string; required: boolean; checked: boolean; onCheck: (v: boolean) => void; open: boolean; onToggle: () => void; children: ReactNode; disabled?: boolean }) {
     return (
         <div className="auth-consent-item"> {/* 동의 항목 하나를 묶어요. */}
             <div className="auth-consent-row"> {/* 체크박스 행과 보기 버튼을 나란히 배치해요. */}
                 <label className="auth-checkbox-label"> {/* 체크박스와 문구를 함께 클릭할 수 있게 해요. */}
-                    <input className="auth-checkbox" type="checkbox" id={id} checked={checked} onChange={(e) => onCheck(e.target.checked)} />
+                    <input className="auth-checkbox" type="checkbox" id={id} checked={checked} disabled={disabled} onChange={(e) => onCheck(e.target.checked)} />
                     <span><strong>{required ? "[필수]" : "[선택]"}</strong> {label}</span>
                 </label>
                 <button type="button" className="auth-inline-link" onClick={onToggle} aria-expanded={open} aria-controls={`${id}-detail`}>{open ? "접기" : "보기"}</button>
@@ -66,21 +66,22 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
     const isEmailInvalid = emailTouched && email.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // 이메일 형식이 잘못됐는지 확인해요.
     const isNicknameInvalid = isSignup && nicknameTouched && nickname.length > 0 && (nickname.length < 2 || nickname.length > 16); // 닉네임 길이가 범위를 벗어났는지 확인해요.
     const pwStrength = { min8: password.length >= 8, hasLetter: /[a-zA-Zㄱ-힣]/.test(password), hasNumber: /[0-9]/.test(password) }; // 비밀번호가 각 조건을 만족하는지 확인해요.
-    // 전체 동의 상태 계산 — 4개 모두 체크됐는지, 일부만 체크됐는지 판단해요.
-    const allChecked = Object.values(consents).every(Boolean);
-    const someChecked = Object.values(consents).some(Boolean) && !allChecked;
+    // 전체 동의 상태 계산 — 지원되는 필수 두 항목만 판단해요.
+    const allChecked = consents.terms && consents.privacy; // 전체 선택은 현재 지원되는 필수 두 항목만 대상으로 해요.
+    const someChecked = (consents.terms || consents.privacy) && !allChecked; // 미지원 선택 동의는 전체 상태에 포함하지 않아요.
     const requiredConsented = consents.terms && consents.privacy; // 필수 2개가 모두 동의됐는지 확인해요.
 
     // 전체 동의 체크박스의 불확정(indeterminate) 상태를 DOM에 직접 반영해요.
-    if (allCheckRef.current) allCheckRef.current.indeterminate = someChecked;
+    useEffect(() => { if (allCheckRef.current) allCheckRef.current.indeterminate = someChecked; }, [someChecked]); // 렌더링 뒤에 체크박스의 일부 선택 상태를 반영해요.
 
-    // 전체 동의 또는 전체 해제를 한 번에 적용해요.
+    // 필수 항목 전체 동의 또는 해제를 적용해요.
     function toggleAll(checked: boolean) {
-        setConsents({ terms: checked, privacy: checked, email: checked, sensitive: checked });
+        setConsents({ terms: checked, privacy: checked, email: false, sensitive: false }); // 연결 전 선택 동의는 전체 동의로도 켜지지 않아요.
     } // 전체 동의 토글을 마쳐요.
 
     // 개별 항목을 바꿀 때 key와 value만 받아 안전하게 갱신해요.
     function toggleOne(key: ConsentKey, checked: boolean) {
+        if (key === "email" || key === "sensitive") return; // 아직 저장·적용되지 않는 항목은 선택하지 못하게 해요.
         setConsents((prev) => ({ ...prev, [key]: checked }));
     } // 개별 동의 토글을 마쳐요.
 
@@ -108,8 +109,8 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
         try {
             if (isSignup) {
                 const data = await apiSignup(email, password); // 계정을 생성하고 세션 쿠키를 발급받아요.
-                // 닉네임과 선택 동의(이메일·민감정보)를 계정 ID별 키로 저장해요. 프로필 연결 전 임시 저장이에요.
-                setAccountData(data.account_id, { nickname: nickname.trim(), consents });
+                // 닉네임과 필수 안내 확인만 계정별 임시 보관하고 미지원 선택 동의는 항상 false로 둬요.
+                setAccountData(data.account_id, { nickname: nickname.trim(), consents: { ...consents, email: false, sensitive: false } });
             } else {
                 await apiLogin(email, password); // 이메일·비밀번호를 인증하고 세션 쿠키를 받아요.
             }
@@ -134,11 +135,11 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                 {isSignup ? (
                     // 회원가입 동의 섹션 — 전체 동의 + 필수 2개 + 선택 2개로 구성해요.
                     <div className="auth-consent" role="group" aria-label="이용 동의">
-                        {/* 전체 동의 행 — 선택 항목까지 포함해요. */}
+                        {/* 전체 동의 행 — 지원되는 필수 항목만 포함해요. */}
                         <div className="auth-consent-all">
                             <label className="auth-checkbox-label auth-checkbox-label--all">
-                                <input className="auth-checkbox" type="checkbox" ref={allCheckRef} checked={allChecked} onChange={(e) => toggleAll(e.target.checked)} aria-label="전체 동의 (선택 항목 포함)" />
-                                <span className="auth-consent-all-text">전체 동의 <em className="auth-consent-all-sub">선택 항목 포함</em></span>
+                                <input className="auth-checkbox" type="checkbox" ref={allCheckRef} checked={allChecked} onChange={(e) => toggleAll(e.target.checked)} aria-label="필수 항목 전체 동의" />
+                                <span className="auth-consent-all-text">필수 항목 전체 동의 <em className="auth-consent-all-sub">선택 항목은 연결 준비 중</em></span>
                             </label>
                         </div>
                         <div className="auth-consent-divider" role="separator" aria-hidden="true" /> {/* 전체 동의와 개별 항목을 회색 선으로 구분해요. */}
@@ -169,8 +170,9 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                             <p className="auth-consent-detail-note">실명·전화번호·주민번호는 수집하지 않습니다.</p>
                         </ConsentItem>
 
+                        <p className="auth-consent-detail-note">이메일 알림과 민감정보 동의는 설정 저장 연결 전이라 선택할 수 없습니다. 가입해도 이메일 알림이나 민감정보 처리가 활성화되지 않습니다. 연결 후 알림 설정에서 별도로 동의해 주세요.</p> {/* 실제 적용되지 않는 동의를 받지 않고 제한을 안내해요. */}
                         {/* [선택] 이메일 알림 수신 동의 */}
-                        <ConsentItem id="consent-email" label="이메일 알림 수신 동의" required={false} checked={consents.email} onCheck={(v) => toggleOne("email", v)} open={consentDetail.email} onToggle={() => toggleDetail("email")}>
+                        <ConsentItem id="consent-email" label="이메일 알림 수신 동의 · 준비 중" required={false} disabled checked={consents.email} onCheck={(v) => toggleOne("email", v)} open={consentDetail.email} onToggle={() => toggleDetail("email")}>
                             <table className="auth-consent-table">
                                 <tbody>
                                     <tr><th>수집 항목</th><td>이메일 주소</td></tr>
@@ -182,7 +184,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                         </ConsentItem>
 
                         {/* [선택] 민감정보 수집·이용 동의 */}
-                        <ConsentItem id="consent-sensitive" label="민감정보 수집·이용 동의" required={false} checked={consents.sensitive} onCheck={(v) => toggleOne("sensitive", v)} open={consentDetail.sensitive} onToggle={() => toggleDetail("sensitive")}>
+                        <ConsentItem id="consent-sensitive" label="민감정보 수집·이용 동의 · 준비 중" required={false} disabled checked={consents.sensitive} onCheck={(v) => toggleOne("sensitive", v)} open={consentDetail.sensitive} onToggle={() => toggleDetail("sensitive")}>
                             <table className="auth-consent-table">
                                 <tbody>
                                     <tr><th>수집 항목</th><td>소득 정보(만원 단위), 건강 정보(장기요양등급·장애 등록 여부·임신 여부), 수급 여부, 차상위계층 여부</td></tr>
