@@ -158,6 +158,8 @@ def _resolve(person: dict, cond: dict, field: str, today: date, year: int) -> Va
         if status in ("미혼", "예비부부", "이혼·사별"):
             return Values([None])   # 혼인신고 전이면 혼인 기간 조건은 탈락(api.md §1)
         return Ask("marriage_date")
+    if field == "youngest_child_age" and person.get("children_count") == 0:
+        return Values([None])   # 자녀가 없으면 막내 나이 조건은 탈락(자녀 단계에서 열린다)
     if field == "subscription_months" and person.get("has_account") == "N":
         return Values([0])
     if field in SPAN:
