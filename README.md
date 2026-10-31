@@ -148,7 +148,7 @@ cd backend && uv add "fastapi[standard]" && cd ..
 ```
 
 ```bash
-uv add --project backend httpx pdfplumber rank-bm25 scikit-learn numpy pandas pyarrow python-dotenv
+uv add --project backend httpx pdfplumber scikit-learn numpy pandas pyarrow python-dotenv
 ```
 
 ```bash
