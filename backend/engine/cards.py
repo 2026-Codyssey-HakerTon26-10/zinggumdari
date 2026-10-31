@@ -1,0 +1,63 @@
+"""엔진 결과 → /judge 응답(docs/api.md §3). 카드에 올릴 것을 고르고 근거 줄·중복 불가·서류를 채운다.
+
+단계 넘기기·타임라인(planner), 공고별 질문(ask), 비슷한 가구(similar)는 아직 비어 있다.
+"""
+
+from collections.abc import Callable
+from datetime import date
+
+from backend.engine import judge
+
+DISCLAIMER = "참고용 모의 판정, 실제 자격은 접수 기관의 심사로 결정됩니다"
+SHOWN = {"eligible": 0, "needs_check": 1, "opens_later": 2}   # ineligible은 카드에 올리지 않는다(SPEC §5.2)
+
+
+def _no_lines(ids: list[str]) -> list[dict]:
+    return [{"id": e, "page": None, "bbox": None, "text": None} for e in ids]
+
+
+def _documents(rule: dict) -> list[dict]:
+    """서류 사전 매핑 전이라 전부 "발급처 확인 필요"(status unknown)다. 발급처를 지어내지 않는다."""
+    docs = [{"name": n, "doc_id": None, "who_provides": "applicant", "status": "unknown"}
+            for n in rule.get("documents") or []]
+    docs += [{"name": n, "doc_id": None, "who_provides": "official", "status": "unknown"}
+             for n in rule.get("documents_official") or []]
+    return docs
+
+
+def _explain(card: dict) -> str:
+    grades = [c["grade"] for c in card["conditions"]]
+    passed = sum(1 for c in card["conditions"] if c["ok"] is True)
+    return (f"조건 {len(grades)}개 중 맞는 것 {passed}개, 확인 필요 {grades.count('확인 필요')}개, "
+            f"질문 {grades.count('질문')}개")
+
+
+def build_judge(profile: dict, rules: list[dict], today: date | None = None,
+                evidence: Callable[[list[str]], list[dict]] = _no_lines) -> dict:
+    results = judge(profile, rules, today)
+    by_id = {r["id"]: r for r in rules}
+    cards = []
+    for rule in rules:
+        card = results[rule["id"]]
+        if card["verdict"] not in SHOWN or card.get("no_subject") or card.get("superseded_by"):
+            continue
+        for row in card["conditions"]:
+            row["evidence"] = evidence([e["id"] for e in row["evidence"]])
+        card["exclusive_with"] = [
+            {"rule_id": x["rule_id"], "name": (by_id.get(x["rule_id"]) or {}).get("name"),
+             "both_eligible": card["verdict"] == "eligible"
+             and (results.get(x["rule_id"]) or {}).get("verdict") == "eligible"}
+            for x in card["exclusive_with"]]
+        card["exclusive_evidence"] = evidence(card["exclusive_evidence"]) if card["exclusive_evidence"] else []
+        card.update(opens_at=None, closes_at=None, apply_from=None, prerequisites=[],
+                    documents=_documents(rule), explain=_explain(card))
+        cards.append(card)
+    cards.sort(key=lambda c: (c["subject"] != "self", SHOWN[c["verdict"]]))
+    return {
+        "user_id": profile.get("user_id"),
+        "ask": None,
+        "cards": cards,
+        "timeline": {"self": [], "parent": [], "dated": []},
+        "similar": None,
+        "disclaimer": DISCLAIMER,
+    }
