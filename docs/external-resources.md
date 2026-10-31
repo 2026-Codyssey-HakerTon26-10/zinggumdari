@@ -21,7 +21,8 @@
 | 오픈소스 | pydantic | 조건 JSON·프로필 스키마 검증 | MIT |
 | 오픈소스 | httpx | API 덤프 | BSD-3 |
 | 오픈소스 | pdfplumber | 공고 PDF 텍스트 추출 | MIT |
-| 오픈소스 | SQLite (python 표준 `sqlite3`) | 프로필·알림 저장 | Public Domain |
+| 오픈소스 | SQLite (python 표준 `sqlite3`) | 기존 구현의 프로필·알림 저장. PostgreSQL 전환 완료 전 사용 이력 유지 | Public Domain |
+| 오픈소스 | PostgreSQL | 계정·세션·프로필·알림 저장소 전환 대상(명세, 아직 전환 완료 아님) | PostgreSQL License |
 | 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표 | BSD-3 |
 | 오픈소스 | rank-bm25 | 검색 점수(글자 2-gram BM25) | Apache-2.0 |
@@ -42,3 +43,6 @@
 | 데이터 | 통계청 「2024년 혼인·이혼 통계」 평균 초혼연령(남 33.9세, 여 31.6세, 2025-03-20 발표) | 가상 인구의 혼인 연령 | 공공저작물 |
 | 사전 보유 코드 | 해당 없음. 레포 첫 커밋 시각 (채울 것, YYYY-MM-DD HH:MM, 주제 공개 10/30 10:00 이후). 팀원의 기존 파인튜닝·서빙 스크립트 반입 없음 | | |
 | 기타 | AI 코딩 도구(실제 이름은 채울 것. 예: Claude Code, Cursor, GitHub Copilot) | 코드 작성 보조 | 상용 |
+
+
+PostgreSQL 드라이버·마이그레이션 도구·비밀번호 해시 라이브러리는 아직 선정·추가하지 않았다. 선정 후 사용 전에 정확한 패키지명·용도·라이선스를 이 표에 기재한다.

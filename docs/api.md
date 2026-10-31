@@ -150,7 +150,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
     "employment_type": "해당없음", "income_self": 270, "income_spouse": null, "income_household": 270,   // 만원. null = 모름
     "dependents_count": 0, "supports_parent_65": "N",
     "has_account": "Y", "joined_date": "2021-03-01", "payment_count": null, "deposit_amount": null,
-    "alert_categories": ["주거", "임신출산"], "alert_channel": "이메일", "email": "…",   // email은 시트에 칸이 없다. 이메일을 고른 사람만 받는다
+    "alert_categories": ["주거", "임신출산"], "alert_channel": "이메일", "email": "…",   // 알림 수신 주소. 계정용 이메일은 별도 인증 테이블에 저장하며 알림 수신은 별도 선택
     // ③ 물어본 것만
     "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고"}],
     "history": []
@@ -171,7 +171,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 | 부모 출생월 | 기초연금은 만 65세가 되는 해까지만 알려주고, 시작 달은 "생일이 속한 달 1개월 전부터"라는 원문 문장으로 안내한다 |
 | 부모 퇴직, 수술 예정, 소득, 주택 | 부모 사건은 65세 도달과 장기요양등급 신청(돌봄 희망 + 등급 없음)만 쓴다. 소득·주택 조건은 확인 필요 |
 | 자산, 자동차가액 | 그런 조건은 항상 확인 필요 |
-| 이메일 주소 | `user_alert.alert_channel`이 이메일일 때만 한 칸 받는다(시트에 칸 추가 필요) |
+| 이메일 주소 | 계정용 이메일은 가입 필수이며 인증 테이블에 둔다. 알림 주소·수신 동의는 별도로 관리한다 |
 
 DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `user_subscription`, `user_alert`, `user_qualifications`, `user_history`, `parents`, `policy_requirements`, 여기에 `income_standards`(연도 × 기준 × 가구원 수 → 금액)를 더한다. API 응답은 `user_id`로 합친 모양이다.
 
@@ -275,7 +275,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 매핑 규칙(오프라인, 손 조건표 15 + AI 추출 5를 미리 매핑해 캐시): 조건 JSON `documents[]` 문자열 → `aliases` 정확/부분 일치 → 없으면 `status: "unknown"`("발급처 확인 필요"). LLM 제안은 쓰지 않는다. gov24 `documents_official`에 있으면 `who_provides: official`. 런타임 `/judge`는 캐시만 읽는다. AI 조건표의 서류명은 원문 줄에 그대로 있는 것만 남는다(SPEC §9.3).
 
-## 5. 알림 (`GET /notifications?user_id=…`)
+## 5. 알림 (`GET /notifications`, 사용자 선택은 로그인 세션)
 
 ```jsonc
 [
@@ -308,7 +308,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 화면은 진행 표시(줄 만들기 → 자격 구간 → 읽기 → 검증 → 합류) 뒤 조건 표를 보여준다: 우리가 읽은 조건(템플릿 문장), 근거 줄, 검사별 ✓/✗, 미반영 줄. 그다음 카드에 합류시키고 `new_rule` 알림을 만든다. 검수 전이라 카드는 `eligible`이 되지 않는다(SPEC §5.2). 시연 PDF 2건은 결과 캐시 + "캐시 재생" 토글.
 
-## 7. 검색 (`GET /search?q=…&user_id=…&tag=…&subject=self|parent`)
+## 7. 검색 (`GET /search?q=…&tag=…&subject=self|parent`, 개인화 사용자는 로그인 세션)
 
 ```jsonc
 {
@@ -363,3 +363,23 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 - 근거 ID는 `{doc_id}:{줄 ID}`다.
 - `mark`는 조건 신호어가 있는 줄이다(SPEC §9.2). LLM은 표시된 줄마다 근거로 쓰거나 라벨을 단다.
 - PDF 보기는 `file`을 pdf.js(react-pdf)로 그리고, 카드 조건의 `evidence[].page`·`bbox`로 해당 줄을 칠한다. 텍스트 원문은 줄 목록을 그리고 근거 줄을 칠한다. 런타임에 텍스트 검색으로 위치를 찾지 않는다.
+
+## 인증·소유권 계약 (구현 전환 요구사항)
+
+기존 예시의 `user_id`는 응답 식별자이며 다른 계정에 접근할 권한을 뜻하지 않는다. 아래 내용은 인증·PostgreSQL 전환 설계이며 기존 서버에 구현되었다는 뜻이 아니다.
+
+| 메서드 | 경로 | 계약 |
+|---|---|---|
+| POST | `/auth/signup` | 이메일·비밀번호·닉네임·필수 동의로 계정 생성. 비밀번호 확인은 클라이언트 입력 보조이며 저장하지 않는다 |
+| POST | `/auth/login` | 이메일·비밀번호 인증 후 HttpOnly·Secure 세션 쿠키 발급 |
+| POST | `/auth/logout` | 현재 서버 세션 폐기 및 쿠키 삭제 |
+| GET | `/auth/me` | 현재 계정의 비밀정보 없는 식별 정보와 연결된 프로필 ID 반환 |
+| DELETE | `/auth/me` | 계정·모든 세션·프로필·알림·사용자 업로드 데이터 삭제 |
+
+- DB는 PostgreSQL이며 기존 추천 테이블에 `auth_accounts`, `auth_sessions`를 추가한다. 계정과 프로필은 외래 키로 연결한다. 비밀번호와 세션 토큰은 해시만 저장한다.
+- `POST /profiles`는 세션 계정에 프로필을 연결한다. `GET/PATCH/DELETE /profiles/{id}` 경로는 유지하되 서버에서 세션 계정의 소유 프로필과 ID를 비교한다. 미인증은 401, 타인 또는 존재하지 않는 프로필 요청은 동일한 404 응답을 사용한다.
+- `POST /judge`는 세션에서 본인 프로필을 결정한다. 기존 요청의 `user_id`는 생략 가능하며, 전환 중 전달되면 본인 프로필과 일치하는지 검사하고 다르면 403으로 거부한다.
+- `GET /search`는 로그인 없이 공고를 검색할 수 있지만 개인화 배지는 반환하지 않는다. 로그인 상태에서는 세션의 프로필만 사용한다. 기존 `user_id` 쿼리가 전달되면 로그인·본인 일치를 확인하며 미인증은 401, 불일치는 403으로 거부한다.
+- `GET /notifications`도 세션 소유자의 목록만 반환한다. 기존 `user_id`가 전달되면 본인 일치를 검사하며 다른 계정 선택에 쓰지 않는다. 알림 읽음 API도 해당 알림의 소유권을 확인한다.
+- 상태 변경 요청에는 CSRF 방어를 적용하며, 인증 실패 메시지는 계정 존재를 드러내지 않는다. 로그인 반복 요청은 제한한다.
+- 계정 이메일 수집은 이메일 알림 수신 동의가 아니다. 소득·건강 등 민감정보 동의도 분리한다. 실제 연결 값과 인증 비밀정보는 문서·로그에 남기지 않는다.
