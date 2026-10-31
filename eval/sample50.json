@@ -1,0 +1,1216 @@
+{
+ "made_by": "임종한(AI 공고 읽기)",
+ "made_at": "2026-11-01",
+ "prompt": "v1",
+ "note": "정답 칸(correct)은 비워 둔다. 프롬프트를 짜지 않는 사람(박범규)이 채점한다. 미채점 값을 성공으로 채우지 않는다(eval/score.py).",
+ "pool": 961,
+ "seed": 42,
+ "model": "claude-haiku-4-5",
+ "sample50": [
+  {
+   "rule_id": "gov24:611000000145:main-2",
+   "name": "저소득어르신급식지원 도시락배달·밑반찬배달",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005128&bnefType=all&svcId=611000000145",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "evidence": [
+     "gov24-611000000145:l3"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-611000000145:l3",
+     "text": "○ 만 65세 이상 결식우려 기초생활수급자 및 저소득 어르신(도시락배달, 밑반찬배달)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:155000000015",
+   "name": "4대궁, 종묘 및 조선왕릉 무료 관람",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=170076&bnefType=all&svcId=155000000015",
+   "index": 5,
+   "condition": {
+    "field": "pregnant",
+    "op": "==",
+    "value": "Y",
+    "evidence": [
+     "gov24-155000000015:l23"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-155000000015:l23",
+     "text": "○ 「모자보건법」제2조에 따른 임산부와 보호자 1인"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:135200005001",
+   "name": "긴급복지 주거지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=900008&bnefType=all&svcId=135200005001",
+   "index": 0,
+   "condition": {
+    "field": "income_household",
+    "op": "<=",
+    "value": 75,
+    "income_basis": "median_pct",
+    "evidence": [
+     "gov24-135200005001:l23"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-135200005001:l23",
+     "text": "○ 소득 : 기준 중위소득 75% 이하"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:999000000026:welfare",
+   "name": "행복주택 공급 주거급여수급자",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
+   "index": 0,
+   "condition": {
+    "field": "is_homeless",
+    "op": "==",
+    "value": "Y",
+    "evidence": [
+     "gov24-999000000026:l28"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-999000000026:l28",
+     "text": "- 무주택세대구성원으로서 해당 지역에 거주하는 주거급여수급 대상자인 사람"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:305000000173",
+   "name": "저소득층 아동 체험행사",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2104584&bnefType=all&svcId=305000000173",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 6,
+    "evidence": [
+     "gov24-305000000173:l2",
+     "gov24-305000000173:l3"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-305000000173:l2",
+     "text": "○「국민기초생활보장법」에 의한 국민기초생활보장 수급자 및 차상위 계층 가정의 아동(만 6~18세 미만)"
+    },
+    {
+     "id": "gov24-305000000173:l3",
+     "text": "○「한부모복지법」에 의한 저소득 한부모 가정의 아동(만 6~18세 미만)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:304000000162:youth",
+   "name": "청년 행정아르바이트",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803612&bnefType=all&svcId=304000000162",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 19,
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-304000000162:l3"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-304000000162:l3",
+     "text": "※ 청년고용촉진특별법 준용 19세~29세"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:304000000105",
+   "name": "장애인가정 양육지원금",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001588&bnefType=all&svcId=304000000105",
+   "index": 1,
+   "condition": {
+    "field": "youngest_child_age",
+    "op": "<",
+    "value": 7,
+    "evidence": [
+     "gov24-304000000105:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-304000000105:l2",
+     "text": "본인 또는 배우자가 출산한 만 7세 미만의 아동을 양육하면서 신청일 기준으로 1년 전부터 계속하여 광진구에 주민등록을 두고 거주하는 장애인(2022.7. 조례개정)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:161300000103:youth",
+   "name": "전세보증금반환보증 보증료 지원 청년",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2126303&bnefType=all&svcId=161300000103",
+   "index": 0,
+   "condition": {
+    "field": "deposit",
+    "op": "<=",
+    "value": 30000,
+    "evidence": [
+     "gov24-161300000103:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-161300000103:l2",
+     "text": "전세보증금 3억원 이하, 연소득 기준 이하(청년 5천만원, 신혼부부 7.5천만원, 청년 외 6천만원)인 무주택 임차인이 납입한 전세보증금반환보증 보증료(40만원 상한)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:999000000026:institution",
+   "name": "행복주택 공급 산업단지 근로자",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
+   "index": 1,
+   "condition": {
+    "field": "employment_status",
+    "op": "==",
+    "value": "재직",
+    "text": "인근(연접지역 포함) 산업단지의 입주기업 등에 재직중",
+    "evidence": [
+     "gov24-999000000026:l36"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-999000000026:l36",
+     "text": "- 무주택세대구성원으로서 인근(연접지역 포함) 산업단지의 입주기업 등에 재직중인 사람"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:149200005033",
+   "name": "청년도전지원사업",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149937&bnefType=all&svcId=149200005033",
+   "index": 2,
+   "condition": {
+    "field": "employment_status",
+    "op": "in",
+    "value": [
+     "구직"
+    ],
+    "evidence": [
+     "gov24-149200005033:l3",
+     "gov24-149200005033:l6"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-149200005033:l3",
+     "text": "* 사업 신청일 이전 6개월간 취업 및 교육·직업훈련 참여 이력이 없고, 구직단념청년 문답표 확인 결과 21점(30점 만점) 이상인 청년(만 18세 이상~34세 이하)"
+    },
+    {
+     "id": "gov24-149200005033:l6",
+     "text": "* 사업 신청일 이전 6개월간 취업 및 교육·직업훈련 참여 이력이 없고, 구직단념청년 문답표 확인 결과 21점(30점 만점) 이상인 청년(만 18세 이상~34세 이하)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:611000019620",
+   "name": "꿈나래통장",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149019&bnefType=all&svcId=611000019620",
+   "index": 5,
+   "condition": {
+    "field": "income_recognized",
+    "op": "<=",
+    "value": 80,
+    "income_basis": "median_pct",
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-611000019620:l6"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-611000019620:l6",
+     "text": "② 동일 가구원(가족관계증명서 기준)의 소득인정액이 기준 중위소득 51%이상 80% 이하 가구⁕"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:999000000026:student",
+   "name": "행복주택 공급 대학생",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
+   "index": 1,
+   "condition": {
+    "field": "is_homeless",
+    "op": "==",
+    "value": "Y",
+    "evidence": [
+     "gov24-999000000026:l8"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-999000000026:l8",
+     "text": "- 미혼인 무주택자로서 다음 어느 하나에 해당하는 사람"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:SSE000000020",
+   "name": "재가급여",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=716770&bnefType=all&svcId=SSE000000020",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "evidence": [
+     "gov24-sse000000020:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-sse000000020:l2",
+     "text": "○ 65세 이상 노인 및 노인성 질병을 가진 65세 미만의 국민으로서 혼자서 일상생활을 수행하기 어려워 장기 요양 1~5등급을 받은 수급자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:320000000119:main-2",
+   "name": "관악구 국가보훈대상자 보훈수당 배우자복지수당",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110221&bnefType=all&svcId=320000000119",
+   "index": 0,
+   "condition": {
+    "field": "sigungu",
+    "op": "==",
+    "value": "관악구",
+    "evidence": [
+     "gov24-320000000119:l7"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-320000000119:l7",
+     "text": "- 지급대상: 관악구에 거주하는 사망한 참전유공자의 배우자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:149200000147",
+   "name": "구직자 취업역량강화 프로그램",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999016&bnefType=all&svcId=149200000147",
+   "index": 0,
+   "condition": {
+    "field": "employment_status",
+    "op": "==",
+    "value": "구직",
+    "evidence": [
+     "gov24-149200000147:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-149200000147:l2",
+     "text": "○ 직업선택을 고민하고 있거나 취업의욕 고취 및 구직기술 향상이 필요한 구직자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:322000000120",
+   "name": "장애인가정 출산지원금 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005801&bnefType=all&svcId=322000000120",
+   "index": 0,
+   "condition": {
+    "field": "disability_registered",
+    "op": "==",
+    "value": "Y",
+    "evidence": [
+     "gov24-322000000120:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-322000000120:l2",
+     "text": "○ 출산한 등록 장애인가정"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:315000000107",
+   "name": "장애인 이동보조기기 수리비 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001762&bnefType=all&svcId=315000000107",
+   "index": 1,
+   "condition": {
+    "field": "sigungu",
+    "op": "==",
+    "value": "강서구",
+    "evidence": [
+     "gov24-315000000107:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-315000000107:l2",
+     "text": "○ 강서구 거주 등록장애인 중 이동보조기기 이용자 등(실버카 수리 지원대상: 등록장애인 중 65세 이상)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:135200005026",
+   "name": "긴급돌봄 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2119615&bnefType=all&svcId=135200005026",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 19,
+    "evidence": [
+     "gov24-135200005026:l28"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-135200005026:l28",
+     "text": "○ (연령) 돌봄이 필요한 대상자는 19세 이상인 성인을 주 대상으로 함"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:135200005017",
+   "name": "한국형 상병수당 시범사업",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=811600&bnefType=all&svcId=135200005017",
+   "index": 2,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 15,
+    "evidence": [
+     "gov24-135200005017:l6"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-135200005017:l6",
+     "text": "만 15세 이상 ~ 만 65세 미만 대한민국 국적자(난민 등 일부 외국인 예외 적용)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:149200005007:main",
+   "name": "국민취업지원제도 I유형(요건심사형)",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=797786&bnefType=all&svcId=149200005007",
+   "index": 2,
+   "condition": {
+    "field": "income_household",
+    "op": "<=",
+    "value": 60,
+    "income_basis": "median_pct",
+    "evidence": [
+     "gov24-149200005007:l3"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-149200005007:l3",
+     "text": "-(요건심사형) 15세~69세 구직자 중 중위소득 60% 이하, 재산 4억 이하(15~34세 청년은 재산 5억원 이하)이면서, 최근 2년 이내 100일 또는 800시간 이상의 취업경험이 있는 분"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:303000000346",
+   "name": "저소득 한부모가족 유급 자녀돌봄휴가비 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2168316&bnefType=all&svcId=303000000346",
+   "index": 3,
+   "condition": {
+    "field": "income_household",
+    "op": "<=",
+    "value": 65,
+    "income_basis": "median_pct",
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-303000000346:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-303000000346:l2",
+     "text": "18세 미만 자녀를 양육하는 기준 중위소득 65%이하 한부모가족 근로자 중 무급 자녀돌봄휴가 사용자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:304000000118",
+   "name": "저소득 국민건강보험료 및 장기요양보험료 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005767&bnefType=all&svcId=304000000118",
+   "index": 0,
+   "condition": {
+    "field": "sigungu",
+    "op": "==",
+    "value": "광진구",
+    "evidence": [
+     "gov24-304000000118:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-304000000118:l2",
+     "text": "광진구에 거주하는 저소득주민 중 보험료 부과금액이 월 최저보험료 이하인 국민건강보험공단 광진지사의 지역 가입자로 아래의 대상자로 구성된 세대"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:318000000431:youth",
+   "name": "청년 중개보수 감면 사업",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2169518&bnefType=all&svcId=318000000431",
+   "index": 2,
+   "condition": {
+    "field": "sido",
+    "op": "==",
+    "value": "서울",
+    "evidence": [
+     "gov24-318000000431:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-318000000431:l2",
+     "text": "서울시로 전입 또는 서울시 내에서 이사한 만 19~39세 청년가구"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:324000000106",
+   "name": "입학축하금 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001535&bnefType=all&svcId=324000000106",
+   "index": 0,
+   "condition": {
+    "field": "sigungu",
+    "op": "==",
+    "value": "강동구",
+    "evidence": [
+     "gov24-324000000106:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-324000000106:l2",
+     "text": "○ 강동구에 넷째 이상 입학대상 자녀와 주민등록상 동일세대를 구성하는 다자녀 가정의 넷째 이상 자녀가 초중고등학교에 입학하는 가정"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:135200005006",
+   "name": "시설급여",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999143&bnefType=all&svcId=135200005006",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "evidence": [
+     "gov24-135200005006:l4"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-135200005006:l4",
+     "text": "○ 65세 이상 노인 및 노인성 질병을 가진 65세 미만의 국민으로서 혼자서 일상생활을 수행하기 어려워 장기요양 1~2등급을 받은 수급자 및 3~5등급자이지만 시설급여가 필요하다고 등급판정위원회에서 판정한 경우"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:320000000127:main-2",
+   "name": "장애인 전동보장구 보험가입 지원 (노인)",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110152&bnefType=all&svcId=320000000127",
+   "index": 1,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-320000000127:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-320000000127:l2",
+     "text": "관악구에 주민등록을 둔 전동보장구 사용 장애인 및 65세 이상 노인"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:302000000125",
+   "name": "용산구 산모신생아 건강관리 본인부담금 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2152520&bnefType=all&svcId=302000000125",
+   "index": 3,
+   "condition": {
+    "field": "income_household",
+    "op": "<=",
+    "value": 100,
+    "income_basis": "median_pct",
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-302000000125:l6",
+     "gov24-302000000125:l8"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-302000000125:l6",
+     "text": "○ 기준중위소득 100% 이하 출산가정"
+    },
+    {
+     "id": "gov24-302000000125:l8",
+     "text": "출산일로부터 6개월 이내 신청 (대상: 3가지 조건 모두 충족 필요 - 등급판정일 기준, ①기준중위소득 100% 이하, ②용산구 거주 1년 이상, ③신생아 용산구 출생신고)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:999000000021:youth",
+   "name": "기존주택 매입임대주택 지원사업 청년",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999069&bnefType=all&svcId=999000000021",
+   "index": 2,
+   "condition": {
+    "field": "age",
+    "op": "<=",
+    "value": 39,
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-999000000021:l9"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-999000000021:l9",
+     "text": "○ 입주대상 : 무주택자 청년(19세~39세)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:611000000158:main-2",
+   "name": "서울시 민주화운동 관련자 명예수당",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005892&bnefType=all&svcId=611000000158",
+   "index": 0,
+   "condition": {
+    "field": "sido",
+    "op": "==",
+    "value": "서울",
+    "as_of": "application_date",
+    "evidence": [
+     "gov24-611000000158:l6"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-611000000158:l6",
+     "text": "- 신청일 기준 서울시에 주민등록을 두고 6개월 이상 계속 거주하고 있는 민주화운동 관련자로 신청일 기준 만65세 이상인 자에 월 10만원의 명예수당 지원"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:701000000204",
+   "name": "저소득층 교육정보화 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000399&bnefType=all&svcId=701000000204",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": "<",
+    "value": 22,
+    "evidence": [
+     "gov24-701000000204:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-701000000204:l2",
+     "text": "○ 서울특별시교육청 관내 국·공·사립 초·중·고등학교, 특수학교, 각종학교, 방송통신학교, 학력인정 평생교육시설 학생(만 22세 미만)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:314000000275:general",
+   "name": "전기자전거 보조금 지원 일반대상",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2167122&bnefType=all&svcId=314000000275",
+   "index": 2,
+   "condition": {
+    "field": "residence_months",
+    "op": ">=",
+    "value": 24,
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-314000000275:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-314000000275:l2",
+     "text": "- 일반대상(80명): 2년 이상 연속 거주한 양천구민으로 만18세 이상인 자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:303000000347:main",
+   "name": "임신부 및 배우자 백일해 예방접종 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2169423&bnefType=all&svcId=303000000347",
+   "index": 0,
+   "condition": {
+    "field": "pregnant",
+    "op": "==",
+    "value": "Y",
+    "evidence": [
+     "gov24-303000000347:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-303000000347:l2",
+     "text": "○ 성동구에 주민등록을 두고 거주하는 임신 27~36주 임신부"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:315000000270:main",
+   "name": "강서구 전세피해지원금(이사비) 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2114409&bnefType=all&svcId=315000000270",
+   "index": 1,
+   "condition": {
+    "field": "sigungu",
+    "op": "==",
+    "value": "강서구",
+    "evidence": [
+     "gov24-315000000270:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-315000000270:l2",
+     "text": "① 서울특별시 강서구에 주민등록이 되어 있는 자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:322000000115",
+   "name": "저소득 노인가구 국민건강보험료 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004825&bnefType=all&svcId=322000000115",
+   "index": 1,
+   "condition": {
+    "field": "sigungu",
+    "op": "==",
+    "value": "강남구",
+    "evidence": [
+     "gov24-322000000115:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-322000000115:l2",
+     "text": "○ 국민건강보험법에 따른 보험료 부과금액이 보건복지부장관이 고시한 지역가입자의 월별 보험료액의 하한액(2026년 기준 22,809원) 이하인 65세 이상 강남구 거주 노인 가구"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:305000000285",
+   "name": "대상포진 예방접종 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2168600&bnefType=all&svcId=305000000285",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "evidence": [
+     "gov24-305000000285:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-305000000285:l2",
+     "text": "동대문구 65세 이상 기초생활수급자 및 차상위계층 중 대상포진 예방접종 미접종자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:O00022900007:main-2",
+   "name": "체육시설 이용요금 감면(공릉구민체육센터) - 경로우대자",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149928&bnefType=all&svcId=O00022900007",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "evidence": [
+     "gov24-o00022900007:l5"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-o00022900007:l5",
+     "text": "○ 경로우대자(65세이상)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:SD0000011447",
+   "name": "디딤돌 운전면허 지원센터",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=761845&bnefType=all&svcId=SD0000011447",
+   "index": 1,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 18,
+    "evidence": [
+     "gov24-sd0000011447:l9",
+     "gov24-sd0000011447:l20"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-sd0000011447:l9",
+     "text": "- 18세 이상(원동기장치자전거 면허는 16세 이상)"
+    },
+    {
+     "id": "gov24-sd0000011447:l20",
+     "text": "- 18세 이상(원동기장치자전거 면허는 16세 이상)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:129000000032",
+   "name": "군무원 채용시험 응시수수료 면제",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159118&bnefType=all&svcId=129000000032",
+   "index": 1,
+   "condition": {
+    "any_of": [
+     [
+      {
+       "field": "children_count",
+       "op": ">=",
+       "value": 2
+      }
+     ]
+    ],
+    "evidence": [
+     "gov24-129000000032:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-129000000032:l2",
+     "text": "○ 「국민기초생활 보장법」에 따른 수급자 또는 차상위계층, 「한부모 가족지원법」에 따른 지원대상자, 「장애인연금법」에 따른 수급자, 2명 이상의 미성년 자녀가 있는 사람"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:999000000064",
+   "name": "이민자체류실태 및 고용조사 통계조사원 일자리 제공",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999231&bnefType=all&svcId=999000000064",
+   "index": 1,
+   "condition": {
+    "field": "children_count",
+    "op": ">=",
+    "value": 3,
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-999000000064:l5"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-999000000064:l5",
+     "text": "○ 다자녀보육가구: 주민등록상 만20세미만 자녀를 3명이상 보육하고 있는 자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:O00022900006:main",
+   "name": "체육시설 이용요금 감면(상계구민체육센터) - 13세 이상 55세 이하 여성",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2131016&bnefType=all&svcId=O00022900006",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 13,
+    "evidence": [
+     "gov24-o00022900006:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-o00022900006:l2",
+     "text": "○ 수영장을 이용하는 13세 이상 55세 이하의 여성"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:300000000103:main",
+   "name": "장애인 자립생활주택 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000850&bnefType=all&svcId=300000000103",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 19,
+    "evidence": [
+     "gov24-300000000103:l2",
+     "gov24-300000000103:l3"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-300000000103:l2",
+     "text": "○ 서울시 관할 장애인거주시설 이용인 중 지역자립욕구가 있는 19세 이상인 자"
+    },
+    {
+     "id": "gov24-300000000103:l3",
+     "text": "○ 서울시에 거주하는 19세이상인 재가장애인(차상위계층 또는 기초생활수급자)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:611000019648",
+   "name": "안심장비 지원사업",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159271&bnefType=all&svcId=611000019648",
+   "index": 1,
+   "condition": {
+    "field": "household_size",
+    "op": "==",
+    "value": 1,
+    "evidence": [
+     "gov24-611000019648:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-611000019648:l2",
+     "text": "○ 서울시 거주 1인 가구"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:310000000107:youth",
+   "name": "청년일경험 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001523&bnefType=all&svcId=310000000107",
+   "index": 2,
+   "condition": {
+    "field": "age",
+    "op": "<=",
+    "value": 39,
+    "evidence": [
+     "gov24-310000000107:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-310000000107:l2",
+     "text": "○ 노원구 거주 만 18세~39세 미취업 청년 40명"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:183000000006:main-2",
+   "name": "국가보훈대상자 보훈장학금 지원 - 자녀",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2148020&bnefType=all&svcId=183000000006",
+   "index": 1,
+   "condition": {
+    "field": "age",
+    "op": "<",
+    "value": 35,
+    "evidence": [
+     "gov24-183000000006:l6",
+     "gov24-183000000006:l20"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-183000000006:l6",
+     "text": "- 전상·공상·전몰·순직·재해부상·재해사망군경의 자녀(부모가 모두 사망하고 35세 미만인 경우에만 해당)"
+    },
+    {
+     "id": "gov24-183000000006:l20",
+     "text": "- 전상·공상·전몰·순직·재해부상·재해사망군경의 자녀(부모가 모두 사망하고 35세 미만인 경우에만 해당)"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:303000000344:main-3",
+   "name": "성동구 통합돌봄 낙상방지 홈케어 서비스 - 취약계층",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2167319&bnefType=all&svcId=303000000344",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "evidence": [
+     "gov24-303000000344:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-303000000344:l2",
+     "text": "○ 낙상우려 위험요인으로 주거환경 개선이 필요한 65세이상 어르신"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:999000000065",
+   "name": "가계금융복지조사 통계조사원 일자리 제공",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999232&bnefType=all&svcId=999000000065",
+   "index": 2,
+   "condition": {
+    "field": "youngest_child_age",
+    "op": "<",
+    "value": 20,
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-999000000065:l5"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-999000000065:l5",
+     "text": "○ 다자녀보육가구: 주민등록상 만20세미만 자녀를 3명이상 보육하고 있는 자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:309000000132:main",
+   "name": "장애인가정 출산지원금 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002528&bnefType=all&svcId=309000000132",
+   "index": 1,
+   "condition": {
+    "field": "disability_registered",
+    "op": "==",
+    "value": "Y",
+    "evidence": [
+     "gov24-309000000132:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-309000000132:l2",
+     "text": "○ 출산한 여성장애인"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:149200005007:main",
+   "name": "국민취업지원제도 I유형(요건심사형)",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=797786&bnefType=all&svcId=149200005007",
+   "index": 1,
+   "condition": {
+    "field": "age",
+    "op": "<=",
+    "value": 69,
+    "evidence": [
+     "gov24-149200005007:l3"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-149200005007:l3",
+     "text": "-(요건심사형) 15세~69세 구직자 중 중위소득 60% 이하, 재산 4억 이하(15~34세 청년은 재산 5억원 이하)이면서, 최근 2년 이내 100일 또는 800시간 이상의 취업경험이 있는 분"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:312000000315",
+   "name": "서대문구 아빠 육아휴직장려금",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2116102&bnefType=all&svcId=312000000315",
+   "index": 3,
+   "condition": {
+    "field": "sigungu",
+    "op": "==",
+    "value": "서대문구",
+    "evidence": [
+     "gov24-312000000315:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-312000000315:l2",
+     "text": "연속해서 현재까지 1년 이상 서대문구에 거주한 고용보험 육아휴직급여 남성수급자"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  },
+  {
+   "rule_id": "gov24:149200005023:youth",
+   "name": "청년 국가기술자격시험 응시료 지원",
+   "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2116314&bnefType=all&svcId=149200005023",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": "<=",
+    "value": 34,
+    "as_of": "notice_date",
+    "evidence": [
+     "gov24-149200005023:l2"
+    ],
+    "status": "auto_verified"
+   },
+   "evidence": [
+    {
+     "id": "gov24-149200005023:l2",
+     "text": "만 34세이하 청년"
+    }
+   ],
+   "correct": null,
+   "memo": ""
+  }
+ ]
+}

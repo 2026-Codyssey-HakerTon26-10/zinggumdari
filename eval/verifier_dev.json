@@ -1,0 +1,1740 @@
+{
+ "made_by": "임종한(AI 공고 읽기)",
+ "made_at": "2026-11-01",
+ "prompt": "v1",
+ "note": "정답 칸(correct)은 비워 둔다. 프롬프트를 짜지 않는 사람(박범규)이 채점한다. 미채점 값을 성공으로 채우지 않는다(eval/score.py).",
+ "verifier": [
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 0,
+   "condition": {
+    "field": "other",
+    "text": "주택도시기금대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자(성년 세대원 전원 기금대출 이용 중이면 불가, 차주 및 배우자 전세자금·주담대 이용 중이면 불가)",
+    "reason": "malformed",
+    "evidence": [
+     "nhuf-buttimok-youth:l346",
+     "nhuf-buttimok-youth:l347",
+     "nhuf-buttimok-youth:l348"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l346",
+     "text": "0. (중복대출 금지) 주택도시기금대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l347",
+     "text": "(주택도시기금대출) 성년인 세대원 전원(세대가 분리된 배우자 및 자녀, 결혼예정 배우자, 배우자의 직계존속과 동거세대를 구성하는 경우 배우자의 직계존속 포함)이 기금 대출을 이용 중이면 대출 불가"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l348",
+     "text": "(전세자금대출 및 주택담보대출) 차주 및 배우자(결혼예정 또는 분리된 배우자 포함)가 전세자금대출 및 주택담보대출을 이용 중이면 대출 불가"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 1,
+   "condition": {
+    "field": "tenure_type",
+    "op": "in",
+    "value": [
+     "전세",
+     "보증부월세"
+    ],
+    "evidence": [
+     "nhuf-buttimok-youth:l353"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:전세",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l353",
+     "text": "1. (계약) 주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 2,
+   "condition": {
+    "field": "other",
+    "text": "주택임대차계약 체결하고 임차보증금의 5% 이상 지불한 자",
+    "evidence": [
+     "nhuf-buttimok-youth:l353"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l353",
+     "text": "1. (계약) 주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 3,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 19,
+    "as_of": "application_date",
+    "evidence": [
+     "nhuf-buttimok-youth:l354",
+     "nhuf-buttimok-youth:l331"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l354",
+     "text": "2. (세대주) 대출접수일 현재 만19세 이상 만34세 이하의 세대주(예비 세대주 포함)"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l331",
+     "text": "만 19세 이상 ∼ 만 34세 이하의 세대주(예비 세대주 포함)"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 4,
+   "condition": {
+    "field": "age",
+    "op": "<=",
+    "value": 34,
+    "as_of": "application_date",
+    "evidence": [
+     "nhuf-buttimok-youth:l354",
+     "nhuf-buttimok-youth:l331"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l354",
+     "text": "2. (세대주) 대출접수일 현재 만19세 이상 만34세 이하의 세대주(예비 세대주 포함)"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l331",
+     "text": "만 19세 이상 ∼ 만 34세 이하의 세대주(예비 세대주 포함)"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 5,
+   "condition": {
+    "field": "is_householder",
+    "op": "==",
+    "value": "세대주",
+    "as_of": "application_date",
+    "text": "세대주(예비 세대주 포함), 중소·중견기업 취업 또는 창업지원 받는 만34세 이하 병역이행자는 최대 만39세까지 연장",
+    "evidence": [
+     "nhuf-buttimok-youth:l354",
+     "nhuf-buttimok-youth:l355",
+     "nhuf-buttimok-youth:l356"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l354",
+     "text": "2. (세대주) 대출접수일 현재 만19세 이상 만34세 이하의 세대주(예비 세대주 포함)"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l355",
+     "text": "단, 쉐어하우스(채권양도협약기관 소유주택에 한함)에 입주하는 경우 예외적으로 세대주 요건을 만족하지 않아도 이용 가능"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l356",
+     "text": "단, 중소·중견기업(주택도시보증공사에서 연 1회 통보하는 사행성 영위 업종 또는 공기업, 지방공기업에 해당하는 경우 제외)에 취업 또는 중소기업진흥공단, 신용보증기금 및 기술보증기금의 창업 관련 보증 또는 자금 지원을 받고 있는 만 34세 이하인 자는 병역법에 따라 병역의무를 이행한 경우 병역 복무기간을 연장하되 최대 만 39세까지 연장 가능"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 6,
+   "condition": {
+    "field": "is_homeless",
+    "op": "==",
+    "value": "Y",
+    "text": "세대주 포함 세대원 전원 무주택",
+    "evidence": [
+     "nhuf-buttimok-youth:l357"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l357",
+     "text": "3. (무주택) 세대주를 포함한 세대원 전원이 무주택인 자"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 7,
+   "condition": {
+    "any_of": [
+     [
+      {
+       "field": "income_couple",
+       "op": "<=",
+       "value": 5000,
+       "income_basis": "absolute_annual",
+       "text": "대출신청인과 배우자 합산 총소득 5천만원 이하"
+      }
+     ],
+     [
+      {
+       "field": "income_couple",
+       "op": "<=",
+       "value": 6000,
+       "income_basis": "absolute_annual",
+       "text": "혁신도시 이전 공공기관 종사자, 재개발 구역내 세입자, 다자녀가구, 2자녀 가구는 6천만원 이하"
+      }
+     ],
+     [
+      {
+       "field": "marital_status",
+       "op": "in",
+       "value": [
+        "신혼"
+       ]
+      },
+      {
+       "field": "income_couple",
+       "op": "<=",
+       "value": 7500,
+       "income_basis": "absolute_annual",
+       "text": "신혼가구 7.5천만원 이하"
+      }
+     ]
+    ],
+    "evidence": [
+     "nhuf-buttimok-youth:l358",
+     "nhuf-buttimok-youth:l330"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b1.0:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l358",
+     "text": "4. (소득) 대출신청인과 배우자의 합산 총소득이 5천만원 이하인 자, 단, 혁신도시 이전 공공기관 종사자, 타 지역으로 이주하는 재개발 구역내 세입자, 다자녀가구, 2자녀 가구인 경우 6천만원 이하, 신혼가구인 경우는 7.5천만원 이하인 자"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l330",
+     "text": "대출대상 부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주(예비세대주 포함)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 8,
+   "condition": {
+    "field": "other",
+    "text": "대출신청인 및 배우자 합산 순자산 가액이 소득 3분위 전체가구 평균값 이하(2026년 기준 3.45억원)",
+    "evidence": [
+     "nhuf-buttimok-youth:l360",
+     "nhuf-buttimok-youth:l361",
+     "nhuf-buttimok-youth:l330"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l360",
+     "text": "5. (자산) 대출신청인 및 배우자의 합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 ‘소득 5분위별 자산 및 부채현황’ 중 소득 3분위 전체가구 평균값 이하(십만원 단위에서 반올림)인 자"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l361",
+     "text": "2026년도 기준 3.45억원"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l330",
+     "text": "대출대상 부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주(예비세대주 포함)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 9,
+   "condition": {
+    "field": "other",
+    "text": "신용정보(연체·대위변제·부도·신용회복지원 등) 남아있으면 불가, 내규 제한 시 불가",
+    "evidence": [
+     "nhuf-buttimok-youth:l364",
+     "nhuf-buttimok-youth:l368"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l364",
+     "text": "신청인(연대입보한 경우 연대보증인 포함)이 한국신용정보원 “신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l368",
+     "text": "그 외, 부부에 대하여 대출취급기관 내규로 대출을 제한하고 있는 경우에는 대출 불가능"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 10,
+   "condition": {
+    "field": "other",
+    "as_of": "application_date",
+    "text": "대출접수일 현재 공공임대주택 입주 중이면 불가(목적물인 경우·퇴거하는 경우 가능)",
+    "evidence": [
+     "nhuf-buttimok-youth:l369"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l369",
+     "text": "7. (공공임대주택) 대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 11,
+   "condition": {
+    "field": "other",
+    "text": "임차 전용면적 85㎡ 이하 주택(만25세미만 단독세대주 60㎡ 이하, 쉐어하우스 제한 없음)",
+    "evidence": [
+     "nhuf-buttimok-youth:l388",
+     "nhuf-buttimok-youth:l389",
+     "nhuf-buttimok-youth:l390"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l388",
+     "text": "임차 전용면적 85㎡ 이하 주택(주거용 오피스텔 포함) 및 채권양도협약기관 소유의 기숙사(호수가 구분되어 있고 전입신고가 가능한 경우에 한함)"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l389",
+     "text": "(단, 만25세미만 단독세대주인 경우 60㎡ 이하 주택)"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l390",
+     "text": "단, 쉐어하우스(채권양도협약기관 소유주택에 한함)에 입주하는 경우 예외적으로 면적 제한 없음"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 12,
+   "condition": {
+    "field": "deposit",
+    "op": "<=",
+    "value": 30000,
+    "text": "임차보증금 3억원 이하",
+    "evidence": [
+     "nhuf-buttimok-youth:l392"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l392",
+     "text": "3억원 이하"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 13,
+   "condition": {
+    "field": "other",
+    "text": "기금 구입·전월세자금대출 거래약정서 위반으로 기한이익 상실 이력 있으면 불가(접수일 현재 3년 경과자는 가능)",
+    "reason": "malformed",
+    "evidence": [
+     "nhuf-buttimok-youth:l489"
+    ],
+    "as_of": "application_date",
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l489",
+     "text": "기금의 구입 또는 전월세자금대출 이용 중 주택도시기금 대출거래약정서를 위반하여 기한의 이익이 상실된 이력이 있는 경우 이용 불가(다만, 접수일 현재 해당 기한이익상실일로부터 3년이 경과된 자는 가능)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-buttimok-youth",
+   "ai_rule": "web:nhuf-buttimok-youth",
+   "index": 14,
+   "condition": {
+    "field": "other",
+    "text": "임대차계약서상 잔금지급일과 전입일 중 빠른 날로부터 3개월 이내 신청(계약갱신은 갱신일로부터 3개월 이내)",
+    "reason": "malformed",
+    "evidence": [
+     "nhuf-buttimok-youth:l372",
+     "nhuf-buttimok-youth:l373"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-buttimok-youth:l372",
+     "text": "임대차계약서상 잔금지급일과 주민등록등본상 전입일 중 빠른 날로부터 3개월이내까지 신청"
+    },
+    {
+     "id": "nhuf-buttimok-youth:l373",
+     "text": "계약갱신의 경우에는 계약갱신일(월세에서 전세로 전환계약한 경우에는 전환일)로부터 3개월이내에 신청"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 0,
+   "condition": {
+    "field": "other",
+    "text": "주택도시기금대출, 은행재원 전세자금대출 및 주택담보대출 미이용자(중복대출 금지)",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l347",
+     "nhuf-newlywed-jeonse:l348",
+     "nhuf-newlywed-jeonse:l349"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l347",
+     "text": "0. (중복대출 금지) 주택도시기금대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자"
+    },
+    {
+     "id": "nhuf-newlywed-jeonse:l348",
+     "text": "(주택도시기금대출) 성년인 세대원 전원(세대가 분리된 배우자 및 자녀, 결혼예정 배우자, 배우자의 직계존속과 동거세대를 구성하는 경우 배우자의 직계존속 포함)이 기금 대출을 이용 중이면 대출 불가"
+    },
+    {
+     "id": "nhuf-newlywed-jeonse:l349",
+     "text": "(전세자금대출 및 주택담보대출) 차주 및 배우자(결혼예정 또는 분리된 배우자 포함)가 전세자금대출 및 주택담보대출을 이용 중이면 대출 불가"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 1,
+   "condition": {
+    "field": "other",
+    "text": "주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l355"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l355",
+     "text": "1. (계약) 주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 2,
+   "condition": {
+    "field": "is_householder",
+    "op": "==",
+    "value": "세대주",
+    "as_of": "application_date",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l356"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l356",
+     "text": "2. (세대주) 대출접수일 현재 민법상 성년인 세대주(대출실행일로부터 1개월 이내에 세대분가 또는 세대합가로 인한 세대주 예정자 포함)"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 3,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 19,
+    "as_of": "application_date",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l356"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l356",
+     "text": "2. (세대주) 대출접수일 현재 민법상 성년인 세대주(대출실행일로부터 1개월 이내에 세대분가 또는 세대합가로 인한 세대주 예정자 포함)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 4,
+   "condition": {
+    "field": "is_homeless",
+    "op": "==",
+    "value": "Y",
+    "text": "세대주를 포함한 세대원 전원이 무주택",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l361"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l361",
+     "text": "3. (무주택) 세대주를 포함한 세대원 전원이 무주택인 자"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 5,
+   "condition": {
+    "any_of": [
+     [
+      {
+       "field": "income_couple",
+       "op": "<=",
+       "value": 7500,
+       "income_basis": "absolute_annual"
+      }
+     ],
+     [
+      {
+       "field": "income_self",
+       "op": "<=",
+       "value": 5000,
+       "income_basis": "absolute_annual",
+       "text": "부부합산 7.5천만원 초과하나 대출신청인 소득 5천만원 이하"
+      }
+     ]
+    ],
+    "evidence": [
+     "nhuf-newlywed-jeonse:l362",
+     "nhuf-newlywed-jeonse:l363"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l362",
+     "text": "4. (소득) 대출신청인과 배우자의 합산 총소득이 연간 7.5천만원 이하인 자"
+    },
+    {
+     "id": "nhuf-newlywed-jeonse:l363",
+     "text": "단, 신혼부부 부부합산 총 소득이 연간 7.5천만원을 초과하나 부부 중 1인(대출신청인)의 소득이 5천만원 이하인 경우 대출 가능)"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 6,
+   "condition": {
+    "field": "other",
+    "text": "대출신청인 및 배우자 합산 순자산가액이 소득 3분위 전체가구 평균값 이하(2026년 기준 3.45억원)",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l365",
+     "nhuf-newlywed-jeonse:l366"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l365",
+     "text": "5. (자산) 대출신청인 및 배우자의 합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 ‘소득 5분위별 자산 및 부채현황’ 중 소득 3분위 전체가구 평균값 이하(십만원 단위에서 반올림)인 자"
+    },
+    {
+     "id": "nhuf-newlywed-jeonse:l366",
+     "text": "2026년도 기준 3.45억원"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 7,
+   "condition": {
+    "field": "other",
+    "text": "신용정보 및 해제정보가 남아있는 경우 대출 불가(신용도 요건)",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l369"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l369",
+     "text": "신청인(연대입보한 경우 연대보증인 포함)이 한국신용정보원 “신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 8,
+   "condition": {
+    "field": "other",
+    "text": "대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l374"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l374",
+     "text": "7. (공공임대주택) 대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 9,
+   "condition": {
+    "any_of": [
+     [
+      {
+       "field": "marital_status",
+       "op": "in",
+       "value": [
+        "신혼",
+        "기혼"
+       ]
+      },
+      {
+       "field": "marriage_years",
+       "op": "<=",
+       "value": 7
+      }
+     ],
+     [
+      {
+       "field": "marital_status",
+       "op": "==",
+       "value": "예비부부",
+       "text": "3개월 이내 결혼 예정하여 세대구성 예정 가구"
+      }
+     ]
+    ],
+    "evidence": [
+     "nhuf-newlywed-jeonse:l331",
+     "nhuf-newlywed-jeonse:l376"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:기혼",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l331",
+     "text": "신혼부부(혼인기간 7년 이내 또는 3개월 이내 결혼예정자)"
+    },
+    {
+     "id": "nhuf-newlywed-jeonse:l376",
+     "text": "8. (신혼가구) 혼인관계증명서상 신청인과 그의 현재 배우자와의 혼인기간(동일한 배우자와 최초 혼인 후 재혼한 경우 최초 혼일일로부터)이 7년 이내인 가구 또는 3개월 이내 결혼을 예정하여 세대 구성이 예정된 가구"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 10,
+   "condition": {
+    "field": "deposit",
+    "op": "<=",
+    "value": 40000,
+    "text": "수도권 임차보증금 4억원 이하",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l397"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l397",
+     "text": "수도권 4억원, 수도권 외 3억원"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newlywed-jeonse",
+   "ai_rule": "web:nhuf-newlywed-jeonse",
+   "index": 11,
+   "condition": {
+    "field": "other",
+    "text": "임차 전용면적 85㎡(읍면지역 100㎡) 이하 주택, 주거용 오피스텔 85㎡ 이하",
+    "evidence": [
+     "nhuf-newlywed-jeonse:l394"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newlywed-jeonse:l394",
+     "text": "임차 전용면적 85㎡ (수도권을 제외한 도시지역이 아닌 읍 또는 면지역은 100㎡) 이하 주택(주거용 오피스텔은 85㎡이하 포함) 및 채권양도협약기관 소유의 기숙사(호수가 구분되어 있고 전입신고가 가능한 경우에 한함)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 0,
+   "condition": {
+    "field": "other",
+    "text": "중복대출 금지: 기금대출, 은행재원 전세자금대출, 주택담보대출 미이용자",
+    "evidence": [
+     "nhuf-newborn-buttimok:l347",
+     "nhuf-newborn-buttimok:l348",
+     "nhuf-newborn-buttimok:l349"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l347",
+     "text": "0. (중복대출 금지) 주택도시기금 대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자 등"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l348",
+     "text": "(주택도시기금대출) 성년인 세대원 전원(세대가 분리된 배우자 및 자녀, 결혼예정 배우자, 배우자의 직계존속과 동거세대를 구성하는 경우 배우자의 직계존속, 혼인신고를 하지 않은 경우 신생아의 가족관계증명서 상 등재된 부모 포함)이 기금 대출을 이용 중이면 대출 불가"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l349",
+     "text": "(전세자금대출 및 주택담보대출) 차주 및 배우자(결혼예정 또는 분리된 배우자 포함)가 전세자금대출 및 주택담보대출을 이용 중이면 대출 불가"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 1,
+   "condition": {
+    "field": "other",
+    "text": "주택임대차계약 체결 및 임차보증금의 5% 이상 지불",
+    "evidence": [
+     "nhuf-newborn-buttimok:l355"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l355",
+     "text": "1. (계약) 주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 2,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 19,
+    "as_of": "application_date",
+    "evidence": [
+     "nhuf-newborn-buttimok:l356"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l356",
+     "text": "2. (세대주) 대출접수일 현재 민법상 성년인 세대주(대출실행일로부터 1개월 이내에 세대분가 또는 세대합가로 인한 세대주 예정자 포함)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 3,
+   "condition": {
+    "field": "is_householder",
+    "op": "==",
+    "value": "세대주",
+    "as_of": "application_date",
+    "evidence": [
+     "nhuf-newborn-buttimok:l356"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l356",
+     "text": "2. (세대주) 대출접수일 현재 민법상 성년인 세대주(대출실행일로부터 1개월 이내에 세대분가 또는 세대합가로 인한 세대주 예정자 포함)"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 4,
+   "condition": {
+    "field": "other",
+    "as_of": "application_date",
+    "text": "대출접수일 기준 2년 내 출산(입양)한 가구(’23.1.1. 이후 출생아, 입양시 만2살 미만)",
+    "evidence": [
+     "nhuf-newborn-buttimok:l330",
+     "nhuf-newborn-buttimok:l361",
+     "nhuf-newborn-buttimok:l363",
+     "nhuf-newborn-buttimok:l364"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l330",
+     "text": "대출대상 대출접수일 기준 2년 내 출산(’23.1.1. 이후 출생아부터 적용)한 무주택 세대주"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l361",
+     "text": "3. (출산) 대출접수일 기준 2년 내 출산(입양)한 가구"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l363",
+     "text": "① ’23.1.1. 이후 출생아부터 적용(임신 중인 태아는 미포함)"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l364",
+     "text": "② ’23.1.1. 이후 출생아를 입양한 경우도 포함(단, 대출접수일 기준 입양아의 나이는 만2살 미만이어야함)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 5,
+   "condition": {
+    "field": "is_homeless",
+    "op": "==",
+    "value": "Y",
+    "evidence": [
+     "nhuf-newborn-buttimok:l330",
+     "nhuf-newborn-buttimok:l366"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l330",
+     "text": "대출대상 대출접수일 기준 2년 내 출산(’23.1.1. 이후 출생아부터 적용)한 무주택 세대주"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l366",
+     "text": "4. (무주택) 세대주를 포함한 세대원 전원이 무주택인 자(혼인신고를 하지 않은 경우 신생아의 가족관계증명서 상 등재된 부모 포함)"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 6,
+   "condition": {
+    "any_of": [
+     [
+      {
+       "field": "income_couple",
+       "op": "<=",
+       "value": 13000,
+       "income_basis": "absolute_annual"
+      }
+     ],
+     [
+      {
+       "field": "employment_type",
+       "op": "==",
+       "value": "맞벌이"
+      },
+      {
+       "field": "income_couple",
+       "op": "<=",
+       "value": 20000,
+       "income_basis": "absolute_annual"
+      },
+      {
+       "field": "income_self",
+       "op": "<=",
+       "value": 13000,
+       "income_basis": "absolute_annual"
+      },
+      {
+       "field": "income_spouse",
+       "op": "<=",
+       "value": 13000,
+       "income_basis": "absolute_annual"
+      }
+     ]
+    ],
+    "evidence": [
+     "nhuf-newborn-buttimok:l331",
+     "nhuf-newborn-buttimok:l367"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b1.2:income_owner:income_couple",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l331",
+     "text": "부부합산 연소득 1.3억원 이하(맞벌이의 경우 2억원 이하), 순자산가액 3.45억원 이하"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l367",
+     "text": "5. (소득) 대출신청인과 배우자의 합산 총소득이 연간 1.3억원 이하인 자. 다만 대출신청인과 배우자가 모두 소득이 있는 경우 합산 총소득이 2억원 이하인 자(부부 각 1인의 소득이 1.3억원 이하)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 7,
+   "condition": {
+    "field": "other",
+    "text": "본인 및 배우자 합산 순자산가액 3.45억원 이하(2026년 기준)",
+    "evidence": [
+     "nhuf-newborn-buttimok:l331",
+     "nhuf-newborn-buttimok:l369",
+     "nhuf-newborn-buttimok:l370"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l331",
+     "text": "부부합산 연소득 1.3억원 이하(맞벌이의 경우 2억원 이하), 순자산가액 3.45억원 이하"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l369",
+     "text": "6. (자산) 대출신청인 및 배우자의 합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 ‘소득 5분위별 자산 및 부채현황’ 중 소득 3분위 전체가구 평균값 이하(십만원 단위에서 반올림)인 자"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l370",
+     "text": "2026년도 기준 3.45억원"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 8,
+   "condition": {
+    "field": "other",
+    "text": "한국신용정보원 신용정보 관련 연체·대위변제 등 정보가 없을 것",
+    "evidence": [
+     "nhuf-newborn-buttimok:l374"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l374",
+     "text": "신청인이 한국신용정보원 “신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 9,
+   "condition": {
+    "field": "other",
+    "as_of": "application_date",
+    "text": "대출접수일 현재 공공임대주택에 입주 중인 경우 불가",
+    "evidence": [
+     "nhuf-newborn-buttimok:l379"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l379",
+     "text": "8. (공공임대주택) 대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 10,
+   "condition": {
+    "field": "other",
+    "text": "대상주택: 임차 전용면적 85㎡(읍면 100㎡) 이하",
+    "evidence": [
+     "nhuf-newborn-buttimok:l398"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l398",
+     "text": "임차 전용면적 85㎡ (수도권을 제외한 도시지역이 아닌 읍 또는 면지역은 100㎡) 이하 주택(주거용 오피스텔은 85㎡이하 포함) 및 채권양도협약기관 소유의 기숙사(호수가 구분되어 있고 전입신고가 가능한 경우에 한함)"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 11,
+   "condition": {
+    "field": "deposit",
+    "op": "<=",
+    "value": 50000,
+    "text": "수도권 임차보증금 5억원 이하",
+    "evidence": [
+     "nhuf-newborn-buttimok:l401"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l401",
+     "text": "수도권 5억원, 수도권외 4억원"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 12,
+   "condition": {
+    "field": "deposit",
+    "op": "<=",
+    "value": 40000,
+    "text": "수도권외 임차보증금 4억원 이하",
+    "evidence": [
+     "nhuf-newborn-buttimok:l401"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l401",
+     "text": "수도권 5억원, 수도권외 4억원"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:hug-newborn-buttimok",
+   "ai_rule": "web:nhuf-newborn-buttimok",
+   "index": 13,
+   "condition": {
+    "field": "other",
+    "text": "임대차계약 잔금지급일과 전입일 중 빠른 날로부터 3개월 이내 신청",
+    "reason": "malformed",
+    "evidence": [
+     "nhuf-newborn-buttimok:l382",
+     "nhuf-newborn-buttimok:l383"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "nhuf-newborn-buttimok:l382",
+     "text": "임대차계약서상 잔금지급일과 주민등록등본상 전입일 중 빠른 날로부터 3개월이내까지 신청"
+    },
+    {
+     "id": "nhuf-newborn-buttimok:l383",
+     "text": "계약갱신의 경우에는 계약갱신일(월세에서 전세로 전환계약한 경우에는 전환일)로부터 3개월이내에 신청"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:basic-pension",
+   "ai_rule": "gov24:sse000000170",
+   "index": 0,
+   "condition": {
+    "field": "age",
+    "op": ">=",
+    "value": 65,
+    "evidence": [
+     "gov24-sse000000170:l2",
+     "gov24-sse000000170:l5"
+    ],
+    "status": "auto_verified"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "gov24-sse000000170:l2",
+     "text": "○ 만 65세 이상 노인으로 소득 인정액이 선정기준액(보건복지부 장관이 매년 결정·고시하는 금액) 이하인 자"
+    },
+    {
+     "id": "gov24-sse000000170:l5",
+     "text": "○ 연령 요건 : 만 65세 이상"
+    }
+   ],
+   "flagged": false,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:basic-pension",
+   "ai_rule": "gov24:sse000000170",
+   "index": 1,
+   "condition": {
+    "field": "other",
+    "text": "가구의 소득인정액이 선정기준액 이하(단독가구 247만원, 부부가구 395.2만원, 2026년)",
+    "reason": "malformed",
+    "evidence": [
+     "gov24-sse000000170:l2",
+     "gov24-sse000000170:l7",
+     "gov24-sse000000170:l8",
+     "gov24-sse000000170:l9",
+     "gov24-sse000000170:l10"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "gov24-sse000000170:l2",
+     "text": "○ 만 65세 이상 노인으로 소득 인정액이 선정기준액(보건복지부 장관이 매년 결정·고시하는 금액) 이하인 자"
+    },
+    {
+     "id": "gov24-sse000000170:l7",
+     "text": "- 가구의 소득 인정액이 선정기준액 이하일 것"
+    },
+    {
+     "id": "gov24-sse000000170:l8",
+     "text": "- 2026년도 선정기준액"
+    },
+    {
+     "id": "gov24-sse000000170:l9",
+     "text": "· 단독 가구 : 247만 원"
+    },
+    {
+     "id": "gov24-sse000000170:l10",
+     "text": "· 부부 가구 : 395.2만 원"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:basic-pension",
+   "ai_rule": "gov24:sse000000170",
+   "index": 2,
+   "condition": {
+    "field": "other",
+    "text": "공무원·사립학교교직원·군인·별정우체국직원연금 수급권자 및 배우자는 원칙적으로 제외(퇴직일시금 수령자, 퇴직유족일시금 수령 후 5년 경과자 등 예외)",
+    "evidence": [
+     "gov24-sse000000170:l21",
+     "gov24-sse000000170:l22"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "evidence": [
+    {
+     "id": "gov24-sse000000170:l21",
+     "text": "- 공무원연금, 사립학교교직원연금, 군인연금, 별정우체국직원연금의 수급권자 및 배우자는 원칙적으로 제외 대상"
+    },
+    {
+     "id": "gov24-sse000000170:l22",
+     "text": "※단, 퇴직일시금을 수령한 자, 퇴직유족(연금) 일시금 수령 후 5년 경과한 자 등 일부 예외적으로 수급 가능"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  },
+  {
+   "rule_id": "manual:ltc-insurance",
+   "ai_rule": "gov24:999000000089",
+   "index": 0,
+   "condition": {
+    "any_of": [
+     [
+      {
+       "field": "age",
+       "op": ">=",
+       "value": 65
+      }
+     ],
+     [
+      {
+       "field": "age",
+       "op": "<",
+       "value": 65
+      },
+      {
+       "field": "other",
+       "text": "치매·뇌혈관성 질환 등 노인성 질병(시행령 제2조)이 있는 자"
+      }
+     ]
+    ],
+    "evidence": [
+     "gov24-999000000089:l3"
+    ],
+    "status": "needs_review"
+   },
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "evidence": [
+    {
+     "id": "gov24-999000000089:l3",
+     "text": "- 만 65세 이상 노인 또는 만 65세 미만자 중 치매ㆍ뇌혈관성 질환 등 노인성 질병(시행령 제2조에 정해진 질병)이 있는 자"
+    }
+   ],
+   "flagged": true,
+   "correct": null
+  }
+ ]
+}
