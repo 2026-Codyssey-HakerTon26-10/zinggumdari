@@ -1,8 +1,10 @@
 # 징검
 
-내 다음 단계에서 열리는 제도를 미리 추천합니다. 원하면 부모님 것도 같이 봅니다.
+생애주기에 맞춰, 다음 단계에서 열리는 제도를 그 단계가 오기 전에 먼저 보여줍니다. 그 전에 해둘 일과 공고문 원문의 근거까지 보여주고, 원하면 부모님 것도 같이 봅니다.
 코디세이 AI 해커톤 2026, 주제 ① AI 기반 추천 서비스.
 
+- 왜 만드는가(문제, 근거, 결정과 이유): [Background.md](Background.md)
+- 무엇을 만드는가(기능별 동작과 확인 기준): [SPEC.md](SPEC.md)
 - 데이터 형식(백엔드, AI, 프론트가 주고받는 모양): [docs/api.md](docs/api.md)
 - 외부 자원(빠지면 실격): [docs/external-resources.md](docs/external-resources.md)
 - AI 코딩 도구 공통 규칙: [AGENTS.md.example](AGENTS.md.example)
