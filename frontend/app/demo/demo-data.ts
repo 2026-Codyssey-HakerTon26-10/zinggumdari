@@ -1,9 +1,15 @@
+import type { DemoStep } from "./demo-timeline"; // 타임라인 응답의 단계 모양을 공유해요.
 export type DemoCondition = { read_as: string; grade: "확정" | "확인 필요" | "질문"; ok: boolean | null }; // API 조건 중 이번 화면이 사용하는 칸이에요.
 export type DemoCard = { rule_id: string; subject: "self"; name: string; verdict: "needs_check"; conditions: DemoCondition[]; detail_url: string | null; updated: string }; // 판정 응답의 카드 이름을 그대로 사용해요.
-export type DemoResult = { user_id: string; cards: DemoCard[] }; // API 판정 응답 중 첫 기능에 필요한 부분이에요.
+export type DemoResult = { user_id: string; cards: DemoCard[]; timeline: { self: DemoStep[] } }; // API 판정 응답 중 첫 기능에 필요한 부분이에요.
 export const demoProfile = { user_id: "demo-jiwon", self: { nickname: "지원", birth_year: 1999, sido: "서울", sigungu: "마포구", marital_status: "예비부부" } }; // API 문서를 바탕으로 만든 가상 프로필이며 서버에 저장하지 않아요.
 const result: DemoResult = { // 실제 엔진 응답과 구분되는 고정 화면 예시예요.
     user_id: demoProfile.user_id, // 선택한 가상 프로필과 결과를 연결해요.
+    timeline: { self: [ // API 문서 §3의 단계 예시이며 실제 엔진 계산 결과가 아니에요.
+        { step: "newlywed", assume: { marital_status: "신혼", marriage_date: "today" }, opens: ["manual:hug-newlywed-jeonse"], closes: ["manual:hug-buttimok-youth"], todo: [] }, // 준비 사항의 예시 근거는 원문 미확인이라 포함하지 않아요.
+        { step: "child", assume: { children_count: 1, youngest_child_age: 0 }, opens: ["manual:hug-newborn-buttimok"], closes: [], todo: [] }, // 자녀 단계의 응답 예시예요.
+        { step: "multi_child", assume: { children_count: 2 }, opens: [], closes: [], todo: [] }, // 문서의 생략 기호를 실제 제도 ID로 만들지 않아요.
+    ] }, // 다음 단계의 고정 예시를 마쳐요.
     cards: [{ // API 문서 §3의 카드 예시를 화면에 필요한 만큼 사용해요.
         rule_id: "manual:hug-newlywed-jeonse", subject: "self", name: "신혼부부전용 전세자금", verdict: "needs_check", // 현재 프로필의 자격을 확정하지 않아요.
         conditions: [ // 조건 문구는 API 문서의 예시이며 실제 공고 판정이 아니에요.
