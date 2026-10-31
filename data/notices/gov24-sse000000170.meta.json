@@ -1,0 +1,14 @@
+{
+  "doc_id": "gov24-sse000000170",
+  "title": "기초연금 (보건복지부)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=72548&bnefType=all&svcId=SSE000000170",
+  "fetched_at": "2026-10-31",
+  "sha256": "7848fa4f4d0a8771e51c877170d4ca0fca16520b0a26bd83db00a1744d7c46cb",
+  "pages": null,
+  "text_layer": null,
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}
