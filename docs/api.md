@@ -402,7 +402,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 | 메서드 | 경로 | 보내는 것 | 받는 것 |
 |---|---|---|---|
-| POST | `/auth/signup` | `{"email", "password"}` | 201 `{"account_id"}`와 세션 쿠키. 같은 이메일(대소문자 무시)이 있으면 409 |
+| POST | `/auth/signup` | `{"email", "password"}` | 201 `{"account_id"}`와 세션 쿠키. 같은 이메일(대소문자 무시)이 있으면 409. 이메일 형식(`로컬@도메인.최상위`, 254자 이하)이 아니거나 비밀번호가 8~128자가 아니면 422(DB에 닿기 전. 응답에 입력값을 되돌려주지 않는다) |
 | POST | `/auth/login` | `{"email", "password"}` | 200 `{"account_id"}`와 세션 쿠키. 틀리면 401 "이메일 또는 비밀번호가 올바르지 않습니다"(계정이 있는지 드러내지 않는다) |
 | POST | `/auth/logout` | 없음 | 204. 쿠키의 세션을 폐기(`revoked_at`)하고 쿠키를 지운다. 세션이 없어도 204 |
 | GET | `/auth/me` | 없음 | 200 `{"account_id", "email", "user_id"}`. `user_id`는 DB에 프로필이 없으면 null. 세션이 없거나 만료되거나 폐기됐으면 401 |
@@ -421,15 +421,15 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 | `GET /search` | 로그인했으면 세션의 프로필(DB)로 개인화 배지를 단다. 없으면 배지 null. `user_id` 쿼리는 로그인하지 않았으면 401, 본인 프로필이 아니면 403 |
 | `POST /ingest` | 로그인이 필수다. 올린 계정을 원문 머리(`uploaded_by`)에 남긴다 |
 | `GET /notices`, `GET /notices/{doc_id}` | 사용자 업로드 원문은 올린 본인 세션에만 보이고, 다른 사람에게는 없는 원문과 같은 404 |
+| `/profiles/*` | 세션 계정의 프로필(DB, 계정당 하나)만 만들고 읽고 고치고 지운다. 미인증 401, 남의 것이나 없는 것은 404(소유 여부를 드러내지 않는다). 두 번째 생성은 409. `GET /profiles/presets`만 로그인 없이 열린다 |
+| `POST /judge` | 세션의 본인 프로필(DB)로 판정한다. 미인증 401, 프로필이 없으면 404, body의 `user_id`가 본인 것이 아니면 403. 사용자 업로드 조건표와 근거 줄은 세션 계정의 것만 읽는다(`load_rules(owner=)`, `evidence(owner=)`) |
 
-아직 안 된 것 (2026-11-01 03:00 기준. 담당은 roles.md)
+아직 안 된 것 (2026-11-01 기준. 담당은 roles.md. `/profiles`·`/judge` 세션 연결과 알림·통계 라우터 등록은 끝나 위 표로 옮겼다)
 
 | 요구(SPEC §4.1, §15) | 지금 | 담당 |
 |---|---|---|
-| 가입 때 닉네임과 필수 동의를 받는다 | `/auth/signup`은 이메일과 비밀번호만 받고 저장한다. 이메일 형식과 비밀번호 길이도 검사하지 않는다 | 이초롱 |
+| 가입 때 닉네임과 필수 동의를 받는다 | `/auth/signup`은 이메일과 비밀번호만 받는다(이메일 형식과 비밀번호 8~128자는 검사한다). 닉네임은 `POST /profiles`의 `self.nickname`으로 저장할 수 있다. 필수 동의 칸은 화면(손보람)과 body 모양을 맞춘 뒤 붙인다 | 이초롱 |
 | 로그인 반복 요청을 제한한다 | 제한 없음 | 이초롱 |
-| `/profiles`, `/judge`가 세션의 본인 프로필만 쓴다(미인증 401, 남의 것은 404, `user_id` 불일치 403) | 둘 다 아직 개발 모드(`DEV_STUB_API=1`) 메모리 저장소를 쓰고 세션을 보지 않는다. 그래서 프리셋으로 만든 프로필은 DB에 없어 검색 배지가 붙지 않는다 | 이초롱 |
-| `/notifications`, `/notifications/{id}/read`, `/trigger/rebuild`, `/notify/test-email`, `/stats/*`가 열린다 | 라우터(`backend/notify/router.py`, `eval/coverage.py`)는 있지만 `backend/app/main.py`에 등록되지 않아 서버에 없다 | 이초롱(main.py), 박범규 |
 | 탈퇴하면 사용자 업로드도 지운다 | 프로필(`user_id`)이 있을 때만 `delete_uploads`를 부른다. 프로필 없이 올린 업로드는 남는다 | 이초롱 |
 | 화면의 회원가입과 로그인이 `/auth`를 부른다 | 회원가입과 로그인 화면은 아직 API를 부르지 않는다 | 손보람 |
 | 배포 주소에서 쿠키가 실린다 | CORS 허용 주소가 `http://localhost:3000` 하나다 | 이초롱 |
@@ -444,8 +444,8 @@ JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 �
 ### 10.1 공통
 
 - 주소: `http://localhost:8000` (`NEXT_PUBLIC_API_BASE`). CORS는 `http://localhost:3000` 허용
-- **개발 모드에서만 열린다.** 서버를 `DEV_STUB_API=1`로 띄워야(`.env`에 넣어도 된다) `/profiles`, `/judge`가 열리고, 아니면 404다. 로그인(`/auth/*`)은 개발 모드와 상관없이 열려 있지만, `/profiles`와 `/judge`는 아직 세션을 보지 않는다. 세션 기준으로 바뀌면 `user_id`를 body로 보내지 않는다(「인증·소유권 계약」의 「아직 안 된 것」)
-- 프로필은 지금 서버 메모리에 있다. 서버를 다시 켜면 지워진다(DB는 #19)
+- **로그인이 필요하다.** `/profiles`, `/judge`는 세션 쿠키의 본인 프로필(PostgreSQL, 계정당 하나)만 쓴다. `fetch`에 `credentials: "include"`. 로그인 전 401, 남의 프로필은 404, `/judge` body의 `user_id`가 본인 것이 아니면 403(「인증·소유권 계약」). `DEV_STUB_API`는 더 이상 이 두 API를 열거나 닫지 않는다
+- 프로필은 DB에 남는다(서버를 다시 켜도 그대로). `GET /auth/me`의 `user_id`가 내 프로필 ID다(없으면 null → 프리셋이나 `POST /profiles`로 만든다)
 - 날짜 재현: 모든 판정에 `?today=YYYY-MM-DD`를 붙일 수 있다(없으면 오늘)
 
 ### 10.2 시연 시작: 프리셋
@@ -453,14 +453,14 @@ JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 �
 | 메서드·경로 | 보내는 것 | 받는 것 |
 |---|---|---|
 | `GET /profiles/presets` | 없음 | `[{"id": "jiwon", "label": "지원(1999, 예비부부) + 어머니(1966)", "virtual": true}]` |
-| `POST /profiles/presets/{id}` | 없음 | `{"user_id": "U…"}`. 누를 때마다 새 프로필(SPEC §2 가상 페르소나, 동의 완료 상태). 없는 id면 404 |
+| `POST /profiles/presets/{id}` | 없음(로그인 필요) | `{"user_id": "U…", "preset": "jiwon"}`. 로그인한 계정에 가상 페르소나(SPEC §2, 동의 완료 상태) 프로필을 만든다. 계정당 하나라 이미 있으면 409(다른 프리셋을 쓰려면 `DELETE /profiles/{user_id}` 뒤 다시). 없는 id면 404 |
 
 ### 10.3 프로필
 
 | 메서드·경로 | 보내는 것 | 받는 것 · 에러 |
 |---|---|---|
-| `POST /profiles` | `{"self": {① 가입 칸}, "consents"?: {"sensitive": bool, "parent": bool}, "parents"?: [...]}` | `{"user_id"}`. 동의는 기본 `false` |
-| `GET /profiles/{user_id}` | 없음(`?today=` 선택) | §2 프로필 + `derived`(만 나이 두 값, 부부합산 소득, 태그, 소득 구간 %). `derived`는 저장하지 않고 응답 때마다 계산한다. 없으면 404 |
+| `POST /profiles` | `{"self": {① 가입 칸}, "consents"?: {"sensitive": bool, "parent": bool}, "parents"?: [...]}` | `{"user_id"}`. 동의는 기본 `false`. 이미 있으면 409, 모르는 칸이 있으면 422 |
+| `GET /profiles/{user_id}` | 없음(`?today=` 선택) | §2 프로필 + `derived`(만 나이 두 값, 부부합산 소득, 태그, 소득 구간 %). `derived`는 저장하지 않고 응답 때마다 계산한다. 없거나 남의 것이면 404 |
 | `PATCH /profiles/{user_id}` | 바꿀 것만: `{"self"?: {...}, "parents"?: [...], "consents"?: {...}, "stages_done"?: [...]}`. `self`는 칸 단위로 합치고 `parents`는 통째로 바꾼다 | 바뀐 프로필 전체(+ `derived`) |
 | `DELETE /profiles/{user_id}` | 없음 | 204 |
 
@@ -472,12 +472,12 @@ JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 �
 
 ```jsonc
 // 요청 (?today=YYYY-MM-DD 선택)
-{"user_id": "U…",
+{"user_id": "U…",     // 선택. 보내면 세션 프로필과 같아야 한다(다르면 403)
  "step": null,        // 단계 넘기기: "newlywed" | "child" | "multi_child". 그 단계까지 가정해 다시 판정(프로필은 안 바뀜). 다른 값은 422
  "rule_id": null}     // 사용자가 연 카드. 그 제도를 막는 빈 칸을 ask로 묻는다
 ```
 
-- 없는 `user_id`면 404. 조건표가 하나도 없으면(로컬에 `rules/` 없음) §3 예시 JSON을 그대로 돌려준다
+- 로그인 전 401, 내 프로필이 아직 없으면 404. 조건표가 하나도 없으면(로컬에 `rules/` 없음) §3 예시 JSON을 그대로 돌려준다
 - 응답은 §3 모양: `ask`, `cards`, `step`, `timeline`, `similar`(아직 `null`), `disclaimer`(모든 카드 머리에 표시)
 
 카드(`cards[]`)를 그릴 때 보는 값
