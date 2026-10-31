@@ -32,25 +32,36 @@ const banners = [ // 순환할 배너 두 개를 정의해요.
 
 export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여주는 히어로 컴포넌트예요.
     const [current, setCurrent] = useState(0); // 지금 보여주는 배너의 번호를 기억해요.
-    const [paused, setPaused] = useState(false); // 마우스를 올렸을 때 타이머를 잠시 멈춰요.
+    const [hovered, setHovered] = useState(false); // 마우스가 배너 위에 있는지만 따로 기억해요.
+    const [paused, setPaused] = useState(false); // 사용자가 정지하거나 키보드로 접근한 상태를 유지해요.
+    const [reducedMotion, setReducedMotion] = useState(true); // 움직임 설정을 읽기 전에는 자동 전환을 시작하지 않아요.
 
     const goNext = useCallback(() => { // 다음 배너로 이동하는 함수예요.
         setCurrent((prev) => (prev + 1) % banners.length); // 마지막 배너 뒤엔 첫 번째로 돌아와요.
     }, []);
 
-    useEffect(() => { // 화면이 나타나면 자동 전환 타이머를 시작해요.
-        if (paused) return; // 마우스를 올리면 타이머를 멈춰요.
+    useEffect(() => { // 운영체제의 움직임 줄이기 설정과 이후 변경을 구독해요.
+        const preference = window.matchMedia("(prefers-reduced-motion: reduce)"); // 사용자가 선택한 움직임 설정을 읽어요.
+        const update = () => setReducedMotion(preference.matches); // 현재 설정에 맞춰 자동 전환 허용 여부를 바꿔요.
+        update(); // 첫 화면에서도 현재 설정을 적용해요.
+        preference.addEventListener("change", update); // 설정이 바뀌면 즉시 반영해요.
+        return () => preference.removeEventListener("change", update); // 화면을 떠나면 구독을 정리해요.
+    }, []); // 움직임 설정 구독은 처음 한 번 연결해요.
+
+    useEffect(() => { // 자동 전환이 허용된 동안에만 타이머를 실행해요.
+        if (paused || hovered || reducedMotion) return; // 사용자 정지·호버·움직임 줄이기 중에는 전환하지 않아요.
         const id = setInterval(goNext, INTERVAL_MS); // 5초마다 배너를 바꿔요.
         return () => clearInterval(id); // 화면을 떠나거나 paused가 바뀌면 타이머를 정리해요.
-    }, [paused, goNext]);
+    }, [paused, hovered, reducedMotion, goNext]); // 정지 조건이 바뀌면 이전 타이머를 정리해요.
 
     const banner = banners[current]; // 지금 보여줄 배너 정보를 가져와요.
 
     return (
         <section
             className="landing-hero" // 히어로 영역 전체예요.
-            onMouseEnter={() => setPaused(true)} // 마우스를 올리면 자동 전환을 멈춰요.
-            onMouseLeave={() => setPaused(false)} // 마우스를 내리면 자동 전환을 재개해요.
+            onMouseEnter={() => setHovered(true)} // 마우스를 올린 동안에만 임시로 전환을 멈춰요.
+            onMouseLeave={() => setHovered(false)} // 호버만 해제하고 사용자의 정지 선택은 유지해요.
+            onFocusCapture={() => setPaused(true)} // 키보드 포커스가 들어오면 명시적으로 재생할 때까지 정지해요.
         >
             <div className="container hero-grid"> {/* 소개 글과 그림을 나란히 배치해요. */}
                 <div className="hero-copy"> {/* 텍스트, 버튼, 인디케이터 영역이에요. */}
@@ -66,9 +77,9 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
                         {banner.description}
                     </p>
                     <div className="hero-actions"> {/* CTA 버튼 두 개를 나란히 배치해요. */}
-                        {banner.actions.map((action) => (
+                        {banner.actions.map((action, index) => (
                             <Link
-                                key={`${current}-${action.label}`} // 배너 번호와 버튼 이름으로 고유 키를 만들어요.
+                                key={index} // 같은 위치의 링크 요소를 유지해 불필요한 포커스 손실을 줄여요.
                                 className={`button button-large ${action.primary ? "button-primary" : "button-secondary"}`}
                                 href={action.href}
                             >
@@ -83,20 +94,21 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
                         <span><Icon name="shield" />주민등록번호 입력 없이</span>
                         <span><Icon name="file" />공고 원문 근거와 함께</span>
                     </div>
-                    <div className="hero-banner-dots" role="tablist" aria-label="배너 이동"> {/* 배너 선택 인디케이터 점이에요. */}
+                    <div className="hero-banner-dots" role="group" aria-label="배너 이동 및 자동 전환"> {/* 배너 선택 인디케이터 점이에요. */}
                         {banners.map((_, index) => (
                             <button
                                 key={index}
-                                role="tab"
-                                aria-selected={index === current} // 현재 배너를 보조기기에 알려요.
+                                type="button"
+                                aria-pressed={index === current} // 현재 배너를 보조기기에 알려요.
                                 aria-label={`배너 ${index + 1}`}
                                 className={`hero-banner-dot${index === current ? " is-active" : ""}`}
                                 onClick={() => { // 점을 누르면 해당 배너로 이동해요.
                                     setCurrent(index);
-                                    setPaused(false); // 선택 후 자동 전환을 재개해요.
+                                    setPaused(true); // 직접 선택한 배너는 재생을 누르기 전까지 유지해요.
                                 }}
                             />
                         ))}
+                        <button type="button" className="hero-banner-playback" disabled={reducedMotion} onClick={() => setPaused((previous) => !previous)} aria-label={reducedMotion ? "움직임 줄이기 설정으로 자동 전환 정지됨" : paused ? "배너 자동 전환 재생" : "배너 자동 전환 정지"}>{reducedMotion ? "자동 전환 꺼짐" : paused ? "자동 전환 재생" : "자동 전환 정지"}</button> {/* 마우스와 키보드 모두로 자동 전환을 직접 제어해요. */}
                     </div>
                 </div>
                 <JourneyPreview /> {/* 오른쪽 다섯 단계 그림이에요. */}

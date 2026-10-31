@@ -195,3 +195,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .footer-contact a:hover { color: var(--primary); } /* 이메일 링크에 마우스를 올리면 파란색으로 알려줘요. */
 @media (max-width: 900px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } } /* 태블릿에서 카드를 2열로 줄여요. */
 @media (max-width: 700px) { .trust-section { padding-block: 40px; } .trust-grid { grid-template-columns: 1fr; gap: 10px; } .trust-card { padding: 18px; flex-direction: row; align-items: flex-start; gap: 14px; } .trust-card-icon { flex-shrink: 0; } } /* 모바일에서는 카드를 1열 가로 배치로 보여줘요. */
+
+.hero-banner-playback { min-height: 36px; margin-left: 7px; padding: 6px 10px; border: 1px solid #e5e7eb; border-radius: 7px; background: #fff; color: #6b7280; font-size: 11px; } /* 흰색 재생·정지 버튼을 배너 선택 점 옆에 배치해요. */
+.hero-banner-playback:hover:not(:disabled) { color: var(--primary); border-color: #9dc1e4; } /* 재생 버튼의 조작 가능 상태를 알려줘요. */
+.hero-banner-dot { display: grid; place-items: center; width: 30px; height: 36px; background: transparent; border-radius: 7px; transition: none; } /* 배너 선택의 키보드·터치 영역을 넓혀요. */
+.hero-banner-dot::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #cdd9e5; } /* 선택 영역 안에 작은 회색 점을 그려요. */
+.hero-banner-dot.is-active { width: 30px; background: transparent; } /* 선택 상태에서도 버튼 위치와 크기를 유지해요. */
+.hero-banner-dot.is-active::before { width: 20px; border-radius: 4px; background: var(--primary); } /* 현재 배너만 파란색 막대로 구분해요. */
