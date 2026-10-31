@@ -39,10 +39,15 @@ def _load_env() -> dict[str, str]:
             k, v = line.split("=", 1)
             out[k.strip()] = v.strip().strip('"').strip("'")
     # 환경 변수가 .env보다 우선
-    for k in ("CODYSSEY_API_KEY", "CODYSSEY_BASE_URL", "LLM_MODEL", "LLM_MODEL_BULK", "LLM_MODEL_OCR"):
+    for k in ("CODYSSEY_API_KEY", "CODYSSEY_BASE_URL", "LLM_MODEL", "LLM_MODEL_BULK", "LLM_MODEL_OCR", "ZINGGUM_OCR"):
         if os.environ.get(k):
             out[k] = os.environ[k]
     return out
+
+
+def setting(name: str) -> str:
+    """`.env` 값 하나(환경 변수가 우선). 없으면 빈 문자열."""
+    return _load_env().get(name, "")
 
 
 def model_name(kind: str = "main") -> str:
