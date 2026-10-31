@@ -48,7 +48,7 @@
 | 데이터 | NVIDIA Nemotron-Personas-Korea (https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea), 19~39세 1만 명의 10개 열(`data/raw/nemotron/`) | 가상 인구 뼈대(성별, 나이, 지역, 혼인, 가구 형태, 직업, 페르소나 글) | CC BY 4.0 (출처 표기) |
 | 데이터 | 통계청 「2024년 혼인·이혼 통계」 평균 초혼연령(남 33.9세, 여 31.6세, 2025-03-20 발표) | 가상 인구의 혼인 연령 | 공공저작물 |
 | 사전 보유 코드 | 해당 없음. 레포 첫 커밋 시각 2026-10-31 17:16 KST(`12190b9`, 주제 공개 10/30 10:00 이후). 팀원의 기존 파인튜닝·서빙 스크립트 반입 없음 | | |
-| 기타 | AI 코딩 도구(실제 이름은 채울 것. 예: Claude Code, Cursor, GitHub Copilot) | 코드 작성 보조 | 상용 |
+| 기타 | OpenAI Codex, Anthropic Claude Code | 코드 작성·테스트·PR 리뷰 보조. Codex는 평가·제출 작업에 사용했고 Claude Code는 [PR #42](https://github.com/2026-Codyssey-HakerTon26-10/zinggumdari/pull/42)의 생성 표기로 확인 | 상용(각 서비스 이용약관) |
 
 
 PostgreSQL 드라이버는 psycopg 3, 마이그레이션은 별도 도구 없이 `backend/db/migrations/*.sql` 번호 파일과 적용기(`backend/db/migrate.py`)로 한다. 비밀번호 해시는 파이썬 표준 라이브러리 `hashlib.scrypt`를 쓴다(#38). 외부 패키지를 추가하지 않았으므로 표에 따로 적지 않는다.
