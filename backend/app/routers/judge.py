@@ -2,6 +2,7 @@
 
 import copy
 from datetime import date
+from typing import Literal
 
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
@@ -16,7 +17,7 @@ router = APIRouter(tags=["judge"], dependencies=[Depends(require_dev_api)])   # 
 
 class JudgeRequest(BaseModel):
     user_id: str | None = None
-    step: str | None = None  # 단계 넘기기: newlywed | child | multi_child (플래너에서 쓴다)
+    step: Literal["newlywed", "child", "multi_child"] | None = None  # 단계 넘기기
 
 
 @router.post("/judge")
@@ -28,4 +29,4 @@ def post_judge(req: JudgeRequest, today: date | None = None) -> dict:
             result["user_id"] = req.user_id
         return result
     profile = _get(req.user_id or "")
-    return build_judge(profile, rules, today, evidence=sources.evidence)
+    return build_judge(profile, rules, today, evidence=sources.evidence, step=req.step)
