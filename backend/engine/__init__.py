@@ -25,7 +25,7 @@ def _card(rule: dict, subject_profile: dict, profile: dict, today: date, ai_elig
     for c, r in zip(conds, results):
         row = {"read_as": read_as(c), "grade": r["grade"], "ok": r["ok"], "status": c.get("status"),
                "evidence": [{"id": e, "page": None, "bbox": None, "text": None} for e in c.get("evidence") or []]}
-        for key in ("ask", "why"):
+        for key in ("ask", "why", "fixable"):
             if key in r:
                 row[key] = r[key]
         if "checks" in c:
@@ -43,6 +43,31 @@ def _card(rule: dict, subject_profile: dict, profile: dict, today: date, ai_elig
     }
 
 
+def _broken(rule: dict) -> dict:
+    """조건표 하나가 깨져도 다른 제도 판정과 검색·전수 판정은 계속 돈다."""
+    review = (rule.get("review") or {}).get("status", "unreviewed")
+    return {"rule_id": rule.get("id"), "subject": rule.get("subject", "self"), "name": rule.get("name"),
+            "domain": rule.get("domain"), "verdict": "needs_check", "verdict_why": "rule_error",
+            "ai_extracted": review != "reviewed", "conditions": [], "blocking_fields": [],
+            "exclusive_with": [], "exclusive_evidence": [], "detail_url": rule.get("detail_url"),
+            "updated": rule.get("updated"), "review": review}
+
+
+def _judge_one(rule: dict, me: dict, parents: list[dict], profile: dict, today: date, ai_eligible: bool) -> dict:
+    if rule.get("subject") != "parent":
+        return _card(rule, me, profile, today, ai_eligible)
+    if not parents:
+        card = _card(rule, {}, profile, today, ai_eligible)
+        card.update(verdict="needs_check", no_subject=True)
+        return card
+    cards = []
+    for i, p in enumerate(parents):
+        c = _card(rule, p, profile, today, ai_eligible)
+        c.update(parent_index=i, relation=p.get("relation"))
+        cards.append(c)
+    return min(cards, key=lambda c: RANK[c["verdict"]])   # 부모 중 가장 나은 판정. 날짜는 같은 사람(parent_index)으로
+
+
 def judge(profile: dict, rules: list[dict], today: date | None = None,
           ai_eligible: bool | None = None) -> dict[str, dict]:
     """프로필 하나를 조건표 전부로 판정한다. 반환: {rule_id: 카드}. 모든 제도가 들어간다(ineligible 포함).
@@ -53,6 +78,9 @@ def judge(profile: dict, rules: list[dict], today: date | None = None,
 
     카드에 추가로 붙는 키:
       "blocking_fields"   이 칸을 알려주면 판정이 진행된다(질문 칸 모음). 비슷한 가구 추천이 쓴다
+      "parent_index", "relation"  부모님 조건표면 판정에 쓴 부모(parents[i])
+      verdict_why "rule_error"    조건표가 깨져 판정하지 못했다(needs_check)
+    조건 줄의 "fixable": 탈락이 풀리는 방법. True(시간이 지나면), "action"(해둘 일을 하면), False(안 풀림)
     화면용 /judge가 거르는 키:
       "no_subject": True  부모님 조건표인데 부모님 정보가 없다(부모님 탭을 안 열었다)
       "superseded_by"     같은 제도의 손 조건표가 있어 판정·검색·알림에 쓰지 않는다(SPEC §9.4)
@@ -65,16 +93,11 @@ def judge(profile: dict, rules: list[dict], today: date | None = None,
 
     out = {}
     for rule in rules:
-        if rule.get("subject") == "parent":
-            cards = [_card(rule, p, profile, today, ai_eligible) for p in parents]
-            if cards:
-                card = min(cards, key=lambda c: RANK[c["verdict"]])
-            else:
-                card = _card(rule, {}, profile, today, ai_eligible)
-                card.update(verdict="needs_check", no_subject=True)
-        else:
-            card = _card(rule, me, profile, today, ai_eligible)
-        if rule["id"] in superseded:
+        try:
+            card = _judge_one(rule, me, parents, profile, today, ai_eligible)
+        except Exception:   # noqa: BLE001  조건표 하나 때문에 전체가 멈추지 않게
+            card = _broken(rule)
+        if rule.get("id") in superseded:
             card["superseded_by"] = superseded[rule["id"]]
-        out[rule["id"]] = card
+        out[rule.get("id")] = card
     return out

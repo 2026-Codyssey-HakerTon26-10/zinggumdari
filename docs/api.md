@@ -189,7 +189,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
   "cards": [
     {
       "rule_id": "manual:hug-newlywed-jeonse", "subject": "self", "name": "신혼부부전용 전세자금", "domain": "fund_loan",   // 예시 프로필: 신혼인데 혼인신고일과 소득을 아직 안 적었다. review는 카드에 status 문자열만
-      "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later
+      "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later(확정 탈락이 전부 시간이 지나거나 해둘 일을 하면 풀린다. 예: 64세의 age >= 65, 부모 장기요양등급 "없음"의 ltc_grade in [등급], 청약통장 없음)
       "verdict_why": null,                  // "ai_unreviewed" = 검수 전 AI 조건표가 모두 통과했다 → "AI가 읽은 조건은 모두 맞아요. 원문을 확인하고 신청하세요"
       "ai_extracted": false,                // review.status != reviewed → true → 배지
       "conditions": [                       // read_as = 조건을 템플릿으로 쓴 문장(우리가 읽은 조건), evidence = 근거 줄(쪽, 좌표, 텍스트)

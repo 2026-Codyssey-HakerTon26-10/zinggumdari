@@ -1,6 +1,8 @@
 """규칙 엔진(backend/engine). 조건표는 테스트용으로 손으로 만든 것이다(eval 정답지를 보지 않는다)."""
 
 import time
+
+import pytest
 from datetime import date
 
 from backend.engine import judge
@@ -204,3 +206,102 @@ def test_read_as():
 def test_blocking_fields():
     card = one(P(marital_status="예비부부"), R([C("age", "<=", 34), COUPLE_7500]))
     assert card["blocking_fields"] == ["birth_year", "income_self"]
+
+
+# 기간 경계(요청 24·30·37) ----------------------------------------------------------------------
+
+@pytest.mark.parametrize("today,want", [(date(2026, 9, 30), "eligible"), (date(2026, 10, 1), "eligible"),
+                                        (date(2026, 10, 2), "ineligible"), (date(2026, 11, 1), "ineligible")])
+def test_marriage_years_boundary(today, want):
+    rule = R([C("marriage_years", "<=", 7)])
+    assert judge(P(marital_status="기혼", marriage_date="2019-10-01"), [rule], today)[rule["id"]]["verdict"] == want
+
+
+def test_strict_period_boundary():
+    me = P(marital_status="기혼", marriage_date="2019-10-01")
+    lt = R([C("marriage_years", "<", 7)])
+    gt = R([C("marriage_years", ">", 7)], rid="manual:gt")
+    assert judge(me, [lt], date(2026, 9, 30))[lt["id"]]["verdict"] == "eligible"
+    assert judge(me, [lt], date(2026, 10, 1))[lt["id"]]["verdict"] == "ineligible"
+    assert judge(me, [gt], date(2026, 10, 1))[gt["id"]]["verdict"] == "opens_later"
+    assert judge(me, [gt], date(2026, 10, 2))[gt["id"]]["verdict"] == "eligible"
+
+
+def test_future_start_date_needs_check():
+    card = one(P(marital_status="기혼", marriage_date="2027-05-01"), R([C("marriage_years", "<=", 7)]))
+    assert card["verdict"] == "needs_check"
+
+
+def test_month_end_period():
+    rule = R([C("subscription_months", ">=", 6)])
+    me = P(has_account="Y", joined_date="2026-08-31")
+    assert judge(me, [rule], date(2027, 2, 27))[rule["id"]]["verdict"] == "opens_later"
+    assert judge(me, [rule], date(2027, 2, 28))[rule["id"]]["verdict"] == "eligible"
+
+
+# 자격 코드(요청 27) -----------------------------------------------------------------------------
+
+def test_qual_code_unknown_is_asked():
+    me = P(qualifications=[{"qual_code": "청년", "target": "본인"}])
+    assert one(me, R([C("qual_code", "in", ["한부모"])]))["conditions"][0]["ask"] == "qual_code"
+    assert one(me, R([C("qual_code", "not_in", ["기초생활수급자"])]))["conditions"][0]["ask"] == "qual_code"
+    assert one(me, R([C("qual_code", "in", ["청년"])]))["verdict"] == "eligible"
+    assert one(me, R([C("qual_code", "not_in", ["청년"])]))["verdict"] == "ineligible"
+
+
+def test_qual_code_of_spouse_does_not_count():
+    me = P(qualifications=[{"qual_code": "한부모", "target": "배우자"}])
+    assert one(me, R([C("qual_code", "in", ["한부모"])]))["verdict"] == "needs_check"
+
+
+# 이상한 값(요청 28·29) --------------------------------------------------------------------------
+
+@pytest.mark.parametrize("me,cond", [
+    ({"parents": []}, C("ltc_grade", "<=", 3)),
+    (dict(children_count=1), C("children_count", ">=", "2")),
+    (dict(sido="서울"), C("sido", "in", None)),
+    (dict(birth_year=""), C("age", "<=", 34)),
+    (dict(household_size="3인", income_household=200), C("income_household", "<=", 100, income_basis="median_pct")),
+])
+def test_incomparable_values_need_check(me, cond):
+    if "parents" in me:
+        card = one(P(parents=[{"relation": "모", "birth_year": 1950, "ltc_grade": "3등급"}]), R([cond], subject="parent"))
+    else:
+        card = one(P(**me), R([cond]))
+    assert card["verdict"] == "needs_check"
+    assert card["conditions"][0]["grade"] == "확인 필요"
+
+
+def test_broken_rule_does_not_stop_others():
+    broken = R([{"field": "age", "evidence": ["doc:l1"], "status": "reviewed"}], rid="manual:broken")
+    out = judge(P(birth_year=1999), [broken, R([C("age", "<=", 34)])], TODAY)
+    assert out["manual:broken"]["verdict"] == "needs_check" and out["manual:broken"]["verdict_why"] == "rule_error"
+    assert out["manual:t"]["verdict"] == "eligible"
+
+
+def test_field_outside_vocabulary_is_not_asked():
+    card = one(P(), R([C("asset_total", "<=", 30000)]))
+    assert card["conditions"][0]["grade"] == "확인 필요" and card["blocking_fields"] == []
+
+
+# AI 조건표의 남은 줄(요청 32) ------------------------------------------------------------------
+
+def test_unread_pages_and_unaccounted_reasons():
+    rule = R([{"field": "other", "text": "원문 조건 미반영", "reason": "unaccounted", "evidence": ["doc:l9"], "status": "needs_review"},
+              {"field": "other", "text": "읽지 못한 쪽", "reason": "unread_pages", "pages": [3, 4], "evidence": [], "status": "needs_review"}],
+             source="upload", review={"status": "unreviewed"})
+    whys = [c["why"] for c in one(P(), rule)["conditions"]]
+    assert whys == ["AI가 조건으로 읽지 못한 원문 줄", "3·4쪽을 읽지 못했어요"]
+
+
+# 해둘 일로 풀리는 탈락(요청 33) ----------------------------------------------------------------
+
+def test_ltc_grade_none_opens_by_action():
+    rule = R([C("ltc_grade", "in", ["1등급", "2등급", "3등급", "4등급", "5등급", "인지지원등급"])], subject="parent")
+    card = one(P(parents=[{"relation": "모", "birth_year": 1950, "ltc_grade": "없음"}]), rule)
+    assert card["verdict"] == "opens_later"
+    assert card["conditions"][0]["fixable"] == "action"
+
+
+def test_no_account_opens_by_action():
+    assert one(P(has_account="N"), R([C("has_account", "==", "Y")]))["verdict"] == "opens_later"
