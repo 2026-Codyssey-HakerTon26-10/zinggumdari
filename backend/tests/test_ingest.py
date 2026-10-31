@@ -350,3 +350,23 @@ def test_replay_reverifies_when_lines_changed(tmp_path, world, notice_pdf, monke
     cache.write_text(_json.dumps(data, ensure_ascii=False))                       # 지문이 없는 옛 캐시도 다시 검사
     calls.clear()
     assert "replay_warning" in ing.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="D1") and calls
+
+
+def test_ingest_accepts_text_and_passes_meta(tmp_path, world, monkeypatch):
+    """줄 만들기를 compiler.lines로 바꿔서 텍스트도 받는다. 원문 머리는 compile(meta=)로 넘긴다."""
+    ing = world
+    seen = {}
+
+    def compile_with_meta(doc_id, lines, source, *, meta=None):
+        seen["meta"], seen["lines"] = meta, lines
+        return [{"id": f"upload:{doc_id}:x", "conditions": []}]
+    monkeypatch.setattr(ing, "_compile", lambda: compile_with_meta)
+    src = tmp_path / "notice.txt"
+    src.write_text("○ 지원대상\n - 만 19세 이상 39세 이하 무주택 세대주\n", encoding="utf-8")
+    out = ing.ingest(src, "notice.txt", uploaded_by="A1")
+    assert out["replayed"] is False and seen["meta"]["kind"] == "text" and seen["meta"]["uploaded_by"] == "A1"
+    assert seen["meta"]["unread_pages"] == [] and [ln["id"] for ln in seen["lines"]] == ["l1", "l2"]
+    bad = tmp_path / "bin.dat"
+    bad.write_bytes(b"\x00\x01\x02 binary")
+    with pytest.raises(ing.Rejected):
+        ing.ingest(bad, "bin.dat", uploaded_by="A1")

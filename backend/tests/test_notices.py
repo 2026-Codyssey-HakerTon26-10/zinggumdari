@@ -8,7 +8,6 @@ from backend.app.routers import notices as notices_router
 from backend.data import config
 from backend.notices import store
 from backend.notices.lh import file_kind, find_attachments
-from backend.notices.lines import find_quote, html_to_text, split_text, text_lines, to_lines
 from backend.tests.pdf_helper import make_pdf
 
 PROSE = """○ 지원대상
@@ -17,36 +16,15 @@ PROSE = """○ 지원대상
 신청 방법은 은행 창구"""
 
 
-def test_split_text_on_newline_and_bullets():
-    assert split_text(PROSE) == [
-        "○ 지원대상",
-        "- 대출신청일 현재 민법상 성년인 세대주로서 대출대상주택 임차계약을 체결하고 임차보증금의 5% 이상을 지불한 자",
-        "- 부부합산 연소득 7천 5백만 원 이하",
-        "※ 신혼가구는 혼인기간 7년 이내",
-        "신청 방법은 은행 창구",
-    ]
-    assert split_text("2026-03-30 ~ 2026-05-29") == ["2026-03-30 ~ 2026-05-29"]   # 날짜의 -는 끊지 않는다
-
-
-def test_text_lines_ids_and_marks():
-    lines = text_lines(PROSE)
-    assert [ln["id"] for ln in lines] == ["l1", "l2", "l3", "l4", "l5"]
-    assert [ln["mark"] for ln in lines] == [False, True, True, True, False]
+def test_text_original_uses_compiler_lines(tmp_path):
+    """줄 만들기는 AI 공고 읽기와 같은 backend.compiler.lines다. 산문은 l{n}, 쪽·좌표 없음."""
+    meta = store.register_text(PROSE, "prose", "api", None, "t", notices_dir=tmp_path)
+    lines = store.load_lines("prose", tmp_path)
+    assert meta["kind"] == "text" and meta["pages"] is None and meta["unread_pages"] == []
+    assert [ln["id"] for ln in lines][:4] == ["l1", "l2", "l3", "l4"]
+    assert lines[3]["text"] == "※ 신혼가구는 혼인기간 7년 이내"           # 줄 가운데 ※에서 끊는다
     assert lines[0]["page"] is None and lines[0]["bbox"] is None
-    assert to_lines("x", PROSE) == lines                         # 경로가 아니면 산문으로 본다
-
-
-def test_html_to_text_drops_script_and_nav():
-    html = "<html><head><title>t</title><script>var x=1</script></head><body><nav>메뉴</nav>" \
-           "<div><p>대출대상</p><ul><li>무주택 세대주</li><li>연소득 5천만원 이하</li></ul></div></body></html>"
-    assert split_text(html_to_text(html)) == ["대출대상", "무주택 세대주", "연소득 5천만원 이하"]
-
-
-def test_find_quote_across_lines():
-    lines = text_lines(PROSE)
-    assert find_quote(lines, "연소득 7천5백만 원 이하※신혼가구는") == ["l3", "l4"]
-    assert find_quote(lines, "혼인기간 7년 이내") == ["l4"]
-    assert find_quote(lines, "혼인기간 5년 이내") == []
+    assert any(ln["mark"] for ln in lines)
 
 
 try:
@@ -75,18 +53,19 @@ def test_pdf_lines_ids_bbox_marks(tmp_path, notice_pdf):
     x0, top, x1, bottom = first["bbox"]
     assert 70 < x0 < 74 and top < bottom < 60                    # 왼쪽 위 원점이라 위쪽 줄은 top이 작다
     assert [ln["id"] for ln in lines if ln["page"] == 2][0] == "p2-l1"
-    assert find_quote(lines, "aged 19 to 39") == ["p1-l2"]
 
 
 @needs_pdf
-def test_scan_and_hwp_rejected(tmp_path):
-    scan = make_pdf(tmp_path / "scan.pdf", [[(72, 700, "x")]])
-    with pytest.raises(ValueError, match="스캔"):
-        store.register(scan, "scan", "lh", None, "t", notices_dir=tmp_path)
-    hwp = tmp_path / "a.hwp"
-    hwp.write_bytes(b"\xd0\xcf\x11\xe0 hwp")
-    with pytest.raises(ValueError, match="HWP"):
-        store.register(hwp, "hwp", "lh", None, "t", notices_dir=tmp_path)
+def test_scan_and_broken_hwp_rejected(tmp_path):
+    # 출처를 upload로 둔다. 다른 출처는 스캔 쪽을 네이토로 글자 인식하므로 .env에 키가 있으면 실제로 부른다
+    scan = make_pdf(tmp_path / "scan.pdf", [[]], image_pages=(1,))     # 글자 층 없이 그림만
+    with pytest.raises((store.ScannedPdf, store.Unsupported)):
+        store.register(scan, "scan", "upload", None, "t", notices_dir=tmp_path)
+    broken = tmp_path / "a.hwp"
+    broken.write_bytes(b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1 not a real hwp")
+    with pytest.raises(store.Unsupported):                               # 읽을 수 없는 HWP
+        store.register(broken, "hwp", "lh", None, "t", notices_dir=tmp_path)
+    assert store.list_doc_ids(tmp_path) == []
 
 
 def test_doc_id_rules():
@@ -130,3 +109,13 @@ def test_lh_attachments_pick_pdf_not_hwp():
         ("dsAhflInfo", "AHFL_URL", "pdf"), ("dsAhflInfo", "AHFL_URL", "hwp")]
     assert file_kind(None, "https://x/y.PDF") == "pdf"
 
+
+
+@needs_pdf
+def test_scanned_page_inside_text_pdf_is_unread(tmp_path):
+    """텍스트 PDF에 그림만 있는 쪽이 끼어 있고 글자 인식으로도 못 읽으면 unread_pages에 남는다."""
+    text = [(72, 700 - 14 * k, f"text page line {k} with enough characters here") for k in range(6)]
+    pdf = make_pdf(tmp_path / "mixed.pdf", [text, [], text], image_pages=(2,))
+    meta = store.register(pdf, "mixed", "upload", None, "t", notices_dir=tmp_path)   # upload: 네이토 안 부름
+    assert meta["unread_pages"] == [2]
+    assert {ln["page"] for ln in store.load_lines("mixed", tmp_path)} == {1, 3}
