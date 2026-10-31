@@ -130,7 +130,8 @@ def pdf_lines(path: Path) -> tuple[list[Line], list[dict]]:
     with pdfplumber.open(path) as pdf:
         for no, page in enumerate(pdf.pages, 1):
             pages.append({"page": no, "width": _r(page.width), "height": _r(page.height)})
-            words = page.extract_words(x_tolerance=1.5, y_tolerance=3, keep_blank_chars=False)
+            # 굵게 보이려고 같은 글자를 겹쳐 찍은 PDF가 있다("시시시시흥흥흥흥"). 겹친 글자는 하나로 친다
+            words = page.dedupe_chars().extract_words(x_tolerance=1.5, y_tolerance=3, keep_blank_chars=False)
             chars += sum(len(w["text"]) for w in words)
             for k, row in enumerate(_group(words), 1):
                 text = " ".join(w["text"] for w in row)

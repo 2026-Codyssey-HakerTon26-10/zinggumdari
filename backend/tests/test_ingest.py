@@ -211,3 +211,35 @@ def test_raw_responses_deleted_on_withdraw_and_failure(tmp_path, world, monkeypa
     with pytest.raises(RuntimeError):
         ing.ingest(pdf2, "b.pdf", uploaded_by="A1")
     assert len(gone) == 2 and gone[1].startswith("upload-") and gone[1] != doc_id
+
+
+@needs_pdf
+def test_raw_responses_deleted_with_real_compiler(tmp_path, world, monkeypatch):
+    """#5가 합쳐진 상태에서 실제 pipeline.delete_raw로 rules/uploads/_raw의 원응답과 글자 인식 캐시가 지워진다.
+
+    #5 전에는 건너뛴다. LLM 대신 compile이 원응답을 남기는 것만 흉내 낸다.
+    """
+    pipeline = pytest.importorskip("backend.compiler.pipeline")
+    ing = world
+    raw = tmp_path / "uploads_raw"
+    raw.mkdir()
+    monkeypatch.setattr(pipeline, "UPLOAD_RAW_DIR", raw)
+
+    def compile_leaving_raw(doc_id, lines, source):
+        for suffix in (".json", ".ocr.json"):
+            (raw / f"{doc_id}{suffix}").write_text("{}")
+        return [{"id": f"upload:{doc_id}:x", "name": "t", "conditions": []}]
+    monkeypatch.setattr(ing, "_compile", lambda: compile_leaving_raw)
+    pdf = make_pdf(tmp_path / "a.pdf", [[(72, 700 - 14 * k, f"notice line {k} with enough text here") for k in range(5)]])
+    ing.ingest(pdf, "a.pdf", uploaded_by="A1")
+    assert len(list(raw.iterdir())) == 2
+    assert ing.delete_uploads("A1") == 1 and list(raw.iterdir()) == []      # 탈퇴
+
+    def compile_then_fail(doc_id, lines, source):
+        (raw / f"{doc_id}.json").write_text("{}")
+        raise RuntimeError("LLM 시간 초과")
+    monkeypatch.setattr(ing, "_compile", lambda: compile_then_fail)
+    pdf2 = make_pdf(tmp_path / "b.pdf", [[(72, 700 - 14 * k, f"other notice line {k} with text") for k in range(5)]])
+    with pytest.raises(RuntimeError):
+        ing.ingest(pdf2, "b.pdf", uploaded_by="A1")
+    assert list(raw.iterdir()) == []                                          # 읽기 실패
