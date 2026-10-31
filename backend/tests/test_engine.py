@@ -305,3 +305,49 @@ def test_ltc_grade_none_opens_by_action():
 
 def test_no_account_opens_by_action():
     assert one(P(has_account="N"), R([C("has_account", "==", "Y")]))["verdict"] == "opens_later"
+
+
+def test_youngest_child_age_without_children_fails():
+    # 자녀가 없으면 막내 나이 조건은 묻지 않고 탈락(혼인 전의 혼인 기간과 같다). 자녀 단계에서 열린다
+    rule = R([C("youngest_child_age", "<", 2)])
+    card = one(P(children_count=0), rule)
+    assert card["verdict"] == "ineligible" and card["blocking_fields"] == []
+    assert one(P(children_count=1), rule)["conditions"][0]["ask"] == "youngest_child_age"
+
+
+# 조건표 지역(요청 47) ---------------------------------------------------------------------------
+
+SEOUL = {"sido": "서울특별시", "sigungu": None}
+
+
+@pytest.mark.parametrize("sido,want", [("서울", "eligible"), ("서울특별시", "eligible"), ("경남", "ineligible"),
+                                       ("경상남도", "ineligible")])
+def test_region_sido(sido, want):
+    assert one(P(birth_year=1999, sido=sido), R([C("age", "<=", 34)], region=SEOUL))["verdict"] == want
+
+
+def test_region_unknown_profile_sido_is_asked():
+    card = one(P(birth_year=1999), R([C("age", "<=", 34)], region=SEOUL))
+    assert card["verdict"] == "needs_check" and "sido" in card["blocking_fields"]
+    assert card["conditions"][-1]["read_as"] == "거주지 서울"
+
+
+def test_region_sigungu():
+    mapo = {"sido": "서울특별시", "sigungu": "마포구"}
+    assert one(P(sido="서울", sigungu="마포구"), R([], region=mapo))["verdict"] == "eligible"
+    assert one(P(sido="서울", sigungu="강남구"), R([], region=mapo))["verdict"] == "ineligible"
+
+
+def test_region_unknown_needs_check():
+    card = one(P(sido="서울"), R([], region={"unknown": True}))
+    assert card["verdict"] == "needs_check" and card["conditions"][-1]["why"] == "지역 미상"
+
+
+def test_region_nationwide_adds_no_row():
+    assert one(P(birth_year=1999), R([C("age", "<=", 34)], region=None))["conditions"][-1]["read_as"].startswith("나이")
+
+
+def test_parent_rule_region_uses_parent():
+    rule = R([], region=SEOUL, subject="parent")
+    assert one(P(sido="서울", parents=[{"relation": "모", "sido": "경기"}]), rule)["verdict"] == "ineligible"
+    assert one(P(sido="경기", parents=[{"relation": "모", "sido": "서울"}]), rule)["verdict"] == "eligible"

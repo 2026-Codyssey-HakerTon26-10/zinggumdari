@@ -158,6 +158,8 @@ def _resolve(person: dict, cond: dict, field: str, today: date, year: int) -> Va
         if status in ("미혼", "예비부부", "이혼·사별"):
             return Values([None])   # 혼인신고 전이면 혼인 기간 조건은 탈락(api.md §1)
         return Ask("marriage_date")
+    if field == "youngest_child_age" and person.get("children_count") == 0:
+        return Values([None])   # 자녀가 없으면 막내 나이 조건은 탈락(자녀 단계에서 열린다)
     if field == "subscription_months" and person.get("has_account") == "N":
         return Values([0])
     if field in SPAN:
@@ -172,8 +174,10 @@ def _resolve(person: dict, cond: dict, field: str, today: date, year: int) -> Va
         return Period(start, unit)
     if field == "qual_code":
         quals = person.get("qualifications") or []
-        # 물어본 자격만 저장한다. 본인 대상 자격만 본인 조건에 쓴다(배우자 대상은 세지 않는다)
-        return Values([[q.get("qual_code") for q in quals if (q or {}).get("target") in (None, "본인")]])
+        # 물어본 자격만 저장한다. 본인 대상 자격만 본인 조건에 쓴다(배우자 대상은 세지 않는다).
+        # has "N"은 "해당 안 됨"이라고 답한 줄이다 → (코드, 해당 여부)
+        return Values([[(q.get("qual_code"), q.get("has", "Y") != "N") for q in quals
+                        if (q or {}).get("target") in (None, "본인")]])
     if field in ("history", "homeless_years"):
         return Check("이력 조건은 아직 판정하지 않아요")
     v = person.get(field)

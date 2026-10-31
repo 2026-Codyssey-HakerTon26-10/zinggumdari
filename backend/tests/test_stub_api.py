@@ -88,3 +88,33 @@ def test_sensitive_qualifications_need_consent(dev):
     assert len(p["self"]["qualifications"]) == 2
     p = client.patch(f"/profiles/{user_id}", json={"consents": {"sensitive": False}}).json()   # 동의 철회
     assert [q["qual_code"] for q in p["self"]["qualifications"]] == ["청년"]
+
+
+# 시연 프리셋(SPEC §2, §16) ---------------------------------------------------------------------
+
+def test_presets_list(dev):
+    assert client.get("/profiles/presets").json() == [
+        {"id": "jiwon", "label": "지원(1999, 예비부부) + 어머니(1966)", "virtual": True}]
+
+
+def test_preset_creates_new_profile_each_time(dev):
+    a = client.post("/profiles/presets/jiwon").json()["user_id"]
+    b = client.post("/profiles/presets/jiwon").json()["user_id"]
+    assert a != b   # 매번 새 프로필. 다른 사람 프로필을 덮어쓰지 않는다
+    p = client.get(f"/profiles/{a}").json()
+    me, mom = p["self"], p["parents"][0]
+    assert (me["nickname"], me["birth_year"], me["marital_status"], me["sigungu"]) == ("지원", 1999, "예비부부", "마포구")
+    assert (me["deposit"], me["monthly_rent"], me["income_self"], me["joined_date"]) == (1000, 55, 270, "2021-03-01")
+    assert (mom["relation"], mom["birth_year"], mom["sigungu"], mom["care_wanted"]) == ("모", 1966, "고양시", "Y")
+    assert p["consents"] == {"sensitive": True, "parent": True}   # 가상 페르소나라 동의한 것으로 둔다
+    client.patch(f"/profiles/{a}", json={"self": {"marital_status": "신혼"}})
+    assert client.get(f"/profiles/{b}").json()["self"]["marital_status"] == "예비부부"
+
+
+def test_unknown_preset_404(dev):
+    assert client.post("/profiles/presets/nobody").status_code == 404
+
+
+def test_presets_closed_by_default(monkeypatch):
+    monkeypatch.delenv("DEV_STUB_API", raising=False)
+    assert client.post("/profiles/presets/jiwon").status_code == 404

@@ -54,15 +54,18 @@ def _period(p: Period, op: str, n, today: date) -> bool | None:
     return compare(whole, op, n)
 
 
-def _quals(codes: list, op: str, want) -> bool | None:
-    """자격은 물어본 것만 저장한다. 목록에 있으면 확정, 없으면 모른다(None → 질문)."""
+def _quals(known: list, op: str, want) -> bool | None:
+    """자격은 물어본 것만 저장한다. 해당함·해당 안 됨을 답한 코드로만 확정하고, 모르면 None(→ 질문)."""
     if not isinstance(want, list):
         return None
-    hit = any(c in want for c in codes)
+    yes = {c for c, has in known if has}
+    no = {c for c, has in known if not has}
+    hit = bool(yes & set(want))
+    all_no = all(c in no for c in want)
     if op == "in":
-        return True if hit else None
+        return True if hit else False if all_no else None
     if op == "not_in":
-        return False if hit else None
+        return False if hit else True if all_no else None
     return None
 
 
