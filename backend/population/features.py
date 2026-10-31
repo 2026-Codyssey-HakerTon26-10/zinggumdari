@@ -61,7 +61,7 @@ def stage2(s1: pd.DataFrame, scale: dict[str, list[float]]) -> pd.DataFrame:
     for src, col in SCALED.items():
         lo, hi = scale[src]
         v = pd.to_numeric(s1[src], errors="coerce")
-        x[col] = 0.0 if hi == lo else ((v - lo) / (hi - lo)).clip(0, 1)
+        x[col] = v.where(v.isna(), 0.0) if hi == lo else ((v - lo) / (hi - lo)).clip(0, 1)
     for col, src, value in ONE_HOT:
         known = s1[src].notna()
         x[col] = np.where(known, (s1[src] == value).astype(float), np.nan)
@@ -70,6 +70,17 @@ def stage2(s1: pd.DataFrame, scale: dict[str, list[float]]) -> pd.DataFrame:
     # 막내 6세 이하면 1, 자녀가 없으면 0. 자녀 수를 모르면 빈 칸
     youngest = pd.to_numeric(s1["youngest_child_age"], errors="coerce")
     kids = pd.to_numeric(s1["children_count"], errors="coerce")
-    x["자녀_6세이하"] = np.where(kids.isna(), np.nan, (youngest <= 6).fillna(False).astype(float))
+    x["자녀_6세이하"] = np.where(
+        kids.isna() | ((kids > 0) & youngest.isna()), np.nan,
+        ((kids > 0) & (youngest <= 6)).astype(float),
+    )
     x.insert(0, "user_id", s1["user_id"])
     return x[["user_id", *COLUMNS]]
+
+
+def query_vector(profile: dict, scale: dict, *, year: int):
+    """가입한 칸만 있는 프로필도 기존 인구 scale로 변환한다."""
+    values = profile.get("self", profile)
+    row = {key: values.get(key) for key in STAGE1}
+    row["age"] = year - values["birth_year"] if values.get("birth_year") is not None else None
+    return stage2(pd.DataFrame([row]), scale)[COLUMNS].iloc[0].to_numpy(dtype=float)
