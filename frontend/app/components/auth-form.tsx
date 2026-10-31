@@ -1,6 +1,6 @@
 "use client"; // 비밀번호 표시와 폼 안내가 사용자의 조작에 반응하게 해요.
 
-import { useState, type FormEvent } from "react"; // 입력값을 잠시 기억하고 폼 제출 동작을 제어해요.
+import { useState, useRef, type FormEvent, type ReactNode } from "react"; // 입력값을 잠시 기억하고 폼 제출 동작을 제어해요.
 import Link from "next/link"; // 로그인과 회원가입 화면을 서로 연결해요.
 import { Icon } from "./ui"; // 기존 서비스와 같은 선 아이콘을 사용해요.
 
@@ -20,22 +20,70 @@ function PasswordField({ id, label, value, onChange, autoComplete, hint, describ
     return <div className="auth-field"><label className="auth-field-label" htmlFor={id}>{label}</label><div className="auth-input-wrap"><span className="auth-input-icon"><Icon name="lock" /></span><input className="auth-input" id={id} type={visible ? "text" : "password"} value={value} onChange={(event) => onChange(event.target.value)} placeholder={id === "auth-confirm-password" ? "비밀번호를 한 번 더 입력해 주세요" : "비밀번호를 입력해 주세요"} autoComplete={autoComplete} required minLength={autoComplete === "new-password" ? 8 : undefined} maxLength={128} aria-invalid={invalid || undefined} aria-describedby={[hint ? `${id}-hint` : "", describedBy].filter(Boolean).join(" ") || undefined} /><button type="button" className="auth-password-toggle" onClick={() => setVisible((previous) => !previous)} aria-label={`${label} ${visible ? "숨기기" : "보기"}`} aria-pressed={visible}><Icon name={visible ? "eye-off" : "eye"} /></button></div>{hint && <p id={`${id}-hint`} className={`auth-field-hint ${invalid ? "auth-field-error" : ""}`}>{hint}</p>}</div>; // 입력값은 이 화면에서만 사용하고 전송이나 저장에 쓰지 않아요.
 } // 비밀번호 입력칸을 마쳐요.
 
+// 동의 항목 키 타입 — 4개 항목을 구분해요.
+type ConsentKey = "terms" | "privacy" | "email" | "sensitive";
+
+// 동의 항목 하나를 체크박스·보기/접기 버튼·상세 내용으로 구성해요.
+function ConsentItem({ id, label, required, checked, onCheck, open, onToggle, children }: { id: string; label: string; required: boolean; checked: boolean; onCheck: (v: boolean) => void; open: boolean; onToggle: () => void; children: ReactNode }) {
+    return (
+        <div className="auth-consent-item"> {/* 동의 항목 하나를 묶어요. */}
+            <div className="auth-consent-row"> {/* 체크박스 행과 보기 버튼을 나란히 배치해요. */}
+                <label className="auth-checkbox-label"> {/* 체크박스와 문구를 함께 클릭할 수 있게 해요. */}
+                    <input className="auth-checkbox" type="checkbox" id={id} checked={checked} onChange={(e) => onCheck(e.target.checked)} />
+                    <span><strong>{required ? "[필수]" : "[선택]"}</strong> {label}</span>
+                </label>
+                <button type="button" className="auth-inline-link" onClick={onToggle} aria-expanded={open} aria-controls={`${id}-detail`}>{open ? "접기" : "보기"}</button>
+            </div>
+            {open && ( // 펼쳤을 때만 상세 내용을 보여줘요.
+                <div id={`${id}-detail`} className="auth-consent-detail-panel">
+                    {children}
+                </div>
+            )}
+        </div>
+    );
+} // 동의 항목 컴포넌트를 마쳐요.
+
 export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디자인으로 로그인과 회원가입 폼을 만들어요.
     const isSignup = mode === "signup"; // 현재 페이지가 회원가입인지 구분해요.
     const [email, setEmail] = useState(""); // 이메일은 화면을 벗어나기 전까지만 기억해요.
     const [nickname, setNickname] = useState(""); // 실명 대신 사용할 닉네임을 화면 안에서만 기억해요.
     const [password, setPassword] = useState(""); // 입력한 비밀번호를 서버나 저장소로 보내지 않아요.
     const [confirmation, setConfirmation] = useState(""); // 비밀번호를 같은 값으로 입력했는지 안내할 때만 사용해요.
-    const [consent, setConsent] = useState(false); // 필수 동의의 화면 선택 상태만 기억해요.
+    // 4개 동의 항목 상태 — terms(이용약관)·privacy(개인정보)는 필수, email·sensitive는 선택이에요.
+    const [consents, setConsents] = useState<Record<ConsentKey, boolean>>({ terms: false, privacy: false, email: false, sensitive: false });
+    // 각 항목의 상세 내용 펼침 상태예요.
+    const [consentDetail, setConsentDetail] = useState<Record<ConsentKey, boolean>>({ terms: false, privacy: false, email: false, sensitive: false });
     const [feedback, setFeedback] = useState(""); // 로그인이나 가입을 실제로 처리하지 않는다는 안내를 보여줘요.
-    const [showConsent, setShowConsent] = useState(false); // 동의 항목의 설명을 펼칠지 기억해요.
     const [showHelp, setShowHelp] = useState(false); // 비밀번호 찾기 안내를 펼칠지 기억해요.
     const [emailTouched, setEmailTouched] = useState(false); // 이메일 칸에서 벗어난 적 있는지 기억해요.
     const [nicknameTouched, setNicknameTouched] = useState(false); // 닉네임 칸에서 벗어난 적 있는지 기억해요.
+    const allCheckRef = useRef<HTMLInputElement>(null); // 전체 동의 체크박스의 불확정 상태를 제어해요.
     const hasMismatch = isSignup && confirmation.length > 0 && password !== confirmation; // 두 비밀번호가 다를 때 입력칸 바로 아래에 알려줘요.
     const isEmailInvalid = emailTouched && email.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // 이메일 형식이 잘못됐는지 확인해요.
     const isNicknameInvalid = isSignup && nicknameTouched && nickname.length > 0 && (nickname.length < 2 || nickname.length > 16); // 닉네임 길이가 범위를 벗어났는지 확인해요.
     const pwStrength = { min8: password.length >= 8, hasLetter: /[a-zA-Zㄱ-힣]/.test(password), hasNumber: /[0-9]/.test(password) }; // 비밀번호가 각 조건을 만족하는지 확인해요.
+    // 전체 동의 상태 계산 — 4개 모두 체크됐는지, 일부만 체크됐는지 판단해요.
+    const allChecked = Object.values(consents).every(Boolean);
+    const someChecked = Object.values(consents).some(Boolean) && !allChecked;
+    const requiredConsented = consents.terms && consents.privacy; // 필수 2개가 모두 동의됐는지 확인해요.
+
+    // 전체 동의 체크박스의 불확정(indeterminate) 상태를 DOM에 직접 반영해요.
+    if (allCheckRef.current) allCheckRef.current.indeterminate = someChecked;
+
+    // 전체 동의 또는 전체 해제를 한 번에 적용해요.
+    function toggleAll(checked: boolean) {
+        setConsents({ terms: checked, privacy: checked, email: checked, sensitive: checked });
+    } // 전체 동의 토글을 마쳐요.
+
+    // 개별 항목을 바꿀 때 key와 value만 받아 안전하게 갱신해요.
+    function toggleOne(key: ConsentKey, checked: boolean) {
+        setConsents((prev) => ({ ...prev, [key]: checked }));
+    } // 개별 동의 토글을 마쳐요.
+
+    // 상세 내용 펼침/접기를 한 항목씩 토글해요.
+    function toggleDetail(key: ConsentKey) {
+        setConsentDetail((prev) => ({ ...prev, [key]: !prev[key] }));
+    } // 상세 보기 토글을 마쳐요.
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) { // 디자인 폼이 실제 인증 요청을 보내지 않도록 처리해요.
         event.preventDefault(); // 기본 폼 제출로 입력값이 주소에 붙거나 전송되는 것을 막아요.
@@ -47,10 +95,10 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
             setFeedback("비밀번호가 일치하지 않아요. 입력한 내용을 다시 확인해 주세요."); // 사용자가 고칠 입력칸을 알려줘요.
             return; // 일치하지 않으면 다음 안내로 넘어가지 않아요.
         } // 비밀번호 일치 안내를 마쳐요.
-        if (isSignup && !consent) { // 필수 동의를 고르지 않은 상태를 구분해요.
-            setFeedback("서비스 이용을 위한 필수 동의 항목을 확인해 주세요."); // 동의 항목이 필요하다는 안내를 보여줘요.
-            return; // 동의하지 않았으면 다음 안내로 넘어가지 않아요.
-        } // 동의 선택 안내를 마쳐요.
+        if (isSignup && !requiredConsented) { // 필수 동의 항목(이용약관·개인정보)을 모두 확인했는지 검사해요.
+            setFeedback("서비스 이용을 위한 필수 동의 항목(이용약관, 개인정보 수집·이용)을 확인해 주세요."); // 어떤 항목이 빠졌는지 안내해요.
+            return; // 필수 동의가 없으면 다음 안내로 넘어가지 않아요.
+        } // 필수 동의 확인을 마쳐요.
         setFeedback(isSignup ? "회원가입 화면 미리보기입니다. 계정은 생성되지 않았으며 입력한 정보는 저장하지 않았습니다." : "로그인 화면 미리보기입니다. 실제 로그인은 진행되지 않았으며 입력한 정보는 저장하지 않았습니다."); // 인증에 성공한 것처럼 표시하지 않고 현재 화면의 동작을 설명해요.
         setEmail(""); // 제출한 이메일을 화면 상태에서 비워요.
         setNickname(""); // 제출한 닉네임을 화면 상태에서 비워요.
@@ -58,7 +106,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
         setConfirmation(""); // 비밀번호 확인 값도 함께 비워요.
         setEmailTouched(false); // 제출 후 빈 입력칸에 이전 오류 상태를 남기지 않아요.
         setNicknameTouched(false); // 닉네임 입력 안내도 처음 상태로 되돌려요.
-        setConsent(false); // 실제 동의가 저장되지 않았으므로 선택 상태를 되돌려요.
+        setConsents({ terms: false, privacy: false, email: false, sensitive: false }); // 실제 동의가 저장되지 않았으므로 선택 상태를 되돌려요.
     } // 디자인 폼의 제출 처리를 마쳐요.
 
     return ( // 입력칸과 주요 행동을 하나의 흰색 카드에 담아요.
@@ -71,8 +119,75 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                 <PasswordField id="auth-password" label="비밀번호" value={password} onChange={setPassword} autoComplete={isSignup ? "new-password" : "current-password"} hint={isSignup ? "8자 이상, 문자와 숫자를 포함해 주세요." : undefined} describedBy={isSignup ? "auth-password-requirements" : undefined} /> {/* 화면에 맞는 자동완성과 비밀번호 표시 전환을 제공해요. */}
                 {isSignup && <ul id="auth-password-requirements" className="auth-requirements" aria-label="비밀번호 조건">{[{ label: "8자 이상", met: pwStrength.min8 }, { label: "문자 포함", met: pwStrength.hasLetter }, { label: "숫자 포함", met: pwStrength.hasNumber }].map((item) => <li className={`auth-requirement${item.met ? " is-met" : ""}`} key={item.label}><Icon name="check" />{item.label}: {item.met ? "충족" : "미충족"}</li>)}</ul>} {/* 색상 외에도 상태를 글자로 표시하고 입력칸에 연결해요. */}
                 {isSignup && <PasswordField id="auth-confirm-password" label="비밀번호 확인" value={confirmation} onChange={setConfirmation} autoComplete="new-password" hint={hasMismatch ? "비밀번호가 일치하지 않아요." : "같은 비밀번호를 한 번 더 입력해 주세요."} invalid={hasMismatch} />} {/* 회원가입에서는 비밀번호를 다시 입력하도록 안내해요. */}
-                {isSignup ? <div className="auth-consent"><div className="auth-consent-row"><label className="auth-checkbox-label"><input className="auth-checkbox" type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} required /><span><strong>[필수]</strong> 서비스 이용 및 개인정보 처리 안내 확인</span></label><button type="button" className="auth-inline-link" onClick={() => setShowConsent((previous) => !previous)} aria-expanded={showConsent} aria-controls="auth-consent-detail">{showConsent ? "접기" : "보기"}</button></div>{showConsent && <div id="auth-consent-detail" className="auth-consent-detail">현재는 동의 항목의 디자인 예시이며 실제 약관 동의를 수집하지 않습니다. 정식 서비스의 이용약관과 개인정보 처리 안내는 회원가입 기능 제공 전에 안내됩니다. 이메일 알림 수신과 소득·건강 등 민감정보 동의는 이 항목에 포함되지 않습니다.</div>}</div> : <div className="auth-form-options"><span>나의 다음 걸음을 이어서</span><button type="button" className="auth-inline-link" onClick={() => setShowHelp((previous) => !previous)} aria-expanded={showHelp} aria-controls="auth-password-help">비밀번호를 잊으셨나요?</button></div>} {/* 동의 항목과 비밀번호 도움말은 화면의 성격에 맞게 구분해요. */}
-                {!isSignup && showHelp && <p id="auth-password-help" className="auth-consent-detail">비밀번호 재설정은 정식 로그인 기능이 제공되면 이용하실 수 있습니다. 현재 화면에서는 이메일을 발송하지 않습니다.</p>} {/* 없는 비밀번호 재설정 기능이 작동한 것처럼 표시하지 않아요. */}
+
+                {isSignup ? (
+                    // 회원가입 동의 섹션 — 전체 동의 + 필수 2개 + 선택 2개로 구성해요.
+                    <div className="auth-consent" role="group" aria-label="이용 동의">
+                        {/* 전체 동의 행 — 선택 항목까지 포함해요. */}
+                        <div className="auth-consent-all">
+                            <label className="auth-checkbox-label auth-checkbox-label--all">
+                                <input className="auth-checkbox" type="checkbox" ref={allCheckRef} checked={allChecked} onChange={(e) => toggleAll(e.target.checked)} aria-label="전체 동의 (선택 항목 포함)" />
+                                <span className="auth-consent-all-text">전체 동의 <em className="auth-consent-all-sub">선택 항목 포함</em></span>
+                            </label>
+                        </div>
+                        <div className="auth-consent-divider" role="separator" aria-hidden="true" /> {/* 전체 동의와 개별 항목을 회색 선으로 구분해요. */}
+
+                        {/* [필수] 서비스 이용약관 */}
+                        <ConsentItem id="consent-terms" label="서비스 이용약관 동의" required checked={consents.terms} onCheck={(v) => toggleOne("terms", v)} open={consentDetail.terms} onToggle={() => toggleDetail("terms")}>
+                            <p className="auth-consent-detail-desc">징검다리는 생애주기에 맞는 공공 제도를 미리 알려주는 추천 서비스입니다. 공공기관이 운영하는 서비스가 아닙니다.</p>
+                            <table className="auth-consent-table">
+                                <tbody>
+                                    <tr><th>서비스 범위</th><td>공공 제도 자격 모의 판정, 타임라인 안내, 알림(선택 동의 시)</td></tr>
+                                    <tr><th>판정 고지</th><td>모든 판정은 참고용 모의 판정입니다. 실제 자격 여부는 접수 기관 심사로 결정됩니다.</td></tr>
+                                    <tr><th>대출 범위</th><td>기금 대출(버팀목·디딤돌) 자격 판정까지만 안내합니다. 금융사 상품·금리·신청 링크는 제공하지 않습니다.</td></tr>
+                                    <tr><th>정보 이용</th><td>입력한 정보는 제도 추천 외 목적으로 사용하지 않습니다.</td></tr>
+                                </tbody>
+                            </table>
+                        </ConsentItem>
+
+                        {/* [필수] 개인정보 수집·이용 동의 (기본) */}
+                        <ConsentItem id="consent-privacy" label="개인정보 수집·이용 동의" required checked={consents.privacy} onCheck={(v) => toggleOne("privacy", v)} open={consentDetail.privacy} onToggle={() => toggleDetail("privacy")}>
+                            <table className="auth-consent-table">
+                                <tbody>
+                                    <tr><th>수집 항목</th><td>무작위 식별자(자동 생성), 닉네임</td></tr>
+                                    <tr><th>수집 목적</th><td>프로필 저장, 생애주기 맞춤 제도 추천</td></tr>
+                                    <tr><th>보유 기간</th><td>회원 탈퇴 즉시 삭제</td></tr>
+                                    <tr><th>동의 거부 시</th><td>서비스 이용이 불가합니다.</td></tr>
+                                </tbody>
+                            </table>
+                            <p className="auth-consent-detail-note">실명·전화번호·주민번호는 수집하지 않습니다.</p>
+                        </ConsentItem>
+
+                        {/* [선택] 이메일 알림 수신 동의 */}
+                        <ConsentItem id="consent-email" label="이메일 알림 수신 동의" required={false} checked={consents.email} onCheck={(v) => toggleOne("email", v)} open={consentDetail.email} onToggle={() => toggleDetail("email")}>
+                            <table className="auth-consent-table">
+                                <tbody>
+                                    <tr><th>수집 항목</th><td>이메일 주소</td></tr>
+                                    <tr><th>수집 목적</th><td>새 공고·기한·맞춤 알림 발송</td></tr>
+                                    <tr><th>보유 기간</th><td>알림 수신 해제 또는 탈퇴 즉시 삭제</td></tr>
+                                    <tr><th>동의 거부 시</th><td>이메일 알림을 받지 못합니다. 서비스 이용에는 영향이 없습니다.</td></tr>
+                                </tbody>
+                            </table>
+                        </ConsentItem>
+
+                        {/* [선택] 민감정보 수집·이용 동의 */}
+                        <ConsentItem id="consent-sensitive" label="민감정보 수집·이용 동의" required={false} checked={consents.sensitive} onCheck={(v) => toggleOne("sensitive", v)} open={consentDetail.sensitive} onToggle={() => toggleDetail("sensitive")}>
+                            <table className="auth-consent-table">
+                                <tbody>
+                                    <tr><th>수집 항목</th><td>소득 정보(만원 단위), 건강 정보(장기요양등급·장애 등록 여부·임신 여부), 수급 여부, 차상위계층 여부</td></tr>
+                                    <tr><th>수집 목적</th><td>소득·건강 조건이 포함된 제도의 자격 모의 판정</td></tr>
+                                    <tr><th>보유 기간</th><td>동의 철회 또는 탈퇴 즉시 삭제</td></tr>
+                                    <tr><th>동의 거부 시</th><td>민감 조건 제도 판정에서 해당 항목이 제외됩니다. 소득·건강 무관 제도는 계속 이용 가능합니다.</td></tr>
+                                </tbody>
+                            </table>
+                            <p className="auth-consent-detail-note">민감정보는 별도 동의 시에만 저장되며, 판정 시 원값만 보관하고 % 환산은 판정 때 계산합니다.</p>
+                        </ConsentItem>
+                    </div>
+                ) : (
+                    // 로그인 화면에는 비밀번호 찾기 보조 안내만 표시해요.
+                    <div className="auth-form-options"><span>나의 다음 걸음을 이어서</span><button type="button" className="auth-inline-link" onClick={() => setShowHelp((previous) => !previous)} aria-expanded={showHelp} aria-controls="auth-password-help">비밀번호를 잊으셨나요?</button></div>
+                )}
+                {!isSignup && showHelp && <p id="auth-password-help" className="auth-consent-detail-panel auth-consent-detail-panel--login">비밀번호 재설정은 정식 로그인 기능이 제공되면 이용하실 수 있습니다. 현재 화면에서는 이메일을 발송하지 않습니다.</p>} {/* 없는 비밀번호 재설정 기능이 작동한 것처럼 표시하지 않아요. */}
                 {feedback && <p className="auth-status" role="status" aria-live="polite">{feedback}</p>} {/* 제출 후 안내를 화면과 보조기기에 함께 전달해요. */}
                 <button className="button button-primary auth-submit" type="submit">{isSignup ? "가입하고 시작하기" : "로그인"}<Icon name="arrow-right" /></button> {/* 선택한 화면에 맞는 주요 제출 버튼을 보여줘요. */}
             </form> {/* 로그인과 회원가입 입력 영역을 마쳐요. */}
