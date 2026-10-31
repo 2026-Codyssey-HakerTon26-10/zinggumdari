@@ -8,6 +8,7 @@
 - 데이터 형식(백엔드, AI, 프론트가 주고받는 모양): [docs/api.md](docs/api.md)
 - 외부 자원(빠지면 실격): [docs/external-resources.md](docs/external-resources.md)
 - AI 코딩 도구 공통 규칙: [AGENTS.md.example](AGENTS.md.example)
+- 역할 분담(누가 어느 폴더를 맡나): [docs/roles.md](docs/roles.md)
 
 ## 폴더
 
