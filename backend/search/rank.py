@@ -19,19 +19,30 @@ from datetime import date
 
 from backend.data.deadline import is_closed, parse_deadline
 from backend.search.corpus import short_sido
-from backend.search.index import _squeeze, bigrams
+from backend.search.index import ABBREV, _squeeze, bigrams
 
 STRONG, MEDIUM, WEAK = 0, 1, 2
 MEDIUM_SHARE = 0.7   # 검색어 2-gram 중 이 비율 이상이 이름에 있으면 중간 구간
 BADGE_RANK = {"eligible": 0, "similar": 1, "needs_check": 2, "no_rule": 3, "ineligible": 4}
 
 
-def relevance_band(doc: dict, q: str) -> int:
+def _targets(q: str) -> set[str]:
+    """검색어 통째(공백 뺀 것)와, 줄임말을 푼 꼴. "신혼 특공"은 "신혼특공"과 "신혼특별공급" 둘 다 본다.
+    BM25는 expand_query로 줄임말을 넓히는데 관련도 구간만 원래 글자를 봐서, 줄임말 검색이 별칭에 안 걸렸다."""
     target = _squeeze(q)
-    if not target:
+    out = {target}
+    for short, full in ABBREV.items():
+        if short in target:
+            out.add(target.replace(short, _squeeze(full)))
+    return {t for t in out if t}
+
+
+def relevance_band(doc: dict, q: str) -> int:
+    targets = _targets(q)
+    if not targets:
         return WEAK
     names = [_squeeze(doc["name"]), *(_squeeze(a) for a in str(doc["fields"].get("aliases") or "").splitlines())]
-    if any(target in n for n in names if n):
+    if any(t in n for t in targets for n in names if n):
         return STRONG
     grams = [g for g in bigrams(q) if len(g) == 2]
     if grams:

@@ -205,6 +205,22 @@ def test_similar_badge(client):
     assert {r["name"]: r["badge"] for r in body["results"]}["서울 신혼부부 임차보증금 이자지원"] == "similar"
 
 
+
+def _doc(name, aliases=()):
+    return {"name": name, "fields": {"aliases": "\n".join(aliases)}}
+
+
+def test_abbreviation_counts_for_relevance():
+    """줄임말 검색도 별칭에 걸리면 관련도 첫 구간이다(로그인해 배지가 붙어도 1위가 밀리지 않게).
+    실제 조건표 별칭이 "신혼 특별공급"이라 "신혼 특공"이 통째 일치하지 않던 경우."""
+    from backend.search.rank import STRONG, relevance_band
+    newlywed = _doc("청약 신혼부부 특별공급", ["신혼부부 특공", "신혼 특별공급"])
+    multi = _doc("청약 다자녀가구 특별공급", ["다자녀 특별공급", "다자녀 특공"])
+    assert relevance_band(newlywed, "신혼 특공") == STRONG
+    assert relevance_band(multi, "신혼 특공") != STRONG
+    assert relevance_band(multi, "다자녀 특공") == STRONG
+    assert relevance_band(newlywed, "다자녀 특공") != STRONG
+
 def test_filters(client):
     assert all("parent" in r["stage_tags"] for r in client.get("/search", params={"q": "연금 노인", "tag": "parent"}).json()["results"])
     assert "기초연금" not in names(client.get("/search", params={"q": "기초연금", "subject": "self"}).json())
@@ -267,12 +283,21 @@ def test_fake_judge_age_boundary_and_any_of():
     assert profile_tags(PERSONA, TODAY) == {"youth", "marriage_planned", "homeless", "parent"}
 
 
-def test_search_query_not_in_access_log():
+@pytest.mark.parametrize("path", ["/search?q=%EC%8B%A0", "/search/?q=%EC%8B%A0", "/Search?q=%EC%8B%A0"])
+def test_search_query_not_in_access_log(path):
     rec = logging.LogRecord("uvicorn.access", logging.INFO, "", 0, '%s - "%s %s HTTP/%s" %d',
-                            ("127.0.0.1:1", "GET", "/search?q=%EC%8B%A0", "1.1", 200), None)
+                            ("127.0.0.1:1", "GET", path, "1.1", 200), None)
     for f in logging.getLogger("uvicorn.access").filters:
         f.filter(rec)
     assert "%EC" not in rec.getMessage()
+
+
+def test_access_log_keeps_other_paths():
+    rec = logging.LogRecord("uvicorn.access", logging.INFO, "", 0, '%s - "%s %s HTTP/%s" %d',
+                            ("127.0.0.1:1", "GET", "/notices/x?page=2", "1.1", 200), None)
+    for f in logging.getLogger("uvicorn.access").filters:
+        f.filter(rec)
+    assert "/notices/x?page=2" in rec.getMessage()
 
 
 def test_search_speed_10k_docs():
