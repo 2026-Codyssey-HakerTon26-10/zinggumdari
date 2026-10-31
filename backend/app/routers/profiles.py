@@ -6,9 +6,11 @@
 import copy
 import os
 import secrets
+from datetime import date
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from backend.engine.derive import derive
 from backend.engine.fields import SENSITIVE, is_sensitive_qual
 from backend.engine.stub_data import EXAMPLE_PROFILE
 
@@ -21,6 +23,11 @@ def require_dev_api() -> None:
 router = APIRouter(prefix="/profiles", tags=["profiles"], dependencies=[Depends(require_dev_api)])
 
 _store: dict[str, dict] = {EXAMPLE_PROFILE["user_id"]: copy.deepcopy(EXAMPLE_PROFILE)}
+
+
+def _out(profile: dict, today: date | None = None) -> dict:
+    """응답 모양(api.md §2). derived는 저장하지 않고 응답 때마다 계산한다."""
+    return {**{k: v for k, v in profile.items() if k != "derived"}, "derived": derive(profile, today)}
 
 
 def _get(user_id: str) -> dict:
@@ -103,13 +110,14 @@ def create_from_preset(preset_id: str) -> dict:
     user_id = "U" + secrets.token_hex(4)
     profile = copy.deepcopy(PRESETS[preset_id]["profile"])
     profile.update(user_id=user_id, preset=preset_id)
+    profile.pop("derived", None)
     _store[user_id] = profile
     return {"user_id": user_id}
 
 
 @router.get("/{user_id}")
-def get_profile(user_id: str) -> dict:
-    return _get(user_id)
+def get_profile(user_id: str, today: date | None = None) -> dict:
+    return _out(_get(user_id), today)
 
 
 @router.patch("/{user_id}")
@@ -127,7 +135,7 @@ def update_profile(user_id: str, body: dict) -> dict:
         profile["stages_done"] = body["stages_done"]
     _apply_consents(profile)
     _store[user_id] = profile
-    return profile
+    return _out(profile)
 
 
 @router.delete("/{user_id}", status_code=204)
