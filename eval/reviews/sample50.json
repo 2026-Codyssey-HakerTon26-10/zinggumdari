@@ -1,0 +1,358 @@
+{
+  "source_commit": "2d6b5adba5ee1b930530ed0ab9dd9df6ee1d86c7",
+  "input_sha256": "332a481dc0c229f40646ae09e6cc90ab44cddbfd55ecd8b287cda4bb200cae5d",
+  "graded_by": "AI+인프라 담당 작업(Codex 보조)",
+  "rubric": "근거의 수치·주체·비교·기준일·대안 범위를 대조한다. 원문에 없는 as_of와 구조화되지 않은 핵심 대안은 오답. 제도 전체 누락과 개별 조건 일치를 구분한다. 프롬프트/검증기를 수정하지 않고 고정 표본을 채점했다.",
+  "rows": [
+    {
+      "rule_id": "gov24:611000000145:main-2",
+      "index": 0,
+      "row_sha256": "589d302efdae6cc4d35db5ead37fe417a57b9d382d9fa0f70fd08faa18de2b08",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:155000000015",
+      "index": 5,
+      "row_sha256": "bbf9ee959d78e7dea2fb3bff7378b1caad1377d9024343185e7ddeda6eaaf4f0",
+      "correct": false,
+      "memo": "임산부 전체를 임신 여부 Y 하나로 축소했다. 출산 후 산모 대안을 보존하지 않는다."
+    },
+    {
+      "rule_id": "gov24:135200005001",
+      "index": 0,
+      "row_sha256": "407e8be65784c5ea11b4014b789eef78e039626ef30aac11a03caa35721ef595",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:999000000026:welfare",
+      "index": 0,
+      "row_sha256": "d360444d39b8d46078a310913be13bbc22aa1c13df1dc1eecec54f81c1aa1794",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:305000000173",
+      "index": 0,
+      "row_sha256": "89a1fad3531ab55fceec901c1fa492e998ce34b7d5c0ba788474cd2c516f6042",
+      "correct": false,
+      "memo": "원문의 대상은 가정의 아동인데 본인 age 조건으로 매핑했다."
+    },
+    {
+      "rule_id": "gov24:304000000162:youth",
+      "index": 0,
+      "row_sha256": "03c69f636e62844d6e02f54358233c54f17829bc1ebc58ae63ef93c76b44c531",
+      "correct": false,
+      "memo": "원문에 없는 공고일 기준 as_of를 만들었다."
+    },
+    {
+      "rule_id": "gov24:304000000105",
+      "index": 1,
+      "row_sha256": "817ab7e9e59845dbcf8394fa90936017e8580e1d148d3f49fb34f66d6ff0ae9d",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:161300000103:youth",
+      "index": 0,
+      "row_sha256": "24fdc7e041c53dc75e7bbf69fa385202db286a2a4dbd4b9ded3d4e46d17bb6f6",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:999000000026:institution",
+      "index": 1,
+      "row_sha256": "7ad7c36e3da59f20f01fab1818f83204b45e2d5f50592c31e00f6f542379ba3c",
+      "correct": false,
+      "memo": "특정 산업단지 입주기업 재직을 일반 재직으로만 판정해 근무처 제한을 표현하지 못한다."
+    },
+    {
+      "rule_id": "gov24:149200005033",
+      "index": 2,
+      "row_sha256": "fed76f67fa93d2fa64880f419e7fefc70edceee21d21f5bf59d3b77df3ef6252",
+      "correct": false,
+      "memo": "구직단념청년의 6개월 미참여·문답 점수를 단순 구직 상태로 바꿨다."
+    },
+    {
+      "rule_id": "gov24:611000019620",
+      "index": 5,
+      "row_sha256": "2c08260b1f1ee7adc78e38bea34845f7ea570c5adfa3b40a5703ab2caf05683d",
+      "correct": false,
+      "memo": "원문에 없는 공고일 기준 as_of를 만들었다."
+    },
+    {
+      "rule_id": "gov24:999000000026:student",
+      "index": 1,
+      "row_sha256": "6c849c1eb03a01d887595c7d7ed42d5f454fc820cbbe52fa6a81d7724640d3e6",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:SSE000000020",
+      "index": 0,
+      "row_sha256": "00e5e67afc1f929ece6d7a21b134930b28e08439301ba2f716e24f1cb5ac0874",
+      "correct": false,
+      "memo": "65세 미만 노인성 질환자 대안이 있는데 age>=65를 필수 조건으로 만들었다."
+    },
+    {
+      "rule_id": "gov24:320000000119:main-2",
+      "index": 0,
+      "row_sha256": "80c7d337d241c7397edbf6832fb4dbe0abb1291188e5d1b462e675c53d21839d",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:149200000147",
+      "index": 0,
+      "row_sha256": "30cef270e5565788d48e2ea5808b39c977e326dbba9883e0cc7a5561a02c4b3e",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:322000000120",
+      "index": 0,
+      "row_sha256": "2a3d62a1f7b29d985dab6b0be615f3b39e863a60fe06254f5c322b5a05df2d92",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:315000000107",
+      "index": 1,
+      "row_sha256": "108b7aabf98b75e5429a1ec6dedd336e647bd42e899daf0ff0f9a88c85a9dfe0",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:135200005026",
+      "index": 0,
+      "row_sha256": "90b29dbea3a4a3e4907c9e00d53b74e3c556f3a8a680f40fb59698400d72e5b4",
+      "correct": false,
+      "memo": "주 대상으로 한다는 표현을 모든 신청자에 대한 19세 하한으로 확정했다."
+    },
+    {
+      "rule_id": "gov24:135200005017",
+      "index": 2,
+      "row_sha256": "d3f14ab5cc39a7e1e25c32c25020d36395fe2b8ad592f321db2422344ad7fb11",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:149200005007:main",
+      "index": 2,
+      "row_sha256": "1e738e200f496e7fe5b841dedce7d0902e416dc59b396d335a0a2522f17c7e45",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:303000000346",
+      "index": 3,
+      "row_sha256": "aa6d46842d3a4090f62f20d1a1fca54e1a0f8c8e39539091dc9d050704b46bfd",
+      "correct": false,
+      "memo": "원문에 없는 공고일 기준 as_of를 만들었다."
+    },
+    {
+      "rule_id": "gov24:304000000118",
+      "index": 0,
+      "row_sha256": "82ad3bafac97dccc7136dabf4883fd3cafb634dbdf1e794e0d1e850cff3f642e",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:318000000431:youth",
+      "index": 2,
+      "row_sha256": "a3486b13f8f6ab1501121e04c99aaa412f38dec46f59dc504459fb7f8d84adda",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:324000000106",
+      "index": 0,
+      "row_sha256": "a74d0e377c0fcf47481e7c7b7f648a8528e5977ec4a81efa9f3047dbb718860a",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:135200005006",
+      "index": 0,
+      "row_sha256": "3d0d9d30583d42f91282df697369f6d7b4de3890a851dc617d8ae95195913f88",
+      "correct": false,
+      "memo": "65세 미만 노인성 질환자 대안을 보존하지 않은 필수 age>=65다."
+    },
+    {
+      "rule_id": "gov24:320000000127:main-2",
+      "index": 1,
+      "row_sha256": "100b3a4b53e6cab23a2cb9e3e00350a5f148a575857c65d78abad0300c733b50",
+      "correct": false,
+      "memo": "원문에 없는 공고일 기준 as_of를 만들었다."
+    },
+    {
+      "rule_id": "gov24:302000000125",
+      "index": 3,
+      "row_sha256": "b7d5d98f3b04f5db60f7b6b76e03b55b70987dd0df6725c842abd6aaf143d38b",
+      "correct": false,
+      "memo": "원문에는 등급판정일/출산일 기준이 있는데 공고일로 치환했다."
+    },
+    {
+      "rule_id": "gov24:999000000021:youth",
+      "index": 2,
+      "row_sha256": "c4a806fb722e744b05e1f2abc09a838d74b8ee6471d29eb8e278bfd447f12279",
+      "correct": false,
+      "memo": "원문에 없는 공고일 기준 as_of를 만들었다."
+    },
+    {
+      "rule_id": "gov24:611000000158:main-2",
+      "index": 0,
+      "row_sha256": "15fb6acb5036fb18fb630295fbb0e820e3917c593e5daf02dd6685ebab4d7a8c",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:701000000204",
+      "index": 0,
+      "row_sha256": "61a87e9dcfcc93bfcb6fdd5ed48507198090532b3023699e3aa1abc9b3dcf64e",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:314000000275:general",
+      "index": 2,
+      "row_sha256": "399fa7469c0b9e7b5595db3a17f05dd6ea451b5c59ae480f7160080e15238e2e",
+      "correct": false,
+      "memo": "원문에 없는 공고일 기준 as_of를 만들었다."
+    },
+    {
+      "rule_id": "gov24:303000000347:main",
+      "index": 0,
+      "row_sha256": "7a061062d56f22cdb8fdcba296778b0ee2fd03e398cfd12a9d213c99624277ec",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:315000000270:main",
+      "index": 1,
+      "row_sha256": "208e0e2a177966551c88132aae5b2fb8a121b7f09c6daa9d3b67a79eb0030ed9",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:322000000115",
+      "index": 1,
+      "row_sha256": "4b7919f032c87e1ce5fa89807658d47517a7c7d74c162eea117d6567a02a1bba",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:305000000285",
+      "index": 0,
+      "row_sha256": "91d4913c0708d91d3a3c893166a82eb3cb94bf51ed5fbb0ebecdd969d42795e4",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:O00022900007:main-2",
+      "index": 0,
+      "row_sha256": "0b0e728a68908813da664aa635f1fc2e8b400b143868c131fb6d0cca66ba7dca",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:SD0000011447",
+      "index": 1,
+      "row_sha256": "f6fafc630b94cf568217527ed8ffb1fe97d2ebc5bab7a4c22783665b2004e551",
+      "correct": false,
+      "memo": "원동기 면허 16세 예외를 보존하지 않은 일괄 18세 하한이다."
+    },
+    {
+      "rule_id": "gov24:129000000032",
+      "index": 1,
+      "row_sha256": "bf9cbc7b416ade01283b119725065fcfb1e16898d93906c5b8aee1435476faf0",
+      "correct": false,
+      "memo": "미성년 자녀 조건과 다른 자격 대안을 보존하지 않은 자녀수 조건이다."
+    },
+    {
+      "rule_id": "gov24:999000000064",
+      "index": 1,
+      "row_sha256": "b9e54136d87c99400fc94fa59ce4f14e53585e8005e4c1926e6a49a04e109db8",
+      "correct": false,
+      "memo": "만20세 미만 자녀 3명 요건의 연령을 잃었고 근거 없는 공고일 기준도 추가했다."
+    },
+    {
+      "rule_id": "gov24:O00022900006:main",
+      "index": 0,
+      "row_sha256": "2593569157538d3188850a4073eadb34f7a8705b51fddba232d324988dc2f275",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:300000000103:main",
+      "index": 0,
+      "row_sha256": "8fdf80135e956d29dc06ee115f6da5ea5f381b669353161a653a5b9464e7731f",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:611000019648",
+      "index": 1,
+      "row_sha256": "d9a4ed4c5b9bccd0d509ea886099f4fce7b733afef7db9e255b20f1f7638fe80",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:310000000107:youth",
+      "index": 2,
+      "row_sha256": "fc433846cd360d64ec944612afa18ffcd6eb5f95453a4ec33b3d2c15b376b281",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:183000000006:main-2",
+      "index": 1,
+      "row_sha256": "e524aea583cab28287762aed897336d806c42e6642dda979fc985a899091e9fd",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:303000000344:main-3",
+      "index": 0,
+      "row_sha256": "3a76acce7bfbcf62328650e08850a62db846e4721b67fe070676ee36ae6f0042",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:999000000065",
+      "index": 2,
+      "row_sha256": "5af84713d366a7a6666b024c39e9b25b04a8f7d2b8719dc09fe252828e31f64e",
+      "correct": false,
+      "memo": "20세 미만 자녀 3명 조건을 막내 20세 미만으로 치환했으며 근거 없는 공고일 기준도 추가했다."
+    },
+    {
+      "rule_id": "gov24:309000000132:main",
+      "index": 1,
+      "row_sha256": "6c6fbdb2e7f95222519304ba6b01cf9d113f88e5214b9cb1368e10fd9a5e4df2",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:149200005007:main",
+      "index": 1,
+      "row_sha256": "2799c39904f4447c2e7f29e0c98f82b57f9cbc449567f3589c8bc9e61afbe564",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:312000000315",
+      "index": 3,
+      "row_sha256": "364edaa2c2e62c15caf4fdb77f6789762f03b0540c3b769d67514df68a3ee7ef",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "gov24:149200005023:youth",
+      "index": 0,
+      "row_sha256": "6dfb8eae298dcc9298ad16f259ba099cb4674d10c296b51b247275614f1ce0ca",
+      "correct": false,
+      "memo": "원문에 없는 공고일 기준 as_of를 만들었다."
+    }
+  ]
+}
