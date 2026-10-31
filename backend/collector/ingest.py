@@ -17,11 +17,11 @@ import time
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import unquote_plus, urljoin, urlparse
 
 import httpx
 
-from backend.compiler.lines import has_rrn
+from backend.compiler.lines import has_rrn, rrn_in_text
 from backend.data import config
 from backend.notices import store
 
@@ -299,6 +299,20 @@ def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: s
     return out
 
 
+UNQUOTE_ROUNDS = 3   # %252D 같은 이중 인코딩까지. 그 이상 겹친 인코딩은 풀지 않는다
+
+
+def _unquoted(text: str) -> str:
+    """주민등록번호 검사 전용으로 퍼센트 인코딩을 푼다. 바뀌지 않을 때까지, 최대 UNQUOTE_ROUNDS번.
+    요청과 저장에는 원래 값을 그대로 쓴다. +는 쿼리 값의 빈칸이라 빈칸으로 본다."""
+    for _ in range(UNQUOTE_ROUNDS):
+        decoded = unquote_plus(text)
+        if decoded == text:
+            break
+        text = decoded
+    return text
+
+
 def ingest(path: Path, filename: str, source_url: str | None = None, replay: bool = False,
            today: date | None = None, uploaded_by: str | None = None) -> dict:
     """올린 파일 하나를 한 바퀴 돌린다. 돌려주는 것: {"log", "rules", "replayed", "notice", "alerts"}.
@@ -311,6 +325,10 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     data = path.read_bytes()
     if len(data) > MAX_BYTES:
         raise Rejected("파일이 너무 큽니다(30MB까지)")
+    # 파일 이름은 원문 제목(meta.title)으로, 주소는 source_url로 남으므로 본문보다 먼저, 아무것도 저장하기 전에 본다.
+    # 주소와 URL에서 딴 파일 이름은 퍼센트 인코딩(900101%2D1234567)을 풀어서 본다
+    if any(rrn_in_text(t) or rrn_in_text(_unquoted(t)) for t in (filename, source_url or "")):
+        raise Rejected("파일 이름이나 주소에 주민등록번호로 보이는 숫자가 있어 받지 않았습니다. " + NOTICE)
     sha = hashlib.sha256(data).hexdigest()
 
     cached = load_cache(sha)
