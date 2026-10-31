@@ -126,12 +126,14 @@ def delete_me(request: Request, response: Response) -> None:
     with connect() as conn:
         sess = _require_session(request, conn)
         account_id = sess["account_id"]
-        user_id = profiles.user_id_for(conn, account_id)
-        if user_id:
+        try:
+            from backend.collector.ingest import delete_uploads
+        except ImportError:
+            delete_uploads = None
+        if delete_uploads is not None:
             try:
-                from backend.collector.ingest import delete_uploads
                 delete_uploads(account_id)
-            except Exception:
-                pass   # 파일 삭제 실패는 계정 탈퇴를 막지 않는다
+            except Exception as exc:
+                raise HTTPException(status_code=500, detail="업로드 파일 삭제에 실패했습니다") from exc
         profiles.delete_account(conn, account_id)
     _clear_cookie(response)

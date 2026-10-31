@@ -75,7 +75,7 @@ def search(q: str, profile_id: str | None = None, tag: str | None = None, subjec
     today = today or date.today()
     index = get_index()
     profile = (ports.load_profile(profile_id) if profile_id else None) or {}
-    similar = ports.similar_rule_ids(profile_id) if profile_id else set()
+    similar = ports.similar(profile_id, profile, list(index.rules.values()), today) if profile_id else set()
     # 1단계: BM25로 후보를 넉넉히 뽑는다. 2단계: 관련도·마감·지역·배지 구간으로 다시 줄 세우고 같은 이름을 묶는다
     candidates = index.search(q, limit=CANDIDATES, tag=tag, subject=subject,
                               sido=short_sido(region) if region else None)

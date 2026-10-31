@@ -42,5 +42,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - `frontend/.env.example`을 참고해 `frontend/.env.local`에 `NEXT_PUBLIC_API_BASE`를 설정합니다. 생략하면 로컬 API 주소를 사용합니다. 설정 변경 뒤 프론트 개발 서버를 다시 시작합니다.
 - 이 값은 브라우저에 공개됩니다. API 키·비밀번호를 넣지 않습니다.
 - 로컬에서는 프론트를 `http://localhost:3000`, API를 `http://localhost:8000`으로 사용합니다. 다른 프론트 주소는 백엔드 CORS 담당자와 허용 주소를 맞춰야 합니다.
-- 검색어와 대상 필터를 API로 전송합니다. 인증 쿠키와 사용자 ID는 보내지 않으며, 검색어는 프론트 URL·저장소·콘솔에 남기지 않습니다.
+- 검색어와 대상 필터를 API로 전송합니다. `credentials: "include"`로 로그인 세션 쿠키를 전송합니다. 비로그인 검색도 가능하며, 개인화 대상은 서버가 세션에서 결정합니다. 사용자 ID는 보내지 않고 검색어는 프론트 URL·저장소·콘솔에 남기지 않습니다.
 - 결과의 원문 링크·기준일은 서버 값을 사용합니다. 링크가 없으면 미연결로 표시합니다. `judge: fake`의 배지를 확정 자격으로 표시하지 않습니다.

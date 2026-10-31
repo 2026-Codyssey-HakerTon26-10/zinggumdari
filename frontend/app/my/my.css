@@ -19,7 +19,8 @@
 .my-profile-info p { font-size: 12px; color: #7b8998; margin-top: 5px; line-height: 1.8; } /* 프로필 안내를 읽기 편하게 만들어요. */
 .my-profile-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; } /* 프로필 관심 태그들을 배치해요. */
 .my-profile-tags span { font-size: 10px; color: #577892; padding: 4px 8px; background: #f0f6fc; border-radius: 5px; } /* 각 태그의 파란색 배경을 만들어요. */
-.my-profile .button { font-size: 12px; min-height: 40px; padding: 10px 14px; flex-shrink: 0; } /* 프로필 편집 버튼을 조절해요. */
+.my-profile-actions { display: flex; gap: 8px; flex-shrink: 0; } /* 닉네임 편집과 로그아웃 버튼을 나란히 배치해요. */
+.my-profile-actions .button { font-size: 12px; min-height: 40px; padding: 10px 14px; } /* 프로필 영역 버튼의 크기를 맞춰요. */
 .my-profile .button svg { width: 16px; height: 16px; } /* 편집 아이콘을 작게 만들어요. */
 .my-subject-tabs { display: flex; gap: 24px; border-bottom: 1px solid #e5e7eb; margin-bottom: 25px; } /* 본인과 부모님 탭 아래에 중립 기준선을 만들어요. */
 .my-subject-tabs button { position: relative; display: flex; align-items: center; gap: 7px; border: 0; background: transparent; padding: 12px 2px 17px; color: #81909d; font-size: 14px; font-weight: 650; cursor: pointer; } /* 대상 선택 버튼의 기본 모양이에요. */
@@ -163,7 +164,8 @@
     .my-avatar svg { width: 25px; height: 25px; } /* 프로필 아이콘 크기를 조절해요. */
     .my-profile-info { width: calc(100% - 65px); } /* 프로필 설명이 아이콘 옆에 오게 해요. */
     .my-profile-info p { font-size: 11px; } /* 프로필 설명의 크기를 줄여요. */
-    .my-profile > .button { width: 100%; margin-top: 2px; } /* 닉네임 버튼을 아래쪽에 넓게 놓아요. */
+    .my-profile-actions { width: 100%; margin-top: 2px; flex-wrap: wrap; } /* 모바일에서는 버튼들을 아래쪽에 넓게 놓아요. */
+    .my-profile-actions .button { flex: 1; } /* 버튼이 가용 공간을 나눠 갖게 해요. */
     .my-subject-tabs { gap: 22px; } /* 모바일 대상 탭의 간격을 정해요. */
     .my-subject-tabs button { font-size: 13px; } /* 탭의 글씨 크기를 조절해요. */
     .my-journey { padding: 22px 15px 0; border-radius: 13px; margin-bottom: 26px; } /* 타임라인 내부 여백을 줄여요. */
@@ -202,3 +204,4 @@
 @media (prefers-reduced-motion: reduce) { /* 움직임을 줄이는 운영체제 설정을 존중해요. */
     .my-page *, .my-page *::after { transition: none !important; } /* 카드와 스위치의 움직이는 전환을 없애요. */
 } /* 움직임 설정을 마쳐요. */
+.my-logout-error { padding: 14px 18px; margin-block: 16px; border: 1px solid #ad3535; border-radius: 10px; color: #912626; background: #fff; line-height: 1.8; } /* 로그아웃 실패를 명확하게 알리고 재시도 전까지 유지해요. */
