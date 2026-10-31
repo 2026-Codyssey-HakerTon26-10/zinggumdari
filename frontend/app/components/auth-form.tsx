@@ -108,7 +108,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
         setFeedback(""); // 이전 오류 메시지를 지워요.
         try {
             if (isSignup) {
-                const data = await apiSignup(email, password); // 계정을 생성하고 세션 쿠키를 발급받아요.
+                const data = await apiSignup(email, password, nickname.trim(), { terms: consents.terms, privacy: consents.privacy }); // 계정·닉네임·필수 동의를 저장하고 세션 쿠키를 발급받아요.
                 // 닉네임과 필수 안내 확인만 계정별 임시 보관하고 미지원 선택 동의는 항상 false로 둬요.
                 setAccountData(data.account_id, { nickname: nickname.trim(), consents: { ...consents, email: false, sensitive: false } });
             } else {

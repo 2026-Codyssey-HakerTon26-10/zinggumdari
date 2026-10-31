@@ -68,7 +68,7 @@ def _require_session(request: Request, conn) -> dict:
 class SignupBody(BaseModel):
     email: str
     password: str
-    # 지금 화면은 이메일·비밀번호만 보낸다. 화면이 두 칸을 보내기 시작하면 필수로 바꾼다(api.md 「아직 안 된 것」)
+    # 필수 칸이지만 모델에서는 None을 받고 _check_signup에서 422를 낸다(기본 422는 입력값, 곧 비밀번호를 되돌려준다)
     nickname: str | None = None
     consents: dict | None = None   # {"terms": true, "privacy": true}. 둘 다 true여야 한다
 
@@ -84,10 +84,10 @@ def _check_signup(body: SignupBody) -> None:
         raise HTTPException(status_code=422, detail="이메일 형식이 아닙니다")
     if not PASSWORD_MIN <= len(body.password) <= PASSWORD_MAX:
         raise HTTPException(status_code=422, detail=f"비밀번호는 {PASSWORD_MIN}~{PASSWORD_MAX}자로 입력해 주세요")
-    if body.nickname is not None and not NICKNAME_MIN <= len(body.nickname.strip()) <= NICKNAME_MAX:
+    if body.nickname is None or not NICKNAME_MIN <= len(body.nickname.strip()) <= NICKNAME_MAX:
         raise HTTPException(status_code=422, detail=f"닉네임은 {NICKNAME_MIN}~{NICKNAME_MAX}자로 입력해 주세요")
-    if body.consents is not None and (set(body.consents) != set(REQUIRED_CONSENTS)
-                                      or any(body.consents[k] is not True for k in REQUIRED_CONSENTS)):
+    if not isinstance(body.consents, dict) or (set(body.consents) != set(REQUIRED_CONSENTS)
+                                               or any(body.consents[k] is not True for k in REQUIRED_CONSENTS)):
         raise HTTPException(status_code=422, detail='필수 동의는 {"terms": true, "privacy": true}로 보내 주세요')
 
 
@@ -149,7 +149,7 @@ def signup(body: SignupBody, response: Response) -> dict:
     _check_signup(body)
     with connect() as conn:
         try:
-            nickname = body.nickname.strip() if body.nickname is not None else None
+            nickname = body.nickname.strip()
             account_id = profiles.create_account(conn, body.email, sessions.hash_password(body.password),
                                                  nickname=nickname, agreed=body.consents is not None)
         except psycopg.errors.UniqueViolation:

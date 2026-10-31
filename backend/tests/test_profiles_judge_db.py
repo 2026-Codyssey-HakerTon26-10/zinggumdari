@@ -118,7 +118,8 @@ def db_client(monkeypatch):
 
 
 def _signup(client, email):
-    assert client.post("/auth/signup", json={"email": email, "password": "pass1234"}).status_code == 201
+    assert client.post("/auth/signup", json={"email": email, "password": "pass1234", "nickname": "지원",
+                                          "consents": {"terms": True, "privacy": True}}).status_code == 201
 
 
 @_db

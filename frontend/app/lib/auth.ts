@@ -32,8 +32,8 @@ export interface MeResponse {
 }
 
 // 이메일·비밀번호로 계정을 만들고 세션 쿠키를 발급받아요.
-export async function signup(email: string, password: string): Promise<{ account_id: string }> {
-    return call("/auth/signup", { method: "POST", body: JSON.stringify({ email, password }) });
+export async function signup(email: string, password: string, nickname: string, consents: { terms: boolean; privacy: boolean }): Promise<{ account_id: string }> {
+    return call("/auth/signup", { method: "POST", body: JSON.stringify({ email, password, nickname, consents }) }); // 닉네임과 필수 동의는 서버에 저장해요(동의 시각).
 }
 
 // 이메일·비밀번호로 로그인하고 세션 쿠키를 발급받아요.
