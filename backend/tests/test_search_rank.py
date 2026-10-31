@@ -64,3 +64,12 @@ def test_same_name_collapses_and_keeps_best():
     hits = [(doc(f"g{i}", "장수수당", {"sido": s, "sigungu": None}), 5.0) for i, s in enumerate(["충남", "경기", "서울", "전북"])]
     ranked = rerank(hits, "장수수당", rules={}, badges={}, sido="서울", today=TODAY)
     assert [(d["service_id"], n) for d, n in ranked] == [("g2", 3)]   # 내 시도 것을 대표로 남기고 나머지 셋을 센다
+
+
+def test_rule_backed_doc_is_never_collapsed():
+    """전국 제도의 조건표가 붙은 문서는 이름이 같은 시군구 사업 밑으로 묶이지 않는다."""
+    hits = [(doc("local:1", "청년 월세 지원", {"sido": "경기", "sigungu": "수원시"}), 5.0),
+            (doc("gov24:161300000099", "청년월세 지원", None, deadline="2026년 상반기", rule_id="manual:youth-rent-2026"), 9.0),
+            (doc("local:2", "청년 월세 지원", {"sido": "충북", "sigungu": "옥천군"}), 4.0)]
+    ranked = rerank(hits, "청년월세 지원", rules={}, badges={}, today=TODAY)
+    assert [(d["service_id"], n) for d, n in ranked] == [("local:1", 1), ("gov24:161300000099", 0)]

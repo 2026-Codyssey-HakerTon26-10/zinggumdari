@@ -10,6 +10,7 @@
 
 관련도가 맨 앞이라 추천 가능하다는 이유만으로 엉뚱한 제도가 위로 오지 않는다.
 이름이 같은 제도(시군구마다 같은 이름으로 낸 사업)는 하나로 묶고, 남긴 것에 묶인 수를 단다.
+조건표가 붙은 제도는 따로 판정되므로 묶지 않는다.
 """
 
 from __future__ import annotations
@@ -82,6 +83,9 @@ def rerank(hits: list[tuple[dict, float]], q: str, *, rules: dict[str, dict], ba
     kept: list[list] = []
     seen: dict[str, int] = {}
     for doc, _ in ordered:
+        if doc["rule_id"]:   # 조건표가 붙은 제도는 따로 판정되므로 이름이 같아도 묶지 않는다(전국 「청년월세 지원」이 시군구 사업 밑으로 숨지 않게)
+            kept.append([doc, 0])
+            continue
         name = _squeeze(doc["name"])
         if name and name in seen:
             kept[seen[name]][1] += 1
