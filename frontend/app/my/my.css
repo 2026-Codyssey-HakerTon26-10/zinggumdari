@@ -1,0 +1,204 @@
+.my-page { background: #fff; } /* 화면 전체의 기본 바탕을 흰색으로 만들어요. */
+.my-main { padding-top: 26px; padding-bottom: 64px; } /* 본문의 위아래 공간을 만들어요. */
+.my-breadcrumb { display: flex; align-items: center; gap: 8px; color: #7b8998; font-size: 12px; margin-bottom: 28px; } /* 현재 위치를 작게 보여줘요. */
+.my-breadcrumb svg { width: 13px; height: 13px; } /* 위치 안내 화살표를 작게 만들어요. */
+.my-breadcrumb span { color: #29465e; } /* 현재 화면 이름을 강조해요. */
+.my-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 28px; } /* 제목과 시연 배지를 양쪽에 놓아요. */
+.my-heading h1 { margin: 10px 0 12px; font-size: clamp(26px, 3vw, 36px); font-weight: 750; letter-spacing: -1.4px; line-height: 1.4; color: #123653; } /* 대시보드의 주요 제목을 보여줘요. */
+.my-heading .muted { font-size: 14px; } /* 제목 아래 설명을 작게 보여줘요. */
+.my-mobile-break { display: none; } /* 넓은 화면에서는 제목을 한 줄로 보여줘요. */
+.my-demo-label { flex-shrink: 0; display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; background: #fff; border: 1px solid #e5e7eb; border-radius: 30px; font-size: 11px; color: #64798a; } /* 흰색 바탕과 중립 테두리로 가상 사례 배지를 만들어요. */
+.my-demo-label > span { width: 6px; height: 6px; background: #5c91bc; border-radius: 100%; } /* 시연 배지의 작은 점을 그려요. */
+.my-profile { display: flex; align-items: center; gap: 18px; padding: 24px 28px; border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; margin-bottom: 34px; } /* 프로필 요약을 흰색 패널과 중립 테두리에 담아요. */
+.my-avatar { width: 64px; height: 64px; display: grid; place-items: center; background: #eaf4ff; border-radius: 20px; color: #2474c7; flex-shrink: 0; } /* 프로필 아이콘의 배경을 만들어요. */
+.my-avatar svg { width: 31px; height: 31px; } /* 프로필 아이콘 크기를 정해요. */
+.my-profile-info { flex: 1; min-width: 0; } /* 프로필 설명이 남은 공간을 쓰게 해요. */
+.my-profile-info > div:first-child { display: flex; align-items: center; gap: 9px; } /* 닉네임과 시연 표시를 나란히 놓아요. */
+.my-profile-info strong { font-size: 18px; color: #123653; } /* 가상 닉네임을 강조해요. */
+.my-profile-info > div:first-child > span { color: #7d8d9b; font-size: 10px; padding: 3px 7px; border-radius: 4px; background: #fafafa; } /* 가상 닉네임 표시만 연한 중립 배경으로 구분해요. */
+.my-profile-info p { font-size: 12px; color: #7b8998; margin-top: 5px; line-height: 1.8; } /* 프로필 안내를 읽기 편하게 만들어요. */
+.my-profile-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; } /* 프로필 관심 태그들을 배치해요. */
+.my-profile-tags span { font-size: 10px; color: #577892; padding: 4px 8px; background: #f0f6fc; border-radius: 5px; } /* 각 태그의 파란색 배경을 만들어요. */
+.my-profile .button { font-size: 12px; min-height: 40px; padding: 10px 14px; flex-shrink: 0; } /* 프로필 편집 버튼을 조절해요. */
+.my-profile .button svg { width: 16px; height: 16px; } /* 편집 아이콘을 작게 만들어요. */
+.my-subject-tabs { display: flex; gap: 24px; border-bottom: 1px solid #e5e7eb; margin-bottom: 25px; } /* 본인과 부모님 탭 아래에 중립 기준선을 만들어요. */
+.my-subject-tabs button { position: relative; display: flex; align-items: center; gap: 7px; border: 0; background: transparent; padding: 12px 2px 17px; color: #81909d; font-size: 14px; font-weight: 650; cursor: pointer; } /* 대상 선택 버튼의 기본 모양이에요. */
+.my-subject-tabs button[aria-selected="true"] { color: #2474c7; } /* 선택한 대상의 글자를 강조해요. */
+.my-subject-tabs button[aria-selected="true"]::after { content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 3px; background: #2474c7; border-radius: 3px 3px 0 0; } /* 선택한 대상 아래에 파란 선을 그려요. */
+.my-subject-tabs button svg { width: 18px; height: 18px; } /* 대상 탭의 아이콘 크기를 정해요. */
+.my-subject-tabs button > span { font-size: 9px; font-weight: 600; background: #e8f1fa; color: #4c87bc; border-radius: 4px; padding: 3px 5px; } /* 부모님 탭의 보조 배지를 만들어요. */
+.my-journey { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 27px 28px 0; margin-bottom: 32px; overflow: hidden; } /* 흰색 타임라인 패널을 중립 테두리로 구분해요. */
+.my-section-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; } /* 작은 제목과 안내를 양쪽에 놓아요. */
+.my-section-top h2 { display: flex; align-items: center; gap: 9px; color: #123653; font-size: 20px; font-weight: 700; letter-spacing: -.7px; margin-top: 6px; } /* 섹션 제목을 정리해요. */
+.my-section-top > svg { color: #6b9dcc; width: 22px; height: 22px; } /* 추천 영역의 아이콘을 보여줘요. */
+.my-assumption-badge { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #6e879e; background: #fafafa; padding: 7px 9px; border-radius: 6px; } /* 단계 가정 안내만 연한 중립 배경으로 구분해요. */
+.my-assumption-badge svg { width: 13px; height: 13px; } /* 가정 안내 아이콘을 작게 만들어요. */
+.my-stage-track { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; padding: 32px 0 26px; } /* 다섯 개의 단계를 같은 너비로 놓아요. */
+.my-stage { position: relative; display: flex; flex-direction: column; align-items: center; border: 0; background: transparent; padding: 0 3px; cursor: pointer; color: #8d9ba7; } /* 단계 선택 버튼의 바탕을 없애요. */
+.my-stage::after { content: ""; position: absolute; top: 24px; left: calc(50% + 29px); width: calc(100% - 58px); height: 1px; background: #e5e7eb; } /* 단계 사이에 중립색 연결선을 그려요. */
+.my-stage:last-child::after { display: none; } /* 마지막 단계 뒤에는 선을 그리지 않아요. */
+.my-stage-node { position: relative; display: grid; place-items: center; width: 49px; height: 49px; background: #fff; border: 1px solid #e5e7eb; border-radius: 17px; margin-bottom: 11px; transition: background .2s, transform .2s; } /* 선택 전 단계 아이콘은 흰색 바탕에 담아요. */
+.my-stage-node svg { width: 21px; height: 21px; } /* 단계 아이콘의 크기를 맞춰요. */
+.my-stage strong { font-size: 13px; font-weight: 650; } /* 생애 단계 이름을 보여줘요. */
+.my-stage small { font-size: 10px; margin-top: 5px; } /* 단계에 대한 짧은 설명을 보여줘요. */
+.my-stage.is-current { color: #2474c7; } /* 현재 고른 단계를 파란색으로 강조해요. */
+.my-stage.is-current .my-stage-node { background: #2474c7; color: white; border-color: #2474c7; box-shadow: 0 4px 12px #2474c730; } /* 선택한 단계의 돌을 강조해요. */
+.my-stage.is-past .my-stage-node { color: #6b9dcc; background: #fff; border-color: #e5e7eb; } /* 앞 단계는 흰색 바탕과 파란 아이콘으로 표시해요. */
+.my-stage:hover .my-stage-node { transform: translateY(-3px); } /* 마우스를 올린 단계를 조금 띄워요. */
+.my-stage-current { font-size: 9px; margin-top: 8px; padding: 3px 7px; background: #eaf4ff; border-radius: 4px; } /* 현재 살펴보는 단계임을 글자로 알려줘요. */
+.my-stage-bottom { display: flex; align-items: center; justify-content: space-between; gap: 14px; background: #fff; padding: 13px 28px; margin: 0 -28px; border-top: 1px solid #eef0f3; } /* 타임라인 아래 안내도 흰색으로 이어서 보여줘요. */
+.my-stage-bottom > span { display: flex; align-items: center; gap: 6px; color: #8294a4; font-size: 10px; line-height: 1.7; } /* 단계 선택의 한계를 설명해요. */
+.my-stage-bottom svg { width: 14px; height: 14px; flex-shrink: 0; } /* 아래 안내 아이콘을 조절해요. */
+.my-stage-bottom button { display: flex; align-items: center; gap: 6px; border: 0; padding: 0; background: transparent; color: #2474c7; font-size: 11px; font-weight: 650; cursor: pointer; white-space: nowrap; } /* 다음 단계 버튼을 링크처럼 보여줘요. */
+.my-stage-bottom button:disabled { color: #a5b3bf; cursor: default; } /* 마지막 단계에서는 이동 버튼을 비활성화해요. */
+.my-parent-banner { display: flex; align-items: center; gap: 22px; padding: 32px; background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; margin-bottom: 32px; } /* 부모님 안내 배너를 흰색 패널로 만들어요. */
+.my-parent-icon { display: grid; place-items: center; width: 64px; height: 64px; flex-shrink: 0; border-radius: 21px; background: #fff; color: #2474c7; } /* 부모님 배너의 아이콘 바탕이에요. */
+.my-parent-icon svg { width: 30px; height: 30px; } /* 부모님 아이콘 크기를 정해요. */
+.my-parent-banner h2 { color: #123653; font-size: 22px; margin: 8px 0; letter-spacing: -.6px; } /* 부모님 안내 제목을 강조해요. */
+.my-parent-banner p:last-child { color: #688197; font-size: 12px; line-height: 1.9; } /* 부모님 정보 동의 안내를 보여줘요. */
+.my-dashboard-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 27px; align-items: start; } /* 정책 목록과 안내를 두 열로 나눠요. */
+.my-count { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 6px; background: #e6f1fc; color: #2474c7; font-size: 12px; } /* 예시 카드 개수를 보여줘요. */
+.my-policy-filters { display: flex; align-items: center; gap: 7px; margin: 19px 0 15px; flex-wrap: wrap; } /* 정책 필터를 나란히 놓아요. */
+.my-policy-filters button { display: inline-flex; align-items: center; gap: 5px; border: 1px solid #e5e7eb; background: #fff; color: #7a8a98; padding: 8px 11px; font-size: 11px; border-radius: 7px; cursor: pointer; } /* 선택 전 필터는 흰색 바탕과 중립 테두리로 보여줘요. */
+.my-policy-filters button[aria-pressed="true"] { border-color: #2474c7; color: white; background: #2474c7; } /* 선택한 필터를 파란색으로 채워요. */
+.my-policy-filters button svg { width: 12px; height: 12px; } /* 필터의 책갈피 아이콘을 작게 만들어요. */
+.my-policy-filters button span { opacity: .7; } /* 필터 안의 개수는 가볍게 보여줘요. */
+.my-policy-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; } /* 정책 예시 두 장을 나란히 보여줘요. */
+.my-policy-card { border: 1px solid #e5e7eb; border-radius: 13px; overflow: hidden; background: #fff; } /* 정책 카드를 흰색 바탕과 중립 테두리로 보여줘요. */
+.my-card-disclaimer { color: #8997a3; background: #fff; border-bottom: 1px solid #eef0f3; padding: 9px 16px; font-size: 8px; line-height: 1.6; word-break: keep-all; } /* 모의 판정 안내도 흰색 카드 머리에 표시해요. */
+.my-card-body { padding: 18px; } /* 카드 내부 여백을 정해요. */
+.my-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 17px; } /* 카드 아이콘과 상태를 나란히 놓아요. */
+.my-card-icon { width: 39px; height: 39px; border-radius: 12px; background: #eaf4ff; color: #367bb9; display: grid; place-items: center; } /* 카드 분류 아이콘의 바탕을 만들어요. */
+.my-card-icon svg { width: 19px; height: 19px; } /* 카드 분류 아이콘 크기를 정해요. */
+.my-status { display: inline-flex; padding: 4px 7px; border: 1px solid #f3e1bd; border-radius: 5px; background: #fff7e8; color: #af8334; font-size: 9px; } /* 확인 필요 상태를 황금색으로 표시해요. */
+.my-bookmark { margin-left: auto; padding: 5px; border: 0; background: transparent; color: #adb9c4; cursor: pointer; } /* 카드 저장 버튼을 배치해요. */
+.my-bookmark svg { width: 18px; height: 18px; } /* 저장 아이콘 크기를 정해요. */
+.my-bookmark.is-saved { color: #2474c7; } /* 저장한 상태를 파란색으로 표시해요. */
+.my-bookmark.is-saved svg { fill: #dcecff; } /* 저장한 책갈피의 안쪽을 채워요. */
+.my-card-category { font-size: 9px; color: #8998a5; margin-bottom: 6px; } /* 정책 분류를 작은 글씨로 보여줘요. */
+.my-policy-card h3 { font-size: 16px; font-weight: 700; line-height: 1.5; letter-spacing: -.5px; color: #163a56; } /* 정책 이름을 강조해요. */
+.my-card-description { font-size: 11px; color: #81909d; line-height: 1.85; margin: 9px 0 17px; min-height: 41px; word-break: keep-all; } /* 카드 설명이 편하게 읽히도록 만들어요. */
+.my-check-line { display: flex; align-items: center; gap: 4px; padding: 10px 8px; border-radius: 5px; background: #fafafa; font-size: 9px; color: #71889c; } /* 확인할 항목만 연한 중립 배경으로 구분해요. */
+.my-check-line svg { width: 11px; height: 11px; flex-shrink: 0; } /* 확인 항목 앞에 작은 아이콘을 놓아요. */
+.my-check-line > span:last-child { margin-left: auto; font-size: 8px; color: #ad8d54; white-space: nowrap; } /* 항목 상태를 오른쪽에 붙여요. */
+.my-card-bottom { border-top: 1px solid #eef0f3; margin-top: 15px; padding-top: 13px; display: flex; flex-direction: column; gap: 12px; } /* 중립 구분선으로 카드 아래의 출처와 버튼을 나눠요. */
+.my-card-bottom > span { color: #a0adb8; font-size: 8px; } /* 원문 연결 전 상태를 분명하게 보여줘요. */
+.my-card-bottom button { display: flex; align-items: center; justify-content: center; gap: 6px; color: #2474c7; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 8px; font-size: 11px; font-weight: 650; cursor: pointer; } /* 항목 확인 버튼도 흰색 바탕과 파란 글자로 보여줘요. */
+.my-card-bottom button svg { width: 13px; height: 13px; } /* 버튼의 화살표 크기를 정해요. */
+.my-data-note { display: flex; align-items: flex-start; gap: 5px; font-size: 9px; color: #91a0ad; line-height: 1.8; margin-top: 13px; } /* 원문과 규칙 엔진 연결 전 상태를 안내해요. */
+.my-data-note svg { width: 12px; height: 12px; margin-top: 2px; flex-shrink: 0; } /* 데이터 안내의 작은 문서 아이콘이에요. */
+.my-sidebar { display: flex; flex-direction: column; gap: 17px; } /* 오른쪽 안내 카드 사이에 간격을 만들어요. */
+.my-next-card { padding: 24px; border: 1px solid #e5e7eb; background: #fff; border-radius: 14px; } /* 조건 안내를 흰색 카드에 담아요. */
+.my-next-icon { display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 16px; border-radius: 11px; background: #fff; color: #4a8dc8; } /* 조건 안내의 작은 아이콘을 만들어요. */
+.my-next-icon svg { width: 18px; height: 18px; } /* 안내 아이콘의 크기를 정해요. */
+.my-next-card .eyebrow { font-size: 10px; } /* 안내 카드의 작은 제목을 조절해요. */
+.my-next-card h2 { color: #214f76; font-size: 21px; line-height: 1.55; letter-spacing: -.7px; margin: 8px 0 11px; } /* 확인 필요 안내의 주요 제목을 보여줘요. */
+.my-next-card > p:last-of-type { font-size: 11px; line-height: 1.9; color: #6b8ba5; word-break: keep-all; } /* 모르는 소득을 단정하지 않는다는 설명이에요. */
+.my-legend { display: flex; align-items: center; gap: 12px; border-top: 1px solid #eef0f3; padding-top: 14px; margin-top: 18px; } /* 중립 구분선 아래에 세 가지 조건 상태를 보여줘요. */
+.my-legend > span { display: flex; align-items: center; gap: 5px; font-size: 9px; color: #6e889f; } /* 상태 이름을 작은 글씨로 보여줘요. */
+.my-legend i { width: 5px; height: 5px; border-radius: 100%; } /* 상태별 색상 점을 그려요. */
+.my-dot-green { background: #57a281; } /* 확정 상태의 색상이에요. */
+.my-dot-amber { background: #d4ac62; } /* 확인 필요 상태의 색상이에요. */
+.my-dot-gray { background: #9aa7b4; } /* 질문 상태의 색상이에요. */
+.my-alert-card { padding: 22px; border: 1px solid #e5e7eb; background: #fff; border-radius: 14px; } /* 알림 설정을 흰색 카드와 중립 테두리에 담아요. */
+.my-aside-title { display: flex; align-items: center; gap: 7px; } /* 보조 제목과 아이콘을 나란히 놓아요. */
+.my-aside-title > svg { width: 17px; height: 17px; color: #3e7fb7; flex-shrink: 0; } /* 보조 영역의 아이콘 색상을 정해요. */
+.my-aside-title h2 { font-size: 14px; font-weight: 650; color: #234761; } /* 보조 영역 제목을 보여줘요. */
+.my-alert-card > p { margin-top: 8px; margin-bottom: 15px; color: #8d9ba7; font-size: 10px; } /* 알림 선택 설명을 보여줘요. */
+.my-toggle-row { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 11px 0; border-bottom: 1px solid #eef0f3; color: #688197; font-size: 11px; cursor: pointer; } /* 알림 선택 행을 중립 구분선으로 나눠요. */
+.my-toggle-row:last-of-type { border-bottom: 0; } /* 마지막 알림 행의 아래 선을 없애요. */
+.my-toggle-row input { position: absolute; right: 0; width: 32px; height: 19px; opacity: 0; cursor: pointer; } /* 실제 체크박스 위에 스위치 디자인을 씌워요. */
+.my-switch { position: relative; width: 30px; height: 17px; border-radius: 20px; background: #e5e7eb; transition: background .2s; flex-shrink: 0; pointer-events: none; } /* 선택 전 스위치는 중립 회색으로 보여줘요. */
+.my-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 11px; height: 11px; border-radius: 100%; background: white; transition: transform .2s; } /* 스위치의 흰색 손잡이를 만들어요. */
+.my-toggle-row input:checked + .my-switch { background: #2474c7; } /* 알림을 켜면 스위치를 파란색으로 보여줘요. */
+.my-toggle-row input:checked + .my-switch::after { transform: translateX(13px); } /* 켠 상태에서는 손잡이를 오른쪽으로 옮겨요. */
+.my-toggle-row input:focus-visible + .my-switch { outline: 2px solid #123653; outline-offset: 4px; } /* 키보드로 선택한 스위치를 표시해요. */
+.my-alert-card > small { display: block; color: #98a5b0; font-size: 9px; line-height: 1.8; margin-top: 12px; padding-top: 12px; border-top: 1px solid #eef0f3; } /* 중립 구분선 아래에 실제 발송이 없음을 안내해요. */
+.my-privacy-note { display: flex; gap: 8px; padding: 0 8px; color: #9ba9b5; } /* 개인정보를 입력하지 않아도 된다는 안내예요. */
+.my-privacy-note svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; } /* 개인정보 안내 아이콘을 정해요. */
+.my-privacy-note p { font-size: 9px; line-height: 1.9; } /* 개인정보 안내를 작은 글씨로 보여줘요. */
+.my-archive { padding: 25px 28px; margin-top: 30px; border: 1px solid #e5e7eb; background: #fff; border-radius: 14px; } /* 원문 보관 영역을 흰색 패널과 중립 테두리로 보여줘요. */
+.my-archive > p { max-width: 750px; font-size: 11px; color: #8a9aa7; line-height: 1.9; margin: 11px 0; } /* 원문과 근거 연결에 대한 설명이에요. */
+.my-archive > span { font-size: 10px; padding: 5px 9px; border-radius: 5px; background: #fafafa; color: #8a9aa7; } /* 원문 연결 전 상태만 연한 중립 배경으로 표시해요. */
+.my-empty { grid-column: 1 / -1; text-align: center; padding: 40px 20px; border: 1px dashed #e5e7eb; border-radius: 13px; background: #fff; } /* 흰색 빈 보관함을 중립 점선으로 구분해요. */
+.my-empty > svg { width: 30px; height: 30px; color: #9dbbd5; margin: 0 auto 15px; } /* 빈 보관함의 책갈피 아이콘이에요. */
+.my-empty h3 { color: #496981; font-size: 17px; } /* 빈 상태 제목을 보여줘요. */
+.my-empty p { color: #91a0ad; font-size: 12px; margin: 8px 0 19px; } /* 저장 방법을 설명해요. */
+.my-empty .button { font-size: 12px; } /* 전체 보기 버튼 크기를 정해요. */
+.my-dialog { position: fixed; inset: 0; width: min(500px, calc(100% - 36px)); max-height: calc(100vh - 48px); overflow: auto; margin: auto; padding: 34px; border: 1px solid #e5e7eb; border-radius: 20px; color: #516d84; background: #fff; box-shadow: 0 24px 100px #1118271a; } /* 흰색 대화상자를 중립 테두리와 그림자로 보여줘요. */
+.my-dialog::backdrop { background: #11182766; backdrop-filter: blur(4px); } /* 대화상자 뒤의 화면을 중립색으로 흐리게 만들어요. */
+.my-dialog-close { position: absolute; top: 16px; right: 16px; border: 0; background: #fafafa; border-radius: 50%; padding: 7px; cursor: pointer; color: #6c859a; } /* 닫기 버튼을 연한 중립 배경으로 보여줘요. */
+.my-dialog-close svg { width: 16px; height: 16px; } /* 닫기 아이콘의 크기를 정해요. */
+.my-dialog h2 { color: #123653; font-size: 23px; letter-spacing: -.7px; line-height: 1.45; margin: 12px 0 18px; padding-right: 12px; } /* 대화상자 제목을 강조해요. */
+.my-dialog > p:not(.eyebrow) { font-size: 12px; line-height: 1.9; color: #7c90a0; margin: 12px 0 20px; } /* 대화상자의 설명을 읽기 좋게 만들어요. */
+.my-dialog .my-dialog-disclaimer { padding: 11px; border-radius: 7px; background: #fafafa; font-size: 10px; } /* 대화상자 안내만 연한 중립 배경으로 구분해요. */
+.my-dialog ul { list-style: none; margin: 18px 0; padding: 0; } /* 확인할 항목의 기본 목록 장식을 없애요. */
+.my-dialog li { display: flex; align-items: center; gap: 8px; padding: 13px 0; border-bottom: 1px solid #eef0f3; font-size: 12px; } /* 항목과 상태를 중립 구분선으로 나눠요. */
+.my-dialog li > svg { width: 13px; height: 13px; color: #7496b5; flex-shrink: 0; } /* 확인 항목 앞에 작은 기호를 붙여요. */
+.my-dialog li > em { font-size: 10px; font-style: normal; margin-left: auto; color: #b28b4d; white-space: nowrap; } /* 각 확인 항목의 상태를 보여줘요. */
+.my-detail-source { display: flex; align-items: center; gap: 6px; } /* 원문 연결 상태와 아이콘을 나란히 놓아요. */
+.my-detail-source > svg { width: 14px; height: 14px; flex-shrink: 0; } /* 원문 상태의 아이콘 크기를 정해요. */
+.my-dialog > .button { width: 100%; } /* 확인 버튼이 대화상자 너비를 채우게 해요. */
+.my-dialog form { display: flex; flex-direction: column; gap: 9px; } /* 닉네임 편집 폼을 세로로 놓아요. */
+.my-dialog form label { color: #4e6d85; font-size: 12px; font-weight: 650; } /* 닉네임 입력란의 이름을 보여줘요. */
+.my-dialog form input { padding: 12px 13px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; font-size: 14px; color: #123653; margin-bottom: 10px; } /* 닉네임 입력란을 흰색 바탕과 중립 테두리로 보여줘요. */
+.my-toast { position: fixed; z-index: 100; bottom: 24px; left: 50%; width: max-content; max-width: calc(100% - 32px); padding: 13px 20px; border: 1px solid #e5e7eb; border-radius: 10px; color: #374151; background: #fff; font-size: 12px; line-height: 1.7; box-shadow: 0 8px 35px #1118271a; transform: translate(-50%, 15px); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; } /* 짧은 조작 결과도 흰색 안내 상자로 보여줘요. */
+.my-toast.is-visible { opacity: 1; transform: translate(-50%, 0); } /* 안내가 있을 때만 화면에 나타나게 해요. */
+@media (max-width: 1000px) { /* 태블릿 너비에 맞춰 두 열의 크기를 조절해요. */
+    .my-dashboard-grid { grid-template-columns: minmax(0, 1fr) 265px; gap: 20px; } /* 보조 영역을 조금 줄여요. */
+    .my-policy-list { grid-template-columns: 1fr; } /* 카드가 좁아지면 한 줄에 한 장씩 보여줘요. */
+    .my-card-bottom { flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; } /* 넓어진 카드에서 출처와 버튼을 나란히 보여줘요. */
+    .my-card-bottom button { padding: 8px 12px; flex-shrink: 0; } /* 카드 버튼의 너비를 내용에 맞춰요. */
+    .my-card-description { min-height: 0; } /* 한 열 카드의 설명 높이를 자유롭게 해요. */
+} /* 태블릿 스타일을 마쳐요. */
+@media (max-width: 720px) { /* 휴대폰 화면에서는 정보를 한 열로 배치해요. */
+    .my-main { padding-top: 20px; padding-bottom: 40px; } /* 작은 화면의 본문 여백을 줄여요. */
+    .my-breadcrumb { margin-bottom: 20px; } /* 제목 위 여백을 줄여요. */
+    .my-heading { align-items: flex-start; flex-direction: column; gap: 14px; margin-bottom: 22px; } /* 제목과 시연 배지를 세로로 놓아요. */
+    .my-heading h1 { font-size: 27px; letter-spacing: -1px; } /* 모바일 제목 크기를 맞춰요. */
+    .my-heading .muted { font-size: 12px; line-height: 1.9; } /* 모바일 설명 줄간격을 넉넉하게 해요. */
+    .my-mobile-break { display: initial; } /* 작은 화면에서 제목을 두 줄로 보여줘요. */
+    .my-profile { flex-wrap: wrap; padding: 19px; gap: 13px; margin-bottom: 24px; } /* 프로필 정보를 작은 화면에 맞게 줄바꿈해요. */
+    .my-avatar { width: 48px; height: 48px; border-radius: 15px; } /* 프로필 아이콘을 조금 줄여요. */
+    .my-avatar svg { width: 25px; height: 25px; } /* 프로필 아이콘 크기를 조절해요. */
+    .my-profile-info { width: calc(100% - 65px); } /* 프로필 설명이 아이콘 옆에 오게 해요. */
+    .my-profile-info p { font-size: 11px; } /* 프로필 설명의 크기를 줄여요. */
+    .my-profile > .button { width: 100%; margin-top: 2px; } /* 닉네임 버튼을 아래쪽에 넓게 놓아요. */
+    .my-subject-tabs { gap: 22px; } /* 모바일 대상 탭의 간격을 정해요. */
+    .my-subject-tabs button { font-size: 13px; } /* 탭의 글씨 크기를 조절해요. */
+    .my-journey { padding: 22px 15px 0; border-radius: 13px; margin-bottom: 26px; } /* 타임라인 내부 여백을 줄여요. */
+    .my-section-top h2 { font-size: 18px; } /* 섹션 제목 크기를 모바일에 맞춰요. */
+    .my-journey .my-section-top { align-items: flex-start; flex-direction: column; gap: 11px; } /* 단계 가정 안내를 제목 아래에 놓아요. */
+    .my-stage-track { padding: 27px 0 22px; } /* 단계 타임라인의 위아래 공간을 조절해요. */
+    .my-stage-node { width: 38px; height: 38px; border-radius: 12px; margin-bottom: 9px; } /* 작은 화면의 단계 돌을 줄여요. */
+    .my-stage-node svg { width: 18px; height: 18px; } /* 단계 아이콘의 크기를 줄여요. */
+    .my-stage::after { top: 19px; left: calc(50% + 22px); width: calc(100% - 44px); } /* 줄어든 돌에 맞춰 연결선을 조절해요. */
+    .my-stage strong { font-size: 11px; } /* 단계 이름의 글씨 크기를 정해요. */
+    .my-stage small { display: none; } /* 좁은 화면에서는 단계 이름에 집중해요. */
+    .my-stage-current { font-size: 8px; padding: 3px 4px; white-space: nowrap; } /* 선택 단계 배지가 넘치지 않게 해요. */
+    .my-stage-bottom { padding: 12px 15px; margin: 0 -15px; align-items: flex-start; flex-direction: column; gap: 10px; } /* 모바일 타임라인 안내와 버튼을 세로로 놓아요. */
+    .my-stage-bottom button { align-self: flex-end; } /* 다음 단계 버튼을 오른쪽에 붙여요. */
+    .my-dashboard-grid { grid-template-columns: 1fr; gap: 26px; } /* 정책과 안내 카드를 한 열로 보여줘요. */
+    .my-policy-list { grid-template-columns: 1fr; } /* 정책 카드를 세로로 나열해요. */
+    .my-card-disclaimer { font-size: 9px; } /* 모바일에서 모의 판정 문구를 조금 키워요. */
+    .my-card-category { font-size: 10px; } /* 정책 분류 글씨를 조절해요. */
+    .my-card-description { font-size: 12px; } /* 모바일 카드 설명을 읽기 쉽게 키워요. */
+    .my-check-line { font-size: 10px; } /* 확인할 항목의 크기를 조절해요. */
+    .my-check-line > span:last-child { font-size: 9px; } /* 항목 상태의 글씨 크기를 맞춰요. */
+    .my-card-bottom > span { font-size: 9px; } /* 원문 연결 안내를 읽기 쉽게 해요. */
+    .my-sidebar { gap: 16px; } /* 보조 카드 사이의 간격을 정해요. */
+    .my-next-card h2 br { display: none; } /* 넓어진 보조 카드의 제목을 자연스럽게 줄바꿈해요. */
+    .my-next-card > p:last-of-type { font-size: 12px; } /* 안내 카드의 본문 글씨를 맞춰요. */
+    .my-alert-card > p, .my-alert-card > small { font-size: 11px; } /* 알림 설정 안내를 키워요. */
+    .my-toggle-row { font-size: 12px; padding: 13px 0; } /* 알림 스위치의 누르기 영역을 넓혀요. */
+    .my-archive { padding: 22px; margin-top: 24px; } /* 원문 안내의 모바일 여백을 조절해요. */
+    .my-parent-banner { align-items: flex-start; padding: 22px; gap: 14px; } /* 부모님 배너를 작은 화면에 맞춰요. */
+    .my-parent-icon { width: 43px; height: 43px; border-radius: 14px; } /* 부모님 아이콘 바탕을 줄여요. */
+    .my-parent-icon svg { width: 23px; height: 23px; } /* 부모님 아이콘 크기를 조절해요. */
+    .my-parent-banner h2 { font-size: 19px; line-height: 1.6; } /* 부모님 안내 제목을 작게 보여줘요. */
+    .my-dialog { padding: 29px 23px; } /* 모바일 대화상자의 안쪽 여백을 줄여요. */
+    .my-dialog h2 { font-size: 21px; } /* 모바일 대화상자의 제목 크기를 맞춰요. */
+} /* 모바일 스타일을 마쳐요. */
+@media (prefers-reduced-motion: reduce) { /* 움직임을 줄이는 운영체제 설정을 존중해요. */
+    .my-page *, .my-page *::after { transition: none !important; } /* 카드와 스위치의 움직이는 전환을 없애요. */
+} /* 움직임 설정을 마쳐요. */
