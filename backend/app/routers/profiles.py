@@ -38,6 +38,24 @@ def _consents(raw, partial: bool) -> dict:
     return raw
 
 
+def _shape(body: dict) -> None:
+    """구조가 틀린 입력은 저장 전에 422로 거절한다: self는 객체, parents·qualifications는 객체 배열."""
+    def bad(what: str):
+        raise HTTPException(status_code=422, detail=f"{what} 형식이 아니다")
+    me = body.get("self")
+    if me is not None:
+        if not isinstance(me, dict):
+            bad("self는 객체")
+        quals = me.get("qualifications")
+        if quals is not None and not (isinstance(quals, list) and all(isinstance(q, dict) for q in quals)):
+            bad("self.qualifications는 객체 배열")
+    parents = body.get("parents")
+    if parents is not None and not (isinstance(parents, list) and all(isinstance(p, dict) for p in parents)):
+        bad("parents는 객체 배열")
+    if "stages_done" in body and not isinstance(body["stages_done"], list):
+        bad("stages_done은 배열")
+
+
 def _apply_consents(profile: dict) -> None:
     """동의가 없는 정보는 저장하지 않는다(SPEC §4.4). 동의를 거두면 이미 있던 값도 지운다."""
     consents = profile["consents"]
@@ -54,6 +72,7 @@ def _apply_consents(profile: dict) -> None:
 @router.post("")
 def create_profile(body: dict) -> dict:
     """① 가입 칸 저장. body: {"self": {...}, "consents"?: {...}, "parents"?: [...]}. 동의는 기본 False."""
+    _shape(body)
     user_id = "U" + secrets.token_hex(4)
     consents = _consents(body.get("consents"), partial=False)
     profile = {
@@ -95,8 +114,10 @@ def get_profile(user_id: str) -> dict:
 
 @router.patch("/{user_id}")
 def update_profile(user_id: str, body: dict) -> dict:
-    """② 알림 설정, ③ 공고별 확인에서 받은 칸을 더한다."""
-    profile = _get(user_id)
+    """② 알림 설정, ③ 공고별 확인에서 받은 칸을 더한다.
+    복사본에서 검증·동의 정리를 다 끝낸 뒤 한 번에 바꾼다. 실패한 요청은 저장본을 조금도 바꾸지 않는다."""
+    _shape(body)
+    profile = copy.deepcopy(_get(user_id))
     if "consents" in body:
         profile["consents"].update(_consents(body["consents"], partial=True))
     profile["self"].update(body.get("self") or {})
@@ -105,6 +126,7 @@ def update_profile(user_id: str, body: dict) -> dict:
     if "stages_done" in body:
         profile["stages_done"] = body["stages_done"]
     _apply_consents(profile)
+    _store[user_id] = profile
     return profile
 
 

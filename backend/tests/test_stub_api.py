@@ -118,3 +118,35 @@ def test_unknown_preset_404(dev):
 def test_presets_closed_by_default(monkeypatch):
     monkeypatch.delenv("DEV_STUB_API", raising=False)
     assert client.post("/profiles/presets/jiwon").status_code == 404
+
+
+# 실패한 PATCH는 아무것도 바꾸지 않는다(#11 리뷰) --------------------------------------------------
+
+@pytest.mark.parametrize("bad", [
+    {"consents": {"sensitive": False}, "self": {"qualifications": [1]}},
+    {"consents": {"sensitive": False}, "self": {"qualifications": "청년"}},
+    {"consents": {"sensitive": False}, "self": "x"},
+    {"consents": {"sensitive": False}, "parents": [1]},
+    {"consents": {"sensitive": False}, "parents": {"relation": "모"}},
+])
+def test_rejected_patch_changes_nothing(dev, bad):
+    body = {"consents": {"sensitive": True, "parent": True}, "self": {"income_self": 270},
+            "parents": [{"relation": "모", "ltc_grade": "3등급"}]}
+    user_id = client.post("/profiles", json=body).json()["user_id"]
+    before = client.get(f"/profiles/{user_id}").json()
+    assert client.patch(f"/profiles/{user_id}", json=bad).status_code == 422
+    assert client.get(f"/profiles/{user_id}").json() == before
+
+
+def test_withdraw_consent_clears_self_and_parents(dev):
+    body = {"consents": {"sensitive": True, "parent": True}, "self": {"income_self": 270, "pregnant": "N"},
+            "parents": [{"relation": "모", "ltc_grade": "3등급", "basic_pension": "Y", "birth_year": 1950}]}
+    user_id = client.post("/profiles", json=body).json()["user_id"]
+    p = client.patch(f"/profiles/{user_id}", json={"consents": {"sensitive": False}}).json()
+    assert "income_self" not in p["self"] and "pregnant" not in p["self"]
+    assert p["parents"] == [{"relation": "모", "birth_year": 1950}]
+
+
+@pytest.mark.parametrize("bad", [{"self": "x"}, {"self": {"qualifications": [1]}}, {"parents": [1]}])
+def test_rejected_post(dev, bad):
+    assert client.post("/profiles", json=bad).status_code == 422
