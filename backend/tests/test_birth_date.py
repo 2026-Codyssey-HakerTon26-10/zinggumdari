@@ -116,3 +116,31 @@ def test_preset_uses_birth_date():
     me, mom = EXAMPLE_PROFILE["self"], EXAMPLE_PROFILE["parents"][0]
     assert me["birth_date"] == "1999-04-15" and "birth_year" not in me
     assert mom["birth_date"] == "1966-07-03" and "birth_year" not in mom
+
+
+# 부모님 타임라인도 생년월일 기준(#64 리뷰, 박범규) ----------------------------------------------
+
+@pytest.mark.parametrize("born, need, opens", [
+    ("1961-12-01", 65, True),    # 올해 생일 전: 64세 → 65세 단계가 남아 있다(연도 차이는 65)
+    ("1961-11-01", 65, False),   # 오늘이 생일: 65세 → 이미 해당
+    ("1961-10-01", 65, False),   # 올해 생일 지남: 65세
+    ("1956-12-01", 70, True),    # 다른 문턱: 69세 → 70세 단계
+    ("1956-11-01", 70, False),
+])
+def test_parent_timeline_matches_card(born, need, opens):
+    rule = R([C("age", ">=", need)], subject="parent")
+    parent = {"relation": "모", "birth_date": born}
+    body = build_judge({**P(birth_date="1999-04-15"), "parents": [parent]}, [rule], TODAY)
+    card = body["cards"][0]
+    steps = [s for s in body["timeline"]["parent"] if s["step"] == f"age{need}"]
+    assert (card["verdict"] == "opens_later") is opens
+    assert bool(steps) is opens
+    if opens:
+        assert steps[0]["year"] == int(card["opens_at"]["when"][:4])
+
+
+def test_parent_birth_year_only_stays_conservative():
+    # 출생연도만 있는 옛 데이터는 예전처럼 연도 차이가 문턱 이상이면 단계를 만들지 않는다
+    rule = R([C("age", ">=", 65)], subject="parent")
+    body = build_judge({**P(birth_date="1999-04-15"), "parents": [{"relation": "모", "birth_year": 1961}]}, [rule], TODAY)
+    assert [s for s in body["timeline"]["parent"] if s["step"] == "age65"] == []
