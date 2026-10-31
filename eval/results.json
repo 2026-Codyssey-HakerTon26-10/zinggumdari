@@ -451,10 +451,10 @@
   "source_snapshot": {
     "commit": "2d6b5adba5ee1b930530ed0ab9dd9df6ee1d86c7",
     "pr": 54,
-    "status": "PR 스냅샷 기준; main 병합 여부와 독립 판정 일치 평가를 별도로 확인해야 함",
+    "status": "고정 커밋 원본 기준; 현재 입력 세 파일과 검토 기록의 해시 대조 후 집계",
     "inputs_sha256": {
-      "sample50.json": "332a481dc0c229f40646ae09e6cc90ab44cddbfd55ecd8b287cda4bb200cae5d",
       "score_input.json": "b3673e24003d00b1cf8365c4b9c8417540a708afbb698551c2941d2995915110",
+      "sample50.json": "332a481dc0c229f40646ae09e6cc90ab44cddbfd55ecd8b287cda4bb200cae5d",
       "verifier_dev.json": "6e9f7d72cdfa6847c457cd0b0afd76a895a69f30d665fba68a6acc9165fca2fc"
     }
   },

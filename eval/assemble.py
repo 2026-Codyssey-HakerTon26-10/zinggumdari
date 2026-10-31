@@ -26,6 +26,12 @@ def apply_grades(input_path, review_path, key):
     return rows, review["source_commit"]
 
 
+def input_hashes(directory):
+    # 출력 results.json/다른 평가 JSON을 포함하면 재실행마다 자기 해시가 바뀐다.
+    return {name: hashlib.sha256((Path(directory) / name).read_bytes()).hexdigest()
+            for name in ("score_input.json", "sample50.json", "verifier_dev.json")}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inputs-dir", required=True, type=Path)
@@ -47,9 +53,8 @@ def main():
         document["verdicts"] = agreement["verdicts"]
     result = score(document, json.loads(args.split.read_text()))
     result["source_snapshot"] = {"commit": sample_commit, "pr": 54,
-                                 "status": "PR 스냅샷 기준; main 병합 여부와 독립 판정 일치 평가를 별도로 확인해야 함",
-                                 "inputs_sha256": {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                                                    for p in sorted(args.inputs_dir.glob("*.json"))}}
+                                 "status": "고정 커밋 원본 기준; 현재 입력 세 파일과 검토 기록의 해시 대조 후 집계",
+                                 "inputs_sha256": input_hashes(args.inputs_dir)}
     if agreement is not None:
         result["agreement_source"] = {k:v for k,v in agreement.items() if k != "verdicts"}
     result["scoring_method"] = "조건 키 엄격 일치(자동 집계) + 원문 근거 대조(Codex 보조 평가); other 근거 겹침만으로 정답 인정하지 않음"

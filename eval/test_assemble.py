@@ -22,3 +22,13 @@ def test_changed_input_or_ungraded_condition_cannot_reuse_review(tmp_path):
     inp.write_bytes(raw + b'\n')
     with pytest.raises(ValueError, match="바뀌"):
         apply_grades(inp, rev, "sample50")
+
+
+def test_output_in_input_directory_does_not_change_source_hashes(tmp_path):
+    from eval.assemble import input_hashes
+    for name in ("score_input.json", "sample50.json", "verifier_dev.json"):
+        (tmp_path / name).write_text("{}")
+    before = input_hashes(tmp_path)
+    (tmp_path / "results.json").write_text('{"old": true}')
+    (tmp_path / "team.json").write_text('{"team_name": "가상"}')
+    assert input_hashes(tmp_path) == before
