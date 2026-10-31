@@ -1,0 +1,160 @@
+{
+ "id": "manual:hug-newborn-didimdol",
+ "source": "manual",
+ "name": "신생아 특례 디딤돌대출",
+ "org": "주택도시기금",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "신생아 디딤돌",
+  "신생아 특례 구입자금",
+  "신생아 특례 주택구입대출"
+ ],
+ "same_as": [],
+ "doc_id": "nhuf-newborn-didimdol",
+ "conditions": [
+  {
+   "field": "other",
+   "text": "민법상 성년인 세대주",
+   "quote": "대출접수일 현재 민법상 성년인 세대주",
+   "evidence": [
+    "nhuf-newborn-didimdol:l346"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 2,
+   "as_of": "application_date",
+   "quote": "대출접수일 기준 2년 내 출산(입양)한 가구(다만, 신생아 특별공급 또는 우선공급 당첨자인 경우 대출접수일 현재 자녀가 만 2세 초과시에도 가능)",
+   "evidence": [
+    "nhuf-newborn-didimdol:l348"
+   ],
+   "status": "reviewed",
+   "note": "’23.1.1. 이후 출생아부터, 임신 중인 태아는 미포함, 입양아는 만 2살 미만(l350~l351). 신생아 특별공급·우선공급 당첨자는 자녀 만 2세 초과도 가능하나 칸에 넣지 않았다"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "quote": "세대주를 포함한 세대원 전원(혼인신고를 하지 않은 경우 신생아의 가족관계증명서 상 등재된 부모 포함)이 무주택인 자",
+   "evidence": [
+    "nhuf-newborn-didimdol:l353"
+   ],
+   "status": "reviewed",
+   "note": "분양권 및 조합원 입주권도 주택 보유로 간주(l354). 1주택 세대주 대환대출(상단 요약 l330)은 별도 안내라 이 조건표에 넣지 않았다"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     }
+    ],
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 20000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "income_self",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "income_spouse",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     }
+    ]
+   ],
+   "quote": "대출신청인과 배우자의 합산 총소득이 연간 1.3억원 이하, 다만 대출신청인과 배우자가 모두 소득이 있는 경우 합산 총소득이 2억원 이하인 자(부부 각 1인의 소득이 1.3억원 이하)",
+   "evidence": [
+    "nhuf-newborn-didimdol:l363"
+   ],
+   "status": "reviewed",
+   "note": "토지임대부 분양주택 대출 신청자는 소득 초과 시에도 신청 가능(l365). 칸에 넣지 않았다"
+  },
+  {
+   "field": "other",
+   "text": "대출신청인과 배우자의 합산 순자산 5.11억원 이하(2026년)",
+   "quote": "합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 … 2026년도 기준 5.11억원",
+   "evidence": [
+    "nhuf-newborn-didimdol:l367"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "기금대출, 은행재원 주택담보대출 이용 중이면 불가(기금 전세자금대출은 실행일 당일 상환조건부로 가능). 혼인신고를 하지 않은 부모는 동일한 신생아로 중복대출 불가",
+   "quote": "(중복대출 금지) 주택도시기금대출 및 은행재원 주택담보대출 미이용자 등 … 기금의 전세자금 대출을 받은 경우에는 실행일 당일 상환조건부로 대출 가능 … 동일한 신생아로 중복대출 불가",
+   "evidence": [
+    "nhuf-newborn-didimdol:l355",
+    "nhuf-newborn-didimdol:l359",
+    "nhuf-newborn-didimdol:l362"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "주택매매계약 체결(상속, 증여, 재산분할로 취득하는 경우 불가)",
+   "quote": "주택을 취득하기 위하여 주택매매계약을 체결한 자 (상속, 증여, 재산분할로 주택을 취득하는 경우 불가)",
+   "evidence": [
+    "nhuf-newborn-didimdol:l345"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "신용정보·연체 등 해제 정보가 남아 있으면 불가",
+   "quote": "신용정보관리규약」에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능",
+   "evidence": [
+    "nhuf-newborn-didimdol:l373"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "대상주택: 주거 전용면적 85㎡ 이하(수도권 밖 읍·면 100㎡), 담보주택 평가액 9억원 이하",
+   "quote": "주거 전용면적이 85㎡(수도권을 제외한 도시지역이 아닌 읍 또는 면 지역 100㎡) 이하 주택으로, 대출 접수일 현재 담보주택의 평가액이 9억원 이하인 주택",
+   "evidence": [
+    "nhuf-newborn-didimdol:l383"
+   ],
+   "status": "reviewed"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "대출금리 1.8% ~ 4.5%\n대출한도 최대 4억원 이내(LTV 70%, DTI 60% 이내. 단, 생애최초 주택구입자는 LTV 80% 적용하되, 수도권·규제지역 소재 주택 구입시 LTV 70% 적용)\n대출기간 10년, 15년, 20년, 30년(거치 1년 또는 비거치)",
+ "apply_text": "소유권이전등기를 하기 전에 신청. 단, 소유권이전등기를 한 경우에는 이전등기 접수일로부터 3개월 이내까지 신청",
+ "documents": [
+  "건강보험자격득실확인서",
+  "사업자등록증",
+  "사업자등록증명원",
+  "가족관계증명서"
+ ],
+ "documents_official": [],
+ "detail_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030801.jsp",
+ "updated": "2026-11-01",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}

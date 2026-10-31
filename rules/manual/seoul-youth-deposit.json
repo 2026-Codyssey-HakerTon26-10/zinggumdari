@@ -1,0 +1,139 @@
+{
+ "id": "manual:seoul-youth-deposit",
+ "source": "manual",
+ "name": "서울 청년 임차보증금 이자지원",
+ "org": "서울특별시",
+ "region": {
+  "sido": "서울특별시",
+  "sigungu": null
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "청년 임차보증금 이자지원사업",
+  "서울시 청년 임차보증금",
+  "서울 청년 전월세 보증금 이자지원"
+ ],
+ "same_as": [
+  "local:WLF00002637"
+ ],
+ "doc_id": "local-wlf00002637",
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "quote": "만 19~39세이며, 연소득 5천만원 이하인 무주택세대주",
+   "evidence": [
+    "local-wlf00002637:l2"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 39,
+   "quote": "만 19~39세이며, 연소득 5천만원 이하인 무주택세대주",
+   "evidence": [
+    "local-wlf00002637:l2"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "quote": "연소득 5천만원 이하인 무주택세대주",
+   "evidence": [
+    "local-wlf00002637:l2"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "quote": "연소득 5천만원 이하인 무주택세대주",
+   "evidence": [
+    "local-wlf00002637:l2"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "미혼",
+       "예비부부",
+       "이혼·사별"
+      ]
+     },
+     {
+      "field": "income_self",
+      "op": "<=",
+      "value": 5000,
+      "income_basis": "absolute_annual"
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "신혼",
+       "기혼"
+      ]
+     },
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 6000,
+      "income_basis": "absolute_annual"
+     }
+    ]
+   ],
+   "quote": "연소득 5천만원 이하인 무주택세대주(기혼의 경우 연소득 6천만원 이하)",
+   "evidence": [
+    "local-wlf00002637:l2"
+   ],
+   "status": "reviewed",
+   "note": "원문은 기혼의 연소득이 부부합산인지 본인인지 말하지 않는다. 기혼은 income_couple(본인+배우자), 미혼, 예비부부, 이혼·사별은 income_self로 봤다"
+  },
+  {
+   "field": "other",
+   "text": "대상주택: 서울시 관내 주택 또는 주거용 오피스텔, 임차보증금 3억원 이하, 월세 90만원 이하의 전세·월세계약(체결예정 포함)",
+   "quote": "서울시 관내에 위치한 주택 또는 주거용 오피스텔로서, 해당 주택 등에 체결 및 체결예정인 임차보증금 3억원 이하, 월세 90만원 이하의 전세·월세계약",
+   "evidence": [
+    "local-wlf00002637:l4"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "건축물대장상 주택이 아닌 곳, 불법건축물, 다중 주택, 공공임대주택은 지원 불가(역세권청년주택은 민간임대주택 유형만 가능)",
+   "quote": "건축물대장상 주택이 아닌 곳과 불법건축물, 다중 주택, 공공임대주택은 지원 불가 … 서울시 역세권청년주택은 ‘민간임대주택’유형만 지원 가능",
+   "evidence": [
+    "local-wlf00002637:l4"
+   ],
+   "status": "reviewed"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "- 최대 2억원 대출(임차보증금의 90% 범위내) - 대출금의 연 2% 금리지원",
+ "apply_text": "서울주거포털에 온라인신청(상시접수)",
+ "documents": [],
+ "documents_official": [],
+ "detail_url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00002637&wlfareInfoReldBztpCd=02",
+ "updated": "2026-07-14",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}
