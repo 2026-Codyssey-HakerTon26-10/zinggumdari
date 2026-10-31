@@ -205,7 +205,7 @@ def test_read_as():
 
 def test_blocking_fields():
     card = one(P(marital_status="예비부부"), R([C("age", "<=", 34), COUPLE_7500]))
-    assert card["blocking_fields"] == ["birth_year", "income_self"]
+    assert card["blocking_fields"] == ["birth_date", "income_self"]
 
 
 # 기간 경계(요청 24·30·37) ----------------------------------------------------------------------

@@ -11,7 +11,7 @@ from backend.engine.fields import is_sensitive_qual
 MIN_CANDIDATES = 6   # 남은 후보가 5개 이하면 묻지 않는다
 
 # 막는 칸을 묻는 순서가 같을 때 앞에 오는 칸(가입 → 알림 설정 → 공고별 확인 순)
-ORDER = ["birth_year", "marital_status", "marriage_date", "children_count", "youngest_child_age", "household_size",
+ORDER = ["birth_date", "marital_status", "marriage_date", "children_count", "youngest_child_age", "household_size",
          "employment_status", "pregnant", "due_month", "sido", "sigungu", "tenure_type", "is_householder",
          "is_homeless", "move_in_date", "deposit", "monthly_rent", "house_price", "employment_type", "income_self",
          "income_spouse", "income_household", "dependents_count", "supports_parent_65", "support_start_date",
@@ -33,7 +33,7 @@ def _choices(*values: str) -> list[dict]:
 
 # 칸 → (질문, 선택지). 선택지는 값으로 바로 매핑한다(SPEC §6). 값은 api.md §2 프로필 값 그대로
 QUESTIONS = {
-    "birth_year": ("태어난 해가 언제인가요?", NUMBER),
+    "birth_date": ("생년월일이 언제인가요?", DATE),
     "marital_status": ("지금 혼인 상태가 어떻게 되나요?", _choices("미혼", "예비부부", "신혼", "기혼", "이혼·사별")),
     "marriage_date": ("혼인신고를 하셨나요? 했다면 언제인가요?",
                       [{"label": "안 함", "value": None, "set": {"marital_status": "예비부부"}}, *DATE]),
@@ -74,7 +74,7 @@ QUESTIONS = {
                           _choices("생계", "의료", "주거", "교육", "차상위", "해당없음")),
     "care_wanted": ("부모님께 돌봄 서비스가 필요하신가요?", YES_NO),
 }
-PARENT_BIRTH_YEAR = ("부모님이 태어난 해가 언제인가요?", NUMBER)
+PARENT_BIRTH_DATE = ("부모님 생년월일이 언제인가요?", DATE)
 
 
 def _qual_to_ask(rule: dict, me: dict, sensitive_ok: bool) -> str | None:
@@ -102,8 +102,8 @@ def _question(subject: str, field: str, rule: dict, profile: dict) -> dict | Non
         return {"question": f"‘{code}’에 해당하시나요?", "qual_code": code,
                 "options": [{"label": "예", "value": "Y", "add_qualification": dict(line)},
                             {"label": "아니오", "value": "N", "add_qualification": {**line, "has": "N"}}]}
-    if subject == "parent" and field == "birth_year":
-        q, opts = PARENT_BIRTH_YEAR
+    if subject == "parent" and field == "birth_date":
+        q, opts = PARENT_BIRTH_DATE
     elif field in QUESTIONS:
         q, opts = QUESTIONS[field]
     else:

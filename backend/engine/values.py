@@ -79,11 +79,53 @@ def months_between(start, today: date) -> int | None:
 
 
 def ages(birth_year, today: date) -> list[int] | None:
-    """출생연도만 있으므로 만 나이는 (올해 − 출생연도 − 1)과 (올해 − 출생연도) 중 하나다."""
+    """출생연도만 있을 때의 만 나이: (올해 − 출생연도 − 1)과 (올해 − 출생연도) 중 하나다.
+    프로필은 생년월일(birth_date)이 기준이다. 이 함수는 출생연도만 있는 옛 데이터(가상 인구 등)용이다."""
     if birth_year is None:
         return None
     by = int(birth_year)   # 숫자가 아니면 ValueError → resolve가 확인 필요로
     return [today.year - by - 1, today.year - by]
+
+
+def birth_date_of(person: dict) -> date | None:
+    """생년월일. 없으면 None. 날짜 꼴이 아니면 ValueError(resolve가 확인 필요로 바꾼다)."""
+    v = person.get("birth_date")
+    if v in (None, ""):
+        return None
+    return v if isinstance(v, date) else date.fromisoformat(str(v)[:10])
+
+
+def birth_year_of(person: dict) -> int | None:
+    """출생연도. 생년월일이 있으면 그 연도, 없으면 옛 데이터의 birth_year."""
+    try:
+        b = birth_date_of(person)
+    except ValueError:
+        b = None
+    if b is not None:
+        return b.year
+    by = person.get("birth_year")
+    return int(by) if isinstance(by, int) or (isinstance(by, str) and by.isdigit()) else None
+
+
+def age_on(born: date, today: date) -> int:
+    """만 나이. 올해 생일이 아직 안 왔으면 한 살 뺀다. 2월 29일생은 평년엔 3월 1일에 한 살 든다."""
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+
+def birthday_at(born: date, age: int) -> date:
+    """만 age세가 되는 날. 평년의 2월 29일은 3월 1일(age_on과 같은 경계)."""
+    try:
+        return born.replace(year=born.year + age)
+    except ValueError:   # 2월 29일 → 평년
+        return date(born.year + age, 3, 1)
+
+
+def age_values(person: dict, today: date) -> list[int] | None:
+    """만 나이 후보. 생년월일이 있으면 한 값, 출생연도만 있으면 두 값, 둘 다 없으면 None."""
+    born = birth_date_of(person)
+    if born is not None:
+        return [age_on(born, today)]
+    return ages(person.get("birth_year"), today)
 
 
 def income_couple(person: dict) -> Values | Ask:
@@ -147,8 +189,8 @@ def _resolve(person: dict, cond: dict, field: str, today: date, year: int) -> Va
     if field.startswith("income"):
         return _income(person, cond, year)
     if field == "age":
-        a = ages(person.get("birth_year"), today)
-        return Ask("birth_year") if a is None else Values(a)
+        a = age_values(person, today)
+        return Ask("birth_date") if a is None else Values(a)
     if field == "apply_date":
         return Values([today.isoformat()])
     if field == "marriage_years" and not person.get("marriage_date"):
