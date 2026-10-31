@@ -1,0 +1,11 @@
+{
+  "source": "gov24_serviceDetail",
+  "dataset": "15113968",
+  "endpoint": "https://api.odcloud.kr/api/gov24/v3/serviceDetail",
+  "params": {},
+  "page_size": 500,
+  "fetched_at": "2026-10-31T22:01:47",
+  "pages": 22,
+  "items": 10942,
+  "total": 10942
+}

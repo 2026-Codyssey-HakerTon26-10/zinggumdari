@@ -1,0 +1,37 @@
+"""검색 API (docs/api.md §7, 「인증·소유권 계약」). 담당 백엔드2.
+
+로그인 없이 검색할 수 있고, 그때는 개인화 배지가 없다(badge null, 조건표 없는 제도는 no_rule).
+로그인했으면 세션의 본인 프로필로만 배지를 단다. 예전 user_id 쿼리는 다른 사람을 고르는 데 쓰지 않는다:
+로그인하지 않았으면 401, 본인 프로필이 아니면 403.
+"""
+
+from __future__ import annotations
+
+from datetime import date
+
+from fastapi import APIRouter, HTTPException, Query, Request
+
+from backend.search import service
+from backend.search.ports import ports
+
+router = APIRouter(tags=["search"])
+
+
+@router.get("/search")
+def search(
+    request: Request,
+    q: str = Query(..., min_length=1, max_length=100),
+    user_id: str | None = None,
+    tag: str | None = None,
+    subject: str | None = Query(None, pattern="^(self|parent)$"),
+    region: str | None = None,
+    limit: int = Query(20, ge=1, le=50),
+    today: date | None = None,
+) -> dict:
+    user = ports.session_user(request)
+    if user_id is not None:
+        if not user:
+            raise HTTPException(status_code=401, detail="로그인이 필요합니다")
+        if user.get("profile_id") != user_id:
+            raise HTTPException(status_code=403, detail="본인 프로필만 쓸 수 있습니다")
+    return service.search(q, user and user.get("profile_id"), tag, subject, region, limit, today)

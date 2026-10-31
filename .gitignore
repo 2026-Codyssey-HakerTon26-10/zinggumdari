@@ -37,3 +37,7 @@ data/population/
 .vscode/*
 !.vscode/extensions.json
 ~$*
+
+# ── 사용자 업로드 (공고 투입, 탈퇴 때 지운다) ──
+rules/uploads/
+data/notices/upload-*
