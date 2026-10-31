@@ -21,7 +21,7 @@ from urllib.parse import urljoin, urlparse
 
 import httpx
 
-from backend.compiler.lines import has_rrn
+from backend.compiler.lines import has_rrn, rrn_in_text
 from backend.data import config
 from backend.notices import store
 
@@ -311,6 +311,9 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     data = path.read_bytes()
     if len(data) > MAX_BYTES:
         raise Rejected("파일이 너무 큽니다(30MB까지)")
+    # 파일 이름은 원문 제목(meta.title)으로 남으므로 본문보다 먼저, 아무것도 저장하기 전에 본다
+    if rrn_in_text(filename) or rrn_in_text(source_url or ""):
+        raise Rejected("파일 이름이나 주소에 주민등록번호로 보이는 숫자가 있어 받지 않았습니다. " + NOTICE)
     sha = hashlib.sha256(data).hexdigest()
 
     cached = load_cache(sha)

@@ -89,6 +89,10 @@ def test_ingest_flow_cache_and_rejects(tmp_path, notice_pdf, monkeypatch):
     r = c.post("/ingest", files={"file": ("rrn.pdf", rrn.read_bytes(), "application/pdf")})
     assert r.status_code == 422 and "주민등록번호" in r.json()["detail"]
     assert not any("rrn" in p.name or p.name.endswith("-04.pdf") for p in (tmp_path / "notices").iterdir())
+    before = sorted(p.name for p in (tmp_path / "notices").iterdir())
+    r = c.post("/ingest", files={"file": ("홍길동_9001011234567.pdf", pdf, "application/pdf")})   # 본문은 깨끗해도 이름에 번호
+    assert r.status_code == 422 and "파일 이름" in r.json()["detail"]
+    assert sorted(p.name for p in (tmp_path / "notices").iterdir()) == before                    # 아무것도 남기지 않았다
     assert c.post("/ingest").status_code == 400
 
     assert ing.delete_uploads("someone-else") == 0

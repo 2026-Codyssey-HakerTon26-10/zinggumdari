@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import unicodedata
 import zipfile
 from html.parser import HTMLParser
 from io import BytesIO
@@ -83,14 +84,26 @@ def _birth_date_like(front: str) -> bool:
     return 1 <= int(front[2:4]) <= 12 and 1 <= int(front[4:6]) <= 31
 
 
-def has_rrn(lines: list[dict]) -> bool:
-    """주민등록번호 꼴이 있는 줄이 있는가(/ingest가 거부한다).
+# 주민등록번호를 쓰는 여러 모양을 하나로 맞춘다. 전각 숫자는 NFKC로, 줄표 종류는 "-"로, 표 칸 구분은 빈칸으로
+_DASHES = re.compile(r"[‐-―−﹘﹣－]")
+_CELL = re.compile(r"[|│┃]")
+
+
+def rrn_in_text(text: str) -> bool:
+    """글 하나에 주민등록번호(외국인등록번호 포함) 꼴이 있는가.
 
     LH 행복주택 공고문에는 「(주민등록번호 표시 예시) 123456-1234567」이 들어 있다. 앞자리가 날짜가 될 수 없는
     이런 예시 번호로 공고 전체를 거부하지 않게, 앞 6자리가 생년월일 꼴일 때만 주민등록번호로 본다.
     """
+    text = _CELL.sub(" ", _DASHES.sub("-", unicodedata.normalize("NFKC", text or "")))
     # 앞 6자리는 맞은 문자열에서 숫자만 골라 잡는다(패턴 모양이 바뀌어도 띄어쓰기나 하이픈에 기대지 않게)
-    return any(_birth_date_like(re.sub(r"\D", "", m.group())[:6]) for l in lines for m in _RRN.finditer(l.get("text") or ""))
+    return any(_birth_date_like(re.sub(r"\D", "", m.group())[:6]) for m in _RRN.finditer(text))
+
+
+def has_rrn(lines: list[dict]) -> bool:
+    """주민등록번호 꼴이 있는 줄이 있는가(/ingest가 거부한다). 줄을 이어 붙여 한 번에 본다.
+    줄이나 표 칸이 앞 6자리와 뒷 7자리 사이에서 나뉘어도 잡기 위해서다."""
+    return rrn_in_text("\n".join(l.get("text") or "" for l in lines))
 
 
 # --- 형식 가리기 ---
