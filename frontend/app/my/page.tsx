@@ -46,8 +46,8 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
     const [filter, setFilter] = useState("all"); // 전체 보기와 저장한 예시를 구분해요.
     const [bookmarks, setBookmarks] = useState<string[]>([]); // 저장 버튼 상태를 현재 화면에서만 기억해요.
     const [selected, setSelected] = useState<Policy | null>(null); // 자세히 살펴볼 예시 카드를 기억해요.
-    const [nickname, setNickname] = useState("민지"); // 실제 개인정보 대신 가상의 닉네임을 보여줘요.
-    const [draftNickname, setDraftNickname] = useState("민지"); // 닉네임 편집 중인 값을 별도로 기억해요.
+    const [nickname, setNickname] = useState(""); // 로컬 스토리지에서 닉네임을 읽어요. 없으면 빈 값으로 시작해요.
+    const [draftNickname, setDraftNickname] = useState(""); // 닉네임 편집 중인 임시 값이에요.
     const [alertSettings, setAlertSettings] = useState([true, true, false]); // 알림 스위치의 시연 상태를 기억해요.
     const [toast, setToast] = useState(""); // 버튼을 눌렀을 때 짧은 안내를 보여줘요.
     const detailDialog = useRef<HTMLDialogElement>(null); // 정책 미리보기 대화상자를 가리켜요.
@@ -55,9 +55,13 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
     const stageIndex = stages.findIndex((item) => item.id === stage); // 선택한 단계의 순서를 찾아요.
     const cards = subject === "parent" ? parentPolicies : catalog[stage]; // 본인과 부모님의 예시를 분리해서 보여줘요.
     const shownCards = filter === "saved" ? cards.filter((card) => bookmarks.includes(card.id)) : cards; // 저장 필터를 누르면 저장한 예시만 보여줘요.
-    useEffect(() => { // 부모님 바로가기 주소에서 들어왔는지 확인해요.
+    useEffect(() => { // 화면을 처음 열 때 닉네임과 바로가기 파라미터를 읽어요.
+        try {
+            const saved = localStorage.getItem("zing_nickname"); // 회원가입 때 저장한 닉네임을 불러와요.
+            if (saved) { setNickname(saved); setDraftNickname(saved); } // 닉네임 편집 다이얼로그 초기값도 함께 맞춰요.
+        } catch { /* 스토리지가 차단된 환경에서는 빈 닉네임으로 시작해요. */ }
         if (new URLSearchParams(window.location.search).get("subject") === "parent") setSubject("parent"); // 부모님 바로가기라면 부모님 탭을 열어요.
-    }, []); // 화면을 처음 열 때만 주소를 읽어요.
+    }, []); // 화면을 처음 열 때만 실행해요.
     useEffect(() => { // 짧은 안내가 표시되면 자동으로 지워요.
         if (!toast) return; // 보여줄 안내가 없다면 아무 일도 하지 않아요.
         const timer = window.setTimeout(() => setToast(""), 3500); // 잠시 뒤 안내를 닫아요.
@@ -77,12 +81,12 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
             <main id="main-content" className="container my-main"> {/* 건너뛰기 링크가 이동할 본문이에요. */}
                 <div className="my-breadcrumb"><Link href="/">홈</Link><Icon name="chevron-right" /><span>내 징검다리</span></div> {/* 현재 위치를 안내해요. */}
                 <section className="my-heading"> {/* 페이지 제목과 시연 안내를 묶어요. */}
-                    <div><p className="eyebrow">MY STEPPING STONES</p><h1>{nickname} 님의 다음 걸음,<br className="my-mobile-break" /> 미리 준비해 볼까요?</h1><p className="muted">지금 필요한 제도부터 다음 단계에서 열릴 제도까지 함께 살펴봐요.</p></div> {/* 닉네임과 안내 문장을 보여줘요. */}
+                    <div><p className="eyebrow">MY STEPPING STONES</p><h1>{nickname ? `${nickname} 님의` : "나의"} 다음 걸음,<br className="my-mobile-break" /> 미리 준비해 볼까요?</h1><p className="muted">지금 필요한 제도부터 다음 단계에서 열릴 제도까지 함께 살펴봐요.</p></div> {/* 닉네임과 안내 문장을 보여줘요. */}
                     <Link href="/demo" className="button button-secondary">가상 프로필로 추천 카드 체험</Link> {/* 실제 개인의 판정 결과가 아님을 표시해요. */}
                 </section> {/* 제목 영역을 마쳐요. */}
                 <section className="my-profile" aria-label="시연 프로필 요약"> {/* 참고 디자인의 프로필 요약 구성을 보여줘요. */}
                     <div className="my-avatar"><Icon name="user" /></div> {/* 실명이나 사진 대신 기본 아이콘을 사용해요. */}
-                    <div className="my-profile-info"><div><strong>{nickname} 님</strong><span>가상 닉네임</span></div><p>프로필과 공고가 연결되면 내 조건에 맞는 정보를 보여드려요.</p><div className="my-profile-tags"><span>청년</span><span>주거 관심</span><span>소득 정보 미입력</span></div></div> {/* 민감정보 없이 예시 프로필 상태를 보여줘요. */}
+                    <div className="my-profile-info"><div><strong>{nickname || "닉네임"} 님</strong><span>닉네임</span></div><p>프로필과 공고가 연결되면 내 조건에 맞는 정보를 보여드려요.</p><div className="my-profile-tags"><span>청년</span><span>주거 관심</span><span>소득 정보 미입력</span></div></div> {/* 민감정보 없이 예시 프로필 상태를 보여줘요. */}
                     <button className="button button-secondary" type="button" onClick={() => { setDraftNickname(nickname); profileDialog.current?.showModal(); }}><Icon name="settings" />닉네임 바꾸기</button> {/* 현재 화면의 가상 닉네임만 바꿀 수 있어요. */}
                 </section> {/* 프로필 요약 영역을 마쳐요. */}
                 <div className="my-subject-tabs" role="tablist" aria-label="추천 대상"> {/* 본인과 부모님 정보를 명확히 구분해요. */}
@@ -112,7 +116,7 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
             </main> {/* 본문을 마쳐요. */}
             <SiteFooter /> {/* 공통 바닥글을 보여줘요. */}
             <dialog className="my-dialog" ref={detailDialog} aria-labelledby="my-detail-title"><button className="my-dialog-close" type="button" aria-label="닫기" onClick={() => detailDialog.current?.close()}><Icon name="close" /></button><p className="eyebrow">시연용 예시 · 확인 항목</p><h2 id="my-detail-title">{selected?.title}</h2><p className="my-dialog-disclaimer">{disclaimer}</p><p>아래는 화면 구성을 보여주기 위한 확인 항목 예시예요. 실제 제도 조건은 원문 연결 후 확인해 주세요.</p><ul>{selected?.checks.map((check) => <li key={check}><Icon name="plus" /><span>{check}</span><em>확인 필요</em></li>)}</ul><p className="my-detail-source"><Icon name="file" />원문·기준일 연결 전 · 자격 판정 결과가 아니에요.</p><button className="button button-primary" type="button" onClick={() => detailDialog.current?.close()}>확인했어요</button></dialog> {/* 실제 자격을 단정하지 않는 정책 설명 대화상자예요. */}
-            <dialog className="my-dialog" ref={profileDialog} aria-labelledby="my-profile-title"><button className="my-dialog-close" type="button" aria-label="닫기" onClick={() => profileDialog.current?.close()}><Icon name="close" /></button><p className="eyebrow">가상 프로필 미리보기</p><h2 id="my-profile-title">어떤 닉네임으로 불러드릴까요?</h2><p>실명 대신 가상 닉네임을 사용해 주세요. 입력한 값은 현재 화면에서만 사용하고 저장하거나 전송하지 않아요.</p><form onSubmit={(event) => { event.preventDefault(); setNickname(draftNickname.trim() || "민지"); profileDialog.current?.close(); setToast("가상 닉네임을 바꿨어요. 현재 화면에서만 유지돼요."); }}><label htmlFor="my-nickname">가상 닉네임</label><input id="my-nickname" autoComplete="off" value={draftNickname} maxLength={12} onChange={(event) => setDraftNickname(event.target.value)} /><button className="button button-primary" type="submit">화면에 적용하기</button></form></dialog> {/* 서버나 저장소에 접근하지 않는 닉네임 편집 대화상자예요. */}
+            <dialog className="my-dialog" ref={profileDialog} aria-labelledby="my-profile-title"><button className="my-dialog-close" type="button" aria-label="닫기" onClick={() => profileDialog.current?.close()}><Icon name="close" /></button><p className="eyebrow">프로필 편집</p><h2 id="my-profile-title">어떤 닉네임으로 불러드릴까요?</h2><p>실명 대신 사용할 별명을 2~12자로 입력해 주세요. 닉네임은 이 기기의 브라우저에 저장되며 서버에 전송하지 않아요.</p><form onSubmit={(event) => { event.preventDefault(); const next = draftNickname.trim(); setNickname(next); try { if (next) localStorage.setItem("zing_nickname", next); else localStorage.removeItem("zing_nickname"); } catch { /* 스토리지 차단 환경에서는 화면 상태에만 반영해요. */ } profileDialog.current?.close(); setToast("닉네임을 저장했어요."); }}><label htmlFor="my-nickname">닉네임</label><input id="my-nickname" autoComplete="off" value={draftNickname} maxLength={12} onChange={(event) => setDraftNickname(event.target.value)} /><button className="button button-primary" type="submit">저장하기</button></form></dialog> {/* 서버나 저장소에 접근하지 않는 닉네임 편집 대화상자예요. */}
             <div className={`my-toast ${toast ? "is-visible" : ""}`} role="status" aria-live="polite">{toast}</div> {/* 저장 및 편집 결과를 방해 없이 알려줘요. */}
         </div> // 마이페이지 전체 구성을 마쳐요.
     ); // 그린 화면을 반환해요.

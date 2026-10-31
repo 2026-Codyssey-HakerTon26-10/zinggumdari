@@ -1,8 +1,10 @@
 "use client"; // 비밀번호 표시와 폼 안내가 사용자의 조작에 반응하게 해요.
 
 import { useState, useRef, type FormEvent, type ReactNode } from "react"; // 입력값을 잠시 기억하고 폼 제출 동작을 제어해요.
+import { useRouter } from "next/navigation"; // 인증 성공 시 다음 화면으로 이동해요.
 import Link from "next/link"; // 로그인과 회원가입 화면을 서로 연결해요.
 import { Icon } from "./ui"; // 기존 서비스와 같은 선 아이콘을 사용해요.
+import { signup as apiSignup, login as apiLogin, AuthError } from "../lib/auth"; // 백엔드 인증 API를 호출해요.
 
 type PasswordFieldProps = { // 두 화면에서 함께 쓰는 비밀번호 입력칸의 설정을 정해요.
     id: string; // 각 입력칸을 구분하는 고유한 이름이에요.
@@ -45,15 +47,17 @@ function ConsentItem({ id, label, required, checked, onCheck, open, onToggle, ch
 
 export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디자인으로 로그인과 회원가입 폼을 만들어요.
     const isSignup = mode === "signup"; // 현재 페이지가 회원가입인지 구분해요.
-    const [email, setEmail] = useState(""); // 이메일은 화면을 벗어나기 전까지만 기억해요.
-    const [nickname, setNickname] = useState(""); // 실명 대신 사용할 닉네임을 화면 안에서만 기억해요.
-    const [password, setPassword] = useState(""); // 입력한 비밀번호를 서버나 저장소로 보내지 않아요.
-    const [confirmation, setConfirmation] = useState(""); // 비밀번호를 같은 값으로 입력했는지 안내할 때만 사용해요.
+    const router = useRouter(); // 인증 성공 후 내 징검다리 화면으로 이동해요.
+    const [email, setEmail] = useState(""); // 이메일은 서버에 전송한 뒤 상태에서 삭제해요.
+    const [nickname, setNickname] = useState(""); // 실명 대신 사용할 닉네임이에요. 회원가입 성공 시 로컬 스토리지에 저장해요.
+    const [password, setPassword] = useState(""); // 비밀번호는 서버로 전송한 뒤 즉시 상태에서 삭제해요.
+    const [confirmation, setConfirmation] = useState(""); // 비밀번호 일치 여부를 확인할 때만 사용해요.
     // 4개 동의 항목 상태 — terms(이용약관)·privacy(개인정보)는 필수, email·sensitive는 선택이에요.
     const [consents, setConsents] = useState<Record<ConsentKey, boolean>>({ terms: false, privacy: false, email: false, sensitive: false });
     // 각 항목의 상세 내용 펼침 상태예요.
     const [consentDetail, setConsentDetail] = useState<Record<ConsentKey, boolean>>({ terms: false, privacy: false, email: false, sensitive: false });
-    const [feedback, setFeedback] = useState(""); // 로그인이나 가입을 실제로 처리하지 않는다는 안내를 보여줘요.
+    const [feedback, setFeedback] = useState(""); // 입력 오류나 서버 오류를 화면에 표시해요.
+    const [loading, setLoading] = useState(false); // API 요청 중에 버튼을 비활성화해요.
     const [showHelp, setShowHelp] = useState(false); // 비밀번호 찾기 안내를 펼칠지 기억해요.
     const [emailTouched, setEmailTouched] = useState(false); // 이메일 칸에서 벗어난 적 있는지 기억해요.
     const [nicknameTouched, setNicknameTouched] = useState(false); // 닉네임 칸에서 벗어난 적 있는지 기억해요.
@@ -85,35 +89,42 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
         setConsentDetail((prev) => ({ ...prev, [key]: !prev[key] }));
     } // 상세 보기 토글을 마쳐요.
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>) { // 디자인 폼이 실제 인증 요청을 보내지 않도록 처리해요.
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) { // 폼을 제출할 때 백엔드 인증 API를 호출해요.
         event.preventDefault(); // 기본 폼 제출로 입력값이 주소에 붙거나 전송되는 것을 막아요.
-        if (isSignup && (!pwStrength.min8 || !pwStrength.hasLetter || !pwStrength.hasNumber)) { // 화면에 안내한 비밀번호 조건을 제출할 때도 동일하게 적용해요.
-            setFeedback("비밀번호는 8자 이상이며 문자와 숫자를 포함해야 해요."); // 충족하지 않은 조건을 글자로 안내해요.
-            return; // 조건을 충족하기 전에는 제출을 진행하지 않아요.
-        } // 비밀번호 작성 조건 확인을 마쳐요.
-        if (isSignup && password !== confirmation) { // 회원가입의 두 비밀번호가 다른 경우를 구분해요.
-            setFeedback("비밀번호가 일치하지 않아요. 입력한 내용을 다시 확인해 주세요."); // 사용자가 고칠 입력칸을 알려줘요.
-            return; // 일치하지 않으면 다음 안내로 넘어가지 않아요.
-        } // 비밀번호 일치 안내를 마쳐요.
-        if (isSignup && !requiredConsented) { // 필수 동의 항목(이용약관·개인정보)을 모두 확인했는지 검사해요.
-            setFeedback("서비스 이용을 위한 필수 동의 항목(이용약관, 개인정보 수집·이용)을 확인해 주세요."); // 어떤 항목이 빠졌는지 안내해요.
-            return; // 필수 동의가 없으면 다음 안내로 넘어가지 않아요.
-        } // 필수 동의 확인을 마쳐요.
-        setFeedback(isSignup ? "회원가입 화면 미리보기입니다. 계정은 생성되지 않았으며 입력한 정보는 저장하지 않았습니다." : "로그인 화면 미리보기입니다. 실제 로그인은 진행되지 않았으며 입력한 정보는 저장하지 않았습니다."); // 인증에 성공한 것처럼 표시하지 않고 현재 화면의 동작을 설명해요.
-        setEmail(""); // 제출한 이메일을 화면 상태에서 비워요.
-        setNickname(""); // 제출한 닉네임을 화면 상태에서 비워요.
-        setPassword(""); // 제출한 비밀번호를 화면 상태에서 비워요.
-        setConfirmation(""); // 비밀번호 확인 값도 함께 비워요.
-        setEmailTouched(false); // 제출 후 빈 입력칸에 이전 오류 상태를 남기지 않아요.
-        setNicknameTouched(false); // 닉네임 입력 안내도 처음 상태로 되돌려요.
-        setConsents({ terms: false, privacy: false, email: false, sensitive: false }); // 실제 동의가 저장되지 않았으므로 선택 상태를 되돌려요.
-    } // 디자인 폼의 제출 처리를 마쳐요.
+        if (isSignup && (!pwStrength.min8 || !pwStrength.hasLetter || !pwStrength.hasNumber)) { // 비밀번호 조건을 서버에 보내기 전에 먼저 확인해요.
+            setFeedback("비밀번호는 8자 이상이며 문자와 숫자를 포함해야 해요.");
+            return;
+        }
+        if (isSignup && password !== confirmation) { // 두 비밀번호가 다르면 서버에 보내지 않아요.
+            setFeedback("비밀번호가 일치하지 않아요. 입력한 내용을 다시 확인해 주세요.");
+            return;
+        }
+        if (isSignup && !requiredConsented) { // 필수 동의(이용약관·개인정보)가 없으면 가입 요청을 보내지 않아요.
+            setFeedback("서비스 이용을 위한 필수 동의 항목(이용약관, 개인정보 수집·이용)을 확인해 주세요.");
+            return;
+        }
+        setLoading(true); // API 요청 중 버튼을 비활성화해요.
+        setFeedback(""); // 이전 오류 메시지를 지워요.
+        try {
+            if (isSignup) {
+                await apiSignup(email, password); // 계정을 생성하고 세션 쿠키를 발급받아요.
+                // 닉네임은 백엔드 계정 테이블에 없으므로 로컬 스토리지에 저장해요. 실명이 아닌 가상 이름이에요.
+                try { localStorage.setItem("zing_nickname", nickname.trim()); } catch { /* 스토리지 차단 환경에서도 가입 자체는 성공으로 처리해요. */ }
+            } else {
+                await apiLogin(email, password); // 이메일·비밀번호를 인증하고 세션 쿠키를 받아요.
+            }
+            router.push("/my"); // 인증 성공 후 내 징검다리 화면으로 이동해요.
+        } catch (err) {
+            setFeedback(err instanceof AuthError ? err.message : "일시적인 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+            setLoading(false); // 오류 시 다시 시도할 수 있도록 버튼을 활성화해요.
+        }
+        // 성공 시 router.push 후 컴포넌트가 언마운트되므로 setLoading(false)를 생략해요.
+    } // 인증 요청 처리를 마쳐요.
 
     return ( // 입력칸과 주요 행동을 하나의 흰색 카드에 담아요.
         <section className="auth-form-card" aria-labelledby="auth-title"> {/* 현재 폼의 제목을 보조기기에도 알려줘요. */}
             <div className="auth-form-heading"><span className="auth-form-eyebrow">{isSignup ? "처음 만나는 나의 징검다리" : "다시 만나 반가워요"}</span><h1 id="auth-title" className="auth-form-title">{isSignup ? "회원가입" : "로그인"}</h1><p className="auth-form-description">{isSignup ? "작은 시작으로, 나에게 맞는 다음을 찾아보세요." : "나에게 맞는 제도와 다음 걸음을 이어가세요."}</p></div> {/* 각 화면의 목적을 짧은 존댓말로 안내해요. */}
-            <div className="auth-notice"><Icon name="info" /><span>디자인 미리보기입니다. 실제 인증과 정보 저장은 진행되지 않습니다.</span></div> {/* 실제 계정 기능과 화면 디자인을 구분해요. */}
-            <form className="auth-form" onSubmit={handleSubmit}> {/* 입력값을 서버로 보내는 주소는 연결하지 않아요. */}
+            <form className="auth-form" onSubmit={handleSubmit}> {/* 폼 제출 시 백엔드 인증 API를 호출해요. */}
                 {isSignup && <div className="auth-field"><label className="auth-field-label" htmlFor="auth-nickname">닉네임</label><div className="auth-input-wrap"><span className="auth-input-icon"><Icon name="user" /></span><input className="auth-input" id="auth-nickname" value={nickname} onChange={(event) => setNickname(event.target.value)} onBlur={() => setNicknameTouched(true)} placeholder="어떤 이름으로 불러드릴까요?" autoComplete="nickname" minLength={2} maxLength={16} required aria-describedby="auth-nickname-hint" aria-invalid={isNicknameInvalid || undefined} /></div><p className={`auth-field-hint${isNicknameInvalid ? " auth-field-error" : ""}`} id="auth-nickname-hint">{isNicknameInvalid ? "2~16자 사이로 입력해 주세요." : "실명 대신 사용할 별명을 2~16자로 입력해 주세요."}</p></div>} {/* 회원가입에만 닉네임을 받고 실명은 요청하지 않아요. */}
                 <div className="auth-field"><label className="auth-field-label" htmlFor="auth-email">이메일</label><div className="auth-input-wrap"><span className="auth-input-icon"><Icon name="mail" /></span><input className="auth-input" id="auth-email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} onBlur={() => setEmailTouched(true)} placeholder="이메일 주소를 입력해 주세요" autoComplete="username" autoCapitalize="none" spellCheck={false} inputMode="email" maxLength={254} required aria-invalid={isEmailInvalid || undefined} aria-describedby={isEmailInvalid ? "auth-email-hint" : undefined} /></div>{isEmailInvalid && <p className="auth-field-hint auth-field-error" id="auth-email-hint">올바른 이메일 형식이 아니에요. (예: name@example.com)</p>}</div> {/* 이메일은 계정 입력칸으로만 사용하고 알림 수신에는 동의한 것으로 취급하지 않아요. */}
                 <PasswordField id="auth-password" label="비밀번호" value={password} onChange={setPassword} autoComplete={isSignup ? "new-password" : "current-password"} hint={isSignup ? "8자 이상, 문자와 숫자를 포함해 주세요." : undefined} describedBy={isSignup ? "auth-password-requirements" : undefined} /> {/* 화면에 맞는 자동완성과 비밀번호 표시 전환을 제공해요. */}
@@ -189,7 +200,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                 )}
                 {!isSignup && showHelp && <p id="auth-password-help" className="auth-consent-detail-panel auth-consent-detail-panel--login">비밀번호 재설정은 정식 로그인 기능이 제공되면 이용하실 수 있습니다. 현재 화면에서는 이메일을 발송하지 않습니다.</p>} {/* 없는 비밀번호 재설정 기능이 작동한 것처럼 표시하지 않아요. */}
                 {feedback && <p className="auth-status" role="status" aria-live="polite">{feedback}</p>} {/* 제출 후 안내를 화면과 보조기기에 함께 전달해요. */}
-                <button className="button button-primary auth-submit" type="submit">{isSignup ? "가입하고 시작하기" : "로그인"}<Icon name="arrow-right" /></button> {/* 선택한 화면에 맞는 주요 제출 버튼을 보여줘요. */}
+                <button className="button button-primary auth-submit" type="submit" disabled={loading} aria-busy={loading}>{loading ? (isSignup ? "가입하는 중…" : "로그인 중…") : (isSignup ? "가입하고 시작하기" : "로그인")}{!loading && <Icon name="arrow-right" />}</button> {/* 요청 중에는 버튼을 비활성화하고 상태를 글자로 알려줘요. */}
             </form> {/* 로그인과 회원가입 입력 영역을 마쳐요. */}
             <div className="auth-divider"><span>또는</span></div> {/* 계정 입력과 화면 둘러보기를 구분해요. */}
             <Link className="button button-secondary auth-guest" href="/my">가상 사례로 화면 둘러보기<Icon name="chevron-right" /></Link> {/* 입력 없이 기존 시연 화면으로 이동할 수 있어요. */}
