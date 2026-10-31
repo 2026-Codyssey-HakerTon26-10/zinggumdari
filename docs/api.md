@@ -153,7 +153,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
     "has_account": "Y", "joined_date": "2021-03-01", "payment_count": null, "deposit_amount": null,
     "alert_categories": ["주거", "임신출산"], "alert_channel": "이메일", "email": "…",   // 알림 수신 주소. 계정용 이메일은 별도 인증 테이블에 저장하며 알림 수신은 별도 선택
     // ③ 물어본 것만
-    "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고"}],
+    "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고"}],   // "has": "N"이면 "해당 안 됨"이라고 답한 줄(다시 묻지 않는다). 없으면 해당함
     "history": []
   },
   "parents": [                              // 탭을 안 열면 []. 부·모 각각 한 줄
@@ -185,7 +185,12 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
   "user_id": "U7f3a…",
   "ask": {"subject": "self", "field": "marriage_date", "question": "혼인신고를 하셨나요? 했다면 언제인가요?",
           "options": [{"label": "안 함", "value": null, "set": {"marital_status": "예비부부"}}, {"label": "날짜 입력", "value": "date"}],
-          "why": "후보 6개 중 4개가 이 칸으로 갈린다"},   // null = 질문 없음
+          "why": "후보 6개 중 4개가 이 칸으로 갈린다", "rule_id": null},   // null = 질문 없음. 한 번에 한 칸(SPEC §6)
+          // 요청 body에 "rule_id"(연 카드)를 주면 그 제도를 막는 칸을 묻고 응답 rule_id에 싣는다("이 제도는 이 칸을 알아야 판정돼요").
+          // 주지 않으면 확인 필요 후보 전체를 가장 많이 가르는 칸. 후보가 5개 이하면 null. 동의 없는 민감정보는 묻지 않는다.
+          // 자격은 코드 하나씩: {"field": "qual_code", "qual_code": "한부모", "question": "‘한부모’에 해당하시나요?",
+          //   "options": [{"label": "예", "value": "Y", "add_qualification": {...}}, {"label": "아니오", "value": "N", "add_qualification": {..., "has": "N"}}]}
+          //   → 화면은 add_qualification을 self.qualifications에 한 줄 더해 PATCH /profiles
   "cards": [
     {
       "rule_id": "manual:hug-newlywed-jeonse", "subject": "self", "name": "신혼부부전용 전세자금", "domain": "fund_loan",   // 예시 프로필: 신혼인데 혼인신고일과 소득을 아직 안 적었다. review는 카드에 status 문자열만
