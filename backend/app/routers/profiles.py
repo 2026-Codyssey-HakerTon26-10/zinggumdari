@@ -9,7 +9,7 @@ import secrets
 
 from fastapi import APIRouter, Depends, HTTPException
 
-from backend.engine.fields import SENSITIVE
+from backend.engine.fields import SENSITIVE, is_sensitive_qual
 from backend.engine.stub_data import EXAMPLE_PROFILE
 
 
@@ -29,11 +29,23 @@ def _get(user_id: str) -> dict:
     return _store[user_id]
 
 
+def _consents(raw, partial: bool) -> dict:
+    """동의는 JSON true/false만 받는다. "false" 같은 문자열을 True로 바꾸지 않는다."""
+    if raw is None and not partial:
+        return {}
+    if not isinstance(raw, dict) or any(k not in ("sensitive", "parent") or type(v) is not bool for k, v in raw.items()):
+        raise HTTPException(status_code=422, detail="consents는 {\"sensitive\": true|false, \"parent\": true|false}")
+    return raw
+
+
 def _apply_consents(profile: dict) -> None:
     """동의가 없는 정보는 저장하지 않는다(SPEC §4.4). 동의를 거두면 이미 있던 값도 지운다."""
     consents = profile["consents"]
     if not consents.get("sensitive"):
         profile["self"] = {k: v for k, v in profile["self"].items() if k not in SENSITIVE}
+        if "qualifications" in profile["self"]:
+            profile["self"]["qualifications"] = [q for q in profile["self"]["qualifications"] or []
+                                                 if not is_sensitive_qual((q or {}).get("qual_code"))]
         profile["parents"] = [{k: v for k, v in p.items() if k not in SENSITIVE} for p in profile["parents"]]
     if not consents.get("parent"):
         profile["parents"] = []
@@ -43,11 +55,11 @@ def _apply_consents(profile: dict) -> None:
 def create_profile(body: dict) -> dict:
     """① 가입 칸 저장. body: {"self": {...}, "consents"?: {...}, "parents"?: [...]}. 동의는 기본 False."""
     user_id = "U" + secrets.token_hex(4)
-    consents = body.get("consents") or {}
+    consents = _consents(body.get("consents"), partial=False)
     profile = {
         "user_id": user_id,
         "stages_done": ["signup"],
-        "consents": {"sensitive": bool(consents.get("sensitive")), "parent": bool(consents.get("parent"))},
+        "consents": {"sensitive": consents.get("sensitive", False), "parent": consents.get("parent", False)},
         "self": dict(body.get("self") or {}),
         "parents": list(body.get("parents") or []),
     }
@@ -66,7 +78,7 @@ def update_profile(user_id: str, body: dict) -> dict:
     """② 알림 설정, ③ 공고별 확인에서 받은 칸을 더한다."""
     profile = _get(user_id)
     if "consents" in body:
-        profile["consents"].update({k: bool(v) for k, v in body["consents"].items() if k in ("sensitive", "parent")})
+        profile["consents"].update(_consents(body["consents"], partial=True))
     profile["self"].update(body.get("self") or {})
     if "parents" in body:
         profile["parents"] = list(body["parents"])

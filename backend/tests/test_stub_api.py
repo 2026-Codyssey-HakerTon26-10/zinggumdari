@@ -67,3 +67,24 @@ def test_judge_shape(dev):
     assert card["verdict"] in {"eligible", "needs_check", "ineligible", "opens_later"}
     assert card["detail_url"] and card["updated"]
     assert all(c["evidence"] for c in card["conditions"])
+
+
+@pytest.mark.parametrize("bad", ["false", "true", 1, 0, None, [], {}])
+def test_consent_must_be_bool(dev, bad):
+    body = {"consents": {"sensitive": bad}, "self": {"income_self": 270}}
+    assert client.post("/profiles", json=body).status_code == 422
+    user_id = client.post("/profiles", json={"self": {}}).json()["user_id"]
+    assert client.patch(f"/profiles/{user_id}", json={"consents": {"sensitive": bad}}).status_code == 422
+    assert client.get(f"/profiles/{user_id}").json()["consents"]["sensitive"] is False
+
+
+def test_sensitive_qualifications_need_consent(dev):
+    quals = [{"qual_code": "청년", "target": "본인", "verified": "자기신고"},
+             {"qual_code": "기초생활수급자", "target": "본인", "verified": "자기신고"}]
+    user_id = client.post("/profiles", json={"self": {"qualifications": quals}}).json()["user_id"]
+    assert [q["qual_code"] for q in client.get(f"/profiles/{user_id}").json()["self"]["qualifications"]] == ["청년"]
+
+    p = client.patch(f"/profiles/{user_id}", json={"consents": {"sensitive": True}, "self": {"qualifications": quals}}).json()
+    assert len(p["self"]["qualifications"]) == 2
+    p = client.patch(f"/profiles/{user_id}", json={"consents": {"sensitive": False}}).json()   # 동의 철회
+    assert [q["qual_code"] for q in p["self"]["qualifications"]] == ["청년"]
