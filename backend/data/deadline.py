@@ -15,17 +15,36 @@ ALWAYS = ("상시", "연중", "수시")
 UNDECIDED = ("미정", "추후", "별도 공지", "별도공지", "예산 소진", "예산소진")
 
 _DATE = re.compile(r"(20\d{2})\s*[.\-/년]\s*(\d{1,2})\s*[.\-/월]\s*(\d{1,2})\s*일?")
+# "2026.11.1.~11.30."처럼 끝 날짜에 연도를 빼고 쓴 범위. 연도는 앞 날짜에서 받는다
+_RANGE_TAIL = re.compile(r"^\.?\s*(?:\([^)]{0,6}\))?\s*[~∼～〜–—]\s*(\d{1,2})\s*[.\-/월]\s*(\d{1,2})(?!\d)(?!\s*[.\-/년]\s*\d)")
+# 날짜 뒤에 이 말이 오면 마감이 아니라 대상 기준일이다("2024.1.1. 이후 출생아", "2026.3.1.부터")
+_NOT_DEADLINE = re.compile(r"^\.?\s*\)?\s*(이후|부터|출생|기준)")
 # "2026년 상반기"처럼 연도와 반기만 적은 것. 그 반기의 마지막 날을 마감으로 본다("매년 3~4월"은 연도가 없어 읽지 않는다)
 _HALF = re.compile(r"(20\d{2})\s*년?\s*(상|하)반기")
 
 
 def _dates(text: str) -> list[date]:
     out = []
-    for y, m, d in _DATE.findall(text):
+    for m in _DATE.finditer(text):
         try:
-            out.append(date(int(y), int(m), int(d)))
+            start = date(int(m[1]), int(m[2]), int(m[3]))
         except ValueError:
             continue
+        rest = text[m.end():]
+        tail = _RANGE_TAIL.match(rest)
+        if tail:
+            # 끝 연도를 월일로 먼저 정한 뒤 날짜를 만든다(2027.12.1.~2.29.는 2028년이라 2월 29일이 있다).
+            # 그래도 없는 날짜면 마감을 확인할 수 없는 범위로 보고 시작일도 마감으로 쓰지 않는다
+            m_end, d_end = int(tail[1]), int(tail[2])
+            year = start.year if (m_end, d_end) >= (start.month, start.day) else start.year + 1
+            try:
+                out.append(date(year, m_end, d_end))
+            except ValueError:
+                pass
+            continue
+        if _NOT_DEADLINE.match(rest):
+            continue
+        out.append(start)
     return out
 
 
