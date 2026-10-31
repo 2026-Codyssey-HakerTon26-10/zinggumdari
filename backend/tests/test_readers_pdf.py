@@ -303,3 +303,34 @@ def test_ocr_failure_on_one_page_keeps_text_pages(tmp_path, monkeypatch):
     monkeypatch.setattr(ocr, "ocr_page", lambda page, **kw: (_ for _ in ()).throw(FileNotFoundError("tesseract")))
     with pytest.raises(UnsupportedDocument, match="글자 인식에 실패"):
         read_pdf(SCAN_PDF)
+
+
+def _grid(x0, x1, ys, xs) -> bytes:
+    """가로선(ys)과 세로선(xs)으로 된 격자."""
+    ops = [f"{x0} {y} m {x1} {y} l S" for y in ys] + [f"{x} {ys[0]} m {x} {ys[-1]} l S" for x in xs]
+    return ("\n".join(ops) + "\n").encode()
+
+
+def test_boxed_text_chopped_by_grid_is_not_a_table(tmp_path):
+    # 위: 글자 폭(9pt)마다 세로선이 있는 테두리 친 안내문. 아래: 칸 경계가 단어 사이에 있는 진짜 표
+    box = _grid(50, 545, [690, 720], range(50, 546, 9))
+    table = _grid(50, 350, [560, 580, 600, 620], [50, 150, 350])
+    text = pf.text_ops([
+        (54, 701, 11, "Applicants must keep the lease and pay rent on time"),
+        (54, 605, 10, "Household"), (154, 605, 10, "Income limit"),
+        (54, 585, 10, "1 person"), (154, 585, 10, "3,846,357"),
+        (54, 565, 10, "2 persons"), (154, 565, 10, "6,307,170"),
+    ])
+    lines = read_pdf(_pdf(tmp_path, [pf.page(box + table + text)]))["lines"]
+    assert [(l["text"], l["table"]) for l in lines] == [
+        ("Applicants must keep the lease and pay rent on time", None),
+        ("Household | Income limit", "p1-t1"), ("1 person | 3,846,357", "p1-t1"), ("2 persons | 6,307,170", "p1-t1"),
+    ]
+
+
+def test_words_in_unassigned_table_area_are_kept(tmp_path):
+    # 표 바깥 상자 안이지만 어느 칸에도 들지 않은 자리(오른쪽 세로선이 위 행에만 있다)의 글자도 줄로 남는다
+    grid = _grid(50, 350, [600, 620], [50, 150, 350]) + b"50 560 m 150 560 l S\n50 560 m 50 600 l S\n150 560 m 150 600 l S\n"
+    text = pf.text_ops([(54, 605, 10, "Rent"), (154, 605, 10, "40% of market"), (200, 575, 10, "Deposit 20%")])
+    got = [l["text"] for l in read_pdf(_pdf(tmp_path, [pf.page(grid + text)]))["lines"]]
+    assert "Deposit 20%" in " ".join(got)
