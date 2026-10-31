@@ -27,3 +27,10 @@
 .demo-table small { display: block; font-weight: 400; min-width: 160px; margin-top: 8px; } /* 단계 가정을 이름 아래에 표시해요. */
 .demo-actions button[aria-pressed="true"] { border-color: #00809a; color: #006b80; box-shadow: inset 0 -3px #00809a; } /* 현재 단계를 색과 밑줄로 구분해요. */
 .demo-timeline-list [aria-current="step"], .demo-table tr[aria-current="step"] { outline: 2px solid #00809a; outline-offset: -2px; } /* 타임라인과 표에서도 현재 모의 단계를 표시해요. */
+.demo-search-form { margin-block: 20px; } /* 검색 입력과 안내 사이의 여백을 확보해요. */
+.demo-search-form > label { display: block; font-weight: 700; } /* 입력란 이름을 분명히 보여줘요. */
+.demo-search-form .demo-actions { margin-top: 8px; } /* 입력란과 검색 버튼을 나란히 배치해요. */
+.demo-search-form input { flex: 1; min-width: 180px; padding: 12px; border: 1px solid #7c8f99; border-radius: 8px; background: #fff; color: #263e4b; font: inherit; } /* 작은 화면에서도 읽을 수 있는 검색 입력을 만들어요. */
+.demo-search-form input:focus-visible, .demo-search-mode input:focus-visible { outline: 3px solid #00809a; outline-offset: 3px; } /* 검색 입력과 체크박스의 키보드 초점을 표시해요. */
+.demo-search-form [role="alert"] { color: #9d2727; } /* 입력 오류를 글자와 색으로 알려줘요. */
+.demo-search-mode { display: flex; gap: 10px; align-items: center; margin-block: 16px; font-weight: 600; } /* 배지 체험 선택을 체크박스와 함께 보여줘요. */

@@ -4,6 +4,7 @@ import { useRef, useState } from "react"; // 요청 순서와 화면 상태를 �
 import { SiteFooter, SiteHeader } from "../components/ui"; // 기존 서비스의 공통 머리말과 꼬리말이에요.
 import { demoProfile, demoStages, loadDemoRecommendation, type DemoStage, type DemoResult } from "./demo-data"; // 가상 데이터와 API 응답 모양을 가져와요.
 import { DemoTimeline } from "./demo-timeline"; // 추천 응답의 다음 단계와 비교표를 보여줘요.
+import { DemoSearch } from "./demo-search"; // 시연 경로의 정책명 검색과 배지 예시를 연결해요.
 import "./demo.css"; // 흰색 바탕의 시연 화면 스타일을 적용해요.
 type View = { status: "idle" | "loading" | "error"; result: null } | { status: "ready"; result: DemoResult }; // 결과가 없을 때와 준비됐을 때를 구분해요.
 export default function DemoPage() { // 실제 계정과 분리된 가상 사례 화면이에요.
@@ -65,6 +66,7 @@ export default function DemoPage() { // 실제 계정과 분리된 가상 사례
                     ))} {/* 카드 목록을 마쳐요. */}
                 </section> {/* 결과 영역을 마쳐요. */}
                 {view.status === "ready" && <DemoTimeline key={view.result.user_id} steps={view.result.timeline.self} activeStep={stage} />} {/* 선택된 가상 사례에만 타임라인을 표시해요. */}
+                {view.status === "ready" && <DemoSearch />} {/* 프로필 초기화 시 검색어와 결과도 함께 사라져요. */}
             </main> {/* 본문을 마쳐요. */}
             <SiteFooter /> {/* 공공기관이 운영하는 서비스가 아니라는 기존 고지를 보여줘요. */}
         </div> // 전체 화면을 마쳐요.
