@@ -225,12 +225,28 @@ def _bad(c: dict) -> bool:
     return not c.get("field") or c.get("op") not in OPS or "value" not in c
 
 
+def _region_value(c: dict) -> dict:
+    """sido 값은 프로필과 같은 짧은 이름으로("서울특별시" → "서울"). 엔진은 sido 조건을 글자 그대로 비교한다.
+    모델이 sido에 시군구("종로구")를 쓴 것은 sigungu 조건으로 옮긴다."""
+    if c.get("field") != "sido" or "value" not in c:
+        return c
+    from backend.search.corpus import short_sido   # corpus가 notices.store를 거쳐 이 모듈을 불러서 여기서 부른다
+    values = c["value"] if isinstance(c["value"], list) else [c["value"]]
+    short = [short_sido(str(v)) for v in values]
+    if all(short):
+        fixed = list(dict.fromkeys(short))
+        return {**c, "value": fixed if isinstance(c["value"], list) else fixed[0]}
+    if not any(short) and all(re.search(r"(시|군|구)$", str(v)) for v in values):
+        return {**c, "field": "sigungu"}
+    return c
+
+
 def _well_formed(c: dict) -> dict:
     """판정 엔진과 플래너는 field, op, value가 다 있는 조건만 받는다(없으면 문장을 만들다 멈춘다). 깨진 조건은 other로 바꾼다."""
     if "any_of" in c:
-        branches = [[_as_other(x) if _bad(x) else x for x in b] for b in c.get("any_of") or [] if b]
+        branches = [[_as_other(x) if _bad(x) else _region_value(x) for x in b] for b in c.get("any_of") or [] if b]
         return {**c, "any_of": branches} if branches else _as_other(c)
-    return _as_other(c) if _bad(c) else c
+    return _as_other(c) if _bad(c) else _region_value(c)
 
 
 def _rule_ids(drafts: list[dict], doc_id: str, source: str) -> list[str]:

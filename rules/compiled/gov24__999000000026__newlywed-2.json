@@ -14,42 +14,23 @@
  "conditions": [
   {
    "field": "marital_status",
-   "op": "==",
-   "value": "예비부부",
+   "op": "in",
+   "value": [
+    "예비부부"
+   ],
    "evidence": [
     "gov24-999000000026:l23"
    ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "ok",
-    "comparator": "ok",
-    "unit": "na",
-    "keyword": "ok",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "auto_verified"
+   "status": "reviewed"
   },
   {
    "field": "is_homeless",
    "op": "==",
    "value": "Y",
-   "text": "혼인으로 구성될 세대의 구성원 모두 무주택자",
    "evidence": [
     "gov24-999000000026:l23"
    ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "ok",
-    "comparator": "ok",
-    "unit": "na",
-    "keyword": "ok",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "auto_verified"
+   "status": "reviewed"
   },
   {
    "any_of": [
@@ -74,24 +55,6 @@
      },
      {
       "field": "employment_type",
-      "op": "!=",
-      "value": "맞벌이"
-     },
-     {
-      "field": "income_household",
-      "op": "<=",
-      "value": 110,
-      "income_basis": "urban_worker_pct"
-     }
-    ],
-    [
-     {
-      "field": "household_size",
-      "op": "==",
-      "value": 2
-     },
-     {
-      "field": "employment_type",
       "op": "==",
       "value": "맞벌이"
      },
@@ -105,26 +68,21 @@
     [
      {
       "field": "household_size",
-      "op": ">",
+      "op": "==",
       "value": 2
-     },
-     {
-      "field": "employment_type",
-      "op": "!=",
-      "value": "맞벌이"
      },
      {
       "field": "income_household",
       "op": "<=",
-      "value": 100,
+      "value": 110,
       "income_basis": "urban_worker_pct"
      }
     ],
     [
      {
       "field": "household_size",
-      "op": ">",
-      "value": 2
+      "op": ">=",
+      "value": 3
      },
      {
       "field": "employment_type",
@@ -137,22 +95,25 @@
       "value": 120,
       "income_basis": "urban_worker_pct"
      }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": ">=",
+      "value": 3
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct"
+     }
     ]
    ],
    "evidence": [
     "gov24-999000000026:l25"
    ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "ok",
-    "comparator": "fail:b0.0:op_mismatch",
-    "unit": "ok",
-    "keyword": "fail:b0.1:keyword_not_in_clause",
-    "pair": "ok",
-    "layer": "ok"
-   },
-   "status": "needs_review"
+   "status": "reviewed"
   },
   {
    "field": "other",
@@ -160,44 +121,7 @@
    "evidence": [
     "gov24-999000000026:l26"
    ],
-   "checks": {
-    "schema": "ok",
-    "evidence": "ok",
-    "value": "na",
-    "comparator": "na",
-    "unit": "na",
-    "keyword": "na",
-    "pair": "na",
-    "layer": "na"
-   },
-   "status": "needs_review"
-  },
-  {
-   "field": "other",
-   "text": "원문 조건 미반영",
-   "reason": "unaccounted",
-   "evidence": [
-    "gov24-999000000026:l2"
-   ],
-   "status": "needs_review"
-  },
-  {
-   "field": "other",
-   "text": "원문 조건 미반영",
-   "reason": "unaccounted",
-   "evidence": [
-    "gov24-999000000026:l4"
-   ],
-   "status": "needs_review"
-  },
-  {
-   "field": "other",
-   "text": "원문 조건 미반영",
-   "reason": "unaccounted",
-   "evidence": [
-    "gov24-999000000026:l10"
-   ],
-   "status": "needs_review"
+   "status": "reviewed"
   }
  ],
  "exclusive_evidence": [],
@@ -205,7 +129,10 @@
  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
  "updated": "2026-10-31",
  "review": {
-  "status": "unreviewed"
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01",
+  "note": "소득 가지를 원문(1인 120%, 2인 110%, 2인 맞벌이 130%, 3인 이상 맞벌이 120%, 그 밖 100%, 평균소득은 도시근로자 월평균소득)대로 다시 썼다. 가구원 수는 예비부부면 혼인으로 구성될 세대 기준인데 프로필은 지금 가구원 수라 넓게 통과할 수 있다. 대학생, 주거급여 수급자 줄(l2, l4, l10)의 미반영 표시는 다른 대상이라 지웠다"
  },
  "coverage": {
   "marked": 32,

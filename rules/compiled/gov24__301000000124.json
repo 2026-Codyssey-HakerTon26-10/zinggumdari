@@ -37,14 +37,14 @@
   {
    "field": "sido",
    "op": "==",
-   "value": "대구광역시",
+   "value": "대구",
    "evidence": [
     "gov24-301000000124:l2"
    ],
    "checks": {
     "schema": "ok",
     "evidence": "ok",
-    "value": "fail:not_in_evidence:대구광역시",
+    "value": "fail:not_in_evidence:대구",
     "comparator": "na",
     "unit": "na",
     "keyword": "ok",

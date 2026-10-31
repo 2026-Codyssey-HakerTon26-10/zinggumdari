@@ -25,7 +25,7 @@
       "as_of": "notice_date"
      },
      {
-      "field": "sido",
+      "field": "sigungu",
       "op": "==",
       "value": "금천구"
      }
@@ -83,7 +83,7 @@
     "gov24-o00022800008:l3"
    ],
    "checks": {
-    "schema": "fail:b0.1:value_not_in_vocab:금천구",
+    "schema": "ok",
     "evidence": "ok",
     "value": "fail:b1.0:unverifiable",
     "comparator": "fail:b5.0:no_value",

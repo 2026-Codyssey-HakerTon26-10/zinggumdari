@@ -55,7 +55,7 @@
    "status": "needs_review"
   },
   {
-   "field": "sido",
+   "field": "sigungu",
    "op": "!=",
    "value": "은평구",
    "as_of": "application_date",
@@ -63,7 +63,7 @@
     "gov24-311000000225:l2"
    ],
    "checks": {
-    "schema": "fail:value_not_in_vocab:은평구",
+    "schema": "ok",
     "evidence": "ok",
     "value": "ok",
     "comparator": "fail:not_negated",

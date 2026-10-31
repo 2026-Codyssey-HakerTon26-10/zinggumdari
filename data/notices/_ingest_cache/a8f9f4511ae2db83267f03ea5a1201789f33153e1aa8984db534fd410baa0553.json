@@ -185,9 +185,9 @@
           "field": "sido",
           "op": "in",
           "value": [
-            "서울특별시",
-            "인천광역시",
-            "경기도"
+            "서울",
+            "인천",
+            "경기"
           ],
           "as_of": "notice_date",
           "evidence": [
@@ -464,9 +464,9 @@
           "field": "sido",
           "op": "in",
           "value": [
-            "서울특별시",
-            "인천광역시",
-            "경기도"
+            "서울",
+            "인천",
+            "경기"
           ],
           "as_of": "notice_date",
           "evidence": [
@@ -710,9 +710,9 @@
           "field": "sido",
           "op": "in",
           "value": [
-            "서울특별시",
-            "인천광역시",
-            "경기도"
+            "서울",
+            "인천",
+            "경기"
           ],
           "as_of": "notice_date",
           "evidence": [

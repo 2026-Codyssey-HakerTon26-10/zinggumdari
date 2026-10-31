@@ -37,7 +37,7 @@
   {
    "field": "sido",
    "op": "==",
-   "value": "서울특별시",
+   "value": "서울",
    "evidence": [
     "gov24-701000000204:l2"
    ],

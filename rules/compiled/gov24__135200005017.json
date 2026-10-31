@@ -16,14 +16,14 @@
    "field": "sido",
    "op": "in",
    "value": [
-    "서울특별시",
-    "경기도",
-    "충청남도",
-    "전라남도",
-    "경상북도",
-    "경상남도",
-    "충청북도",
-    "강원도"
+    "서울",
+    "경기",
+    "충남",
+    "전남",
+    "경북",
+    "경남",
+    "충북",
+    "강원"
    ],
    "evidence": [
     "gov24-135200005017:l2",
@@ -31,16 +31,16 @@
     "gov24-135200005017:l4"
    ],
    "checks": {
-    "schema": "fail:value_not_in_vocab:강원도",
+    "schema": "ok",
     "evidence": "ok",
-    "value": "fail:not_in_evidence:강원도",
-    "comparator": "na",
+    "value": "ok",
+    "comparator": "ok",
     "unit": "na",
     "keyword": "ok",
     "pair": "na",
     "layer": "ok"
    },
-   "status": "needs_review"
+   "status": "auto_verified"
   },
   {
    "field": "sigungu",

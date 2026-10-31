@@ -16,14 +16,14 @@
  ],
  "conditions": [
   {
-   "field": "sido",
+   "field": "sigungu",
    "op": "==",
    "value": "중구",
    "evidence": [
     "gov24-301000000131:l2"
    ],
    "checks": {
-    "schema": "fail:value_not_in_vocab:중구",
+    "schema": "ok",
     "evidence": "ok",
     "value": "ok",
     "comparator": "ok",
@@ -32,7 +32,7 @@
     "pair": "na",
     "layer": "ok"
    },
-   "status": "needs_review"
+   "status": "auto_verified"
   },
   {
    "field": "age",
