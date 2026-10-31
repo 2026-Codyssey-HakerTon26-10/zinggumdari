@@ -404,16 +404,17 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 | 메서드 | 경로 | 보내는 것 | 받는 것 |
 |---|---|---|---|
-| POST | `/auth/signup` | `{"email", "password"}` | 201 `{"account_id"}`와 세션 쿠키. 같은 이메일(대소문자 무시)이 있으면 409. 이메일 형식(`로컬@도메인.최상위`, 254자 이하)이 아니거나 비밀번호가 8~128자가 아니면 422(DB에 닿기 전. 응답에 입력값을 되돌려주지 않는다) |
-| POST | `/auth/login` | `{"email", "password"}` | 200 `{"account_id"}`와 세션 쿠키. 틀리면 401 "이메일 또는 비밀번호가 올바르지 않습니다"(계정이 있는지 드러내지 않는다) |
+| POST | `/auth/signup` | `{"email", "password", "nickname"?, "consents"?: {"terms": true, "privacy": true}}` | 201 `{"account_id"}`와 세션 쿠키. 같은 이메일(대소문자 무시)이 있으면 409. 이메일 형식(`로컬@도메인.최상위`, 254자 이하)이 아니거나 비밀번호가 8~128자가 아니면 422(DB에 닿기 전. 응답에 입력값을 되돌려주지 않는다). `nickname`은 앞뒤 공백을 떼고 2~16자, `consents`는 필수 동의 두 개(이용약관 `terms`, 개인정보 수집·이용 `privacy`)가 모두 JSON `true`여야 하고 다른 키는 받지 않는다(아니면 422). 동의는 동의한 시각만 계정에 남긴다. 선택 동의(이메일 알림, 민감정보)는 여기가 아니라 프로필 `consents`다. 두 칸은 지금 선택이고, 화면이 보내기 시작하면 필수로 바꾼다 |
+| POST | `/auth/login` | `{"email", "password"}` | 200 `{"account_id"}`와 세션 쿠키. 틀리면 401 "이메일 또는 비밀번호가 올바르지 않습니다"(계정이 있는지 드러내지 않는다). 15분 안에 한 이메일로 5번, 한 IP에서 30번 틀리면 429와 `Retry-After`(초). 막힌 동안은 맞는 비밀번호도 429다. 성공하면 그 이메일의 실패 횟수를 지운다 |
 | POST | `/auth/logout` | 없음 | 204. 쿠키의 세션을 폐기(`revoked_at`)하고 쿠키를 지운다. 세션이 없어도 204 |
-| GET | `/auth/me` | 없음 | 200 `{"account_id", "email", "user_id"}`. `user_id`는 DB에 프로필이 없으면 null. 세션이 없거나 만료되거나 폐기됐으면 401 |
-| DELETE | `/auth/me` | 없음 | 204. 계정을 지우면 세션, 프로필(`users`와 딸린 표), 알림이 같이 지워진다(ON DELETE CASCADE). 사용자 업로드 원문과 조건표는 `backend.collector.ingest.delete_uploads(account_id)`로 지운다 |
+| GET | `/auth/me` | 없음 | 200 `{"account_id", "email", "nickname", "consents": {"terms", "privacy"}, "user_id"}`. `nickname`은 가입 때 안 보냈으면 null이고, 화면에 보이는 닉네임의 기준은 이 값이다(프로필 `self.nickname`과 브라우저 저장소는 기준이 아니다), `consents` 값은 동의한 시각(ISO) 또는 null. `user_id`는 DB에 프로필이 없으면 null. 세션이 없거나 만료되거나 폐기됐으면 401 |
+| DELETE | `/auth/me` | 없음 | 204. 계정을 지우면 세션, 프로필(`users`와 딸린 표), 알림이 같이 지워진다(ON DELETE CASCADE). 사용자 업로드 원문과 조건표는 `backend.collector.ingest.delete_uploads(account_id)`로 지운다(계정 기준이라 프로필 없이 올린 업로드도 지운다) |
 
 - 세션 쿠키: 이름 `session`, `HttpOnly`, `SameSite=Strict`, `Path=/`, 30일. `Secure`는 `.env`의 `COOKIE_SECURE=1`일 때만 붙는다(로컬 http 개발에서는 끈다. 배포하면 켠다).
 - 세션 토큰은 `secrets.token_urlsafe(32)`로 만들고 DB(`auth_sessions.token_hash`)에는 SHA-256만 둔다. 비밀번호는 파이썬 표준 `hashlib.scrypt`(N=2^14, r=8, p=1, 솔트 16바이트)로 해시해 `salt:hash` 형식으로 둔다. 원문과 비밀번호 확인 값은 저장하지 않는다.
 - CSRF 방어는 `SameSite=Strict` 쿠키로 한다. 따로 토큰을 받지 않는다.
-- 화면은 `http://localhost:3000`에서만 쿠키를 실어 부를 수 있다(CORS `allow_origins`, `allow_credentials`). `fetch`에 `credentials: "include"`를 넣는다.
+- 쿠키를 실어 부를 수 있는 화면 주소는 `.env`의 `CORS_ORIGINS`(쉼표로 여러 개, 끝의 `/`는 뗀다)이고, 비우면 `http://localhost:3000` 하나다. `*`는 받지 않는다(쿠키를 싣는 요청이라 아무 사이트나 세션으로 부르게 된다). `fetch`에 `credentials: "include"`를 넣는다.
+- 배포 주의: 쿠키가 `SameSite=Strict`라 화면과 API가 **같은 사이트**(같은 등록 도메인. 예: `app.zinggum.kr`과 `api.zinggum.kr`)여야 실린다. `*.vercel.app`·`*.onrender.com`처럼 공개 접미사 도메인 둘로 나누면 서로 다른 사이트라 로그인이 안 된다. 그때는 화면 쪽에서 API를 같은 주소로 프록시한다(Next.js `rewrites`).
 - `DATABASE_URL`이 없거나 DB에 붙지 못하면 `/auth/*`는 500이다(쿠키 없는 `/auth/logout`만 DB를 거치지 않아 204). 세션을 읽는 다른 API(아래)는 로그인하지 않은 것으로 처리한다.
 
 세션을 읽는 곳(`backend.search.ports.session_user`, `backend/app/main.py`에서 연결)
@@ -426,15 +427,12 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 | `/profiles/*` | 세션 계정의 프로필(DB, 계정당 하나)만 만들고 읽고 고치고 지운다. 미인증 401, 남의 것이나 없는 것은 404(소유 여부를 드러내지 않는다). 두 번째 생성은 409. `GET /profiles/presets`만 로그인 없이 열린다 |
 | `POST /judge` | 세션의 본인 프로필(DB)로 판정한다. 미인증 401, 프로필이 없으면 404, body의 `user_id`가 본인 것이 아니면 403. 사용자 업로드 조건표와 근거 줄은 세션 계정의 것만 읽는다(`load_rules(owner=)`, `evidence(owner=)`) |
 
-아직 안 된 것 (2026-11-01 기준. 담당은 roles.md. `/profiles`·`/judge` 세션 연결과 알림·통계 라우터 등록은 끝나 위 표로 옮겼다)
+아직 안 된 것 (2026-11-01 기준. 담당은 roles.md. `/profiles`·`/judge` 세션 연결, 알림·통계 라우터 등록, 가입 닉네임·동의 저장, 로그인 반복 제한, 탈퇴 업로드 삭제, 배포 CORS 설정은 끝나 위 표로 옮겼다)
 
 | 요구(SPEC §4.1, §15) | 지금 | 담당 |
 |---|---|---|
-| 가입 때 닉네임과 필수 동의를 받는다 | `/auth/signup`은 이메일과 비밀번호만 받는다(이메일 형식과 비밀번호 8~128자는 검사한다). 닉네임은 `POST /profiles`의 `self.nickname`으로 저장할 수 있다. 필수 동의 칸은 화면(손보람)과 body 모양을 맞춘 뒤 붙인다 | 이초롱 |
-| 로그인 반복 요청을 제한한다 | 제한 없음 | 이초롱 |
-| 탈퇴하면 사용자 업로드도 지운다 | 프로필(`user_id`)이 있을 때만 `delete_uploads`를 부른다. 프로필 없이 올린 업로드는 남는다 | 이초롱 |
-| 화면의 회원가입과 로그인이 `/auth`를 부른다 | 회원가입과 로그인 화면은 아직 API를 부르지 않는다 | 손보람 |
-| 배포 주소에서 쿠키가 실린다 | CORS 허용 주소가 `http://localhost:3000` 하나다 | 이초롱 |
+| 가입 때 닉네임과 필수 동의를 **필수로** 받는다 | 백엔드는 `nickname`, `consents`를 받아 저장한다(위 표). 화면은 두 칸을 받지만 `/auth/signup`에 보내지 않고 브라우저 저장소에 둔다. 화면이 보내기 시작하면 백엔드에서 필수(없으면 422)로 바꾼다 | 손보람 → 이초롱 |
+| 배포 주소에서 쿠키가 실린다 | `CORS_ORIGINS`로 배포 화면 주소를 넣을 수 있다. 화면과 API를 같은 사이트로 둘지(또는 프록시) 배포 구성에서 정한다 | 박범규(배포), 손보람 |
 | 비슷한 가구 배지(`similar`)를 검색에 단다 | `search.ports.connect(similar_rule_ids=…)`가 연결되지 않았다 | 임종한 |
 
 계정 이메일 수집은 이메일 알림 수신 동의가 아니다. 소득·건강 같은 민감정보 동의도 따로 받는다. 실제 연결 값과 인증 비밀정보는 문서와 로그에 남기지 않는다.
