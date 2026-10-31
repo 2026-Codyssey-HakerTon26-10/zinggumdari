@@ -26,6 +26,8 @@
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표 | BSD-3 |
 | 오픈소스 | rank-bm25 | 검색 점수(글자 2-gram BM25) | Apache-2.0 |
 | 오픈소스 | pandas, pyarrow | 가상 인구 표 저장(parquet) | BSD-3, Apache-2.0 |
+| 오픈소스 | DuckDB | Hugging Face의 parquet에서 필요한 열·행만 읽기(가상 인구 원본) | MIT |
+| 오픈소스 | openpyxl | 가상 인구를 팀 시트와 같은 탭의 xlsx로 내보내기 | MIT |
 | 오픈소스 | python-dotenv | `.env` 읽기 | BSD-3 |
 | 오픈소스 | pytest | 테스트 | MIT |
 | 오픈소스 | react-pdf, pdf.js | 원문 PDF 보기와 근거 줄 하이라이트 | MIT, Apache-2.0 |
@@ -36,6 +38,7 @@
 | 데이터 | 공고 투입 시연용 PDF 2건, 출처 URL 2개(채울 것) | 시연 | 공공저작물 |
 | 데이터 | 공고문 PDF 5~10건(LH 상세 API 첨부 링크, 청약홈. 공고번호와 URL은 채울 것), 「주택공급에 관한 규칙」(2026-06-15 개정) | 공고별 조건 파싱, 특공 공통 조건표 | 공공저작물 (출처 기재) |
 | 데이터 | 정부24 발급 서비스 목록 | 서류 사전 발급처 확인 | 공공 |
-| 데이터 | 통계청 KOSIS 연령별·가구원 수별 분포 표(표 이름과 URL은 채울 것) | 가상 인구 생성 분포 | 공공누리 유형 확인 |
+| 데이터 | NVIDIA Nemotron-Personas-Korea (https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea), 19~39세 1만 명의 10개 열(`data/raw/nemotron/`) | 가상 인구 뼈대(성별, 나이, 지역, 혼인, 가구 형태, 직업, 페르소나 글) | CC BY 4.0 (출처 표기) |
+| 데이터 | 통계청 「2024년 혼인·이혼 통계」 평균 초혼연령(남 33.9세, 여 31.6세, 2025-03-20 발표) | 가상 인구의 혼인 연령 | 공공저작물 |
 | 사전 보유 코드 | 해당 없음. 레포 첫 커밋 시각 (채울 것, YYYY-MM-DD HH:MM, 주제 공개 10/30 10:00 이후). 팀원의 기존 파인튜닝·서빙 스크립트 반입 없음 | | |
 | 기타 | AI 코딩 도구(실제 이름은 채울 것. 예: Claude Code, Cursor, GitHub Copilot) | 코드 작성 보조 | 상용 |
