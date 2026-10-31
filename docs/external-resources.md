@@ -30,6 +30,7 @@
 | 오픈소스 | psycopg 3 (`psycopg[binary]`) | 파이썬에서 PostgreSQL 연결 | LGPL-3.0 |
 | 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표 | BSD-3 |
+| 오픈소스(채택·설치 전) | [CuPy](https://github.com/cupy/cupy) — GPU 전용 패키지 계열 `cupy-cuda13x` 또는 `cupy-cuda12x` 중 호환성 검증 후 하나만 고정 | L4 GPU 서버에서 기존 NumPy KNN의 거리 계산·이웃 선택을 GPU로 실행. 결측 제외·k번째 동거리 포함·원본 행 순서 유지. 일반 서버는 전처리·규칙 판정·추천 후처리 담당 | [MIT — CuPy 본체](https://github.com/cupy/cupy/blob/main/LICENSE). [공식 설치 안내](https://docs.cupy.dev/en/stable/install.html). 사용 버전은 설치·GPU 연산 검증 후 기록하며 현재 설치·연동 미완료 |
 | 오픈소스 | rank-bm25 | 검색 점수(글자 2-gram BM25) | Apache-2.0 |
 | 오픈소스 | pandas, pyarrow | 가상 인구 표 저장(parquet) | BSD-3, Apache-2.0 |
 | 오픈소스 | DuckDB | Hugging Face의 parquet에서 필요한 열·행만 읽기(가상 인구 원본) | MIT |
@@ -54,3 +55,10 @@
 
 
 PostgreSQL 드라이버는 psycopg 3, 마이그레이션은 별도 도구 없이 `backend/db/migrations/*.sql` 번호 파일과 적용기(`backend/db/migrate.py`)로 한다. 비밀번호 해시는 파이썬 표준 라이브러리 `hashlib.scrypt`를 쓴다(#38). 외부 패키지를 추가하지 않았으므로 표에 따로 적지 않는다.
+
+## GPU 실행 자원 기록 (CuPy 채택)
+
+- CuPy 사용 방향은 채택했으며 GPU 서버에만 추가한다. 실제 의존성 파일·잠금 파일의 변경은 설치할 패키지와 버전을 확정한 뒤 수행한다. 이 문서 추가만으로 패키지 설치나 GPU 연동이 완료된 것은 아니다.
+- NVIDIA L4는 실행 확인된 GPU다. 기존 표의 V100 지급 자원 항목과 동일 자원이라고 추정하지 않으며, V100 사용 여부는 별도 확인한다.
+- `[ctk]` 옵션 등을 통해 NVIDIA CUDA 런타임·컴파일 구성요소를 설치하면, 실제 설치된 패키지명·버전·공식 출처·해당 이용 조건을 별도로 기록한다. 이 구성요소는 CuPy 본체의 MIT 라이선스에 포함된 것으로 취급하지 않는다. 설치 내역이 아직 없으므로 사용 완료 자원으로 기재하지 않는다.
+- 별도 GPU 전송 데이터 생성기는 채택 보류 중이며, 이번 CuPy 채택에 포함되지 않는다.

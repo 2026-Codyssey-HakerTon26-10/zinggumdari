@@ -7,6 +7,8 @@
 
 from __future__ import annotations
 
+import logging
+from contextlib import asynccontextmanager
 from datetime import date
 
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -14,7 +16,21 @@ from fastapi import APIRouter, HTTPException, Query, Request
 from backend.search import service
 from backend.search.ports import ports
 
-router = APIRouter(tags=["search"])
+log = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def _warm_index(app):
+    """앱이 뜰 때 색인을 미리 만든다. 첫 요청에 만들면 덤프 1만 6천 건과 조건표 830개로 첫 검색이 1.4초다(SPEC §11 1초).
+    실패해도 앱은 뜨고, 첫 검색 때 다시 만든다."""
+    try:
+        service.get_index()
+    except Exception:
+        log.warning("검색 색인을 미리 만들지 못했다. 첫 검색 때 다시 만든다", exc_info=True)
+    yield
+
+
+router = APIRouter(tags=["search"], lifespan=_warm_index)
 
 
 @router.get("/search")
