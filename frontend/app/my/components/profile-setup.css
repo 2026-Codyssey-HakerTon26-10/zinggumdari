@@ -1,0 +1,28 @@
+.profile-setup { max-width: 800px; margin-inline: auto; padding: clamp(22px, 4vw, 40px); border-color: #e4eaf0; box-shadow: 0 10px 40px #1f456608; } /* 기본 정보를 여유 있는 중앙 카드에 담아요. */
+.profile-setup .profile-step { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 18px; padding: 7px 11px; border-radius: 30px; background: #eff6ff; color: #2474c7; font-size: 12px; font-weight: 700; } /* 입력 시작 안내를 작은 파란 배지로 보여줘요. */
+.profile-setup .profile-step .icon { width: 15px; height: 15px; } /* 배지 아이콘을 글자와 균형 있게 맞춰요. */
+.profile-setup h2 { margin-bottom: 8px; color: #1f2937; font-size: clamp(23px, 4vw, 29px); letter-spacing: -.04em; word-break: keep-all; } /* 시작 제목을 선명하고 간결하게 보여줘요. */
+.profile-setup .profile-intro { color: #6b7280; font-size: 14px; } /* 입력 설명을 본문보다 차분하게 표시해요. */
+.profile-setup .profile-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; margin-block: 30px 24px; min-width: 0; } /* 관련 입력을 두 열로 배치해요. */
+.profile-setup .profile-fields > label { color: #475569; font-size: 13px; } /* 입력 이름을 읽기 쉬운 크기와 색으로 표시해요. */
+.profile-setup .profile-fields > label > :is(input, select) { min-height: 50px; padding: 13px 14px; border-color: #dce4ed; border-radius: 12px; color: #1f2937; font-size: 14px; background: #fbfcfe; } /* 텍스트 입력도 선택 카드와 같은 모서리와 높이를 사용해요. */
+.profile-setup .profile-fields > label > :is(input, select):focus { border-color: #2474c7; background: #fff; } /* 입력 중인 항목을 파란 테두리로 표시해요. */
+.profile-setup .profile-fields > label > input::placeholder { color: #8b97a8; font-weight: 400; } /* 예시 문구를 실제 입력값과 구분해요. */
+.profile-setup .profile-choice { display: block; grid-column: 1 / -1; margin: 0; min-width: 0; } /* 선택지 묶음은 두 열 너비를 모두 사용해요. */
+.profile-setup .profile-choice legend { margin-bottom: 10px; padding: 0; color: #475569; font-size: 13px; font-weight: 600; } /* 선택지의 이름을 묶음 제목으로 알려줘요. */
+.profile-setup .profile-choice-options { display: flex; flex-wrap: wrap; gap: 9px; } /* 선택 카드를 화면 너비에 맞춰 줄바꿈해요. */
+.profile-setup .profile-choice-option { position: relative; display: block; flex: 1 1 100px; max-width: 180px; cursor: pointer; } /* 선택 카드 전체를 누를 수 있는 영역으로 만들어요. */
+.profile-setup .profile-choice-option input { position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; opacity: 0; } /* 기본 라디오를 숨기면서 키보드와 필수 선택 기능을 유지해요. */
+.profile-setup .profile-choice-option span { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 49px; padding: 12px 14px; border: 1px solid #dce4ed; border-radius: 12px; color: #64748b; background: #fff; font-size: 13px; transition: border-color .15s, background .15s; } /* 라디오 대신 부드러운 테두리의 선택 카드를 그려요. */
+.profile-setup .profile-choice-option .icon { width: 15px; height: 15px; flex-shrink: 0; visibility: hidden; } /* 선택 표시 공간을 미리 확보해 카드 크기가 바뀌지 않게 해요. */
+.profile-setup .profile-choice-option:hover span { border-color: #9dbfe3; background: #f8fbff; } /* 마우스를 올린 선택지를 가볍게 강조해요. */
+.profile-setup .profile-choice-option input:checked + span { border-color: #2474c7; color: #185eab; background: #eef6ff; box-shadow: 0 0 0 1px #2474c7; } /* 선택한 답은 색과 테두리로 함께 구분해요. */
+.profile-setup .profile-choice-option input:checked + span .icon { visibility: visible; } /* 선택한 카드에만 체크 표시를 보여줘요. */
+.profile-setup .profile-choice-option input:focus-visible + span { outline: 3px solid #5d9de2; outline-offset: 3px; } /* 키보드로 이동한 선택 카드에 초점을 보여줘요. */
+.profile-setup .profile-section-label { display: flex; align-items: center; gap: 8px; grid-column: 1 / -1; margin-top: 4px; padding-top: 24px; border-top: 1px solid #edf1f5; color: #334155; font-size: 14px; font-weight: 700; } /* 생활 정보 묶음 사이에 충분한 여백을 둬요. */
+.profile-setup .profile-section-label .icon { width: 18px; height: 18px; color: #7c96b0; } /* 생활 정보 아이콘은 제목 옆에 작게 표시해요. */
+.profile-setup .profile-privacy { display: flex; align-items: flex-start; gap: 7px; color: #748196; font-size: 12px; } /* 민감정보 안내를 차분하게 보여줘요. */
+.profile-setup .profile-privacy .icon { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; } /* 보호 안내 아이콘을 첫 줄과 맞춰요. */
+.profile-setup .profile-next { display: flex; justify-content: center; gap: 10px; width: 100%; min-height: 52px; margin-top: 24px; border-radius: 12px; font-size: 15px; } /* 다음 버튼을 넓게 만들어 진행 방향을 분명하게 보여줘요. */
+@media (max-width: 560px) { .profile-setup .profile-fields { grid-template-columns: minmax(0, 1fr); gap: 22px; } .profile-setup .profile-choice-option { flex-basis: 90px; max-width: none; } .profile-setup .profile-section-label { padding-top: 20px; } } /* 휴대전화에서는 입력을 한 열로 바꾸고 선택 카드를 자동으로 줄바꿈해요. */
+@media (prefers-reduced-motion: reduce) { .profile-setup .profile-choice-option span { transition: none; } } /* 움직임을 줄이는 사용자의 설정을 따라요. */

@@ -1,6 +1,11 @@
 "use client"; // 가입 후 최소 프로필을 저장하는 폼이에요.
 import { useState, type FormEvent } from "react"; // 입력과 저장 실패 상태를 관리해요.
 import { api, message } from "../../lib/service-api"; // 계정 세션으로 프로필을 만들어요.
+import { Icon } from "../../components/ui"; // 기존 아이콘으로 정보 입력과 다음 이동을 안내해요.
+import "./profile-setup.css"; // 기본 정보 폼에만 새 선택 카드 스타일을 적용해요.
+function ProfileChoice({ name, label, options }: { name: string; label: string; options: string[] }) { // 같은 이름의 라디오 선택지를 한 묶음으로 만들어요.
+    return <fieldset className="profile-choice"><legend>{label}</legend><div className="profile-choice-options">{options.map((value) => <label className="profile-choice-option" key={value}><input type="radio" name={name} value={value} required /><span>{value === "여" ? "여성" : value === "남" ? "남성" : value}<Icon name="check" /></span></label>)}</div></fieldset>; // 브라우저의 필수 선택과 키보드 이동 기능을 그대로 사용해요.
+} // 선택지 묶음을 마쳐요.
 export function ProfileSetup({ nickname, onSaved }: { nickname: string; onSaved: () => void }) { // 기존 프로필이 없는 계정에만 보여줘요.
     const [busy, setBusy] = useState(false); const [error, setError] = useState(""); // 중복 제출과 실패 안내를 관리해요.
     async function submit(event: FormEvent<HTMLFormElement>) { // 입력한 원값으로만 최소 프로필을 만들어요.
@@ -8,5 +13,27 @@ export function ProfileSetup({ nickname, onSaved }: { nickname: string; onSaved:
         try { await api("/profiles", { method: "POST", body: JSON.stringify({ self: { nickname: String(form.get("nickname")).trim(), gender: form.get("gender"), birth_date: form.get("birth_date"), sido: form.get("sido"), sigungu: String(form.get("sigungu")).trim(), marital_status: form.get("marital_status"), children_count: Number(form.get("children_count")), household_size: Number(form.get("household_size")), employment_status: form.get("employment_status") }, consents: { sensitive: false, parent: false }, parents: [] }) }); onSaved(); } // 민감정보·부모님 동의는 기본 false예요.
         catch (cause) { setError(message(cause)); } finally { setBusy(false); } // 실패하면 입력을 유지하고 다시 저장할 수 있어요.
     } // 최소 프로필 저장을 마쳐요.
-    return <section className="work-panel"><h2>① 추천을 위한 기본 정보</h2><p>소득·건강 정보는 여기서 받지 않습니다. 추가 정보는 필요한 때 동의 후 입력해 주세요.</p><form onSubmit={submit} className="work-form"><fieldset disabled={busy}><label>닉네임<input name="nickname" defaultValue={nickname} required minLength={2} maxLength={16} /></label><label>성별<select name="gender" required><option value="">선택해 주세요</option><option>여</option><option>남</option></select></label><label>생년월일<input name="birth_date" type="date" required min="1900-01-01" max={new Date().toISOString().slice(0, 10)} /></label><label>시도<select name="sido" required><option value="">선택해 주세요</option>{["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"].map((value) => <option key={value}>{value}</option>)}</select></label><label>시군구<input name="sigungu" maxLength={40} required /></label><label>혼인 상태<select name="marital_status" required><option value="">선택해 주세요</option>{["미혼", "예비부부", "신혼", "기혼", "이혼·사별"].map((value) => <option key={value}>{value}</option>)}</select></label><label>자녀 수<input name="children_count" type="number" min={0} max={30} required /></label><label>가구원 수<input name="household_size" type="number" min={1} max={50} required /></label><label>취업 상태<select name="employment_status" required><option value="">선택해 주세요</option>{["재학", "구직", "재직", "자영업", "육아휴직", "기타"].map((value) => <option key={value}>{value}</option>)}</select></label></fieldset>{error && <p role="alert">{error}</p>}<button className="button button-primary" disabled={busy}>{busy ? "저장 중…" : "저장하고 추천 보기"}</button></form></section>; // 실제 세션 계정에만 저장하며 가상 프리셋으로 덮어쓰지 않아요.
+    return <section className="work-panel profile-setup" aria-labelledby="profile-setup-title"> {/* 기본 정보를 하나의 독립된 입력 카드로 묶어요. */}
+        <span className="profile-step"><Icon name="user" /> 나를 알아가는 첫걸음</span> {/* 내부 단계 번호 대신 친근한 시작 안내를 보여줘요. */}
+        <h2 id="profile-setup-title">나에게 맞는 제도를 찾아볼까요?</h2> {/* 정보를 입력하는 목적을 먼저 안내해요. */}
+        <p className="profile-intro">기본 정보만 알려주세요. 지금의 생활에 맞춰 추천해 드릴게요.</p> {/* 입력 전에 부담이 적은 설명을 보여줘요. */}
+        <form onSubmit={submit} className="work-form"> {/* 기존 저장 함수를 그대로 연결해요. */}
+            <fieldset className="profile-fields" disabled={busy}> {/* 저장하는 동안 모든 입력을 함께 잠가요. */}
+                <label>닉네임<input name="nickname" defaultValue={nickname} placeholder="어떻게 불러드릴까요?" required minLength={2} maxLength={16} autoComplete="nickname" /></label> {/* 실명 대신 닉네임만 입력받아요. */}
+                <label>생년월일<input name="birth_date" type="date" required min="1900-01-01" max={new Date().toISOString().slice(0, 10)} /></label> {/* 기존 생년월일 범위를 유지해요. */}
+                <ProfileChoice name="gender" label="성별" options={["여", "남"]} /> {/* 성별을 펼침 메뉴 대신 바로 선택해요. */}
+                <div className="profile-section-label"><Icon name="home" /><span>어디에서 생활하고 계신가요?</span></div> {/* 거주지 입력 항목의 목적을 안내해요. */}
+                <label>시도<select name="sido" required><option value="">지역을 선택해 주세요</option>{["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"].map((value) => <option key={value}>{value}</option>)}</select></label> {/* 지역 값은 기존 API 형식을 유지해요. */}
+                <label>시군구<input name="sigungu" placeholder="예: 마포구" maxLength={40} required /></label> {/* 상세 주소 없이 시군구까지만 입력받아요. */}
+                <div className="profile-section-label"><Icon name="family" /><span>지금의 생활을 알려주세요</span></div> {/* 가구와 생활 항목을 함께 묶어 보여줘요. */}
+                <ProfileChoice name="marital_status" label="혼인 상태" options={["미혼", "예비부부", "신혼", "기혼", "이혼·사별"]} /> {/* 혼인 상태를 한눈에 보고 선택해요. */}
+                <label>자녀 수<input name="children_count" type="number" min={0} max={30} placeholder="0" required /></label> {/* 입력 전에는 자녀 수를 임의로 저장하지 않아요. */}
+                <label>가구원 수<input name="household_size" type="number" min={1} max={50} placeholder="본인을 포함해 주세요" required /></label> {/* 기존 가구원 수 범위를 유지해요. */}
+                <ProfileChoice name="employment_status" label="취업 상태" options={["재학", "구직", "재직", "자영업", "육아휴직", "기타"]} /> {/* 취업 상태도 선택 카드로 입력해요. */}
+            </fieldset> {/* 기본 정보 입력 묶음을 마쳐요. */}
+            <p className="profile-privacy"><Icon name="shield" />소득·건강 정보는 필요한 때 별도 동의 후 입력해 주세요.</p> {/* 민감정보는 현재 폼에서 받지 않는다고 안내해요. */}
+            {error && <p role="alert">{error}</p>} {/* 저장 실패가 있으면 입력값을 유지하며 안내해요. */}
+            <button className="button button-primary profile-next" disabled={busy}>{busy ? "저장 중…" : <>다음으로<Icon name="arrow-right" /></>}</button> {/* 짧은 다음 이동 문구로 저장 후 추천 화면을 열어요. */}
+        </form> {/* 기본 정보 폼을 마쳐요. */}
+    </section>; // 실제 세션 계정에만 저장하며 가상 프리셋으로 덮어쓰지 않아요.
 } // 최소 프로필 폼을 마쳐요.
