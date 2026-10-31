@@ -60,6 +60,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
      "status": "needs_review", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "fail:no_comparator", "unit": "ok", "keyword": "ok", "pair": "ok", "layer": "ok"}},
     {"field": "other", "text": "원문 조건 미반영", "reason": "unaccounted", "evidence": ["lh-2026-11-mapo:p8-l9"], "status": "needs_review"}
                                             // 빠짐 검사에서 남은 줄. 판정에서 항상 확인 필요
+    // 글자를 읽지 못한 쪽이 있으면: {"field": "other", "text": "읽지 못한 쪽이 있어 …", "reason": "unread_pages", "pages": [3], "evidence": [], "status": "needs_review"}
   ],
   "exclusive_evidence": ["lh-2026-11-mapo:p9-l2"],   // LLM이 exclusive로 답한 줄. 카드에 "중복 불가 조건이 있어요"로 표시만
   "coverage": {"marked": 21, "used": 15, "labeled": {"definition": 2, "procedure": 1, "exclusive": 1, "out_of_scope": 1, "not_condition": 0}, "unaccounted": 1},
@@ -77,7 +78,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 | `income_basis` | 소득 조건에 필수(시트의 `standard`). `median_pct`(시트 "기준중위소득"), `urban_worker_pct`(시트 "도시근로자"), `absolute_annual`, `absolute_monthly`, `recognized`(소득인정액). 뒤의 셋은 시트 "없음"에 해당한다. 기준표가 없는 종류나 연도는 확인 필요 |
 | `any_of` | OR. 가지 하나는 AND 묶음이고 한 단계만 둔다. `evidence`, `status`, `quote`는 묶음에 단다 |
 | `as_of` | 기준일. `notice_date`(공고일 현재), `application_date`(신청일·접수일 현재 또는 기준). 원문에 없으면 뺀다. 판정은 오늘(`?today=`)로 하고, 기준일은 카드와 해둘 일 문구에 쓴다 |
-| `evidence` | 근거 줄 ID 목록. `{doc_id}:{줄 ID}`(§8). 모든 조건에 필수 |
+| `evidence` | 근거 줄 ID 목록. `{doc_id}:{줄 ID}`(§8). 모든 조건에 필수. 읽지 못한 쪽을 알리는 조건(`reason: "unread_pages"`)만 비고 `pages`에 쪽 번호가 있다 |
 | `quote` | 손 조건표만. 사람이 쓴 원문 문장이다. `python -m backend.compiler.resolve_manual`이 `evidence`로 바꾸고, 못 찾으면 실패한다 |
 | `status` | `reviewed`(사람이 쓰거나 확인), `auto_verified`(AI, 검사 전부 통과), `needs_review`(AI, 검사 하나라도 실패). 확정 판정에는 앞의 둘만 쓴다 |
 | `checks` | AI 조건만. 검사(`schema`, `evidence`, `value`, `comparator`, `unit`, `keyword`, `pair`, `layer`)별 `ok`, `na`(해당 없음), `fail:사유`(SPEC §9.3) |
@@ -303,7 +304,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 {"doc_id": "upload-20261031-01", "lines": 412, "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"}, "marked": 21,
  "llm_calls": 1, "schema_retries": 0, "rules": 2, "conditions": 12, "auto_verified": 9, "needs_review": 3,
  "fails": [{"rule_id": "upload:upload-20261031-01:newlywed", "field": "income_couple", "check": "comparator", "reason": "no_comparator", "evidence": ["upload-20261031-01:p8-l4"]}],
- "unaccounted": ["upload-20261031-01:p8-l9"], "model": "…", "prompt": "v1"}
+ "unaccounted": ["upload-20261031-01:p8-l9"], "unread_pages": [], "model": "…", "prompt": "v1"}
 ```
 
 화면은 진행 표시(줄 만들기 → 자격 구간 → 읽기 → 검증 → 합류) 뒤 조건 표를 보여준다: 우리가 읽은 조건(템플릿 문장), 근거 줄, 검사별 ✓/✗, 미반영 줄. 그다음 카드에 합류시키고 `new_rule` 알림을 만든다. 검수 전이라 카드는 `eligible`이 되지 않는다(SPEC §5.2). 시연 PDF 2건은 결과 캐시 + "캐시 재생" 토글.

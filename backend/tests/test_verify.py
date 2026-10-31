@@ -487,3 +487,10 @@ def test_sido_value_must_be_a_sido():
     out = run([line("l1", "공고일 현재 ○○시에 거주하는 무주택자")], cond("sido", "==", "○○시", ev=("l1",)))
     assert out[0]["checks"]["schema"] == "fail:value_not_in_vocab:○○시"
     assert out[0]["status"] == "needs_review"
+
+
+@pytest.mark.parametrize("field", ["qual_code", "history"])
+def test_code_fields_never_auto_verified(field):
+    out = run([line("l1", "신청자는 만 19세 이상이어야 합니다.")], cond(field, "in", ["가공의자격"], ev=("l1",)))
+    assert out[0]["checks"]["value"] == "fail:unverifiable"
+    assert out[0]["status"] == "needs_review"

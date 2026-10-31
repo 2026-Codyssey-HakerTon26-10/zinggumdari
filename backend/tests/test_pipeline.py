@@ -150,7 +150,7 @@ def test_end_to_end(fake, lines, tmp_path):
     assert set(raw) == {"key", "model", "prompt", "usage", "raw_text", "at"} and json.loads(raw["raw_text"]) == OUTPUT
 
     assert list(log) == ["doc_id", "lines", "section", "marked", "llm_calls", "schema_retries", "cache", "rules", "conditions",
-                         "auto_verified", "needs_review", "fails", "unaccounted", "model", "prompt", "usage"]
+                         "auto_verified", "needs_review", "fails", "unaccounted", "unread_pages", "model", "prompt", "usage"]
     assert log["section"]["from"] == "l4" and log["section"]["found_by"] == "heading"
     assert (log["lines"], log["marked"], log["llm_calls"], log["cache"], log["rules"]) == (17, 10, 1, False, 2)
     assert (log["conditions"], log["auto_verified"], log["needs_review"]) == (14, 10, 4)
@@ -479,3 +479,40 @@ def test_upload_raw_goes_to_uncommitted_dir(fake, tmp_path, monkeypatch):
     (tmp_path / "uploads_raw" / "upload-1.ocr.json").write_text("{}")
     assert pipeline.delete_raw("upload-1") == 2
     assert list((tmp_path / "uploads_raw").iterdir()) == []
+
+
+@pytest.mark.parametrize("field", ["qual_code", "history"])
+def test_unverifiable_code_does_not_hide_missing_condition(fake, tmp_path, field):
+    """원문에 없는 자격·이력 코드를 나이 줄의 근거로 대도 auto_verified가 아니고, 빠진 나이 조건의 줄은 미반영으로 남는다."""
+    lines = to_lines("d", "1. 신청자격\n○ 신청자는 만 19세 이상이어야 합니다.")
+    (age,) = _ids(lines, "만 19세")
+    fake(lambda content: {"rules": [r("main", [c(field, "in", ["가공의자격"], [age])])], "labels": []})
+    (rule,), log = compile("d", lines, "upload", model="m", raw_dir=tmp_path, return_log=True)
+    cond = rule["conditions"][0]
+    assert cond["status"] == "needs_review" and cond["checks"]["value"] == "fail:unverifiable"
+    assert log["unaccounted"] == [f"d:{age}"]
+    assert rule["coverage"]["used"] == 0
+
+
+def test_unread_pages_add_needs_review_condition(fake, lines, tmp_path):
+    """글자를 읽지 못한 쪽이 있으면 조건표마다 근거 없는 확인 필요 조건이 붙는다(그 쪽의 조건은 빠짐 검사로도 못 잡는다)."""
+    fake()
+    rules, log = compile(DOC, lines, "upload", meta={"unread_pages": [5, 3]}, model="m", raw_dir=tmp_path, return_log=True)
+    assert log["unread_pages"] == [3, 5]
+    for rule in rules:
+        last = rule["conditions"][-1]
+        assert last == {"field": "other", "text": pipeline.UNREAD, "reason": "unread_pages", "pages": [3, 5],
+                        "evidence": [], "status": "needs_review"}
+    rules, log = compile(DOC, lines, "upload", model="m", raw_dir=tmp_path, return_log=True)
+    assert log["unread_pages"] == [] and not any(c.get("reason") == "unread_pages" for r_ in rules for c in r_["conditions"])
+
+
+def test_upload_rules_go_to_uncommitted_dir(fake, tmp_path, monkeypatch):
+    """CLI 한 건도 source가 upload면 조건표를 rules/compiled가 아니라 rules/uploads에 쓴다."""
+    monkeypatch.setattr(pipeline, "UPLOAD_OUT_DIR", tmp_path / "uploads")
+    monkeypatch.setattr(pipeline, "OUT_DIR", tmp_path / "compiled")
+    fake()
+    _, paths = run_one(NOTICE, "upload-2", raw_dir=tmp_path / "raw")
+    assert paths and all(p.parent == tmp_path / "uploads" for p in paths)
+    _, paths = run_one(NOTICE, "lh-2", source="lh", raw_dir=tmp_path / "raw")
+    assert paths and all(p.parent == tmp_path / "compiled" for p in paths)

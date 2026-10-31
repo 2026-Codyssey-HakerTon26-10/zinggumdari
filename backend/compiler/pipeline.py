@@ -23,12 +23,14 @@ from backend.compiler.vocab import LABELS
 REPO_ROOT = llm.REPO_ROOT
 OUT_DIR = REPO_ROOT / "rules/compiled"
 RAW_DIR = OUT_DIR / "_raw"
-UPLOAD_RAW_DIR = REPO_ROOT / "rules/uploads/_raw"  # 사용자 업로드의 원응답·글자 인식. 커밋하지 않고(.gitignore) 탈퇴 때 지운다
+UPLOAD_OUT_DIR = REPO_ROOT / "rules/uploads"  # 사용자 업로드의 조건표. 커밋하지 않는다(.gitignore)
+UPLOAD_RAW_DIR = UPLOAD_OUT_DIR / "_raw"  # 업로드의 원응답·글자 인식. 탈퇴 때 지운다
 MAX_CONTENT = 300_000  # 이보다 긴 자격 구간은 트랙마다 나눠 보낸다
 KST = timezone(timedelta(hours=9))
 RRN_MESSAGE = "주민등록번호가 있는 문서는 받지 않습니다. 개인 서류를 올리지 마세요."
 EMPTY_MESSAGE = "글자를 읽지 못한 문서입니다. 공고문 원본(PDF, HWP, HWPX, 텍스트)을 올려 주세요."
 UNACCOUNTED = "원문 조건 미반영"
+UNREAD = "읽지 못한 쪽이 있어 그 쪽의 조건이 빠졌을 수 있음"
 
 _BRANCH = re.compile(r"b(\d+)\.(\d+):")
 
@@ -40,6 +42,11 @@ class IngestRejected(ValueError):
 def resolve_model(model: str | None) -> str:
     """main | bulk | None(main)은 .env의 모델 ID로, 그 밖은 모델 ID 그대로."""
     return llm.model_name(model or "main") if model in (None, "main", "bulk") else model
+
+
+def out_dir_for(source: str) -> Path:
+    """조건표 폴더. 사용자 업로드(upload)는 공개 수집 조건표(rules/compiled)와 섞지 않는다."""
+    return UPLOAD_OUT_DIR if source == "upload" else OUT_DIR
 
 
 def raw_dir_for(source: str) -> Path:
@@ -64,7 +71,8 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
     """줄 목록 → AI 조건표 목록(api.md §1). return_log면 (조건표, 로그 api.md §6).
 
     meta(선택): title(프롬프트 머리), org, region(API 메타데이터), source_url(→ detail_url),
-    fetched_at(→ updated, 없으면 오늘), sha256(원문 해시). raw_dir를 안 주면 raw_dir_for(source).
+    fetched_at(→ updated, 없으면 오늘), sha256(원문 해시), unread_pages(글자를 읽지 못한 쪽. 조건표마다
+    지울 수 없는 확인 필요 조건이 붙는다). raw_dir를 안 주면 raw_dir_for(source).
     """
     _check_id(doc_id)
     _check_id(source)
@@ -106,9 +114,13 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
     cited = set().union(*used_by)
     unaccounted = [i for i in marked if i not in cited and i not in labels]
     labeled = Counter(labels[i] for i in marked if i in labels)
+    unread = sorted(meta.get("unread_pages") or [])
     for r, used in zip(rules, used_by):
         r["conditions"] += [{"field": "other", "text": UNACCOUNTED, "reason": "unaccounted",
                              "evidence": [f"{doc_id}:{i}"], "status": "needs_review"} for i in unaccounted]
+        if unread:  # 근거 줄이 없는 쪽이라 evidence는 비고 쪽 번호를 단다. 검수 전에는 판정에서 항상 확인 필요
+            r["conditions"].append({"field": "other", "text": UNREAD, "reason": "unread_pages", "pages": unread,
+                                    "evidence": [], "status": "needs_review"})
         r["coverage"] = {"marked": len(marked), "used": sum(i in used for i in marked),
                          "labeled": {k: labeled[k] for k in LABELS}, "unaccounted": len(unaccounted)}
         r["compiled"] = dict(compiled)
@@ -120,7 +132,8 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
     log = {"doc_id": doc_id, "lines": len(lines), "section": info, "marked": len(marked), **calls,
            "rules": len(rules), "conditions": len(conds), "auto_verified": status["auto_verified"],
            "needs_review": status["needs_review"], "fails": [f for r in rules for f in _fails(r)],
-           "unaccounted": [f"{doc_id}:{i}" for i in unaccounted], "model": raw["model"], "prompt": PROMPT_VERSION,
+           "unaccounted": [f"{doc_id}:{i}" for i in unaccounted], "unread_pages": unread,
+           "model": raw["model"], "prompt": PROMPT_VERSION,
            "usage": raw["usage"]}
     return rules, log
 

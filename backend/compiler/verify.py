@@ -282,7 +282,9 @@ def _categorical_checks(c: dict, ev_lines: list[dict]) -> tuple[dict, set[str]]:
     f, op, v = c["field"], c.get("op"), c.get("value")
     out = {"keyword": _keyword_anywhere(c, ev_lines)}
     items = v if isinstance(v, list) else [v]
-    if f in ("qual_code", "history") or op in _INEQ or not all(isinstance(x, str) for x in items):
+    if f in ("qual_code", "history"):  # 코드표(시트)와 원문의 대응을 검사할 수 없다. 항상 사람이 본다
+        return {**out, "value": "fail:unverifiable"}, set()
+    if op in _INEQ or not all(isinstance(x, str) for x in items):
         return {**out, "value": "na"}, {l["id"] for l in ev_lines}
     neg = op in ("!=", "not_in")
     used: set[str] = set()
@@ -344,12 +346,16 @@ def check_condition(cond: dict, rule: dict, lines_by_id: dict) -> dict:
 
 
 def used_lines(cond: dict, rule: dict, lines_by_id: dict) -> set[str]:
-    """빠짐 검사가 "쓰인 줄"로 셀 근거 줄 ID. auto_verified 조건은 검사가 실제로 맞춘 줄만 센다
-    (소득 줄을 무주택 조건의 근거에 끼워 넣어 소득 조건이 빠진 것을 숨기지 못하게). 나머지는 근거 줄 전부(사람이 본다)."""
+    """빠짐 검사가 "쓰인 줄"로 셀 근거 줄 ID. auto_verified 조건과 값 검사에서 떨어진 조건은 검사가 실제로 맞춘 줄만
+    센다(소득 줄을 무주택 조건이나 원문에 없는 자격 코드의 근거로 대어 그 줄의 조건이 빠진 것을 숨기지 못하게).
+    나머지는 근거 줄 전부(사람이 본다)."""
     ids = {e.rsplit(":", 1)[-1] for e in cond.get("evidence") or [] if isinstance(e, str)}
-    if cond.get("status") != "auto_verified":
+    if cond.get("status") == "reviewed":
         return ids
-    return _check(cond, rule, lines_by_id)[1]
+    checks, used = _check(cond, rule, lines_by_id)
+    if cond.get("status") == "auto_verified" or checks["value"].startswith("fail:"):
+        return used
+    return ids
 
 
 def _has_other(cond: dict) -> bool:
