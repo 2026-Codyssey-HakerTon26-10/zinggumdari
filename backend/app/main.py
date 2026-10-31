@@ -132,7 +132,8 @@ class _NotifyStore:
             with connect() as conn:
                 return db_notif.mark_read(conn, user_id, notification_id)
 
-    def rebuild(self, today):
+    def rebuild(self, today, rule_ids=None, account_id=None):
+        """account_id가 있으면 그 계정 프로필만, 그 계정이 올린 조건표까지 읽는다(공고 투입 뒤)."""
         from datetime import date
 
         from backend.app.sources import load_rules
@@ -144,9 +145,13 @@ class _NotifyStore:
             from backend.db import notifications as db_notif
             from backend.db import profiles as db_profiles
 
-            rules = load_rules()
+            rules = load_rules(owner=account_id)
             with connect() as conn:
-                rows = conn.execute("SELECT user_id, account_id FROM users").fetchall()
+                if account_id:
+                    rows = conn.execute("SELECT user_id, account_id FROM users WHERE account_id = %s",
+                                        (account_id,)).fetchall()
+                else:
+                    rows = conn.execute("SELECT user_id, account_id FROM users").fetchall()
                 all_profiles = []
                 for row in rows:
                     p = db_profiles.load(conn, str(row[0]))
@@ -158,7 +163,8 @@ class _NotifyStore:
                     db_notif.upsert(conn, uid, item)
 
                 return notify_svc.rebuild(all_profiles, rules, judge_fn, save,
-                                          today=today if isinstance(today, date) else date.today())
+                                          today=today if isinstance(today, date) else date.today(),
+                                          rule_ids=rule_ids, account_id=account_id)
 
     def test_email(self, user_id: str):
         from backend.notify.email import send_email
@@ -192,7 +198,22 @@ class _NotifyStore:
 # import가 깨지면 서버가 바로 실패해야 한다. 조용히 라우트가 빠지지 않게 try로 감싸지 않는다.
 from backend.notify.router import create_router as _notify_router
 
-app.include_router(_notify_router(_NotifyStore(), _require_user, _require_admin))
+_notify_store = _NotifyStore()
+app.include_router(_notify_router(_notify_store, _require_user, _require_admin))
+
+
+def _after_ingest(*, rule_ids, today, account_id=None):
+    """공고 투입(collector.ingest) 뒤 새 조건표로 알림을 만든다. 업로드는 올린 계정에게만(요청 22).
+    알림 저장소가 죽어도 투입은 이미 끝났으니 실패로 알리고 넘어간다."""
+    try:
+        return _notify_store.rebuild(today, rule_ids=rule_ids, account_id=account_id)
+    except HTTPException:
+        return {"status": "failed", "notifications": 0, "reason": "알림 저장소를 쓸 수 없습니다"}
+
+
+from backend.notify import api as _notify_api
+
+_notify_api.connect(_after_ingest)
 
 
 # ── 통계 라우터 (#14) ─────────────────────────────────────────────────────────
