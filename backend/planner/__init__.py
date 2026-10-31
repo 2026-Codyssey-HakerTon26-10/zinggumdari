@@ -80,10 +80,11 @@ def _has(rule: dict, field: str, ops: tuple[str, ...] | None = None) -> bool:
 
 
 def _need_age(rule: dict) -> int | None:
-    """부모님 조건표의 나이 하한(>=·>)에서 도달해야 하는 만 나이. 여럿이면 가장 큰 값."""
+    """부모님 조건표의 나이 하한(>=·>)에서 도달해야 하는 만 나이. 여럿이면 가장 큰 값.
+    any_of 가지 안의 나이는 다른 가지로도 통과할 수 있어 필수가 아니므로 세지 않는다."""
     ages = [c["value"] if c.get("op") == ">=" else c["value"] + 1
-            for c, g in dates.flat(rule)
-            if c.get("field") == "age" and c.get("op") in (">=", ">") and g.get("status") in dates.FINAL
+            for c in rule.get("conditions") or []
+            if c.get("field") == "age" and c.get("op") in (">=", ">") and c.get("status") in dates.FINAL
             and isinstance(c.get("value"), int) and not isinstance(c.get("value"), bool)]
     return max(ages) if ages else None
 

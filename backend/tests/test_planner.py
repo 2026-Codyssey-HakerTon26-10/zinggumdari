@@ -240,3 +240,12 @@ def test_action_opens_at():
     # 장기요양등급이 없으면 신청하면 열린다(요청 33)
     body = build_judge({**JIWON, "parents": [MOM]}, [LTC], TODAY)
     assert card(body, "manual:ltc")["opens_at"] == {"action": "ltc_grade_apply"}
+
+
+def test_any_of_age_is_not_a_required_age():
+    # "65세 이상 또는 노인성 질병"의 65세는 필수가 아니므로 나이 줄에 올리지 않는다
+    rule = R("manual:ltc2", [{"any_of": [[C("age", ">=", 65)], [C("other", "==", None, text="노인성 질병")]],
+                              "evidence": ["l:l3"], "status": "reviewed"},
+                             C("ltc_grade", "in", ["1등급", "2등급"])], subject="parent")
+    steps = build_judge({**JIWON, "parents": [MOM]}, [rule], TODAY)["timeline"]["parent"]
+    assert [s["step"] for s in steps if "manual:ltc2" in s["opens"]] == ["ltc_apply"]
