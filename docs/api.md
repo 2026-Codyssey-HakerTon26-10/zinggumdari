@@ -251,6 +251,10 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
                "my_verdict": "needs_check",  // needs_check만 올린다. 낡기 쉬운 칸 때문에 ineligible이면 items가 아니라 "정보가 바뀌었나요?"로
                "blocking_fields": ["income_household"]}]   // 이 칸을 알려주면 판정된다. 적을수록 앞
   },
+  "folded": {                               // 검수 전 AI 조건표 중 카드로 올리지 않은 것 → 화면은 「AI 추출·검수 전 N개 더 보기」
+    "count": 299,                           // 카드는 프로필의 단계 태그(청년·신혼·자녀·다자녀·부모님)나 바로 다음 단계와 맞는 것만 올린다(SPEC §0). 손 조건표·검수한 AI·내가 올린 조건표는 접지 않는다
+    "items": [{"rule_id": "gov24:…", "name": "…", "subject": "self", "verdict": "needs_check"}]   // 판정은 이미 했다. 열면 같은 판정을 보여 준다. 질문(ask)은 접힌 제도로 고르지 않는다
+  },
   "disclaimer": "참고용 모의 판정, 실제 자격은 접수 기관의 심사로 결정됩니다"
 }
 ```
@@ -481,7 +485,8 @@ JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 �
 ```
 
 - 로그인 전 401, 내 프로필이 아직 없으면 404. 조건표가 하나도 없으면(로컬에 `rules/` 없음) §3 예시 JSON을 그대로 돌려준다
-- 응답은 §3 모양: `ask`, `cards`, `step`, `timeline`, `similar`(아직 `null`), `disclaimer`(모든 카드 머리에 표시)
+- 응답은 §3 모양: `ask`, `cards`, `step`, `timeline`, `similar`(아직 `null`), `folded`(접힌 검수 전 AI 조건표), `disclaimer`(모든 카드 머리에 표시)
+- `cards`는 본인 → 부모님, 그 안에서 손 조건표·검수한 것 → AI 추출(`ai_extracted`) → 판정 순이다. `folded`를 안 그려도 카드는 그대로 나온다
 
 카드(`cards[]`)를 그릴 때 보는 값
 
