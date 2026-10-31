@@ -1,0 +1,6 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "초등학생 이상의 자녀와 부모님(회당 40명)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "매월 26일 접수(주말, 공휴일일 경우 다음 평일 접수)", "mark": true}
+]

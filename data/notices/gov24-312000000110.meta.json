@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-312000000110",
+  "title": "효행장려금 지급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001650&bnefType=all&svcId=312000000110",
+  "fetched_at": "2026-10-31",
+  "sha256": "828ffe93641563fbd2c2a4a24363733b4711fc7386aa98ba235801c513b007c7",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

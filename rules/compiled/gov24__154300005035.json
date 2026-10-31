@@ -1,0 +1,253 @@
+{
+ "id": "gov24:154300005035",
+ "source": "gov24",
+ "name": "맞춤형농지지원사업",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "청년농업인",
+  "후계농업인",
+  "귀농인"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 18,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-154300005035:l3",
+    "gov24-154300005035:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 39,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-154300005035:l3",
+    "gov24-154300005035:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "청년창업형후계농업경영인으로 관할 지자체로부터 신규 선정",
+   "evidence": [
+    "gov24-154300005035:l2",
+    "gov24-154300005035:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "후계농업경영인으로 관할 지자체로부터 선정된 지 5년 이내",
+   "evidence": [
+    "gov24-154300005035:l4",
+    "gov24-154300005035:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "귀농인(농촌 이외 지역에서 거주하는 비농업인이 농업인이 되기 위해 농촌으로 이주한 지 5년 이내의 55세 이하)",
+   "evidence": [
+    "gov24-154300005035:l5",
+    "gov24-154300005035:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 64,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-154300005035:l6",
+    "gov24-154300005035:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "농업경영정보 등록",
+   "evidence": [
+    "gov24-154300005035:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "본인의 농외 소득액이 연 37백만원 미만",
+   "evidence": [
+    "gov24-154300005035:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농지가 소재하는 시군구 안의 지역에 거주하거나 농지가 소재하는 시군구와 연접한 시군구 안의 지역에 거주하거나 해당 농지로부터 직선거리 30km 이내의 지역에 거주",
+   "evidence": [
+    "gov24-154300005035:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "계약당사자와 부부, 형제자매 또는 직계존비속 등 관계 외의 자",
+   "evidence": [
+    "gov24-154300005035:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005035:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005035:l12"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2148117&bnefType=all&svcId=154300005035",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 12,
+  "used": 9,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "e139eda262144adcf4ee1c66c15c11a1cdb1800e85e208d5d7065479c55f23ec",
+  "raw": "rules/compiled/_raw/gov24-154300005035.json",
+  "at": "2026-11-01T03:56"
+ }
+}

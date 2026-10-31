@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 아래의 자격 기준을 충족하는 관내 초‧중‧고 학생", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 국민기초생활보장법 상의 생계‧의료‧주거‧교육 수급자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 국민기초생활보장법 상의 법정 차상위계층", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 한부모가족지원법 제5조 및 제5조의2에 따른 한부모가정", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

@@ -1,0 +1,13 @@
+{
+ "key": "9f1aa3951d6f42de58829438b094ad238fa135077f27584d5a36ee34b8f3984e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6609,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 426
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"해외취업정착지원금\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"해외취업\", \"정착지원금\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<=\", \"value\": 34, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"employment_status\", \"op\": \"==\", \"value\": \"재직\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"income_couple\", \"op\": \"<=\", \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": [[], []]}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"취업비자, 연봉 1,700만원 이상 근로계약서, 단순노무직종 제외\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

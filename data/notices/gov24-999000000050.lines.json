@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 자격기준을 충족하는 9세 ~ 24세 여성청소년", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 2025년 기준 9~24세 여성청소년", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "자격기준 :", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- ｢국민기초생활보장법｣ 에 따른 생계·의료·주거·교육 급여 수급자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- ｢국민기초생활보장법｣ 에 따른 차상위계층", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- ｢한부모가족지원법｣ 제5조 및 제5조의2에 따른 지원대상자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

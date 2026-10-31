@@ -1,0 +1,97 @@
+{
+ "id": "gov24:183000000013",
+ "source": "gov24",
+ "name": "고엽제환자 2세 수당",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "고엽제 2세",
+  "고엽제환자 자녀"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "고엽제후유증환자로 결정·등록되거나 인정된 고엽제환자의 자녀",
+   "evidence": [
+    "gov24-183000000013:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "고엽제환자 2세 질병·장애 판정(척추이분증, 말초신경병, 하지마비척추병변)",
+   "evidence": [
+    "gov24-183000000013:l2",
+    "gov24-183000000013:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-183000000013:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-183000000013:l6"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156417&bnefType=all&svcId=183000000013",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "98a0245bf3b829b119e9dcb533bb189294c8598d82cfb4ff28be04c2f2a7d8a9",
+  "raw": "rules/compiled/_raw/gov24-183000000013.json",
+  "at": "2026-11-01T03:56"
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000007626",
+  "title": "장애인 등 대상 무료 우편 서비스(책나래 서비스)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=790129&bnefType=all&svcId=SD0000007626",
+  "fetched_at": "2026-10-31",
+  "sha256": "af6e23196bfd283123f3d00115647003d076b5bbee4285c972d743ab2f8a4101",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

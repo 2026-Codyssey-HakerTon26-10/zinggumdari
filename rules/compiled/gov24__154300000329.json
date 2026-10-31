@@ -1,0 +1,96 @@
+{
+ "id": "gov24:154300000329",
+ "source": "gov24",
+ "name": "식생활교육 지원",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "식생활교육",
+  "영양교육"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 3
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 5
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 20
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 30
+     },
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 1
+     }
+    ]
+   ],
+   "evidence": [],
+   "checks": {
+    "schema": "ok",
+    "evidence": "fail:no_evidence",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300000329:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=594862&bnefType=all&svcId=154300000329",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1da5bb2bdf722b22e5cff22f16b392872fb8c2dbfb42341352742847ab3f3dfc",
+  "raw": "rules/compiled/_raw/gov24-154300000329.json",
+  "at": "2026-11-01T03:56"
+ }
+}

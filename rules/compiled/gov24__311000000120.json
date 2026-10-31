@@ -1,0 +1,160 @@
+{
+ "id": "gov24:311000000120",
+ "source": "gov24",
+ "name": "국가보훈대상자 보훈예우수당",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "보훈예우수당",
+  "국가보훈",
+  "보훈대상자"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-311000000120:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:서울특별시",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "은평구",
+   "evidence": [
+    "gov24-311000000120:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 1,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-311000000120:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "순국선열",
+    "애국지사",
+    "전몰군경",
+    "전상군경",
+    "순직군경",
+    "공상군경",
+    "무공수훈자",
+    "보국수훈자",
+    "6·25참전 재일학도의용군인",
+    "4·19혁명사망자",
+    "4·19혁명부상자",
+    "4·19혁명공로자",
+    "순직공무원",
+    "공상공무원",
+    "국가사회발전 특별공로순직자",
+    "국가사회발전 특별공로상이자",
+    "국가사회발전 특별공로자",
+    "전투종사군무원",
+    "6·18자유상이자",
+    "지원순직군경",
+    "지원공상군경",
+    "지원순직공무원",
+    "지원공상공무원",
+    "재해사망군경",
+    "재해부상군경",
+    "재해사망공무원",
+    "재해부상공무원",
+    "참전유공자",
+    "5·18민주화운동사망·행방불명자",
+    "5·18민주화운동부상자",
+    "5·18민주화운동희생자",
+    "고엽제후유(의)증",
+    "고엽제후유증 2세환자",
+    "특수임무사망·행방불명자",
+    "특수임무부상자",
+    "특수임무공로자"
+   ],
+   "evidence": [
+    "gov24-311000000120:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006537&bnefType=all&svcId=311000000120",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "fb5e092fde55d7e6d0f4b3917a899618928cd412fb01bfbc52072372145d2120",
+  "raw": "rules/compiled/_raw/gov24-311000000120.json",
+  "at": "2026-11-01T03:58"
+ }
+}

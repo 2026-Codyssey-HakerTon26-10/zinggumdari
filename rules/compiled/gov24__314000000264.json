@@ -1,0 +1,148 @@
+{
+ "id": "gov24:314000000264",
+ "source": "gov24",
+ "name": "장기요양기관 요양보호사 처우개선 수당 지원",
+ "org": "서울특별시 양천구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "양천구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "요양보호사 수당",
+  "처우개선 수당"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "양천구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-314000000264:l2",
+    "gov24-314000000264:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "employment_status",
+   "op": "==",
+   "value": "재직",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-314000000264:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "장기요양기관에 근무하는 요양보호사",
+   "evidence": [
+    "gov24-314000000264:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "산재보험 또는 고용보험에 가입",
+   "evidence": [
+    "gov24-314000000264:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "전년도 연 100시간 이상 근무",
+   "evidence": [
+    "gov24-314000000264:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-314000000264:l9"
+ ],
+ "documents": [
+  "요양보호사 주민등록초본",
+  "산재보험 또는 고용보험 가입자 명부",
+  "급여명세서"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2164416&bnefType=all&svcId=314000000264",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 2,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1804729bad9c460f658b46d4b161ac9a52eef85e8f04af2f7b97f3d9bc3fa310",
+  "raw": "rules/compiled/_raw/gov24-314000000264.json",
+  "at": "2026-11-01T03:58"
+ }
+}

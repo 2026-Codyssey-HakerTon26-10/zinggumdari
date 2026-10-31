@@ -1,0 +1,120 @@
+{
+ "id": "gov24:161300000081",
+ "source": "gov24",
+ "name": "장애인 주택주거용 편의시설 설치지원",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "장애인 편의시설",
+  "주택개조지원"
+ ],
+ "conditions": [
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-161300000081:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "AI가 읽은 조건의 형식이 맞지 않음",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-161300000081:l2"
+   ],
+   "as_of": "notice_date",
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "지자체 등에서 지원을 받고 3년이 경과하지 아니한 자 또는 금융기관 등에 주택개조 비용융자를 추천하여 개조지원을 받은 자는 제외",
+   "evidence": [
+    "gov24-161300000081:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "수급자의 수선유지급여, 유사한 주거환경 등과 관련된 개선사업 지원을 받은 자는 제외(지원내용이 중복되지 않은 경우는 지원 가능)",
+   "evidence": [
+    "gov24-161300000081:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-161300000081:l5",
+  "gov24-161300000081:l8"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999072&bnefType=all&svcId=161300000081",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 2,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ad0272e9cd2900b64d10f465ef636c63527605e79f76735f1073e43fc239a151",
+  "raw": "rules/compiled/_raw/gov24-161300000081.json",
+  "at": "2026-11-01T03:56"
+ }
+}

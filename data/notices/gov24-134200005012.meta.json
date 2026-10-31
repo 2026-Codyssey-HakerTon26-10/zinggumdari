@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-134200005012",
+  "title": "가정양육수당 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2122936&bnefType=all&svcId=134200005012",
+  "fetched_at": "2026-10-31",
+  "sha256": "2adeabf6b28ec713f7f00fcf2fff34d84bedb543f45d85aa4254855d709480d6",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,13 @@
+{
+ "key": "30441949bdf3ed13c9e3a8b12d8dff3dc0dc2dda62a077ccbafb6bbc6cc26710",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6528,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 377
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 다문화 자녀 교육활동비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"다문화가족 교육비\",\"다문화 자녀 지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":7,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"not_in\",\"value\":[\"교육급여수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"다문화가족\",\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

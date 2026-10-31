@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-ges000000120",
+  "title": "국가근로장학금",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=726472&bnefType=all&svcId=GES000000120",
+  "fetched_at": "2026-10-31",
+  "sha256": "db0251375fed60596336d2e037b79d2e64d1a173cb78d60a4bf58f7dbbb14057",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

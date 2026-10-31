@@ -1,0 +1,13 @@
+{
+ "key": "f747453a1c7edc0fc84aa70f0e99afa6b3fb2024a9c3ca53a33bb65714c2067e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6477,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 899
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장애인 자립생활주택 지원\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"rent\", \"aliases\": [\"장애인 자립생활\", \"장애인 주택 지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\"], \"any_of\": [[], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"장애인거주시설 이용인 중 지역자립욕구가 있는 자 또는 재가장애인\", \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"장애인 자립생활주택 지원 (재가장애인)\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"rent\", \"aliases\": [\"장애인 자립생활\", \"재가장애인 주택\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"재가장애인이면서 차상위계층 또는 기초생활수급자\", \"evidence\": [\"l3\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

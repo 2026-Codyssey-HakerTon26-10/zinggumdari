@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200000102",
+  "title": "재가한센인생계비지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=588618&bnefType=all&svcId=135200000102",
+  "fetched_at": "2026-10-31",
+  "sha256": "7e5431d3a27658f75ea24ff77a70b330eefbdc1b4088c8faed5e702a748c16dc",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

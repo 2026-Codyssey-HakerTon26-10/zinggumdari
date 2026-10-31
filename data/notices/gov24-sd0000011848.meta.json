@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000011848",
+  "title": "청년내일채움공제",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=758402&bnefType=all&svcId=SD0000011848",
+  "fetched_at": "2026-10-31",
+  "sha256": "4e7346acaef3cd45843ed2ba2e197596d2a8bd2abb056df39c92a5fda9007a5c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

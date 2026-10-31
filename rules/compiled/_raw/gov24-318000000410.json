@@ -1,0 +1,13 @@
+{
+ "key": "e22dd76cc931c1d0fdaf6f9e901a2eb34a8a55b41955679917034fef9dc05952",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6392,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 180
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"요양보호가족 휴식제도\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"요양보호\",\"가족휴식\",\"노인돌봄\"],\"conditions\":[{\"field\":\"ltc_grade\",\"op\":\"in\",\"value\":[\"1등급\",\"2등급\",\"3등급\",\"4등급\",\"5등급\",\"인지지원등급\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

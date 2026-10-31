@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 65세 이상 거동불편 저소득 어르신", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "1순위: 생계, 의료 수급자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "2순위: 주거급여, 차상위수급자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "3순위: 기초연금수급자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "8월~9월 경 접수 예정", "mark": true}
+]

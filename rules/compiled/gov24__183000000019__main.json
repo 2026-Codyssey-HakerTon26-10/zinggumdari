@@ -1,0 +1,125 @@
+{
+ "id": "gov24:183000000019:main",
+ "source": "gov24",
+ "name": "국가보훈대상자 자녀 등 양육지원",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "보훈대상자 자녀 양육",
+  "국가유공자 자녀 지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<",
+   "value": 20,
+   "evidence": [
+    "gov24-183000000019:l2",
+    "gov24-183000000019:l3",
+    "gov24-183000000019:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "독립유공자",
+    "국가유공자",
+    "5.18민주유공자",
+    "특수임무유공자",
+    "보훈보상대상자"
+   ],
+   "evidence": [
+    "gov24-183000000019:l2",
+    "gov24-183000000019:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "부양의무자 없음",
+   "evidence": [
+    "gov24-183000000019:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-183000000019:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-183000000019:l3"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156423&bnefType=all&svcId=183000000019",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9a835c07919de97bb6241e1b95ed30be22478c82373f9118bd1b770311beb230",
+  "raw": "rules/compiled/_raw/gov24-183000000019.json",
+  "at": "2026-11-01T03:56"
+ }
+}

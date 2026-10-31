@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-300000000108",
+  "title": "출산장려 건강보험 가입지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004282&bnefType=all&svcId=300000000108",
+  "fetched_at": "2026-10-31",
+  "sha256": "1488fca61e81742e465685c2575c387ee9ce254d887c8c39749fa6241ada8157",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

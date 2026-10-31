@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200005004",
+  "title": "긴급복지 연료비 및 전기요금 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=900011&bnefType=all&svcId=135200005004",
+  "fetched_at": "2026-10-31",
+  "sha256": "7f0e8fb4653eec2a97b4f83902865227937d675c40b91aecbe7669b61836aeee",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

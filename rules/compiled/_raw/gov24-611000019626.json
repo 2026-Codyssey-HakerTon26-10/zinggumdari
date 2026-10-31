@@ -1,0 +1,13 @@
+{
+ "key": "119d80f0302219244d8d7e057cf1e2ca028c9fef94bb5fdf029662482a219566",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6582,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 754
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"서울런 청년\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"청소년 지원\",\"저소득 청소년\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":6,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":24,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":60,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"marital_status\",\"op\":\"in\",\"value\":[\"한부모\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":63,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}],[{\"field\":\"marital_status\",\"op\":\"in\",\"value\":[\"한부모\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"청소년한부모\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":72,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}],[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":60,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}]]},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"학교밖청소년\",\"다문화\",\"북한이탈주민\",\"북한이탈주민자녀\",\"국가보훈자\",\"독립유공자자녀\",\"독립유공자손자녀\",\"가족돌봄청년\",\"관외시아동보호시설보호아동\",\"가족쉼터보호아동\",\"건강장애학생\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l5\",\"l6\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":120,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":[[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"가족돌봄청년\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":120,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}],[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":60,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

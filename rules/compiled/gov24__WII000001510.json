@@ -1,0 +1,145 @@
+{
+ "id": "gov24:WII000001510",
+ "source": "gov24",
+ "name": "원폭피해자지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "원폭 피해자",
+  "원자폭탄 피해자"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "원폭피해자"
+   ],
+   "evidence": [
+    "gov24-wii000001510:l2",
+    "gov24-wii000001510:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원자폭탄이 투하된 때 일본의 히로시마 지역, 나가사키 지역에 있었던 사람",
+   "evidence": [
+    "gov24-wii000001510:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원자폭탄이 투하된 때부터 2주 이내에 투하 중심지역 3.5㎞ 이내에 있었던 사람",
+   "evidence": [
+    "gov24-wii000001510:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원자폭탄이 투하된 때 또는 그 후에 사체처리 및 구호에 종사하는 등의 사유로 원자폭탄으로 인한 방사능의 영향을 받은 사람",
+   "evidence": [
+    "gov24-wii000001510:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "위의 3가지 사유에 해당하는 사람이 당시에 임신 중인 태아",
+   "evidence": [
+    "gov24-wii000001510:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000001510:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=46708&bnefType=all&svcId=WII000001510",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "87cf1e96ba1867a5bac5a61baec617660be0d109e7ab39d3a106b92270d13d6c",
+  "raw": "rules/compiled/_raw/gov24-wii000001510.json",
+  "at": "2026-11-01T04:03"
+ }
+}

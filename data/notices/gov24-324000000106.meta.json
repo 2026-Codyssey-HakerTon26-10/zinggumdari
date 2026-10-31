@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-324000000106",
+  "title": "입학축하금 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001535&bnefType=all&svcId=324000000106",
+  "fetched_at": "2026-10-31",
+  "sha256": "bed60eefd3690e5d08bd942120cdaf5a5081b1d5f27e79682c8f1ed8496ec273",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

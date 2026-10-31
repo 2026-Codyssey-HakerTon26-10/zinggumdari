@@ -1,0 +1,72 @@
+{
+ "id": "gov24:318000000410",
+ "source": "gov24",
+ "name": "요양보호가족 휴식제도",
+ "org": "서울특별시 영등포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "영등포구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "요양보호",
+  "가족휴식",
+  "노인돌봄"
+ ],
+ "conditions": [
+  {
+   "field": "ltc_grade",
+   "op": "in",
+   "value": [
+    "1등급",
+    "2등급",
+    "3등급",
+    "4등급",
+    "5등급",
+    "인지지원등급"
+   ],
+   "evidence": [
+    "gov24-318000000410:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:1등급",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2167422&bnefType=all&svcId=318000000410",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 1,
+  "used": 0,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "0440203d340f82cd323e08e40abaa5c76db24cf0cf5ed77e4835cb097586e41d",
+  "raw": "rules/compiled/_raw/gov24-318000000410.json",
+  "at": "2026-11-01T03:58"
+ }
+}

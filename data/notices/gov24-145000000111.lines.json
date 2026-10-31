@@ -1,0 +1,17 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "연탄보일러를 가정난방용으로 사용하는 가구", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "지원대상 중 수급권자, 차상위계층, 소외계층 중 어느 하나라도 충족하는 가구", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 수급권자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 기초생활보장법에 따른 생계·의료·주거·급여 수급권자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 차상위계층", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 기초생활보장법에 따른 차상위계층", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 소외계층", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 주민등록등본상 만65세 이상인 자", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 장애인복지법에서 규정하는 장애인", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 소득이 중위소득의 60% 이하인 한부모 가구", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 소년소녀가정", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "2023.07.11~2023.08.25", "mark": true}
+]

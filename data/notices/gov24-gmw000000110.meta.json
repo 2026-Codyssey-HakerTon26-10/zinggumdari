@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-gmw000000110",
+  "title": "노인복지용구제공",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999131&bnefType=all&svcId=GMW000000110",
+  "fetched_at": "2026-10-31",
+  "sha256": "be95a9561db96ad2d76b3fa965b9fa4121a899db3ac7626af86d19155294ac33",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

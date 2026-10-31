@@ -1,0 +1,13 @@
+{
+ "key": "bcfb486a55fa7da36301dcd4907629c4917c47f550ee5de40917af693aff6533",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7092,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 607
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"산재근로자 생활안정자금 융자\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"산재근로자 융자\",\"산재 생활안정자금\",\"산재 대출\"],\"conditions\":[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\",\"l4\",\"l5\",\"l6\"],\"any_of\":[[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"산재사망근로자유족1순위\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"상병보상연금수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"산재장해등급1~9급\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"3개월 이상 요양 중인 산재노동자로서 평균임금이 최저임금 이하(의료비, 혼례비, 장례비에 한함)\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"5년 이상 장기 요양 중인 이황화탄소 질병판정자\"}]]},{\"field\":\"income_household\",\"op\":\">\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l9\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"out_of_scope\"},{\"line\":\"l11\",\"label\":\"out_of_scope\"},{\"line\":\"l12\",\"label\":\"exclusive\"},{\"line\":\"l13\",\"label\":\"procedure\"},{\"line\":\"l14\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

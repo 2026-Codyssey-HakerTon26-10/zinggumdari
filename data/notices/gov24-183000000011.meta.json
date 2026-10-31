@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-183000000011",
+  "title": "6·25자녀수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156316&bnefType=all&svcId=183000000011",
+  "fetched_at": "2026-10-31",
+  "sha256": "68b56e08e2e7d65d2a71446cfb41533394d65e1cc60af4a2f00913153e832f94",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

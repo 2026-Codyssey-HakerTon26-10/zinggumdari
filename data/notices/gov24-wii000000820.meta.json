@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000000820",
+  "title": "한부모가족복지시설 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999192&bnefType=all&svcId=WII000000820",
+  "fetched_at": "2026-10-31",
+  "sha256": "6f2ec41f3017f247d9142741178be0efcc3ef30b6c7292b1f77ae7c5ae42472b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

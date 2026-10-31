@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 시설 임대인 : 농지를 보유한 지방자치단체", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 시설 임차인 : 만 40세 미만, 영농경력 3년 이하의 청년농업인", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 시설 임대인 : 농지를 보유한 지방자치단체를 공모하여 사업 추진계획 및 현장조사보고서 검토를 통해 평가하여 선정", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 시설 임차인 : 지방자치단체 장이 본인 명의의 시설이 없는 청년농업의 영농창업계획서를 평가하여 대상자로 확정한 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "각 지자체에 문의", "mark": false}
+]

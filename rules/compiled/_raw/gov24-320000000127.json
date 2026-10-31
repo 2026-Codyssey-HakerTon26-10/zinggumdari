@@ -1,0 +1,13 @@
+{
+ "key": "a57565d4e8081b1e38bf8c0fd16be4b7c5b0ac67670d57dc1103b8a314cab41c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6411,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 489
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"장애인 전동보장구 보험가입 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"전동보장구 보험\",\"장애인 보험지원\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"관악구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전동보장구 사용 장애인 또는 65세 이상 노인\",\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null}],[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null}]]}],\"documents\":[]},{\"track\":\"main\",\"name\":\"장애인 전동보장구 보험가입 지원 (노인)\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"전동보장구 보험\",\"노인 보험지원\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"관악구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

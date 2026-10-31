@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-149200000009",
+  "title": "생활안정자금(융자)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=105992&bnefType=all&svcId=149200000009",
+  "fetched_at": "2026-10-31",
+  "sha256": "a2e26113071c533a6a65dc7bab17641cd4511df36d2b75591c31228dd0d45e4c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "〇 보급기준 : 관내 거주자 대상 선착순 보급 및 2년 이내 기보급자 제외(서울시, 강서구, 교육청)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 개인 : 기초생활 수급자, 차상위계층, 장애인, 국가유공자, 결혼이민자, 한부모가정, 북한이탈주민, 자립준비청년, 보호연장아동 등", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 단체 : 보육원, 어린이집, 사회복지시설 등 비영리단체 등", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

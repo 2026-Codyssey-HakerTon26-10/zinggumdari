@@ -1,0 +1,13 @@
+{
+ "key": "bc2e8020c5d6bce4c54843c6955d4285ad63fae1ff75b711909a1ae6b1bbee9c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 8098,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 341
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"출산육아기 고용안정장려금\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"육아휴직 지원금\", \"육아기 근로시간 단축 지원금\", \"대체인력 지원금\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"우선지원대상기업의 사업주\", \"evidence\": [\"l2\", \"l3\", \"l4\", \"l6\", \"l7\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"not_condition\"}, {\"line\": \"l15\", \"label\": \"not_condition\"}, {\"line\": \"l18\", \"label\": \"not_condition\"}, {\"line\": \"l23\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

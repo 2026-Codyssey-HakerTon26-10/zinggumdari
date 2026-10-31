@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000003276",
+  "title": "고용창출장려금(일자리 함께하기, 국내복귀기업 지원, 신중년 적합직무 지원)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999014&bnefType=all&svcId=SD0000003276",
+  "fetched_at": "2026-10-31",
+  "sha256": "f25f0f7812111b63ba8558c36a30852ce46350c500d62423e3f31aa18f43f4ee",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,17 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ ｢장애인복지법｣상 지적･자폐성 장애인으로 등록된 자녀의 부모 및 보호자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 지적장애 또는 자폐성 장애를 부장애로 가진 경우도 포함", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 발달장애인 자녀의 부모 동시 지원 가능", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "*단, 우선적으로 부모를 지원하는 것이 원칙이나, 부모가 발달장애인과 생계주거를 함께하지 못하는 경우, 발달장애인과 거주를 같이하면서 부모를 대신하여 발달장애인을 돌보는 보호자(2촌 이내)도 이용 가능", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 기타요건", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 다만, 자녀가 영유아(9세 미만)의 경우 장애등록이 되어있지 않은 경우, 발달장애(지적･자폐성)가 의심된다는 발달재활서비스 의뢰서 또는 의사소견서(진단서) 첨부(최근 6개월 이내 발행분) 연령은 신청 일을 기준으로 판정하되 대상자로 선정된 후 사업기간 중 9세 도래 시에는 9세가 되는 달까지 지원", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "* 9세 연령 도래 이후도 장애인 등록이 안 된 경우 읍･면･동에서 장애인 등록 유도", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 제외대상", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 다른 법령(또는 국가 예산)에 따라 발달장애인 부모상담지원 사업과 유사한 서비스를 받고 있는 자", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 장애인복지법 제32조의 2(재외동표 및 외국의 장애인등록)에 따라 장애등록한 외국인(재외동포 포함)", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "○ 지적 · 자폐성 장애인으로 등록된 자녀의 부모 및 보호자(우선순위 기준 있음)", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "단년도", "mark": false}
+]

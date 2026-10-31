@@ -1,0 +1,13 @@
+{
+ "key": "caa8973c510c25ce1ebe1b6d08d225641bb99df29e33b456890d9a42481b2bec",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6679,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 402
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"초·중·고 교육비 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"교육비 지원\", \"저소득층 교육비\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"income_recognized\", \"op\": \"<=\", \"value\": null, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l5\", \"l6\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"income_recognized\", \"op\": \"<=\", \"value\": 80, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

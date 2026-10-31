@@ -1,0 +1,13 @@
+{
+ "key": "78d8dc17db152aaeb9deb054cb02f7bf773d6c8d94bfe0c0ca91c900e79d394c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6710,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 608
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"진폐근로자복지지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"진폐근로자 자녀 지원\", \"진폐 장해판정 자녀\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"광업 분진작업에 종사하고 산업재해보상보험법상 진폐 장해판정을 받은 진폐근로자의 자녀\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"초중등교육법 제2조 제2호에 따른 중학교 및 고등공민학교에 입학 예정이거나 재학 중\", \"evidence\": [\"l4\"], \"any_of\": [[{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"초중등교육법 제2조 제2호에 따른 중학교 및 고등공민학교에 입학 예정이거나 재학 중\"}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"초중등교육법 제2조 제3호에 따른 고등학교 및 고등기술학교에 입학예정이거나 재학 중\"}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"평생교육법 제31조에 따른 학교형태의 평생교육시설 중 고등학교 학력이 인정되는 시설에 입학 예정이거나 재학 중\"}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

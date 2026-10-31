@@ -1,0 +1,13 @@
+{
+ "key": "94f08ed8d438c0ab827fccd53d91835538d3156e1435a1bd74ca2604c045b244",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7579,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 733
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"청소년복지시설 퇴소청소년 자립지원수당\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"퇴소청소년\",\"자립지원수당\",\"보호종료청소년\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":18,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":24,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"아동복지시설 또는 위탁가정에서 보호 기간 연장\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"아동복지법 제16조의3 및 시행령 제22조 규정 사유로 25세 이후 보호 기간 추가 연장 가능\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"아동복지시설 또는 가정위탁 보호 종료 5년 이내\",\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"18세 또는 연장 보호종료로부터 5년간 지원 대상\",\"evidence\":[\"l7\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":18,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l9\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"15세 이후 조기 보호종료된 경우 18세가 된 때로부터 5년간 지원\",\"evidence\":[\"l9\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"definition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l15\",\"label\":\"definition\"},{\"line\":\"l16\",\"label\":\"not_condition\"},{\"line\":\"l18\",\"label\":\"not_condition\"},{\"line\":\"l20\",\"label\":\"not_condition\"},{\"line\":\"l21\",\"label\":\"procedure\"},{\"line\":\"l22\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

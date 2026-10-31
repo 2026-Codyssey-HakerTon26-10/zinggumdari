@@ -1,0 +1,13 @@
+{
+ "key": "da89bc67ad7e04dc549b79d28c01c237d12b649814c3d33799833ab5d8df7af7",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6606,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 575
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"동대문구 전세피해임차인 지원(주거안정자금)\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해\",\"주거안정자금\",\"동대문구\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동대문구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"==\",\"value\":\"전세\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l5\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전세사기피해자등(「전세사기피해자법」제2조제4항 적용) 또는 전세피해확인서 발급자(주택도시보증공사[HUG])\",\"evidence\":[\"l4\",\"l5\"],\"any_of\":[[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"전세사기피해자\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전세피해확인서 발급자(주택도시보증공사[HUG])\"}]]},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"안전이 우려되는 전세사기피해주택에 신청일 현재까지 임대차 계약 후 전입하여 계속하여 실거주 중\",\"evidence\":[\"l6\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

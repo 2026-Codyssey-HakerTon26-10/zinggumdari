@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 서울시 관할 장애인거주시설 이용인 중 지역자립욕구가 있는 19세 이상인 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 서울시에 거주하는 19세이상인 재가장애인(차상위계층 또는 기초생활수급자)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "주택 공실 시, 별도 신청기간 안내", "mark": true}
+]

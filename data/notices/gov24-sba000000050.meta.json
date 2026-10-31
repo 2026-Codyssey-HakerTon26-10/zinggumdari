@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sba000000050",
+  "title": "장제급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999159&bnefType=all&svcId=SBA000000050",
+  "fetched_at": "2026-10-31",
+  "sha256": "fa3c1f42147ab44d6a96be1289925879c28dd78c3529550fd24f3544dd21c18a",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

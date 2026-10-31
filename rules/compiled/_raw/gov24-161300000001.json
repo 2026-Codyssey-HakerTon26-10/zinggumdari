@@ -1,0 +1,13 @@
+{
+ "key": "1a73f5257d7912fb00eed72ddb85a20cee6f8f2c9819e3863bf49791b4365b1c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6490,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 561
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"first_home\",\"name\":\"공유형모기지 융자 생애최초\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"생애최초 모기지\",\"첫주택 융자\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"N\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"homeless_years\",\"op\":\">=\",\"value\":5,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_householder\",\"op\":\"==\",\"value\":\"세대주\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_couple\",\"op\":\"<=\",\"value\":7000,\"income_basis\":\"absolute_annual\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]},{\"track\":\"general\",\"name\":\"공유형모기지 융자 일반공급\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"모기지 융자\",\"주택구입 대출\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"N\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"homeless_years\",\"op\":\">=\",\"value\":5,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_householder\",\"op\":\"==\",\"value\":\"세대주\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_couple\",\"op\":\"<=\",\"value\":6000,\"income_basis\":\"absolute_annual\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

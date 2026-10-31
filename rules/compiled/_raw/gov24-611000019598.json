@@ -1,0 +1,13 @@
+{
+ "key": "ec8393982780216977b0397fe07ea4ed06b46ef45a930f0aef4135c7f3d9089a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6742,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 632
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"주택용 소방시설 보급 및 설치 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"주택화재경보기\", \"소화기 설치\"], \"conditions\": [{\"field\": \"age\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": [[{\"field\": \"lives_alone\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"소년소녀가장\", \"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\", \"주거\", \"교육\", \"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"다문화가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"지하층을 거주 목적으로 사용하는 주택\"}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"화재예방강화지구 접경 20미터 이내에 위치한 주택\"}]]}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l10\", \"label\": \"out_of_scope\"}, {\"line\": \"l12\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

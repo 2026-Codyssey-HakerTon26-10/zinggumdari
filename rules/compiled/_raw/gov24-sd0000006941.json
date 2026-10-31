@@ -1,0 +1,13 @@
+{
+ "key": "d65c1094583f25b5e8dd9136d6dcf6bdae9344e72ff73b568a8e51c811b13eb7",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6656,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 412
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"외국인근로자 등 의료지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"외국인근로자 의료지원\", \"의료지원\", \"외국인 의료\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"외국인근로자, 국적취득전결혼이민자, 난민 및 그 자녀(18세미만)\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"건강보험, 의료급여 등 의료보장제도에 의해 의료혜택을 받을 수 없는 자\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 3, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

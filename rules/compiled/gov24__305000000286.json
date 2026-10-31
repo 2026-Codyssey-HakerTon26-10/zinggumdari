@@ -1,0 +1,115 @@
+{
+ "id": "gov24:305000000286",
+ "source": "gov24",
+ "name": "임신부 백일해 예방접종 지원",
+ "org": "서울특별시 동대문구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동대문구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "백일해 예방접종",
+  "임신부 접종"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "동대문구",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-305000000286:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "due_month",
+      "op": ">=",
+      "value": "2024-01",
+      "as_of": "notice_date",
+      "text": "임신 27주 이상 36주 이내"
+     },
+     {
+      "field": "due_month",
+      "op": "<=",
+      "value": "2024-09",
+      "as_of": "notice_date",
+      "text": "임신 27주 이상 36주 이내"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "as_of": "notice_date",
+      "text": "임신기간에 접종하지 않은 분만 2주 이내 산모"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-305000000286:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-305000000286:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2168602&bnefType=all&svcId=305000000286",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ac67ba34823a1a5ce3904583b0803b67e26eeac7aa1511b3394c9fadccd3c2c8",
+  "raw": "rules/compiled/_raw/gov24-305000000286.json",
+  "at": "2026-11-01T03:57"
+ }
+}

@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "연속해서 현재까지 1년 이상 서대문구에 거주한 고용보험 육아휴직급여 남성수급자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 육아휴직 대상 자녀도 서대문구에 동시에 주민등록이 되어있어야 함", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "※ 고용보험 미가입자(프리랜서, 자영업자, 공무원 등)은 지원제외", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 6+6부모육아휴직급여 특례 지원(고용보험법 시행령 제95조3 특례적용자)의 경우 특례 종료 후 지원 가능", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "2026.1.2. ~ 예산 소진시까지", "mark": true}
+]

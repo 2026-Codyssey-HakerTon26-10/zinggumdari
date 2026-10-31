@@ -1,0 +1,13 @@
+{
+ "key": "9f0112bcfd3e6f374a67721f71a14f3a93dab21051b2fe804237b46d112acb31",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6559,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 437
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"동작구 전세피해임차인 지원금(심리치료비 실비 지원)\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해자지원\",\"심리치료비지원\",\"동작구전세피해\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l5\",\"l6\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"전세사기피해자\"],\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null}],\"documents\":[]},{\"track\":\"main\",\"name\":\"동작구 전세피해임차인 지원금(심리치료비 실비 지원)\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해자지원\",\"심리치료비지원\",\"동작구전세피해\"],\"conditions\":[{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2025-07-14\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

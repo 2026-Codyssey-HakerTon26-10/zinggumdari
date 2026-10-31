@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-171000000005",
+  "title": "상해보험 가입비 지원(만원의행복보험)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=748477&bnefType=all&svcId=171000000005",
+  "fetched_at": "2026-10-31",
+  "sha256": "fb551d83f302e6408bb6b9b7fc6f8f0b752eba86b7706d8f8bf276dfd1a4556a",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

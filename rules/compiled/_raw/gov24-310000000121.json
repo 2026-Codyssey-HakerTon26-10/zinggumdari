@@ -1,0 +1,13 @@
+{
+ "key": "7ffc4e49855a2a4b8a5061cdb41000975e08f0a1b614e38ec291acbf13dfa42c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6450,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 443
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득 주민 국민건강보험료 지원\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"노인 건강보험료 지원\", \"저소득 노인 보험료\"], \"conditions\": [{\"field\": \"livelihood_status\", \"op\": \"!=\", \"value\": \"생계\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"!=\", \"value\": \"의료\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"국민건강보험료(노인장기요양보험료 포함) 월 2만원 이하\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"금융재산 500만원 이하\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 저소득층 : 국민기초생활보장법 제7조(급여의 종류) 중 생계,의료,주거,교육급여 수급권자의 가구 및 차상위계층", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 복지시설 : 사회복지사업법 제34조(사회복지시설의 설치)에 따라 설치·운영하는 시설", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 해당 지방자체단체에서 지원대상 수요조사 및 사업집행", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "자세한 날짜는 시군구청에 따라 다를 수 있음", "mark": false}
+]

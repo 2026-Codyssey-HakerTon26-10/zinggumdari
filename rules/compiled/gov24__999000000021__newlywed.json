@@ -1,0 +1,304 @@
+{
+ "id": "gov24:999000000021:newlywed",
+ "source": "gov24",
+ "name": "기존주택 매입임대주택 지원사업 신혼부부Ⅰ",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "신혼부부임대",
+  "신혼부부주택"
+ ],
+ "conditions": [
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-999000000021:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "신혼",
+       "예비부부"
+      ],
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 70,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "신혼",
+       "예비부부"
+      ],
+      "as_of": "notice_date"
+     },
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 90,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ],
+      "as_of": "notice_date"
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 6,
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 70,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "==",
+      "value": "기혼",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 6,
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 70,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ]
+   ],
+   "evidence": [],
+   "checks": {
+    "schema": "ok",
+    "evidence": "fail:no_evidence",
+    "value": "fail:b0.0:not_in_evidence:신혼",
+    "comparator": "fail:b0.1:no_value",
+    "unit": "fail:b0.1:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": ">",
+      "value": 0,
+      "as_of": "notice_date"
+     }
+    ]
+   ],
+   "evidence": [],
+   "checks": {
+    "schema": "ok",
+    "evidence": "fail:no_evidence",
+    "value": "fail:b0.0:not_in_evidence:Y",
+    "comparator": "fail:b1.0:no_value",
+    "unit": "fail:b1.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l15"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l16"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l17"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l20"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l21"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l22"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l26"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000021:l27"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999069&bnefType=all&svcId=999000000021",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 28,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 9
+  },
+  "unaccounted": 12
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "eeee80561f730d37a1c53d60eb7556f2e02fb34e04760e2e57748f7bafce4793",
+  "raw": "rules/compiled/_raw/gov24-999000000021.json",
+  "at": "2026-11-01T04:00"
+ }
+}

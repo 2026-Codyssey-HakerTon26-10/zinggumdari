@@ -1,0 +1,16 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원대상 : 전세사기피해자(특별법 적용)로 결정된 무주택 동작구민", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 전세사기 특별법 시행일('23.6.1.)부터 소급 적용", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 신청요건", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 서울특별시 동작구 주택을 임차한 무주택자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 신청일 기준 주민등록이 동작구인 전세사기피해자(등) 결정문 소지자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 제외대상", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 신청 시점에 집행권원 확보가 완료되지 않은 경우", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 임대인 외 제3자에 대한 소송", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 집행권원 확보와 무관한 손해배상청구 소송, 형사사건", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 소송대리 법률구조사업, 법률구조공단 무료 소송으로 집행한 집행권원", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 경매 배당 등으로 보증금 전액 회수에 따라 피해자 결정이 취소, 철회 된 경우", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "2025-03-17 ~ 예산소진 시까지", "mark": true}
+]

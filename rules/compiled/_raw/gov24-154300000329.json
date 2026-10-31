@@ -1,0 +1,13 @@
+{
+ "key": "ef16fd32958b0e2b1b189ac770f91fa722ea5175c2286e1eea1715dc2d356cc6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6452,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 388
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"식생활교육 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"식생활교육\", \"영양교육\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [], \"any_of\": [[], [{\"field\": \"age\", \"op\": \">=\", \"value\": 3, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 5, \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"age\", \"op\": \">=\", \"value\": 20, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 30, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"household_size\", \"op\": \"==\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

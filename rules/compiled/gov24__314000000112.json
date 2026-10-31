@@ -1,0 +1,101 @@
+{
+ "id": "gov24:314000000112",
+ "source": "gov24",
+ "name": "저소득층 국민건강보험료 지원",
+ "org": "서울특별시 양천구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "양천구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "cash",
+ "aliases": [
+  "건강보험료 지원",
+  "저소득 노인 보험료"
+ ],
+ "conditions": [
+  {
+   "field": "lives_alone",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-314000000112:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-314000000112:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "매월 보험료 부과금액이 보건복지부가 고시한 최저보험료 이하",
+   "evidence": [
+    "gov24-314000000112:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001750&bnefType=all&svcId=314000000112",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f9ee821c1548cc8c8711adb2432b401fc60bd9766c65776f7ad0149e945c0d96",
+  "raw": "rules/compiled/_raw/gov24-314000000112.json",
+  "at": "2026-11-01T03:58"
+ }
+}

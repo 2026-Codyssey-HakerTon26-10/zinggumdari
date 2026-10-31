@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 취약계층 단체, 사회복지기관 및 청소년 단체 등(최소 참가인원 20인 이상 신청 가능)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 취약계층", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 저소득가정, 어르신, 장애인, 성매매피해자, 청년,경력단절여성, 북한이탈주민, 가정폭력피해자, 한부모가족, 결혼이민자, 갱생보호대상자, 범죄구조피해자, 실직자, 노숙인, 약물중독자, 조손가정, 저신용자 등", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 일반", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 성인/청소년 : 환경/생활습관질환자, 스트레스 관리개선 필요자 등 사회적으로 관심과 배려가 필요한 성인/청소년", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 유아 : 사회적으로 관심과 배려가 필요한 유아", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "* 한국산림복지진흥원(https://www.fowi.or.kr/) 공지사항 확인", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "참가신청서를 기준으로 소속기관별 정해진 평가 기준에 따라 단체 선정", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "분기별 사전신청", "mark": false}
+]

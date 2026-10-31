@@ -1,0 +1,98 @@
+{
+ "id": "gov24:322000000112",
+ "source": "gov24",
+ "name": "구강보건서비스",
+ "org": "서울특별시 강남구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강남구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "치과 서비스",
+  "구강 건강"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 18
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     }
+    ],
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ]
+   ],
+   "evidence": [],
+   "checks": {
+    "schema": "ok",
+    "evidence": "fail:no_evidence",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-322000000112:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004378&bnefType=all&svcId=322000000112",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "cc0594e15db96df9973dce6aa343e3cd341ccf03d0b17d0ecf54d23869876c8f",
+  "raw": "rules/compiled/_raw/gov24-322000000112.json",
+  "at": "2026-11-01T03:59"
+ }
+}

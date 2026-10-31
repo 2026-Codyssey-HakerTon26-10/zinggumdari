@@ -1,0 +1,83 @@
+{
+ "id": "gov24:309000000132:main",
+ "source": "gov24",
+ "name": "장애인가정 출산지원금 지원",
+ "org": "서울특별시 도봉구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "도봉구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "장애인 출산지원",
+  "출산지원금"
+ ],
+ "conditions": [
+  {
+   "field": "gender",
+   "op": "==",
+   "value": "여",
+   "evidence": [
+    "gov24-309000000132:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-309000000132:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002528&bnefType=all&svcId=309000000132",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ce374df169f141d88f958b56dae5d358b81aae09808bfa747120df9ea7f77b7c",
+  "raw": "rules/compiled/_raw/gov24-309000000132.json",
+  "at": "2026-11-01T03:57"
+ }
+}

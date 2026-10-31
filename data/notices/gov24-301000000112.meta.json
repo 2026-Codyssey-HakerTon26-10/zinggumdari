@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-301000000112",
+  "title": "저소득 한부모가족 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001509&bnefType=all&svcId=301000000112",
+  "fetched_at": "2026-10-31",
+  "sha256": "e3a194087258049a2f006e64dc8942a65ea24950ff9f4124c66862aeec0a234c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,13 @@
+{
+ "key": "ca8e718140dce3225d9c05702de99fa61e0658b7ca33ef7728a3e4a4b7c2b593",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6660,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 560
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"K-패스 청년층\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"청년 교통카드\", \"청년 교통지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 34, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"!=\", \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"K-패스 저소득층\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"저소득 교통카드\", \"저소득 교통지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"!=\", \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

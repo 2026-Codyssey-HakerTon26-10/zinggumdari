@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 역량과 잠재력 있는 저소득층(국민기초생활수급자, 한부모가족지원대상자, 법정 차상위 계층 등) 우수 중·고생", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "※ 단, SOS장학금 유형은 저소득층 유무와 관계 없이 긴급구난 대상에게 지원", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 필수요건", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 「초·중등교육법」 상 학교에 재학 중인 중2~고3 학생", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 추천일 기준 국민기초생활수급자, 한부모가족지원대상자, 법정 차상위 계층 가정의 학생", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "※ (SOS장학) 별도 유형으로 긴급한 위기 상황에 처하여 갑작스럽게 학업 지속이 어려워진 학생을 선발하여 한시 지원", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 제한대상: 학교폭력 가해학생, 정부·지자체·민간 등 타 장학금 수혜자, 직계가족 중 동 장학금을 받고 있는 경우", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 선발절차: 각 학교에서 추천한 인원을 대상으로 심사 및 평가를 거쳐 최종 선발", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "매년 1학기 초 신청기간 공고", "mark": true}
+]

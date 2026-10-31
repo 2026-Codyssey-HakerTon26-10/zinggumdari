@@ -1,0 +1,193 @@
+{
+ "id": "gov24:135200005001",
+ "source": "gov24",
+ "name": "긴급복지 주거지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "긴급복지지원",
+  "주거지원"
+ ],
+ "conditions": [
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 75,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-135200005001:l23"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "재산: 대도시 24,100만 원, 중소도시 15,200만 원, 농어촌 13,000만 원 이하(주거용 재산 공제 한도: 대도시 6,900만 원, 중소도시 4,200만 원, 농어촌 3,500만 원 이하)",
+   "evidence": [
+    "gov24-135200005001:l31",
+    "gov24-135200005001:l32"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "금융재산: 생활준비금 + 600만 원 이하(주거지원은 200만 원 추가)",
+   "evidence": [
+    "gov24-135200005001:l33"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "주소득자 사망, 가출, 행방불명, 구금시설 수용 등으로 소득 상실"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "가구구성원으로부터 방임, 유기, 학대"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "가정폭력 또는 성폭력"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "화재 또는 자연재해로 거주 주택/건물에서 생활 곤란"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "주소득자 또는 부소득자의 휴업, 폐업, 사업장 화재로 영업 곤란"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "주소득자 또는 부소득자의 실직"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "이혼으로 소득 현저히 감소"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "가족으로부터 방임, 유기, 생계 곤란으로 노숙"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "복지사각지대 발굴대상자, 통합사례관리 대상자, 자살고위험군으로 관련 부서 추천"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "타인의 범죄로 피해자가 거주 주택/건물에서 생활 곤란하여 거주지 이전"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "전세사기피해자 지원 및 주거안정에 관한 특별법 제28조 적용"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-135200005001:l4",
+    "gov24-135200005001:l6",
+    "gov24-135200005001:l7",
+    "gov24-135200005001:l8",
+    "gov24-135200005001:l9",
+    "gov24-135200005001:l10",
+    "gov24-135200005001:l13",
+    "gov24-135200005001:l16",
+    "gov24-135200005001:l17",
+    "gov24-135200005001:l18",
+    "gov24-135200005001:l20"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=900008&bnefType=all&svcId=135200005001",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 24,
+  "used": 15,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 9
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "2fad03c9ead8e884b2d093dc34d29ec40c01b67fd53f4384670eff4f37cbf201",
+  "raw": "rules/compiled/_raw/gov24-135200005001.json",
+  "at": "2026-11-01T03:55"
+ }
+}

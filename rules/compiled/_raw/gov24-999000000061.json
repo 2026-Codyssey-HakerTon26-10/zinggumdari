@@ -1,0 +1,13 @@
+{
+ "key": "30bb7d9a953a566fe20f034aa382ca9d5a1aa7fe59f2eae2c26d364c33d0cb14",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6650,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 548
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"독립유공자 (손)자녀 생활지원금\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"독립유공자자녀\",\"생활지원금\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"독립유공자자녀\",\"독립유공자손자녀\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\",\"l6\",\"l7\",\"l8\"],\"any_of\":[[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"차상위\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"국가보훈처의 생활조정수당 수급자\"}],[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":70,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}],[{\"field\":\"basic_pension\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"household_size\",\"op\":\"<=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"not_condition\"},{\"line\":\"l12\",\"label\":\"not_condition\"},{\"line\":\"l13\",\"label\":\"not_condition\"},{\"line\":\"l14\",\"label\":\"procedure\"},{\"line\":\"l15\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

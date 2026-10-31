@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-312000000123",
+  "title": "장애인 양육비용 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006234&bnefType=all&svcId=312000000123",
+  "fetched_at": "2026-10-31",
+  "sha256": "40fda6ec9b54e78f6a26838d7cd8168f8d6a0d15645fede05db6812743f2d840",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

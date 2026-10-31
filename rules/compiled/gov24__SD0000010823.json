@@ -1,0 +1,41 @@
+{
+ "id": "gov24:SD0000010823",
+ "source": "gov24",
+ "name": "산림사업종합자금 지원",
+ "org": "산림청",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "산림자금",
+  "임업자금"
+ ],
+ "conditions": [],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=759221&bnefType=all&svcId=SD0000010823",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "82c2fa16ad5a546d6d73d48befbf09722183be6e17de27186859327b6529bd34",
+  "raw": "rules/compiled/_raw/gov24-sd0000010823.json",
+  "at": "2026-11-01T04:02"
+ }
+}

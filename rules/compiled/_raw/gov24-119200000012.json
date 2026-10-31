@@ -1,0 +1,13 @@
+{
+ "key": "395d169c86c8163aea9342d0071ea20c977495776b243222ee95fdc1757672fd",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6538,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 334
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"귀어 창업 및 주택구입 지원(융자)\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"귀어 지원\", \"어촌 정착 자금\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<=\", \"value\": 65, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \"<=\", \"value\": 60, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"귀어업인(희망자 포함) 또는 재촌비어업인\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:54"
+}

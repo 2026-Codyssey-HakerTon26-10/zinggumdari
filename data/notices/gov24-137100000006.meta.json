@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-137100000006",
+  "title": "스포츠 강좌 이용권 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999118&bnefType=all&svcId=137100000006",
+  "fetched_at": "2026-10-31",
+  "sha256": "e3e88f2166a962002d577c4d80acf5fc0df17cf0894b1ddd0687585a6d6d4d10",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

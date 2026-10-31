@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000010654",
+  "title": "매출채권보험 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=165693&bnefType=all&svcId=SD0000010654",
+  "fetched_at": "2026-10-31",
+  "sha256": "f250afba89f294d1627574902c02e66a7e579abff4a831a22197ae8ec6e90e5e",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

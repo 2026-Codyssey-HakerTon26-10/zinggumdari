@@ -1,0 +1,13 @@
+{
+ "key": "8ccfe18ac632f95642d39c8e5bf0c2ede5a85fa199593ab66bf62a67cc25e33d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6526,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 317
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"농어촌 취약지역 생활여건 개조 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"농어촌 주택 개조\", \"취약지역 생활여건\"], \"conditions\": [{\"field\": \"household_size\", \"op\": \">=\", \"value\": 30, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"30년 이상 노후주택비율 40% 이상 또는 슬레이트지붕 주택 비율 40% 이상\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

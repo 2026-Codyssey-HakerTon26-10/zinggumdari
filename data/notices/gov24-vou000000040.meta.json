@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-vou000000040",
+  "title": "가사·간병 방문 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=756549&bnefType=all&svcId=VOU000000040",
+  "fetched_at": "2026-10-31",
+  "sha256": "55961bfdbb7a136bfaf0c8a24286c1c1c22597f92698b0e25dc947b35aaf7899",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

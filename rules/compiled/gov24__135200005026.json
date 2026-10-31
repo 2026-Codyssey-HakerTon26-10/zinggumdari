@@ -1,0 +1,182 @@
+{
+ "id": "gov24:135200005026",
+ "source": "gov24",
+ "name": "긴급돌봄 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "긴급돌봄",
+  "일시적 돌봄"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "evidence": [
+    "gov24-135200005026:l28"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "대한민국 국적 보유",
+   "evidence": [
+    "gov24-135200005026:l30"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "갑작스러운 질병 및 부상 또는 퇴원 후 한시적 돌봄 필요"
+     },
+     {
+      "field": "other",
+      "text": "병원에서 수술, 입원 치료 등을 마치고 퇴원 후 1달 이내 기간 동안 가족 등 돌볼 사람이 없는 경우"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "주 돌봄자의 갑작스러운 부재로 돌봄이 필요"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "타 서비스 신청 후 처리기간 또는 기타 한시적 돌봄 필요"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-135200005026:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "혼자서는 독립적으로 일상생활 수행이 불가능하나, 돌볼 수 있는 가구원이 없는 경우",
+   "evidence": [
+    "gov24-135200005026:l18"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "다른 공적 돌봄 서비스를 받고 있지 않는 경우",
+   "evidence": [
+    "gov24-135200005026:l23"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005026:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005026:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005026:l15"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2119615&bnefType=all&svcId=135200005026",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 14,
+  "used": 4,
+  "labeled": {
+   "definition": 5,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "35f6c899ceffacb53317b7b609222a31d02bc5f472d9b1d4349d777f7830d6bb",
+  "raw": "rules/compiled/_raw/gov24-135200005026.json",
+  "at": "2026-11-01T03:55"
+ }
+}

@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 어린이 국가예방접종 19종(12세 이하) 및 65세 이상 폐렴구균 접종(위탁의료기관 또는 보건소)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ HPV 예방접종 : 12~17세 여성 청소년, 18~26세 저소득층 여성, 12세 남성 청소년", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ B형간염 주산기감염 예방접종 : HBsAg 양성 또는 HBeAg 양성 산모로부터 출생한 영유아", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ B형간염 : 간염 항체 미형성자 중 희망자 유료접종(관악구 보건소 접종, 거주지 무관)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 신증후군출혈열 : 군인 및 농부 등 고위험군(증빙자료 지참 후 관악구 보건소 접종, 거주지 무관)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 장티푸스 : 보균자 접촉자, 유행지역 여행자 등 고위험군(증빙자료 지참 후 관악구 보건소 접종, 거주지 무관)", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 인플루엔자 예방접종 : 14세 이하 어린이, 임신부, 65세 이상 어르신", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "신청불필요", "mark": false}
+]

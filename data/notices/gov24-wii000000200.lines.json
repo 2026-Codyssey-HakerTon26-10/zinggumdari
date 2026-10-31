@@ -1,0 +1,11 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 수급자 학생, 교육감이 정하는 차상위 계층 학생, 한 부모 가족 보호 대상 학생, 탈북 및 다문화 학생, 특수교육대상 학생, 그 밖에 교육감이 정하는 학생", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 초등학교·공민학교, 중학교·고등공민학교, 고등학교·고등기술학교, 특수학교, 각종학교 중 교육감이 자체 기준에 따라 지정하는 학교", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 사업 대상 학생이 1명 이상 있는 모든 학교 중에서 해당 학교의 사업 대상 학생 수와 비율, 학교가 위치한 지역 여건 등을 종합적으로 고려하여 사업학교 지정", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 초등학교·공민학교, 중학교·고등공민학교, 고등학교·고등기술학교, 특수학교, 각종학교 중 교육감이 자체 기준에 따라 지정하는 학교", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 사업 대상 학생이 1명 이상 있는 모든 학교 중에서 해당 학교의 사업 대상 학생 수와 비율, 학교가 위치한 지역 여건 등을 종합적으로 고려하여 사업학교 지정", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

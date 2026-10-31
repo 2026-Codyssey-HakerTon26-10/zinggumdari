@@ -1,0 +1,42 @@
+{
+ "id": "gov24:WII000000290",
+ "source": "gov24",
+ "name": "노인보호전문기관 및 학대피해노인 전용쉼터 운영 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "학대피해노인",
+  "노인학대",
+  "노인쉼터"
+ ],
+ "conditions": [],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=729581&bnefType=all&svcId=WII000000290",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6ce2f410da5cc825ca35ec382685bd492a3a2f31c6b7420f63d66b6e58077004",
+  "raw": "rules/compiled/_raw/gov24-wii000000290.json",
+  "at": "2026-11-01T04:03"
+ }
+}

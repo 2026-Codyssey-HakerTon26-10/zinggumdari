@@ -1,0 +1,22 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 공고일 기준(’25. 5. 26.) 다음 ① ∼②에 모두 해당하는 경우 신청 가능", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "① 서울시 거주 중이며 만 14세 이하인 자녀를 둔 만 18세 이상 부모 등(친권자, 후견인)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "※ 신청인(친권자, 후견인)：만 18세 이상인 자(2007. 12. 31. 이전 출생자)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "대 상 아 동：만 14세 이하인 자(2010. 1. 1. 이후 출생자)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "② 동일 가구원(가족관계증명서 기준)의 소득인정액이 기준 중위소득 51%이상 80% 이하 가구⁕", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "※ 한 가정에 1명의 자녀만 신청 가능", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "* 동일 가구원 : 세대분리와 관계없이 가족관계증명서(및 기본증명서) 기준으로 산정", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "** 소득인정액 : 가구원의 소득과 보유재산을 일정비율로 환산한 금액", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 다음의 항목 중 하나라도 해당되는 경우 신청 제외", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "① 신청인이 수급자(생계, 의료, 주거, 교육) 및 차상위계층", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "② 신청인 본인 명의의 통장 개설이 불가능한 자", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "③ 신청인 및 가구원이 아래 유사사업에 참여 중 또는 참여 이력(만기/중도해지 등)이 있는 자", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "※ 단, 중도해지자 중 지원금을 받지 않은 경우는 신청 가능", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 신청인 본인의 중복가입 불가", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "[서울시] 희망두배 청년통장·희망플러스통장·꿈나래통장·이룸통장 [보건복지부] 디딤씨앗통장", "mark": false},
+  {"id": "l17", "page": null, "bbox": null, "text": "- 신청인 가구원(상기 동일 가구원 기준과 동일)의 중복가입 불가", "mark": true},
+  {"id": "l18", "page": null, "bbox": null, "text": "[서울시] 희망플러스통장·꿈나래통장·이룸통장 [보건복지부] 디딤씨앗통장(CDA)", "mark": false},
+  {"id": "l19", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l20", "page": null, "bbox": null, "text": "2025.06.09~2025.06.20", "mark": true}
+]

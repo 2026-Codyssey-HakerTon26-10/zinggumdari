@@ -1,0 +1,21 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "※ 지원대상 공통기준 : 서울 강서구에 주민등록을 두고 혼인 기록 및 실제 사실혼 관계가 없는 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "① 미혼모·부 아동양육비 지원", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 지원대상 : 한부모가족증명서 발급대상자 가구(중위소득 65% 이하) 중 미혼모 또는 미혼부가 양육하는 만 5세 이하 아동", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "※ 청소년 미혼모부는 중위소득 72% 이하까지 지원대상이며, 기초생활수급(생계급여) 중복 여부 관계없이 지원", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 지원내용 : 만 5세 이하 아동 1인당 월 10만원 지급(※ 신청일이 속하는 달부터 만6세 생일 도래하기 전 달까지)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 지 급 일 : 매월 25일경", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "② 미혼모·부 냉·난방비 지원", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 지원대상 : 한부모가족증명서 발급대상자 가구(중위소득 65%이하) 중 미혼모 또는 미혼부가 만5세 이하 아동을 양육하는 가구", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "※ 청소년 미혼모부는 중위소득 72% 이하까지 지원대상이며, 기초생활수급(생계급여) 중복 여부 관계없이 지원하되, 에너지 바우처 지원대상자는 제외", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 지원내용 : 동하절기 각 2개월간 월 25,000원 지급", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 지 급 일 : 7~8월 25일경 / 11~12월 25일경", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "③ 미혼모 임신출산 의료비 지원", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 지원대상 : 만 20세 이상 미혼모(※ 소득 제한기준 없음)", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 지원내용 : 임신 1회당 산전, 산후 진료비 및 분만비, 출산일로부터 1년 이내 출산 아동에 대한 진료비 최대 50만원 지급", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "※ 단, 국민행복카드 바우처 전액(100만원) 소진 증빙시 지원", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "※ 해당 대상자가 중위소득 72% 이하인 경우(의료급여 수급자 제외) 국민행복카드 전액 소진하고, 서울시 한부모가족지원센터 출산양육 병원비 지원 20만원까지 전액 소진 증빙시 지원", "mark": true},
+  {"id": "l18", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l19", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

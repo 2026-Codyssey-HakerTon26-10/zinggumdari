@@ -1,0 +1,13 @@
+{
+ "key": "37f2e132d7fc553056ec56bf8e92681121027fce43cae53740183ef645f89af2",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6499,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 289
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 노인가구 국민건강보험료 지원\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"노인건강보험료\",\"저소득노인지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"강남구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"국민건강보험료 부과금액이 지역가입자 월별 보험료액 하한액(2026년 기준 22,809원) 이하\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

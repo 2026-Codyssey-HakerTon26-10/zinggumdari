@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000136",
+  "title": "어르신복지카드 발급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803196&bnefType=all&svcId=304000000136",
+  "fetched_at": "2026-10-31",
+  "sha256": "d322762f0a4d87f57a5479cf827d96a25b0c21d1c4584f9533e0f827a55ee74e",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

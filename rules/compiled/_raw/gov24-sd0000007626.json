@@ -1,0 +1,13 @@
+{
+ "key": "8c5437609e8dbbadead79b62447a8bcb88fb42834c215f7d3940876015ea5357",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6686,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 378
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"장애인 등 대상 무료 우편 서비스(책나래 서비스)\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"책나래\",\"장애인우편\",\"무료우편\"],\"conditions\":[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가유공상이자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"ltc_grade\",\"op\":\"not_in\",\"value\":[\"없음\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[\"장애인복지카드\",\"장애인증명서\",\"국가유공자증\",\"특수임무유공자증\",\"보훈보상대상자증\",\"지원대상자확인원\",\"장기요양인정서\"]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"definition\"},{\"line\":\"l8\",\"label\":\"definition\"},{\"line\":\"l9\",\"label\":\"definition\"},{\"line\":\"l10\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

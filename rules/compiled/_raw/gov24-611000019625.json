@@ -1,0 +1,13 @@
+{
+ "key": "fce85ca559eb51a537dde5633190a5c5e1a4dd9fe675c1bffd3c85a5ee85f982",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6561,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 823
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"서울청년문화패스\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"청년문화패스\", \"서울청년지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 21, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 24, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 150, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"==\", \"value\": \"생애최초수혜자\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"youth\", \"name\": \"서울청년문화패스 (의무복무 제대군인)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"청년문화패스\", \"서울청년지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 21, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 27, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 150, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"==\", \"value\": \"생애최초수혜자\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"의무복무 제대군인\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "408fad7c0ac87303eb6e22f97ffd6ab780609b8c25a7baaf58b42213e8ab5ba6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6511,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 458
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"서대문행복이룸센터 취·창업 관련 교육 프로그램 감면\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"취창업 교육\", \"행복이룸센터\", \"교육 감면\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\", \"장애인\", \"국가유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\", \"l5\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"서대문구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

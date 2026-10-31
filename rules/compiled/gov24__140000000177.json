@@ -1,0 +1,89 @@
+{
+ "id": "gov24:140000000177",
+ "source": "gov24",
+ "name": "산림복지소외자 지원",
+ "org": "산림청",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "산림복지",
+  "취약계층 지원",
+  "산림치유"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "저소득가정",
+    "어르신",
+    "장애인",
+    "성매매피해자",
+    "청년",
+    "경력단절여성",
+    "북한이탈주민",
+    "가정폭력피해자",
+    "한부모가족",
+    "결혼이민자",
+    "갱생보호대상자",
+    "범죄구조피해자",
+    "실직자",
+    "노숙인",
+    "약물중독자",
+    "조손가정",
+    "저신용자"
+   ],
+   "evidence": [
+    "gov24-140000000177:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-140000000177:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=753135&bnefType=all&svcId=140000000177",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6247ab0ca52ddd5d1af64d00e25cb86473b96af451b1e7e1e4fa56c769b398e9",
+  "raw": "rules/compiled/_raw/gov24-140000000177.json",
+  "at": "2026-11-01T03:56"
+ }
+}

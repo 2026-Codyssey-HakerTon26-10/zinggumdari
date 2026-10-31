@@ -1,0 +1,13 @@
+{
+ "key": "143704e502add197e712a6263d6f66cb43842c44a8931a305bff4da73dfd5257",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6539,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 319
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"강동구 거주자우선주차 주차요금 감면 서비스\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"주차요금 감면\", \"거주자우선주차\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"국가유공자\", \"장애인\", \"고엽제후유의증 환자\", \"5·18 민주화유공자\", \"저공해자동차\", \"다자녀\", \"모범납세자\", \"보훈보상대상자\", \"장기기증자\", \"병역명문가\", \"의사상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\", \"l5\", \"l6\", \"l7\", \"l8\", \"l9\", \"l10\", \"l11\", \"l12\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

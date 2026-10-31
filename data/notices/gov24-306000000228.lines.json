@@ -1,0 +1,18 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 자치회관 사용료 및 수강료 면제", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 국가 또는 지방자치단체가 공공의 목적으로 사용할 때", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 행정기관이 지원 육성하는 유관기관이나 직능단체가 본래의 목적으로 사용하는 경우", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 주민의 복리증진과 문화의식 함양을 위한 순수한 공익성 비영리 문화행사", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 「국민기초생활 보장법」에 따른 수급자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 「한부모가족지원법」에 따른 지원대상자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 다둥이 행복카드 소지자 중 18세 이하의 자녀가 3명 이상인 가정의 부모와 자녀", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 자치회관 사용료 및 수강료 감면(50%)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 국가유공자 또는 유가족", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 「장애인복지법」에 따른 등록된 장애인", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 다둥이 행복카드 소지자 중 18세 이하의 자녀가 2명 이상인 가정의 부모와 자녀", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 「서울특별시 중랑구 병역명문가 예우 및 지원에 관한 조례」에 따른 예우대상자", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 「노인복지법」 제26조의 경로우대 대상자(65세 이상 어르신)", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

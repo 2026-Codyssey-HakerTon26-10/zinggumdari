@@ -1,0 +1,13 @@
+{
+ "key": "d8b251414b354f9303f649d617b624bfc0ccffe931d04273eb975fafdce60c6c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6753,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 599
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"청년 부동산 중개보수 및 이사비 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"청년 이사비\", \"중개보수 지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 39, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2024-01-01\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"is_householder\", \"op\": \"==\", \"value\": \"세대주\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 150, \"income_basis\": \"median_pct\", \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"is_homeless\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"house_price\", \"op\": \"<=\", \"value\": 20000, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l8\", \"l9\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

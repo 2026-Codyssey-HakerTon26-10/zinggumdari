@@ -1,0 +1,13 @@
+{
+ "key": "f83643a616ca376dd9c3aba04dcb890a4fa79f1450e30fc5db8419bf777cb691",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6616,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 435
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"지방공무원 신규 임용시험 응시 수수료 면제\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"공무원시험 수수료 면제\", \"저소득층 시험 수수료\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

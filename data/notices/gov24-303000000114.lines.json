@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 신청일 기준, 부 또는 모가 성동구에 주민등록을 두고 실제 거주하고 있는 출산가정", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 신생아 출생일 기준 60일 이내 신청가능", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 성동구에 출생신고를 한 가정", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

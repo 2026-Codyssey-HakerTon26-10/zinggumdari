@@ -1,0 +1,13 @@
+{
+ "key": "0a5dfa144787ac5624a8640e8e263c6d8dd11c8dfc4ead027ce257495818679d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6609,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 666
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국비유학생 선발 파견\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"국비유학\", \"해외 석박사 유학\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"대학졸업자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"dreamnara\", \"name\": \"국비유학생 선발 파견 꿈나래 전형\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"꿈나래 전형\", \"저소득층 유학\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\", \"한부모가족\", \"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": null, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": \"기준중위소득 일정범위 이하\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"technical\", \"name\": \"국비유학생 선발 파견 기술기능인 전형\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"기술기능인 전형\", \"특성화고 졸업자\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"특성화고졸업자\", \"마이스터고졸업자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"==\", \"value\": \"중소기업 1년 이상 재직\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

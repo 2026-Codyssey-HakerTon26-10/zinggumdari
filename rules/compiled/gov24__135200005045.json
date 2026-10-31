@@ -1,0 +1,122 @@
+{
+ "id": "gov24:135200005045",
+ "source": "gov24",
+ "name": "전국민 마음투자 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "정신건강",
+  "심리상담",
+  "우울불안"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "정신건강복지센터, 대학교 상담 센터, 청소년상담복지센터, Wee센터/Wee클래스 등에서 심리 상담이 필요하다고 인정하는 주민"
+     },
+     {
+      "field": "other",
+      "text": "정신 의료 기관 등에서 우울·불안 등으로 인하여 심리 상담이 필요하다고 인정하는 주민"
+     },
+     {
+      "field": "other",
+      "text": "국가 건강 검진 중 정신 건강 검사 결과에서 중간 정도 이상의 우울이 확인된 주민"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "자립준비청년",
+       "보호연장아동"
+      ]
+     },
+     {
+      "field": "other",
+      "as_of": "application_date",
+      "text": "서비스 신청 일로부터 5년 이내의 재난 피해를 입은 본인 또는 재난 피해로 사망한 자(실종자 포함)의 유가족"
+     }
+    ]
+   ],
+   "evidence": [],
+   "checks": {
+    "schema": "ok",
+    "evidence": "fail:no_evidence",
+    "value": "fail:b0.3:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005045:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005045:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005045:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005045:l14"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2157916&bnefType=all&svcId=135200005045",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 0,
+  "labeled": {
+   "definition": 2,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 4
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "4aab2b49c3cd63432d2fb209cf6d778254724690962669cf60391689ff91f094",
+  "raw": "rules/compiled/_raw/gov24-135200005045.json",
+  "at": "2026-11-01T03:55"
+ }
+}

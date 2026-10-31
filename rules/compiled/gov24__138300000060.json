@@ -1,0 +1,71 @@
+{
+ "id": "gov24:138300000060",
+ "source": "gov24",
+ "name": "결혼이민자 역량강화지원",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "결혼이민자 교육",
+  "역량강화"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "결혼이민자 또는 중도입국자녀",
+   "evidence": [
+    "gov24-138300000060:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000060:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-138300000060:l3"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2147899&bnefType=all&svcId=138300000060",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c05a49b91469be7c50b3b9853f849c7401d8c219f5af39a2664e30dd8824af91",
+  "raw": "rules/compiled/_raw/gov24-138300000060.json",
+  "at": "2026-11-01T03:55"
+ }
+}

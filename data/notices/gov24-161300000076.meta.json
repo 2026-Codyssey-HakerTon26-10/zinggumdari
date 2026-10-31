@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-161300000076",
+  "title": "버팀목전세자금대출",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=739245&bnefType=all&svcId=161300000076",
+  "fetched_at": "2026-10-31",
+  "sha256": "081aa67d54fbefd5ae87dbb9db49cafd916f6b84eb797f58b5d29abc6cf2b181",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,99 @@
+{
+ "id": "gov24:999000000014:sos",
+ "source": "gov24",
+ "name": "복권기금 꿈사다리 장학사업 SOS장학금",
+ "org": "교육부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "SOS장학금",
+  "긴급구난 장학금"
+ ],
+ "conditions": [
+  {
+   "field": "employment_status",
+   "op": "==",
+   "value": "재학",
+   "evidence": [
+    "gov24-999000000014:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "긴급한 위기 상황에 처하여 갑작스럽게 학업 지속이 어려운 상황",
+   "evidence": [
+    "gov24-999000000014:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000014:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000014:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-999000000014:l9"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999054&bnefType=all&svcId=999000000014",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 0,
+  "labeled": {
+   "definition": 1,
+   "procedure": 2,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f8d5439d7d85179a3c0f6806b1e8e0b7d791c08016d6de08336ed85d6b19e082",
+  "raw": "rules/compiled/_raw/gov24-999000000014.json",
+  "at": "2026-11-01T04:00"
+ }
+}

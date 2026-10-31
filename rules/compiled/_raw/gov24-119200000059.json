@@ -1,0 +1,13 @@
+{
+ "key": "10fda0735535ab2946c690dce63f7a6b8e8becb549146bbd952a086607713ab1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6823,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 717
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"어업활동 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"어업인 지원\",\"어업 활동 지원\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"어업경영체에 등록된 경영주 또는 경영주외 어업인\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":[[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"1주일 이상 진단을 받아 요양을 필요로 하는 경우로 병·의원 확인이 있는 경우\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"3일 이상 입원한 경우\"}],[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"apply_date\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"출산 후 3개월이 지나지 않은 경우\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"최근 3년 이내 4대 중증질환(암, 심장질환(고혈압 제외), 뇌혈관질환, 희귀난치성질환) 진단을 받은 자로 신청일 기준 최근 6개월 이내 통원치료를 받은 경우\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"어업인 교육과정에 참여한 여성어업인\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"제1~2급 법정감염병 자가격리자로 보건소 및 의료기관으로부터 통보를 받아 격리중인 경우\"}]]},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"어업경영체 등록\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:54"
+}

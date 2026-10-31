@@ -1,0 +1,13 @@
+{
+ "key": "348002b4888a6cb50df0cdb96170b9dd4482112f5a5e527c48e7addcb6448f6b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6715,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 380
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"배우자 출산휴가 급여\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"배우자 출산휴가\",\"출산휴가 급여\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"우선지원대상기업 소속 근로자로서 남녀고용평등과 일·가정 양립 지원에 관한 법률 제18조의2에 따른 배우자 출산휴가를 받음\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"휴가가 끝난 날 이전에 고용보험 피보험 단위기간이 합산하여 180일 이상\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":12,\"income_basis\":null,\"as_of\":null,\"text\":\"휴가가 끝난 날 이후 12개월 이내에 신청\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"procedure\"},{\"line\":\"l10\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

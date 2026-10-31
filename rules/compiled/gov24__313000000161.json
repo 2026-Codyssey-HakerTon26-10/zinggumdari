@@ -1,0 +1,44 @@
+{
+ "id": "gov24:313000000161",
+ "source": "gov24",
+ "name": "입양축하금 지원",
+ "org": "서울특별시 마포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "마포구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "입양 축하금",
+  "양부모 지원"
+ ],
+ "conditions": [],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2150230&bnefType=all&svcId=313000000161",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ff2fbb921903c8de210152fc65b0c48b2eced0935bd60c4281b35191387d3ba8",
+  "raw": "rules/compiled/_raw/gov24-313000000161.json",
+  "at": "2026-11-01T03:58"
+ }
+}

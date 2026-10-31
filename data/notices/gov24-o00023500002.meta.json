@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-o00023500002",
+  "title": "체육시설 이용요금 감면",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100717&bnefType=all&svcId=O00023500002",
+  "fetched_at": "2026-10-31",
+  "sha256": "1c41ab18d40aa91610841397a78c0261fbd08267ad9c50ee07c765ce9485d813",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

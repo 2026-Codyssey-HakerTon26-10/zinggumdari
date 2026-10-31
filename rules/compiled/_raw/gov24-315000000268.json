@@ -1,0 +1,13 @@
+{
+ "key": "42144846e827477374aa6f18c7b48a7706055154bd6587eff1dea879236aaba0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6685,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 580
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"강서구 전세피해지원금(보증료) 지원\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해\",\"보증료지원\",\"전세피해\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"강서구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"==\",\"value\":\"전세\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"특별법에 따라 국토교통부 장관이 결정한 전세사기피해자 또는 HUG 전세피해확인서 발급자\",\"evidence\":[\"l4\",\"l5\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"새로운 전·월세 주택으로 입주하여 전세보증금 반환보증 보증료를 납부\",\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l8\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2023-09-06\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l11\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"2027-07-25\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l11\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"exclusive\"},{\"line\":\"l10\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

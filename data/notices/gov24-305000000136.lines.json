@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 기준중위소득120% 이하의 출산가정 중 장애인산모, 희귀난치성질환자인 산모, 북한이탈주민산모, 결혼이민산모, 미혼모 산모에게 지원", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 산모의 주민등록 주소지가 동대문구일 경우에 해당", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 산모신생아 건강관리서비스 '표준형' 이용자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

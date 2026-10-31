@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-701000000204",
+  "title": "저소득층 교육정보화 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000399&bnefType=all&svcId=701000000204",
+  "fetched_at": "2026-10-31",
+  "sha256": "8a08ac5430b04460588a8e8778e34010697a35e9fdb6dac61a6262a0258042a5",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

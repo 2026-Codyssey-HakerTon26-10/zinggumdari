@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000092",
+  "title": "양곡할인",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999259&bnefType=all&svcId=999000000092",
+  "fetched_at": "2026-10-31",
+  "sha256": "ba45472dcd3ee9b9652340921c774abce2743af7480969082b4e86c13bce90ca",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

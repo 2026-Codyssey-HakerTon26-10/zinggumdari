@@ -1,0 +1,13 @@
+{
+ "key": "402ec7fa49e52a699b5ce4fd08a8b73634009d4466cc9ef7372fb6dfd74be0a8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6595,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 293
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"입양숙려기간 모자지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"한부모 지원\",\"출산 지원\",\"입양숙려기간\"],\"conditions\":[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"marital_status\",\"op\":\"in\",\"value\":[\"미혼\",\"이혼·사별\"],\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"지원 기간 입양(동의) 사실이 없을 것\",\"evidence\":[\"l2\",\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"definition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

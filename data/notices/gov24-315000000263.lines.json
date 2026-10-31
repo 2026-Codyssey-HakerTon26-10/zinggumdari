@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원대상: 사회적 취약계층 지원", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 재료비 지원대상자: 국민기초생활보장법에 따른 수급자. 법정차상위계층, 장애정도가 심한 장애인, 한부모가족 지원법에 의한 한부모가족,", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "65세이상 독거노인, 65세이상 조부모와 만18세 이하인 손자녀로 구성된 조손가정", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 재료비 본인부담대상자: 65세이상 노약자로 구성된 세대, 가구내 등록장애인이 포함된 세대, 다세대 다가구 주택 거주 1인 가구, 동장 추천 세대", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "*제외대상: 150세대 이상 공동주택(아파트) 거주자, 빈집, 오피스텔, 사업장, 상시 관리업체가 있는 주택은 제외", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

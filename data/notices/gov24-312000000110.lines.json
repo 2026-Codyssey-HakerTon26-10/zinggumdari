@@ -1,0 +1,6 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 100세 이상의 부모등을 실질적으로 부양하면서 신청일 현재 서대문구에 1년 이상 주민등록을 두고 거주하는 세대주 또는 가족대표1인", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "부양대상자의 생일이 속한 달", "mark": true}
+]

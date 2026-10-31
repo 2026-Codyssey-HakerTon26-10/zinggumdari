@@ -1,0 +1,13 @@
+{
+ "key": "dae5c5d7193c1254d65abae65352aebe146133b029e084ee527dbcd04acccbaa",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6678,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 373
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"통합문화이용권(문화누리카드)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"문화누리카드\", \"문화이용권\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 6, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l5\", \"l6\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2026-02-02\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l8\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": \"2026-11-30\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l8\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

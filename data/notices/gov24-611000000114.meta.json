@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000000114",
+  "title": "독립유공생활지원수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000994&bnefType=all&svcId=611000000114",
+  "fetched_at": "2026-10-31",
+  "sha256": "6b763de6b09de197db6c73e0a6397418b7d5e585f9eea8ee9a73d2da05f77e9b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

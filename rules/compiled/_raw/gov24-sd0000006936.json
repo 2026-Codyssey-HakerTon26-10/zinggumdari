@@ -1,0 +1,13 @@
+{
+ "key": "5ca025337533e13828d77d690d878a059bebe31811d9ae2ad84b578f104abfa5",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6471,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 222
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"청소년산모 임신·출산 의료비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"청소년산모 의료비\",\"산모 의료비 지원\",\"임신 의료비\"],\"conditions\":[{\"field\":\"age\",\"op\":\"<=\",\"value\":19,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

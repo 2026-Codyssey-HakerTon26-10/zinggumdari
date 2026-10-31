@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000005",
+  "title": "상병급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999024&bnefType=all&svcId=999000000005",
+  "fetched_at": "2026-10-31",
+  "sha256": "352aeff4331ec1793b1ecca9899be1085db60cb6db3fd67c1790f74c840ec920",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

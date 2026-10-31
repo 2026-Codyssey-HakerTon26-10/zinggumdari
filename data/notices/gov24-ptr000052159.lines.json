@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 제39조의3 제1항 아래 각 호에 해당하는 사건", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 1. 심판의 당사자가 장애인, 65세 이상의 고령인 또는 거동이 불편한 자로서 구술심리에 참석하는 경우", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 2. 심판의 당사자, 대리인, 참가인, 증인 등을 포함하여 당사자 일방의 참석자가 10인 이상인 경우", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 3. 심판 증거자료가 과대·과중하여 이동이 불편함을 소명한 경우", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 4. 신속심판 대상 사건인 경우", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 5. 심판장이 특허심판원 소재지 이외의 장소에서 구술심리를 할 필요성이 있다고 인정하는 경우", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 당사자계 사건으로서 구술심리 개최 시 추가 증거 제출이 없는 사건", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "※특허심판원을 통해 신청한 자에 한함", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 특허심판원을 통해 신청한 자에 한함", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

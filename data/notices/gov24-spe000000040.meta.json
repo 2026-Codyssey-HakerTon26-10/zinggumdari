@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-spe000000040",
+  "title": "장애인보조기기 교부",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=10875&bnefType=all&svcId=SPE000000040",
+  "fetched_at": "2026-10-31",
+  "sha256": "ee6150e75397bd46dfa82dfab69e1845d8bcf5c0fb7e751f2a67b42094ebc5ec",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

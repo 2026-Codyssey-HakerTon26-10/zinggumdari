@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "ㅇ 지원대상 : 국민건강보험 지역가입자인 근로소득자 또는 사업소득자로서, 입원 및 국민건강보험공단 일반건강검진을 실시한 서울시민", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- [입원/검진받은 전월 포함 이전 3개월간]+[입원/검진 당월 1일부터 입원/검진 직전일까지] 기간 동안 24일 이상 근로 또는 45일 이상 개인사업 유지", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "ㅇ 선정기준 : 소득 및 재산 조사", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 소득 : 기준 중위소득 100% 이하", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 재산 : 4억원 이하(토지, 건축물, 주택, 임차보증금 등 일반재산액)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

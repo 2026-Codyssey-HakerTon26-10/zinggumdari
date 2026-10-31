@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 아동 양육비 : 지원 대상자로 결정된 저소득 한부모 가구의 18세 미만의 아동", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "* 단, 고등학교 이하 재학(고3 12월까지) 중인 경우 22세 미만 자녀까지 지원", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 추가 아동 양육비", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 조손가족 및 35세 이상 미혼 한부모가족의 5세 이하 자녀", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 25~34세 이하 청년 한부모의 18세 미만 자녀", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "* 단, 고등학교 이하 재학(고3 12월까지) 중인 경우 22세 미만 자녀까지 지원", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 학용품비 : 한부모가족(조손가족 포함)의 초등학생, 중학생 및 고등학생 자녀", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 생활보조금 : 한부모가족 복지시설에 입소한 저소득 한부모가족(조손가족 포함)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 모(조 모) 또는 부(조부)가 18세 미만의 자녀(손자녀)를 양육하는 기준 중위소득 65% 이하인 가정", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "자세한 날짜는 읍면동 주민센터에 따라 다를 수 있음", "mark": false}
+]

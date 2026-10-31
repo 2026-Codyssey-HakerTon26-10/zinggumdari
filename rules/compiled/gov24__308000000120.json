@@ -1,0 +1,82 @@
+{
+ "id": "gov24:308000000120",
+ "source": "gov24",
+ "name": "저소득 주민 국민건강보험료 지원",
+ "org": "서울특별시 강북구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강북구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "건강보험료 지원",
+  "저소득층 보험료"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "AI가 읽은 조건의 형식이 맞지 않음",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-308000000120:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "건강보험료(장기요양보험료 포함) 지역가입자의 부과액 22,340원 이하",
+   "evidence": [
+    "gov24-308000000120:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003995&bnefType=all&svcId=308000000120",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "49316d862328386016668b10b72236e26a3a3ce12c69534d1cc37a35be972c1b",
+  "raw": "rules/compiled/_raw/gov24-308000000120.json",
+  "at": "2026-11-01T03:57"
+ }
+}

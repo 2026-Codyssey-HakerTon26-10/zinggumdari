@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-306000000243",
+  "title": "유축기 대여 서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2184016&bnefType=all&svcId=306000000243",
+  "fetched_at": "2026-10-31",
+  "sha256": "74054323d8e68ca9bcec7401f3f6da194894a488254eeaf31298eeb50c37abfc",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

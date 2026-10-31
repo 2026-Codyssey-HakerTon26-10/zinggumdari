@@ -1,0 +1,13 @@
+{
+ "key": "b99ab88406b6a4c17710629996f157e4350a6600f61e1eeed0e7f8cc6944b542",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7619,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 567
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"산림사업종합자금 지원\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"산림자금\", \"임업자금\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"procedure\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"not_condition\"}, {\"line\": \"l15\", \"label\": \"not_condition\"}, {\"line\": \"l16\", \"label\": \"not_condition\"}, {\"line\": \"l17\", \"label\": \"not_condition\"}, {\"line\": \"l18\", \"label\": \"not_condition\"}, {\"line\": \"l19\", \"label\": \"not_condition\"}, {\"line\": \"l20\", \"label\": \"not_condition\"}, {\"line\": \"l21\", \"label\": \"not_condition\"}, {\"line\": \"l22\", \"label\": \"not_condition\"}, {\"line\": \"l23\", \"label\": \"not_condition\"}, {\"line\": \"l24\", \"label\": \"not_condition\"}, {\"line\": \"l25\", \"label\": \"not_condition\"}, {\"line\": \"l26\", \"label\": \"not_condition\"}, {\"line\": \"l27\", \"label\": \"not_condition\"}, {\"line\": \"l28\", \"label\": \"procedure\"}, {\"line\": \"l29\", \"label\": \"procedure\"}, {\"line\": \"l30\", \"label\": \"procedure\"}, {\"line\": \"l31\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

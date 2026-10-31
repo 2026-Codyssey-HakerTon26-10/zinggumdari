@@ -1,0 +1,95 @@
+{
+ "id": "gov24:320000000106",
+ "source": "gov24",
+ "name": "장애인 활동지원(구비추가)",
+ "org": "서울특별시 관악구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "관악구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "활동지원",
+  "장애인 활동지원",
+  "활동보조"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "활동지원 X1점수 300점 이상 독거 중증장애인"
+     },
+     {
+      "field": "lives_alone",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "활동지원 X1점수 248점 이상 성인 발달장애인"
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 13
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-320000000106:l2",
+    "gov24-320000000106:l3",
+    "gov24-320000000106:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:b2.0:no_comparator",
+    "unit": "ok",
+    "keyword": "fail:b2.0:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001564&bnefType=all&svcId=320000000106",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "93846e49ebe1cdbc5fff4035e4d52d659ffe1b002bdaea8c714a73ec3ce9e178",
+  "raw": "rules/compiled/_raw/gov24-320000000106.json",
+  "at": "2026-11-01T03:59"
+ }
+}

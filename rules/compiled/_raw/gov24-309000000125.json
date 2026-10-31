@@ -1,0 +1,13 @@
+{
+ "key": "2f43fb19975c663d00b1dee101ff4f0d08aabecb92edd023d8ba70e9a5f8f4c1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6427,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 276
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득층 국민건강보험료 지원\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"노인 건강보험료 지원\", \"저소득 어르신 보험료\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"국민건강보험료 부과금액이 최저보험료(2026년 기준 22,800원) 이하\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

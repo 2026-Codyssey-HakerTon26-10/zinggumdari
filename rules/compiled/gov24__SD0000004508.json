@@ -1,0 +1,214 @@
+{
+ "id": "gov24:SD0000004508",
+ "source": "gov24",
+ "name": "국가장학금 Ⅰ유형 (학생직접지원형)",
+ "org": "교육부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "국가장학금",
+  "학자금지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "대한민국국적"
+   ],
+   "evidence": [
+    "gov24-sd0000004508:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_band_median",
+   "op": "<=",
+   "value": 9,
+   "evidence": [
+    "gov24-sd0000004508:l2",
+    "gov24-sd0000004508:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "직전학기 12학점 이상 이수",
+   "evidence": [
+    "gov24-sd0000004508:l2",
+    "gov24-sd0000004508:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자",
+       "차상위계층"
+      ]
+     },
+     {
+      "field": "other",
+      "text": "직전학기 성적 100점 만점에 70점 이상"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "not_in",
+      "value": [
+       "기초생활수급자",
+       "차상위계층"
+      ]
+     },
+     {
+      "field": "other",
+      "text": "직전학기 성적 100점 만점에 80점 이상"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-sd0000004508:l2",
+    "gov24-sd0000004508:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "장애인"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "자립준비청년"
+      ]
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-sd0000004508:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000004508:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000004508:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000004508:l13"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-sd0000004508:l7"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=83660&bnefType=all&svcId=SD0000004508",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 11,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 2,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b23d5159150d0a1afe8ee52a178112d4e079da5d986691f77d9d4029f5470099",
+  "raw": "rules/compiled/_raw/gov24-sd0000004508.json",
+  "at": "2026-11-01T04:02"
+ }
+}

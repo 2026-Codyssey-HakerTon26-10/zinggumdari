@@ -1,0 +1,263 @@
+{
+ "id": "gov24:135200000132",
+ "source": "gov24",
+ "name": "청소년 발달장애인 방과후활동서비스",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "발달장애인 방과후활동",
+  "장애인 방과후서비스"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 6,
+   "evidence": [
+    "gov24-135200000132:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<",
+   "value": 18,
+   "evidence": [
+    "gov24-135200000132:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-135200000132:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "지적 및 자폐성장애인",
+   "evidence": [
+    "gov24-135200000132:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<",
+      "value": 18
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "other",
+      "text": "지적 및 자폐성장애인"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 18
+     },
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "재학"
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "other",
+      "text": "지적 및 자폐성장애인"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-135200000132:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.1:not_in_evidence:Y",
+    "comparator": "fail:b0.0:op_mismatch",
+    "unit": "ok",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l17"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l18"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l20"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l28"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000132:l29"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-135200000132:l13",
+  "gov24-135200000132:l14",
+  "gov24-135200000132:l15",
+  "gov24-135200000132:l16",
+  "gov24-135200000132:l21",
+  "gov24-135200000132:l23",
+  "gov24-135200000132:l24",
+  "gov24-135200000132:l25",
+  "gov24-135200000132:l27"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=760819&bnefType=all&svcId=135200000132",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 21,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 4,
+   "out_of_scope": 0,
+   "not_condition": 5
+  },
+  "unaccounted": 9
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "2afd7612223aac778bb801c9035d4949a4a2df92a23a4b89a62b15e365b52e07",
+  "raw": "rules/compiled/_raw/gov24-135200000132.json",
+  "at": "2026-11-01T03:55"
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000000040",
+  "title": "국가보훈대상자 의료지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=62025&bnefType=all&svcId=WII000000040",
+  "fetched_at": "2026-10-31",
+  "sha256": "3290caf14531bfb0aee563e69c1bdb948ecf65a29dc852d019cd2a29b1edf269",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

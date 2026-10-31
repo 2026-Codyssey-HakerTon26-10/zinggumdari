@@ -1,0 +1,13 @@
+{
+ "key": "c62469599d9ae8de05b2beb50daba7525efcc2ff0dce5813f37a421a0260c14a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6525,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 196
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"청년 국가기술자격시험 응시료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"국가기술자격\",\"응시료 지원\",\"청년 지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\"<=\",\"value\":34,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

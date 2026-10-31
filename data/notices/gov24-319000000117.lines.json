@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 소득인정액이 기준 중위소득 140%이하 가정의 임신부 또는 만 18세 이하 자녀를 둔 부모(단, 조손가구의 경우, (외)조부모)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 서비스 욕구가 있는 만 18세 이하 아동을 둔 중위소득 140% 이하 가정의 주 양육자(4촌이내의 혈족 : 삼촌, 고모, 이모 등)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 아동복지시설에서 아동을 실질적으로 보호하는 사람(사회복지시설장, 종사자 등)", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

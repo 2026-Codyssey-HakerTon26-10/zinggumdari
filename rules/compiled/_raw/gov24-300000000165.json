@@ -1,0 +1,13 @@
+{
+ "key": "4a4e4da52886661dcfe1865d1e0693661455d7e4123830072d5e79fcc098872b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6618,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 310
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"재난관리기금의 임대주택 이주 지원 및 임차비용 융자\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"loan\", \"aliases\": [\"재난 이주 지원\", \"임차비용 융자\"], \"conditions\": [{\"field\": \"history\", \"op\": \"==\", \"value\": \"대피명령 또는 퇴거명령 이행\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

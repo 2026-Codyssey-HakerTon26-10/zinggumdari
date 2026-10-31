@@ -1,0 +1,210 @@
+{
+ "id": "gov24:999000000022:general",
+ "source": "gov24",
+ "name": "기존주택 전세임대주택 지원사업 일반공급",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "전세임대",
+  "저소득층 주거지원"
+ ],
+ "conditions": [
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-999000000022:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "입주자 선정기준일에 해당 사업대상지역에 주민등록 등재",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-999000000022:l3"
+   ],
+   "as_of": "notice_date",
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자"
+      ],
+      "as_of": "notice_date"
+     },
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료"
+      ],
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ],
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자",
+       "차상위"
+      ],
+      "as_of": "notice_date"
+     },
+     {
+      "field": "other",
+      "text": "최저주거기준 미달 또는 소득대비월세 비율 30% 이상"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자",
+       "차상위"
+      ],
+      "as_of": "notice_date"
+     },
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65,
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 70,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 50,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000022:l4",
+    "gov24-999000000022:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "fail:b6.1:no_value",
+    "unit": "fail:b6.1:no_value",
+    "keyword": "fail:b4.1:other_field_word:자산",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000022:l21"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999070&bnefType=all&svcId=999000000022",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 44,
+  "used": 3,
+  "labeled": {
+   "definition": 5,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 20
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1e1105349361e3e4a35260b73b7869a67ef3f9bbf9940421310d761c64214e54",
+  "raw": "rules/compiled/_raw/gov24-999000000022.json",
+  "at": "2026-11-01T04:00"
+ }
+}

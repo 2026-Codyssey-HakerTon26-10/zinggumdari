@@ -1,0 +1,13 @@
+{
+ "key": "fb93d114c25e6f27cf9acdc75fbe8b77a6b0853b5bd7a48d25b713a97cf1bc20",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6511,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 289
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"북향민 자녀 교육 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"북한이탈주민 자녀\",\"새터민 자녀\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"북향민 자녀(북한 출생, 제3국 출생, 국내 출생 포함)\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"2030-12-31\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"대학 등에 최초로 신입학 또는 편입한 날부터 6년의 범위\",\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"definition\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200000114",
+  "title": "고위험 임산부 의료비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=594728&bnefType=all&svcId=135200000114",
+  "fetched_at": "2026-10-31",
+  "sha256": "ca7045f98a8ee21486fd2d3a595f76430f7659777b24be6202e5e69f586f473b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

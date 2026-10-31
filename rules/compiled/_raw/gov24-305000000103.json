@@ -1,0 +1,13 @@
+{
+ "key": "8b9074367a0c5152d0dbf73eebe562c031382cead821b1c7b971ff1feebb0b70",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6395,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 158
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"다자녀 입학축하금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"다자녀 지원\",\"입학축하금\",\"셋째자녀\"],\"conditions\":[{\"field\":\"children_count\",\"op\":\">=\",\"value\":3,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

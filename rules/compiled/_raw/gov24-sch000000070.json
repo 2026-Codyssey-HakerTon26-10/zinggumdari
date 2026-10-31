@@ -1,0 +1,13 @@
+{
+ "key": "d5a52bbeb5024553a5a87db6ff2a300f9dd53fdf886354101763a89fade23a59",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6680,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 703
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"그 밖의 연장형 보육료 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"연장보육료\", \"야간보육료\", \"24시간보육료\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"연장보육료, 누리과정 보육료, 다문화 보육료, 장애아 보육료 지원 대상\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"원장 겸 교사의 자녀 제외\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"그 밖의 연장형 보육료 지원 - 취학아동\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"연장보육료\", \"야간보육료\", \"취학아동\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<=\", \"value\": 12, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"야간 연장 보육료에 한하여 지원\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

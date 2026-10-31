@@ -1,0 +1,13 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 국내에 90일을 초과하여 거주하고 있는 외국인 및 한국 국적을 취득한 자와 그 자녀", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 외국인 등록증 체류자격에 아래와 같이 명시된 자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 외국인 근로자 : E-9, H-2", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 외국인 유학생 : D-2, D-4", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 외국국적동포 : F-4", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 기타 외국인 : D-10, F-1, F-2, F-3, F-5", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 국적 취득자의 경우 주민등록증 및 가족관계증명서 등으로 확인 가능한 자", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

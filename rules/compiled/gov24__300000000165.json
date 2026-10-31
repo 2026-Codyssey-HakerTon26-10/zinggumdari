@@ -1,0 +1,73 @@
+{
+ "id": "gov24:300000000165",
+ "source": "gov24",
+ "name": "재난관리기금의 임대주택 이주 지원 및 임차비용 융자",
+ "org": "서울특별시 종로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "종로구"
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "재난 이주 지원",
+  "임차비용 융자"
+ ],
+ "conditions": [
+  {
+   "field": "history",
+   "op": "==",
+   "value": "대피명령 또는 퇴거명령 이행",
+   "evidence": [
+    "gov24-300000000165:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000165:l3"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100820&bnefType=all&svcId=300000000165",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 5
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f0269a193a0522cdc0155546305f35eb9e4f02767427492298114ee99087c98c",
+  "raw": "rules/compiled/_raw/gov24-300000000165.json",
+  "at": "2026-11-01T03:57"
+ }
+}

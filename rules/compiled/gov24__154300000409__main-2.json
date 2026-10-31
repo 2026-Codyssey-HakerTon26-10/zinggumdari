@@ -1,0 +1,118 @@
+{
+ "id": "gov24:154300000409:main-2",
+ "source": "gov24",
+ "name": "소농직불금 지원",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "소농직불",
+  "소규모 농가 지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "지급대상 농지 및 농업인의 자격요건을 충족한 자",
+   "evidence": [
+    "gov24-154300000409:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "op": "<=",
+   "value": 0.5,
+   "text": "농가단위 농지면적 0.5ha 이하",
+   "evidence": [
+    "gov24-154300000409:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농촌거주 및 영농종사 3년 이상",
+   "evidence": [
+    "gov24-154300000409:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "op": "<",
+   "value": 2000,
+   "text": "농업외종합소득 2000만원 미만",
+   "evidence": [
+    "gov24-154300000409:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=786085&bnefType=all&svcId=154300000409",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b5dc60659848263ae8933993be5e1a5953f30b9268bb7af5c852cf069e016318",
+  "raw": "rules/compiled/_raw/gov24-154300000409.json",
+  "at": "2026-11-01T03:56"
+ }
+}

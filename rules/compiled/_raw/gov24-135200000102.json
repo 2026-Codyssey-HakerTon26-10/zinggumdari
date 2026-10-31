@@ -1,0 +1,13 @@
+{
+ "key": "946f2a57ab7e3dd6a1f5079ce6c29a9d50ddf1bc88bd3e63d85e8263ea288963",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6537,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 421
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"재가한센인생계비지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"한센인\", \"생계비 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한센병사업대상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l6\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 60, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l6\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"기초생활보장 수급자 제외\", \"evidence\": [\"l3\", \"l6\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"한센인간이양로주택 및 한센인생활시설 거주자 제외\", \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

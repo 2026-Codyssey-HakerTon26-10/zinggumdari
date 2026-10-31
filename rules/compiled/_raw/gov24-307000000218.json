@@ -1,0 +1,13 @@
+{
+ "key": "d156259c24d2af2245c73d7336580f7a47a2bafe386318fb38800d864174c3d8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6409,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 180
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"성북구 육아종합센터 이용료 및 사용료 감면(경로우대자)\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"discount\",\"aliases\":[\"경로우대자 감면\",\"육아종합센터 할인\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"경로우대자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

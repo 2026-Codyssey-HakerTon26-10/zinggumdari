@@ -1,0 +1,13 @@
+{
+ "key": "f88c43d1ef4f57cbf986e4e7c00a14d48d0b4898002e3149f897e3eca8e146c7",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6520,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 379
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득층 수익자부담경비 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"수익자부담경비\", \"저소득층 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\", \"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\", \"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"income_household\", \"op\": \"<=\", \"value\": 100, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"난민인정자, 특별기여자 또는 그 자녀\"}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

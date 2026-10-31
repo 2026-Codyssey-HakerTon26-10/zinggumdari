@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000001310",
+  "title": "국가보훈대상자 교육지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=106222&bnefType=all&svcId=WII000001310",
+  "fetched_at": "2026-10-31",
+  "sha256": "bd06bbb75e12cd4d635a5cd73d9a9085da96e724f37f358f348e0cced0157513",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,395 @@
+{
+ "id": "gov24:105100000001",
+ "source": "gov24",
+ "name": "근로·자녀장려금",
+ "org": "국세청",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "근로장려금",
+  "자녀장려금"
+ ],
+ "conditions": [
+  {
+   "field": "employment_type",
+   "op": "in",
+   "value": [
+    "맞벌이",
+    "외벌이"
+   ],
+   "evidence": [
+    "gov24-105100000001:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:맞벌이",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "해당없음"
+     },
+     {
+      "field": "income_couple",
+      "op": "<",
+      "value": 2200,
+      "income_basis": "absolute_annual",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "외벌이"
+     },
+     {
+      "field": "income_couple",
+      "op": "<",
+      "value": 3200,
+      "income_basis": "absolute_annual",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_couple",
+      "op": "<",
+      "value": 4400,
+      "income_basis": "absolute_annual",
+      "as_of": "notice_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-105100000001:l5",
+    "gov24-105100000001:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:해당없음",
+    "comparator": "fail:b1.1:no_value",
+    "unit": "fail:b1.1:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "notice_date",
+   "text": "가구원 전체 재산 합계액 2억4천만 원 미만",
+   "evidence": [
+    "gov24-105100000001:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marital_status",
+      "op": "==",
+      "value": "미혼"
+     },
+     {
+      "field": "children_count",
+      "op": "==",
+      "value": 0
+     },
+     {
+      "field": "supports_parent_65",
+      "op": "==",
+      "value": "N"
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "!=",
+      "value": "미혼"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-105100000001:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:미혼",
+    "comparator": "fail:b0.1:no_value",
+    "unit": "fail:b0.1:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": "==",
+   "value": 0,
+   "evidence": [
+    "gov24-105100000001:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "supports_parent_65",
+   "op": "==",
+   "value": "N",
+   "evidence": [
+    "gov24-105100000001:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:N",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_couple",
+   "op": "<",
+   "value": 7000,
+   "income_basis": "absolute_annual",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-105100000001:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "외벌이"
+     },
+     {
+      "field": "children_count",
+      "op": ">",
+      "value": 0
+     }
+    ],
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_self",
+      "op": ">=",
+      "value": 300,
+      "income_basis": "absolute_annual",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_spouse",
+      "op": ">=",
+      "value": 300,
+      "income_basis": "absolute_annual",
+      "as_of": "notice_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-105100000001:l16",
+    "gov24-105100000001:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.1:not_in_evidence",
+    "comparator": "fail:b0.1:no_value",
+    "unit": "fail:b0.1:no_value",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_self",
+   "op": ">=",
+   "value": 300,
+   "income_basis": "absolute_annual",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-105100000001:l16",
+    "gov24-105100000001:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_spouse",
+   "op": ">=",
+   "value": 300,
+   "income_basis": "absolute_annual",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-105100000001:l16",
+    "gov24-105100000001:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-105100000001:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-105100000001:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-105100000001:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-105100000001:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-105100000001:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-105100000001:l15"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=556551&bnefType=all&svcId=105100000001",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 26,
+  "used": 5,
+  "labeled": {
+   "definition": 9,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 6
+  },
+  "unaccounted": 6
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "5013d8d903797fd3961e72dae595fc58b37400e510651cdbc919b7c67e728d4c",
+  "raw": "rules/compiled/_raw/gov24-105100000001.json",
+  "at": "2026-11-01T03:55"
+ }
+}

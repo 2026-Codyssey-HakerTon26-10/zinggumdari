@@ -1,0 +1,13 @@
+{
+ "key": "a0dfee7c7ff22fe406617f0ffc0deeaba89e1ef76d84a2aefef1438864c49341",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6557,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 387
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"강서구 사랑의 PC 나눔센터\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"PC 나눔\", \"컴퓨터 지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"강서구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\", \"장애인\", \"국가유공자\", \"결혼이민자\", \"한부모가정\", \"북한이탈주민\", \"자립준비청년\", \"보호연장아동\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"!=\", \"value\": \"2년 이내 기보급\", \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"out_of_scope\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

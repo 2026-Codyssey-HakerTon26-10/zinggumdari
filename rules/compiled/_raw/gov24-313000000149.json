@@ -1,0 +1,13 @@
+{
+ "key": "c62d68a123141ff7caab335d56ea606544b85e4d45875479e6728868493c8a17",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6447,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 336
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득한부모가족 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"한부모가족\",\"조손가족\",\"청소년한부모\"],\"conditions\":[{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":63,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"marital_status\",\"op\":\"in\",\"value\":[\"이혼·사별\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">\",\"value\":24,\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":63,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}],[{\"field\":\"age\",\"op\":\"<=\",\"value\":24,\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":65,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

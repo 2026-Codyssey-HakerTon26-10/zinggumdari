@@ -1,0 +1,13 @@
+{
+ "key": "b31591515e8b57ae80dc357a5eec817b21223e4db227769593e13039972aa6de",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6469,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 182
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"노인복지시설 지방세 감면\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"discount\", \"aliases\": [\"노인복지시설 세금 감면\", \"노인시설 지방세\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

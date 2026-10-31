@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200005005",
+  "title": "긴급복지 의료지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=900012&bnefType=all&svcId=135200005005",
+  "fetched_at": "2026-10-31",
+  "sha256": "a49ea27e6b97d6ca9a44716f8a66ab32f19d527c55c30cbbe43f13ff08787cb9",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

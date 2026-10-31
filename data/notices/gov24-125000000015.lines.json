@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 북한이탈주민의 보호 및 정착 지원에 관한 법률 제8조 제1항에 따른 통일부 장관의 보호 결정을 받은 북한이탈주민", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 보호결정 당시 만 60세 이상인 자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 보호결정 당시 한부모가정으로서 북한이탈주민 자녀가 있는 북한이탈주민", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 제3국출생 아동 자녀가 있는 북한이탈주민", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 중증질환으로 장기치료를 받는 북한이탈주민", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 장애등급을 받은 북한이탈주민", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

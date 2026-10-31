@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-gpv000000070",
+  "title": "제대군인 교육지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2948&bnefType=all&svcId=GPV000000070",
+  "fetched_at": "2026-10-31",
+  "sha256": "f752ebf1cfbd2825ff91fd031d2633bc63821f4853ebf757fbe800da683d88cd",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

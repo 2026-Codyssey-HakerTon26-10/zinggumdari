@@ -1,0 +1,13 @@
+{
+ "key": "9044d478cd1e62bc7ff6d559f17bef30ecffeae504b0682885be9fdfe4142c92",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6681,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 342
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"용산구 산모신생아 건강관리 본인부담금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"산모신생아 건강관리\",\"신생아 지원\",\"출산 지원\"],\"conditions\":[{\"field\":\"youngest_child_age\",\"op\":\"<=\",\"value\":12,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l4\",\"l8\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":12,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l4\",\"l8\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"용산구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l4\",\"l5\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l6\",\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

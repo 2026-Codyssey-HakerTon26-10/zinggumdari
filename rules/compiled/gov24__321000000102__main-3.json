@@ -1,0 +1,105 @@
+{
+ "id": "gov24:321000000102:main-3",
+ "source": "gov24",
+ "name": "서초 손주돌보미 지원",
+ "org": "서울특별시 서초구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "서초구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "서초 손주돌보미",
+  "조부모 돌봄"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "서초구",
+   "evidence": [
+    "gov24-321000000102:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "relation",
+   "op": "in",
+   "value": [
+    "부",
+    "모"
+   ],
+   "evidence": [
+    "gov24-321000000102:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 23,
+   "evidence": [
+    "gov24-321000000102:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000146&bnefType=all&svcId=321000000102",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "74368b56b9c142b289e000ad0061a624fb20de89db191c170dc61c4e951a28e0",
+  "raw": "rules/compiled/_raw/gov24-321000000102.json",
+  "at": "2026-11-01T03:59"
+ }
+}

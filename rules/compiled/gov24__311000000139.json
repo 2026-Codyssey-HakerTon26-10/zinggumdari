@@ -1,0 +1,107 @@
+{
+ "id": "gov24:311000000139",
+ "source": "gov24",
+ "name": "셋째아가정 산후건강관리 지원사업",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "셋째아 산후건강관리",
+  "신생아 건강관리 지원",
+  "산모 건강관리"
+ ],
+ "conditions": [
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 3,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-311000000139:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "은평구",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-311000000139:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 1,
+   "as_of": "notice_date",
+   "text": "출산일 기준 30일전부터 은평구에 주민등록",
+   "evidence": [
+    "gov24-311000000139:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100615&bnefType=all&svcId=311000000139",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f50fca5f26b83837dd6c222cb15ecc6386c1a28109673ee44e1266ff09cd21e1",
+  "raw": "rules/compiled/_raw/gov24-311000000139.json",
+  "at": "2026-11-01T03:58"
+ }
+}

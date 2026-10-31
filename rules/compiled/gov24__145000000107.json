@@ -1,0 +1,104 @@
+{
+ "id": "gov24:145000000107",
+ "source": "gov24",
+ "name": "저소득층 에너지효율개선(냉방지원)",
+ "org": "기후에너지환경부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "에너지효율개선",
+  "냉방지원",
+  "저소득층"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위"
+   ],
+   "evidence": [
+    "gov24-145000000107:l2",
+    "gov24-145000000107:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "tenure_type",
+   "op": "!=",
+   "value": "자가",
+   "evidence": [
+    "gov24-145000000107:l4",
+    "gov24-145000000107:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-145000000107:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-145000000107:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2102313&bnefType=all&svcId=145000000107",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 2,
+  "labeled": {
+   "definition": 2,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "4a490163ff0941dfac9d0e236e6c9e65e5c4faf74f4c79cb7549e61acec8df41",
+  "raw": "rules/compiled/_raw/gov24-145000000107.json",
+  "at": "2026-11-01T03:56"
+ }
+}

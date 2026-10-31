@@ -1,0 +1,13 @@
+{
+ "key": "d8b468da7141551b32b338629b1ee8cde101e51f9a44e30c7e8ae7d108c657ed",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6832,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 622
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"원폭피해자지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"원폭 피해자\", \"원자폭탄 피해자\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"원폭피해자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l7\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"원자폭탄이 투하된 때 일본의 히로시마 지역, 나가사키 지역에 있었던 사람\", \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"원자폭탄이 투하된 때부터 2주 이내에 투하 중심지역 3.5㎞ 이내에 있었던 사람\", \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"원자폭탄이 투하된 때 또는 그 후에 사체처리 및 구호에 종사하는 등의 사유로 원자폭탄으로 인한 방사능의 영향을 받은 사람\", \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"위의 3가지 사유에 해당하는 사람이 당시에 임신 중인 태아\", \"evidence\": [\"l6\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

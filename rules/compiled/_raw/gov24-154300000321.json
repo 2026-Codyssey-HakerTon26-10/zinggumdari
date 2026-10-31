@@ -1,0 +1,13 @@
+{
+ "key": "652a808ec8784ffc76a7d3ed3634e978ff8f29005ec8ff371d80e22e8b265fb3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6429,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 237
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"귀농귀촌종합센터 운영\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"귀농\", \"귀촌\", \"귀농귀촌\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"청년, 도시민 등 (예비) 귀농·귀촌인\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

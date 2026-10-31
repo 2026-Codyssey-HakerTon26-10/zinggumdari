@@ -1,0 +1,75 @@
+{
+ "id": "gov24:WII000000350:main-2",
+ "source": "gov24",
+ "name": "발달장애인 부모상담지원사업 - 제외대상",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "다른 법령(또는 국가 예산)에 따라 발달장애인 부모상담지원 사업과 유사한 서비스를 받고 있지 않아야 함",
+   "evidence": [
+    "gov24-wii000000350:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "장애인복지법 제32조의 2에 따라 장애등록한 외국인(재외동포 포함)이 아니어야 함",
+   "evidence": [
+    "gov24-wii000000350:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999136&bnefType=all&svcId=WII000000350",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 11,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "aceac52e580b56ec2f047f848f057aaef21aadf78408e0678eb3c4122bff29b1",
+  "raw": "rules/compiled/_raw/gov24-wii000000350.json",
+  "at": "2026-11-01T04:03"
+ }
+}

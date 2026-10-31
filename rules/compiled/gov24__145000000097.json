@@ -1,0 +1,42 @@
+{
+ "id": "gov24:145000000097",
+ "source": "gov24",
+ "name": "신재생에너지 설비 설치 비용 지원",
+ "org": "기후에너지환경부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "신재생에너지",
+  "태양광 지원",
+  "에너지 설비"
+ ],
+ "conditions": [],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999177&bnefType=all&svcId=145000000097",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 1,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "96e509863ad9a301a93451a69f35750aba1c89a94516c92c67bb7b29d8eff4bd",
+  "raw": "rules/compiled/_raw/gov24-145000000097.json",
+  "at": "2026-11-01T03:56"
+ }
+}

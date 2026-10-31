@@ -1,0 +1,418 @@
+{
+ "id": "web:nhuf-buttimok-youth",
+ "source": "web",
+ "name": "청년전용 버팀목전세자금",
+ "org": "주택도시기금",
+ "region": {
+  "unknown": true
+ },
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "청년전세대출",
+  "버팀목전세자금",
+  "청년전세자금"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "주택도시기금대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자(성년 세대원 전원 기금대출 이용 중이면 불가, 차주 및 배우자 전세자금·주담대 이용 중이면 불가)",
+   "reason": "malformed",
+   "evidence": [
+    "nhuf-buttimok-youth:l346",
+    "nhuf-buttimok-youth:l347",
+    "nhuf-buttimok-youth:l348"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "tenure_type",
+   "op": "in",
+   "value": [
+    "전세",
+    "보증부월세"
+   ],
+   "evidence": [
+    "nhuf-buttimok-youth:l353"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:전세",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "주택임대차계약 체결하고 임차보증금의 5% 이상 지불한 자",
+   "evidence": [
+    "nhuf-buttimok-youth:l353"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "as_of": "application_date",
+   "evidence": [
+    "nhuf-buttimok-youth:l354",
+    "nhuf-buttimok-youth:l331"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 34,
+   "as_of": "application_date",
+   "evidence": [
+    "nhuf-buttimok-youth:l354",
+    "nhuf-buttimok-youth:l331"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "as_of": "application_date",
+   "text": "세대주(예비 세대주 포함), 중소·중견기업 취업 또는 창업지원 받는 만34세 이하 병역이행자는 최대 만39세까지 연장",
+   "evidence": [
+    "nhuf-buttimok-youth:l354",
+    "nhuf-buttimok-youth:l355",
+    "nhuf-buttimok-youth:l356"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "text": "세대주 포함 세대원 전원 무주택",
+   "evidence": [
+    "nhuf-buttimok-youth:l357"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 5000,
+      "income_basis": "absolute_annual",
+      "text": "대출신청인과 배우자 합산 총소득 5천만원 이하"
+     }
+    ],
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 6000,
+      "income_basis": "absolute_annual",
+      "text": "혁신도시 이전 공공기관 종사자, 재개발 구역내 세입자, 다자녀가구, 2자녀 가구는 6천만원 이하"
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "신혼"
+      ]
+     },
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 7500,
+      "income_basis": "absolute_annual",
+      "text": "신혼가구 7.5천만원 이하"
+     }
+    ]
+   ],
+   "evidence": [
+    "nhuf-buttimok-youth:l358",
+    "nhuf-buttimok-youth:l330"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b1.0:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "대출신청인 및 배우자 합산 순자산 가액이 소득 3분위 전체가구 평균값 이하(2026년 기준 3.45억원)",
+   "evidence": [
+    "nhuf-buttimok-youth:l360",
+    "nhuf-buttimok-youth:l361",
+    "nhuf-buttimok-youth:l330"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "신용정보(연체·대위변제·부도·신용회복지원 등) 남아있으면 불가, 내규 제한 시 불가",
+   "evidence": [
+    "nhuf-buttimok-youth:l364",
+    "nhuf-buttimok-youth:l368"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "대출접수일 현재 공공임대주택 입주 중이면 불가(목적물인 경우·퇴거하는 경우 가능)",
+   "evidence": [
+    "nhuf-buttimok-youth:l369"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "임차 전용면적 85㎡ 이하 주택(만25세미만 단독세대주 60㎡ 이하, 쉐어하우스 제한 없음)",
+   "evidence": [
+    "nhuf-buttimok-youth:l388",
+    "nhuf-buttimok-youth:l389",
+    "nhuf-buttimok-youth:l390"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "deposit",
+   "op": "<=",
+   "value": 30000,
+   "text": "임차보증금 3억원 이하",
+   "evidence": [
+    "nhuf-buttimok-youth:l392"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "기금 구입·전월세자금대출 거래약정서 위반으로 기한이익 상실 이력 있으면 불가(접수일 현재 3년 경과자는 가능)",
+   "reason": "malformed",
+   "evidence": [
+    "nhuf-buttimok-youth:l489"
+   ],
+   "as_of": "application_date",
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "임대차계약서상 잔금지급일과 전입일 중 빠른 날로부터 3개월 이내 신청(계약갱신은 갱신일로부터 3개월 이내)",
+   "reason": "malformed",
+   "evidence": [
+    "nhuf-buttimok-youth:l372",
+    "nhuf-buttimok-youth:l373"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "nhuf-buttimok-youth:l331"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "nhuf-buttimok-youth:l356"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "nhuf-buttimok-youth:l435"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "nhuf-buttimok-youth:l349",
+  "nhuf-buttimok-youth:l350",
+  "nhuf-buttimok-youth:l351",
+  "nhuf-buttimok-youth:l487",
+  "nhuf-buttimok-youth:l490"
+ ],
+ "documents": [
+  "건강보험자격득실확인서",
+  "사업자등록증(또는 사업자등록증명원)"
+ ],
+ "detail_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020301.jsp",
+ "updated": "2026-11-01",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 247,
+  "used": 21,
+  "labeled": {
+   "definition": 0,
+   "procedure": 27,
+   "exclusive": 5,
+   "out_of_scope": 119,
+   "not_condition": 72
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-opus-4-8",
+  "prompt": "v1",
+  "doc_sha256": "747dbc630374133b90e107b8e2355d4223e57662f8bd1335a45f502fda5aebf5",
+  "raw": "eval/compiled/_raw/nhuf-buttimok-youth.json",
+  "at": "2026-11-01T03:40"
+ }
+}

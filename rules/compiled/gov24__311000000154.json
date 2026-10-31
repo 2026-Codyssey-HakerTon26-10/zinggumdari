@@ -1,0 +1,44 @@
+{
+ "id": "gov24:311000000154",
+ "source": "gov24",
+ "name": "은평구 청소년 상담복지센터",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "청소년 상담",
+  "청소년 복지"
+ ],
+ "conditions": [],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2101307&bnefType=all&svcId=311000000154",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 1,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ac5d6b0f1f145b328645c86b3077a2a331d8f70a2834d956e9469ffac8125715",
+  "raw": "rules/compiled/_raw/gov24-311000000154.json",
+  "at": "2026-11-01T03:58"
+ }
+}

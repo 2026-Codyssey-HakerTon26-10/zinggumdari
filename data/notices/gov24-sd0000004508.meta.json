@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000004508",
+  "title": "국가장학금 Ⅰ유형 (학생직접지원형)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=83660&bnefType=all&svcId=SD0000004508",
+  "fetched_at": "2026-10-31",
+  "sha256": "b23d5159150d0a1afe8ee52a178112d4e079da5d986691f77d9d4029f5470099",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

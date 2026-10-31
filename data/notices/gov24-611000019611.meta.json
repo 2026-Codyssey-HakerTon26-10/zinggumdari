@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000019611",
+  "title": "서울엄마아빠택시 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2144916&bnefType=all&svcId=611000019611",
+  "fetched_at": "2026-10-31",
+  "sha256": "cc5b88a8c0ef556aaa2b19674e5a0548eb226deed3d744eb32fbd2600bb04cc1",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

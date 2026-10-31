@@ -1,0 +1,13 @@
+{
+ "key": "d8c9dbf01c5f53716ae5245243cbb0860de40b4f8d2e4fb22835c4560b7033eb",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6539,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 772
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"체육시설 이용요금 감면\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"discount\",\"aliases\":[\"체육시설 할인\",\"운동시설 감면\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가유공자\",\"6·25참전자\",\"월남전참전자\",\"고엽제피해자\",\"5·18민주유공자\",\"장애인\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"marital_status\",\"op\":\"in\",\"value\":[\"기혼\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가유공자\",\"6·25참전자\",\"월남전참전자\",\"고엽제피해자\",\"5·18민주유공자\"],\"income_basis\":null,\"as_of\":null,\"text\":null}]]},{\"field\":\"children_count\",\"op\":\">=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"다둥이 행복카드 소유\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"다문화가족\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"병역명문가\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"gender\",\"op\":\"==\",\"value\":\"여\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":12,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":55,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

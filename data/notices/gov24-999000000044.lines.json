@@ -1,0 +1,11 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 청년신체건강증진서비스", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- (지역사회서비스투자사업) 19～34세 청년 * 청년 연령은 지역 여건, 지자체 조례에 따라 변동 가능", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- (일상돌봄특화서비스) 돌봄이 필요한 청년·중장년(13～64세), 가족돌봄청년(39세 이하)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 초등돌봄서비스 : 당해 연도의 초등학교 재학연령에 해당하는 아동(성평등가족부 아이돌봄 대상자는 중복제한)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

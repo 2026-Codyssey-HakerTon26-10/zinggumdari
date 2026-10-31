@@ -1,0 +1,41 @@
+{
+ "id": "gov24:GMW000000060",
+ "source": "gov24",
+ "name": "노인복지 민간단체 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "노인복지",
+  "민간단체 지원"
+ ],
+ "conditions": [],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=173719&bnefType=all&svcId=GMW000000060",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "adbebec1ce736375f281d09ee36438970c218e3c4c0f30930a099aa634a6a795",
+  "raw": "rules/compiled/_raw/gov24-gmw000000060.json",
+  "at": "2026-11-01T04:02"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "8dfc19887ac4bf421ab503695d2cc98b25d084be6d94b2647e7f9e5521e61584",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6791,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 591
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득주민 국민건강보험료 및 노인장기요양보험료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"노인장기요양보험료 지원\",\"저소득층 보험료\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"관악구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l7\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"주거\",\"차상위\"],\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":50,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"한부모가족\",\"장애인\",\"국가유공자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가유공자\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":55,\"income_basis\":null,\"as_of\":null,\"text\":null}]]},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"건강보험료 및 노인장기요양보험료 부과금액이 최저보험료 이하\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"exclusive\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"procedure\"},{\"line\":\"l10\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

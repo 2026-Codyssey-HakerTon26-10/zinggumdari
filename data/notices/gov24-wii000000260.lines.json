@@ -1,0 +1,16 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원 대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 자녀를 출산하거나 입양한 국민연금 가입자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 선정 기준", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 자녀를 출산하거나 입양한 국민연금 가입자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 자녀의 인정 범위", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 친생자(민법 제844조)", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 인지된 출생자(민법 제855조~제864조)", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 양자(민법 제866조~제897조)", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 친양자(민법 제908조의 2~제908조의 8)", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 입양촉진 및 절차에 관한 특례법에 의해 입양된 자녀", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "자세한 날짜는 국민연금공단 지사에 따라 다를 수 있음", "mark": false}
+]

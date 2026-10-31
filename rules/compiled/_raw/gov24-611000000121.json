@@ -1,0 +1,13 @@
+{
+ "key": "735681dc3aebc4d1cb859c28bd186fff76d53efa19b402ff5021cfe058b4c6eb",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6391,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 154
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"영구임대주택 공동관리비 지원\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"cash\", \"aliases\": [\"영구임대주택 관리비\", \"공동관리비 지원\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"out_of_scope\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

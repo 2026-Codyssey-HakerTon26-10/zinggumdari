@@ -1,0 +1,168 @@
+{
+ "id": "gov24:O00022800001:main",
+ "source": "gov24",
+ "name": "주차장 이용요금 감면",
+ "org": "서울특별시금천구시설관리공단",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "주차요금 감면",
+  "장애인 주차 할인",
+  "다둥이 주차 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "장애인",
+    "국가유공자",
+    "고엽제후유증 환자",
+    "다둥이",
+    "모범납세자",
+    "저공해자동차",
+    "경형자동차",
+    "병역명문가"
+   ],
+   "evidence": [
+    "gov24-o00022800001:l3",
+    "gov24-o00022800001:l5",
+    "gov24-o00022800001:l7",
+    "gov24-o00022800001:l9",
+    "gov24-o00022800001:l11",
+    "gov24-o00022800001:l13",
+    "gov24-o00022800001:l15",
+    "gov24-o00022800001:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "주정차 위반 과태료 및 노상·공영주차장·부정주차 요금 3회 이상 체납하지 않음",
+   "evidence": [
+    "gov24-o00022800001:l20"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "notice_date",
+   "text": "담장을 허물어 마당에 주차를 할 수 있는 주택거주자가 아님(세입자는 제외 대상 아님)",
+   "evidence": [
+    "gov24-o00022800001:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "금천구",
+   "evidence": [
+    "gov24-o00022800001:l18"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00022800001:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00022800001:l13"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [
+  "장애인 등록증",
+  "자동차 표지",
+  "국가유공자 증서",
+  "고엽제후유증 환자증서",
+  "다둥이행복카드",
+  "주민등록등본",
+  "자동차등록증",
+  "저공해 스티커",
+  "병역명문가증"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000117&bnefType=all&svcId=O00022800001",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "documents_dropped": [
+  "성실납세증표지"
+ ],
+ "coverage": {
+  "marked": 11,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 4,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "43fb122ef8b7fef9842b35da4a0a30b8eef972dc5f97fc191d8f5b84ecfdcad0",
+  "raw": "rules/compiled/_raw/gov24-o00022800001.json",
+  "at": "2026-11-01T04:02"
+ }
+}

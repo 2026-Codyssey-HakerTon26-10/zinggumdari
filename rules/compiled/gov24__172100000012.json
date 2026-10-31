@@ -1,0 +1,301 @@
+{
+ "id": "gov24:172100000012",
+ "source": "gov24",
+ "name": "취약계층 통신요금감면",
+ "org": "과학기술정보통신부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "기초생활수급자",
+  "장애인",
+  "기초연금"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "생계",
+      "income_basis": "median_pct"
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 30,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "의료",
+      "income_basis": "median_pct"
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 40,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "주거",
+      "income_basis": "median_pct"
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 43,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "교육",
+      "income_basis": "median_pct"
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 50,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 50,
+      "income_basis": "median_pct"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "자활",
+       "희귀난치성질환자",
+       "장애수당",
+       "장애아동수당",
+       "한부모가족",
+       "장애인연금",
+       "차상위계층확인서"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 52,
+      "income_basis": "median_pct"
+     },
+     {
+      "field": "qual_code",
+      "op": "==",
+      "value": "한부모가족"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "basic_pension",
+      "op": "==",
+      "value": "Y"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-172100000012:l2",
+    "gov24-172100000012:l3",
+    "gov24-172100000012:l4",
+    "gov24-172100000012:l5",
+    "gov24-172100000012:l6",
+    "gov24-172100000012:l9",
+    "gov24-172100000012:l10",
+    "gov24-172100000012:l11",
+    "gov24-172100000012:l12",
+    "gov24-172100000012:l13",
+    "gov24-172100000012:l16"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b4.1:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l23"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l24"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l25"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l26"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l27"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l30"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l31"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l32"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l33"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l34"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l37"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-172100000012:l39"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110213&bnefType=all&svcId=172100000012",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 25,
+  "used": 9,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 14
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1b840754165a7234729da6a36cd49c39ff6dfcbff4dc76228bbbf1c725e3d1aa",
+  "raw": "rules/compiled/_raw/gov24-172100000012.json",
+  "at": "2026-11-01T03:56"
+ }
+}

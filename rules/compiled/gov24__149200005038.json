@@ -1,0 +1,80 @@
+{
+ "id": "gov24:149200005038",
+ "source": "gov24",
+ "name": "가족돌봄휴가 제도",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "가족돌봄",
+  "돌봄휴가"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "가족의 질병, 사고, 노령, 또는 자녀의 양육으로 긴급하게 돌봄이 필요한 가족(조부모, 부모, 배우자, 배우자의 부모, 자녀, 손자녀)이 있는 근로자",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-149200005038:l2",
+    "gov24-149200005038:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200005038:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200005038:l6"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156117&bnefType=all&svcId=149200005038",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "4c355a73651478636b009d4dfb328b0e0839a16821d6aa54e94c8298c912c115",
+  "raw": "rules/compiled/_raw/gov24-149200005038.json",
+  "at": "2026-11-01T03:56"
+ }
+}

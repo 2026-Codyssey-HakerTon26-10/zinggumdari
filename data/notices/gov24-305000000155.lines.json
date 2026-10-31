@@ -1,0 +1,11 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 다음과 같은 불편사항이 있는 동대문구민", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 부동산 중개보수와 관련한 사항", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 부동산 거래계약 및 해지에 따른 민원 사항", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 기타 주택, 상가, 임대차, 계약 등 각종 부동산 관련 전반에 관한 사항", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 부동산 관련 조세(양도세, 취득세 등)의 일반적인 상담", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 임대차 관련 하자보수 사항", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

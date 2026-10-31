@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-320000000105",
+  "title": "임산부 서비스 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001493&bnefType=all&svcId=320000000105",
+  "fetched_at": "2026-10-31",
+  "sha256": "2f92f1aaa40ccc59315cbf729a78b3e317552f548c313672ee0679e01bcab7f4",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

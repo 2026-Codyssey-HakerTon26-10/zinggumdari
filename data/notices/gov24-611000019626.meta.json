@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000019626",
+  "title": "서울런",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2150021&bnefType=all&svcId=611000019626",
+  "fetched_at": "2026-10-31",
+  "sha256": "69311a7d8aa208d01156e11e90690293811627d259d98dfd6d0b368da4c5c870",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

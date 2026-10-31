@@ -1,0 +1,13 @@
+{
+ "key": "091fb88ca85757447a16ee7f97e93acd05bc3386a119e48b3c87a88eb4e506ee",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6477,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 450
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"안전카시트 대여\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"카시트 대여\", \"영유아 카시트\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"광진구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"youngest_child_age\", \"op\": \"<\", \"value\": 6, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"기초생활수급자\", \"한부모\", \"다문화가정\", \"다자녀\", \"국가유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"기초생활수급자\", \"한부모\", \"다문화가정\", \"국가유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

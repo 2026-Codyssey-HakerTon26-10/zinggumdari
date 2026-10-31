@@ -1,0 +1,131 @@
+{
+ "id": "gov24:183000000005",
+ "source": "gov24",
+ "name": "국가보훈대상자 학습보조비 지급",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "보훈대상자 학습비",
+  "교육지원대상자 학습보조비"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "교육지원대상자",
+    "국가유공자",
+    "애국지사",
+    "고엽제후유의증환자",
+    "5.18민주유공자",
+    "특수임무유공자",
+    "보훈보상대상자"
+   ],
+   "evidence": [
+    "gov24-183000000005:l2",
+    "gov24-183000000005:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중·고등학교 또는 대학 취학중",
+   "evidence": [
+    "gov24-183000000005:l2",
+    "gov24-183000000005:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "전몰군경",
+       "순직군경",
+       "전상군경",
+       "공상군경",
+       "재해부상",
+       "재해사망군경"
+      ],
+      "text": "자녀(부모가 모두 사망한 경우)"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-183000000005:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-183000000005:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2148019&bnefType=all&svcId=183000000005",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ebf045837914df6153a01fda34a90529c8721492f0c3f7e1d7d15def99f42be6",
+  "raw": "rules/compiled/_raw/gov24-183000000005.json",
+  "at": "2026-11-01T03:56"
+ }
+}

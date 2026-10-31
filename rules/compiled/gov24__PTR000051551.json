@@ -1,0 +1,78 @@
+{
+ "id": "gov24:PTR000051551",
+ "source": "gov24",
+ "name": "사업자 대출 입주자 앞 대환",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "대환대출",
+  "사업자대출"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "해당 주택의 적법한 분양계약자",
+   "evidence": [
+    "gov24-ptr000051551:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "기금 대출이 지원된 주택 건설 사업 주체로부터 대환 대상자로 통보받은 자",
+   "evidence": [
+    "gov24-ptr000051551:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=739255&bnefType=all&svcId=PTR000051551",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "abb2b83355c77bdddcabf25d3b8183addcdf29e487add4940eac5afdedb838e5",
+  "raw": "rules/compiled/_raw/gov24-ptr000051551.json",
+  "at": "2026-11-01T04:02"
+ }
+}

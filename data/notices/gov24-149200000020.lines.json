@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ (심리상담 서비스) 산재노동자 및 유족연금수급자격자, 간병급여 및 상병보상연금 수급권자의 배우자·자녀", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ (희망 찾기/사회 적응 프로그램)", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 희망 찾기 프로그램 : 입원, 통원 중인 산재노동자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 사회 적응 프로그램 : 장해등급 제1～14급 판정을 받은 자(장해판정을 받은 날로부터 5년 이내) 또는 2년 이상 통원 요양 중인 자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ (재활스포츠) 치료 종결이 임박한 통원 요양환자 중 장해가 남을 것이 예상되는 사람 및 산재 장해인(장해등급 제 1~14급)", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ (취미 활동반) 진폐증 등 진행성 질병으로 입원요양 중인 산재노동자", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ (멘토링 프로그램) 사회심리 재활이 필요한 자 또는 잡코디네이터나 사회복지사 추천자 등", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "예산의 범위에서 수시 모집", "mark": false}
+]

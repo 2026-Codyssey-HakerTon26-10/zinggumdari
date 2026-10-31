@@ -1,0 +1,154 @@
+{
+ "id": "gov24:135200000115:main-3",
+ "source": "gov24",
+ "name": "인플루엔자 국가예방접종 지원 어르신",
+ "org": "질병관리청",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "노인 독감 접종",
+  "65세 이상 인플루엔자"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 75
+     },
+     {
+      "field": "apply_date",
+      "op": ">=",
+      "value": "2026-10-06",
+      "as_of": "application_date"
+     },
+     {
+      "field": "apply_date",
+      "op": "<=",
+      "value": "2027-04-30",
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 70
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 74
+     },
+     {
+      "field": "apply_date",
+      "op": ">=",
+      "value": "2026-10-12",
+      "as_of": "application_date"
+     },
+     {
+      "field": "apply_date",
+      "op": "<=",
+      "value": "2027-04-30",
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 69
+     },
+     {
+      "field": "apply_date",
+      "op": ">=",
+      "value": "2026-10-15",
+      "as_of": "application_date"
+     },
+     {
+      "field": "apply_date",
+      "op": "<=",
+      "value": "2027-04-30",
+      "as_of": "application_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-135200000115:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000115:l15"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000115:l16"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200000115:l17"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=749131&bnefType=all&svcId=135200000115",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 15,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 3,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "8fca39e3ce3157cdf037797ae42a85196fcf2f248d909bf9a81773bede1e1702",
+  "raw": "rules/compiled/_raw/gov24-135200000115.json",
+  "at": "2026-11-01T03:55"
+ }
+}

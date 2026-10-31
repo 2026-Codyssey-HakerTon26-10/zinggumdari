@@ -1,0 +1,13 @@
+{
+ "key": "301fd5d02170e1d907870235212151e76d9a27fd9191b060f9490acf747b88c0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6606,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 827
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"지역사회서비스 청년사업단 청년신체건강증진서비스\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"청년신체건강증진\", \"지역사회서비스투자사업\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 34, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"지역사회서비스 청년사업단 일상돌봄특화서비스\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"일상돌봄특화서비스\", \"가족돌봄청년\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 13, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": [[{\"field\": \"age\", \"op\": \"<=\", \"value\": 64, \"income_basis\": null, \"as_of\": null, \"text\": \"돌봄이 필요한 청년·중장년\"}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"돌봄이 필요한 상태\"}], [{\"field\": \"age\", \"op\": \"<=\", \"value\": 39, \"income_basis\": null, \"as_of\": null, \"text\": \"가족돌봄청년\"}]]}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"돌봄이 필요한 청년·중장년 또는 가족돌봄청년\", \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"지역사회서비스 청년사업단 초등돌봄서비스\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"초등돌봄서비스\", \"아이돌봄\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"당해 연도의 초등학교 재학연령에 해당하는 아동\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

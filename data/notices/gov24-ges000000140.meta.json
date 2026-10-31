@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-ges000000140",
+  "title": "학교급식비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999062&bnefType=all&svcId=GES000000140",
+  "fetched_at": "2026-10-31",
+  "sha256": "faa3bf3ce983ae0838b56dd9e4c50ec464bf89c2fbb1e7614cff5e8e2e6e9a23",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

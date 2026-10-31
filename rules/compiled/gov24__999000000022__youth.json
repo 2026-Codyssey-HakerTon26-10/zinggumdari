@@ -1,0 +1,228 @@
+{
+ "id": "gov24:999000000022:youth",
+ "source": "gov24",
+ "name": "기존주택 전세임대주택 지원사업 청년",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "청년 전세임대",
+  "대학생 주거지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-999000000022:l19"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 39,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-999000000022:l19"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "해당대학 소재지 이외의 시·군 또는 해당 대학 소재지 시·군 안에서 교량 등으로 연륙되지 않은 섬지역 출신 대학생 및 대학 졸업하거나 중퇴한 후 2년 이내",
+   "evidence": [
+    "gov24-999000000022:l20"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자"
+      ],
+      "as_of": "notice_date"
+     },
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "주거",
+       "의료"
+      ],
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ],
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "차상위"
+      ],
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "자립준비청년"
+      ],
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "청소년복지시설퇴소청소년"
+      ],
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "disability_registered",
+      "op": "!=",
+      "value": "Y",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 150,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000022:l21",
+    "gov24-999000000022:l22",
+    "gov24-999000000022:l23"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "fail:b6.1:not_negated",
+    "unit": "ok",
+    "keyword": "fail:b5.0:other_field_word:자산",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000022:l21"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999070&bnefType=all&svcId=999000000022",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 44,
+  "used": 4,
+  "labeled": {
+   "definition": 5,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 20
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1e1105349361e3e4a35260b73b7869a67ef3f9bbf9940421310d761c64214e54",
+  "raw": "rules/compiled/_raw/gov24-999000000022.json",
+  "at": "2026-11-01T04:00"
+ }
+}

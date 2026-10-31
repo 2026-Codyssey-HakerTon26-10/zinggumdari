@@ -1,0 +1,13 @@
+{
+ "key": "b2a229353104c82671602472cd160099e4dbc99d46ca9b0ec5b4c03b2c34cfe9",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7195,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 635
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"예술인ㆍ노무제공자 출산전후급여등\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"출산전후급여\",\"예술인출산급여\",\"노무제공자출산급여\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"고용보험 피보험 단위기간이 3개월 이상\",\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"출산(유산·사산)일 현재 고용보험 피보험자격을 유지한 경우, 출산(유산·사산)일 이전에 예술인 또는 노무제공자로서 피보험 단위기간이 3개월 이상\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"출산(유산·사산)일 현재 고용보험 피보험자격을 상실한 경우, 출산(유산·사산)일 이전 18개월 동안 예술인 또는 노무제공자로서의 피보험 단위기간이 3개월 이상\"}]]},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"출산전후급여등 지급기간에 노무제공을 하지 않을 것(단, 지급기간 중 노무제공 또는 자영업으로 발생한 소득이 고용노동부장관이 정하여 고시하는 금액 미만인 경우는 제외)\",\"evidence\":[\"l5\",\"l6\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":12,\"income_basis\":null,\"as_of\":null,\"text\":\"출산 또는 유산·사산을 한 날부터 12개월 이내에 신청\",\"evidence\":[\"l7\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l15\",\"label\":\"procedure\"},{\"line\":\"l16\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

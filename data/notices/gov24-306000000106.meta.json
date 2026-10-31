@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-306000000106",
+  "title": "저소득 국민건강보험료 및 장기요양보험료 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001553&bnefType=all&svcId=306000000106",
+  "fetched_at": "2026-10-31",
+  "sha256": "3176bfa42f0d8db661bfc65a7803c56f85c64042a1c138cb422967083c80dffe",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

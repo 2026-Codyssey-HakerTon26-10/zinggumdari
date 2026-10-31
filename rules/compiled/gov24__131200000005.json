@@ -1,0 +1,41 @@
+{
+ "id": "gov24:131200000005",
+ "source": "gov24",
+ "name": "노인복지시설 지방세 감면",
+ "org": "행정안전부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "discount",
+ "aliases": [
+  "노인복지시설 세금 감면",
+  "노인시설 지방세"
+ ],
+ "conditions": [],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=741967&bnefType=all&svcId=131200000005",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a806351b26ef84f2f51108c5d0f51d97ea7acddaeb42aa65117d1d3ad05770c0",
+  "raw": "rules/compiled/_raw/gov24-131200000005.json",
+  "at": "2026-11-01T03:55"
+ }
+}

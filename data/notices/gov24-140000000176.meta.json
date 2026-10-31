@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-140000000176",
+  "title": "산림복지서비스이용권(바우처) 지급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=753134&bnefType=all&svcId=140000000176",
+  "fetched_at": "2026-10-31",
+  "sha256": "bebd8aff6a53b17f32c9c0aea48eef21bc8e18a92ef01c8f95ce43a9f60d8f00",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

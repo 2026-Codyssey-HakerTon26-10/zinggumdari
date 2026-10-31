@@ -1,0 +1,117 @@
+{
+ "id": "gov24:324000000109",
+ "source": "gov24",
+ "name": "노인 성인용 보행기 지원",
+ "org": "서울특별시 강동구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강동구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "보행기 지원",
+  "노인 보조기구",
+  "이동 보조"
+ ],
+ "conditions": [
+  {
+   "field": "ltc_grade",
+   "op": "in",
+   "value": [
+    "없음"
+   ],
+   "evidence": [
+    "gov24-324000000109:l2",
+    "gov24-324000000109:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:없음",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위"
+   ],
+   "evidence": [
+    "gov24-324000000109:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "신체활동이 불편하여 성인용 보행기가 필요하다고 인정",
+   "evidence": [
+    "gov24-324000000109:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-324000000109:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003353&bnefType=all&svcId=324000000109",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "dda4804ed027807df2d2c4c1eeaccc29f15473a8d530fd6da99729861df2ac81",
+  "raw": "rules/compiled/_raw/gov24-324000000109.json",
+  "at": "2026-11-01T03:59"
+ }
+}
