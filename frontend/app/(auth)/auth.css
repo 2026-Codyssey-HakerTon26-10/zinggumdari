@@ -1,0 +1,90 @@
+.auth-page { display: flex; flex-direction: column; min-height: 100svh; background: #fff; color: #123653; } /* 인증 화면 전체를 흰색으로 유지합니다. */
+.auth-header { flex-shrink: 0; border-bottom: 1px solid #eef0f3; background: #fff; } /* 머리말을 흰색과 중립 회색 경계로 표시합니다. */
+.auth-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: min(1160px, calc(100% - 64px)); min-height: 86px; margin-inline: auto; } /* 브랜드와 홈 링크를 넓은 화면 안에 정렬합니다. */
+.auth-home-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 0; color: #83909e; font-size: 12px; transition: color .2s; } /* 홈으로 돌아가는 링크를 작게 표시합니다. */
+.auth-home-link:hover { color: #2474c7; } /* 홈 링크에 마우스를 올리면 파란색으로 강조합니다. */
+.auth-home-link svg { width: 15px; height: 15px; } /* 홈 링크 화살표의 크기입니다. */
+.auth-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); align-items: start; gap: 90px; width: min(1000px, calc(100% - 64px)); flex: 1; margin: 0 auto; padding: 66px 0 72px; } /* 긴 회원가입 폼도 잘리지 않도록 두 열을 위쪽에 맞춰 배치합니다. */
+.auth-intro { min-width: 0; padding: 5px 0; } /* 소개 영역이 화면 폭에 맞춰 줄어들게 합니다. */
+.auth-intro-eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #7790a4; font-size: 12px; font-weight: 500; letter-spacing: -.015em; } /* 서비스 소개의 작은 첫 문장을 표시합니다. */
+.auth-intro-eyebrow > span { width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: #2474c7; } /* 첫 문장 앞에 작은 파란 점을 넣습니다. */
+.auth-intro-title { margin: 24px 0 19px; font-size: clamp(30px, 3.4vw, 39px); line-height: 1.52; font-weight: 800; letter-spacing: -.065em; word-break: keep-all; } /* 소개 제목을 큼직하고 읽기 쉽게 표시합니다. */
+.auth-intro-title > span { color: #2474c7; } /* 브랜드 이름에만 파란색을 사용합니다. */
+.auth-intro-description { margin: 0; color: #87939f; font-size: 14px; line-height: 1.95; letter-spacing: -.025em; word-break: keep-all; } /* 서비스 소개의 본문과 줄 간격을 정합니다. */
+.auth-stages { display: flex; flex-wrap: wrap; gap: 7px; margin: 30px 0 35px; padding: 0; list-style: none; } /* 다섯 단계를 작은 칩으로 나열합니다. */
+.auth-stage { display: flex; align-items: center; gap: 6px; min-height: 33px; padding: 6px 9px; border: 1px solid #e9ebef; border-radius: 7px; background: #fff; color: #7d8d9a; font-size: 10px; font-weight: 500; white-space: nowrap; } /* 단계 칩도 흰색과 중립 회색 테두리를 사용합니다. */
+.auth-stage > span { color: #a3b0bb; font-size: 8px; font-weight: 700; } /* 단계의 순서 번호를 작게 보여줍니다. */
+.auth-stage:first-child { border-color: #cfe0f2; color: #2474c7; } /* 첫 단계의 작은 테두리와 글자만 파란색으로 강조합니다. */
+.auth-stage:first-child > span { color: #6a9acc; } /* 첫 단계의 순서 번호를 브랜드색에 맞춥니다. */
+.auth-intro-points { display: grid; gap: 23px; max-width: 380px; padding-top: 29px; border-top: 1px solid #eef0f3; } /* 핵심 안내를 소개 문구와 회색 선으로 구분합니다. */
+.auth-intro-point { display: flex; align-items: flex-start; gap: 13px; } /* 안내 아이콘과 문장을 나란히 배치합니다. */
+.auth-intro-icon { display: grid; place-items: center; flex-shrink: 0; width: 37px; height: 37px; border: 1px solid #e8edf3; border-radius: 10px; background: #fff; color: #5685b2; } /* 작은 아이콘만 파란색으로 표현하고 배경은 흰색으로 둡니다. */
+.auth-intro-icon svg { width: 18px; height: 18px; } /* 핵심 안내 아이콘의 크기입니다. */
+.auth-intro-point-title { margin: 0 0 5px; color: #4e667c; font-size: 12px; font-weight: 600; line-height: 1.5; } /* 핵심 안내의 제목입니다. */
+.auth-intro-point-description { margin: 0; color: #98a4af; font-size: 11px; line-height: 1.7; word-break: keep-all; } /* 핵심 안내 아래의 보조 설명입니다. */
+.auth-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: min(1160px, calc(100% - 64px)); margin: 0 auto; padding: 22px 0 25px; border-top: 1px solid #eef0f3; color: #a4adb6; font-size: 10px; line-height: 1.8; } /* 하단에서 프로젝트와 비공공기관 안내를 표시합니다. */
+.auth-form-card { width: 100%; min-width: 0; padding: 34px; border: 1px solid #e5e7eb; border-radius: 20px; background: #fff; box-shadow: 0 8px 38px #00000003; } /* 로그인과 회원가입 폼을 흰색 카드에 담습니다. */
+.auth-form-heading { margin-bottom: 27px; } /* 폼 제목과 입력 영역 사이의 여백입니다. */
+.auth-form-eyebrow { display: block; margin: 0 0 12px; color: #2474c7; font-size: 10px; font-weight: 700; letter-spacing: .06em; } /* 폼 종류를 작은 파란 글자로 표시합니다. */
+.auth-form-title { margin: 0 0 12px; color: #123653; font-size: 26px; font-weight: 800; line-height: 1.4; letter-spacing: -.055em; word-break: keep-all; } /* 폼 제목을 읽기 쉬운 크기로 보여줍니다. */
+.auth-form-description { margin: 0; color: #8d99a5; font-size: 12px; line-height: 1.85; word-break: keep-all; } /* 로그인 또는 가입 방법을 짧게 설명합니다. */
+.auth-form { display: grid; gap: 19px; } /* 폼 입력 항목 사이에 일정한 간격을 둡니다. */
+.auth-field { display: flex; flex-direction: column; min-width: 0; gap: 8px; } /* 라벨과 입력창, 힌트를 한 묶음으로 배치합니다. */
+.auth-field-label { display: block; color: #52687a; font-size: 12px; font-weight: 600; line-height: 1.5; } /* 각 입력창의 이름을 표시합니다. */
+.auth-input-wrap { position: relative; display: flex; align-items: center; min-width: 0; } /* 입력창 안쪽 아이콘과 보기 버튼의 위치 기준입니다. */
+.auth-input { display: block; width: 100%; min-width: 0; min-height: 47px; padding: 12px 43px; border: 1px solid #e5e7eb; border-radius: 9px; outline: 0; background: #fff; color: #29465e; font: inherit; font-size: 12px; line-height: 1.7; transition: border-color .2s, box-shadow .2s; } /* 입력창을 흰색과 중립 회색 테두리로 만듭니다. */
+.auth-input-wrap:not(:has(.auth-input-icon)) .auth-input { padding-left: 14px; } /* 앞쪽 아이콘이 없는 입력창의 여백을 줄입니다. */
+.auth-input::placeholder { color: #b0b8c0; opacity: 1; } /* 입력 예시를 연한 중립색으로 보여줍니다. */
+.auth-input:focus { border-color: #7faada; box-shadow: 0 0 0 3px #2474c710; } /* 현재 입력 중인 항목을 파란색으로 구분합니다. */
+.auth-input[aria-invalid="true"] { border-color: #d59898; box-shadow: 0 0 0 3px #ad454508; } /* 잘못된 입력은 옅은 붉은 경계로 표시합니다. */
+.auth-input:disabled { color: #a2acb5; background: #fafafa; cursor: not-allowed; } /* 입력할 수 없는 작은 영역만 옅은 중립 배경으로 표시합니다. */
+.auth-input-icon { display: grid; place-items: center; position: absolute; left: 14px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); color: #9aa8b5; pointer-events: none; } /* 입력창 앞쪽 아이콘을 문장과 겹치지 않게 둡니다. */
+.auth-input-icon svg { width: 20px; height: 20px; } /* 입력창 안의 아이콘을 공통 계약에 맞춰 표시합니다. */
+.auth-password-toggle { display: grid; place-items: center; position: absolute; top: 50%; right: 8px; width: 33px; height: 33px; padding: 0; border: 0; border-radius: 6px; transform: translateY(-50%); background: transparent; color: #99a8b5; cursor: pointer; } /* 비밀번호 보기 버튼을 입력창 오른쪽에 둡니다. */
+.auth-password-toggle:hover { background: #fafafa; color: #5685b2; } /* 보기 버튼에 마우스를 올리면 작은 중립 배경을 표시합니다. */
+.auth-password-toggle svg { width: 17px; height: 17px; } /* 비밀번호 보기 아이콘 크기입니다. */
+.auth-field-hint { margin: 0; color: #a1acb6; font-size: 10px; line-height: 1.7; } /* 입력 방법이나 선택 여부를 작게 설명합니다. */
+.auth-field-hint[role="alert"] { color: #ad6666; } /* 입력 오류 안내의 글자색을 구분합니다. */
+.auth-field-error { margin: 0; color: #ad6666; font-size: 10px; line-height: 1.7; } /* 비밀번호가 서로 다를 때 오류 문구를 표시합니다. */
+.auth-form-options { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: -1px; } /* 기억하기 옵션과 보조 링크를 나란히 배치합니다. */
+.auth-form-options > span { color: #9aa5af; font-size: 10px; line-height: 1.7; } /* 로그인 보조 안내를 작은 중립색 글자로 보여줍니다. */
+.auth-checkbox-label { display: inline-flex; align-items: flex-start; gap: 8px; color: #83909d; font-size: 11px; line-height: 1.7; cursor: pointer; } /* 체크박스와 문구를 함께 누를 수 있게 합니다. */
+.auth-checkbox { width: 14px; height: 14px; margin: 2px 0 0; flex-shrink: 0; accent-color: #2474c7; cursor: pointer; } /* 선택 표시만 브랜드 파란색을 사용합니다. */
+.auth-inline-link { display: inline; padding: 0; border: 0; background: transparent; color: #5e88b1; font: inherit; font-size: 11px; line-height: 1.7; cursor: pointer; text-decoration: none; } /* 보조 링크와 안내 버튼의 모습을 통일합니다. */
+.auth-inline-link:hover { color: #2474c7; text-decoration: underline; text-underline-offset: 3px; } /* 보조 링크를 선택할 수 있음을 보여줍니다. */
+.auth-submit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 47px; padding: 12px 18px; border: 1px solid #2474c7; border-radius: 9px; background: #2474c7; color: #fff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .2s; } /* 주 동작 버튼에만 넓은 파란색 면을 사용합니다. */
+.auth-submit:hover { border-color: #185eab; background: #185eab; } /* 주 버튼에 마우스를 올리면 파란색을 조금 진하게 합니다. */
+.auth-submit:disabled { opacity: .5; cursor: not-allowed; } /* 제출할 수 없을 때 버튼을 비활성화합니다. */
+.auth-submit svg { width: 16px; height: 16px; } /* 주 버튼 안의 아이콘 크기입니다. */
+.auth-divider { display: flex; align-items: center; gap: 13px; margin: 24px 0 17px; color: #b2bbc3; font-size: 10px; } /* 다른 시작 방법을 입력 폼과 구분합니다. */
+.auth-divider::before, .auth-divider::after { height: 1px; flex: 1; background: #eef0f3; content: ""; } /* 구분 문구 양쪽에 중립 회색 선을 넣습니다. */
+.auth-guest { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; padding: 11px 15px; border: 1px solid #e5e7eb; border-radius: 9px; background: #fff; color: #718698; font: inherit; font-size: 12px; cursor: pointer; transition: border-color .2s; } /* 로그인 없이 둘러보기는 흰색 보조 버튼으로 표시합니다. */
+.auth-guest:hover { border-color: #bac7d2; } /* 보조 버튼에 마우스를 올리면 경계를 강조합니다. */
+.auth-guest svg { width: 15px; height: 15px; } /* 둘러보기 버튼 안의 아이콘 크기입니다. */
+.auth-switch { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; color: #9aa5af; font-size: 11px; line-height: 1.8; } /* 로그인과 가입 화면 사이를 이동하는 문구입니다. */
+.auth-switch .auth-inline-link { font-weight: 600; } /* 다른 인증 화면으로 가는 링크를 강조합니다. */
+.auth-switch a { display: inline-flex; align-items: center; gap: 5px; color: #5e88b1; font-weight: 600; } /* 다른 인증 화면으로 가는 링크와 아이콘을 나란히 정렬합니다. */
+.auth-switch svg { width: 16px; height: 16px; } /* 화면 전환 링크의 화살표 크기를 맞춥니다. */
+.auth-notice { display: flex; align-items: flex-start; gap: 8px; margin-top: 23px; padding: 12px 13px; border: 1px solid #eef0f3; border-radius: 8px; background: #fff; color: #9aa6b0; font-size: 10px; line-height: 1.8; word-break: keep-all; } /* 실제 인증이 아닌 디자인 시연이라는 안내를 흰색으로 표시합니다. */
+.auth-notice p { margin: 0; } /* 시연 안내 안의 기본 문단 여백을 없앱니다. */
+.auth-notice > svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 2px; color: #8ba3b9; } /* 시연 안내의 작은 아이콘입니다. */
+.auth-status { display: flex; align-items: flex-start; gap: 8px; margin: 0; padding: 11px 12px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; color: #6b7280; font-size: 11px; line-height: 1.8; word-break: keep-all; } /* 제출 후 시연 안내를 흰색 패널과 중립 회색 글자로 표시합니다. */
+.auth-status > svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; } /* 결과 메시지의 아이콘 크기입니다. */
+.auth-status p { margin: 0; } /* 결과 문구의 불필요한 여백을 없앱니다. */
+.auth-status-success { color: #4f7e6b; border-color: #dce7e1; } /* 성공 안내는 글자와 얇은 경계만 녹색으로 구분합니다. */
+.auth-status-error { color: #a96b6b; border-color: #eadcdc; } /* 오류 안내도 흰색을 유지하고 글자와 경계만 구분합니다. */
+.auth-consent { display: grid; gap: 10px; padding-top: 4px; } /* 회원가입 동의 항목을 일정한 간격으로 배치합니다. */
+.auth-consent-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; } /* 동의 체크 문구와 상세 보기 버튼을 나란히 배치합니다. */
+.auth-consent-row > .auth-checkbox-label { flex: 1; min-width: 0; } /* 긴 동의 문구가 자연스럽게 줄바꿈되게 합니다. */
+.auth-consent-row > .auth-inline-link { flex-shrink: 0; margin-top: 1px; } /* 동의 상세 보기 버튼이 좁아지지 않게 합니다. */
+.auth-consent > .auth-consent-row:first-child { padding-bottom: 11px; border-bottom: 1px solid #eef0f3; } /* 첫 동의 항목을 중립 회색 선으로 구분합니다. */
+.auth-consent > .auth-checkbox-label:first-child { padding-bottom: 11px; border-bottom: 1px solid #eef0f3; color: #5e7284; font-weight: 600; } /* 첫 동의 항목을 얇은 회색 선으로 구분합니다. */
+.auth-consent-detail { margin: -1px 0 0 22px; color: #a4aeb7; font-size: 10px; line-height: 1.8; word-break: keep-all; } /* 동의 범위의 상세 설명을 체크 문구 아래에 둡니다. */
+.auth-requirements { display: flex; flex-wrap: wrap; gap: 7px 13px; margin: 0; padding: 0; list-style: none; } /* 비밀번호 작성 조건을 짧은 목록으로 표시합니다. */
+.auth-requirement { display: inline-flex; align-items: center; gap: 4px; color: #adb7c0; font-size: 9px; line-height: 1.7; } /* 아직 맞추지 않은 작성 조건은 연하게 표시합니다. */
+.auth-requirement svg { width: 11px; height: 11px; } /* 작성 조건의 체크 아이콘 크기입니다. */
+.auth-requirement.is-met { color: #4e8bc4; } /* 입력이 맞는 작성 조건만 파란색으로 표시합니다. */
+.auth-page button:focus-visible, .auth-page a:focus-visible, .auth-page input[type="checkbox"]:focus-visible { outline: 2px solid #8fb7df; outline-offset: 4px; } /* 키보드 사용자가 현재 선택 위치를 볼 수 있게 합니다. */
+@media (max-width: 1000px) { .auth-main { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 45px; } .auth-intro-title { font-size: 32px; } .auth-stages { gap: 5px; } .auth-stage { gap: 4px; padding-inline: 7px; font-size: 9px; } .auth-form-card { padding: 29px; } } /* 중간 화면에서 두 열의 간격과 폼 여백을 줄입니다. */
+@media (max-width: 760px) { .auth-header-inner { min-height: 76px; width: calc(100% - 40px); } .auth-home-link { font-size: 11px; } .auth-main { grid-template-columns: minmax(0, 430px); justify-content: center; gap: 28px; width: calc(100% - 40px); padding: 35px 0 44px; } .auth-intro { text-align: center; } .auth-intro-eyebrow { font-size: 10px; } .auth-intro-title { margin: 16px 0 0; font-size: 27px; line-height: 1.5; } .auth-intro-description, .auth-intro-points { display: none; } .auth-stages { justify-content: center; margin: 20px 0 0; gap: 6px; } .auth-stage { min-height: 29px; padding: 4px 8px; font-size: 9px; } .auth-footer { width: calc(100% - 40px); align-items: center; flex-direction: column; gap: 4px; padding: 20px 0; text-align: center; font-size: 9px; } } /* 작은 화면에서는 소개를 축약하고 폼을 한 열로 표시합니다. */
+@media (max-width: 400px) { .auth-main { width: calc(100% - 32px); padding-top: 28px; gap: 23px; } .auth-header-inner { width: calc(100% - 32px); } .auth-intro-title { font-size: 24px; } .auth-form-card { padding: 25px 20px; border-radius: 16px; } .auth-form-title { font-size: 24px; } .auth-home-link { gap: 5px; font-size: 10px; } .auth-form-options { gap: 8px; } .auth-checkbox-label, .auth-inline-link { font-size: 10px; } } /* 아주 좁은 화면에서는 여백과 글자 크기를 조금 줄입니다. */
