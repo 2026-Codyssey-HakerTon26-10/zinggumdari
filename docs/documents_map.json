@@ -5,6 +5,10 @@
     ],
     "status": "found"
   },
+  "개인정보 수집·이용 및 제3자 제공 동의서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "개인정보수집 및 이용제공 동의서": {
     "doc_ids": [],
     "status": "unknown"
@@ -25,6 +29,12 @@
     ],
     "status": "found"
   },
+  "금융정보 등 제공 동의서": {
+    "doc_ids": [
+      "financial_consent"
+    ],
+    "status": "found"
+  },
   "기초생활수급자‧차상위계층‧한부모가족 증명서": {
     "doc_ids": [
       "livelihood_cert",
@@ -32,6 +42,10 @@
       "single_parent_cert"
     ],
     "status": "found"
+  },
+  "매입임대 공급 신청서": {
+    "doc_ids": [],
+    "status": "unknown"
   },
   "무릎관절증 의료지원신청서": {
     "doc_ids": [],
@@ -50,6 +64,10 @@
       "social_service_application"
     ],
     "status": "found"
+  },
+  "생계·주거·의료·교육급여 수급자 증명서": {
+    "doc_ids": [],
+    "status": "unknown"
   },
   "소득·재산 신고서": {
     "doc_ids": [
@@ -85,13 +103,43 @@
     "doc_ids": [],
     "status": "unknown"
   },
+  "임신진단서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "자격확인을 위한 행정정보 공동이용 사전동의서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "자산 보유사실 확인서": {
     "doc_ids": [],
     "status": "unknown"
   },
   "장기요양인정 신청서": {
     "doc_ids": [
       "ltc_application"
+    ],
+    "status": "found"
+  },
+  "주민등록표등본": {
+    "doc_ids": [
+      "resident_register"
+    ],
+    "status": "found"
+  },
+  "주민등록표초본": {
+    "doc_ids": [
+      "resident_abstract"
+    ],
+    "status": "found"
+  },
+  "지원대상 한부모가족 증명서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "차상위계층 확인서": {
+    "doc_ids": [
+      "near_poverty_cert"
     ],
     "status": "found"
   },
