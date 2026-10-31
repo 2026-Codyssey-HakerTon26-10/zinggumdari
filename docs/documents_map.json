@@ -1,9 +1,49 @@
 {
+  "가족관계증명서": {
+    "doc_ids": [
+      "family_relation_cert"
+    ],
+    "status": "found"
+  },
+  "개인정보수집 및 이용제공 동의서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "개인정보제공동의서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "건강보험자격득실확인서": {
+    "doc_ids": [
+      "health_insurance_eligibility"
+    ],
+    "status": "found"
+  },
   "금융 정보 등(금융, 신용, 보험정보) 제공 동의서(본인, 배우자)": {
     "doc_ids": [
       "financial_consent"
     ],
     "status": "found"
+  },
+  "기초생활수급자‧차상위계층‧한부모가족 증명서": {
+    "doc_ids": [
+      "livelihood_cert",
+      "near_poverty_cert",
+      "single_parent_cert"
+    ],
+    "status": "found"
+  },
+  "무릎관절증 의료지원신청서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "사업자등록증": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "사업자등록증명원": {
+    "doc_ids": [],
+    "status": "unknown"
   },
   "사회복지서비스 및 급여 제공(변경) 신청서": {
     "doc_ids": [
@@ -17,11 +57,35 @@
     ],
     "status": "found"
   },
+  "수술할 병원의 진단서(소견서)": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "신분증": {
     "doc_ids": [],
     "status": "self_held"
   },
+  "신청서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "신청자의 신분증": {
+    "doc_ids": [],
+    "status": "self_held"
+  },
+  "위임장 및 대리신청자의 신분증": {
+    "doc_ids": [],
+    "status": "self_held"
+  },
   "의사소견서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "임대인(소유주) 집수리 동의서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "자격확인을 위한 행정정보 공동이용 사전동의서": {
     "doc_ids": [],
     "status": "unknown"
   },
@@ -34,5 +98,11 @@
   "통장 사본": {
     "doc_ids": [],
     "status": "self_held"
+  },
+  "혼인관계증명서": {
+    "doc_ids": [
+      "family_marriage_cert"
+    ],
+    "status": "found"
   }
 }
