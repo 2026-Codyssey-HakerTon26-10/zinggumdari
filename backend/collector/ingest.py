@@ -48,9 +48,20 @@ def _new_doc_id(today: date) -> str:
             return doc_id
 
 
+def _delete_raw(doc_id: str) -> None:
+    """컴파일러가 남긴 업로드 원응답과 글자 인식 캐시(rules/uploads/_raw/)를 지운다."""
+    try:
+        from backend.compiler.pipeline import delete_raw   # type: ignore[import-not-found]
+    except ImportError:
+        return
+    delete_raw(doc_id, "upload")
+
+
 def _discard(doc_id: str) -> None:
+    """올린 원문을 흔적 없이 지운다. 메타가 사라지면 계정으로 찾을 수 없으니 원응답도 같이."""
     for p in store.paths_of(doc_id):
         p.unlink(missing_ok=True)
+    _delete_raw(doc_id)
 
 
 MAX_REDIRECTS = 3
@@ -158,8 +169,7 @@ def delete_uploads(account_id: str) -> int:
             continue
         for rule_id in meta.get("rules", []):
             _rule_file(doc_id, rule_id).unlink(missing_ok=True)
-        for p in store.paths_of(doc_id):
-            p.unlink(missing_ok=True)
+        _discard(doc_id)
         if cache_dir().is_dir():
             for c in cache_dir().glob("*.json"):
                 if json.loads(c.read_text(encoding="utf-8")).get("log", {}).get("doc_id") == doc_id:

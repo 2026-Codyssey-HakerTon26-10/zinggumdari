@@ -119,6 +119,21 @@ def _engine_judge() -> Callable | None:
     return judge
 
 
+def _cards(out: Any) -> list[dict]:
+    """엔진 결과를 카드 목록으로. 세 모양을 받는다.
+
+    {rule_id: 카드}(#12의 judge), {"cards": [...]}(api.md §3 /judge 응답), 카드 목록.
+    """
+    if isinstance(out, dict):
+        if isinstance(out.get("cards"), list):
+            items = out["cards"]
+        else:
+            items = [{**c, "rule_id": c.get("rule_id") or rid} for rid, c in out.items() if isinstance(c, dict)]
+    else:
+        items = out or []
+    return [c for c in items if isinstance(c, dict) and c.get("rule_id")]
+
+
 class Ports:
     def __init__(self) -> None:
         self._judge: Callable | None = None
@@ -135,8 +150,12 @@ class Ports:
         if fn is None:
             return {r["id"]: fake_judge(profile, r, today) for r in rules}
         out = fn(profile, rules, today=today)
-        cards = out.get("cards", []) if isinstance(out, dict) else out
-        got = {c["rule_id"]: c.get("verdict") for c in cards or [] if isinstance(c, dict) and c.get("rule_id")}
+        got = {}
+        for c in _cards(out):
+            if c.get("no_subject"):   # 부모님 탭을 열지 않았다. 탈락이 아니라 모름
+                got[c["rule_id"]] = "needs_check"
+            else:
+                got[c["rule_id"]] = c.get("verdict")
         result = {}
         for r in rules:
             v = got.get(r["id"])

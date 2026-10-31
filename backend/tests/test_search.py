@@ -76,6 +76,8 @@ def client(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "DOCS_DIR", tmp_path)            # stage_keywords.json 없음 → 기본값
     monkeypatch.setattr(config, "NOTICES_DIR", tmp_path / "notices")
     service.reset_index()
+    # 엔진(#12)이 머지돼도 이 파일은 가짜 판정 기준으로 본다. 엔진 연결은 test_engine_port_*가 본다
+    monkeypatch.setattr("backend.search.ports._engine_judge", lambda: None)
     saved = dict(ports.__dict__)
     ports.session_user = lambda req: {"account_id": f"A-{pid}", "profile_id": pid} if (pid := req.headers.get("x-test-profile")) else None
     ports.load_profile = lambda pid: PERSONA if pid == "U1" else None
@@ -192,6 +194,28 @@ def test_engine_port_reads_cards():
     out = p.verdicts({}, [{"id": "a"}, {"id": "b"}, {"id": "c", "subject": "parent"}], date(2031, 1, 15))
     assert out == {"a": "opens_later", "b": "ineligible", "c": "needs_check"}
     assert seen["today"] == date(2031, 1, 15)                       # ?today=가 엔진까지 간다
+
+
+def test_engine_port_reads_rule_id_dict():
+    """#12의 judge()는 {rule_id: 카드}를 돌려준다. 부모님 탭을 안 연 카드(no_subject)는 탈락이 아니다."""
+    p = Ports()
+    p._judge = lambda profile, rules, today=None: {
+        "a": {"verdict": "eligible"}, "b": {"rule_id": "b", "verdict": "ineligible"},
+        "c": {"verdict": "ineligible", "no_subject": True}}
+    out = p.verdicts({}, [{"id": "a"}, {"id": "b"}, {"id": "c", "subject": "parent"}, {"id": "d"}])
+    assert out == {"a": "eligible", "b": "ineligible", "c": "needs_check", "d": "ineligible"}
+
+
+def test_criteria_text_keeps_evidence_when_other_text_present(tmp_path, monkeypatch):
+    from backend.notices import store
+    from backend.search.corpus import from_rule
+    monkeypatch.setattr(config, "NOTICES_DIR", tmp_path)
+    store.register_text("청약통장 가입기간 6개월 이상\n순자산 기준 이하", "ai-doc", "api", None, "t", notices_dir=tmp_path)
+    rule = {"id": "gov24:X", "name": "주거 지원", "conditions": [
+        {"field": "subscription_months", "op": ">=", "value": 6, "evidence": ["ai-doc:l1"], "status": "auto_verified"},
+        {"field": "other", "text": "원문 조건 미반영", "reason": "unaccounted", "evidence": ["ai-doc:l2"], "status": "needs_review"}]}
+    text = from_rule(rule)["fields"]["criteria"]
+    assert "청약통장 가입기간 6개월 이상" in text and "순자산 기준 이하" in text and "원문 조건 미반영" in text
 
 
 def test_fake_judge_age_boundary_and_any_of():

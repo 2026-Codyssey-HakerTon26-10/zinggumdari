@@ -192,3 +192,22 @@ def test_upload_visible_only_to_owner(tmp_path, world, notice_pdf, monkeypatch):
 
     assert ing.delete_uploads("A1") == 1
     assert len(list((tmp_path / "uploads").glob("*.json"))) == 1             # B1 조건표는 남는다
+
+
+@needs_pdf
+def test_raw_responses_deleted_on_withdraw_and_failure(tmp_path, world, monkeypatch):
+    """컴파일러 원응답(rules/uploads/_raw)도 탈퇴와 읽기 실패 때 같이 지운다(#5 delete_raw)."""
+    ing = world
+    gone = []
+    monkeypatch.setattr(ing, "_delete_raw", gone.append)
+    pdf = make_pdf(tmp_path / "a.pdf", [[(72, 700 - 14 * k, f"notice line {k} with enough text here") for k in range(5)]])
+    doc_id = ing.ingest(pdf, "a.pdf", uploaded_by="A1")["log"]["doc_id"]
+    assert ing.delete_uploads("A1") == 1 and gone == [doc_id]
+
+    def broken(*a):
+        raise RuntimeError("LLM 시간 초과")
+    monkeypatch.setattr(ing, "_compile", lambda: broken)
+    pdf2 = make_pdf(tmp_path / "b.pdf", [[(72, 700 - 14 * k, f"other notice line {k} with text") for k in range(5)]])
+    with pytest.raises(RuntimeError):
+        ing.ingest(pdf2, "b.pdf", uploaded_by="A1")
+    assert len(gone) == 2 and gone[1].startswith("upload-") and gone[1] != doc_id

@@ -182,12 +182,13 @@ def _criteria_text(rule: dict) -> str:
     for c in _flat(rule.get("conditions")):
         if c.get("quote"):
             parts.append(c["quote"])
-        elif c.get("text"):
-            parts.append(c["text"])
-        ids.extend(c.get("evidence") or [])
-    if ids and not parts:
-        parts = [e["text"] for e in evidence(list(dict.fromkeys(ids))) if e["text"]]
-    return " ".join(parts)
+        else:   # AI 조건은 근거 줄 원문으로. other의 text가 있어도 근거 줄은 따로 모은다
+            if c.get("text"):
+                parts.append(c["text"])
+            ids.extend(c.get("evidence") or [])
+    if ids:
+        parts += [e["text"] for e in evidence(list(dict.fromkeys(ids))) if e["text"]]
+    return " ".join(dict.fromkeys(parts))
 
 
 def from_rule(rule: dict) -> dict:
