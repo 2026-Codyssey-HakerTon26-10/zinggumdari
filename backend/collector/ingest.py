@@ -196,8 +196,34 @@ def _rebind(rules: list[dict], old: str, new: str) -> list[dict]:
     return json.loads(json.dumps(rules, ensure_ascii=False).replace(old, new))
 
 
+def lines_fingerprint(lines: list[dict]) -> str:
+    """줄 목록의 지문(줄 ID와 글). 같은 원문이라도 줄 만들기가 바뀌면 달라진다."""
+    body = json.dumps([[ln.get("id"), ln.get("text")] for ln in lines], ensure_ascii=False)
+    return hashlib.sha256(body.encode("utf-8")).hexdigest()
+
+
+def _reverify(rules: list[dict], lines: list[dict]) -> list[dict]:
+    """캐시의 조건표를 지금 줄 목록으로 검증기에 다시 돌린다(사람이 확인한 조건은 그대로).
+    검증기를 부를 수 없으면 확인되지 않은 조건을 전부 needs_review로 내린다."""
+    try:
+        from backend.compiler.verify import verify
+    except ImportError:
+        verify = None
+    out = []
+    for rule in rules:
+        if verify is not None:
+            out.append(verify(rule, lines))
+            continue
+        rule = json.loads(json.dumps(rule))
+        for c in rule.get("conditions", []):
+            if c.get("status") != "reviewed":
+                c["status"] = "needs_review"
+        out.append(rule)
+    return out
+
+
 def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: str, uploaded_by: str | None,
-           replay_reason: str | None = None, cached_lines: int | None = None) -> dict:
+           replay_reason: str | None = None, replay_warning: str | None = None) -> dict:
     """조건표를 올린 계정 앞으로 저장하고 카드에 합류시킨다. 새로 읽었을 때만 캐시를 쓴다."""
     out_dir = upload_rules_dir()
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -213,12 +239,12 @@ def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: s
     result = {"log": summarize(doc_id, meta, lines, rules), "rules": rules, "notice": NOTICE,
               "at": datetime.now().isoformat(timespec="seconds")}
     if replay_reason is None:
-        save_cache(sha, result)
+        save_cache(sha, {**result, "lines_fp": lines_fingerprint(lines)})
     out = {**result, "replayed": replay_reason is not None}
     if replay_reason is not None:
         out["replay_reason"] = replay_reason
-        if cached_lines is not None and cached_lines != len(lines):   # 줄 만들기가 바뀌면 근거 줄이 어긋날 수 있다
-            out["replay_warning"] = f"캐시를 만들 때와 줄 수가 다르다({cached_lines} → {len(lines)}). 근거 줄을 확인해야 한다"
+        if replay_warning:
+            out["replay_warning"] = replay_warning
     out["alerts"] = _after_merge([r["id"] for r in rules], account_id=uploaded_by)
     return out
 
@@ -257,7 +283,12 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
 
     def replay_with(reason: str) -> dict:
         rules = _rebind(cached["rules"], cached["log"]["doc_id"], doc_id)
-        return _merge(doc_id, meta, lines, rules, sha, uploaded_by, reason, cached["log"].get("lines"))
+        warning = None
+        # 줄 만들기가 바뀌면 같은 근거 ID가 다른 문장을 가리킬 수 있다. 그때는 캐시의 상태를 믿지 않고 다시 검사한다
+        if cached.get("lines_fp") != lines_fingerprint(lines):
+            rules = _reverify(rules, lines)
+            warning = "캐시를 만들 때와 줄 목록이 달라 지금 줄 목록으로 검증기를 다시 돌렸다"
+        return _merge(doc_id, meta, lines, rules, sha, uploaded_by, reason, warning)
 
     if replay:
         return replay_with("캐시 재생을 켰다")

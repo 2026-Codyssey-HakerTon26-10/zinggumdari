@@ -304,3 +304,49 @@ def test_rules_and_evidence_are_scoped_to_uploader(tmp_path, world, notice_pdf, 
     assert store.evidence([eid], owner="A1")[0]["text"] == "Notice for newlyweds"
     assert store.evidence([eid], owner="B1")[0] == {"id": eid, "page": None, "bbox": None, "text": None}
     assert store.evidence([eid])[0]["text"] is None
+
+
+@needs_pdf
+def test_replay_reverifies_when_lines_changed(tmp_path, world, notice_pdf, monkeypatch):
+    """캐시를 만들 때와 줄 목록이 다르면 캐시의 상태를 쓰지 않고 검증기를 다시 돌린다(#20 리뷰)."""
+    import importlib
+    import json as _json
+
+    verify_mod = importlib.import_module("backend.compiler.verify")   # 패키지가 같은 이름의 함수를 내보내서 모듈로 집는다
+
+    ing = world
+    monkeypatch.setattr(ing, "_compile", lambda: lambda doc_id, lines, source: [
+        {"id": f"upload:{doc_id}:x", "conditions": [
+            {"field": "age", "op": "<=", "value": 39, "evidence": [f"{doc_id}:p1-l2"], "status": "auto_verified"},
+            {"field": "is_homeless", "op": "==", "value": "Y", "evidence": [f"{doc_id}:p1-l2"], "status": "reviewed"}]}])
+    first = ing.ingest(notice_pdf, "a.pdf", uploaded_by="A1")
+    cache = next(ing.cache_dir().glob("*.json"))
+    assert _json.loads(cache.read_text())["lines_fp"] == ing.lines_fingerprint(store.load_lines(first["log"]["doc_id"]))
+
+    calls = []
+
+    def fake_verify(rule, lines, **kw):
+        calls.append(len(lines))
+        out = _json.loads(_json.dumps(rule))
+        for c in out["conditions"]:
+            if c["status"] != "reviewed":
+                c["status"] = "needs_review"
+        return out
+    monkeypatch.setattr(verify_mod, "verify", fake_verify)
+
+    same = ing.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="B1")       # 줄 목록이 같으면 그대로
+    assert calls == [] and "replay_warning" not in same
+    assert same["rules"][0]["conditions"][0]["status"] == "auto_verified"
+
+    data = _json.loads(cache.read_text())
+    cache.write_text(_json.dumps({**data, "lines_fp": "줄 만들기가 바뀜"}, ensure_ascii=False))
+    changed = ing.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="C1")
+    assert calls and "검증기" in changed["replay_warning"]
+    conds = changed["rules"][0]["conditions"]
+    assert [c["status"] for c in conds] == ["needs_review", "reviewed"]           # 사람이 확인한 조건은 그대로
+    assert changed["log"]["needs_review"] == 1 and changed["log"]["auto_verified"] == 0
+
+    data.pop("lines_fp")
+    cache.write_text(_json.dumps(data, ensure_ascii=False))                       # 지문이 없는 옛 캐시도 다시 검사
+    calls.clear()
+    assert "replay_warning" in ing.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="D1") and calls

@@ -305,7 +305,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 ```jsonc
 {"log": { /* 아래 로그 */ }, "rules": [ /* §1 조건 JSON */ ], "notice": "개인 서류를 올리지 마세요. …", "at": "2026-10-31T21:10:00",
  "replayed": false,                       // true면 캐시 재생. "replay_reason"("캐시 재생을 켰다" | "읽기 실패: …")이 같이 온다. 자막으로 밝힌다
- "replay_warning": "…",                   // 재생 때 줄 수가 캐시와 다르면만. 근거 줄이 어긋났을 수 있다
+ "replay_warning": "…",                   // 재생 때 줄 목록이 캐시를 만들 때와 다르면만. 그때는 캐시의 상태를 쓰지 않고 지금 줄 목록으로 검증기를 다시 돌린다
  "alerts": null}                          // 알림 재판정 결과(올린 계정만). 알림 쪽이 없으면 null
 ```
 
