@@ -96,6 +96,8 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 | 부모님 | `relation`(부\|모), `age`(계산), `sido`, `sigungu`, `lives_alone`, `lives_with_child`, `ltc_grade`(없음\|1등급\|2등급\|3등급\|4등급\|5등급\|인지지원등급. 값은 이 글자 그대로), `disability_registered`, `basic_pension`, `livelihood_status`(생계\|의료\|주거\|교육\|차상위\|해당없음), `care_wanted` |
 | 공통 | `apply_date`(계산, 오늘. `?today=`로 바꾼다. 접수 기간은 `apply_date >=` 시작일과 `apply_date <=` 마감일 두 조건으로 쓴다), `other`(어휘 밖 조건) |
 
+출생은 `birth_year`(출생연도)가 기준이다. 만 나이 두 값, 단계 날짜, 질문, 비슷한 가구가 모두 이 칸을 쓴다. DB의 `birth_date`(생년월일, `0001_init.sql`)는 시트 칸이라 남겨 두었지만 판정에 쓰지 않고, 화면도 받지 않는다(`0002_birth_year.sql`이 `users`·`parents`에 `birth_year`를 더했다).
+
 금액은 전부 만원이다(시트 기준). 조건 JSON의 키는 DB의 `policy_requirements` 열과 이렇게 대응한다: `field` = `field`, `op` = `operator`, `value` = `value`, `income_basis` = `standard`. 나머지 키(`any_of`의 묶음·가지 번호, `as_of`, `evidence`, `status`, `checks`, `text`)는 시트 예시보다 우리가 더 붙이는 열이다.
 
 소득 %는 저장값이 아니라 판정할 때 `income_standards`(연도별)로 계산한다. 공고 원문의 세부 기준값(소득 %, 가격 상한, 부양 기간)은 조건의 `value`로 들어가고 DB에서는 `policy_requirements` 한 줄이 된다.
