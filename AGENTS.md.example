@@ -35,7 +35,7 @@
 
 ## 4. 작업 방식
 
-- 브랜치: `<이름>/<작업>` (예: `jh/rule-consent`). 짧게 쓰고 자주 `main`에 합친다.
+- 브랜치: `<type>/<작업>` (예: `feat/rule-consent`). type은 커밋과 같다. 짧게 쓰고 자주 `main`에 합친다.
 - 커밋: `<type>: <무엇을>`, type은 `feat` `fix` `docs` `refactor` `test` `chore`. 한국어 가능. 하나의 커밋에 하나의 변경.
 - `main`에는 실행되는 상태만 올린다. 올리기 전에 README의 실행 명령으로 확인한다.
 - PR은 작게. 템플릿 체크박스를 채운다.
