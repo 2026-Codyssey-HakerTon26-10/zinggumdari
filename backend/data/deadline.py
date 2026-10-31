@@ -33,13 +33,15 @@ def _dates(text: str) -> list[date]:
         rest = text[m.end():]
         tail = _RANGE_TAIL.match(rest)
         if tail:
+            # 끝 연도를 월일로 먼저 정한 뒤 날짜를 만든다(2027.12.1.~2.29.는 2028년이라 2월 29일이 있다).
+            # 그래도 없는 날짜면 마감을 확인할 수 없는 범위로 보고 시작일도 마감으로 쓰지 않는다
+            m_end, d_end = int(tail[1]), int(tail[2])
+            year = start.year if (m_end, d_end) >= (start.month, start.day) else start.year + 1
             try:
-                end = date(start.year, int(tail[1]), int(tail[2]))
+                out.append(date(year, m_end, d_end))
             except ValueError:
-                end = None
-            if end is not None:
-                out.append(end if end >= start else end.replace(year=start.year + 1))
-                continue
+                pass
+            continue
         if _NOT_DEADLINE.match(rest):
             continue
         out.append(start)
