@@ -213,7 +213,7 @@
 | 기초연금 신청 시점, 구비서류, 자녀 대리 신청(위임장) | [서울 도봉구 안내](https://www.dobong.go.kr/Contents.asp?code=10009135), [복지로](https://www.bokjiro.go.kr/ssis-tbu/cms/pc/news/promotion/1188920_1118.html) |
 | 기금 대출 상품 공식명 | [주택도시기금](https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020101.jsp) |
 | 청약 특별공급 개정 | 「주택공급에 관한 규칙」 2026-06-15 개정([한국경제 2026-06-14](https://www.hankyung.com/amp/202606144875i)) |
-| 가상 인구의 연령·가구원 수 분포 | 통계청 KOSIS(쓴 표 이름과 URL은 외부 자원 표에 적는다) |
+| 가상 인구의 뼈대(성별, 나이, 지역, 혼인, 가구 형태, 직업) | [NVIDIA Nemotron-Personas-Korea](https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea) (CC BY 4.0). 혼인 연령은 통계청 2024년 혼인·이혼 통계 평균 초혼연령(남 33.9, 여 31.6세) |
 
 ### 6.4 손 조건표 후보
 
