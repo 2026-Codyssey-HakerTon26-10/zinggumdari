@@ -8,7 +8,7 @@ import logging
 from collections.abc import Callable
 from datetime import date
 
-from backend.engine import judge
+from backend.engine import documents, judge
 from backend.engine.ask import choose_ask
 
 log = logging.getLogger(__name__)
@@ -19,15 +19,6 @@ SHOWN = {"eligible": 0, "needs_check": 1, "opens_later": 2}   # ineligible은 �
 
 def _no_lines(ids: list[str]) -> list[dict]:
     return [{"id": e, "page": None, "bbox": None, "text": None} for e in ids]
-
-
-def _documents(rule: dict) -> list[dict]:
-    """서류 사전 매핑 전이라 전부 "발급처 확인 필요"(status unknown)다. 발급처를 지어내지 않는다."""
-    docs = [{"name": n, "doc_id": None, "who_provides": "applicant", "status": "unknown"}
-            for n in rule.get("documents") or []]
-    docs += [{"name": n, "doc_id": None, "who_provides": "official", "status": "unknown"}
-             for n in rule.get("documents_official") or []]
-    return docs
 
 
 def _explain(card: dict) -> str:
@@ -50,6 +41,7 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
     results = judge(profile, rules, today)
     plan = planner.timeline(profile, rules, today, results)
     by_id = {r["id"]: r for r in rules}
+    doc_map, doc_dict = documents.load_map(), documents.load_dictionary()   # 서류 사전 캐시. 런타임에 새로 맞추지 않는다
     cards = []
     next_step = {i for s in plan["self"] for i in s["opens"]}
     for rule in rules:
@@ -71,7 +63,7 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
              and (results.get(x["rule_id"]) or {}).get("verdict") == "eligible"}
             for x in card["exclusive_with"]]
         card["exclusive_evidence"] = evidence(card["exclusive_evidence"]) if card["exclusive_evidence"] else []
-        card.update(documents=_documents(rule), explain=_explain(card))
+        card.update(documents=documents.rows(rule, doc_map, doc_dict), explain=_explain(card))
         cards.append(card)
     cards.sort(key=lambda c: (c["subject"] != "self", SHOWN[c["verdict"]]))
     return {
