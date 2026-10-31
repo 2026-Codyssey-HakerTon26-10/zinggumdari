@@ -123,8 +123,9 @@ def test_uploads_are_not_read(tmp_path, monkeypatch):
         d.mkdir()
     (dirs["manual"] / "ok.json").write_text(json.dumps(OK), encoding="utf-8")
     (dirs["uploads"] / "a.json").write_text(json.dumps(R("upload:a-secret", [C("age", "<=", 34)], source="upload")), encoding="utf-8")
-    monkeypatch.setattr(config, "RULES_DIRS", tuple(dirs.values()))
-    assert [r["id"] for r in sources.load_rules()] == ["manual:ok"]   # 다른 계정이 올린 조건표가 섞이지 않는다
+    monkeypatch.setattr(config, "RULES_DIRS", (dirs["manual"], dirs["compiled"]))
+    monkeypatch.setattr(config, "UPLOAD_RULES_DIR", dirs["uploads"])
+    assert [r["id"] for r in sources.load_rules()] == ["manual:ok"]   # owner 없이는 업로드를 읽지 않는다
 
 
 def test_manual_rules_have_evidence_text():
@@ -143,3 +144,16 @@ def test_missing_evidence_is_logged(caplog):
     with caplog.at_level("WARNING"):
         build_judge(ME, [OK], TODAY)
     assert "doc:l1" in caplog.text
+
+
+def test_owner_sees_only_own_uploads(tmp_path, monkeypatch):
+    """로그인이 붙으면 owner를 넘긴다: 그 계정이 올린 업로드만 더해진다(backend.data.rules, #20)."""
+    import inspect
+
+    from backend.data import rules as loader
+    assert "owner" in inspect.signature(loader.load_rules).parameters
+    seen = {}
+    monkeypatch.setattr(loader, "load_rules", lambda dirs=None, owner=None: seen.setdefault("owner", owner) and [])
+    monkeypatch.setattr(sources, "_load", loader.load_rules)
+    sources.load_rules(owner="acct-a")
+    assert seen["owner"] == "acct-a"
