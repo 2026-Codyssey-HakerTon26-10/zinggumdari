@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-161300000088",
+  "title": "청년주택드림 청약통장",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999078&bnefType=all&svcId=161300000088",
+  "fetched_at": "2026-10-31",
+  "sha256": "59ef3520b50e8e4d2672a053fd3100af29e49cbad1f2238507143d01686a98c0",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

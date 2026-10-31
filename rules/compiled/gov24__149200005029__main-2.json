@@ -1,0 +1,61 @@
+{
+ "id": "gov24:149200005029:main-2",
+ "source": "gov24",
+ "name": "중장년 경력지원제 참여기업",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "중장년 고용지원",
+  "기업 채용지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "고용보험 피보험자수 5인 이상",
+   "evidence": [
+    "gov24-149200005029:l3",
+    "gov24-149200005029:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2147825&bnefType=all&svcId=149200005029",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "fca8931b79f5bc8de8f5723ba52d01ad8b1d8168970f5cab9aa4231c051cc9d3",
+  "raw": "rules/compiled/_raw/gov24-149200005029.json",
+  "at": "2026-11-01T03:56"
+ }
+}

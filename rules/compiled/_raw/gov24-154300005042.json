@@ -1,0 +1,13 @@
+{
+ "key": "935f207671c07be587b0020d8cd8f6159bc64648c49cd718c4bc94750bc43de5",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7269,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 922
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"영농도우미 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"영농도우미\", \"농업인 지원\", \"농사 도움\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"농업 경영체(법인 제외)로 농지 경작 면적 5ha 미만인 경영주 또는 경영주 외 농업인\", \"evidence\": [\"l2\"], \"any_of\": [[{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"사고 또는 질병으로 2주 이상 진단을 받았거나 3일 이상 입원\"}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"4대 중증 질환(암, 심장 질환(고혈압 제외), 뇌혈관 질환, 희귀 난치성 질환) 진단을 받고 최근 6개월 이내 통원 치료\"}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"제1∼2급 법정감염병(코로나19 포함) 확진자 또는 접촉자로 의료기관으로부터 통보를 받아 격리 중\"}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"안전교육이 포함된 농업인 교육과정에 1일 이상 참석\"}]]}, {\"field\": \"youngest_child_age\", \"op\": \"<=\", \"value\": 9, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l8\"], \"any_of\": [[{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"초등학교 4학년 이하의 자녀가 사고 또는 질병으로 2주 이상 진단을 받았거나 3일 이상 입원\"}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"초등학교 4학년 이하의 자녀가 4대 중증 질환 진단을 받고 최근 6개월 이내 통원 치료\"}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"초등학교 4학년 이하의 자녀가 제1∼2급 법정감염병 확진자 또는 접촉자로 격리 중\"}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l17\", \"label\": \"procedure\"}, {\"line\": \"l18\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

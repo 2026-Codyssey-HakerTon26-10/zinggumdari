@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 입양특례법상 입양기관을 통해 입양한 국내 입양아동 및 입양가정", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 장애등록 및 선천적 요인의 장애, 질환이 있는 입양아동", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 입양일 기준 6개월 이상 금천구에 주민등록을 두고 실거주하고 있는 입양 부모", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-145000000110",
+  "title": "등유바우처",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2113802&bnefType=all&svcId=145000000110",
+  "fetched_at": "2026-10-31",
+  "sha256": "63ac5747b03bd91f15b10c81758cb161fb8de312c271de3e47f14cd45ae2b5da",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

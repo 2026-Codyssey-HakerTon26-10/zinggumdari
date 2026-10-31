@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200005006",
+  "title": "시설급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999143&bnefType=all&svcId=135200005006",
+  "fetched_at": "2026-10-31",
+  "sha256": "d8061eb72a1305959b6cab92c1a7f7f2648d02998ffa8b3b4983b47cd7581f4a",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

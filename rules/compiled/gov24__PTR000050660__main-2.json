@@ -1,0 +1,146 @@
+{
+ "id": "gov24:PTR000050660:main-2",
+ "source": "gov24",
+ "name": "다문화가족 방문교육서비스 - 부모교육",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "부모교육",
+  "생애주기별",
+  "방문교육"
+ ],
+ "conditions": [
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-ptr000050660:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 1,
+   "evidence": [
+    "gov24-ptr000050660:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 4
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-ptr000050660:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b0.0:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 12
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-ptr000050660:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000050660:l12"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-ptr000050660:l13",
+  "gov24-ptr000050660:l14",
+  "gov24-ptr000050660:l15",
+  "gov24-ptr000050660:l16",
+  "gov24-ptr000050660:l17"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999183&bnefType=all&svcId=PTR000050660",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 19,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 5,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "11479a36aa1e6fd7aa77c3739ee233ac9625d7c87088e6df344ce4854b2c7986",
+  "raw": "rules/compiled/_raw/gov24-ptr000050660.json",
+  "at": "2026-11-01T04:02"
+ }
+}

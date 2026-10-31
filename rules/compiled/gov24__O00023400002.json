@@ -1,0 +1,194 @@
+{
+ "id": "gov24:O00023400002",
+ "source": "gov24",
+ "name": "서대문행복이룸센터 취·창업 관련 교육 프로그램 감면",
+ "org": "서울특별시 서대문구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "서대문구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "취창업 교육",
+  "행복이룸센터",
+  "교육 감면"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "한부모가족",
+    "장애인",
+    "국가유공자"
+   ],
+   "evidence": [
+    "gov24-o00023400002:l2",
+    "gov24-o00023400002:l3",
+    "gov24-o00023400002:l4",
+    "gov24-o00023400002:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 2,
+   "evidence": [
+    "gov24-o00023400002:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-o00023400002:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-o00023400002:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:서울특별시",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "서대문구",
+   "evidence": [
+    "gov24-o00023400002:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00023400002:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00023400002:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00023400002:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00023400002:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00023400002:l6"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2116701&bnefType=all&svcId=O00023400002",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 5
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "3c40d947decdd5e0a141f7018b72f3c84247104731c4eeb7e0fce6fe2ccd12d3",
+  "raw": "rules/compiled/_raw/gov24-o00023400002.json",
+  "at": "2026-11-01T04:02"
+ }
+}

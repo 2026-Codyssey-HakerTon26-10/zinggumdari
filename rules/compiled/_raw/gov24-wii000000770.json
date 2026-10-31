@@ -1,0 +1,13 @@
+{
+ "key": "6b5b4ede38490908058f4275f1d6dc1d84b53a13bfcc8ab9b7b73814a69efe88",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6424,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 253
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"청소년상담1388 온라인상담 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"청소년상담\", \"1388상담\", \"온라인상담\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 9, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 24, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

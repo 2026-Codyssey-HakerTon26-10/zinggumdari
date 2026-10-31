@@ -1,0 +1,109 @@
+{
+ "id": "gov24:300000000123",
+ "source": "gov24",
+ "name": "저소득가구 명절 위문금 지원",
+ "org": "서울특별시 종로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "종로구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "명절 위문금",
+  "저소득가구 지원",
+  "한부모가정 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "한부모가족",
+    "기초생활수급자"
+   ],
+   "evidence": [
+    "gov24-300000000123:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "주거",
+    "교육"
+   ],
+   "evidence": [
+    "gov24-300000000123:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:주거",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "AI가 읽은 조건의 형식이 맞지 않음",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-300000000123:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=809975&bnefType=all&svcId=300000000123",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9f387801f0f6fa1adb005fff5b3449efc1f3c87c7d338873c86a1d9964a19195",
+  "raw": "rules/compiled/_raw/gov24-300000000123.json",
+  "at": "2026-11-01T03:56"
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-303000000114",
+  "title": "산후조리비용 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2101901&bnefType=all&svcId=303000000114",
+  "fetched_at": "2026-10-31",
+  "sha256": "078d6def25ddb9a6e278db34cc8fe0220c6ad57837554ced8f46c90303c508a7",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

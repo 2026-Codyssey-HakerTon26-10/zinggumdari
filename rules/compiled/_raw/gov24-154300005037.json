@@ -1,0 +1,13 @@
+{
+ "key": "8c0d3d89c42139b3149d861de4ca5a1a8db6ad34cdb5654a5b511d7c30cf3bdd",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6653,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 347
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"농촌취약계층주거개선\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"농촌주거개선\",\"취약계층주거\"],\"conditions\":[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"소년소녀가장, 조손가구, 독거노인, 장애인, 다문화가정, 한부모가정 등으로서 시장·군수·구청장이 지원이 필요하다고 인정하는 저소득 가구\",\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

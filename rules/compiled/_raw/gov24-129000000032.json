@@ -1,0 +1,13 @@
+{
+ "key": "9ac4aaf9d6a7543851b46cf34612aa06561ce9f89684c13ddfdf6d7383f2a65d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6589,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 330
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"군무원 채용시험 응시수수료 면제\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"군무원 채용\", \"응시수수료 면제\", \"시험 수수료\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\", \"한부모가족\", \"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": [[], [{\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

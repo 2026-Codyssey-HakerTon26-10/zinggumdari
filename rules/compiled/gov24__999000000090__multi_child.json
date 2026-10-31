@@ -1,0 +1,197 @@
+{
+ "id": "gov24:999000000090:multi_child",
+ "source": "gov24",
+ "name": "다자녀(세 자녀 이상) 국가장학금",
+ "org": "교육부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "다자녀장학금",
+  "국가장학금 다자녀",
+  "세 자녀 이상 장학금"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 39,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-999000000090:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 3,
+   "evidence": [
+    "gov24-999000000090:l2",
+    "gov24-999000000090:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "marital_status",
+   "op": "==",
+   "value": "미혼",
+   "evidence": [
+    "gov24-999000000090:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 9,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-999000000090:l2",
+    "gov24-999000000090:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "직전 학기 12학점 이상 이수, 100점 만점 80점 이상",
+   "evidence": [
+    "gov24-999000000090:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "기초·차상위계층은 70점 이상, 학자금지원 1~3구간은 C학점 경고제 2회 적용",
+   "evidence": [
+    "gov24-999000000090:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "장애 대학생은 성적 및 이수학점 기준 미적용, 자립준비청년은 성적 기준 미적용",
+   "evidence": [
+    "gov24-999000000090:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "신·편입생은 첫 학기에 한하여 성적 및 이수학점 기준 미적용",
+   "evidence": [
+    "gov24-999000000090:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-999000000090:l7"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999257&bnefType=all&svcId=999000000090",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 12,
+  "used": 6,
+  "labeled": {
+   "definition": 1,
+   "procedure": 2,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "42985c10dc9e1f6567a1d38a24e5d6d7ad0e63476f40524d846628f5e3ddb14c",
+  "raw": "rules/compiled/_raw/gov24-999000000090.json",
+  "at": "2026-11-01T04:00"
+ }
+}

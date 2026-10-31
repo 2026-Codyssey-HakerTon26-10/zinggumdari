@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 관내 거주하는 15세 이하 취약계층 아토피, 천식환자 중 아래에 해당하는 경우", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 국가기초생활보장수급자, 의료급여수급자, 다문화가정, 셋째 자녀 이상 가정의 자녀, 장애인, 한부모가정 및 등록신청월 기준 최근 6개월간 기준중위소득 100%이하 가구", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

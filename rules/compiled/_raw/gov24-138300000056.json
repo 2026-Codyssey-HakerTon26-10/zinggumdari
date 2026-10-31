@@ -1,0 +1,13 @@
+{
+ "key": "54e6515beaaf3b5a997770978ddde492800b2bb3eda5fcb7ae6fad5ad16f9163",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6577,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 322
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"다문화가족지원센터 이용\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화가족\", \"결혼이민자\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"한국인(출생·인지·귀화 등 불문)과 결혼이민자로 이루어진 가족 또는 한국인(출생·인지·귀화 등 불문)과 귀화자로 이루어진 가족\", \"evidence\": [\"l7\", \"l8\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

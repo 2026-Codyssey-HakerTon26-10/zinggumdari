@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-301000000126",
+  "title": "출산양육지원금 지급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004772&bnefType=all&svcId=301000000126",
+  "fetched_at": "2026-10-31",
+  "sha256": "7a9dc2dbf8d30954cfc53d9870b9fb0936e5be36fb0361851d4033ceb3ba4c24",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

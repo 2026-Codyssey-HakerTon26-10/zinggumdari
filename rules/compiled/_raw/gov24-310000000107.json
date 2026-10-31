@@ -1,0 +1,13 @@
+{
+ "key": "1ade071f8e98f6daef47e29fae322334f4a456ea77bef081bf63455b388b5bd2",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6456,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 375
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"청년일경험 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"청년 일경험\", \"청년 취업 지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"노원구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 39, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"employment_status\", \"op\": \"in\", \"value\": [\"구직\", \"기타\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l4\"], \"any_of\": []}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

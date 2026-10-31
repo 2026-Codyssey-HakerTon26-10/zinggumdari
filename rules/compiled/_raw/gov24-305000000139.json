@@ -1,0 +1,13 @@
+{
+ "key": "a8f2ca54a9b86d06598feaf42d5be13fa47b4b2919e68ee6a94044f479f7a9a7",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6434,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 209
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 공영장례 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"공영장례\",\"장제급여\",\"무연고사망자\"],\"conditions\":[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"history\",\"op\":\"==\",\"value\":\"무연고사망자\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

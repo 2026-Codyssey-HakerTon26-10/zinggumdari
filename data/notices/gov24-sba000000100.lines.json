@@ -1,0 +1,17 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "1) 지원대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "조건부 수급자, 자활특례자, 일반 수급자 중 희망자(근로 능력 무관), 차상위계층, 전문기술보유자 등", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 조건부 수급자: 자활사업 참여를 의무 조건으로 생계급여를 받는 수급자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 일반 수급자 : 근로 능력 없는 생계급여수급권자 및 조건부과제외자, 의료·주거·교육급여수급권자 중 참여희망자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 자활급여특례자: 생계·의료급여 수급자가 자활사업(자활기업·국민취업지원제도 포함)에 참여하여 발생한 소득으로 인하여 소득인정액이 기준 중위소득의 40%를 초과한 경우", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 차상위계층 등 : 근로 능력이 있고, 소득인정액이 기준 중위소득 50% 이하인 사람 중 비수급권자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "2) 연령 기준", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "-만 18세 생일이 속한 달부터 만65세 원칙", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "3) 기타기준", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "-조건부과유예자 제외", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

@@ -1,0 +1,13 @@
+{
+ "key": "5ab05de479a61582a8281c2a5eb3e30a684f0199c72dbbfd02c19aafa9c56127",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6406,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 143
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"은평구 청소년 상담복지센터\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"청소년 상담\", \"청소년 복지\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

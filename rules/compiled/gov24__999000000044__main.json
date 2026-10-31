@@ -1,0 +1,98 @@
+{
+ "id": "gov24:999000000044:main",
+ "source": "gov24",
+ "name": "지역사회서비스 청년사업단 일상돌봄특화서비스",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "일상돌봄특화서비스",
+  "가족돌봄청년"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 64,
+      "text": "돌봄이 필요한 청년·중장년"
+     },
+     {
+      "field": "other",
+      "text": "돌봄이 필요한 상태"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 39,
+      "text": "가족돌봄청년"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000044:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "fail:b0.0:missing_bound:13",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "돌봄이 필요한 청년·중장년 또는 가족돌봄청년",
+   "evidence": [
+    "gov24-999000000044:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999161&bnefType=all&svcId=999000000044",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6ca64c17fdc12586218337733b61240e36d8fa1f5bb67f48c33915cd723ed9d6",
+  "raw": "rules/compiled/_raw/gov24-999000000044.json",
+  "at": "2026-11-01T04:00"
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-305000000101",
+  "title": "노인 성인용 보행기 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000531&bnefType=all&svcId=305000000101",
+  "fetched_at": "2026-10-31",
+  "sha256": "08153a1131b524adc9bdd69f3d2cbe5a150b9276040d562c7d78dd94f6376840",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

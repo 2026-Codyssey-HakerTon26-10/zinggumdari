@@ -1,0 +1,64 @@
+{
+ "id": "gov24:306000000233:youth",
+ "source": "gov24",
+ "name": "중랑청년청 운영",
+ "org": "서울특별시 중랑구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "중랑구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "중랑구 청년",
+  "청년 지원"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "중랑구",
+   "evidence": [
+    "gov24-306000000233:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2153022&bnefType=all&svcId=306000000233",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 1,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "8d2ce6991b113f7a6a4078f1fa33b52085ce019a7e0ef39ffb6e188c07afcb2b",
+  "raw": "rules/compiled/_raw/gov24-306000000233.json",
+  "at": "2026-11-01T03:57"
+ }
+}

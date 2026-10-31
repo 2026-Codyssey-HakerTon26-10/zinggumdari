@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-300000000123",
+  "title": "저소득가구 명절 위문금 지원(기초주거급여,기초교육급여, 차상위 및 법정 한부모가정)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=809975&bnefType=all&svcId=300000000123",
+  "fetched_at": "2026-10-31",
+  "sha256": "9f387801f0f6fa1adb005fff5b3449efc1f3c87c7d338873c86a1d9964a19195",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

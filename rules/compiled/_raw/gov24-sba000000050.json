@@ -1,0 +1,13 @@
+{
+ "key": "e168e9e36fd828abee8b4bf88dc29f7e827cc6109e9a447c1986fd59b3d6f219",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6540,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 227
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장제급여\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"장제비\", \"장례비\"], \"conditions\": [{\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\", \"주거\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l6\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"out_of_scope\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

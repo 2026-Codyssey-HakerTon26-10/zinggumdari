@@ -1,0 +1,13 @@
+{
+ "key": "395ecb510e4acf2d484823684004b74f3888300f057d23731ccb79f733619bdd",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6683,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 238
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"고교학비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"고등학교 학비\",\"교육비 지원\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"한부모가족\",\"차상위계층\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":null,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l5\",\"l6\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:01"
+}

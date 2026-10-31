@@ -1,0 +1,13 @@
+{
+ "key": "c11c334bc854183991a9a2ba97b61120870557c57a48a703deebcc04c326eaa1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6528,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 379
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"어르신 보행보조차 지원\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"보행보조차\",\"노인 보조기구\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"ltc_grade\",\"op\":\"==\",\"value\":\"없음\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":[[],[{\"field\":\"ltc_grade\",\"op\":\"!=\",\"value\":\"없음\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"거동불편 의사소견으로 보행기가 필요하다고 인정되는 자\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200000005",
+  "title": "임산부 및 영유아 영양플러스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999156&bnefType=all&svcId=135200000005",
+  "fetched_at": "2026-10-31",
+  "sha256": "efd7b8510c6a45c39ff6afaf4b8832d4493f7bd616d787850434bae71bb05068",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

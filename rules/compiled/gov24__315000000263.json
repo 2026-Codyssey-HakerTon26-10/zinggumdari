@@ -1,0 +1,168 @@
+{
+ "id": "gov24:315000000263",
+ "source": "gov24",
+ "name": "강서 생활민원기동대 서비스",
+ "org": "서울특별시 강서구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강서구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "생활민원기동대",
+  "재료비 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위계층",
+    "장애인",
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-315000000263:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "lives_alone",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "relation",
+      "op": "==",
+      "value": "부"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "relation",
+      "op": "==",
+      "value": "모"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-315000000263:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "150세대 이상 공동주택(아파트) 거주자 제외",
+   "evidence": [
+    "gov24-315000000263:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "빈집, 오피스텔, 사업장, 상시 관리업체가 있는 주택 제외",
+   "evidence": [
+    "gov24-315000000263:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-315000000263:l3"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2112702&bnefType=all&svcId=315000000263",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "360d9cdd4723e445c685e0971a85b1844cb37e3f4f9a5b06312735bf1805bedc",
+  "raw": "rules/compiled/_raw/gov24-315000000263.json",
+  "at": "2026-11-01T03:58"
+ }
+}

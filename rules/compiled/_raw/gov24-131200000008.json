@@ -1,0 +1,13 @@
+{
+ "key": "45927f99030b7b141a3e64ce21963cef93a516fedf09f22a2b6f9ff99630ee22",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6542,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 236
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"다자녀가구 자동차취득세 감면\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"discount\",\"aliases\":[\"다자녀 자동차\",\"자동차취득세 감면\",\"자녀 양육\"],\"conditions\":[{\"field\":\"children_count\",\"op\":\">=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

@@ -1,0 +1,80 @@
+{
+ "id": "gov24:174100000087",
+ "source": "gov24",
+ "name": "청년성장프로젝트",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "청년 지원",
+  "청년 프로젝트"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 15,
+   "evidence": [
+    "gov24-174100000087:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 34,
+   "evidence": [
+    "gov24-174100000087:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128277&bnefType=all&svcId=174100000087",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b067de27f074d66495d21e61c3613e7a3e8431d0f5edad3053caa889c17f6794",
+  "raw": "rules/compiled/_raw/gov24-174100000087.json",
+  "at": "2026-11-01T03:56"
+ }
+}

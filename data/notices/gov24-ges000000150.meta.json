@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-ges000000150",
+  "title": "방과후학교 자유수강권",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=592721&bnefType=all&svcId=GES000000150",
+  "fetched_at": "2026-10-31",
+  "sha256": "22042e113ee39b50c3aa5a85b228849037d80ce4a97db0e809059773596db079",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

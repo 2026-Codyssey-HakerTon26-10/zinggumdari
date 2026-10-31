@@ -1,0 +1,228 @@
+{
+ "id": "gov24:135200005034:main-3",
+ "source": "gov24",
+ "name": "노인 개안수술비 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "개안수술",
+  "노인 수술비"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 60,
+   "evidence": [
+    "gov24-135200005034:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위",
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-135200005034:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "백내장 진단을 받고 해당 눈 시력이 0.3 이하",
+   "evidence": [
+    "gov24-135200005034:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "당뇨성 망막병증, 망막박리, 기타 망막질환 진단을 받고 수술이 필요하다고 인정받은 환자",
+   "evidence": [
+    "gov24-135200005034:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "녹내장 등 기타 안질환 진단을 받고 수술이 필요하다고 인정받은 환자",
+   "evidence": [
+    "gov24-135200005034:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l17"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l21"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l22"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l23"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l24"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l25"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l26"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l27"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l29"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005034:l34"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156718&bnefType=all&svcId=135200005034",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 25,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 6
+  },
+  "unaccounted": 10
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7472841c0c3bd9586a1ba860e608b649dd4b713500e11a2c2018da33c2322a1a",
+  "raw": "rules/compiled/_raw/gov24-135200005034.json",
+  "at": "2026-11-01T03:55"
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-ges000000130",
+  "title": "고교학비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999051&bnefType=all&svcId=GES000000130",
+  "fetched_at": "2026-10-31",
+  "sha256": "1cf779b40f0e07d91d4c811ecd8b16eaf956f4732d76225db89eea6a940d2da0",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

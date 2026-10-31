@@ -1,0 +1,190 @@
+{
+ "id": "gov24:WII000001250",
+ "source": "gov24",
+ "name": "다문화가족 자녀 언어발달 지원서비스",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "다문화가족 언어지원",
+  "다문화 자녀 언어교육",
+  "언어발달 지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 12,
+   "evidence": [
+    "gov24-wii000001250:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:자녀",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "다문화 가족 자녀",
+   "evidence": [
+    "gov24-wii000001250:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "언어평가 및 언어교육이 필요",
+   "evidence": [
+    "gov24-wii000001250:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "언어발달 평가 결과 교육이 필요",
+   "evidence": [
+    "gov24-wii000001250:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중앙 및 지자체 유사 사업 대상자로 선정되어 지원받고 있지 않음",
+   "evidence": [
+    "gov24-wii000001250:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "국비 및 지방비 지원으로 언어치료 바우처를 받고 있지 않음",
+   "evidence": [
+    "gov24-wii000001250:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "기타 서비스의 목표가 언어 촉진 및 교육에 있지 않음",
+   "evidence": [
+    "gov24-wii000001250:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "다문화 가족 방문교육서비스 중 자녀생활서비스와 중복지원 불가",
+   "evidence": [
+    "gov24-wii000001250:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-wii000001250:l6"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999185&bnefType=all&svcId=WII000001250",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 4,
+  "labeled": {
+   "definition": 1,
+   "procedure": 1,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "13e9ea1ea0532cf4838896014814fe837df09d349563ed71d8422da3ee7b9c8b",
+  "raw": "rules/compiled/_raw/gov24-wii000001250.json",
+  "at": "2026-11-01T04:03"
+ }
+}

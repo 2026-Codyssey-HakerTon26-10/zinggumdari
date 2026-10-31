@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 긴급복지 주지원(생계, 주거, 복지시설이용 지원)을 받는 가구 중 초중고 입학생 또는 재학생", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "* 지원제외대상 : 긴급지원대상자로서 국가 또는 지방자치단체 등으로부터 타 교육지원을 받고 있는 사람(국가보훈대상자 지원(수업료 면제), 교육급여(맞춤형 급여) 등)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 지원대상 : 긴급복지 주지원(생계,주거,복지시설이용 지원)을 받는 가구 중 초중고등학교 입학생 또는 재학생에 대해 학비 지원이 필요하다고 인정되는 사람", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

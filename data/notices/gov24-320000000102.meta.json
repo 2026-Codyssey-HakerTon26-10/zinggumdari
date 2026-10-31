@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-320000000102",
+  "title": "으뜸관악 청년통장 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000908&bnefType=all&svcId=320000000102",
+  "fetched_at": "2026-10-31",
+  "sha256": "c9e25428cce4df16344802a56451ad9a1bd377a73e24c668a65db3e76732bbf0",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

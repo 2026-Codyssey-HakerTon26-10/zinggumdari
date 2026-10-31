@@ -1,0 +1,13 @@
+{
+ "key": "4439a7043d766ef28038803a88dd65a8a81e9ae76a614d971eea00ba511b3e5f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7149,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 834
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"맞춤형농지지원사업\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"cash\",\"aliases\":[\"청년농업인\",\"후계농업인\",\"귀농인\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":18,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\",\"l9\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":39,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\",\"l9\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"청년창업형후계농업경영인으로 관할 지자체로부터 신규 선정\",\"evidence\":[\"l2\",\"l8\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"후계농업경영인으로 관할 지자체로부터 선정된 지 5년 이내\",\"evidence\":[\"l4\",\"l10\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"귀농인(농촌 이외 지역에서 거주하는 비농업인이 농업인이 되기 위해 농촌으로 이주한 지 5년 이내의 55세 이하)\",\"evidence\":[\"l5\",\"l11\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":64,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l6\",\"l12\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"농업경영정보 등록\",\"evidence\":[\"l13\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"본인의 농외 소득액이 연 37백만원 미만\",\"evidence\":[\"l13\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"농지가 소재하는 시군구 안의 지역에 거주하거나 농지가 소재하는 시군구와 연접한 시군구 안의 지역에 거주하거나 해당 농지로부터 직선거리 30km 이내의 지역에 거주\",\"evidence\":[\"l13\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"계약당사자와 부부, 형제자매 또는 직계존비속 등 관계 외의 자\",\"evidence\":[\"l13\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l14\",\"label\":\"procedure\"},{\"line\":\"l15\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

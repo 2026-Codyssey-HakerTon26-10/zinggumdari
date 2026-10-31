@@ -1,0 +1,131 @@
+{
+ "id": "gov24:311000000111",
+ "source": "gov24",
+ "name": "설명절 위문금 지원",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "국가유공자 위문금",
+  "설날 추석 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "순국선열",
+    "애국지사",
+    "전몰군경",
+    "전상군경",
+    "순직군경",
+    "공상군경",
+    "무공수훈자",
+    "보국수훈자",
+    "6·25참전 재일학도의용군인",
+    "4·19혁명사망자",
+    "4·19혁명부상자",
+    "4·19혁명공로자",
+    "순직공무원",
+    "공상공무원",
+    "국가사회발전 특별공로순직자",
+    "국가사회발전 특별공로상이자",
+    "국가사회발전 특별공로자",
+    "전투종사군무원",
+    "6·18자유상이자",
+    "지원순직군경",
+    "지원공상군경",
+    "지원순직공무원",
+    "지원공상공무원",
+    "재해사망군경",
+    "재해부상군경",
+    "재해사망공무원",
+    "재해부상공무원",
+    "참전유공자",
+    "5·18민주화운동사망·행방불명자",
+    "5·18민주화운동부상자",
+    "5·18민주화운동희생자",
+    "고엽제후유(의)증",
+    "고엽제후유증 2세환자",
+    "특수임무사망·행방불명자",
+    "특수임무부상자",
+    "특수임무공로자"
+   ],
+   "evidence": [
+    "gov24-311000000111:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "history",
+   "op": "in",
+   "value": [
+    "유족증"
+   ],
+   "evidence": [
+    "gov24-311000000111:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-311000000111:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001482&bnefType=all&svcId=311000000111",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "378b6ab75de62453c450845d388a88f46494c20d8e07a3609330351f4a407e3e",
+  "raw": "rules/compiled/_raw/gov24-311000000111.json",
+  "at": "2026-11-01T03:58"
+ }
+}

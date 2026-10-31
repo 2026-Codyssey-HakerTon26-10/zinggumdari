@@ -1,0 +1,13 @@
+{
+ "key": "3e0d9936479b27f73fbaeb528c616d63d887b98149d9257e5742bd75b4ce2018",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6447,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 372
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"미래 청년 일자리\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"청년일자리\",\"청년지원\",\"미래청년\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":19,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":39,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"구직\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"history\",\"op\":\"==\",\"value\":\"의무복무 제대군인\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"age\",\"op\":\"<=\",\"value\":42,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "b5e300be7cc67cb173ba2ac293937bc6abe4b7314879a3025ab771acb3c9da23",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6706,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 550
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장애인 주택주거용 편의시설 설치지원\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"service\", \"aliases\": [\"장애인 편의시설\", \"주택개조지원\"], \"conditions\": [{\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": null, \"income_basis\": \"urban_worker_pct\", \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"지자체 등에서 지원을 받고 3년이 경과하지 아니한 자 또는 금융기관 등에 주택개조 비용융자를 추천하여 개조지원을 받은 자는 제외\", \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"수급자의 수선유지급여, 유사한 주거환경 등과 관련된 개선사업 지원을 받은 자는 제외(지원내용이 중복되지 않은 경우는 지원 가능)\", \"evidence\": [\"l7\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"exclusive\"}, {\"line\": \"l8\", \"label\": \"exclusive\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

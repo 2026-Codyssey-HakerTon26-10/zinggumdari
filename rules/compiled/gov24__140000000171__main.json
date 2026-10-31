@@ -1,0 +1,254 @@
+{
+ "id": "gov24:140000000171:main",
+ "source": "gov24",
+ "name": "국가유공자 등의 국가정원의 관람료 면제",
+ "org": "산림청",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "국가정원 관람료 면제",
+  "국가유공자 관람료"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 7,
+   "evidence": [
+    "gov24-140000000171:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-140000000171:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "순천시",
+   "evidence": [
+    "gov24-140000000171:l4"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:순천시",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 8,
+   "evidence": [
+    "gov24-140000000171:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 13,
+   "evidence": [
+    "gov24-140000000171:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-140000000171:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "국가유공자"
+   ],
+   "evidence": [
+    "gov24-140000000171:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자"
+   ],
+   "evidence": [
+    "gov24-140000000171:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 3,
+   "evidence": [
+    "gov24-140000000171:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "evidence": [
+    "gov24-140000000171:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-140000000171:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-140000000171:l18"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=510252&bnefType=all&svcId=140000000171",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c793a1a601e85c9c4a03b32ea9eacb230714b18bab681c1de99988f941cde836",
+  "raw": "rules/compiled/_raw/gov24-140000000171.json",
+  "at": "2026-11-01T03:56"
+ }
+}

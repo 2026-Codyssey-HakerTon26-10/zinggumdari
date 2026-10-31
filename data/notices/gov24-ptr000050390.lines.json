@@ -1,0 +1,17 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 산모 또는 배우자가 생계·의료·주거·교육급여 수급자 또는 차상위계층*에 해당하는 출산가정", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "* 차상위본인부담경감, 차상위자활, 차상위장애인, 차상위자격확인", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 산모 및 배우자 등 해당 가구의 건강보험료 본인 부담금 합산액이 기준중위소득 150% 이하 금액에 해당하는 출산가정", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "* 정해진 소득 기준을 초과하는 경우라도 예외적으로 지원이 필요하다고 인정되는 유형에 대해서는 시.도 또는 시.군.구가 별도의 기준은 정해 예외 지원 가능(자세한 사항은 해당 시.군.구(보건소) 문의)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 신청대상", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 산모 또는 배우자가 생계·의료·주거·교육급여 수급자 또는 차상위 계층에 해당하는 출산가정", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 산모 및 배우자 등 해당가구의 건강보험료 본인부담금 합산액이 기준중위소득 150%이하 금액에 해당하는 출산가정", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 신청기한 : 출산예정일 40일 전부터 출산일로부터 30일 까지", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "* 임신 16주 이후 발생한 유산,사산의 경우 확인일로부터 30일 이내 신청(의사 소견서, 확인서 또는 사산(사태)증명서 첨부)", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "* 미숙아,선천성 이상아 출산 등으로 입원한 경우에는 신생아의 퇴원일로부터 30일 이내 신청 가능(입,퇴원일이 명시된 진단서, 의사소견서, 입퇴원 확인서 등 첨부)", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

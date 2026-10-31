@@ -1,0 +1,13 @@
+{
+ "key": "eda541841be12605d4238b07b7568fc79e6f8ad8842261f0b2494aa714f6f0f1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6621,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 295
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"외국인 주민 EMS 요금 할인 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"discount\",\"aliases\":[\"외국인 EMS 할인\",\"외국인 요금 지원\"],\"conditions\":[{\"field\":\"residence_months\",\"op\":\">=\",\"value\":3,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"외국인 등록증 체류자격이 E-9, H-2, D-2, D-4, F-4, D-10, F-1, F-2, F-3, F-5 중 하나\",\"evidence\":[\"l4\",\"l5\",\"l6\",\"l7\",\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"procedure\"},{\"line\":\"l10\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

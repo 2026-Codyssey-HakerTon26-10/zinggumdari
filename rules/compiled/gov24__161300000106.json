@@ -1,0 +1,144 @@
+{
+ "id": "gov24:161300000106",
+ "source": "gov24",
+ "name": "주거취약계층 주거상향 지원",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "쪽방",
+  "고시원",
+  "반지하"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "쪽방, 고시원 등 주택이외의거처 또는 침수우려 반지하 등에 3개월 이상 거주",
+   "evidence": [
+    "gov24-161300000106:l2",
+    "gov24-161300000106:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "최저주거기준 미달 가구"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-161300000106:l2",
+    "gov24-161300000106:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-161300000106:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 70,
+   "income_basis": "urban_worker_pct",
+   "evidence": [
+    "gov24-161300000106:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "영구임대주택 입주대상 자산기준 충족",
+   "evidence": [
+    "gov24-161300000106:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2147862&bnefType=all&svcId=161300000106",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "391a230516ba53501240b2235bbe6150f770695dc5c4b7070ba5088750bb331c",
+  "raw": "rules/compiled/_raw/gov24-161300000106.json",
+  "at": "2026-11-01T03:56"
+ }
+}

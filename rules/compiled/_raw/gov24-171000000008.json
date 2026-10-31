@@ -1,0 +1,13 @@
+{
+ "key": "aa050d9ea9192b50182360ad00c98ebb74862e00e790aeac7532b2e13c4d3187",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6566,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 670
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"다문화가정 EMS 요금 할인 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"다문화가족 EMS 할인\", \"결혼이민자 요금 지원\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"내국인과 결혼한 다문화 가족\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"외국인 등록증 체류자격 F-6-1, F-6-2, F-6-3 중 하나\", \"evidence\": [\"l4\"], \"any_of\": [[{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"외국인 등록증 체류자격 F-6-1, F-6-2, F-6-3 중 하나\"}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다문화 가족지원법 제2조 제2호에 의한 결혼이민자\"}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"귀화 허가를 받은 자\"}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"국적 취득자로 주민등록증 및 가족관계증명서 등으로 확인 가능한 자\"}]]}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다문화 가족지원법 제2조 제2호에 의한 결혼이민자, 귀화 허가를 받은 자임을 증빙할 수 있는 자\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

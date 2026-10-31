@@ -1,0 +1,152 @@
+{
+ "id": "gov24:SD0000017261",
+ "source": "gov24",
+ "name": "폭력피해자 주거지원",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "가정폭력피해자",
+  "성폭력피해자",
+  "스토킹피해자"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "가정폭력·성폭력·스토킹 등 피해자 및 동반가족으로 자립·자활을 원하며, 의지가 있는 사람",
+   "evidence": [
+    "gov24-sd0000017261:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "장기 보호시설 입주자 또는 이주여성",
+   "evidence": [
+    "gov24-sd0000017261:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-sd0000017261:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000017261:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000017261:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000017261:l16"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000017261:l17"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000017261:l20"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000017261:l22"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999191&bnefType=all&svcId=SD0000017261",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 11,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 6
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9fbda99983e7d2accd4f9ea201cf07a0cdb877ef0bfb2215a4ad59f4da7c9580",
+  "raw": "rules/compiled/_raw/gov24-sd0000017261.json",
+  "at": "2026-11-01T04:03"
+ }
+}

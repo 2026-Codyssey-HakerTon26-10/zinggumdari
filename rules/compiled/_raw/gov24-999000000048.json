@@ -1,0 +1,13 @@
+{
+ "key": "06bd1fb4d2c9f845346637e5d17932e5abf45b24b713a9a8f6b1c0e439b65b8d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6889,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 792
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"특별현금급여 (가족요양비)\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"cash\", \"aliases\": [\"가족요양비\", \"노인현금급여\", \"장기요양비\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"ltc_grade\", \"op\": \"not_in\", \"value\": [\"없음\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l8\"], \"any_of\": [[], [{\"field\": \"ltc_grade\", \"op\": \"in\", \"value\": [\"3등급\", \"4등급\", \"5등급\"], \"income_basis\": null, \"as_of\": null, \"text\": \"등급판정위원회가 심의하여 시설급여 대상으로 판정 받은 사람\"}], [{\"field\": \"ltc_grade\", \"op\": \"in\", \"value\": [\"1등급\", \"2등급\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"노인성 질병(치매, 뇌혈관 질환, 파킨슨병 및 관련 질환)을 가진 65세 미만 국민\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"도서, 벽지 등 장기요양기관이 현저히 부족한 지역에 거주\", \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"천재지변이나 그 밖에 이와 유사한 사유로 인하여 장기요양기관 이용이 어려운 자\", \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"신체, 정신 또는 성격 등 대통령령으로 정하는 사유로 인하여 가족 등으로부터 장기요양을 받아야 하는 자\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

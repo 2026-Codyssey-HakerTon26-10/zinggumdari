@@ -1,0 +1,141 @@
+{
+ "id": "gov24:138300000053",
+ "source": "gov24",
+ "name": "가정폭력 피해자 보호시설 퇴소자 자립지원금",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "가정폭력 피해자 자립지원",
+  "보호시설 퇴소자 지원"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "피해자 및 동반아동의 입소기간이 4개월 이상이고 자립을 위한 준비가 필요한 경우"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "보호시설 4개월 이상 입소 이후 주거지원시설로 연계된 주거지원 입주자가 퇴거 시 자립계획에 따른 자립지원금이 필요한 경우"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "보호시설의 입소기간을 합쳐서 4개월이 되는 경우 (직전 보호시설 퇴소일과 재입소일 간의 간격이 15일 미만)"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-138300000053:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "보호시설 4개월 이상 입소 이후 주거지원시설로 연계된 주거지원 입주자가 퇴거 시 자립계획에 따른 자립지원금이 필요한 경우",
+   "evidence": [
+    "gov24-138300000053:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "보호시설의 입소기간을 합쳐서 4개월이 되는 경우 (직전 보호시설 퇴소일과 재입소일 간의 간격이 15일 미만)",
+   "evidence": [
+    "gov24-138300000053:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000053:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000053:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000053:l10"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2147817&bnefType=all&svcId=138300000053",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1b2ed7caf5fbd14a983da6f50b83472cf1615fef58941e7174f2f86a4bfcfcf1",
+  "raw": "rules/compiled/_raw/gov24-138300000053.json",
+  "at": "2026-11-01T03:55"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "95512b7977d8962c7c5b4c1d5c95faf9d81029b73948789ee65b1ecbf666d615",
+ "model": "claude-opus-4-8",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 9456,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 848
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"노인장기요양보험(장기요양인정)\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"장기요양\",\"노인장기요양보험\",\"요양등급\"],\"conditions\":[{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"age\",\"op\":\"<\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"치매·뇌혈관성 질환 등 노인성 질병(시행령 제2조)이 있는 자\"}]]}],\"documents\":[\"장기요양인정 신청서\",\"의사소견서\",\"진단서\"]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"not_condition\"},{\"line\":\"l13\",\"label\":\"not_condition\"},{\"line\":\"l14\",\"label\":\"not_condition\"},{\"line\":\"l15\",\"label\":\"not_condition\"},{\"line\":\"l16\",\"label\":\"not_condition\"},{\"line\":\"l17\",\"label\":\"not_condition\"},{\"line\":\"l18\",\"label\":\"not_condition\"},{\"line\":\"l20\",\"label\":\"not_condition\"},{\"line\":\"l22\",\"label\":\"not_condition\"},{\"line\":\"l23\",\"label\":\"not_condition\"},{\"line\":\"l24\",\"label\":\"not_condition\"},{\"line\":\"l26\",\"label\":\"not_condition\"},{\"line\":\"l27\",\"label\":\"not_condition\"},{\"line\":\"l29\",\"label\":\"not_condition\"},{\"line\":\"l30\",\"label\":\"not_condition\"},{\"line\":\"l31\",\"label\":\"not_condition\"},{\"line\":\"l32\",\"label\":\"not_condition\"},{\"line\":\"l34\",\"label\":\"not_condition\"},{\"line\":\"l35\",\"label\":\"not_condition\"},{\"line\":\"l37\",\"label\":\"not_condition\"},{\"line\":\"l43\",\"label\":\"procedure\"},{\"line\":\"l45\",\"label\":\"procedure\"},{\"line\":\"l46\",\"label\":\"procedure\"},{\"line\":\"l47\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:39"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-315000000262",
+  "title": "수수료 감면대상자 종량제봉투 지급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2112701&bnefType=all&svcId=315000000262",
+  "fetched_at": "2026-10-31",
+  "sha256": "68d25daf9a0a8e7e3a981ca0e85c8f2c800313e3af16f24b60c121ed0441f85c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,13 @@
+{
+ "key": "e21e9d8ab0eeb7baca1bf379b446c4cbed2bf04cf604432a4d646f5fa6b15327",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6552,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 370
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"긴급복지 연료비 및 전기요금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"긴급복지 연료비\", \"긴급복지 전기요금\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"긴급복지주지원\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"연료비 또는 전기요금이 필요하다고 인정되는 가구\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"주택용 전기가 단전(전류 제한기 부설 포함)된 가구\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "5a9344d73075a122e5e0addcd7c1f53d0e2757ba34e580040b741a6d12f0a46e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6662,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 318
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"중소기업장기근속자주택우선공급\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"rent\",\"aliases\":[\"중소기업근속자\",\"장기근속자주택\"],\"conditions\":[{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"재직\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"history\",\"op\":\"==\",\"value\":\"중소기업 5년 이상 근무 또는 동일 중소기업 3년 이상 근무\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l3\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[\"4대보험 가입내역서\"]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"out_of_scope\"},{\"line\":\"l6\",\"label\":\"out_of_scope\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

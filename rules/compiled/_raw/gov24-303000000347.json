@@ -1,0 +1,13 @@
+{
+ "key": "3548e3587121052a4abaa4c8998bf6c8871c372b54a23353dd26c8fefb9be2ea",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6468,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 515
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"임신부 및 배우자 백일해 예방접종 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"백일해 예방접종\", \"임신부 접종 지원\"], \"conditions\": [{\"field\": \"pregnant\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"due_month\", \"op\": \">=\", \"value\": \"2024-01\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"due_month\", \"op\": \"<=\", \"value\": \"2024-09\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"성동구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"임신부 및 배우자 백일해 예방접종 지원 - 배우자\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"백일해 예방접종\", \"배우자 접종 지원\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"임신부의 배우자\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

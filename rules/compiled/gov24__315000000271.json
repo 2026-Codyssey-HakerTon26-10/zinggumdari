@@ -1,0 +1,143 @@
+{
+ "id": "gov24:315000000271",
+ "source": "gov24",
+ "name": "강서구 전세피해지원금(소송수행경비) 지원",
+ "org": "서울특별시 강서구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강서구"
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "전세피해지원금",
+  "소송수행경비"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-315000000271:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "강서구",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-315000000271:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-315000000271:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "특별법에 따라 국토교통부 장관이 결정한 전세사기피해자 또는 HUG 전세피해확인서 발급자",
+   "evidence": [
+    "gov24-315000000271:l4",
+    "gov24-315000000271:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "경·공매, 보증금지급명령, 보증금반환청구소송, 손해배상청구소송 등의 수행에 따른 경비 발생",
+   "evidence": [
+    "gov24-315000000271:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-315000000271:l9"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2114410&bnefType=all&svcId=315000000271",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 5,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1f1ebc51de108a1310bfe2d64abc1a40a414d00cf7261f1c44b363801a9028fa",
+  "raw": "rules/compiled/_raw/gov24-315000000271.json",
+  "at": "2026-11-01T03:58"
+ }
+}

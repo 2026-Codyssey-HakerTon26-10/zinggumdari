@@ -1,0 +1,13 @@
+{
+ "key": "4b0c270130ad9c2780681208413c62d970749de99a5694552ccaf39175b36d71",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7297,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 361
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"사업화 연계 지식재산평가 지원\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"service\", \"aliases\": [\"지식재산평가\", \"특허평가\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"개인 또는 중소기업으로서 공개된 출원 특허 또는 등록된 특허·실용신안의 권리자(전용실시권자 포함)\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"out_of_scope\"}, {\"line\": \"l8\", \"label\": \"out_of_scope\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

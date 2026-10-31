@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-303000000327",
+  "title": "장난감세상",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2161819&bnefType=all&svcId=303000000327",
+  "fetched_at": "2026-10-31",
+  "sha256": "6a2dcb17278406dfad43c17c1c700ed25b32513e264ffba080838d61ae3a6ce3",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

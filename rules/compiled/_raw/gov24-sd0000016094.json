@@ -1,0 +1,13 @@
+{
+ "key": "b793eb4813200fdc4460362321ad8dacf6537f206dfbb41a043a9391fb195654",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6441,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 480
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"임산부 엽산제, 철분제 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"임산부 영양제\",\"엽산 철분 지원\"],\"conditions\":[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"due_month\",\"op\":\"!=\",\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"due_month\",\"op\":\">=\",\"value\":\"2024-10\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null},{\"field\":\"due_month\",\"op\":\"<=\",\"value\":\"2025-04\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null}],[{\"field\":\"due_month\",\"op\":\">=\",\"value\":\"2024-11\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null},{\"field\":\"due_month\",\"op\":\"<=\",\"value\":\"2025-05\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null}],[{\"field\":\"due_month\",\"op\":\">=\",\"value\":\"2024-12\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null},{\"field\":\"due_month\",\"op\":\"<=\",\"value\":\"2025-06\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null}]]},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"보건소 등록 임산부\",\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"definition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

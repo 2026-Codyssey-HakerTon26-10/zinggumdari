@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-spe000000020",
+  "title": "장애아동수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=681340&bnefType=all&svcId=SPE000000020",
+  "fetched_at": "2026-10-31",
+  "sha256": "b3ac904d7151391da53d2b63aad17278e7b6d8be55d65701d1bcfb09323f3212",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,201 @@
+{
+ "id": "gov24:315000000268",
+ "source": "gov24",
+ "name": "강서구 전세피해지원금(보증료) 지원",
+ "org": "서울특별시 강서구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강서구"
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "전세사기피해",
+  "보증료지원",
+  "전세피해"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-315000000268:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "강서구",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-315000000268:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "tenure_type",
+   "op": "==",
+   "value": "전세",
+   "evidence": [
+    "gov24-315000000268:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:전세",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "특별법에 따라 국토교통부 장관이 결정한 전세사기피해자 또는 HUG 전세피해확인서 발급자",
+   "evidence": [
+    "gov24-315000000268:l4",
+    "gov24-315000000268:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "새로운 전·월세 주택으로 입주하여 전세보증금 반환보증 보증료를 납부",
+   "evidence": [
+    "gov24-315000000268:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-315000000268:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "apply_date",
+   "op": ">=",
+   "value": "2023-09-06",
+   "evidence": [
+    "gov24-315000000268:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "2027-07-25",
+   "evidence": [
+    "gov24-315000000268:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-315000000268:l9"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2114407&bnefType=all&svcId=315000000268",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 6,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7c2f5dc6f2658e733753fb747d20d12034cc16db24b8acdc746b5d4fd40cab65",
+  "raw": "rules/compiled/_raw/gov24-315000000268.json",
+  "at": "2026-11-01T03:58"
+ }
+}

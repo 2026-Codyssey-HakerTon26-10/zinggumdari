@@ -1,0 +1,13 @@
+{
+ "key": "ca7f4567e69c629af5d3a7dc58420e7f67030c432bf08c1707b6bb880b7ddae6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6638,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 352
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"주거안정자금 융자(입주보증금 지원)\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"loan\",\"aliases\":[\"입주보증금 지원\",\"저소득 주거취약가구 융자\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"마포구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":70,\"income_basis\":\"urban_worker_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"최저주거기준 미달 가구 또는 비주택 거주 가구\",\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"definition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

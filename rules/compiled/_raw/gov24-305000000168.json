@@ -1,0 +1,13 @@
+{
+ "key": "578ced97db82f0f5318fe8c0acacd69cbddd49c5d82af2b800451a2c667c8bcd",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6635,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 499
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"세대융합형 성공창업 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"창업지원\",\"세대융합형창업\"],\"conditions\":[{\"field\":\"age\",\"op\":\"in\",\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\",\"l4\",\"l5\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">=\",\"value\":19,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":39,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null}],[{\"field\":\"age\",\"op\":\">=\",\"value\":40,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":65,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null}]]},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동대문구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"구직\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l7\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"프랜차이즈 가맹점, 유흥·도박·향락 등 불건전업종, 금융업 및 학원 등 창업지원 취지에 맞지 않는 창업아이템 제외\",\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"procedure\"},{\"line\":\"l10\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

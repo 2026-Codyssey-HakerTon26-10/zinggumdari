@@ -1,0 +1,13 @@
+{
+ "key": "994c9236bb1700b81251ac48f7570efd3318b2e86bc6eeda197841b8fb5cc340",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6388,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 203
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"장애인가정 출산지원금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"장애인 출산지원\",\"장애인가정 지원금\"],\"conditions\":[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"장애인\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

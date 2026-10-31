@@ -1,0 +1,13 @@
+{
+ "key": "222774da675704fa1488027bbdc21556f66dd5de6f73a05dcec9ce23a719ad7a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6569,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 462
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"아빠 육아휴직장려금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"육아휴직\",\"아빠육아휴직\",\"장려금\"],\"conditions\":[{\"field\":\"gender\",\"op\":\"==\",\"value\":\"남\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"강남구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":12,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"육아휴직\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"고용보험 가입자로 육아휴직급여 수급자(공무원, 교사 등 연금 수급자 제외)\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"동일한 육아휴직기간으로 고용노동부 6+6 부모육아휴직제 지원 대상자 제외\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-320000000101",
+  "title": "예방접종 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000814&bnefType=all&svcId=320000000101",
+  "fetched_at": "2026-10-31",
+  "sha256": "3f741065743216e109953b71d50ea2aac3ac90ea54bd5cfbc63858ff57a727bb",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

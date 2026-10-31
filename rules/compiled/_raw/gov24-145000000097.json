@@ -1,0 +1,13 @@
+{
+ "key": "4a03c832a4658bb55e9ca09fad8257b33f86594fac27d5b22ff1d7893bbc0a68",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6458,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 193
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"신재생에너지 설비 설치 비용 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"신재생에너지\", \"태양광 지원\", \"에너지 설비\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"out_of_scope\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"out_of_scope\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

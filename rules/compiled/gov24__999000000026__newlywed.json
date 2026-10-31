@@ -1,0 +1,252 @@
+{
+ "id": "gov24:999000000026:newlywed",
+ "source": "gov24",
+ "name": "행복주택 공급 신혼부부",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "행복주택",
+  "신혼부부"
+ ],
+ "conditions": [
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-999000000026:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marital_status",
+      "op": "==",
+      "value": "신혼"
+     },
+     {
+      "field": "marriage_years",
+      "op": "<=",
+      "value": 7
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "==",
+      "value": "신혼"
+     },
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 1,
+      "text": "6세 이하 자녀(태아 포함)"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000026:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.1:not_in_evidence",
+    "comparator": "fail:b1.1:no_value",
+    "unit": "fail:b1.1:no_value",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 120,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "field": "employment_type",
+      "op": "!=",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 110,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 130,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": ">",
+      "value": 2
+     },
+     {
+      "field": "employment_type",
+      "op": "!=",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": ">",
+      "value": 2
+     },
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 120,
+      "income_basis": "urban_worker_pct"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000026:l25"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:b0.0:op_mismatch",
+    "unit": "ok",
+    "keyword": "fail:b0.1:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "세대내 총자산 3.45억원 이하, 자동차 3,708만원 이하",
+   "evidence": [
+    "gov24-999000000026:l26"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000026:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000026:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000026:l10"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 32,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7dc705940d434a5102b08b2051491c6e2f300cda70d034ed8268bb1aff6d8719",
+  "raw": "rules/compiled/_raw/gov24-999000000026.json",
+  "at": "2026-11-01T04:00"
+ }
+}

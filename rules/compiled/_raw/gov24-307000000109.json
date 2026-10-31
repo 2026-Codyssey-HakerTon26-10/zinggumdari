@@ -1,0 +1,13 @@
+{
+ "key": "ec7fde32a52a37fcbc5447ace60e95c9ebb55fde1c6ad43d01ed14c97772c443",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6505,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 401
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장애인가정 출산지원금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"장애인 출산지원\", \"출산지원금\"], \"conditions\": [{\"field\": \"children_count\", \"op\": \">=\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 12, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"성북구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"household_size\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

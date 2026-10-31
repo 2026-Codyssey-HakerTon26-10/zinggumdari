@@ -1,0 +1,13 @@
+{
+ "key": "c5784dfd2f67c368b4c1c91f59ab452a2f2023637e61ca83d558597c7b9134a0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6620,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 643
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"북아현문화체육센터 문화 프로그램 수강료 감면\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"문화 프로그램 감면\", \"수강료 할인\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"국가유공자\", \"독립유공자\", \"참전유공자\", \"기초생활수급자\", \"고엽제후유의증 환자\", \"5·18 민주유공자\", \"특수임무유공자\", \"의사상자\", \"국군포로\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\", \"l5\", \"l6\", \"l7\", \"l8\", \"l9\", \"l10\", \"l11\"], \"any_of\": null}, {\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l12\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"병역명문가 예우대상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"병역명문가 예우대상자 가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}, {\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l13\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"서대문구\", \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l13\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다둥이행복카드 발급자(부모) 또는 자녀\", \"evidence\": [\"l14\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

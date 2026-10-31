@@ -1,0 +1,22 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 의료비·혼례비·장례비·노부모부양비·자녀양육비 :", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "① 3개월 이상 근속 중(일용직은 신청일 이전 90일 이내에 고용보험법 시행규칙 별지 제7호서식의 고용보험 근로내용 확인신고서에 따른 근로일수가 45일 이상인 경우)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "② 월평균 소득이 3인 가구 기준 중위소득 2분의 1 이하인 노동자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "※ 일용직은 소득 요건 적용하지 않음", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 소액생계비 :", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "① 3개월 이상 근속 중(일용직은 신청일 이전 180일 이내 고용보험법 시행규칙 별지 제7호서식의 고용보험 근로내용 확인신고서에 따른 근로일수가 45일 이상인 경우)", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "② 월평균 소득이 3인 가구 기준 중위소득 2분의 1 이하인 노동자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "③ 개인 사정, 계절 사업 등으로 월 소득이 직전 달에 비해 30% 이상 감소", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 의료비·혼례비·장례비·노부모부양비·자녀양육비 :", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 의료비, 혼례비, 장례비, 부모요양비, 자녀양육비는 다음의 요건을 모두 갖춘 노동자에게 지원", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 융자 신청일 현재 소속 또는 노무제공 사업장에 3개월 이상 근로 중인 자", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 월평균 소득이 3인가구 기준 중위소득 1/2 이하인 노동자", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "○ 소액생계비는 다음의 요건을 모두 갖춘 노동자에게 지원", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "- 융자 신청일 현재 소속 또는 노무제공 사업장에 3개월 이상 근로 중인 자", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "- 월평균 소득이 3인가구 기준 중위소득 1/2 이하인 노동자", "mark": true},
+  {"id": "l18", "page": null, "bbox": null, "text": "- 개인 사정, 계절 사업 등으로 월 소득이 직전 달에 비해 30% 이상 감소", "mark": true},
+  {"id": "l19", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l20", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

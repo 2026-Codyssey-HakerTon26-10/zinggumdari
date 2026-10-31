@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ (법적취약계층) 저소득층 아동, 노인, 다문화가정, 장애인 등", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ (사회적 약자) 위기청소년, 임산부, 미혼모 등", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 예산 범위 내 사회복지시설 추천(사회복지시설 보육자(장애인, 아동, 노인 등), 다문화가정 아동, 저소득층(아동, 장애인, 한부모가정 아동) 가정)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "매년 6월~10월(연도별 상이)", "mark": false}
+]

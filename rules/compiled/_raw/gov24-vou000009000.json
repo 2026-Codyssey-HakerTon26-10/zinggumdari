@@ -1,0 +1,13 @@
+{
+ "key": "156c302dc0f277f387807a0ce50ddab76c222b0e16613a04f5c26fd0f34b2f19",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6887,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 366
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"언어발달지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"장애부모 자녀 언어발달\", \"비장애아동 언어지원\"], \"conditions\": [{\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l17\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<\", \"value\": 12, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l18\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 120, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l11\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l19\", \"label\": \"procedure\"}, {\"line\": \"l20\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

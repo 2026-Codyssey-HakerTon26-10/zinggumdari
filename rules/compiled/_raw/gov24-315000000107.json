@@ -1,0 +1,13 @@
+{
+ "key": "f20fddf978fe8395d12e71453e1c107a0a048d5c8be1801bcea8b22892479986",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6432,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 396
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"장애인 이동보조기기 수리비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"장애인 이동보조기기\",\"이동보조기기 수리\",\"장애인 복지\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"강서구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

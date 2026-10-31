@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000000080",
+  "title": "북향민 자녀 교육 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999198&bnefType=all&svcId=WII000000080",
+  "fetched_at": "2026-10-31",
+  "sha256": "d0b86e0391e5c0283f949a70df6c067a63602766acd1f80ceddb4d91ec1bb1ea",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

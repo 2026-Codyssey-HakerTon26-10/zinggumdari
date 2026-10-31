@@ -1,0 +1,13 @@
+{
+ "key": "12360a75156efd169eba2a4c445d7fe90efbdba203534afd70b3fc4848b9d858",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6718,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 281
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"청년도전지원사업\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"청년지원\",\"구직단념청년\",\"자립준비청년\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":18,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\",\"l6\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":34,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\",\"l6\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"in\",\"value\":[\"구직\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\",\"l6\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"definition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

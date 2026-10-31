@@ -1,0 +1,13 @@
+{
+ "key": "afc92e86a2fe5bbb3301b6ea8dc07922d15c141ec2b50954911538e719267ef2",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6454,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 224
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"결혼이민자 역량강화지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"결혼이민자 교육\", \"역량강화\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"결혼이민자 또는 중도입국자녀\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"exclusive\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

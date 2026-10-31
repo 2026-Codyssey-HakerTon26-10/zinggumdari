@@ -1,0 +1,13 @@
+{
+ "key": "55a7bc035358281b4820e014c055171e5873a0fce6f7709b3ae5edd0b551d713",
+ "model": "claude-opus-4-8",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7977,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 740
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"기초연금\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"cash\",\"aliases\":[\"기초연금\",\"노령연금\",\"어르신 연금\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"income_recognized\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"가구의 소득인정액이 선정기준액 이하(단독가구 247만원, 부부가구 395.2만원, 2026년)\",\"evidence\":[\"l2\",\"l7\",\"l8\",\"l9\",\"l10\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"공무원·사립학교교직원·군인·별정우체국직원연금 수급권자 및 배우자는 원칙적으로 제외(퇴직일시금 수령자, 퇴직유족일시금 수령 후 5년 경과자 등 예외)\",\"evidence\":[\"l21\",\"l22\"],\"any_of\":null}],\"documents\":[\"신분증\",\"사회복지서비스 및 급여 제공(변경) 신청서\",\"소득·재산 신고서\",\"금융 정보 등(금융, 신용, 보험정보) 제공 동의서(본인, 배우자)\",\"통장 사본\"]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"definition\"},{\"line\":\"l12\",\"label\":\"definition\"},{\"line\":\"l13\",\"label\":\"definition\"},{\"line\":\"l14\",\"label\":\"definition\"},{\"line\":\"l15\",\"label\":\"definition\"},{\"line\":\"l16\",\"label\":\"definition\"},{\"line\":\"l17\",\"label\":\"definition\"},{\"line\":\"l19\",\"label\":\"definition\"},{\"line\":\"l24\",\"label\":\"not_condition\"},{\"line\":\"l25\",\"label\":\"not_condition\"},{\"line\":\"l26\",\"label\":\"not_condition\"},{\"line\":\"l28\",\"label\":\"procedure\"},{\"line\":\"l34\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:39"
+}

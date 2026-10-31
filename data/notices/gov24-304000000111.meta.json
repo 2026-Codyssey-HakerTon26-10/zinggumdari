@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000111",
+  "title": "저소득 독거어르신 안부확인(음료배달) 서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001662&bnefType=all&svcId=304000000111",
+  "fetched_at": "2026-10-31",
+  "sha256": "f53b92583d433ba4fd9271bf3174e36f1ac6773edd3ca633901eae5e7ccdd8e0",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

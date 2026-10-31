@@ -1,0 +1,303 @@
+{
+ "id": "gov24:300000000161:main",
+ "source": "gov24",
+ "name": "자치회관 수강료 및 사용료 감면",
+ "org": "서울특별시 종로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "종로구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "자치회관 감면",
+  "수강료 감면",
+  "사용료 감면"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "국가유공자"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "장애인"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "독립유공자"
+      ]
+     },
+     {
+      "field": "sido",
+      "op": "==",
+      "value": "종로구"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "의상자"
+      ]
+     },
+     {
+      "field": "sido",
+      "op": "==",
+      "value": "종로구"
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 3
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "다둥이 행복카드"
+      ]
+     },
+     {
+      "field": "sido",
+      "op": "==",
+      "value": "종로구"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ]
+     },
+     {
+      "field": "sido",
+      "op": "==",
+      "value": "종로구"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "sido",
+      "op": "==",
+      "value": "종로구"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "병역명문가"
+      ]
+     },
+     {
+      "field": "sido",
+      "op": "==",
+      "value": "종로구"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "다둥이 행복카드"
+      ]
+     },
+     {
+      "field": "sido",
+      "op": "==",
+      "value": "종로구"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-300000000161:l11",
+    "gov24-300000000161:l12",
+    "gov24-300000000161:l13",
+    "gov24-300000000161:l14",
+    "gov24-300000000161:l16",
+    "gov24-300000000161:l20"
+   ],
+   "checks": {
+    "schema": "fail:b2.1:value_not_in_vocab:종로구",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "fail:b4.0:no_value",
+    "unit": "fail:b4.0:no_value",
+    "keyword": "fail:b4.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-300000000161:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 12,
+   "evidence": [
+    "gov24-300000000161:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000161:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000161:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000161:l15"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000161:l18"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000161:l19"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000161:l20"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-300000000161:l21"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100903&bnefType=all&svcId=300000000161",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 14,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 7
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1f03b9dce65206fd5a1c9d58747179485fac5b43e7a219e0b108ed98e69af61f",
+  "raw": "rules/compiled/_raw/gov24-300000000161.json",
+  "at": "2026-11-01T03:57"
+ }
+}

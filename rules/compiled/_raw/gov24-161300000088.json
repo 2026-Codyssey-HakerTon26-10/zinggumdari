@@ -1,0 +1,13 @@
+{
+ "key": "8da10192e3410133e001b748782016f8518d91392cd8a1e496dcc9dceac74e3d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6956,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 388
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"청년주택드림 청약통장\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"청년 청약통장\",\"청년주택\",\"주택드림\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":19,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":34,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"income_self\",\"op\":\"<=\",\"value\":5000,\"income_basis\":\"absolute_annual\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l7\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"definition\"},{\"line\":\"l11\",\"label\":\"not_condition\"},{\"line\":\"l12\",\"label\":\"not_condition\"},{\"line\":\"l13\",\"label\":\"definition\"},{\"line\":\"l14\",\"label\":\"procedure\"},{\"line\":\"l15\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 국민건강보험공단 송파지역가입자로서 건강보험료가 보건복지부 고시에 따른 지역가입자 월 보험료 하한액 이하인 세대", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 만 65세 이상 노인세대: 독거노인, 노인부부세대 중 1인 만65세 이하 포함", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 조손가정 : 만 65세 이상 조부모와 18세 미만의 아동(단, 대학에 재학하는 경우 22세 미만)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 만성질환자 또는 희귀난치성 질환자가 있는 세대", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 그 밖에 보험료 지원이 필요하다고 구청장이 인정한 세대", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

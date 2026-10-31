@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 출산한 등록 장애인가정", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 출산일 기준 1년 전부터 계속하여 신청일 현재까지 계속하여 강남구에 주민등록을 두고 거주", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "*강남구에 거주한 기간이 1년 미만인 사람의 경우 계속하여 거주한 기간이 1년이 지나면 지원대상이 됨", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

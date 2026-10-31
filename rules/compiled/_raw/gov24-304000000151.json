@@ -1,0 +1,13 @@
+{
+ "key": "5b8b71c98c19518fa4db5ac8088985ad4bcb4c03f410a2987ecdeb06b0259851",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6402,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 72
+ },
+ "raw_text": "{\"rules\": [], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l2\", \"label\": \"out_of_scope\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

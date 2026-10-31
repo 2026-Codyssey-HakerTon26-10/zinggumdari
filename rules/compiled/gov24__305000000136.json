@@ -1,0 +1,128 @@
+{
+ "id": "gov24:305000000136",
+ "source": "gov24",
+ "name": "동대문구형 산모신생아 건강관리 본인부담금 지원",
+ "org": "서울특별시 동대문구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동대문구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "산모신생아 건강관리",
+  "본인부담금 지원"
+ ],
+ "conditions": [
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 120,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-305000000136:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "장애인산모",
+    "희귀난치성질환자산모",
+    "북한이탈주민산모",
+    "결혼이민산모",
+    "미혼모산모"
+   ],
+   "evidence": [
+    "gov24-305000000136:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-305000000136:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:서울특별시",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "동대문구",
+   "evidence": [
+    "gov24-305000000136:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=809723&bnefType=all&svcId=305000000136",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "738dc5eeae9b787a517679c7b8c292146995980ef1f6fc68fbe022a0efd8599e",
+  "raw": "rules/compiled/_raw/gov24-305000000136.json",
+  "at": "2026-11-01T03:57"
+ }
+}

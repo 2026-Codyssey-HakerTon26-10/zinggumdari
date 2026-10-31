@@ -1,0 +1,13 @@
+{
+ "key": "103ef2ab49bd47a00ab27829fbadb9e3c82ae3e4fdddd911677e68d2011ddedd",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6403,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 253
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 한부모가족 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"한부모가족\",\"저소득가족\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"서초구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"not_in\",\"value\":[\"생계\",\"의료\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

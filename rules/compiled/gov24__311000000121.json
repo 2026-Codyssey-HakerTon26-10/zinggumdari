@@ -1,0 +1,155 @@
+{
+ "id": "gov24:311000000121",
+ "source": "gov24",
+ "name": "노인맞춤돌봄지원 강화사업",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "노인돌봄",
+  "어르신지원",
+  "맞춤돌봄"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-311000000121:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "의료",
+    "주거",
+    "교육"
+   ],
+   "evidence": [
+    "gov24-311000000121:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:생계",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "basic_pension",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-311000000121:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 1
+     }
+    ],
+    [
+     {
+      "field": "basic_pension",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 1
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-311000000121:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:생계",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006674&bnefType=all&svcId=311000000121",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "677b9f737ae5664f2d76a06699cb99a72d81163a60ab4d3ffeb81a5ecd803d1b",
+  "raw": "rules/compiled/_raw/gov24-311000000121.json",
+  "at": "2026-11-01T03:58"
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "id": "gov24:322000000115",
+ "source": "gov24",
+ "name": "저소득 노인가구 국민건강보험료 지원",
+ "org": "서울특별시 강남구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강남구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "cash",
+ "aliases": [
+  "노인건강보험료",
+  "저소득노인지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-322000000115:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "강남구",
+   "evidence": [
+    "gov24-322000000115:l2"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:강남구",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "국민건강보험료 부과금액이 지역가입자 월별 보험료액 하한액(2026년 기준 22,809원) 이하",
+   "evidence": [
+    "gov24-322000000115:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004825&bnefType=all&svcId=322000000115",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1e45d67fa50bcf12a5d43d7ec51a81dc631332a130a990a350d6fe3de4b4a7c9",
+  "raw": "rules/compiled/_raw/gov24-322000000115.json",
+  "at": "2026-11-01T03:59"
+ }
+}

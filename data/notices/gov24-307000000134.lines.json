@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 개인 : 국민기초생활수급자, 장애인, 결혼이민자, 보호대상아동, 국가유공자(1~ 7급 상이등급) 등", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 단체 : 비영리 사회복지시설ㆍ법인ㆍ단체", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

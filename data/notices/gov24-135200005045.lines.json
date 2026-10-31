@@ -1,0 +1,18 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 우울·불안 등 정서적 어려움이 있는 국민 중 아래 기준에 해당하는 자로, 나이 및 소득 기준은 없음", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "① 정신건강복지센터, 대학교 상담 센터, 청소년상담복지센터, Wee센터/Wee클래스 등에서 심리 상담이 필요하다고 인정하는 주민", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "② 정신 의료 기관 등에서 우울·불안 등으로 인하여 심리 상담이 필요하다고 인정하는 주민", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "③ 국가 건강 검진 중 정신 건강 검사 결과에서 중간 정도 이상의 우울이 확인된 주민", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "④ 자립 준비 청년 및 보호 연장 아동", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "⑤ 서비스 신청 일로부터 5년 이내의 재난 피해를 입은 본인 또는 재난 피해로 사망한 자(실종자 포함)의 유가족", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 우울·불안 등 정서적 어려움이 있는 국민 중 아래 기준에 해당하는 자로, 나이 및 소득 기준은 없음", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "① 정신건강복지센터, 대학교 상담 센터, 청소년상담복지센터, Wee센터/Wee클래스 등에서 심리 상담이 필요하다고 인정하는 주민", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "② 정신 의료 기관 등에서 우울·불안 등으로 인하여 심리 상담이 필요하다고 인정하는 주민", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "③ 국가 건강 검진 중 정신 건강 검사 결과에서 중간 정도 이상의 우울이 확인된 주민", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "④ 자립 준비 청년 및 보호 연장 아동", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "⑤ 서비스 신청 일로부터 5년 이내의 재난 피해를 입은 본인 또는 재난 피해로 사망한 자(실종자 포함)의 유가족", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

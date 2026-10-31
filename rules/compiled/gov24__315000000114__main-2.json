@@ -1,0 +1,179 @@
+{
+ "id": "gov24:315000000114:main-2",
+ "source": "gov24",
+ "name": "미혼모·부 양육지원 - 아동양육비",
+ "org": "서울특별시 강서구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강서구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "미혼모 아동양육비",
+  "미혼부 아동양육비",
+  "한부모 양육비"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "강서구",
+   "evidence": [
+    "gov24-315000000114:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "marital_status",
+   "op": "==",
+   "value": "미혼",
+   "evidence": [
+    "gov24-315000000114:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:미혼",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "혼인 기록 및 실제 사실혼 관계가 없는 자",
+   "evidence": [
+    "gov24-315000000114:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-315000000114:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 1,
+   "evidence": [
+    "gov24-315000000114:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 5,
+   "evidence": [
+    "gov24-315000000114:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-315000000114:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-315000000114:l13"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=806439&bnefType=all&svcId=315000000114",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 13,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 6
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "577fc5e7c8aaddc8d80ded0ed6e34fc0cdf38fedb87abdd3adbe72e83131c1af",
+  "raw": "rules/compiled/_raw/gov24-315000000114.json",
+  "at": "2026-11-01T03:58"
+ }
+}

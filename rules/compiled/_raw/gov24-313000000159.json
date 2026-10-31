@@ -1,0 +1,13 @@
+{
+ "key": "ce58f4758cfce894f04eec08a43a9f9b382fa6058fabe8d1fb1db22d0b8c72a9",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6493,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 341
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"아동 예술멘토링 지원서비스\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"아동 예술멘토링\",\"지역사회서비스투자사업\",\"아동 문화예술\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":4,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":12,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":120,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

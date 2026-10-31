@@ -1,0 +1,144 @@
+{
+ "id": "gov24:161300000104:youth",
+ "source": "gov24",
+ "name": "K-패스 청년층",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "청년 교통카드",
+  "청년 교통지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "evidence": [
+    "gov24-161300000104:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 34,
+   "evidence": [
+    "gov24-161300000104:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "AI가 읽은 조건의 형식이 맞지 않음",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-161300000104:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000104:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000104:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000104:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000104:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000104:l12"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2143816&bnefType=all&svcId=161300000104",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 5
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "d22f9397615c27e5876c3ff39921b28b568efd7e6997073b07da18220d51842f",
+  "raw": "rules/compiled/_raw/gov24-161300000104.json",
+  "at": "2026-11-01T03:56"
+ }
+}

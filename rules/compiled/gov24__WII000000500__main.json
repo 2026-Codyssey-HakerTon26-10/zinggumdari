@@ -1,0 +1,216 @@
+{
+ "id": "gov24:WII000000500:main",
+ "source": "gov24",
+ "name": "저소득층 기저귀·조제분유 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "기저귀 지원",
+  "조제분유 지원"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자"
+      ]
+     },
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "차상위"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "AI가 읽은 조건의 형식이 맞지 않음",
+      "reason": "malformed"
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "AI가 읽은 조건의 형식이 맞지 않음",
+      "reason": "malformed"
+     },
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 2
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-wii000000500:l3",
+    "gov24-wii000000500:l10",
+    "gov24-wii000000500:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b4.1:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 1,
+   "evidence": [
+    "gov24-wii000000500:l3",
+    "gov24-wii000000500:l10",
+    "gov24-wii000000500:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000500:l13"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=165908&bnefType=all&svcId=WII000000500",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 19,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 8
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "da983540869451fc51e8fdeb89a05e1ebcfd689ca2e92b066313cf819fc0e041",
+  "raw": "rules/compiled/_raw/gov24-wii000000500.json",
+  "at": "2026-11-01T04:03"
+ }
+}

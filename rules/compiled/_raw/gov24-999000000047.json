@@ -1,0 +1,13 @@
+{
+ "key": "856b9cddea26c914fc53f90233b0fd41ee60cea934a01c99c9a2d7d3f8242566",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6436,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 241
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"치매 환자 공공후견 지원\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"치매 후견\",\"노인 후견\",\"공공후견\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"치매환자\",\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"차상위\",\"기초연금수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000016",
+  "title": "국가보훈대상자 양로지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999064&bnefType=all&svcId=999000000016",
+  "fetched_at": "2026-10-31",
+  "sha256": "1af24dd68ef6c7141158254b4bb83146cb7c568cb2ab981eb16c1d86b4589c12",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

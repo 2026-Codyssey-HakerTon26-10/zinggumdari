@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000019",
+  "title": "제대군인 주택우선공급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999067&bnefType=all&svcId=999000000019",
+  "fetched_at": "2026-10-31",
+  "sha256": "099e7e8fd02b8317735ea1de7143361e578ba2a1434b0720caa03f245ff3291c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

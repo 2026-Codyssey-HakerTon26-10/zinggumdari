@@ -1,0 +1,13 @@
+{
+ "key": "73e6deb8d30263d9e9fe9d1b7b101dafcd2c46a51aba5140536c086eb15f3d56",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6864,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 354
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"고위험 임산부 의료비 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"고위험 임산부\", \"임신질환 의료비\"], \"conditions\": [{\"field\": \"pregnant\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"19대 고위험 임신질환으로 진단받고 입원치료\", \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": \"P6M\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l8\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}]}",
+ "at": "2026-11-01T03:55"
+}

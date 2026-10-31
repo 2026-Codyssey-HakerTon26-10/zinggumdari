@@ -1,0 +1,13 @@
+{
+ "key": "978b1ea5b3d709f98851493b10b5ec4e094076f4e685aa7f76d42be66c7c727f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6543,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 590
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"제대군인 교육지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"제대군인 교육비\", \"군인 교육지원\"], \"conditions\": [{\"field\": \"history\", \"op\": \"in\", \"value\": [\"10년 이상 군복무\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": null, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": \"전역 후 3년 이내\", \"evidence\": [\"l2\", \"l7\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"제대군인 교육지원 자녀교육지원\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"제대군인 자녀 교육비\", \"군인 자녀 교육지원\"], \"conditions\": [{\"field\": \"history\", \"op\": \"in\", \"value\": [\"10년 이상 군복무\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"국가보훈부 생활수준 조사 결과 지원 대상으로 결정\", \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"youngest_child_age\", \"op\": \">=\", \"value\": 14, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"youngest_child_age\", \"op\": \"<=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

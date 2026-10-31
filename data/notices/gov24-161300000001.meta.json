@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-161300000001",
+  "title": "공유형모기지 융자",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=739256&bnefType=all&svcId=161300000001",
+  "fetched_at": "2026-10-31",
+  "sha256": "3de97fc37d33a75fa7bbb40fd8e26eb793faa19f27ed0bfa2869df35c91d3a55",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

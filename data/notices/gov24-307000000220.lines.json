@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "ㅇ 공통 신청자격", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 신청일 기준 서울특별시 성북구에 주민등록이 되어 있는 자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 전세사기피해주택이 성북구 소재 주거용 건물일 것", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 국토교통부 장관이 결정한 전세사기피해자일 것", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "ㅇ 각 지원분야별 신청자격은 지원내용 참고", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청(예산 소진 시까지)", "mark": true}
+]

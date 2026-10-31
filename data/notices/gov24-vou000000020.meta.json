@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-vou000000020",
+  "title": "장애인 활동지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=719747&bnefType=all&svcId=VOU000000020",
+  "fetched_at": "2026-10-31",
+  "sha256": "32af896ff58bc2db21405039c4738cd87317937e0d442fc6ba078199d0edac0f",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

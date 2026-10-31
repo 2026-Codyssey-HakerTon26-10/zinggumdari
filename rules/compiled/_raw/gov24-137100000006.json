@@ -1,0 +1,13 @@
+{
+ "key": "f69f59f22e1338cc3a25c2119c63ea8d3bdf99b65ba4b0afef27ad4a3018f529",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6866,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 420
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"스포츠 강좌 이용권 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"스포츠강좌이용권\", \"청소년스포츠지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 5, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"procedure\"}, {\"line\": \"l15\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

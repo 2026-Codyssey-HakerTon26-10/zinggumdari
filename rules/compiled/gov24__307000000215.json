@@ -1,0 +1,75 @@
+{
+ "id": "gov24:307000000215",
+ "source": "gov24",
+ "name": "성북구 육아종합센터 이용료 및 사용료 감면",
+ "org": "서울특별시 성북구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "성북구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "한부모가족 감면",
+  "육아종합센터 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-307000000215:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-307000000215:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2170136&bnefType=all&svcId=307000000215",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "36a9cfec474e7977c3279b53881df701ffea146e9fdb21463fbc8cc26558d6f3",
+  "raw": "rules/compiled/_raw/gov24-307000000215.json",
+  "at": "2026-11-01T03:57"
+ }
+}

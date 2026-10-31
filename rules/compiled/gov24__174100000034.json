@@ -1,0 +1,125 @@
+{
+ "id": "gov24:174100000034",
+ "source": "gov24",
+ "name": "온라인 신청 시연 테스트(운영)",
+ "org": "행정안전부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [],
+ "conditions": [
+  {
+   "field": "other",
+   "as_of": "notice_date",
+   "text": "사용검사일로부터 15년이 경과한 공동주택 및 부대·복리시설",
+   "evidence": [
+    "gov24-174100000034:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "history",
+   "op": "!=",
+   "value": "5년 이내 보조금 지원",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-174100000034:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": ">=",
+   "value": "2026-10-01",
+   "evidence": [
+    "gov24-174100000034:l25"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "2026-10-30",
+   "evidence": [
+    "gov24-174100000034:l25"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-174100000034:l3"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=808591&bnefType=all&svcId=174100000034",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 24,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 20,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "974555bd49db592c375ada320a3b6cb8776e478936d4b0229dca19cb71c91f05",
+  "raw": "rules/compiled/_raw/gov24-174100000034.json",
+  "at": "2026-11-01T03:56"
+ }
+}

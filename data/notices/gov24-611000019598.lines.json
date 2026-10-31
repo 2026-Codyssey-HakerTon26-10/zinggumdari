@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 서울특별시 주택의 소방시설 설치 조례 제3조(주택용 소방시설의 우선 설치대상)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "1.「노인복지법」에 따른 노인이 홀로 거주하는 주택", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "2.「장애인복지법」에 따른 장애인 또는 지체부자유자가 거주하는 주택", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "3. 소년소녀가장, 한부모 가정 주택", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "4.「국민기초생활보장법」에 따른 국민기초생활수급자가 거주하는 주택", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "(차상위계층 포함)", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "5.「다문화가족지원법」에 따른 다문화 가족이 거주하는 주택", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "6.「건축법」에 따른 지하층을 거주 목적으로 사용하는 주택", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "7. 소방차 통행이 곤란한 지역에 위치한 주택", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "8. 화재예방강화지구 접경 20미터 이내에 위치한 주택", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

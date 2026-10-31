@@ -1,0 +1,212 @@
+{
+ "id": "gov24:305000000119:youth",
+ "source": "gov24",
+ "name": "동대문구 미취업청년 자격취득 활동비 지원",
+ "org": "서울특별시 동대문구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동대문구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "청년 자격취득",
+  "미취업청년 지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "evidence": [
+    "gov24-305000000119:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 39,
+   "evidence": [
+    "gov24-305000000119:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-305000000119:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:서울특별시",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "동대문구",
+   "evidence": [
+    "gov24-305000000119:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "구직"
+     },
+     {
+      "field": "other",
+      "text": "고용보험 미가입자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "주26시간 이하 또는 3개월 이하 단기근로자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-305000000119:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "2024년 11월 이후 국가자격시험, 어학시험, 한국사능력검정시험, 운전면허 시험 등에 응시",
+   "evidence": [
+    "gov24-305000000119:l4",
+    "gov24-305000000119:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "history",
+   "op": "!=",
+   "value": "미응시",
+   "evidence": [
+    "gov24-305000000119:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-305000000119:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-305000000119:l8"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=808093&bnefType=all&svcId=305000000119",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7167617e8fc117fad459cc4c9f8fad647ae857eeca2774e9bf61e34d614f9c9b",
+  "raw": "rules/compiled/_raw/gov24-305000000119.json",
+  "at": "2026-11-01T03:57"
+ }
+}

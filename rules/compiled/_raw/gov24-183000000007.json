@@ -1,0 +1,13 @@
+{
+ "key": "684db746d97e93805dd1eecf64782fd1d6b2856df6b1e6d9055622e3a1e5ef18",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7555,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 634
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"재해위로금 지급\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"국가유공자 재해위로금\", \"보훈 위로금\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"독립유공자\", \"국가유공자\", \"참전유공자\", \"5·18민주유공자\", \"특수임무유공자\", \"보훈보상대상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\", \"l5\", \"l6\", \"l7\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"인명피해: 지급대상자 또는 동거가족의 사망·실종·부상\", \"evidence\": [\"l12\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"주택피해: 지급대상자 또는 배우자·직계존비속 명의 주택의 전파·반파·침수·화재\", \"evidence\": [\"l13\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"기타재산피해: 자경농경지·농림축수산물·시설장비·가재도구·임차주택·임차농지·사업장 피해\", \"evidence\": [\"l15\", \"l16\", \"l17\", \"l18\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"definition\"}, {\"line\": \"l9\", \"label\": \"definition\"}, {\"line\": \"l10\", \"label\": \"definition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"not_condition\"}, {\"line\": \"l19\", \"label\": \"out_of_scope\"}, {\"line\": \"l20\", \"label\": \"procedure\"}, {\"line\": \"l21\", \"label\": \"procedure\"}, {\"line\": \"l22\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

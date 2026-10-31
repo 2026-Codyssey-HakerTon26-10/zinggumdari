@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 만 60세 이상 결식우려 기초생활수급자 및 저소득 어르신(경로식당)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 만 65세 이상 결식우려 기초생활수급자 및 저소득 어르신(도시락배달, 밑반찬배달)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

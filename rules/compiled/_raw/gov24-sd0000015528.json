@@ -1,0 +1,13 @@
+{
+ "key": "fd73e447326986193621e835c410607e079866a1d1f0f6fa7b61763882e36f30",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6600,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 410
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"고령운전자 교통안전교육 서비스 제공\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"고령운전자 교육\", \"교통안전교육\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"개인 한정 또는 부부 특약 자동차 운전보험 가입자\", \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"인지 지각검사에 합격하고 3년 이내 이수한 교육 수료증 제출\", \"evidence\": [\"l2\", \"l9\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

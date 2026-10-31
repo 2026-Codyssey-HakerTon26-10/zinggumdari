@@ -1,0 +1,138 @@
+{
+ "id": "gov24:O00022900004",
+ "source": "gov24",
+ "name": "공영주차장 이용요금 감면",
+ "org": "서울특별시노원구시설관리공단",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "주차요금 감면",
+  "장애인 주차",
+  "국가유공자 주차"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "장애인",
+    "국가유공자",
+    "고엽제후유의증환자",
+    "의사상자",
+    "독립유공자",
+    "5·18민주유공자",
+    "보훈보상대상자",
+    "병역명문가"
+   ],
+   "evidence": [
+    "gov24-o00022900004:l2",
+    "gov24-o00022900004:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "경형자동차, 환경친화적자동차, 다둥이 카드소지자, 승용차공동이용 자동차",
+   "evidence": [
+    "gov24-o00022900004:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "전통시장 이용자",
+   "evidence": [
+    "gov24-o00022900004:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "모범납세자(성실납세증 표지 부착)",
+   "evidence": [
+    "gov24-o00022900004:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00022900004:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000441&bnefType=all&svcId=O00022900004",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ea1ca31ab19699abf2fc0a4d10be85a6f9ca216f717c5afe57fb4a6fea3d93e2",
+  "raw": "rules/compiled/_raw/gov24-o00022900004.json",
+  "at": "2026-11-01T04:02"
+ }
+}

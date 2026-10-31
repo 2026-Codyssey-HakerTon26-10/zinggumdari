@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sse000000100",
+  "title": "노인일자리 및 사회활동 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=577852&bnefType=all&svcId=SSE000000100",
+  "fetched_at": "2026-10-31",
+  "sha256": "333cf6550937fd10cdf4ab262ddf85f380a1abf853f3b3b63b0020357512fdcc",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

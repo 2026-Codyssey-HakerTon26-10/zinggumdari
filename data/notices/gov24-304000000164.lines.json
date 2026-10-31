@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "광진구에 주민등록을 두고 실제 거주하는 65세 이상 또는 차상위 계층 기준 소득인정액 150%이하", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 차량이 아닌 손수레 등으로 수집하는 사람", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 지원 상한 기준 : 1인당 1일 150kg/월 최대 4,500kg까지 가능", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

@@ -1,0 +1,13 @@
+{
+ "key": "3e7f75ccbc785c1c036f0e0df9e8dbbc39853f2857dd61921228891e53bc4567",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7106,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 395
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국가보훈대상자 대부지원\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"보훈대상자 대출\", \"국가유공자 대부\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"독립유공자\", \"독립유공자유족\", \"국가유공자\", \"국가유공자유족\", \"5.18민주유공자\", \"5.18민주유공자유족\", \"특수임무유공자\", \"특수임무유공자유족\", \"재해부상군경\", \"재해부상공무원\", \"재해사망군경유족\", \"재해사망공무원유족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l4\", \"l5\", \"l7\", \"l8\", \"l9\", \"l10\", \"l11\", \"l12\", \"l13\", \"l14\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"procedure\"}, {\"line\": \"l17\", \"label\": \"procedure\"}, {\"line\": \"l18\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

@@ -1,0 +1,120 @@
+{
+ "id": "gov24:161300000001:first_home",
+ "source": "gov24",
+ "name": "공유형모기지 융자 생애최초",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "생애최초 모기지",
+  "첫주택 융자"
+ ],
+ "conditions": [
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "N",
+   "evidence": [
+    "gov24-161300000001:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:N",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "homeless_years",
+   "op": ">=",
+   "value": 5,
+   "evidence": [
+    "gov24-161300000001:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "evidence": [
+    "gov24-161300000001:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_couple",
+   "op": "<=",
+   "value": 7000,
+   "income_basis": "absolute_annual",
+   "evidence": [
+    "gov24-161300000001:l2",
+    "gov24-161300000001:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=739256&bnefType=all&svcId=161300000001",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "3de97fc37d33a75fa7bbb40fd8e26eb793faa19f27ed0bfa2869df35c91d3a55",
+  "raw": "rules/compiled/_raw/gov24-161300000001.json",
+  "at": "2026-11-01T03:56"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "415e7b9b53bad99870ca598dd73a27d9b2e8774e132ebd5aedf91b2916dfc835",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6845,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 415
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"송파구 전세사기피해자등 지원사업\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"cash\", \"aliases\": [\"전세사기피해자\", \"전세피해지원\", \"송파구주거지원\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"송파구 내 주택을 임차한(했던) 자 중 전세사기피해자법에 따른 전세사기피해자등 또는 HUG 전세피해확인서 발급자\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"out_of_scope\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

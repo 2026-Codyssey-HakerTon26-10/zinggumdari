@@ -1,0 +1,13 @@
+{
+ "key": "af8cfa9c025230bdecc0dbbd548aa047fe8503b027090568a9be3cdd5b0834ee",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6631,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 335
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"정신건강복지센터 운영 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"정신건강복지센터\", \"정신건강 상담\", \"정신질환 지원\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"지역사회 주민\", \"evidence\": [\"l10\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"out_of_scope\"}, {\"line\": \"l3\", \"label\": \"out_of_scope\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"out_of_scope\"}, {\"line\": \"l6\", \"label\": \"out_of_scope\"}, {\"line\": \"l7\", \"label\": \"out_of_scope\"}, {\"line\": \"l8\", \"label\": \"out_of_scope\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

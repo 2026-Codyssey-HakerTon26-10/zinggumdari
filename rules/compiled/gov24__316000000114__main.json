@@ -1,0 +1,88 @@
+{
+ "id": "gov24:316000000114:main",
+ "source": "gov24",
+ "name": "저소득 장애인 생활안정 지원",
+ "org": "서울특별시 구로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "구로구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "저소득 장애인 지원",
+  "장애인 학용품비"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위"
+   ],
+   "evidence": [
+    "gov24-316000000114:l2",
+    "gov24-316000000114:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 1,
+   "evidence": [
+    "gov24-316000000114:l2",
+    "gov24-316000000114:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001767&bnefType=all&svcId=316000000114",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "28ab0744491f2c650f2a490e49ec137c357c93a515c62b916dbe620e6057719c",
+  "raw": "rules/compiled/_raw/gov24-316000000114.json",
+  "at": "2026-11-01T03:58"
+ }
+}

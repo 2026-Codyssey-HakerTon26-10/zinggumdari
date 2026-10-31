@@ -1,0 +1,13 @@
+{
+ "key": "fe9bb4511fbaf86ea36add8917b93f27e19c75ff6a5b10001d03dbcae5de83b8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6650,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 403
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"동작구 전세피해임차인 지원금(보증금반환보증료 실비 지원)\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해자지원\",\"보증금반환보증료\",\"전세피해\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"전세사기피해자\"],\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"서울특별시 동작구 주택을 임차한 무주택자\",\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"exclusive\"},{\"line\":\"l9\",\"label\":\"exclusive\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

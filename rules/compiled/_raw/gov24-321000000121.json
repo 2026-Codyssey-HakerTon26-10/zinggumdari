@@ -1,0 +1,13 @@
+{
+ "key": "d010d6face53b248fdd5eead500f7baf996698ec582e31dde2a0a4d8b4155077",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6427,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 334
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"서리풀 희망사다리 프로젝트 자립준비청년(보호종료아동) 자립정착금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"자립준비청년\", \"보호종료아동\", \"자립정착금\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"서초구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 12, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"자립준비청년(보호종료아동)\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,238 @@
+{
+ "id": "gov24:319000000166",
+ "source": "gov24",
+ "name": "동작구 전세피해임차인 지원금(소송수행비 실비 지원)",
+ "org": "서울특별시 동작구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동작구"
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "전세사기피해자지원",
+  "소송수행비지원",
+  "전세피해지원"
+ ],
+ "conditions": [
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-319000000166:l2",
+    "gov24-319000000166:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-319000000166:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "동작구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-319000000166:l2",
+    "gov24-319000000166:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "전세사기피해자"
+   ],
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-319000000166:l2",
+    "gov24-319000000166:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "집행권원 확보 완료",
+   "evidence": [
+    "gov24-319000000166:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "임대인 상대 소송(제3자 상대 소송 제외)",
+   "evidence": [
+    "gov24-319000000166:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "집행권원 확보와 관련된 소송(손해배상청구 소송, 형사사건 제외)",
+   "evidence": [
+    "gov24-319000000166:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "법률구조사업, 법률구조공단 무료 소송이 아닌 집행권원",
+   "evidence": [
+    "gov24-319000000166:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "피해자 결정이 취소, 철회되지 않은 상태",
+   "evidence": [
+    "gov24-319000000166:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": ">=",
+   "value": "2025-03-17",
+   "evidence": [
+    "gov24-319000000166:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2134116&bnefType=all&svcId=319000000166",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 5,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ecb027e755c30d76191197fe60c178ca2d954405717df93b5a72c1994e68b0de",
+  "raw": "rules/compiled/_raw/gov24-319000000166.json",
+  "at": "2026-11-01T03:59"
+ }
+}

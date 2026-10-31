@@ -1,0 +1,13 @@
+{
+ "key": "87a922ab757c144c5361166da98bd8db4684428212b8393b08382a4436226e42",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6422,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 228
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"배움나눔사업\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"저소득 가정 교육비\", \"교육급여 수급자\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"교육급여 수급자\", \"한부모가족\", \"초중고학생교육비 지원 대상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

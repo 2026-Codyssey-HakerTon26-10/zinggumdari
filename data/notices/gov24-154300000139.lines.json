@@ -1,0 +1,16 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 공영도매시장 개설자(지방자치단체)", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 전문기관을 활용하여 해당 도매시장 시설현대화 타당성 검토 및 세부사업추진계획 수립 관련 연구용역을 실시해야만 사업신청 가능", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "* 타당성 조사 시 기획재정부 예비 타당성 조사에 준하는 수준으로 조사 필요[시설현대화 필요성 및 경제성분석(B/C, AHP, 물류ㆍ하역비 절감액, 거래 물량ㆍ금액 증대 등) 결과 도출]", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- '18.1.1 이후에 실시한 연구용역에 대해서만 유효('17년에 실시한 연구용역의 경우 시설정비위원회 의견을 토대로 유효 여부 결정)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- ‘18.1.1 이후 관련 연구용역을 추진할 경우 기존 연구과제에 시설현대화와 연계한 도매시장 운영 활성화 MD 조사* 추가 의무화", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "* MD(merchandising) : 경영혁신 차원에서 과학적인 방법에 따라 수요내용에 적합한 상품․서비스를 알맞은 시기와 장소에 적정하게 유통하기 위한 종합마케팅 시책", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 기 사업대상자로 선정되었거나 사업을 중도에 포기한 사업자는 사업신청 제한", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "* 사업을 포기한 도매시장의 경우 사업을 포기한 날로부터 5년간 사업신청 제한", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 「도시 및 주거환경정비법」의 “노후ㆍ불량건축물” 기준에 따라 건축된 지 20년이 경과한 도매시장을 대상으로 함", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 최근 3년 평균 농안법 제77조에 따른 도매시장 평가결과 하위 30%에 해당될 경우 사업 대상에서 제외", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "공모기간내", "mark": false}
+]

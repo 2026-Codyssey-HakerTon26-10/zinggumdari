@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000001088",
+  "title": "시설입소 장애인 서비스제공",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999144&bnefType=all&svcId=SD0000001088",
+  "fetched_at": "2026-10-31",
+  "sha256": "73506e781fba6e93acdd65c5bea6c622743afa7b4c40e550b3fa06b38f0990f3",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

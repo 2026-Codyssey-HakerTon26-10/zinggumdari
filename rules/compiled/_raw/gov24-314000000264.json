@@ -1,0 +1,13 @@
+{
+ "key": "2a450f7b5c582569a04dc11ea38b4f2b4b05dd25d5568baa54f1503afdc8998e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6790,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 473
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"장기요양기관 요양보호사 처우개선 수당 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"요양보호사 수당\",\"처우개선 수당\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"양천구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"재직\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"장기요양기관에 근무하는 요양보호사\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"산재보험 또는 고용보험에 가입\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전년도 연 100시간 이상 근무\",\"evidence\":[\"l7\"],\"any_of\":[]}],\"documents\":[\"요양보호사 주민등록초본\",\"산재보험 또는 고용보험 가입자 명부\",\"급여명세서\"]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"exclusive\"},{\"line\":\"l10\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 성동구 주차요금 감면 서비스 지원 대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 80% 감면", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "ᆞ장애인, 국가유공자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 50% 감면", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "ᆞ 경형자동차, 저공해자동차, 전기자동차(시간주차/비충전시), 다둥이(2자녀 이상), 보훈보상대상자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 30% 감면: 임산부", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 20% 감면: 병역명문가, 성동구 거주자(거주자우선주차장 월정기만 해당)", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 60분 면제 초과시 50% 감면: 5.18민주유공자, 전기자동차(시간주차/충전시)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 60분 면제: 전통시장 상품 구매 후 점포주가 발행(확인)하는 쿠폰을 제출한 경우(전통시장 주변 일부 공영주차장만 해당)", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 주차요금 면제: 모범납세자", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

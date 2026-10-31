@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000000184",
+  "title": "보훈예우수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110232&bnefType=all&svcId=611000000184",
+  "fetched_at": "2026-10-31",
+  "sha256": "c3ee7b9f10569f160a30f79a49072cef151a2047e990c0823004d2bb3e01aa2b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

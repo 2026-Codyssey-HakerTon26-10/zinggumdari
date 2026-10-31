@@ -1,0 +1,81 @@
+{
+ "id": "gov24:WII000001130",
+ "source": "gov24",
+ "name": "풍수해·지진재해보험료 지원",
+ "org": "행정안전부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "풍수해보험료",
+  "지진재해보험료",
+  "재해보험료 지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "지원대상 목적물: 주택(동산 포함), 온실, 소상공인 상가·공장",
+   "evidence": [
+    "gov24-wii000001130:l2",
+    "gov24-wii000001130:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "대상재해: 태풍, 홍수, 호우, 강풍, 풍랑, 해일, 대설, 지진(지진해일 포함)",
+   "evidence": [
+    "gov24-wii000001130:l3",
+    "gov24-wii000001130:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=92833&bnefType=all&svcId=WII000001130",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "5e94b7052fbd8a1243112dcc7ce54fd1388e5a51df3997aeff38862a9b724abb",
+  "raw": "rules/compiled/_raw/gov24-wii000001130.json",
+  "at": "2026-11-01T04:03"
+ }
+}

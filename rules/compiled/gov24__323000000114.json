@@ -1,0 +1,64 @@
+{
+ "id": "gov24:323000000114",
+ "source": "gov24",
+ "name": "공동주택 유지관리비용 일부지원",
+ "org": "서울특별시 송파구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "송파구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "공동주택 관리비",
+  "유지관리비 지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "사용승인후 10년 경과된 공동주택(30세대 이상)",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-323000000114:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005797&bnefType=all&svcId=323000000114",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9a0ad03f7b07f245589b6dc8f1109b438032217b65c0610a6a7f76f03c4db534",
+  "raw": "rules/compiled/_raw/gov24-323000000114.json",
+  "at": "2026-11-01T03:59"
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-569000000228",
+  "title": "슬레이트 처리지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=750034&bnefType=all&svcId=569000000228",
+  "fetched_at": "2026-10-31",
+  "sha256": "d1c058cfd0ed6f2c904e69e46308630fe392ccffd8381327f2002b7b543a8dbd",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,91 @@
+{
+ "id": "gov24:138300000066",
+ "source": "gov24",
+ "name": "양육비 이행 지원 서비스",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "양육비 지원",
+  "미성년 자녀 양육"
+ ],
+ "conditions": [
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 1,
+   "evidence": [
+    "gov24-138300000066:l2",
+    "gov24-138300000066:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 19,
+   "evidence": [
+    "gov24-138300000066:l2",
+    "gov24-138300000066:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000066:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2153420&bnefType=all&svcId=138300000066",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "510c96caf7d17581d9253306bc5b6304bebf487d64b36ab63f2d192f7828f1f7",
+  "raw": "rules/compiled/_raw/gov24-138300000066.json",
+  "at": "2026-11-01T03:55"
+ }
+}

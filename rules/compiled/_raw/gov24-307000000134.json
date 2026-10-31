@@ -1,0 +1,13 @@
+{
+ "key": "874d7ee6785936da08299bb94ea4dfe6e9d838b8a39a8c899f07acd697b971f6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6463,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 231
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"사랑의 PC 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"PC 지원\", \"컴퓨터 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"장애인\", \"결혼이민자\", \"보호대상아동\", \"국가유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"out_of_scope\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

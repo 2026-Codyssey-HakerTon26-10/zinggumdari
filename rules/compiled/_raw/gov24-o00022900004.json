@@ -1,0 +1,13 @@
+{
+ "key": "b7e808c28441c290a18a6c28a95512cac78d3d7f93d320c13c0613d8ae2eff66",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6989,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 423
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"공영주차장 이용요금 감면\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"discount\",\"aliases\":[\"주차요금 감면\",\"장애인 주차\",\"국가유공자 주차\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"장애인\",\"국가유공자\",\"고엽제후유의증환자\",\"의사상자\",\"독립유공자\",\"5·18민주유공자\",\"보훈보상대상자\",\"병역명문가\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"경형자동차, 환경친화적자동차, 다둥이 카드소지자, 승용차공동이용 자동차\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전통시장 이용자\",\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"모범납세자(성실납세증 표지 부착)\",\"evidence\":[\"l6\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"out_of_scope\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

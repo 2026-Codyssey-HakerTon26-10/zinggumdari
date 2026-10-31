@@ -1,0 +1,13 @@
+{
+ "key": "b92f300dcea4295e24bfbce1116c38c8a1c15dc1ad2c94eca96858cb659fefea",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6502,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 453
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장애인 활동지원(구비추가)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"활동지원\", \"장애인 활동지원\", \"활동보조\"], \"conditions\": [{\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\"], \"any_of\": [[{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"활동지원 X1점수 300점 이상 독거 중증장애인\"}, {\"field\": \"lives_alone\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"활동지원 X1점수 248점 이상 성인 발달장애인\"}], [{\"field\": \"children_count\", \"op\": \">=\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"youngest_child_age\", \"op\": \"<=\", \"value\": 13, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 출생아동의 보호자", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 지원대상 아이는 강남구에 출생신고", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 보호자와 대상 아이는 주민등록상 동일 세대", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 보호자의 강남구 거주기간 : 1년 이상( 1년 미만의 경우 1년 경과 후 지급)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 친권자(보호자)의 가족관계증명서상의 자녀 순위를 기준으로 지원", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

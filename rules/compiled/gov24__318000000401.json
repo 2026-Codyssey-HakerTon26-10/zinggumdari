@@ -1,0 +1,141 @@
+{
+ "id": "gov24:318000000401",
+ "source": "gov24",
+ "name": "장애인가정 양육지원금",
+ "org": "서울특별시 영등포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "영등포구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "장애인 양육지원",
+  "장애인 자녀 지원"
+ ],
+ "conditions": [
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-318000000401:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 1,
+   "evidence": [
+    "gov24-318000000401:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "fail:unit_mismatch",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 7,
+   "evidence": [
+    "gov24-318000000401:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "영등포구",
+   "evidence": [
+    "gov24-318000000401:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 12,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-318000000401:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2142329&bnefType=all&svcId=318000000401",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a01c1133bd32d9fd030451a6bcc6900aac5c524fcde78edf9ec71a7d80f936d6",
+  "raw": "rules/compiled/_raw/gov24-318000000401.json",
+  "at": "2026-11-01T03:58"
+ }
+}

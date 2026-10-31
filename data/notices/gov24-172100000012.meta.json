@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-172100000012",
+  "title": "취약계층 통신요금감면",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110213&bnefType=all&svcId=172100000012",
+  "fetched_at": "2026-10-31",
+  "sha256": "1b840754165a7234729da6a36cd49c39ff6dfcbff4dc76228bbbf1c725e3d1aa",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

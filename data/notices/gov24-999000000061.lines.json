@@ -1,0 +1,17 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 보상금을 받지 않는 독립유공자의 자녀 및 손자녀 중 저소득자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 국민기초생활보장법의 적용을 받는 자로서 다음 어느 하나에 해당하는 경우", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 생계급여수급자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 의료급여수급자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 주거급여수급자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 교육급여수급자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 차상위계층", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 국가보훈처의 생활조정수당 수급자", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 기준 중위소득 70% 이하자", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 4인가구 4,850,920원", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "○ 기초연금수급자 중 단독 또는 부부세대", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "별도 신청기간 없음", "mark": true}
+]

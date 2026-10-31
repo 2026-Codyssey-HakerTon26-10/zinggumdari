@@ -1,0 +1,13 @@
+{
+ "key": "8381aa6900fffb81afa4854f089419cd4714daf300657e542037ff67116cfa1d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6791,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 500
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"주거취약계층 주거상향 지원\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"rent\",\"aliases\":[\"쪽방\",\"고시원\",\"반지하\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"쪽방, 고시원 등 주택이외의거처 또는 침수우려 반지하 등에 3개월 이상 거주\",\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"children_count\",\"op\":\">=\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":[[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"최저주거기준 미달 가구\"}]]},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l10\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":70,\"income_basis\":\"urban_worker_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l10\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"영구임대주택 입주대상 자산기준 충족\",\"evidence\":[\"l10\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

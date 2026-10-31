@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-149200005008",
+  "title": "자영업자 실업급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=797986&bnefType=all&svcId=149200005008",
+  "fetched_at": "2026-10-31",
+  "sha256": "82fd5d7b65073cfa2b03a97f324e89f085e1acdd30cfe98a0d004f8aa74454d0",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

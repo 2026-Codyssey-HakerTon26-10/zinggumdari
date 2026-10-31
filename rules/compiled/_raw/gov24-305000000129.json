@@ -1,0 +1,13 @@
+{
+ "key": "924033e8085399b18283da00671f39ea7cba769bc0eb5c9c86cf3e6f5e4583df",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6453,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 487
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"다문화 자녀 문화예술 프로그램\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화가족 자녀\", \"문화예술 프로그램\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다문화가족 자녀\", \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"다문화 자녀 문화예술 프로그램 오케스트라\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화가족 자녀 오케스트라\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다문화가족 자녀\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"다문화 자녀 문화예술 프로그램 연극단\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화가족 자녀 연극단\", \"어울마당\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다문화가족 자녀\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

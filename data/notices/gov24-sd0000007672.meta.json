@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000007672",
+  "title": "건강보험 임신·출산 진료비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999124&bnefType=all&svcId=SD0000007672",
+  "fetched_at": "2026-10-31",
+  "sha256": "c82b8d042a11c8438a2d9bdd1bb2ffe58ec2fce3d553797a53b0d70667b18cef",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

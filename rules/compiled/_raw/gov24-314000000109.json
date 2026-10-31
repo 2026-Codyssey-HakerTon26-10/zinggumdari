@@ -1,0 +1,13 @@
+{
+ "key": "67dd050629e19d5421ab843c4d003c9b01449b7a38f066646991df7b45e4f318",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6521,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 513
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"아토피·천식 취약계층 의료비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"아토피 의료비\",\"천식 의료비\",\"취약계층 의료비\"],\"conditions\":[{\"field\":\"age\",\"op\":\"<=\",\"value\":15,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"관내 거주\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"의료급여수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"다문화가정\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"children_count\",\"op\":\">=\",\"value\":3,\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"장애인\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

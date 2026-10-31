@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000026",
+  "title": "행복주택 공급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
+  "fetched_at": "2026-10-31",
+  "sha256": "7dc705940d434a5102b08b2051491c6e2f300cda70d034ed8268bb1aff6d8719",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

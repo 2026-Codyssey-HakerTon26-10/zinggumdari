@@ -1,0 +1,13 @@
+{
+ "key": "7bb7f9024e9de930b790c547be7442603e842bcf207313027fda542702022615",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6811,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 543
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"자치회관 수강료 감면 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"자치회관 수강료\", \"수강료 감면\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"등록장애인\", \"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l4\", \"l5\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"자치회관 수강료 감면 지원 - 다자녀 가정\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"자치회관 수강료\", \"다자녀 감면\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"서울특별시 구로구 출산장려 및 다자녀 가정 지원에 관한 조례에 따른 다자녀 가정\", \"evidence\": [\"l10\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"out_of_scope\"}, {\"line\": \"l7\", \"label\": \"out_of_scope\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"out_of_scope\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"exclusive\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

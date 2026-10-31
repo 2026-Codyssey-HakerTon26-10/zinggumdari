@@ -1,0 +1,13 @@
+{
+ "key": "49e216ee9c02b7f3e97c99d71aaefc29547ccf6e4c61acb303344ac3851ea9a1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6408,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 257
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"미혼 한부모 자녀 의료비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"미혼한부모\",\"한부모가족\",\"자녀의료비\"],\"conditions\":[{\"field\":\"marital_status\",\"op\":\"in\",\"value\":[\"미혼\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"children_count\",\"op\":\">=\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<=\",\"value\":5,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

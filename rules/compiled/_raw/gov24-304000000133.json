@@ -1,0 +1,13 @@
+{
+ "key": "72704a1b5bb0c61f38414f065893a09ca3a379407a79131f062dc42432b28cd0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6483,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 303
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"고독사 예방 똑똑안부확인 서비스 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"고독사 예방\",\"안부확인 서비스\",\"사회적 고립\"],\"conditions\":[{\"field\":\"household_size\",\"op\":\"==\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"위기 상황 대응이 어려워 사회적 고립이 우려되는 다인 가구(노인, 장애인 돌봄 가구 등)\",\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"household_size\",\"op\":\">\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

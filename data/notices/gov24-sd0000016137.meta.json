@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000016137",
+  "title": "긴급복지 교육지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=760820&bnefType=all&svcId=SD0000016137",
+  "fetched_at": "2026-10-31",
+  "sha256": "6109fcd463ca4e005dba3b0d575d1e78f8cad4ac2f7add70d36dbef0e61517bd",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

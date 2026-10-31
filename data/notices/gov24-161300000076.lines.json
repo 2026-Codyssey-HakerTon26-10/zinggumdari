@@ -1,0 +1,20 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 만19세 이상 세대주(단독세대주인 경우 만25세 이상), 무주택자, 부부합산 연 소득 5천만원 이하인 자(2자녀 이상 가구 6천만원 이하, 신혼가구 7.5천만원 이하)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 대출 신청일 현재 단독세대주를 제외한 만 19세 이상인 세대주로서 (단, 만 25세 미만의 미혼인 자녀가 직계존속을 부양", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "하는 조건으로 신청하는 경우 세대 합가 기간(주민등록등본 상 합가일 기준)연속하여 6개월 이상인 경우) 또는 세대주로", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "인정되는 자", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 세대주란 주택공급에 관한 규칙 제2조 제8항에 따라 세대별 주민등록표상에 직계존속, 배우자 (배우자의 직계존속", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "포함) 또는 직계비속인 세대원으로 이루어진 세대의 세대주를 말합니다.", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 세대주의 세대원인 배우자", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 대출 신청일로부터 3개월 이내에 결혼으로 인하여 세대주로 예정된 자", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 민법상 미성년인 형제, 자매로 구성된 세대의 세대주", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 만 25세 이상인 단독세대주 (다만, 행복주택에 입주하는 만19세 이상의 대학생을 포함)", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "○ 대출 신청일 현재 세대주로서 세대주를 포함한 세대원 전원이 무주택자", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "및 세대주 예정자", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "○ 대출 신청인과 배우자의 연 소득 합산 50백만원 이하인 자 (단, 신혼 가구, 2자녀 이상 가구, 혁신도시 이전 공공기관종사자 또는 타 지역으로", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "이주하는 재개발 구역 내 세입자인 경우 60백만원 이하인 자)", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l18", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

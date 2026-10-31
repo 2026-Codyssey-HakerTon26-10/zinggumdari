@@ -1,0 +1,13 @@
+{
+ "key": "a248f32d5d18e9e84032af5583bee4e4541066fadb420b6895a3e7744ca078a9",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6773,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 696
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"청년내일채움공제\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"cash\",\"aliases\":[\"청년공제\",\"내일채움공제\",\"고용보험청년\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":15,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":39,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"재직\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"history\",\"op\":\"==\",\"value\":\"생애최초취업\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"subscription_months\",\"op\":\"<=\",\"value\":12,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"고용보험 피보험자수 5인 이상~50인 미만 제조, 건설업종 중소기업에 정규직으로 취업\",\"evidence\":[\"l3\",\"l7\"],\"any_of\":null}],\"documents\":[]},{\"track\":\"institution\",\"name\":\"청년내일채움공제 기업\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"cash\",\"aliases\":[\"청년공제\",\"내일채움공제\",\"고용보험청년\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"고용보험 피보험자수 5인 이상~50인 미만 제조, 건설업종 중소기업\",\"evidence\":[\"l7\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"가입대상 청년 채용일 직전 3개월 평균 고용보험 피보험자수 5인 이상~50인 미만\",\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"not_condition\"},{\"line\":\"l12\",\"label\":\"procedure\"},{\"line\":\"l13\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

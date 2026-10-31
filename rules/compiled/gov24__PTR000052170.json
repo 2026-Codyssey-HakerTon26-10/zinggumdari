@@ -1,0 +1,135 @@
+{
+ "id": "gov24:PTR000052170",
+ "source": "gov24",
+ "name": "경력단절 여성과학기술인 복귀 지원",
+ "org": "과학기술정보통신부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "경력단절 여성",
+  "과학기술인 복귀",
+  "여성과학기술인"
+ ],
+ "conditions": [
+  {
+   "field": "gender",
+   "op": "==",
+   "value": "여",
+   "evidence": [
+    "gov24-ptr000052170:l3",
+    "gov24-ptr000052170:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "과학기술 분야 취업 경력 단절(임신, 출산, 육아, 가족 구성원 돌봄)",
+   "evidence": [
+    "gov24-ptr000052170:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "학위 취득 후 미취업 중(임신, 출산, 육아, 가족 구성원 돌봄)",
+   "evidence": [
+    "gov24-ptr000052170:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "이공계 학사 이상 학위 소지(학사의 경우 6개월 이상 경력)",
+   "evidence": [
+    "gov24-ptr000052170:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000052170:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000052170:l16"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=173728&bnefType=all&svcId=PTR000052170",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 3,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 1,
+   "not_condition": 0
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1df558c96b9d47fa671a2aa2e40257378e58cee8e8b264e7948fb991977d9112",
+  "raw": "rules/compiled/_raw/gov24-ptr000052170.json",
+  "at": "2026-11-01T04:02"
+ }
+}

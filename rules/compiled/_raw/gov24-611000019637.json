@@ -1,0 +1,13 @@
+{
+ "key": "43776a540683364c22379e4811a991db4ac262f527a0b088a76d99ebb7a940bf",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6522,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 437
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"새빛주택 지원사업\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"rent\", \"aliases\": [\"새빛주택\", \"주택 지원\"], \"conditions\": [{\"field\": \"tenure_type\", \"op\": \"in\", \"value\": [\"자가\", \"월세\", \"전세\", \"보증부월세\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 48, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": [[], []]}, {\"field\": \"house_price\", \"op\": \"<=\", \"value\": 30000, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": \"건축법에 따른 사용 승인 후 15년 이상 경과\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 재가한센인생계비지원", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 한센병사업대상자 중 수급자에서 제외된 자로서 중위소득 60% 이하인 자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 한센인간이양로주택 및 한센인생활시설 거주자는 지원대상에서 제외", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 한센병사업대상자 중 수급자에서 제외된 자로서 중위소득 60% 이하인 자에게 지원", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

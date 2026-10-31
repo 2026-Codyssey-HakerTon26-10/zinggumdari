@@ -1,0 +1,23 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 체육시설 이용료 감면(50%)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 국가유공자증 소지자(배우자 포함)", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 특수임무 유공자증 소지자(배우자 포함)", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 5.18 민주 유공자증 소지자(배우자 포함)", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 의사상자증 소지자(배우자 포함)", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 장애인 복지카드 소지자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 장애인의 동반자 동일한 프로그램 이용시", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 다둥이카드 소지자로 18세 미만의 자녀가 2명 이상인 경우 12세 미만의 자녀", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 체육시설 이용료 감면(30%)", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 기초생활수급자", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 체육시설 이용료 감면(20%)", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 한부모가족 증명서 소지자", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 다문화대상자 가족", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 만65세 이상자", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "- 수영, 체육 프로그램만 적용", "mark": false},
+  {"id": "l17", "page": null, "bbox": null, "text": "- 병역명문가증 소지자", "mark": false},
+  {"id": "l18", "page": null, "bbox": null, "text": "○ 체육시설 이용료 감면(10%)", "mark": true},
+  {"id": "l19", "page": null, "bbox": null, "text": "- 만13~만55세 이하 수영프로그램 이용여성", "mark": true},
+  {"id": "l20", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l21", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

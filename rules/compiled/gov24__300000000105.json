@@ -1,0 +1,158 @@
+{
+ "id": "gov24:300000000105",
+ "source": "gov24",
+ "name": "홀몸 어르신 건강음료 지원",
+ "org": "서울특별시 종로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "종로구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "노인 건강음료",
+  "저소득 어르신 지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-300000000105:l2",
+    "gov24-300000000105:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "lives_alone",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-300000000105:l2",
+    "gov24-300000000105:l3",
+    "gov24-300000000105:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:Y",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자",
+       "차상위계층"
+      ]
+     },
+     {
+      "field": "livelihood_status",
+      "op": "!=",
+      "value": "해당없음"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "livelihood_status",
+      "op": "!=",
+      "value": "해당없음"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 65
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 65
+     },
+     {
+      "field": "other",
+      "text": "조손 세대로 건강상 사고 발생 우려"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-300000000105:l2",
+    "gov24-300000000105:l3",
+    "gov24-300000000105:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003643&bnefType=all&svcId=300000000105",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a55b803a3e4aad52e8ed5278659968fbb3336925b260d55c3b93fc5f426edd19",
+  "raw": "rules/compiled/_raw/gov24-300000000105.json",
+  "at": "2026-11-01T03:56"
+ }
+}

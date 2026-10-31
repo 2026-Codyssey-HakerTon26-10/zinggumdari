@@ -1,0 +1,163 @@
+{
+ "id": "gov24:322000000107",
+ "source": "gov24",
+ "name": "강남구 산후건강관리비용 지원사업(본인부담금 환급)",
+ "org": "서울특별시 강남구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강남구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "산후건강관리",
+  "산모신생아건강관리",
+  "본인부담금환급"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-322000000107:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:서울특별시",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "강남구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-322000000107:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 12,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-322000000107:l2",
+    "gov24-322000000107:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 1,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-322000000107:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "출생자녀가 강남구에 출생등록",
+   "evidence": [
+    "gov24-322000000107:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "산모신생아 건강관리 지원사업 서비스 이용",
+   "evidence": [
+    "gov24-322000000107:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001448&bnefType=all&svcId=322000000107",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6c90441126a14c22722394cfe817a8b5bb4c828f8829036ab3c3f2c983a04df7",
+  "raw": "rules/compiled/_raw/gov24-322000000107.json",
+  "at": "2026-11-01T03:59"
+ }
+}

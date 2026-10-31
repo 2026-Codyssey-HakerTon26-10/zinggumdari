@@ -1,0 +1,125 @@
+{
+ "id": "gov24:502000000101",
+ "source": "gov24",
+ "name": "입양숙려기간 모자지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "한부모 지원",
+  "출산 지원",
+  "입양숙려기간"
+ ],
+ "conditions": [
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-502000000101:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:Y",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "marital_status",
+   "op": "in",
+   "value": [
+    "미혼",
+    "이혼·사별"
+   ],
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-502000000101:l2",
+    "gov24-502000000101:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "지원 기간 입양(동의) 사실이 없을 것",
+   "evidence": [
+    "gov24-502000000101:l2",
+    "gov24-502000000101:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-502000000101:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-502000000101:l6"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=16166&bnefType=all&svcId=502000000101",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b74b70fcaed0882a4ca2e89ec497e22c6f891364032aeccd2349e6d568e05f4c",
+  "raw": "rules/compiled/_raw/gov24-502000000101.json",
+  "at": "2026-11-01T03:59"
+ }
+}

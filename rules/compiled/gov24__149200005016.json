@@ -1,0 +1,219 @@
+{
+ "id": "gov24:149200005016",
+ "source": "gov24",
+ "name": "청년일자리도약장려금",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "청년일자리",
+  "도약장려금"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 15,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-149200005016:l4",
+    "gov24-149200005016:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 34,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-149200005016:l4",
+    "gov24-149200005016:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "history",
+      "op": "==",
+      "value": "4개월 이상 실업",
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "고졸이하"
+      ],
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "history",
+      "op": "==",
+      "value": "최종학교 졸업 후 고용보험 가입기간 1년 미만",
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "고용촉진장려금 대상"
+      ],
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "국민취업지원제도 참여자"
+      ],
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "청년도전지원사업 수료자"
+      ],
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "자립준비청년"
+      ],
+      "as_of": "application_date"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "폐자영업자"
+      ],
+      "as_of": "application_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-149200005016:l4",
+    "gov24-149200005016:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "사업참여 신청 직전 월부터 이전 1년간 평균 고용보험 피보험자수 5인 이상인 우선지원대상기업 사업주(지식서비스·문화콘텐츠·신재생에너지 산업, 청년창업기업, 미래유망기업, 지역주력산업, 고용위기지역 소재 기업, 특별고용지원업종 등은 1인 이상도 가능)",
+   "evidence": [
+    "gov24-149200005016:l2",
+    "gov24-149200005016:l3",
+    "gov24-149200005016:l7",
+    "gov24-149200005016:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200005016:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200005016:l10"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=809404&bnefType=all&svcId=149200005016",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 6,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7b2c5a53ff9cda660a4d52bd8495ce103f6bb7125926a25f501f133384310259",
+  "raw": "rules/compiled/_raw/gov24-149200005016.json",
+  "at": "2026-11-01T03:56"
+ }
+}

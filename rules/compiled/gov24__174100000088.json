@@ -1,0 +1,66 @@
+{
+ "id": "gov24:174100000088",
+ "source": "gov24",
+ "name": "구직자·기업 도약보장 패키지",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "도약보장 패키지",
+  "구직자 지원",
+  "경력단절 지원"
+ ],
+ "conditions": [
+  {
+   "field": "employment_status",
+   "op": "in",
+   "value": [
+    "구직",
+    "실업"
+   ],
+   "evidence": [
+    "gov24-174100000088:l6",
+    "gov24-174100000088:l13"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:실업",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128278&bnefType=all&svcId=174100000088",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a9909e1c265023c67ba6e9bbef7f792a92c08c036835d898794091d4fd1ce764",
+  "raw": "rules/compiled/_raw/gov24-174100000088.json",
+  "at": "2026-11-01T03:56"
+ }
+}

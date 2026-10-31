@@ -1,0 +1,13 @@
+{
+ "key": "32d58354f6ab2bbb798de50bfa257989e48585be97e3875fa8a839ae93b9cf97",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7032,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 543
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"농어촌 출신 대학(원)생 학자금 융자 지원 (무이자)\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"농어촌 학자금 융자\", \"농어촌 대학생 지원\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"농어촌지역에 주민등록 주소를 두고 6개월 이상 거주하거나 농어업에 종사하는 학부모(보호자)의 자녀\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"농어업에 종사하는 대학생 및 대학원생 본인\", \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"농식품인재 대상 학과(농업계대학 농림축산식품계열 학과)에 재학, 복학, 입학 예정인 대학생 및 대학원생 본인\", \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○「국민기초생활 보장법」상 생계급여 또는 의료급여 수급자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 「국가유공자 등 예우 및 지원에 관한 법률」제5조에 따라 등록된 사람, 그 유족 또는 그 가족으로서「의료급여법」제3조제1항제5호에 해당하는 사람", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 「한부모가족지원법」제5조에 의한 한부모가족", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 그 밖에 구청장이 인정하는 사람", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

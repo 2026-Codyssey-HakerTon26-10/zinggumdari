@@ -1,0 +1,13 @@
+{
+ "key": "e802b65af643d95eae4880e20c86381d43cdcb8cd7e905140cb67644fd9b4e55",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6688,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 669
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"강서구 전세피해지원금(이사비) 지원\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세피해지원금\",\"이사비지원\",\"강서구전세\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"강서구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"==\",\"value\":\"전세\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"특별법에 따라 국토교통부 장관이 결정한 전세사기피해자 또는 HUG 전세피해확인서 발급자\",\"evidence\":[\"l4\",\"l5\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]},{\"track\":\"main\",\"name\":\"강서구 전세피해지원금(이사비) 지원 - 공공임대주택 입주자\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세피해지원금\",\"이사비지원\",\"강서구전세\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"강서구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"긴급 주거지원 및 인근 공공임대 우선공급에 따라 공공임대주택으로 입주한 자\",\"evidence\":[\"l6\",\"l7\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"exclusive\"},{\"line\":\"l10\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

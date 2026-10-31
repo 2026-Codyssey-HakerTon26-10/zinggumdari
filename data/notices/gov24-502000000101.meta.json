@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-502000000101",
+  "title": "입양숙려기간 모자지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=16166&bnefType=all&svcId=502000000101",
+  "fetched_at": "2026-10-31",
+  "sha256": "b74b70fcaed0882a4ca2e89ec497e22c6f891364032aeccd2349e6d568e05f4c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

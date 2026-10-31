@@ -1,0 +1,13 @@
+{
+ "key": "6c7c53d20ae1c7710b5e8bca1ece62914aadb7b26ad71af3c805de787c875455",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6480,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 395
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"성북구 어르신 건강주치의 사업\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"건강주치의\",\"만성질환 관리\",\"어르신 건강\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"성북구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"고혈압, 당뇨 등 만성질환이 있는 건강 취약계층\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"성북구보건소 건강주치의 사업과 협력하고 있는 의료기관 이용자\",\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 장애유형 : 장애인복지법 제32조의 규정에 의거 등록한 지체·뇌병변·시각·청각·심장·호흡·언어·자폐성·지적장애인", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 소득수준 : 국민기초생활 보장법상 수급자, 차상위계층(기준 중위소득 50% 이하)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 지원 우선순위는 다음과 같음", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 장애정도가 심한 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 생계, 의료, 주거, 교육급여 수급자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 1가구에 2인 이상의 장애인이 거주하는 자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 재가 장애인", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 장애인 보조기구 교부사업으로 보조기구를 받은 자 중 더 오래된 자", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

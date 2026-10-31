@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000019625",
+  "title": "서울청년문화패스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149917&bnefType=all&svcId=611000019625",
+  "fetched_at": "2026-10-31",
+  "sha256": "262357d5a80128388af69d237f25025384ed8022dd76d51fbf4eeb56f6c0899b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

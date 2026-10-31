@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000012326",
+  "title": "의료급여 (임신·출산진료비)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999151&bnefType=all&svcId=SD0000012326",
+  "fetched_at": "2026-10-31",
+  "sha256": "64d5ea39833cf6387b725e18d6819922e48c1901dc480bc11c1a69c6e854dade",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

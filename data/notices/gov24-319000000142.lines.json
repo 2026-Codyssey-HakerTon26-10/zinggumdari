@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원대상 : 동작구에서 출생·주민등록을 둔 둘째 이후 신생아", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "※동작구에 거주하는 부부의 자녀", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "※첫째,둘째가 쌍둥이인 경우 둘 다 지원", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "※ 출생 후 1년 이내 신청 가능", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

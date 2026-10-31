@@ -1,0 +1,13 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 장애인거주시설 입소 장애인 및 종사자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 장애인 중 국민기초생활보장수급자 및 부양자가 없거나 부양을 받을 수 없는 자로서 서비스지원 종합조사 결과 충족 및 지자체의 시설 입소 적격성 심사를 거쳐 시설 입소 결정을 받은 자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "* 서비스 지원 종합조사 결과", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 중증장애인거주시설 : 성인- 240점 이상, 아동 - 190점 이상", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 장애유형별 거주시설 : 성인-120점 이상, 아동 - 110점 이상", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 독립형주거서비스 제공기관 : 성인-120점 이상, 아동 - 110점 이상", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ (장애영유아거주시설, 장애인단기거주시설, 장애인공동생활가정은 서비스 지원 종합조사 결과에 관계없이 입소 가능)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

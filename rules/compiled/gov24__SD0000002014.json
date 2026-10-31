@@ -1,0 +1,102 @@
+{
+ "id": "gov24:SD0000002014",
+ "source": "gov24",
+ "name": "해산급여",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "출산급여",
+  "산모지원"
+ ],
+ "conditions": [
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "의료",
+    "주거"
+   ],
+   "evidence": [
+    "gov24-sd0000002014:l2",
+    "gov24-sd0000002014:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:의료",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "other",
+      "text": "의료기관의 진단서 등으로 증명된 사산 또는 유산"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "모자보건법 제14조에 따른 합법적인 인공임신중절수술"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-sd0000002014:l2",
+    "gov24-sd0000002014:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:Y",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=575762&bnefType=all&svcId=SD0000002014",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 2,
+  "labeled": {
+   "definition": 4,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b50624dc9dfbf69f3cc329140cde131831fc7cfcab53b948bce91d6b64861a9d",
+  "raw": "rules/compiled/_raw/gov24-sd0000002014.json",
+  "at": "2026-11-01T04:02"
+ }
+}

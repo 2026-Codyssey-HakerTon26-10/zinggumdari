@@ -1,0 +1,81 @@
+{
+ "id": "gov24:131200000008",
+ "source": "gov24",
+ "name": "다자녀가구 자동차취득세 감면",
+ "org": "행정안전부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "다자녀 자동차",
+  "자동차취득세 감면",
+  "자녀 양육"
+ ],
+ "conditions": [
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 2,
+   "evidence": [
+    "gov24-131200000008:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 18,
+   "evidence": [
+    "gov24-131200000008:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999002&bnefType=all&svcId=131200000008",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ea26b32a6cda954cda3582f3fb9e4e5f69c92b5675ec914f350e1814859f1dd3",
+  "raw": "rules/compiled/_raw/gov24-131200000008.json",
+  "at": "2026-11-01T03:55"
+ }
+}

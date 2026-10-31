@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-105100000001",
+  "title": "근로·자녀장려금",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=556551&bnefType=all&svcId=105100000001",
+  "fetched_at": "2026-10-31",
+  "sha256": "5013d8d903797fd3961e72dae595fc58b37400e510651cdbc919b7c67e728d4c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

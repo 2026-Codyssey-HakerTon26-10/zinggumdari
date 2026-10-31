@@ -1,0 +1,13 @@
+{
+ "key": "27de84c0fb46d4905c6ac4f7f32c1ff0ae2f2f84e19862120bb602862ea94aec",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6495,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 534
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"서대문구립도서관 문화프로그램 수강료 감면\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"문화프로그램 수강료\", \"도서관 프로그램 감면\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"국가유공자\", \"의사상자\", \"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\", \"l5\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"국가유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"의사상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}, {\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다둥이 카드 및 관련 확인서류 소지\", \"evidence\": [\"l7\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

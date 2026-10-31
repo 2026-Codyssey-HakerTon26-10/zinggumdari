@@ -1,0 +1,81 @@
+{
+ "id": "gov24:149200000020:main-2",
+ "source": "gov24",
+ "name": "산재근로자사회심리재활지원 재활스포츠",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "산재 재활스포츠",
+  "산재근로자 스포츠재활"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "치료 종결이 임박한 통원 요양환자 중 장해가 남을 것이 예상되는 사람 또는 산재 장해인(장해등급 제1~14급)",
+   "evidence": [
+    "gov24-149200000020:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "산재 장해인"
+   ],
+   "evidence": [
+    "gov24-149200000020:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999023&bnefType=all&svcId=149200000020",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "23d2a627e11209f2d323c832c4575c711b8b6a3bdb28c14f84da15f245e25545",
+  "raw": "rules/compiled/_raw/gov24-149200000020.json",
+  "at": "2026-11-01T03:56"
+ }
+}

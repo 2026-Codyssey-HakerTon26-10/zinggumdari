@@ -1,0 +1,13 @@
+{
+ "key": "58618644e72a35b9f79589a87b2dc153867ce5533fa2dece1366da8fd679c24a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6471,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 540
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득층 아동 체험행사\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"아동 체험행사\",\"저소득 아동 지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":6,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l3\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l3\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[],\"any_of\":[[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"relation\",\"op\":\"==\",\"value\":\"부\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"relation\",\"op\":\"==\",\"value\":\"모\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"차상위\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null}]]},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"국민기초생활보장 수급자 또는 차상위 계층 또는 저소득 한부모 가정\",\"evidence\":[\"l2\",\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

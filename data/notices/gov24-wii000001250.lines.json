@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 언어평가 및 언어교육이 필요한 만 12세 이하 다문화 가족 자녀", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 초등학교 재학 중인 아동의 경우 만 12세를 초과하여도 사업 대상에 포함", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 언어발달 평가 결과 교육이 필요한 다문화 가족 자녀", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 중복수혜불가 조건", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 중앙 및 지자체가 실시하는 유사 사업 대상자로 선정되어 지원받고 있는 다문화 가족 자녀", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 국비 및 지방비 지원으로 언어치료 바우처를 받고 있는 자", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 기타 서비스의 목표가 언어 촉진 및 교육에 있는 자", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 다문화 가족 방문교육서비스 중 자녀생활서비스와 중복지원 불가", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "* 서비스 의뢰 아동 중 적절한 서비스 구분을 위해 언어평가 실시 가능", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

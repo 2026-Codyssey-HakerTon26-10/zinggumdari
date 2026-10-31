@@ -1,0 +1,13 @@
+{
+ "key": "5a4be53dbda35ba128196d7a98e9bdbcba11aeea2130b31e470862e3dedc6266",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6477,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 350
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"미혼모부 양육비 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"한부모가족\", \"양육비 지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"마포구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 12, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"youngest_child_age\", \"op\": \"<=\", \"value\": 5, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

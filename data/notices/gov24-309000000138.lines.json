@@ -1,0 +1,6 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 도봉구 모든 출산 가정(신청일 기준 도봉구에 6개월 이상 주민등록된 산모)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "서비스 종료 후 3개월(90일) 이내", "mark": true}
+]

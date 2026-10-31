@@ -1,0 +1,13 @@
+{
+ "key": "8be654f83875c4500a7b93948cbc4c0f716da0f91b4fdea0a67b64e04d2927a3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6435,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 239
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 주민 국민건강보험료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"저소득층 보험료\"],\"conditions\":[{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":null,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"건강보험료(장기요양보험료 포함) 지역가입자의 부과액 22,340원 이하\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

@@ -1,0 +1,139 @@
+{
+ "id": "gov24:306000000228:main",
+ "source": "gov24",
+ "name": "자치회관 수강료 및 사용료 감면 지원",
+ "org": "서울특별시 중랑구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "중랑구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "자치회관 감면",
+  "수강료 면제"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자"
+   ],
+   "evidence": [
+    "gov24-306000000228:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-306000000228:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 3,
+      "text": "다둥이 행복카드 소지자 중 18세 이하의 자녀가 3명 이상"
+     }
+    ],
+    [
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 18,
+      "text": "18세 이하의 자녀"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-306000000228:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-306000000228:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-306000000228:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2152568&bnefType=all&svcId=306000000228",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9127534449c5dd054153c1a9a8f150663ceea7f891cda2037bf3a63fc7ca484c",
+  "raw": "rules/compiled/_raw/gov24-306000000228.json",
+  "at": "2026-11-01T03:57"
+ }
+}

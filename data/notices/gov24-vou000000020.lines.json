@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 만6세∼만65세 미만 등록 장애인 중 서비스 지원 종합조사 결과 활동지원등급 판정을 받은 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "* 활동지원 수급자였다가 65세 이후 혼자서 사회활동이 어려운 경우에는 지원 가능", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 소득 기준과 무관하게 신청 가능", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 만6세∼만65세 미만 등록 장애인 중 서비스 지원 종합조사 결과 활동지원등급 판정을 받은 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "* 활동지원 수급자였다가 65세 이후 혼자서 사회활동이 어려운 경우에는 지원 가능", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 소득 기준과 무관하게 신청 가능", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

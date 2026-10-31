@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000000100",
+  "title": "북한이탈주민 청소년 교육 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=546362&bnefType=all&svcId=WII000000100",
+  "fetched_at": "2026-10-31",
+  "sha256": "1d0200a7d6fbd18c84f8cc7c194548c51b240e30cf31cd8bba2c20c93744eece",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

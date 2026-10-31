@@ -1,0 +1,13 @@
+{
+ "key": "9e7dfbb9a26164e481859cce6fa9913761e500006cc1eb2e2062759de8d5a416",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6413,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 313
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"성북구 자치회관 수강료 감면(한부모가족)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"한부모가족 수강료 감면\", \"자치회관 수강료\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"성북구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

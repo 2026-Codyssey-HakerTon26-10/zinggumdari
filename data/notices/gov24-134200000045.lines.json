@@ -1,0 +1,13 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 19세 이상 성인 중 기초생활보장 수급자, 차상위계층, 지역특화 대상자 등", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ ｢국민기초생활 보장법｣ 제2조 제2호에 따른 수급자 및 같은 법 제10호에 따른 차상위계층", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- ｢장애인복지법｣ 상 장애수당 수급자는 같은 법 시행령에 따라 국민기초생활 보장법상 수급자 또는 차상위계층에 포함", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ ｢장애인연금법｣ 제2조 제4호에 따른 연금수급자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 이때에는 국민기초생활 보장법상 수급자 또는 차상위계층에 해당하는 경우에 한해 신청 가능", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ ｢한부모가족지원법｣ 제5조에 따른 한부모가족 지원 대상자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 그밖에 광역지자체가 정하는 지역특화 대상자", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

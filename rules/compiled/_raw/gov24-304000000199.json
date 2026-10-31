@@ -1,0 +1,13 @@
+{
+ "key": "4e5ebdd8d66ea5eb32c77595caef8509ae49001b545794880b951e1b3ef9d075",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6415,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 407
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"대상포진 예방접종 지원\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"대상포진 예방접종\", \"노인 예방접종\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"광진구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\", \"주거\", \"교육\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": [[], [{\"field\": \"age\", \"op\": \">=\", \"value\": 75, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}, {\"field\": \"history\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"대상포진 예방접종 미접종\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

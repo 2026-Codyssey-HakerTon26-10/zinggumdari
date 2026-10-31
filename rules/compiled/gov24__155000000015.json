@@ -1,0 +1,211 @@
+{
+ "id": "gov24:155000000015",
+ "source": "gov24",
+ "name": "4대궁, 종묘 및 조선왕릉 무료 관람",
+ "org": "국가유산청",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "궁능 무료 관람",
+  "문화유산 관람료 감면"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 24
+     },
+     {
+      "field": "other",
+      "text": "AI가 읽은 조건의 형식이 맞지 않음",
+      "reason": "malformed"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "other",
+      "text": "AI가 읽은 조건의 형식이 맞지 않음",
+      "reason": "malformed"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-155000000015:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-155000000015:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "국가유공자"
+   ],
+   "evidence": [
+    "gov24-155000000015:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위계층"
+   ],
+   "evidence": [
+    "gov24-155000000015:l18"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 2,
+   "evidence": [
+    "gov24-155000000015:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-155000000015:l23"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-155000000015:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-155000000015:l18"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-155000000015:l22"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=170076&bnefType=all&svcId=155000000015",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "5a19db3a3c7306c4747952068f223e2bebdad684543b4919f0897f9c90fdc74a",
+  "raw": "rules/compiled/_raw/gov24-155000000015.json",
+  "at": "2026-11-01T03:56"
+ }
+}

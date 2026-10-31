@@ -1,0 +1,13 @@
+{
+ "key": "a746b6d46347d238d31e262d8176084143284896d08a52d065e32e9ba340e5ff",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6429,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 227
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 가구 부동산중개수수료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"부동산중개수수료 지원\",\"저소득층 중개수수료\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

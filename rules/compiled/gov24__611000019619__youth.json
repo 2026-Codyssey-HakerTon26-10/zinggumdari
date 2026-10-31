@@ -1,0 +1,331 @@
+{
+ "id": "gov24:611000019619:youth",
+ "source": "gov24",
+ "name": "희망두배 청년통장",
+ "org": "서울특별시",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "청년통장",
+  "희망두배"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-611000019619:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 18,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-611000019619:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 34,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-611000019619:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 3,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-611000019619:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_self",
+   "op": "<=",
+   "value": 255,
+   "income_basis": "absolute_monthly",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-611000019619:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_spouse",
+      "op": "<=",
+      "value": 10000,
+      "income_basis": "absolute_annual",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "other",
+      "text": "재산 9억 미만"
+     }
+    ],
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 10000,
+      "income_basis": "absolute_annual",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "other",
+      "text": "재산 9억 미만"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-611000019619:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "!=",
+   "value": "생계",
+   "evidence": [
+    "gov24-611000019619:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:not_negated",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "!=",
+   "value": "의료",
+   "evidence": [
+    "gov24-611000019619:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:의료",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "!=",
+   "value": "주거",
+   "evidence": [
+    "gov24-611000019619:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:주거",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "!=",
+   "value": "교육",
+   "evidence": [
+    "gov24-611000019619:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:not_negated",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "통장 개설 가능",
+   "evidence": [
+    "gov24-611000019619:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "history",
+   "op": "!=",
+   "value": "유사자산형성사업 참여",
+   "evidence": [
+    "gov24-611000019619:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "employment_status",
+   "op": "!=",
+   "value": "기타",
+   "evidence": [
+    "gov24-611000019619:l19"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:기타",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019619:l17"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149018&bnefType=all&svcId=611000019619",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 17,
+  "used": 7,
+  "labeled": {
+   "definition": 2,
+   "procedure": 3,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "5a90cfb064857aea29779341df7ab97cfdfdae8bafad831bc87aeec5e922b2ee",
+  "raw": "rules/compiled/_raw/gov24-611000019619.json",
+  "at": "2026-11-01T03:59"
+ }
+}

@@ -1,0 +1,122 @@
+{
+ "id": "gov24:307000000220",
+ "source": "gov24",
+ "name": "성북구 전세사기피해자 지원",
+ "org": "서울특별시 성북구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "성북구"
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "전세사기",
+  "피해자지원",
+  "성북구"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-307000000220:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "성북구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-307000000220:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "전세사기피해주택이 성북구 소재 주거용 건물",
+   "evidence": [
+    "gov24-307000000220:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "국토교통부 장관이 결정한 전세사기피해자",
+   "evidence": [
+    "gov24-307000000220:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2173416&bnefType=all&svcId=307000000220",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "0e93516a431f51651cf755da506c1f6b0db86daec01f2fe626932283bf76fce1",
+  "raw": "rules/compiled/_raw/gov24-307000000220.json",
+  "at": "2026-11-01T03:57"
+ }
+}

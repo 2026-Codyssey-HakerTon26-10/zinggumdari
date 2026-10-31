@@ -1,0 +1,13 @@
+{
+ "key": "8c568b9ce2f993509d5a74b1d8f485bc985beffb624260db0b8427b0b3e4543f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6376,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 182
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"중랑청년청 운영\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"중랑구 청년\", \"청년 지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"중랑구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

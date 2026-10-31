@@ -1,0 +1,132 @@
+{
+ "id": "gov24:PTR000050660:main-3",
+ "source": "gov24",
+ "name": "다문화가족 방문교육서비스 - 자녀생활",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "자녀생활서비스",
+  "방문교육",
+  "다문화"
+ ],
+ "conditions": [
+  {
+   "field": "youngest_child_age",
+   "op": ">=",
+   "value": 3,
+   "evidence": [
+    "gov24-ptr000050660:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 12,
+   "evidence": [
+    "gov24-ptr000050660:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "중도입국자녀",
+   "evidence": [
+    "gov24-ptr000050660:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "초등학교 재학 중인 아동은 만 12세 초과하여도 대상에 포함",
+   "evidence": [
+    "gov24-ptr000050660:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000050660:l12"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-ptr000050660:l13",
+  "gov24-ptr000050660:l14",
+  "gov24-ptr000050660:l15",
+  "gov24-ptr000050660:l16",
+  "gov24-ptr000050660:l17"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999183&bnefType=all&svcId=PTR000050660",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 19,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 5,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "11479a36aa1e6fd7aa77c3739ee233ac9625d7c87088e6df344ce4854b2c7986",
+  "raw": "rules/compiled/_raw/gov24-ptr000050660.json",
+  "at": "2026-11-01T04:02"
+ }
+}

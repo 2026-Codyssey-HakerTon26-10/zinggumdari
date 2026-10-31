@@ -1,0 +1,144 @@
+{
+ "id": "gov24:138300000057",
+ "source": "gov24",
+ "name": "저소득 다문화 자녀 교육활동비 지원",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "다문화가족 교육비",
+  "다문화 자녀 지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 7,
+   "evidence": [
+    "gov24-138300000057:l2",
+    "gov24-138300000057:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:자녀",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 18,
+   "evidence": [
+    "gov24-138300000057:l2",
+    "gov24-138300000057:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:자녀",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 100,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-138300000057:l2",
+    "gov24-138300000057:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "not_in",
+   "value": [
+    "교육급여수급자"
+   ],
+   "evidence": [
+    "gov24-138300000057:l2",
+    "gov24-138300000057:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "다문화가족",
+   "evidence": [
+    "gov24-138300000057:l2",
+    "gov24-138300000057:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2147891&bnefType=all&svcId=138300000057",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "21a25316dacb59eb854a2c2a5dddbc25b82746dd24f475e101b2afd3fc9b3298",
+  "raw": "rules/compiled/_raw/gov24-138300000057.json",
+  "at": "2026-11-01T03:55"
+ }
+}

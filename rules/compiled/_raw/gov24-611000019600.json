@@ -1,0 +1,13 @@
+{
+ "key": "cb5d25efabc96059226f83568dd38b306f8cc5f4d991d63a3b3dc755c359a18c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6488,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 278
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"서울시 엄마 북(Book)돋움\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"임산부 지원\",\"출산 지원\",\"교통비 지원\"],\"conditions\":[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"due_month\",\"op\":\">=\",\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"임신 확인 후 출산 후 6개월\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

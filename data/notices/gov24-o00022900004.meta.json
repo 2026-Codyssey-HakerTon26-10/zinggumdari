@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-o00022900004",
+  "title": "공영주차장 이용요금 감면",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000441&bnefType=all&svcId=O00022900004",
+  "fetched_at": "2026-10-31",
+  "sha256": "ea1ca31ab19699abf2fc0a4d10be85a6f9ca216f717c5afe57fb4a6fea3d93e2",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

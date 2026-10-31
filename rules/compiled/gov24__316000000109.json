@@ -1,0 +1,168 @@
+{
+ "id": "gov24:316000000109",
+ "source": "gov24",
+ "name": "저소득 어르신 무료급식 지원",
+ "org": "서울특별시 구로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "구로구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "경로식당",
+  "식사배달",
+  "밑반찬배달"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 60,
+   "evidence": [
+    "gov24-316000000109:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "lives_alone",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-316000000109:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "생계"
+     },
+     {
+      "field": "lives_alone",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 48,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "차상위"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 50,
+      "income_basis": "median_pct"
+     },
+     {
+      "field": "lives_alone",
+      "op": "==",
+      "value": "Y"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-316000000109:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.0:not_in_evidence:의료",
+    "comparator": "fail:b1.1:no_value",
+    "unit": "fail:b1.1:no_value",
+    "keyword": "fail:b1.1:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-316000000109:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-316000000109:l9"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001687&bnefType=all&svcId=316000000109",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 6
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "fc28c249926a5e3abe2b673df24ef26a5ec0b126327c0ef83232efbfe772974f",
+  "raw": "rules/compiled/_raw/gov24-316000000109.json",
+  "at": "2026-11-01T03:58"
+ }
+}

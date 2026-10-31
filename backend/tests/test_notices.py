@@ -75,6 +75,23 @@ def test_doc_id_rules():
         assert not store.valid_doc_id(bad)
 
 
+def test_meta_write_is_atomic(tmp_path, monkeypatch):
+    """쓰다 실패해도 이전 머리가 그대로 남고 임시 파일도 남지 않는다."""
+    store.register_text(PROSE, "nhuf-atomic", "web", None, "처음", notices_dir=tmp_path)
+    meta = store.load_meta("nhuf-atomic", tmp_path)
+
+    def broken(self, *a, **k):
+        raise OSError("disk full")
+
+    import os
+    monkeypatch.setattr(os, "replace", broken)
+    with pytest.raises(OSError):
+        store.save_meta({**meta, "title": "나중"}, tmp_path)
+    assert store.load_meta("nhuf-atomic", tmp_path)["title"] == "처음"
+    assert not list(tmp_path.glob(".*.tmp"))
+    assert store.list_doc_ids(tmp_path) == ["nhuf-atomic"]
+
+
 def test_evidence_resolves_ids(tmp_path):
     store.register_text(PROSE, "nhuf-test", "web", "https://nhuf.molit.go.kr/x", "t", notices_dir=tmp_path)
     ev = store.evidence(["nhuf-test:l4", "nhuf-test:l99", "nope:l1"], tmp_path)

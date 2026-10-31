@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000040",
+  "title": "긴급복지 장제비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999130&bnefType=all&svcId=999000000040",
+  "fetched_at": "2026-10-31",
+  "sha256": "e57e42439086078aade55c2f31c37375d3b23b4c42ed4334aa28883f8794a300",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

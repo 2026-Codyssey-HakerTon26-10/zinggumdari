@@ -1,0 +1,171 @@
+{
+ "id": "gov24:149200000009:main-2",
+ "source": "gov24",
+ "name": "생활안정자금(융자) 소액생계비",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "소액생계비",
+  "긴급생계비",
+  "계절사업자금"
+ ],
+ "conditions": [
+  {
+   "field": "employment_status",
+   "op": "==",
+   "value": "재직",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-149200000009:l7",
+    "gov24-149200000009:l16"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:재직",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 3,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-149200000009:l7",
+    "gov24-149200000009:l16"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 50,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-149200000009:l8",
+    "gov24-149200000009:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "개인 사정, 계절 사업 등으로 월 소득이 직전 달에 비해 30% 이상 감소",
+   "evidence": [
+    "gov24-149200000009:l9",
+    "gov24-149200000009:l18"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "일용직은 신청일 이전 180일 이내 고용보험 근로내용 확인신고서에 따른 근로일수 45일 이상",
+   "evidence": [
+    "gov24-149200000009:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000009:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000009:l14"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000009:l17"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=105992&bnefType=all&svcId=149200000009",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 15,
+  "used": 5,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 5
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a2e26113071c533a6a65dc7bab17641cd4511df36d2b75591c31228dd0d45e4c",
+  "raw": "rules/compiled/_raw/gov24-149200000009.json",
+  "at": "2026-11-01T03:56"
+ }
+}

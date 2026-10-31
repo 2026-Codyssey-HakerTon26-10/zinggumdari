@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-312000000125",
+  "title": "임신축하금 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2108203&bnefType=all&svcId=312000000125",
+  "fetched_at": "2026-10-31",
+  "sha256": "042a69af0ccd954b9d433f7071bb35096920918f43d294ba41e5168c1e0bd29e",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

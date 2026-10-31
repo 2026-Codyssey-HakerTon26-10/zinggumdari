@@ -1,0 +1,199 @@
+{
+ "id": "gov24:138300000052",
+ "source": "gov24",
+ "name": "청소년 미혼 한부모 자립지원 (우리원더패밀리)",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "청소년 한부모",
+  "미혼 한부모",
+  "우리원더패밀리"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 24,
+   "evidence": [
+    "gov24-138300000052:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:부모",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "marital_status",
+   "op": "==",
+   "value": "미혼",
+   "evidence": [
+    "gov24-138300000052:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 1,
+   "evidence": [
+    "gov24-138300000052:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "AI가 읽은 조건의 형식이 맞지 않음",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-138300000052:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 19,
+      "text": "소득 무관, 전원 지원"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 20
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 24
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 50,
+      "income_basis": "median_pct"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-138300000052:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.0:not_in_evidence",
+    "comparator": "fail:b1.0:no_value",
+    "unit": "fail:b1.0:no_value",
+    "keyword": "fail:b0.0:other_field_word:부모",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000052:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000052:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000052:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-138300000052:l8"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2121704&bnefType=all&svcId=138300000052",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 4
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "fe1a9cfadbbfe7711c73a83165cc4c6370ee14bc2e68aabe07b41148bac2de3f",
+  "raw": "rules/compiled/_raw/gov24-138300000052.json",
+  "at": "2026-11-01T03:55"
+ }
+}

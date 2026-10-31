@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-174000000029",
+  "title": "출산 관련 서비스 통합처리 신청(행복출산)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=593069&bnefType=all&svcId=174000000029",
+  "fetched_at": "2026-10-31",
+  "sha256": "334f04d1ca815af21e79fd10b7ef30abdff6458c404b272e3b9ae1d945846016",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

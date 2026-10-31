@@ -1,0 +1,13 @@
+{
+ "key": "1060893d43b02b4399dba6eaf8b1e563c28ba2dc45f5ab118a7c82483a250102",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6915,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 533
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"경력단절 여성과학기술인 복귀 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"경력단절 여성\",\"과학기술인 복귀\",\"여성과학기술인\"],\"conditions\":[{\"field\":\"gender\",\"op\":\"==\",\"value\":\"여\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\",\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"과학기술 분야 취업 경력 단절(임신, 출산, 육아, 가족 구성원 돌봄)\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"학위 취득 후 미취업 중(임신, 출산, 육아, 가족 구성원 돌봄)\",\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"이공계 학사 이상 학위 소지(학사의 경우 6개월 이상 경력)\",\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"out_of_scope\"},{\"line\":\"l7\",\"label\":\"out_of_scope\"},{\"line\":\"l8\",\"label\":\"out_of_scope\"},{\"line\":\"l9\",\"label\":\"definition\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"not_condition\"},{\"line\":\"l13\",\"label\":\"out_of_scope\"},{\"line\":\"l14\",\"label\":\"out_of_scope\"},{\"line\":\"l15\",\"label\":\"out_of_scope\"},{\"line\":\"l17\",\"label\":\"procedure\"},{\"line\":\"l18\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "ecf2df3b4ba870027c39ceb6f1fe28803cdf0efc7f867f6a98833269db729c9f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6643,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 302
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국민연금출산크레딧\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"출산크레딧\", \"국민연금 출산\"], \"conditions\": [{\"field\": \"children_count\", \"op\": \">=\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l6\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"definition\"}, {\"line\": \"l8\", \"label\": \"definition\"}, {\"line\": \"l9\", \"label\": \"definition\"}, {\"line\": \"l10\", \"label\": \"definition\"}, {\"line\": \"l12\", \"label\": \"definition\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

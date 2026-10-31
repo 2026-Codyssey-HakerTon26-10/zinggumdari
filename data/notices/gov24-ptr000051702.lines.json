@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 주택도시기금 임대 건설자금이 지원된 부도임대주택을 경매 낙찰을 받아 대출을 신청하는 해당 임대주택의 임차인", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 무주택 세대주만 가능", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

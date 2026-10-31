@@ -1,0 +1,13 @@
+{
+ "key": "c66989d7592cc595259e4d130f0864904a8e896bf12f35df04b9e951e60e0bc9",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6475,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 381
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"다자녀 출산용품 교환권 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"출산용품 교환권\", \"다자녀 지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"은평구\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 0, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": 12, \"income_basis\": null, \"as_of\": null, \"text\": \"출생일로부터 1년 이내\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

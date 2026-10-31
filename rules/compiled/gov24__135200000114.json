@@ -1,0 +1,101 @@
+{
+ "id": "gov24:135200000114",
+ "source": "gov24",
+ "name": "고위험 임산부 의료비 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "고위험 임산부",
+  "임신질환 의료비"
+ ],
+ "conditions": [
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-135200000114:l2",
+    "gov24-135200000114:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "19대 고위험 임신질환으로 진단받고 입원치료",
+   "evidence": [
+    "gov24-135200000114:l2",
+    "gov24-135200000114:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "P6M",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-135200000114:l8"
+   ],
+   "checks": {
+    "schema": "fail:value_not_number",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=594728&bnefType=all&svcId=135200000114",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 3,
+  "labeled": {
+   "definition": 2,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ca7045f98a8ee21486fd2d3a595f76430f7659777b24be6202e5e69f586f473b",
+  "raw": "rules/compiled/_raw/gov24-135200000114.json",
+  "at": "2026-11-01T03:55"
+ }
+}

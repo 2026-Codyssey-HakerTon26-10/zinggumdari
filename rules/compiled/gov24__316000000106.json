@@ -1,0 +1,87 @@
+{
+ "id": "gov24:316000000106",
+ "source": "gov24",
+ "name": "기초생활보장수급노인 생신축하금 지원",
+ "org": "서울특별시 구로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "구로구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "cash",
+ "aliases": [
+  "기초생활보장",
+  "노인생신축하금",
+  "어르신축하금"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-316000000106:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "의료"
+   ],
+   "evidence": [
+    "gov24-316000000106:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:의료",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001164&bnefType=all&svcId=316000000106",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c352f1c155a20f375da641256536c157ee79b04be4a8a1e34b778c901ec786f8",
+  "raw": "rules/compiled/_raw/gov24-316000000106.json",
+  "at": "2026-11-01T03:58"
+ }
+}

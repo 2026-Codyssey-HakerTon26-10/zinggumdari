@@ -1,0 +1,13 @@
+{
+ "key": "90561278ccc1baafd14b5787ccb5ae3560a16af944101109ae933861305576e0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6934,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 559
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"아동발달지원계좌(디딤씨앗통장) 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"디딤씨앗통장\", \"아동발달지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"아동양육시설\", \"가정위탁\", \"공동생활가정\", \"소년소녀가정\", \"장애인생활시설\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\", \"주거\", \"교육\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"차상위장애인\", \"차상위자활\", \"차상위본인부담경감대상자\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"모자가족\", \"조손가족\", \"부자가족\", \"청소년한부모모자가족\", \"청소년한부모부자가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"definition\"}, {\"line\": \"l12\", \"label\": \"definition\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

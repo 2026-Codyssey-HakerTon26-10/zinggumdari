@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-gmw000000210",
+  "title": "고혈압·당뇨병 등록관리서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999128&bnefType=all&svcId=GMW000000210",
+  "fetched_at": "2026-10-31",
+  "sha256": "877404499ce40b72f8d13cd460e66d98eac77e8004b9cd822a11577e23768a47",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

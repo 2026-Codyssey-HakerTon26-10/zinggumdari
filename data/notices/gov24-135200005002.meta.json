@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200005002",
+  "title": "긴급복지 해산비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=900009&bnefType=all&svcId=135200005002",
+  "fetched_at": "2026-10-31",
+  "sha256": "22caa492dd036c442cba096a369b179cec77345cfb56bd3c0f123a6ef9b46c8b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

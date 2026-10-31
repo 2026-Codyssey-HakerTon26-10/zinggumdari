@@ -1,0 +1,13 @@
+{
+ "key": "b0184881d10ce57123e79e5e3d1f0d1d4facbf06ec12ffe06835ce041d5081fa",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7484,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 462
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"임산부 및 영유아 영양플러스\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"영양플러스\",\"임산부 지원\",\"영유아 영양\"],\"conditions\":[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":80,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\",\"l8\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"영양위험요인(빈혈, 저체중, 성장부진, 영양섭취상태 불량 중 한 가지 이상) 보유\",\"evidence\":[\"l4\",\"l12\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"영아(만 1세 미만), 유아(만 1세-만 6세), 임산부(임신부, 출산부, 모유수유부)\",\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l13\",\"label\":\"definition\"},{\"line\":\"l20\",\"label\":\"definition\"},{\"line\":\"l22\",\"label\":\"definition\"},{\"line\":\"l26\",\"label\":\"definition\"},{\"line\":\"l27\",\"label\":\"definition\"},{\"line\":\"l28\",\"label\":\"procedure\"},{\"line\":\"l29\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

@@ -1,0 +1,114 @@
+{
+ "id": "gov24:148000000050",
+ "source": "gov24",
+ "name": "소규모 사업장 방지시설 설치지원",
+ "org": "기후에너지환경부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "방지시설 설치",
+  "저녹스 버너"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "대기환경보전법 시행령 제13조에 따른 4·5종 사업장 또는 1~3종 중 중소기업",
+   "evidence": [
+    "gov24-148000000050:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "부가가치세법 제2조제3호에 따른 사업자에 해당되지 않으나 배출시설을 운영하는 자, 중소기업협동조합법 제3조에 따른 조합으로서 배출시설을 운영하는 자, 대기환경보전법 제38조의2에 따른 비산배출시설로 옥내도장시설을 운영하는 자(중소기업에 한함)",
+   "evidence": [
+    "gov24-148000000050:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "악취방지법 시행규칙 별표2에 따른 악취배출시설(지역단위 악취개선 시범사업 지역 내)",
+   "evidence": [
+    "gov24-148000000050:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중소기업기본법 제2조 및 동법 시행령 제3조에 따른 중소기업, 비영리 법인·단체, 업무·상업용 건축물, 공동주택에서 설치된 보일러, 냉·온수기 및 건조시설의 기존 일반 버너를 저녹스버너로 교체하는 경우",
+   "evidence": [
+    "gov24-148000000050:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=805491&bnefType=all&svcId=148000000050",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b8415d9916193b1a072682ac5b3ebe5958cdd3cbecaacc0fc861660d8cba74b2",
+  "raw": "rules/compiled/_raw/gov24-148000000050.json",
+  "at": "2026-11-01T03:56"
+ }
+}

@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원대상 목적물 : 주택(동산 포함), 온실, 소상공인 상가·공장", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 대상재해 : 태풍, 홍수, 호우, 강풍, 풍랑, 해일, 대설, 지진(지진해일 포함)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 지원대상 목적물 : 주택(동산 포함), 온실, 소상공인 상가·공장", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 대상재해 : 태풍, 홍수, 호우, 강풍, 풍랑, 해일, 대설, 지진(지진해일 포함)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

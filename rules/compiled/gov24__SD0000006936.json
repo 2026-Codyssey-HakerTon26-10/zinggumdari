@@ -1,0 +1,92 @@
+{
+ "id": "gov24:SD0000006936",
+ "source": "gov24",
+ "name": "청소년산모 임신·출산 의료비 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "청소년산모 의료비",
+  "산모 의료비 지원",
+  "임신 의료비"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 19,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-sd0000006936:l2",
+    "gov24-sd0000006936:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-sd0000006936:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000006936:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=592445&bnefType=all&svcId=SD0000006936",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "eaf24f4bbf32571e06342f7923925478ec56f5c685e2a37d5617bf08e8813bd1",
+  "raw": "rules/compiled/_raw/gov24-sd0000006936.json",
+  "at": "2026-11-01T04:02"
+ }
+}

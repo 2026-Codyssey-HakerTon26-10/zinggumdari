@@ -61,6 +61,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
     {"field": "other", "text": "원문 조건 미반영", "reason": "unaccounted", "evidence": ["lh-2026-11-mapo:p8-l9"], "status": "needs_review"}
                                             // 빠짐 검사에서 남은 줄. 판정에서 항상 확인 필요
     // 글자를 읽지 못한 쪽이 있으면: {"field": "other", "text": "읽지 못한 쪽이 있어 …", "reason": "unread_pages", "pages": [3], "evidence": [], "status": "needs_review"}
+    // LLM이 field나 op를 빼먹었거나 빈 any_of를 냈으면: {"field": "other", "text": "<모델이 쓴 문장>", "reason": "malformed", "evidence": […], "status": "needs_review"}. 엔진과 플래너는 field, op, value가 다 있는 조건만 받는다
   ],
   "exclusive_evidence": ["lh-2026-11-mapo:p9-l2"],   // LLM이 exclusive로 답한 줄. 카드에 "중복 불가 조건이 있어요"로 표시만
   "coverage": {"marked": 21, "used": 15, "labeled": {"definition": 2, "procedure": 1, "exclusive": 1, "out_of_scope": 1, "not_condition": 0}, "unaccounted": 1},
@@ -322,7 +323,9 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 {"doc_id": "upload-20261031-01", "lines": 412, "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"}, "marked": 21,
  "llm_calls": 1, "schema_retries": 0, "rules": 2, "conditions": 12, "auto_verified": 9, "needs_review": 3,
  "fails": [{"rule_id": "upload:upload-20261031-01:newlywed", "field": "income_couple", "check": "comparator", "reason": "no_comparator", "evidence": ["upload-20261031-01:p8-l4"]}],
- "unaccounted": ["upload-20261031-01:p8-l9"], "unread_pages": [], "model": "…", "prompt": "v1"}
+ "unaccounted": ["upload-20261031-01:p8-l9"], "unread_pages": [],
+ "no_evidence": 0,                         // 모델이 근거 줄 없이 낸 조건 수. 조건표에 넣지 않고 그 원문 줄은 unaccounted로 남는다
+ "model": "…", "prompt": "v1"}
 ```
 
 화면은 진행 표시(줄 만들기 → 자격 구간 → 읽기 → 검증 → 합류) 뒤 조건 표를 보여준다: 우리가 읽은 조건(템플릿 문장), 근거 줄, 검사별 ✓/✗, 미반영 줄. 그다음 카드에 합류시키고 `new_rule` 알림을 만든다. 검수 전이라 카드는 `eligible`이 되지 않는다(SPEC §5.2). 시연 PDF 2건은 결과 캐시 + "캐시 재생" 토글.

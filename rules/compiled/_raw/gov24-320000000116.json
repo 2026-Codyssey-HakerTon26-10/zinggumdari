@@ -1,0 +1,13 @@
+{
+ "key": "28a8f749c0b1628da5dbb080301d8ebc8870af102d765a06d06fdf456a6d4aaf",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6466,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 524
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"관악구 장애인가정 양육지원금\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"장애인가정 양육지원\", \"양육지원금\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"marital_status\", \"op\": \"in\", \"value\": [\"기혼\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"youngest_child_age\", \"op\": \"<\", \"value\": 7, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2022-01-01\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"관악구\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 12, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

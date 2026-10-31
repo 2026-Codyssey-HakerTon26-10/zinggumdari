@@ -1,0 +1,13 @@
+{
+ "key": "a0d8cbf66de1590794837e59e9d723d5c8759f6549e3d7b8826f36965e9535ef",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6429,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 202
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"성북구 육아종합센터 이용료 및 사용료 감면\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"한부모가족 감면\", \"육아종합센터 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

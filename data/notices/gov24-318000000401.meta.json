@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-318000000401",
+  "title": "장애인가정 양육지원금 지급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2142329&bnefType=all&svcId=318000000401",
+  "fetched_at": "2026-10-31",
+  "sha256": "a01c1133bd32d9fd030451a6bcc6900aac5c524fcde78edf9ec71a7d80f936d6",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

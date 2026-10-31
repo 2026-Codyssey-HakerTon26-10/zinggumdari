@@ -1,0 +1,122 @@
+{
+ "id": "gov24:314000000267:youth",
+ "source": "gov24",
+ "name": "청년 취업교육 프로그램 지원",
+ "org": "서울특별시 양천구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "양천구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "청년 취업교육",
+  "직업능력개발훈련",
+  "청년 일자리"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "evidence": [
+    "gov24-314000000267:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 39,
+   "evidence": [
+    "gov24-314000000267:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "employment_status",
+   "op": "==",
+   "value": "구직",
+   "evidence": [
+    "gov24-314000000267:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "양천구",
+   "evidence": [
+    "gov24-314000000267:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2164716&bnefType=all&svcId=314000000267",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6322f1405412df79ee453c9fe1be8cd84625c8e88ff6cb4929a300adc78bd370",
+  "raw": "rules/compiled/_raw/gov24-314000000267.json",
+  "at": "2026-11-01T03:58"
+ }
+}

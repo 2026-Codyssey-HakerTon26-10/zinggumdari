@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 국가보훈부에 등록된 10년 이상 장기복무 제대군인", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 주택구입(신축),주택임차,아파트분양 대부(대부신청일 현재 무주택자, 본인.배우자.주민등록표상 동거하는 직계존비속 등 포함)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 농토구입 대부(농업에 종사하는 자 또는 농업에 종사하고자 하는 자로서 농토 구입 예정자, 본인 및 직계 존 비속이 직접 경작하는 경우에 한함)", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 사업 대부(소규모 사업을 운영하고 있거나 신규로 운영하고자 하는 본인 및 배우자( 법인사업자 등 일부업종 제외)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 생활안정 대부(재해복구비, 의료비, 경조비 및 등 긴급 가계자금이 필요한 자)", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 학자금 대부(본인 또는 자녀가 국내의 전문대학 이상(대학원 포함)에 입학 또는 재학 중인 자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 대부지원 제외 해당자 및 대부종류별 신청자격 확인 후 지원 여부 최종 결정", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 대부지원 제외 해당자 및 대부종류별 신청자격 확인 후 최종 지원 여부 결정", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "수시 신청(보훈관서 신청자의 경우 지방보훈청 및 보훈지청 따라 다를 수 있음)", "mark": false}
+]

@@ -1,0 +1,118 @@
+{
+ "id": "gov24:311000000115",
+ "source": "gov24",
+ "name": "어르신 보행보조차 지원",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "보행보조차",
+  "노인 보조기구"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-311000000115:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "의료",
+    "차상위"
+   ],
+   "evidence": [
+    "gov24-311000000115:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "ltc_grade",
+      "op": "!=",
+      "value": "없음"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "거동불편 의사소견으로 보행기가 필요하다고 인정되는 자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-311000000115:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:없음",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004799&bnefType=all&svcId=311000000115",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "56484e2fc0ecb5012b56b9eeb2140c99094797f6c18fc4ef7a183f324ac909e5",
+  "raw": "rules/compiled/_raw/gov24-311000000115.json",
+  "at": "2026-11-01T03:58"
+ }
+}

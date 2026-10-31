@@ -1,0 +1,13 @@
+{
+ "key": "a40fb416d936a6d508dbcbcfb83b6cb4c8406b2358e4d25bdfb4bfb80f816353",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6599,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 300
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"경영실습 임대농장 조성 청년농업인\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"청년농업인\",\"영농창업\",\"임대농장\"],\"conditions\":[{\"field\":\"age\",\"op\":\"<\",\"value\":40,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"history\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"영농경력 3년 이하\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"본인 명의의 시설이 없는 청년농업\",\"evidence\":[\"l6\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"out_of_scope\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

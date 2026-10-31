@@ -1,0 +1,13 @@
+{
+ "key": "e1b8eb496ff7e3de5e0f8ce710aec40e5dc5cd25085b8bc4c1e6148fc9ca3257",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6568,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 450
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"출산장려 건강보험 가입지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"출산장려\", \"건강보험료 지원\", \"영유아\"], \"conditions\": [{\"field\": \"relation\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"youngest_child_age\", \"op\": \"<=\", \"value\": 5, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"종로구\", \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 10, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

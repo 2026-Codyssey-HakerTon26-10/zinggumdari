@@ -1,0 +1,306 @@
+{
+ "id": "gov24:135200005005",
+ "source": "gov24",
+ "name": "긴급복지 의료지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "긴급의료비",
+  "의료지원"
+ ],
+ "conditions": [
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 1923.179,
+   "income_basis": "absolute_monthly",
+   "evidence": [
+    "gov24-135200005005:l4",
+    "gov24-135200005005:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 3149.469,
+   "income_basis": "absolute_monthly",
+   "evidence": [
+    "gov24-135200005005:l4",
+    "gov24-135200005005:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 4019.277,
+   "income_basis": "absolute_monthly",
+   "evidence": [
+    "gov24-135200005005:l4",
+    "gov24-135200005005:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 4871.054,
+   "income_basis": "absolute_monthly",
+   "evidence": [
+    "gov24-135200005005:l4",
+    "gov24-135200005005:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 5667.539,
+   "income_basis": "absolute_monthly",
+   "evidence": [
+    "gov24-135200005005:l4",
+    "gov24-135200005005:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 6416.964,
+   "income_basis": "absolute_monthly",
+   "evidence": [
+    "gov24-135200005005:l4",
+    "gov24-135200005005:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "household_size",
+   "op": ">=",
+   "value": 7,
+   "evidence": [
+    "gov24-135200005005:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "재산: 대도시 24,100만 원, 중소도시 15,200만 원, 농어촌 13,000만 원 이하 (주거용 재산 공제: 대도시 6,900만 원, 중소도시 4,200만 원, 농어촌 3,500만 원 이하)",
+   "evidence": [
+    "gov24-135200005005:l12",
+    "gov24-135200005005:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "금융 재산: 생활준비금 + 600만 원 이하 (주거 지원은 200만 원 추가)",
+   "evidence": [
+    "gov24-135200005005:l14",
+    "gov24-135200005005:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중한 질병 또는 부상으로 인한 의료비 감당 곤란",
+   "evidence": [
+    "gov24-135200005005:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005005:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005005:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005005:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005005:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005005:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005005:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005005:l10"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=900012&bnefType=all&svcId=135200005005",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 13,
+  "used": 5,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 7
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a49ea27e6b97d6ca9a44716f8a66ab32f19d527c55c30cbbe43f13ff08787cb9",
+  "raw": "rules/compiled/_raw/gov24-135200005005.json",
+  "at": "2026-11-01T03:55"
+ }
+}

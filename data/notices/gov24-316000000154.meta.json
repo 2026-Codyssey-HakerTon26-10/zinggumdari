@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-316000000154",
+  "title": "구민 정보화교육",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2167705&bnefType=all&svcId=316000000154",
+  "fetched_at": "2026-10-31",
+  "sha256": "bcb5c8241f0e0abf0ff92aa44e2adfa99bdadf471352186db4c0466c96c67551",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

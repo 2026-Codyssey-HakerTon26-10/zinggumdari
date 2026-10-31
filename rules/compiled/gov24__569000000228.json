@@ -1,0 +1,60 @@
+{
+ "id": "gov24:569000000228",
+ "source": "gov24",
+ "name": "슬레이트 처리지원",
+ "org": "기후에너지환경부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "슬레이트 철거",
+  "지붕개량"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "슬레이트 건축물(주택, 창고, 축사, 노인 및 어린이시설) 소유자",
+   "evidence": [
+    "gov24-569000000228:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=750034&bnefType=all&svcId=569000000228",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 4,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "d1c058cfd0ed6f2c904e69e46308630fe392ccffd8381327f2002b7b543a8dbd",
+  "raw": "rules/compiled/_raw/gov24-569000000228.json",
+  "at": "2026-11-01T03:59"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "95235790afe9ed67401f2f3fb41cda80e7918e0cc83f080863128452a3ce3da3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6557,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 667
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"성동구 통합돌봄 낙상방지 홈케어 서비스\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"낙상방지\", \"홈케어\", \"주거환경개선\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"성동구 통합돌봄 낙상방지 홈케어 서비스 - 통합돌봄 대상\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"낙상방지\", \"홈케어\", \"통합돌봄\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"의료·요양·돌봄 등 복합적인 지원이 필요한 통합돌봄 대상으로 선정\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"성동구 통합돌봄 낙상방지 홈케어 서비스 - 취약계층\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"낙상방지\", \"홈케어\", \"취약계층\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

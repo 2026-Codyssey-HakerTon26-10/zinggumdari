@@ -1,0 +1,13 @@
+{
+ "key": "fb0e29398aed7329f5ce2bdf935d54784298033698907f449f8eb61d08305c3c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6462,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 401
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"장애인가정 출산지원금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"장애인 출산지원\",\"출산지원금\"],\"conditions\":[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"은평구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"due_month\",\"op\":\">=\",\"value\":\"2025-01\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"2026-01-01\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"신청자가 등록 여성장애인 또는 남성장애인의 배우자\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

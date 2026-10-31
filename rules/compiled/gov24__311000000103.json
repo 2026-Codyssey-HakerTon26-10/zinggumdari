@@ -1,0 +1,130 @@
+{
+ "id": "gov24:311000000103",
+ "source": "gov24",
+ "name": "독거어르신 야쿠르트 지원",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "독거노인",
+  "야쿠르트"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-311000000103:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "lives_alone",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-311000000103:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "생계"
+     },
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "의료"
+     },
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "주거"
+     },
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "교육"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "차상위"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-311000000103:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:생계",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000533&bnefType=all&svcId=311000000103",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6d4ba8807928687a32c9f8ef3a9e5aeafdee3331adeefb3b0db3d13a215877d9",
+  "raw": "rules/compiled/_raw/gov24-311000000103.json",
+  "at": "2026-11-01T03:58"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "cfd04e91fa23a30eff73a9564e3fc072dbe813dd88706a1d70b98279e9443146",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6591,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 405
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"국가공무원 채용시험 사회적 취약계층 응시수수료 면제\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"discount\",\"aliases\":[\"공무원 시험 수수료 면제\",\"취약계층 응시수수료\"],\"conditions\":[{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[],\"any_of\":[[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"장애인연금\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"children_count\",\"op\":\">=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null}]]},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2024-01-01\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l9\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

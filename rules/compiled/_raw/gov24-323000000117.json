@@ -1,0 +1,13 @@
+{
+ "key": "701d1140286c04dea34b6f9e2975a5ce070de1b00c1cddc74e4d9defaead98f8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6573,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 256
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"출산축하금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"신생아 축하금\",\"출산 지원금\"],\"conditions\":[{\"field\":\"residence_months\",\"op\":\">=\",\"value\":6,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"2021-12-31\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<\",\"value\":6,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l4\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

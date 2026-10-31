@@ -1,0 +1,13 @@
+{
+ "key": "7edb6b12933c3c3e2d2fb7558eccffc456796277032ddd0792654b0d50d336fe",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6498,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 350
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"양천구 미숙아 RSV 예방접종비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"미숙아 예방접종\",\"RSV 예방접종비\",\"양천구 신생아 지원\"],\"conditions\":[{\"field\":\"due_month\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"출생일 기준 임신 36주 미만(35주 6일까지)으로 태어난 미숙아\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":6,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"양천구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

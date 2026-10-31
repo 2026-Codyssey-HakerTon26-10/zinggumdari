@@ -1,0 +1,13 @@
+{
+ "key": "3596a6a8cb33f1eaf03393eedce5b5612c2a08e833440df29742237bec2b5c4a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6471,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 283
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"북한이탈주민 청소년 교육 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"북한이탈청소년\",\"탈북청소년\",\"북한이탈주민자녀\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":13,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":24,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"북한이탈주민 또는 북한이탈주민의 자녀\",\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

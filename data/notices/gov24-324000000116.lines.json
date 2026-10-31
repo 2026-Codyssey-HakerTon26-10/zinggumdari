@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 관내 100세 이상 직계존속 어르신과 주민등록상 한 가구를 구성하고 실제 함께 생활하는 가정", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 100세 이상의 부모 또는 조부모 등 직계존속과 함께 생활하며 실질적으로 부양", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 신청일 기준 현재 서울특별시 강동구에 1년이상 연속하여 주민등록 상 주소를 두고 계속 거주한 자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "2026.09.22.(화) ~ 2026.10.9.(금)", "mark": true}
+]

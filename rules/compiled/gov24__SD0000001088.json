@@ -1,0 +1,141 @@
+{
+ "id": "gov24:SD0000001088",
+ "source": "gov24",
+ "name": "시설입소 장애인 서비스제공",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "장애인거주시설",
+  "장애인시설입소",
+  "장애인서비스"
+ ],
+ "conditions": [
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-sd0000001088:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자"
+   ],
+   "evidence": [
+    "gov24-sd0000001088:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "부양자가 없거나 부양을 받을 수 없는 자",
+   "evidence": [
+    "gov24-sd0000001088:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "서비스지원 종합조사 결과 충족",
+   "evidence": [
+    "gov24-sd0000001088:l4",
+    "gov24-sd0000001088:l5",
+    "gov24-sd0000001088:l6",
+    "gov24-sd0000001088:l7",
+    "gov24-sd0000001088:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "지자체의 시설 입소 적격성 심사를 거쳐 시설 입소 결정",
+   "evidence": [
+    "gov24-sd0000001088:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999144&bnefType=all&svcId=SD0000001088",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 5,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "73506e781fba6e93acdd65c5bea6c622743afa7b4c40e550b3fa06b38f0990f3",
+  "raw": "rules/compiled/_raw/gov24-sd0000001088.json",
+  "at": "2026-11-01T04:02"
+ }
+}

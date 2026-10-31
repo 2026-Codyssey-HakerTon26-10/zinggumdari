@@ -1,0 +1,162 @@
+{
+ "id": "gov24:304000000146",
+ "source": "gov24",
+ "name": "중개수수료 무료지원 서비스",
+ "org": "서울특별시 광진구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "광진구"
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "중개수수료 지원",
+  "전월세 중개수수료"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "의료급여대상자",
+    "국가유공자",
+    "장애인",
+    "북한이탈주민"
+   ],
+   "evidence": [
+    "gov24-304000000146:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-304000000146:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자",
+       "의료급여대상자",
+       "국가유공자",
+       "장애인",
+       "북한이탈주민"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 2
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-304000000146:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "fail:b1.0:no_value",
+    "unit": "fail:b1.0:no_value",
+    "keyword": "fail:b1.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 2,
+   "evidence": [
+    "gov24-304000000146:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-304000000146:l6"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803300&bnefType=all&svcId=304000000146",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "08501b2493579dad6245077b8207d87366bc9416e8c28134a0be4d20afed656c",
+  "raw": "rules/compiled/_raw/gov24-304000000146.json",
+  "at": "2026-11-01T03:57"
+ }
+}

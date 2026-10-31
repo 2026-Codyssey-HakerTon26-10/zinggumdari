@@ -1,0 +1,188 @@
+{
+ "id": "gov24:SD0000003485",
+ "source": "gov24",
+ "name": "농업종합자금 지원",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "원예축산자금",
+  "농산물가공자금",
+  "스마트팜자금"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "원예, 축산물을 생산하는 농업경영체",
+   "evidence": [
+    "gov24-sd0000003485:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "자가 또는 타인이 생산한 농산물을 가공하는 농산물 가공사업자",
+   "evidence": [
+    "gov24-sd0000003485:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "우리 농산물의 안정적 수요처 확보와 부가가치 제고로 농가 소득증대 및 대외 경쟁력 강화가 기대되는 농업경영체",
+   "evidence": [
+    "gov24-sd0000003485:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "종자산업법에 의거 종자업 등록을 필한 업체 또는 개인 육종가",
+   "evidence": [
+    "gov24-sd0000003485:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "종자 개발·보급과 관련 민형사상의 분쟁이 진행 중이 아닌 경우",
+   "evidence": [
+    "gov24-sd0000003485:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<",
+   "value": 40,
+   "evidence": [
+    "gov24-sd0000003485:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "생애 최초 스마트팜 시설 설치를 희망하는 청년농업인",
+   "evidence": [
+    "gov24-sd0000003485:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농업계 고등학교 또는 대학의 농업 관련 학과를 졸업한자 또는 정부가 지정한 스마트팜 청년창업 보육센터 교육이수자",
+   "evidence": [
+    "gov24-sd0000003485:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999097&bnefType=all&svcId=SD0000003485",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c4fcb16674c6ebd67e028445ce346871e4378862da23f0ecb13b38f7967092b9",
+  "raw": "rules/compiled/_raw/gov24-sd0000003485.json",
+  "at": "2026-11-01T04:02"
+ }
+}

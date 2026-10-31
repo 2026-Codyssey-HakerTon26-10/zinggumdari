@@ -1,0 +1,184 @@
+{
+ "id": "gov24:999000000048",
+ "source": "gov24",
+ "name": "특별현금급여 (가족요양비)",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "cash",
+ "aliases": [
+  "가족요양비",
+  "노인현금급여",
+  "장기요양비"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-999000000048:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "ltc_grade",
+      "op": "in",
+      "value": [
+       "3등급",
+       "4등급",
+       "5등급"
+      ],
+      "text": "등급판정위원회가 심의하여 시설급여 대상으로 판정 받은 사람"
+     }
+    ],
+    [
+     {
+      "field": "ltc_grade",
+      "op": "in",
+      "value": [
+       "1등급",
+       "2등급"
+      ]
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000048:l2",
+    "gov24-999000000048:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:3등급",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "노인성 질병(치매, 뇌혈관 질환, 파킨슨병 및 관련 질환)을 가진 65세 미만 국민",
+   "evidence": [
+    "gov24-999000000048:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "도서, 벽지 등 장기요양기관이 현저히 부족한 지역에 거주",
+   "evidence": [
+    "gov24-999000000048:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "천재지변이나 그 밖에 이와 유사한 사유로 인하여 장기요양기관 이용이 어려운 자",
+   "evidence": [
+    "gov24-999000000048:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "신체, 정신 또는 성격 등 대통령령으로 정하는 사유로 인하여 가족 등으로부터 장기요양을 받아야 하는 자",
+   "evidence": [
+    "gov24-999000000048:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000048:l8"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999169&bnefType=all&svcId=999000000048",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "2a7a4553591b0b4876fa1c30ae10021c0c7e29a960281ec73abb375d57de96b7",
+  "raw": "rules/compiled/_raw/gov24-999000000048.json",
+  "at": "2026-11-01T04:00"
+ }
+}

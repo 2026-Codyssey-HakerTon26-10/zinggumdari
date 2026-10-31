@@ -1,0 +1,13 @@
+{
+ "key": "0b425571a8a8786227b32624f14c59257dbc6dac4544d8cc946aa61b331b7044",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6414,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 485
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"무더위 안전숙소 운영\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"노인 무더위 쉼터\", \"고령자 안전숙소\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"lives_alone\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": [[{\"field\": \"lives_alone\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"marital_status\", \"op\": \"in\", \"value\": [\"기혼\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"저소득\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2026-07-01\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": \"2026-08-31\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

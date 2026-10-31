@@ -1,0 +1,98 @@
+{
+ "id": "gov24:311000000132",
+ "source": "gov24",
+ "name": "장난감나라",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "장난감나라 연회비",
+  "찾아가는 장난감 붕붕이"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "장애영유아가정",
+    "한부모가족",
+    "다문화가정",
+    "국가유공자"
+   ],
+   "evidence": [
+    "gov24-311000000132:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 2,
+   "evidence": [
+    "gov24-311000000132:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-311000000132:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100504&bnefType=all&svcId=311000000132",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "800eb4bc67c2a83c60e16e19f3b92feb77dffd32ca43c82d07bb8cb4fcaa274f",
+  "raw": "rules/compiled/_raw/gov24-311000000132.json",
+  "at": "2026-11-01T03:58"
+ }
+}

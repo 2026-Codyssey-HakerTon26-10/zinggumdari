@@ -1,0 +1,100 @@
+{
+ "id": "gov24:135200000120",
+ "source": "gov24",
+ "name": "아동수당",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "아동수당",
+  "만8세미만",
+  "아동지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<",
+   "value": 8,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-135200000120:l2",
+    "gov24-135200000120:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:아동",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "대한민국 국적 보유",
+   "evidence": [
+    "gov24-135200000120:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "주민등록번호 정상 부여",
+   "evidence": [
+    "gov24-135200000120:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=700023&bnefType=all&svcId=135200000120",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 3,
+  "labeled": {
+   "definition": 3,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "2b8db6a81f94f349f7df256b450d58ec5bad9739f2317e73642065510cbb6974",
+  "raw": "rules/compiled/_raw/gov24-135200000120.json",
+  "at": "2026-11-01T03:55"
+ }
+}

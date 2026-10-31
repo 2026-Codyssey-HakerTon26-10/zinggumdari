@@ -1,0 +1,13 @@
+{
+ "key": "54de101ddef5a42ab6cc08c6252e0c9ea64d547e0660448539494c09263872c5",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6464,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 217
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"재가급여\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"노인장기요양\",\"재가서비스\",\"방문요양\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"ltc_grade\",\"op\":\"in\",\"value\":[\"1등급\",\"2등급\",\"3등급\",\"4등급\",\"5등급\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

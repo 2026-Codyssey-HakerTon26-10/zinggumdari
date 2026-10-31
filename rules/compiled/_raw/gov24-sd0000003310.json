@@ -1,0 +1,13 @@
+{
+ "key": "c8daa5f4b49a69640e2ab4873d26b146b175dca5f5a214ec12c3b5d2931f43c4",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6594,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 331
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"북한이탈주민 주거지원금 지급\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"북한이탈주민\",\"주거지원금\",\"정착금\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"북한이탈주민\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"임대주택 알선 대상자\",\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"임대주택 보증금보다 주거지원금 총액이 높거나 주거지원금 잔액이 100만원 이상 남아 있음\",\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"out_of_scope\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "8ecf39ac73af0f7b6b09cd4ec37306dd090a6b4015adf93bdbc5d1d6d96826b0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6573,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 361
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"1인가구 안심장비 지원사업\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"1인가구 안심\",\"안심장비\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동대문구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_householder\",\"op\":\"==\",\"value\":\"세대주\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"household_size\",\"op\":\"==\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"not_in\",\"value\":[\"자가\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"house_price\",\"op\":\"<=\",\"value\":25000,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

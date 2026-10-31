@@ -1,0 +1,179 @@
+{
+ "id": "gov24:GPV000000140:main-2",
+ "source": "gov24",
+ "name": "국가보훈대상자 재가복지 지원 (유족)",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "보훈유족 돌봄",
+  "국가유공자 유족 재가복지"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "독립유공자 자녀 또는 손자녀"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "참전유공자 및 고엽제후유의증환자의 유족 중 배우자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-gpv000000140:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-gpv000000140:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 2
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-gpv000000140:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 75
+     },
+     {
+      "field": "basic_pension",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "생활조정수당 대상자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-gpv000000140:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "노인성 질환 또는 상이처 등으로 거동이 불편하여 정상적 일상생활 수행이 곤란",
+   "evidence": [
+    "gov24-gpv000000140:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-gpv000000140:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=46097&bnefType=all&svcId=GPV000000140",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ea0d0a5f04e5821db0c7f3dfc926f968057985f0dd400add32702fbecb7cf068",
+  "raw": "rules/compiled/_raw/gov24-gpv000000140.json",
+  "at": "2026-11-01T04:02"
+ }
+}

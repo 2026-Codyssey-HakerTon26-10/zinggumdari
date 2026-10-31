@@ -1,0 +1,13 @@
+{
+ "key": "2f004fecb5098a0a600d9e56239cc431ac719ff91400538ebff143b043de8703",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6877,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 340
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"방과후학교 자유수강권\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"방과후학교\", \"자유수강권\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 100, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:01"
+}

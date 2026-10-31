@@ -1,0 +1,13 @@
+{
+ "key": "94e31c7eee77c26d3db13db5991b839d90216a3b6e1501f2990056a5096e24fd",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6566,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 180
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"노인복지 민간단체 지원\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"노인복지\", \"민간단체 지원\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"out_of_scope\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"out_of_scope\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

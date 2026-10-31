@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 국가유공자, 6ㆍ25및 월남전 참전자, 고엽제 피해자, 5ㆍ18 민주유공자 및 배우자, 장애인, 다자녀가족중 1인", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 다둥이 행복카드, 국민기초생활수급자, 만65세이상 경로우대, 다문화가족대상자, 한부모가족대상자, 병역명문가", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 12세이상 ~ 55세이하 여성", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

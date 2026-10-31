@@ -1,0 +1,103 @@
+{
+ "id": "gov24:302000000109",
+ "source": "gov24",
+ "name": "임산부 건강관리 서비스",
+ "org": "서울특별시 용산구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "용산구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "임산부 서비스",
+  "임신부 건강관리",
+  "용산구 임산부"
+ ],
+ "conditions": [
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-302000000109:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-302000000109:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:서울특별시",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "용산구",
+   "evidence": [
+    "gov24-302000000109:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001800&bnefType=all&svcId=302000000109",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f468fc7cf869328e3715b94ce160b03ffc849f60e2bdd2ae5f5f47104640350f",
+  "raw": "rules/compiled/_raw/gov24-302000000109.json",
+  "at": "2026-11-01T03:57"
+ }
+}

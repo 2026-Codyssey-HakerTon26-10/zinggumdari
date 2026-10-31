@@ -1,0 +1,13 @@
+{
+ "key": "261b3a4ba36947583705ef0efb0a6d4712b9bf300684d24034d21376192b944f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6520,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 340
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"진로설계 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화가족 진로설계\", \"학령기 자녀 지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 8, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"다문화가족 자녀, 외국인가족 자녀, 난민가족 자녀\", \"evidence\": [\"l3\", \"l6\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

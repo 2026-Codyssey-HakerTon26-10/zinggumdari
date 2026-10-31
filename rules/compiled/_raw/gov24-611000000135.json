@@ -1,0 +1,13 @@
+{
+ "key": "3deaf9c642069d91d3d2e81ccb2c86709258e6fa99e37dff86051f94f39e95b2",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6543,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 295
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"남성장애인 출산비용 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"남성장애인 출산비용\",\"장애인 출산지원\"],\"conditions\":[{\"field\":\"gender\",\"op\":\"==\",\"value\":\"남\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"배우자가 출산\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "5fe12cde2778c879891331266fb64cd218aae5d869aa6fbdf0a2272523a06f7c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7056,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 872
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"발달장애인 부모상담지원사업\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"발달장애인 부모 상담\",\"장애인 부모 지원\",\"발달장애 상담\"],\"conditions\":[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"자녀가 지적장애 또는 자폐성 장애를 부장애로 가진 경우도 포함\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"부모가 발달장애인과 생계주거를 함께하지 못하는 경우, 발달장애인과 거주를 같이하면서 부모를 대신하여 발달장애인을 돌보는 보호자(2촌 이내)도 이용 가능\",\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"자녀가 영유아(9세 미만)인 경우 장애등록이 되어있지 않으면 발달재활서비스 의뢰서 또는 의사소견서(진단서) 첨부(최근 6개월 이내 발행분)\",\"evidence\":[\"l7\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<\",\"value\":9,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l7\"],\"any_of\":null}],\"documents\":[\"발달재활서비스 의뢰서\",\"의사소견서(진단서)\"]},{\"track\":\"main\",\"name\":\"발달장애인 부모상담지원사업 - 제외대상\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"다른 법령(또는 국가 예산)에 따라 발달장애인 부모상담지원 사업과 유사한 서비스를 받고 있지 않아야 함\",\"evidence\":[\"l10\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"장애인복지법 제32조의 2에 따라 장애등록한 외국인(재외동포 포함)이 아니어야 함\",\"evidence\":[\"l11\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l12\",\"label\":\"procedure\"},{\"line\":\"l13\",\"label\":\"procedure\"},{\"line\":\"l14\",\"label\":\"procedure\"},{\"line\":\"l15\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

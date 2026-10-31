@@ -1,0 +1,13 @@
+{
+ "key": "e79567bd85d4da102e918309fedbda886dcf29662b19fc0b376c5e37a4409143",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6485,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 178
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"한부모가족자녀 교육비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"한부모가족\",\"교육비 지원\",\"자녀 교육\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

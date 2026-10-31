@@ -1,0 +1,13 @@
+{
+ "key": "0e8a086ed475b35329ab51f18795e4d20c9301676219063427205e78efa1d2a6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6938,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 803
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"농업 경영·기술 심층컨설팅\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"농업경영컨설팅\", \"농업기술지원\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"개별경영체(농업인: 후계농, 귀농인, 청창농 등) 또는 법인경영체(영농조합법인, 농업회사법인)\", \"evidence\": [\"l3\", \"l4\"], \"any_of\": [[{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"농업경영체 등록\"}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"청년농 영농정착지원사업 선정자 중 독립경영 예정자\"}]]}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"법인경영체의 경우 설립 후 운영실적 1년 이상\", \"evidence\": [\"l12\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"법인경영체의 경우 총 출자금 5천만원 이상\", \"evidence\": [\"l13\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"법인경영체의 경우 자본금이 자부담금 이상으로 확보되었고, 자기자본이 자부담금의 50% 이상 확보(단, 자기자본이 자부담금 이상이면 자본금은 자부담금의 50% 이상 확보해도 가능)\", \"evidence\": [\"l14\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"out_of_scope\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l15\", \"label\": \"out_of_scope\"}, {\"line\": \"l16\", \"label\": \"not_condition\"}, {\"line\": \"l17\", \"label\": \"not_condition\"}, {\"line\": \"l18\", \"label\": \"procedure\"}, {\"line\": \"l19\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

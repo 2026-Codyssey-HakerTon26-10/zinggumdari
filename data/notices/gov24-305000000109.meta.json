@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-305000000109",
+  "title": "임산부 등록 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003267&bnefType=all&svcId=305000000109",
+  "fetched_at": "2026-10-31",
+  "sha256": "b404a3a2e7ba1ef1e2d869826957159f0e2e72f51efe40e8593ed59f1c2f4efb",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

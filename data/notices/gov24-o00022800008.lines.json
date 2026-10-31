@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "- 지원대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 만 65세 이상 금천구 주민", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 국가유공자 / 배우자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 장애인 본인 / 보호자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 기초생활수급자 본인", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 만 65세 이상 타지역 주민", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 만 13세 이상 만 55세 이하 수영장 여성 사용자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 제외대상 : 해당없음", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 지역범위 : 금천구, 타지역", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

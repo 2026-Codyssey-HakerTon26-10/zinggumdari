@@ -1,0 +1,98 @@
+{
+ "id": "gov24:310000000118:main-3",
+ "source": "gov24",
+ "name": "출산 장려 지원 신생아",
+ "org": "서울특별시 노원구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "노원구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "아기신분증",
+  "신생아지원"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 0.25,
+      "as_of": "application_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-310000000118:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-310000000118:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-310000000118:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-310000000118:l11"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005191&bnefType=all&svcId=310000000118",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7ced15276b42939714bdfe805a0e5a9513f78aea8ddece0f03fe27c4b762b4bf",
+  "raw": "rules/compiled/_raw/gov24-310000000118.json",
+  "at": "2026-11-01T03:58"
+ }
+}

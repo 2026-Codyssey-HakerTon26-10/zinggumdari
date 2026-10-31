@@ -1,0 +1,13 @@
+{
+ "key": "604400b35238c7afc8f35909fcb6ba6afd91b72dc9d6713fcbbaef851f9fc705",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6465,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 211
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"생활터 금연환경조성\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"금연환경조성\", \"금연지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"임대주택거주\", \"금연취약사업장\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

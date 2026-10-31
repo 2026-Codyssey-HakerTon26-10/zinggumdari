@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-301000000140",
+  "title": "저소득 가구 이사비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2126103&bnefType=all&svcId=301000000140",
+  "fetched_at": "2026-10-31",
+  "sha256": "9b4a3f9bd06a93dbacac7a4ee5e109e2bd8a6244f761bbbd62765b00b4a686ef",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

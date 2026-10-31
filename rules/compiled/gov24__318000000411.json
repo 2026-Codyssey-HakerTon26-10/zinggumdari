@@ -1,0 +1,64 @@
+{
+ "id": "gov24:318000000411",
+ "source": "gov24",
+ "name": "교통약자를 위한 무료셔틀버스 지원(어르신)",
+ "org": "서울특별시 영등포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "영등포구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "무료셔틀버스",
+  "교통약자지원",
+  "어르신이동"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "영등포노인종합복지관 이용 어르신(복지관 회원)",
+   "evidence": [
+    "gov24-318000000411:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2167425&bnefType=all&svcId=318000000411",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 1,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "d2cc6b8e83709ab51c504475c5b2d03a482eb7b1681ba6738ff4c461236d3062",
+  "raw": "rules/compiled/_raw/gov24-318000000411.json",
+  "at": "2026-11-01T03:58"
+ }
+}

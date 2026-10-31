@@ -1,0 +1,13 @@
+{
+ "key": "cb4a2f4e155012c97abb0eeddbeb3ed21748e1dad193857bc2c8b7781942bf6c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6585,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 286
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"가족돌봄휴가 제도\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"가족돌봄\", \"돌봄휴가\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"가족의 질병, 사고, 노령, 또는 자녀의 양육으로 긴급하게 돌봄이 필요한 가족(조부모, 부모, 배우자, 배우자의 부모, 자녀, 손자녀)이 있는 근로자\", \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

@@ -1,0 +1,110 @@
+{
+ "id": "gov24:179038700004:main-2",
+ "source": "gov24",
+ "name": "HPV 국가예방접종사업",
+ "org": "질병관리청",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "HPV 예방접종",
+  "인유두종바이러스 접종"
+ ],
+ "conditions": [
+  {
+   "field": "gender",
+   "op": "==",
+   "value": "여",
+   "evidence": [
+    "gov24-179038700004:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 12,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-179038700004:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 18,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-179038700004:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-179038700004:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2103203&bnefType=all&svcId=179038700004",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 17,
+  "used": 1,
+  "labeled": {
+   "definition": 5,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 5
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "65602e37762e420866f261f921b5368ea75022597f3a67585f50fd0dd516d651",
+  "raw": "rules/compiled/_raw/gov24-179038700004.json",
+  "at": "2026-11-01T03:56"
+ }
+}

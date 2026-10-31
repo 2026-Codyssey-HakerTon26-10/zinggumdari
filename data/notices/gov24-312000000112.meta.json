@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-312000000112",
+  "title": "어르신 생일축하 및 저소득 국민건강보험료 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001671&bnefType=all&svcId=312000000112",
+  "fetched_at": "2026-10-31",
+  "sha256": "b82eccfaceccd7429e0bc90df6dff7e43fbac16188e508673b710514fdbe1c10",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

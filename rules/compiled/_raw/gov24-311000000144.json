@@ -1,0 +1,13 @@
+{
+ "key": "a07bf11f01370c28def2ae90e692ee71509aff23ab6f0f1f6a77f8e009f2d9d3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6513,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 420
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"입양아동 입양축하금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"입양축하금\", \"입양가정 지원\"], \"conditions\": [{\"field\": \"apply_date\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"가정법원 입양 확정일이 2022년 1월 1일 이후\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"은평구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 6, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,180 @@
+{
+ "id": "gov24:999000000016",
+ "source": "gov24",
+ "name": "국가보훈대상자 양로지원",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "보훈대상자",
+  "양로",
+  "국가유공자"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "독립유공자",
+    "보상금 지급대상 선순위 유족",
+    "국가유공자",
+    "5.18민주유공자",
+    "특수임무유공자",
+    "고엽제후유의증환자",
+    "참전유공자",
+    "보훈보상대상자"
+   ],
+   "evidence": [
+    "gov24-999000000016:l2",
+    "gov24-999000000016:l3",
+    "gov24-999000000016:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "gender",
+      "op": "==",
+      "value": "남"
+     },
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     }
+    ],
+    [
+     {
+      "field": "gender",
+      "op": "==",
+      "value": "여"
+     },
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 60
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "상이자 남성 60세 이상 또는 여성 55세 이상"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000016:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "supports_parent_65",
+      "op": "==",
+      "value": "N"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "부양의무자가 있더라도 부양능력이 없는 경우"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000016:l6",
+    "gov24-999000000016:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:N",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000016:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000016:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000016:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999064&bnefType=all&svcId=999000000016",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1af24dd68ef6c7141158254b4bb83146cb7c568cb2ab981eb16c1d86b4589c12",
+  "raw": "rules/compiled/_raw/gov24-999000000016.json",
+  "at": "2026-11-01T04:00"
+ }
+}

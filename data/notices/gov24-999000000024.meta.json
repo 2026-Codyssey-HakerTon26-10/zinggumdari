@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000024",
+  "title": "장기전세 주택공급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999075&bnefType=all&svcId=999000000024",
+  "fetched_at": "2026-10-31",
+  "sha256": "bceb67ccebae350e4f2c3b7b2da0699c0965b1accc8994515e3db49b3f392245",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}
