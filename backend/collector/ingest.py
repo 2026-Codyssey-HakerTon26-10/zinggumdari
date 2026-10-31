@@ -144,7 +144,7 @@ def _compile():
 
 
 # compile()의 로그에서 가져오는 칸. 조건표만 보고는 셀 수 없다(자격 구간, LLM 호출 수)
-COMPILE_LOG_KEYS = ("section", "llm_calls", "schema_retries", "unread_pages", "usage")
+COMPILE_LOG_KEYS = ("section", "llm_calls", "schema_retries", "unread_pages", "no_evidence", "usage")
 
 
 def _call_compile(fn, doc_id: str, lines: list[dict], meta: dict) -> tuple[list[dict], dict]:

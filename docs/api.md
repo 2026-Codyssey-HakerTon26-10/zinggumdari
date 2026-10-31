@@ -331,7 +331,8 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
  "fails": [{"rule_id": "upload:upload-20261031-01:newlywed", "field": "income_couple", "check": "comparator", "reason": "no_comparator", "evidence": ["upload-20261031-01:p8-l4"]}],
  "unaccounted": ["upload-20261031-01:p8-l9"], "unread_pages": [],
  "no_evidence": 0,                         // 모델이 근거 줄 없이 낸 조건 수. 조건표에 넣지 않고 그 원문 줄은 unaccounted로 남는다
- "model": "…", "prompt": "v1"}
+ "model": "…", "prompt": "v1",
+ "usage": {"input_tokens": …, "output_tokens": …}}   // LLM 원응답의 토큰 수(캐시 재생이면 캐시를 만들 때의 값)
 ```
 
 화면은 진행 표시(줄 만들기 → 자격 구간 → 읽기 → 검증 → 합류) 뒤 조건 표를 보여준다: 우리가 읽은 조건(템플릿 문장), 근거 줄, 검사별 ✓/✗, 미반영 줄. 그다음 카드에 합류시키고 `new_rule` 알림을 만든다. 검수 전이라 카드는 `eligible`이 되지 않는다(SPEC §5.2). 시연 PDF 2건은 결과 캐시 + "캐시 재생" 토글.
@@ -380,6 +381,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
   "pages": 48,                            // pdf만
   "text_layer": true,                     // false = 이미지 스캔 쪽이 있다. 그 쪽은 글자 인식으로 줄을 만들었다
   "ocr": null,                            // null | "tesseract" | "llm"(네이토 API)
+  "unread_pages": [],                     // 글자를 읽지 못한 쪽 번호. 있으면 그 원문으로 만든 조건표마다 확인 필요 조건이 붙는다(§1)
   "pblanc_no": "2026000123",              // 청약홈 공고번호(있으면). 15098547 응답과 연결
   "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"},   // 자격 구간. 제목을 못 찾으면 {"found_by": "none"}(전체를 썼다)
   "rules": ["applyhome:2026000123:newlywed", "applyhome:2026000123:first_home"],
