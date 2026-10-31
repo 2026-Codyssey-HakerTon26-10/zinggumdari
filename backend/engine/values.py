@@ -15,10 +15,6 @@ from backend.engine.constants import STANDARDS
 GROWING = {"age", "marriage_years", "residence_months", "subscription_months", "support_years",
            "homeless_years", "youngest_child_age", "apply_date"}
 
-# 민감정보. 동의가 없어 비어 있으면 질문이 아니라 확인 필요로 둔다(SPEC §4.4).
-SENSITIVE = {"income_self", "income_spouse", "income_household", "income_couple", "income_band_median",
-             "income_band_urban", "income_recognized", "pregnant", "due_month", "disability_registered",
-             "livelihood_status", "ltc_grade", "basic_pension"}
 
 COUPLE = {"예비부부", "신혼", "기혼"}
 

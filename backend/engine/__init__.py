@@ -36,6 +36,7 @@ def _card(rule: dict, subject_profile: dict, profile: dict, today: date, ai_elig
         "rule_id": rule["id"], "subject": rule.get("subject", "self"), "name": rule.get("name"),
         "domain": rule.get("domain"), "verdict": verdict, "verdict_why": why,
         "ai_extracted": review != "reviewed", "conditions": rows,
+        "blocking_fields": sorted({r["ask"] for r in results if r.get("ask")}),
         "exclusive_with": [{"rule_id": rid} for rid in rule.get("exclusive_with") or []],
         "exclusive_evidence": rule.get("exclusive_evidence") or [],
         "detail_url": rule.get("detail_url"), "updated": rule.get("updated"), "review": review,
@@ -50,7 +51,9 @@ def judge(profile: dict, rules: list[dict], today: date | None = None,
     rules: docs/api.md §1 조건 JSON 목록. today: None이면 오늘(?today=로 바꾼다).
     ai_eligible: None이면 환경변수 AI_ELIGIBLE(기본 끔). 꺼져 있으면 검수 전 AI 조건표는 eligible이 되지 않는다.
 
-    카드에 추가로 붙는 키(화면용 /judge가 거른다):
+    카드에 추가로 붙는 키:
+      "blocking_fields"   이 칸을 알려주면 판정이 진행된다(질문 칸 모음). 비슷한 가구 추천이 쓴다
+    화면용 /judge가 거르는 키:
       "no_subject": True  부모님 조건표인데 부모님 정보가 없다(부모님 탭을 안 열었다)
       "superseded_by"     같은 제도의 손 조건표가 있어 판정·검색·알림에 쓰지 않는다(SPEC §9.4)
     """

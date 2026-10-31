@@ -128,6 +128,12 @@ def test_any_of_all_branches_fail():
     assert card["verdict"] == "ineligible"
 
 
+def test_any_of_one_branch_opens_later():
+    # 가지 하나(만 65세 이상)는 시간이 지나면 열리고, 다른 가지(기초연금 수급)는 지금 탈락 → 나중에 열림
+    cond = {"any_of": [[C("age", ">=", 65)], [C("basic_pension", "==", "Y")]], "evidence": ["doc:l3"], "status": "reviewed"}
+    assert one(P(birth_year=1962, basic_pension="N"), R([cond]))["verdict"] == "opens_later"
+
+
 # 접수 기간 --------------------------------------------------------------------------------------
 
 def test_apply_closed_ineligible():
@@ -151,7 +157,8 @@ def test_ai_rule_not_eligible_unless_enabled():
     rule = R([C("age", "<=", 34, status="auto_verified")], source="gov24", review={"status": "unreviewed"})
     card = one(P(birth_year=1999), rule, ai_eligible=False)
     assert (card["verdict"], card["verdict_why"], card["ai_extracted"]) == ("needs_check", "ai_unreviewed", True)
-    assert one(P(birth_year=1999), rule, ai_eligible=True)["verdict"] == "eligible"
+    card = one(P(birth_year=1999), rule, ai_eligible=True)
+    assert (card["verdict"], card["verdict_why"]) == ("eligible", "ai_unreviewed")   # 열어 줘도 AI 조건표라는 사유는 남긴다
 
 
 def test_same_as_superseded():
@@ -192,3 +199,8 @@ def test_read_as():
     card = one(P(), R([C("marriage_years", "<=", 7, as_of="application_date"), COUPLE_7500]))
     assert card["conditions"][0]["read_as"] == "혼인 기간 7년 이하(신청일 기준)"
     assert card["conditions"][1]["read_as"] == "부부합산 소득 연 7,500만 원 이하"
+
+
+def test_blocking_fields():
+    card = one(P(marital_status="예비부부"), R([C("age", "<=", 34), COUPLE_7500]))
+    assert card["blocking_fields"] == ["birth_year", "income_self"]

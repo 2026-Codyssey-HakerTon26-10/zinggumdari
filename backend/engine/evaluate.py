@@ -2,7 +2,8 @@
 
 from datetime import date
 
-from backend.engine.values import GROWING, SENSITIVE, Ask, Check, Values, resolve
+from backend.engine.fields import SENSITIVE
+from backend.engine.values import GROWING, Ask, Check, Values, resolve
 
 FINAL = ("reviewed", "auto_verified")   # 확정 판정에 쓰는 조건 상태
 PASS, FAIL = "pass", "fail"
@@ -74,7 +75,8 @@ def condition(person: dict, cond: dict, ctx: dict) -> dict:
     if any(b["ok"] is True for b in branches):
         return {"grade": "확정", "ok": True}
     if all(b["ok"] is False for b in branches):
-        return {"grade": "확정", "ok": False, "fixable": all(b["fixable"] for b in branches)}
+        # OR은 가지 하나만 열려도 되므로, 시간이 지나면 풀리는 가지가 하나라도 있으면 나중에 열린다
+        return {"grade": "확정", "ok": False, "fixable": any(b["fixable"] for b in branches)}
     pending = [b for b in branches if b["ok"] is None]
     return next((b for b in pending if b["grade"] == "질문"), pending[0])
 
@@ -90,7 +92,7 @@ def rule_verdict(results: list[dict], rule: dict, ai_eligible: bool) -> tuple[st
         return "eligible", None
     clean = all(c.get("field") != "other" for c in rule.get("conditions", []))
     if ai_eligible and clean:
-        return "eligible", None
+        return "eligible", "ai_unreviewed"   # 열어 줘도 검수 전 AI 조건표라는 사유는 남긴다
     return "needs_check", "ai_unreviewed"
 
 
