@@ -54,15 +54,10 @@ jobs:
       - uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
-      - run: uv sync --project backend
+      - run: uv sync --project backend --frozen
       - run: uv run --project backend python -m compileall -q -x '/\.venv/' backend
-      - name: pytest
-        run: |
-          if find backend tests -path '*/.venv' -prune -o -name 'test_*.py' -print 2>/dev/null | grep -q .; then
-            uv run --project backend pytest -q
-          else
-            echo "테스트 없음, 건너뜀"
-          fi
+      - name: pytest (인구 · 알림 · 평가 포함)
+        run: uv run --project backend pytest -q
 
   frontend:
     name: 화면 빌드
