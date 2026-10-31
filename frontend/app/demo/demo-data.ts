@@ -1,0 +1,19 @@
+export type DemoCondition = { read_as: string; grade: "확정" | "확인 필요" | "질문"; ok: boolean | null }; // API 조건 중 이번 화면이 사용하는 칸이에요.
+export type DemoCard = { rule_id: string; subject: "self"; name: string; verdict: "needs_check"; conditions: DemoCondition[]; detail_url: string | null; updated: string }; // 판정 응답의 카드 이름을 그대로 사용해요.
+export type DemoResult = { user_id: string; cards: DemoCard[] }; // API 판정 응답 중 첫 기능에 필요한 부분이에요.
+export const demoProfile = { user_id: "demo-jiwon", self: { nickname: "지원", birth_year: 1999, sido: "서울", sigungu: "마포구", marital_status: "예비부부" } }; // API 문서를 바탕으로 만든 가상 프로필이며 서버에 저장하지 않아요.
+const result: DemoResult = { // 실제 엔진 응답과 구분되는 고정 화면 예시예요.
+    user_id: demoProfile.user_id, // 선택한 가상 프로필과 결과를 연결해요.
+    cards: [{ // API 문서 §3의 카드 예시를 화면에 필요한 만큼 사용해요.
+        rule_id: "manual:hug-newlywed-jeonse", subject: "self", name: "신혼부부전용 전세자금", verdict: "needs_check", // 현재 프로필의 자격을 확정하지 않아요.
+        conditions: [ // 조건 문구는 API 문서의 예시이며 실제 공고 판정이 아니에요.
+            { read_as: "혼인 7년 이내(신청일 기준)", grade: "질문", ok: null }, // 혼인신고일을 확인해야 해요.
+            { read_as: "부부합산 소득 조건", grade: "질문", ok: null }, // 소득 정보가 없으므로 통과로 표시하지 않아요.
+            { read_as: "순자산 기준 이하", grade: "확인 필요", ok: null }, // 자산 확인이 필요하다는 상태를 보여줘요.
+        ], // 조건 예시를 마쳐요.
+        detail_url: null, updated: "2026-10-31", // 문서 예시 기준일이며 공식 공고 URL은 연결 전이에요.
+    }], // 카드 예시를 마쳐요.
+}; // 고정 응답을 마쳐요.
+export async function loadDemoRecommendation(): Promise<DemoResult> { // 나중에 API 어댑터로 교체할 수 있는 데이터 경계예요.
+    return structuredClone(result); // 매번 독립된 응답을 돌려주고 실제 계정이나 네트워크는 사용하지 않아요.
+} // 가상 응답 함수를 마쳐요.
