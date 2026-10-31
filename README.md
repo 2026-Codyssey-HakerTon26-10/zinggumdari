@@ -16,8 +16,8 @@
 ├── backend/      FastAPI (uv 프로젝트, Python 3.11)
 ├── frontend/     Next.js
 ├── rules/        조건 JSON (manual: 손 조건표, compiled: AI 추출)
-├── data/         API 덤프(raw), 공고문 PDF(notices), 가상 인구(population, 커밋 안 함)
-├── eval/         페르소나, 손 라벨, 채점
+├── data/         API 덤프(raw), 원문과 줄 목록(notices), 가상 인구(population, 커밋 안 함)
+├── eval/         페르소나, 손 조건표 개발·시험 분할, 표본 채점, 결과
 └── docs/
 ```
 
