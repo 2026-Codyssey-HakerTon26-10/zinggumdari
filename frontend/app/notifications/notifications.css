@@ -1,0 +1,69 @@
+.notifications-page { padding: 30px 0 70px; background: #fff; color: #123653; min-height: 70vh; } /* 알림함 전체 배경을 흰색으로 유지합니다. */
+.notifications-breadcrumb { display: inline-flex; align-items: center; gap: 8px; color: #8c9aa7; font-size: 12px; } /* 현재 화면의 위치를 작게 표시합니다. */
+.notifications-breadcrumb svg { width: 13px; height: 13px; } /* 경로 화살표의 크기를 정합니다. */
+.notifications-heading { display: flex; justify-content: space-between; align-items: center; margin: 38px 0 28px; } /* 제목과 알림 아이콘을 나란히 배치합니다. */
+.notifications-heading h1 { margin: 10px 0 12px; font-size: clamp(30px, 4vw, 40px); letter-spacing: -.055em; line-height: 1.35; font-weight: 800; } /* 알림함 제목의 크기와 줄 간격입니다. */
+.notifications-heading h1 > span { color: #2474c7; } /* 제목 마침표에 브랜드색을 넣습니다. */
+.notifications-heading p:not(.eyebrow) { margin: 0; color: #8191a0; font-size: 14px; line-height: 1.8; } /* 알림함 소개 문구입니다. */
+.notifications-heading-icon { position: relative; display: grid; place-items: center; width: 82px; height: 82px; border: 1px solid #e2edf6; border-radius: 23px; background: #eef6ff; color: #397fc2; transform: rotate(8deg); } /* 제목 옆에 종 모양의 장식을 둡니다. */
+.notifications-heading-icon > svg { width: 33px; height: 33px; transform: rotate(-8deg); } /* 장식 아이콘의 크기와 방향입니다. */
+.notifications-heading-icon > span { position: absolute; top: 21px; right: 22px; width: 8px; height: 8px; border: 2px solid #eef6ff; border-radius: 50%; background: #66a3df; } /* 종 옆에 작은 알림 점을 넣습니다. */
+.notifications-demo-note { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 30px; padding: 16px 18px; border: 1px solid #e5e7eb; border-radius: 10px; background: #fff; color: #7a8ea3; font-size: 12px; line-height: 1.8; } /* 시연 안내 패널을 흰색과 중립 회색 테두리로 표시합니다. */
+.notifications-demo-note > svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: #7399bc; } /* 예시 안내의 아이콘입니다. */
+.notifications-demo-note p { margin: 0; } /* 안내 문구의 기본 여백을 제거합니다. */
+.notifications-demo-note strong { color: #56738e; font-weight: 600; } /* 시연이라는 핵심 문구를 강조합니다. */
+.notifications-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; align-items: start; gap: 28px; } /* 넓은 화면에서 목록과 설정 안내를 두 열로 나눕니다. */
+.notifications-inbox { min-width: 0; } /* 긴 알림 제목이 전체 열을 밀어내지 않게 합니다. */
+.notifications-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; min-height: 51px; border-bottom: 1px solid #e5e7eb; } /* 알림 도구를 중립 회색 경계선 위에 배치합니다. */
+.notifications-tabs { display: flex; align-self: stretch; gap: 23px; } /* 전체와 읽지 않음 탭의 간격입니다. */
+.notifications-tabs > button { display: flex; align-items: center; gap: 7px; position: relative; padding: 0 1px 15px; border: 0; background: transparent; color: #95a2af; font: inherit; font-size: 13px; cursor: pointer; } /* 알림 보기 탭의 기본 모습입니다. */
+.notifications-tabs > button.is-active { color: #2474c7; font-weight: 700; } /* 현재 선택한 알림 보기를 강조합니다. */
+.notifications-tabs > button.is-active::after { position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: #2474c7; content: ""; } /* 선택한 탭 아래에 파란 선을 넣습니다. */
+.notifications-tabs > button > span { display: inline-grid; place-items: center; min-width: 20px; height: 19px; padding-inline: 5px; border-radius: 5px; background: #fafafa; font-size: 10px; } /* 선택 전 개수 배지는 아주 옅은 중립 배경을 사용합니다. */
+.notifications-tabs > button.is-active > span { background: #e5f0fc; } /* 선택한 탭의 개수 배경을 파란색으로 맞춥니다. */
+.notifications-bulk { display: flex; align-items: center; gap: 15px; padding-bottom: 15px; } /* 모두 읽음과 삭제 버튼의 간격입니다. */
+.notifications-bulk > button { display: flex; align-items: center; gap: 4px; padding: 2px 0; border: 0; background: transparent; color: #8696a5; font-size: 11px; white-space: nowrap; cursor: pointer; } /* 알림 일괄 처리 버튼입니다. */
+.notifications-bulk > button:disabled { opacity: .4; cursor: default; } /* 처리할 알림이 없으면 버튼을 비활성화합니다. */
+.notifications-bulk svg { width: 13px; height: 13px; } /* 일괄 동작 아이콘의 크기입니다. */
+.notifications-list-label { margin: 20px 0 13px; color: #8d9ba8; font-size: 11px; } /* 목록이 가이드 예시라는 점을 다시 표시합니다. */
+.notifications-list { display: grid; gap: 12px; } /* 알림 사이의 간격입니다. */
+.notification-item { display: flex; align-items: flex-start; position: relative; gap: 16px; padding: 23px 22px; border: 1px solid #e5e7eb; border-radius: 13px; background: #fff; } /* 알림 카드를 흰색과 중립 회색 테두리로 표시합니다. */
+.notification-item.is-read { border-color: #eef0f3; background: #fff; } /* 읽은 알림도 흰색을 유지하고 경계만 연하게 표시합니다. */
+.notification-icon { display: grid; place-items: center; flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px; background: #eef6ff; color: #4686c3; } /* 알림 종류를 나타내는 아이콘입니다. */
+.notification-icon svg { width: 20px; height: 20px; } /* 알림 아이콘의 크기입니다. */
+.notification-item.is-read .notification-icon { color: #93a8bb; background: #fafafa; } /* 읽은 알림의 작은 아이콘은 중립 배경으로 표시합니다. */
+.notification-content { min-width: 0; flex: 1; padding-right: 5px; } /* 알림 본문이 남은 폭을 사용하게 합니다. */
+.notification-meta { display: flex; align-items: center; gap: 10px; color: #6d91b4; font-size: 10px; } /* 분류와 시연 표시를 보여줍니다. */
+.notification-meta > span:last-child { color: #a1aeba; } /* 시연용이라는 표시는 보조색으로 보여줍니다. */
+.notification-content h2 { display: flex; align-items: center; gap: 7px; margin: 8px 0; color: #294b6b; font-size: 15px; font-weight: 700; line-height: 1.6; letter-spacing: -.035em; word-break: keep-all; } /* 알림 제목을 읽기 쉽게 표시합니다. */
+.notification-unread-dot { display: inline-block; width: 5px; height: 5px; flex-shrink: 0; border-radius: 50%; background: #438fda; } /* 읽지 않은 제목 옆에 작은 점을 표시합니다. */
+.notification-content > p { margin: 0; color: #8595a4; font-size: 12px; line-height: 1.85; word-break: keep-all; } /* 알림 상세 설명의 줄 간격입니다. */
+.notification-actions { display: flex; align-items: center; gap: 22px; margin-top: 17px; } /* 다음 화면 이동과 읽음 처리를 나란히 보여줍니다. */
+.notification-actions a { display: inline-flex; align-items: center; gap: 6px; color: #357dbf; font-size: 11px; font-weight: 600; } /* 알림의 관련 화면으로 이동하는 링크입니다. */
+.notification-actions a svg { width: 13px; height: 13px; } /* 이동 링크 화살표의 크기입니다. */
+.notification-actions button { padding: 2px 0; border: 0; background: transparent; color: #9aabb9; font-size: 10px; cursor: pointer; } /* 현재 알림만 읽음 처리하는 버튼입니다. */
+.notification-delete { position: absolute; top: 16px; right: 14px; display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border: 0; border-radius: 5px; background: transparent; color: #a8b5c1; cursor: pointer; } /* 개별 알림 삭제 버튼입니다. */
+.notification-delete:hover { background: #fafafa; color: #5a7b99; } /* 삭제 버튼에 마우스를 올리면 작은 중립 배경을 표시합니다. */
+.notification-delete svg { width: 13px; height: 13px; } /* 삭제 아이콘의 크기입니다. */
+.notifications-restore { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; margin-top: 20px; padding: 10px 0; border: 0; background: transparent; color: #9aa9b7; font-size: 11px; cursor: pointer; } /* 예시를 언제든 처음 상태로 되돌릴 수 있게 합니다. */
+.notifications-restore svg { width: 13px; height: 13px; } /* 예시 복원 아이콘의 크기입니다. */
+.notifications-empty { display: flex; align-items: center; flex-direction: column; padding: 55px 20px; border: 1px dashed #e5e7eb; border-radius: 13px; background: #fff; text-align: center; } /* 빈 알림함도 흰색 배경과 중립 회색 선으로 표시합니다. */
+.notifications-empty > span { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #eef5fc; color: #89a9c8; } /* 빈 알림함의 종 아이콘을 감쌉니다. */
+.notifications-empty h2 { margin: 20px 0 8px; font-size: 18px; } /* 빈 알림함 제목입니다. */
+.notifications-empty p { margin: 0 0 23px; color: #92a2b0; font-size: 12px; line-height: 1.8; } /* 알림함을 다시 보는 방법을 안내합니다. */
+.notifications-empty .button { font-size: 12px; } /* 빈 화면의 복원 버튼 글자 크기입니다. */
+.notification-side-card { padding: 26px 23px 21px; border: 1px solid #e5e7eb; border-radius: 15px; background: #fff; } /* 수신 방법 안내 카드를 흰색과 중립 테두리로 표시합니다. */
+.notification-side-icon { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 11px; background: #eaf3fe; color: #4688c9; } /* 수신 방법 카드의 작은 종 아이콘입니다. */
+.notification-side-icon svg { width: 19px; height: 19px; } /* 수신 방법 아이콘의 크기입니다. */
+.notification-side-card h2 { margin: 17px 0 10px; font-size: 17px; letter-spacing: -.04em; } /* 수신 방법 안내 제목입니다. */
+.notification-side-card > p { margin: 0 0 23px; color: #8a9aa9; font-size: 12px; line-height: 1.85; word-break: keep-all; } /* 수신 방법을 설정할 화면을 설명합니다. */
+.notification-channel { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; color: #657d93; font-size: 12px; } /* 알림 채널과 수신 방식 표기를 나란히 둡니다. */
+.notification-channel-label { padding: 4px 7px; border-radius: 5px; background: #eef6ff; color: #5a8ab7; font-size: 10px; } /* 기본 알림함 안내를 작은 배지로 표시합니다. */
+.notification-channel-optional { color: #9eacb8; font-size: 10px; } /* 이메일은 선택 수신이라는 점을 표시합니다. */
+.notification-side-card .button { width: 100%; margin-top: 25px; min-height: 40px; font-size: 11px; } /* 내 징검다리 이동 버튼을 카드 폭에 맞춥니다. */
+.notification-settings-note { display: block; margin-top: 11px; color: #b0bcc6; text-align: center; font-size: 9px; } /* 실제 설정이 아닌 시연 화면임을 표시합니다. */
+.notification-privacy-note { display: flex; align-items: flex-start; gap: 8px; margin: 20px 6px 0; color: #9caab7; } /* 개인정보 처리에 대한 짧은 안내입니다. */
+.notification-privacy-note > svg { width: 14px; height: 14px; margin-top: 2px; flex-shrink: 0; } /* 개인정보 안내 아이콘의 크기입니다. */
+.notification-privacy-note p { margin: 0; font-size: 10px; line-height: 1.9; } /* 개인정보 안내의 읽기 간격입니다. */
+@media (max-width: 900px) { .notifications-layout { grid-template-columns: minmax(0, 1fr) 240px; gap: 20px; } .notification-item { padding: 20px 17px; gap: 12px; } .notifications-bulk { gap: 9px; } .notification-side-card { padding: 22px 18px; } } /* 중간 화면에서 카드 안쪽 여백을 조금 줄입니다. */
+@media (max-width: 700px) { .notifications-page { padding-top: 24px; } .notifications-heading { margin-top: 28px; } .notifications-heading-icon { width: 60px; height: 60px; border-radius: 17px; } .notifications-heading-icon > svg { width: 26px; height: 26px; } .notifications-heading-icon > span { top: 14px; right: 16px; } .notifications-heading p:not(.eyebrow) { max-width: 230px; font-size: 12px; } .notifications-layout { grid-template-columns: 1fr; } .notifications-sidebar { margin-top: 10px; } .notification-side-card { padding: 23px; } .notification-side-card .button { width: auto; padding-inline: 20px; } .notification-settings-note { text-align: left; } .notifications-toolbar { flex-wrap: wrap; gap: 12px; } .notifications-tabs { gap: 20px; } .notifications-bulk { gap: 13px; } .notifications-bulk > button { font-size: 10px; } .notification-icon { width: 34px; height: 34px; border-radius: 10px; } .notification-icon svg { width: 17px; height: 17px; } .notification-content h2 { font-size: 14px; } .notification-content > p { font-size: 11px; } .notification-actions { gap: 15px; flex-wrap: wrap; } .notification-actions a { font-size: 10px; } .notification-meta { gap: 8px; font-size: 9px; } } /* 휴대폰에서는 목록과 수신 안내를 세로로 배치합니다. */
