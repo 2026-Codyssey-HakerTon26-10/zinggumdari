@@ -62,6 +62,7 @@ cd frontend && npm install && cd ..
 | `DATABASE_URL`, `TEST_DATABASE_URL` | 로컬 PostgreSQL 주소(아래 「실행」의 DB 준비). 회원가입과 로그인, 검색 개인화에 필요하다 |
 | `COOKIE_SECURE` | 세션 쿠키 `Secure`. HTTPS 배포에서 `1`, 로컬 http 개발에서는 비운다 |
 | `CORS_ORIGINS` | 쿠키를 실어 API를 부를 화면 주소(쉼표로 여러 개). 비우면 `http://localhost:3000`. 화면과 API는 같은 사이트여야 한다(docs/api.md 「인증·소유권 계약」) |
+| (uvicorn 옵션) `--forwarded-allow-ips` | `.env`가 아니라 실행 옵션(또는 환경변수 `FORWARDED_ALLOW_IPS`). 화면 프록시가 API와 다른 기계면 그 주소를 넣는다. 로컬은 기본값(`127.0.0.1,::1`)이면 된다. 빠지면 로그인 IP 제한이 모든 사용자를 프록시 하나로 센다 |
 | `DEV_STUB_API` | 쓰지 않는다. `/profiles`, `/judge`는 로그인 세션과 DB(`DATABASE_URL`)로 열린다. 시연은 가입·로그인 → `POST /profiles/presets/jiwon` 순서다 |
 | `AI_ELIGIBLE` | 검수 전 AI 조건표도 `eligible`을 낼지. 이번 제출은 비운다(SPEC §5.2) |
 
