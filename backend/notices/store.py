@@ -104,8 +104,12 @@ def register(
     fetched_at: str | None = None,
     pblanc_no: str | None = None,
     notices_dir: Path | None = None,
+    extra: dict | None = None,
 ) -> dict:
-    """원문 파일을 data/notices/로 옮기고 줄 목록과 머리를 쓴다. 다시 부르면 덮어쓴다."""
+    """원문 파일을 data/notices/로 옮기고 줄 목록과 머리를 쓴다. 다시 부르면 덮어쓴다.
+
+    extra는 머리에 같이 쓸 값이다(사용자 업로드의 uploaded_by처럼 등록 순간에 있어야 하는 것).
+    """
     _check(doc_id)
     if source not in SOURCES:
         raise ValueError(f"source는 {SOURCES} 중 하나다")
@@ -141,6 +145,7 @@ def register(
         "pblanc_no": pblanc_no,
         "section": old.get("section"),   # 자격 구간은 AI 공고 읽기(compiler)가 채운다
         "rules": old.get("rules", []),
+        **(extra or {}),
     }
     (base / f"{doc_id}.lines.json").write_text(json.dumps(lines, ensure_ascii=False, indent=0), encoding="utf-8")
     (base / f"{doc_id}.meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")

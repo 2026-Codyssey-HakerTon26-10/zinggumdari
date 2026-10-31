@@ -7,11 +7,17 @@
 from __future__ import annotations
 
 import hashlib
+import ipaddress
 import json
 import re
+import secrets
+import socket
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
+from urllib.parse import urljoin, urlparse
+
+import httpx
 
 from backend.data import config
 from backend.notices import store
@@ -30,13 +36,57 @@ def cache_dir() -> Path:
 
 
 def upload_rules_dir() -> Path:
-    return config.ROOT / "rules" / "compiled"
+    """사용자 업로드 조건표. 커밋하는 AI 조건표(rules/compiled/)와 나누고 커밋하지 않는다."""
+    return config.ROOT / "rules" / "uploads"
 
 
-def _next_doc_id(today: date) -> str:
-    prefix = f"upload-{today:%Y%m%d}-"
-    used = [d for d in store.list_doc_ids() if d.startswith(prefix)]
-    return f"{prefix}{len(used) + 1:02d}"
+def _new_doc_id(today: date) -> str:
+    """upload-YYYYMMDD-<무작위 8자>. 번호를 세지 않아 지운 뒤에도, 동시에 올려도 겹치지 않는다."""
+    while True:
+        doc_id = f"upload-{today:%Y%m%d}-{secrets.token_hex(4)}"
+        if not store.load_meta(doc_id):
+            return doc_id
+
+
+def _discard(doc_id: str) -> None:
+    for p in store.paths_of(doc_id):
+        p.unlink(missing_ok=True)
+
+
+MAX_REDIRECTS = 3
+
+
+def _check_public(url: str) -> None:
+    """서버가 대신 받아 오는 주소라 내부망(localhost, 사설·예약 IP)은 막는다."""
+    u = urlparse(url)
+    if u.scheme not in ("http", "https") or not u.hostname:
+        raise Rejected("http(s) 주소만 받습니다")
+    try:
+        infos = socket.getaddrinfo(u.hostname, u.port or (443 if u.scheme == "https" else 80))
+    except socket.gaierror as exc:
+        raise Rejected("주소를 찾지 못했습니다") from exc
+    if not infos or any(not ipaddress.ip_address(info[4][0]).is_global for info in infos):
+        raise Rejected("내부 주소는 받지 않습니다")
+
+
+def fetch_url(url: str, transport: httpx.BaseTransport | None = None) -> bytes:
+    """URL의 PDF를 받는다. 리다이렉트마다 주소를 다시 검사하고, 받는 도중 30MB를 넘으면 끊는다."""
+    with httpx.Client(timeout=30, follow_redirects=False, transport=transport) as client:
+        for _ in range(MAX_REDIRECTS + 1):
+            _check_public(url)
+            with client.stream("GET", url) as res:
+                if res.is_redirect:
+                    url = urljoin(url, res.headers.get("location", ""))
+                    continue
+                if res.status_code >= 400:
+                    raise Rejected(f"URL을 받지 못했습니다(HTTP {res.status_code})")
+                buf = bytearray()
+                for chunk in res.iter_bytes():
+                    buf += chunk
+                    if len(buf) > MAX_BYTES:
+                        raise Rejected("파일이 너무 큽니다(30MB까지)")
+                return bytes(buf)
+    raise Rejected("리다이렉트가 너무 많습니다")
 
 
 def _compile():
@@ -140,15 +190,16 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
         return {**cached, "replayed": True, "replay_reason": "캐시 재생을 켰다"}
 
     today = today or date.today()
-    doc_id = _next_doc_id(today)
-    try:
-        meta = store.register(path, doc_id, "upload", source_url, Path(filename).stem or doc_id, today.isoformat())
+    doc_id = _new_doc_id(today)
+    try:   # 계정은 등록 순간에 남긴다. 뒤에서 실패해도 탈퇴 때 찾을 수 있게
+        meta = store.register(path, doc_id, "upload", source_url, Path(filename).stem or doc_id, today.isoformat(),
+                              extra={"uploaded_by": uploaded_by})
     except ValueError as exc:   # 스캔 PDF 등
+        _discard(doc_id)
         raise Rejected(str(exc)) from exc
     lines = store.load_lines(doc_id) or []
     if any(RRN.search(ln["text"]) for ln in lines):
-        for p in store.paths_of(doc_id):
-            p.unlink(missing_ok=True)
+        _discard(doc_id)
         raise Rejected("주민등록번호로 보이는 숫자가 있어 받지 않았습니다. " + NOTICE)
 
     compile_fn = _compile()
@@ -156,7 +207,8 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
         if compile_fn is None:
             raise RuntimeError("AI 공고 읽기(backend.compiler.compile)가 아직 연결되지 않았다")
         rules = compile_fn(doc_id, lines, "upload")
-    except Exception as exc:   # 읽기가 실패하면 캐시가 있을 때 캐시로 같은 화면을 만든다
+    except Exception as exc:   # 읽기가 실패하면 올린 원문은 지우고, 캐시가 있으면 캐시로 같은 화면을 만든다
+        _discard(doc_id)
         if cached:
             return {**cached, "replayed": True, "replay_reason": f"읽기 실패: {exc}"}
         raise RuntimeError(str(exc)) from exc
@@ -167,7 +219,7 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
         rule.setdefault("source", "upload")
         rule.setdefault("review", {"status": "unreviewed"})
         _rule_file(rule["id"]).write_text(json.dumps(rule, ensure_ascii=False, indent=2), encoding="utf-8")
-    meta = {**(store.load_meta(doc_id) or meta), "rules": [r["id"] for r in rules], "uploaded_by": uploaded_by}
+    meta = {**(store.load_meta(doc_id) or meta), "rules": [r["id"] for r in rules]}
     store.save_meta(meta)
     from backend.search.service import reset_index
     reset_index()

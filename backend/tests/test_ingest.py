@@ -87,3 +87,75 @@ def test_ingest_flow_cache_and_rejects(tmp_path, notice_pdf, monkeypatch):
     assert ing.delete_uploads("A1") == 1                                   # 탈퇴하면 올린 것 전부
     assert store.load_meta(log["doc_id"]) is None and not list((tmp_path / "compiled").glob("*.json"))
     assert not list(ing.cache_dir().glob("*.json"))
+
+
+@pytest.fixture
+def world(tmp_path, monkeypatch):
+    from backend.collector import ingest as ing
+    monkeypatch.setattr(config, "NOTICES_DIR", tmp_path / "notices")
+    monkeypatch.setattr(ing, "upload_rules_dir", lambda: tmp_path / "uploads")
+    monkeypatch.setattr(ing, "_after_merge", lambda ids: None)
+
+    def fake_compile(doc_id, lines, source):
+        return [{"id": f"upload:{doc_id}:x", "name": "t", "conditions": []}]
+    monkeypatch.setattr(ing, "_compile", lambda: fake_compile)
+    return ing
+
+
+@needs_pdf
+def test_doc_ids_do_not_collide_after_delete(tmp_path, world):
+    ing = world
+    pdfs = {n: make_pdf(tmp_path / f"{n}.pdf", [[(72, 700 - 14 * k, f"{n} notice line {k} with enough text") for k in range(5)]])
+            for n in ("alice", "bob", "carol")}
+    ids = {}
+    for n in ("alice", "bob"):
+        ids[n] = ing.ingest(pdfs[n], f"{n}.pdf", uploaded_by=n)["log"]["doc_id"]
+    assert ing.delete_uploads("alice") == 1
+    ids["carol"] = ing.ingest(pdfs["carol"], "carol.pdf", uploaded_by="carol")["log"]["doc_id"]
+    assert ids["carol"] != ids["bob"]
+    bob = store.load_meta(ids["bob"])
+    assert bob["uploaded_by"] == "bob" and bob["title"] == "bob"           # bob 것은 그대로
+    assert (tmp_path / "uploads").is_dir() and len(list((tmp_path / "uploads").glob("*.json"))) == 2
+
+
+@needs_pdf
+def test_failed_read_leaves_nothing(tmp_path, world, notice_pdf, monkeypatch):
+    ing = world
+
+    def broken(*a):
+        raise RuntimeError("LLM 시간 초과")
+    monkeypatch.setattr(ing, "_compile", lambda: broken)
+    with pytest.raises(RuntimeError):
+        ing.ingest(notice_pdf, "a.pdf", uploaded_by="dave")
+    assert store.list_doc_ids() == []                                       # 원문이 남지 않는다
+
+    monkeypatch.setattr(ing, "_compile", lambda: lambda *a: [{"id": "upload:x:y", "conditions": []}])
+    first = ing.ingest(notice_pdf, "a.pdf", uploaded_by="dave")              # 캐시를 만든다
+    monkeypatch.setattr(ing, "_compile", lambda: broken)
+    again = ing.ingest(notice_pdf, "a.pdf", uploaded_by="erin")
+    assert again["replayed"] is True
+    assert store.list_doc_ids() == [first["log"]["doc_id"]]                 # 캐시 재생 때도 새 원문은 지운다
+    assert store.load_meta(first["log"]["doc_id"])["uploaded_by"] == "dave"
+
+
+def test_fetch_url_blocks_internal_and_caps_size(monkeypatch):
+    import httpx
+
+    from backend.collector import ingest as ing
+
+    for bad in ["http://localhost/a.pdf", "http://127.0.0.1/a.pdf", "http://10.0.0.5/a.pdf",
+                "http://169.254.169.254/latest", "http://[::1]/a.pdf", "ftp://8.8.8.8/a.pdf"]:
+        with pytest.raises(ing.Rejected):
+            ing.fetch_url(bad, transport=httpx.MockTransport(lambda r: httpx.Response(200, content=b"%PDF-")))
+
+    redirect = httpx.MockTransport(lambda r: httpx.Response(302, headers={"location": "http://192.168.0.1/x.pdf"}))
+    with pytest.raises(ing.Rejected, match="내부"):
+        ing.fetch_url("http://8.8.8.8/a.pdf", transport=redirect)
+
+    monkeypatch.setattr(ing, "MAX_BYTES", 1000)
+    big = httpx.MockTransport(lambda r: httpx.Response(200, content=b"%PDF-" + b"x" * 5000))
+    with pytest.raises(ing.Rejected, match="너무 큽니다"):
+        ing.fetch_url("http://8.8.8.8/a.pdf", transport=big)
+
+    ok = httpx.MockTransport(lambda r: httpx.Response(200, content=b"%PDF-1.4 small"))
+    assert ing.fetch_url("http://8.8.8.8/a.pdf", transport=ok) == b"%PDF-1.4 small"

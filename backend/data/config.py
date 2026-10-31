@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
 RAW_DIR = DATA_DIR / "raw"
 NOTICES_DIR = DATA_DIR / "notices"
-RULES_DIRS = (ROOT / "rules" / "manual", ROOT / "rules" / "compiled")
+RULES_DIRS = (ROOT / "rules" / "manual", ROOT / "rules" / "compiled", ROOT / "rules" / "uploads")   # uploads는 사용자 업로드, 커밋 안 함
 DOCS_DIR = ROOT / "docs"
 
 load_dotenv(ROOT / ".env")
