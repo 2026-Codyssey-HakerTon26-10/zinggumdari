@@ -12,10 +12,10 @@
 | 외부 API | 한국토지주택공사 「분양임대공고별 상세정보 조회 서비스」 (data.go.kr 15057999) | 공고문 PDF 첨부 링크, 공급 일정(`data/raw/lh_detail`) | data.go.kr 표기: 이용허락범위 제한 없음, 무료(공공누리 유형 표기 없음) — [공식 메타데이터](https://www.data.go.kr/catalog/15057999/openapi.json), 2026-11-01 확인 |
 | 외부 API | 한국토지주택공사 「분양임대공고별 공급정보 조회 서비스」 (data.go.kr 15056765) | 덤프 코드(`lh_supply`)만 있다. 활용신청이 승인되지 않아 받은 데이터가 없고 서비스에 쓰지 않는다 | data.go.kr 표기: 이용허락범위 제한 없음, 무료(공공누리 유형 표기 없음) — [공식 메타데이터](https://www.data.go.kr/catalog/15056765/openapi.json), 2026-11-01 확인 |
 | 외부 API | 한국고용정보원 온통청년 「청년정책 API」 (youthcenter.go.kr) | 덤프 코드(`youth`)만 있다. 인증키를 발급받지 않아 받은 데이터가 없고 서비스에 쓰지 않는다 | 온통청년 회원 전용, 담당자 심사 후 인증키 발급(오픈 API 안내 페이지). 그 밖의 이용 조건은 안내 페이지에 표기 없음 |
-| 외부 서비스 | 이메일 발송 SMTP (서비스명은 채울 것) | 알림 이메일 | 약관 (채울 것) |
+| 외부 서비스(채택·실발송 검증 전) | Google Gmail SMTP | 수신을 선택한 프로필의 이메일 알림. 2026-11-01 사용자 확인으로 Gmail 채택, 실제 계정 인증·수신 검증은 별도 | [Google 서비스 약관](https://policies.google.com/terms?hl=ko), [Gmail 공식 연결 안내](https://support.google.com/mail/answer/7126229?hl=ko) |
 | 외부 API | 네이토 API(대회 지급, Anthropic 방식): Claude Opus 4.8(`claude-opus-4-8`), Claude Haiku 4.5(`claude-haiku-4`) | 공고 원문에서 조건 추출(원문당 1회). Opus는 시연 공고와 개발용 평가, Haiku는 행안부 대량 추출. 스캔 PDF의 글자 인식(tesseract가 없을 때) | 대회 지급 |
-| 외부 서비스 | OpenAI ChatGPT(모델명은 채울 것), Anthropic Claude(모델명은 채울 것) | 비교 사례 질의(발표 6쪽) | 상용 약관(질의만) |
-| 지급 자원 | GPU V100 서버(대회 지급) | 쓰면 용도, 안 쓰면 "미사용" (채울 것) | 대회 |
+| 외부 서비스 | OpenAI ChatGPT(정확한 모델명은 채울 것), Anthropic Claude(정확한 모델명은 채울 것) | 팀 개발 질의·코드 작성 보조에 사용(2026-11-01 사용자 확인). 발표 비교 실험 완료로 간주하지 않음 | 각 서비스 이용약관 |
+| 지급 자원 | GPU V100 서버(대회 지급) | 사용 중(2026-11-01 사용자 확인). 실제 수행 작업은 채울 것. L4와 동일 자원으로 간주하지 않음 | 대회 |
 | 오픈소스 | FastAPI, uv | API 서버, 패키지 관리 | MIT |
 | 오픈소스 | pydantic | 조건 JSON·프로필 스키마 검증 | MIT |
 | 오픈소스 | httpx | API 덤프 | BSD-3 |
@@ -48,6 +48,7 @@
 | 데이터 | NVIDIA Nemotron-Personas-Korea (https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea), 19~39세 1만 명의 10개 열(`data/raw/nemotron/`) | 가상 인구 뼈대(성별, 나이, 지역, 혼인, 가구 형태, 직업, 페르소나 글) | CC BY 4.0 (출처 표기) |
 | 데이터 | 통계청 「2024년 혼인·이혼 통계」 평균 초혼연령(남 33.9세, 여 31.6세, 2025-03-20 발표) | 가상 인구의 혼인 연령 | 공공저작물 |
 | 사전 보유 코드 | 해당 없음. 레포 첫 커밋 시각 2026-10-31 17:16 KST(`12190b9`, 주제 공개 10/30 10:00 이후). 팀원의 기존 파인튜닝·서빙 스크립트 반입 없음 | | |
+| 개발 도구 | Visual Studio Code, Google Antigravity IDE | 팀 개발 IDE(2026-11-01 사용자 확인). IDE 이름을 실제 사용한 AI 모델명으로 대신하지 않음 | [VS Code 제품 라이선스](https://code.visualstudio.com/license), [Antigravity 공식 안내](https://antigravity.google/) 및 해당 서비스 약관 |
 | 기타 | OpenAI Codex, Anthropic Claude Code | 코드 작성·테스트·PR 리뷰 보조. Codex는 평가·제출 작업에 사용했고 Claude Code는 [PR #42](https://github.com/2026-Codyssey-HakerTon26-10/zinggumdari/pull/42)의 생성 표기로 확인 | 상용(각 서비스 이용약관) |
 
 
@@ -56,6 +57,6 @@ PostgreSQL 드라이버는 psycopg 3, 마이그레이션은 별도 도구 없이
 ## GPU 실행 자원 기록 (CuPy 채택)
 
 - CuPy 사용 방향은 채택했으며 GPU 서버에만 추가한다. 실제 의존성 파일·잠금 파일의 변경은 설치할 패키지와 버전을 확정한 뒤 수행한다. 이 문서 추가만으로 패키지 설치나 GPU 연동이 완료된 것은 아니다.
-- NVIDIA L4는 실행 확인된 GPU다. 기존 표의 V100 지급 자원 항목과 동일 자원이라고 추정하지 않으며, V100 사용 여부는 별도 확인한다.
+- NVIDIA L4는 실행 확인된 GPU다. V100도 사용 중임을 사용자가 2026-11-01 확인했다. 두 자원을 동일 서버로 간주하지 않으며 V100의 실제 수행 작업은 추가 확인한다.
 - `[ctk]` 옵션 등을 통해 NVIDIA CUDA 런타임·컴파일 구성요소를 설치하면, 실제 설치된 패키지명·버전·공식 출처·해당 이용 조건을 별도로 기록한다. 이 구성요소는 CuPy 본체의 MIT 라이선스에 포함된 것으로 취급하지 않는다. 설치 내역이 아직 없으므로 사용 완료 자원으로 기재하지 않는다.
 - 별도 GPU 전송 데이터 생성기는 채택 보류 중이며, 이번 CuPy 채택에 포함되지 않는다.
