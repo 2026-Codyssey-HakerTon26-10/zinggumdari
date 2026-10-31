@@ -101,7 +101,7 @@
     "local-wlf00002637:l2"
    ],
    "status": "reviewed",
-   "note": "원문은 기혼의 연소득이 부부합산인지 본인인지 말하지 않는다. 기혼은 income_couple(본인+배우자), 미혼, 예비부부, 이혼·사별은 income_self로 봤다"
+   "note": "복지로 원문에는 기혼 연소득이 부부합산인지 적혀 있지 않지만, 서울시 보도자료(2026-05-19, https://www.seoul.go.kr/news/news_report.do?nttNo=458236)에 「기혼자는 부부합산 연소득 기준이 기존 5천만 원 이하에서 6천만 원 이하로 확대」로 명시돼 있다(2026-06-05 시행). 그래서 기혼은 income_couple(본인+배우자), 미혼, 예비부부, 이혼·사별은 income_self로 둔다"
   },
   {
    "field": "other",
