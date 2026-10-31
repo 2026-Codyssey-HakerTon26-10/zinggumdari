@@ -30,7 +30,7 @@ def test_ingest_flow_cache_and_rejects(tmp_path, notice_pdf, monkeypatch):
 
     monkeypatch.setattr(config, "NOTICES_DIR", tmp_path / "notices")
     monkeypatch.setattr(ing, "upload_rules_dir", lambda: tmp_path / "compiled")
-    monkeypatch.setattr(ing, "_after_merge", lambda ids: None)
+    monkeypatch.setattr(ing, "_after_merge", lambda ids, account_id=None: None)
     from backend.search.ports import ports
     monkeypatch.setattr(ports, "session_user",
                         lambda req: {"account_id": "A1", "profile_id": "U1"} if req.headers.get("x-test-login") else None)
@@ -94,7 +94,7 @@ def world(tmp_path, monkeypatch):
     from backend.collector import ingest as ing
     monkeypatch.setattr(config, "NOTICES_DIR", tmp_path / "notices")
     monkeypatch.setattr(ing, "upload_rules_dir", lambda: tmp_path / "uploads")
-    monkeypatch.setattr(ing, "_after_merge", lambda ids: None)
+    monkeypatch.setattr(ing, "_after_merge", lambda ids, account_id=None: None)
 
     def fake_compile(doc_id, lines, source):
         return [{"id": f"upload:{doc_id}:x", "name": "t", "conditions": []}]
@@ -243,3 +243,27 @@ def test_raw_responses_deleted_with_real_compiler(tmp_path, world, monkeypatch):
     with pytest.raises(RuntimeError):
         ing.ingest(pdf2, "b.pdf", uploaded_by="A1")
     assert list(raw.iterdir()) == []                                          # 읽기 실패
+
+
+def test_after_merge_passes_uploader_only(monkeypatch):
+    """업로드 알림은 올린 계정만 다시 판정한다. 알림 쪽이 계정을 못 받으면 부르지 않는다."""
+    import sys
+    import types
+
+    from backend.collector import ingest as ing
+    calls = []
+    mod = types.ModuleType("backend.notify.api")
+
+    def rebuild_with_account(*, rule_ids, today=None, account_id=None):
+        calls.append((rule_ids, account_id))
+        return {"notifications": 1}
+    mod.rebuild = rebuild_with_account
+    monkeypatch.setitem(sys.modules, "backend.notify.api", mod)
+    assert ing._after_merge(["upload:x"], account_id="A1") == {"notifications": 1}
+    assert calls == [(["upload:x"], "A1")]
+
+    def rebuild_old(*, rule_ids, today=None):
+        calls.append("everyone")
+    mod.rebuild = rebuild_old
+    assert ing._after_merge(["upload:x"], account_id="A1")["status"] == "skipped"
+    assert calls[-1] != "everyone"

@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import hashlib
+import inspect
 import ipaddress
 import json
 import re
@@ -146,13 +147,19 @@ def load_cache(sha: str) -> dict | None:
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
 
 
-def _after_merge(rule_ids: list[str]) -> dict | None:
-    """새 조건표로 재판정하고 알림을 만든다(알림 담당 모듈이 생기면 그것을 부른다)."""
+def _after_merge(rule_ids: list[str], account_id: str | None = None) -> dict | None:
+    """새 조건표로 재판정하고 알림을 만든다(알림 담당 모듈이 있으면 그것을 부른다).
+
+    업로드 조건표는 올린 본인만 본다. 그래서 올린 계정을 같이 넘기고, 알림 쪽이 계정을 받지
+    못하면 모든 프로필에 알림이 나가지 않게 부르지 않는다.
+    """
     try:
         from backend.notify.api import rebuild   # type: ignore[import-not-found]
     except ImportError:
         return None
-    return rebuild(rule_ids=rule_ids)
+    if "account_id" not in inspect.signature(rebuild).parameters:
+        return {"status": "skipped", "reason": "알림 재판정이 계정을 받지 않아 업로드 알림을 보내지 않았다"}
+    return rebuild(rule_ids=rule_ids, account_id=account_id)
 
 
 def _rule_file(doc_id: str, rule_id: str) -> Path:
@@ -238,4 +245,4 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     result = {"log": summarize(doc_id, meta, lines, rules), "rules": rules, "notice": NOTICE,
               "at": datetime.now().isoformat(timespec="seconds")}
     save_cache(sha, result)
-    return {**result, "replayed": False, "alerts": _after_merge([r["id"] for r in rules])}
+    return {**result, "replayed": False, "alerts": _after_merge([r["id"] for r in rules], account_id=uploaded_by)}
