@@ -2,6 +2,7 @@
 
 날짜·해둘 일·타임라인은 플래너(backend/planner)가, 공고별 질문(ask)은 engine/ask.py가 채운다.
 비슷한 가구(similar)는 아직 비어 있다.
+검수 전 AI 조건표는 프로필이나 다음 단계의 단계 태그와 맞는 것만 카드로 올리고 나머지는 folded에 센다(SPEC §0).
 """
 
 import logging
@@ -10,6 +11,7 @@ from datetime import date
 
 from backend.engine import judge
 from backend.engine.ask import choose_ask
+from backend.engine.derive import tags as profile_tags
 
 log = logging.getLogger(__name__)
 
@@ -28,6 +30,22 @@ def _documents(rule: dict) -> list[dict]:
     docs += [{"name": n, "doc_id": None, "who_provides": "official", "status": "unknown"}
              for n in rule.get("documents_official") or []]
     return docs
+
+
+def _foldable(rule: dict) -> bool:
+    """검수 전 AI 조건표. 내가 올린 조건표는 직접 고른 것이라 접지 않는다."""
+    return (rule.get("review") or {}).get("status") != "reviewed" and rule.get("source") != "upload"
+
+
+def _focus_tags(profile: dict, today: date) -> set[str]:
+    """지금 프로필의 단계 태그와 바로 다음 단계. 제도 태그(planner.stage_tags)와 같은 이름을 쓴다."""
+    from backend.planner.steps import upcoming
+
+    me = profile.get("self", {})
+    out = set(profile_tags(me, today)) | set(upcoming(me)[:1])
+    if profile.get("parents"):
+        out.add("parent")
+    return out
 
 
 def _explain(card: dict) -> str:
@@ -50,14 +68,20 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
     results = judge(profile, rules, today)
     plan = planner.timeline(profile, rules, today, results)
     by_id = {r["id"]: r for r in rules}
-    cards = []
+    cards, folded = [], []
     next_step = {i for s in plan["self"] for i in s["opens"]}
+    focus_tags = _focus_tags(profile, today)
+    opens_next = set(plan["self"][0]["opens"]) if plan["self"] else set()
     for rule in rules:
         card = results[rule["id"]]
         if card["verdict"] == "ineligible" and rule["id"] in next_step:
             # 다음 단계(혼인신고·출산)로 가면 열리는 제도는 카드로 올리고 언제 열리는지 단다
             card.update(verdict="opens_later", verdict_why="next_step")
         if card["verdict"] not in SHOWN or card.get("no_subject") or card.get("superseded_by"):
+            continue
+        if _foldable(rule) and rule["id"] not in opens_next and not focus_tags & set(planner.stage_tags(rule)):
+            folded.append({"rule_id": rule["id"], "name": rule.get("name"), "subject": card["subject"],
+                           "verdict": card["verdict"]})
             continue
         planner.annotate(card, rule, profile, today, plan["self"])
         for row in card["conditions"]:
@@ -73,7 +97,7 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
         card["exclusive_evidence"] = evidence(card["exclusive_evidence"]) if card["exclusive_evidence"] else []
         card.update(documents=_documents(rule), explain=_explain(card))
         cards.append(card)
-    cards.sort(key=lambda c: (c["subject"] != "self", SHOWN[c["verdict"]]))
+    cards.sort(key=lambda c: (c["subject"] != "self", c["ai_extracted"], SHOWN[c["verdict"]]))
     return {
         "user_id": profile.get("user_id"),
         "ask": choose_ask(cards, by_id, profile, focus),
@@ -81,5 +105,6 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
         "step": step,
         "timeline": plan,
         "similar": None,
+        "folded": {"count": len(folded), "items": folded},
         "disclaimer": DISCLAIMER,
     }
