@@ -1,10 +1,6 @@
 import Link from "next/link"; // 주요 버튼을 서비스 화면과 연결해요.
 import { Icon, SiteFooter, SiteHeader } from "./components/ui"; // 공통 아이콘과 상하단 메뉴를 불러와요.
-import { JourneyPreview } from "./components/journey-preview"; // 다섯 단계로 이루어진 생애주기 그림을 불러와요.
-
-function Hero() { // 처음 방문한 사람에게 서비스의 목적을 소개해요.
-    return <section className="landing-hero"><div className="container hero-grid"><div className="hero-copy"><span className="eyebrow hero-eyebrow"><span className="live-dot" />부모님 것까지, 신고하기 전에</span><h1>물어보기 전에<br /><span>먼저 찾아드려요</span><span className="headline-period">.</span></h1><p className="hero-description">나와 부모님 정보를 고르기만 하면,<br className="desktop-break" /> 받을 수 있는 제도와 거의 해당하는 제도를<br className="desktop-break" /> 공고 원문 근거와 함께 보여드려요.</p><div className="hero-actions"><Link className="button button-primary button-large" href="/my">3분 만에 확인하기<Icon name="arrow-right" /></Link><Link className="button button-secondary button-large" href="/my?subject=parent"><Icon name="family" />부모님 대신 확인하기</Link></div><p className="hero-action-note">로그인 없이 시작해요 · 입력 시간은 개인마다 달라요</p><div className="hero-trust"><span><Icon name="shield" />주민등록번호 입력 없이</span><span><Icon name="file" />공고 원문 근거와 함께</span></div></div><JourneyPreview /></div><div className="hero-bottom-label"><span />오늘의 나를 알고, 내일의 가능성을 잇다<span /></div></section>; // 지정된 히어로 문구와 두 가지 시작 버튼을 하늘색 화면에 담아요.
-} // 첫 화면 소개를 마쳐요.
+import { HeroBanner } from "./components/hero-banner"; // 자동 순환 히어로 배너를 불러와요.
 
 function DiscoveryCards() { // 제공된 디자인의 사례와 지표 세 장을 소개해요.
     return <section className="discover-section"><div className="container"><div className="section-heading"><div><span className="eyebrow">모르면 지나치는 제도, 이제는 먼저</span><h2 className="section-title">놓치고 있던 가능성을 발견해요</h2></div><span className="section-side-note">나의 오늘도, 부모님의 내일도</span></div><div className="discovery-grid"><article className="discovery-card story-card"><div className="card-topline"><span className="soft-icon"><Icon name="family" /></span><span className="pill">시연용 가상 사례</span></div><p className="card-label">예시 · 32세 민지 씨</p><h3>“엄마에게 필요한 제도도<br />함께 챙길 수 있네요.”</h3><p>어머니의 기초연금 확인 항목과<br />몰랐던 돌봄 서비스 2개를 살펴보는 이야기예요.</p><span className="card-footnote">사례의 수치는 가상이며, 실제 자격 판정이 아닙니다.</span></article><article className="discovery-card metric-card"><div className="card-topline"><span className="soft-icon"><Icon name="search" /></span><span className="pill pill-gray">디자인 참고 수치</span></div><p className="card-label">기초연금 기준 이하 노인</p><div className="discovery-metric">175<span>만 명</span><span className="metric-asterisk">*</span></div><p>830만 명 중 받지 않는 사람</p><span className="card-footnote">제공 시안 출처 · 국민연금연구원 (2026.6 보도)<br />* 제공된 참고 수치이며, 출처 원문 확인 전입니다.</span></article><article className="discovery-card possibility-card"><div className="card-topline"><span className="soft-icon"><Icon name="sparkles" /></span><span className="pill">조건 하나의 가능성</span></div><p className="card-label">한 가구당 거의 해당</p><div className="discovery-metric">평균 <span className="unmeasured-number">○</span><span>개</span></div><p>조건 하나만 확인하면 되는 제도</p><span className="card-footnote">가상 인구 1만 가구 기준 · 집계 전<br />실제 집계값이 연결되면 표시됩니다.</span></article></div></div></section>; // 가상 사례와 미확인 통계, 미집계 수치를 사실과 구분해서 표시해요.
@@ -30,10 +26,43 @@ function Comparison() { // 제공 시안의 정부24와 ChatGPT 비교 영역을
     return <section className="comparison-section"><div className="container"><div className="section-heading centered"><span className="eyebrow">필요한 정보를 넘어, 다음의 가능성으로</span><h2 className="section-title">정부24, ChatGPT와 무엇이 다른가요</h2><p>징검다리는 나의 생애주기와 공고 원문 사이에 징검다리를 놓아요.</p></div><div className="comparison-grid">{comparisons.map((item) => <article className={`comparison-card ${item.highlight ? "comparison-featured" : ""}`} key={item.name}>{item.highlight && <span className="comparison-ribbon">나의 다음 걸음과 함께</span>}<div className="comparison-icon"><Icon name={item.icon} /></div><span className="comparison-caption">{item.caption}</span><h3>{item.name}</h3><p className="comparison-title">{item.title}</p><ul>{item.points.map((point) => <li key={point}><Icon name={item.highlight ? "check-circle" : "check"} /><span>{point}</span></li>)}</ul>{item.highlight && <p className="comparison-closing">원문 근거와 함께, 차근차근.</p>}</article>)}</div></div></section>; // 비교 영역을 동일한 정보 밀도로 정리하고 징검다리를 강조해요.
 } // 서비스 비교 영역을 마쳐요.
 
+const trustItems = [ // 개인정보 보호 원칙을 카드로 보여줄 목록이에요.
+    { icon: "shield", title: "주민등록번호 없어요", description: "이름, 전화번호, 주민등록번호 칸이 없어요.\n닉네임으로만 시작할 수 있어요." }, // 식별 정보 미수집 원칙이에요.
+    { icon: "lock", title: "민감정보는 동의 후에만", description: "소득, 건강, 장애 정보는 별도 동의가\n있을 때만 저장해요." }, // 민감정보 별도 동의 원칙이에요.
+    { icon: "trash", title: "삭제는 언제든 1클릭", description: "프로필을 지우면 입력한 모든 정보가\n함께 삭제돼요." }, // 삭제 용이성 원칙이에요.
+    { icon: "file", title: "공고 원문 근거와 함께", description: "AI가 판정하지 않아요. 규칙 엔진이\n공고 원문을 근거로 확인 결과를 알려줘요." }, // AI 미판정 원칙이에요.
+]; // 신뢰 항목 목록을 마쳐요.
+
+function TrustSection() { // 개인정보 보호 원칙을 카드로 보여주는 영역이에요.
+    return (
+        <section className="trust-section"> {/* 보안 안내 영역 전체예요. */}
+            <div className="container">
+                <div className="section-heading centered"> {/* 제목을 가운데에 배치해요. */}
+                    <span className="eyebrow"><Icon name="shield" />개인정보 보호 원칙</span>
+                    <h2 className="section-title">걱정 없이 시작해도 괜찮아요</h2>
+                    <p>민감한 정보는 꼭 필요한 경우에만, 동의 후에만 받아요.</p>
+                </div>
+                <div className="trust-grid"> {/* 보호 원칙 카드를 4개 나열해요. */}
+                    {trustItems.map((item) => (
+                        <div className="trust-card" key={item.title}> {/* 각 원칙을 하나의 카드로 표시해요. */}
+                            <span className="trust-card-icon"><Icon name={item.icon} /></span> {/* 원칙을 상징하는 아이콘이에요. */}
+                            <strong className="trust-card-title">{item.title}</strong> {/* 원칙의 제목이에요. */}
+                            <p style={{ whiteSpace: "pre-line" }}>{item.description}</p> {/* 줄바꿈을 그대로 표시해요. */}
+                        </div>
+                    ))}
+                </div>
+                <p className="trust-footnote"> {/* 개인정보 보호 안내의 마무리 문구예요. */}
+                    <Icon name="info" />서비스는 가상 ID로 프로필을 저장하며, 로그에 자유 텍스트를 남기지 않아요.
+                </p>
+            </div>
+        </section>
+    );
+} // 보안 안내 영역을 마쳐요.
+
 function StartSection() { // 자신과 부모님 중 어디서 시작할지 안내해요.
     return <section className="start-section"><div className="container start-panel"><div className="start-copy"><span className="eyebrow">당신의 다음 걸음, 여기에서</span><h2>어떤 정보를<br />확인하고 싶으신가요?</h2><p>오늘 필요한 제도부터 앞으로 열릴 제도까지.<br />나에게 맞는 징검다리를 찾아보세요.</p></div><div className="start-choices"><Link href="/my" className="start-choice"><span className="start-choice-icon"><Icon name="user" /></span><span><strong>내 혜택 진단하기</strong><small>나의 다섯 단계에 맞는 제도를 살펴봐요</small></span><Icon name="arrow-right" /></Link><Link href="/my?subject=parent" className="start-choice"><span className="start-choice-icon"><Icon name="family" /></span><span><strong>부모님 혜택 진단하기</strong><small>부모님을 위한 제도도 따로 챙겨봐요</small></span><Icon name="arrow-right" /></Link><span className="start-demo-note">현재는 시연용 화면입니다. 실제 프로필을 저장하지 않습니다.</span></div></div></section>; // 두 시작 버튼을 실제 디자인 화면에 연결하고 시연임을 알려줘요.
 } // 시작 안내 영역을 마쳐요.
 
 export default function Home() { // 소개부터 사용 방법까지 이어지는 랜딩페이지를 만들어요.
-    return <><SiteHeader active="home" /><main id="main-content"><Hero /><DiscoveryCards /><HowItWorks /><Comparison /><StartSection /></main><SiteFooter /></>; // 모든 랜딩 영역을 공통 메뉴와 하단 사이에 배치해요.
+    return <><SiteHeader active="home" /><main id="main-content"><HeroBanner /><DiscoveryCards /><HowItWorks /><TrustSection /><Comparison /><StartSection /></main><SiteFooter /></>; // 배너와 보안 섹션을 포함해 모든 랜딩 영역을 배치해요.
 } // 랜딩페이지 구성을 마쳐요.
