@@ -6,7 +6,7 @@ LLM이 쓴 값은 없다. 근거 줄이 없는 해둘 일은 만들지 않고, �
 from datetime import date
 
 from backend.engine import judge
-from backend.engine.values import birth_year_of
+from backend.engine.values import age_values, birth_year_of
 from backend.planner import dates
 from backend.planner.steps import STEPS, apply_step, assume, upcoming
 from backend.planner.todo import ACTION, ltc_todos, todos
@@ -102,12 +102,14 @@ def _parent_steps(profile: dict, rules: list[dict], today: date, now: dict) -> l
                         "why": "돌봄 희망 + 장기요양등급 없음", "opens": [r["id"] for r in ltc],
                         "todo": [t for r in ltc for t in ltc_todos(r)]})
         by = birth_year_of(p)   # 생년월일의 연도(옛 데이터는 birth_year)
-        if by is None:
+        ages = age_values(p, today) if by is not None else None
+        if not ages:
             continue
+        # 아직 문턱 전인지는 카드와 같은 만 나이로 본다. 생년월일이면 한 값, 출생연도만이면 큰 값(이미 됐을 수도 있으면 안 올린다)
         groups: dict[int, list[dict]] = {}
         for r in parent_rules:
             need = _need_age(r)
-            if need is not None and today.year - by < need and mine[r["id"]]["verdict"] == "opens_later":
+            if need is not None and max(ages) < need and mine[r["id"]]["verdict"] == "opens_later":
                 groups.setdefault(need, []).append(r)
         for need in sorted(groups):
             later = groups[need]
