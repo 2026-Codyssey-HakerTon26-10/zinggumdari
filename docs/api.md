@@ -36,7 +36,7 @@
                                             // 시트에 칸이 없는 조건. 거부하지 않고 판정에서 항상 확인 필요
   ],
   "exclusive_with": ["manual:hug-buttimok-youth"],   // 손 조건표만. 엔진은 1차 판정 뒤 "둘 중 하나"로 표시만
-  "apply_window": null,                     // 손 조건표만, 선택. 예: 기초연금 {"anchor": "age65", "offset_months": -1, "evidence": ["…"]}, 원문 "생일이 속한 달의 1개월 전부터 신청"
+  "apply_window": null,                     // 손 조건표만, 선택. 예: 기초연금 {"anchor": "age65", "offset_months": -1, "quote": "…", "evidence": ["…"]}, 원문 "생일이 속한 달의 1개월 전부터 신청"
   "benefit_text": "…",                      // 원문 그대로
   "apply_text": "…",
   "documents": ["혼인관계증명서", "임대차계약서"],       // 원문 문자열. AI 조건표는 원문 줄에 그대로 있는 이름만 남는다. 사전 매핑은 오프라인
@@ -79,7 +79,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 | `any_of` | OR. 가지 하나는 AND 묶음이고 한 단계만 둔다. `evidence`, `status`, `quote`는 묶음에 단다 |
 | `as_of` | 기준일. `notice_date`(공고일 현재), `application_date`(신청일·접수일 현재 또는 기준). 원문에 없으면 뺀다. 판정은 오늘(`?today=`)로 하고, 기준일은 카드와 해둘 일 문구에 쓴다 |
 | `evidence` | 근거 줄 ID 목록. `{doc_id}:{줄 ID}`(§8). 모든 조건에 필수. 읽지 못한 쪽을 알리는 조건(`reason: "unread_pages"`)만 비고 `pages`에 쪽 번호가 있다 |
-| `quote` | 손 조건표만. 사람이 쓴 원문 문장이다. `python -m backend.compiler.resolve_manual`이 `evidence`로 바꾸고, 못 찾으면 실패한다 |
+| `quote` | 손 조건표만. 사람이 쓴 원문 문장이다. 조건과 `apply_window`에 단다. `python -m backend.compiler.resolve_manual`이 `evidence`로 바꾸고, 못 찾으면 실패한다 |
 | `status` | `reviewed`(사람이 쓰거나 확인), `auto_verified`(AI, 검사 전부 통과), `needs_review`(AI, 검사 하나라도 실패). 확정 판정에는 앞의 둘만 쓴다 |
 | `checks` | AI 조건만. 검사(`schema`, `evidence`, `value`, `comparator`, `unit`, `keyword`, `pair`, `layer`)별 `ok`, `na`(해당 없음), `fail:사유`(SPEC §9.3) |
 | `note` | 사람용 메모. 엔진은 읽지 않는다. 판정을 바꿔야 하는 말은 `other` 조건으로 쓴다 |

@@ -328,6 +328,20 @@ def test_resolve_not_found_keeps_evidence():
     assert rule["conditions"][0]["evidence"] == ["nhuf:l1"] and "evidence" not in rule["conditions"][1]
 
 
+def test_resolve_apply_window_follows_new_line_ids():
+    # 원문 줄이 바뀌면 조건처럼 apply_window의 근거도 quote로 다시 찾는다
+    window = {"anchor": "age65", "offset_months": -1, "quote": "무주택 세대주로서 신청", "evidence": ["nhuf:l9"]}
+    rule = manual({"field": "is_homeless", "op": "==", "value": "Y", "quote": "무주택 세대주", "evidence": ["nhuf:l9"]},
+                  apply_window=window)
+    assert resolve_rule(rule, NOTICE_LINES, "nhuf") == []
+    assert window["evidence"] == ["nhuf:l4"] and rule["conditions"][0]["evidence"] == ["nhuf:l2"]
+    window["quote"] = "생일이 속하는 달"
+    assert resolve_rule(rule, NOTICE_LINES, "nhuf") == [
+        "manual:demo apply_window: 원문에서 못 찾음 '생일이 속하는 달' (quote: '생일이 속하는 달')"]
+    assert window["evidence"] == ["nhuf:l4"]                                    # 못 찾으면 그대로 둔다
+    assert doc_of(manual(apply_window={"evidence": ["nhuf:l4"]})) == "nhuf"
+
+
 def test_doc_of():
     assert doc_of(manual(doc_id="x")) == "x"
     assert doc_of(manual({"evidence": ["nhuf:l1"]}, {"evidence": ["nhuf:l3"]})) == "nhuf"

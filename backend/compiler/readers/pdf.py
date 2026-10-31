@@ -26,6 +26,7 @@ OUTLINE_CURVES = 200  # 글자가 거의 없고 곡선이 이만큼 많으면 �
 CID_SHARE = 0.3     # 글자 중 "(cid:N)"이 이 비율 이상이면 글자 층을 읽지 못한 것으로 본다
 GAP = 5             # 같은 높이라도 단어 사이가 글자 폭의 이 배수보다 넓으면 다른 줄
 NARROW_GAP = 2.5    # 이 배수보다 넓은 틈이 다른 줄의 틈과 같은 가로 자리에 있으면 단 사이(2단 편집)
+CUT_SHARE = 0.3     # 표 행 단어 중 이 비율 이상을 칸 경계가 가로지르면 쪼개진 행(LH 공고 8건: 진짜 표 행 0.2 이하)
 NO_OCR = "텍스트 층이 없는 스캔 PDF입니다. 글자 인식(tesseract 또는 네이토 API 키)이 없어 읽을 수 없습니다."
 NO_OCR_UPLOAD = ("텍스트 층이 없는 스캔 PDF입니다. 올린 파일은 개인정보 보호를 위해 서버 안의 글자 인식(tesseract)으로만 "
                  "읽는데, 서버에 없어 읽을 수 없습니다. 텍스트를 고를 수 있는 PDF나 HWP를 올려 주세요.")
@@ -72,25 +73,38 @@ def group_words(words: list[dict]) -> list[tuple[float, list[dict]]]:
     return out
 
 
+def _within(w: dict, box) -> bool:
+    x0, top, x1, bottom = box
+    return x0 <= (w["x0"] + w["x1"]) / 2 <= x1 and top <= (w["top"] + w["bottom"]) / 2 <= bottom
+
+
+def _chopped(row, words: list[dict]) -> bool:
+    """테두리 친 안내문 상자를 pdfplumber가 글자 폭 칸 수십 개짜리 표로 잡으면 칸 경계가 단어 가운데를 지나
+    행이 " | 되며 | , 이 | 자 | …"로 쪼개진다. 진짜 표의 칸 경계는 단어 사이에 있다(붙어 읽힌 머리글 한 단어에 한 번 걸칠 수는 있다).
+    경계가 행 단어의 CUT_SHARE 이상을, 모두 합쳐 두 번 이상 가로지르면 쪼개진 행이다."""
+    edges = {x for c in row.cells if c for x in (c[0], c[2])}
+    hits = [sum(w["x0"] + 1 < x < w["x1"] - 1 for x in edges) for w in words if _within(w, row.bbox)]
+    return sum(hits) >= 2 and sum(map(bool, hits)) >= CUT_SHARE * len(hits)
+
+
 def _text_lines(page, no: int) -> list[dict]:
     items = []  # (세로 위치, x0, 줄)
-    # 한 칸짜리 열만 있는 격자는 글 상자라 표로 보지 않는다
-    tables = [t for t in page.find_tables() if len(t.columns) > 1]
-    for k, t in enumerate(tables, 1):
+    words = [{**w, "text": _CID.sub("", w["text"])} for w in page.extract_words(use_text_flow=False, keep_blank_chars=False)]
+    words = [w for w in words if w["text"]]
+    rows, k = [], 0  # 표 행으로 낸 행 상자
+    # 한 칸짜리 열만 있는 격자는 글 상자라 표로 보지 않는다. 쪼개진 행은 일반 줄로 둔다
+    for t in (t for t in page.find_tables() if len(t.columns) > 1):
+        got = []
         for row, cells in zip(t.rows, t.extract()):
             text = " | ".join(" ".join(_CID.sub("", c or "").split()) for c in cells)
-            if text.replace("|", "").strip():
-                bbox = [round(v, 1) for v in row.bbox]
-                items.append((bbox[1], bbox[0], {"page": no, "bbox": bbox, "text": text, "src": "text", "table": f"p{no}-t{k}"}))
+            if text.replace("|", "").strip() and not _chopped(row, words):
+                got.append(([round(v, 1) for v in row.bbox], text))
+        k += bool(got)
+        for bbox, text in got:
+            rows.append(bbox)
+            items.append((bbox[1], bbox[0], {"page": no, "bbox": bbox, "text": text, "src": "text", "table": f"p{no}-t{k}"}))
 
-    def outside(w: dict) -> bool:
-        cx, cy = (w["x0"] + w["x1"]) / 2, (w["top"] + w["bottom"]) / 2
-        return not any(x0 <= cx <= x1 and top <= cy <= bottom for x0, top, x1, bottom in (t.bbox for t in tables))
-
-    words = [{**w, "text": _CID.sub("", w["text"])} for w in page.extract_words(use_text_flow=False, keep_blank_chars=False)
-             if outside(w)]
-    words = [w for w in words if w["text"]]
-    for top, seg in group_words(words):
+    for top, seg in group_words([w for w in words if not any(_within(w, b) for b in rows)]):
         items.append((top, seg[0]["x0"], {"page": no, "bbox": _box(seg), "text": " ".join(w["text"] for w in seg),
                                           "src": "text", "table": None}))
     items.sort(key=lambda i: (i[0], i[1]))
