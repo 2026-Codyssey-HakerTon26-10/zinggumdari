@@ -1,0 +1,83 @@
+{
+  "id": "manual:ltc-insurance",
+  "source": "manual",
+  "name": "노인장기요양보험(장기요양급여)",
+  "org": "보건복지부·국민건강보험공단",
+  "region": null,
+  "domain": "elderly",
+  "subject": "parent",
+  "benefit_type": "service",
+  "aliases": [
+    "장기요양등급",
+    "노인장기요양",
+    "요양등급 신청"
+  ],
+  "same_as": [
+    "gov24:999000000089"
+  ],
+  "doc_id": "gov24-999000000089",
+  "conditions": [
+    {
+      "any_of": [
+        [
+          {
+            "field": "age",
+            "op": ">=",
+            "value": 65
+          }
+        ],
+        [
+          {
+            "field": "other",
+            "text": "만 65세 미만이면 치매·뇌혈관성 질환 등 노인성 질병이 있어야 함"
+          }
+        ]
+      ],
+      "quote": "만 65세 이상 노인 또는 만 65세 미만자 중 치매ㆍ뇌혈관성 질환 등 노인성 질병",
+      "evidence": [
+        "gov24-999000000089:l3"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "field": "ltc_grade",
+      "op": "in",
+      "value": [
+        "1등급",
+        "2등급",
+        "3등급",
+        "4등급",
+        "5등급",
+        "인지지원등급"
+      ],
+      "quote": "장기요양 1등급 … 장기요양 2등급 … 장기요양 3등급 … 장기요양 4등급 … 장기요양 5등급 … 장기요양 인지지원등급",
+      "evidence": [
+        "gov24-999000000089:l13",
+        "gov24-999000000089:l14",
+        "gov24-999000000089:l15",
+        "gov24-999000000089:l16",
+        "gov24-999000000089:l17",
+        "gov24-999000000089:l18"
+      ],
+      "status": "reviewed",
+      "note": "등급은 장기요양인정 신청 → 방문조사 → 등급판정위원회로 정해진다(l8~l11). 등급이 없으면 플래너가 '장기요양등급 신청'을 해둘 일로 낸다"
+    }
+  ],
+  "exclusive_with": [],
+  "apply_window": null,
+  "benefit_text": "○ 장기요양 수급자로 결정될 경우 아래 지원을 받을 수 있음\n - 장기요양급여는 재가급여, 시설급여, 특별현금급여로 구분되며 이 중 한 가지씩만 이용 가능",
+  "apply_text": "국민건강보험공단에 방문하거나 온라인, 팩스, 우편으로 신청",
+  "documents": [
+    "장기요양인정 신청서",
+    "의사소견서"
+  ],
+  "documents_official": [],
+  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999256&bnefType=all&svcId=999000000089",
+  "updated": "2026-01-30",
+  "review": {
+    "status": "reviewed",
+    "by": "이초롱",
+    "at": "2026-11-01"
+  },
+  "compiled": null
+}
