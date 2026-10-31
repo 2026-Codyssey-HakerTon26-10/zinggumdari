@@ -91,13 +91,13 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 
 | 대상 | 필드 |
 |---|---|
-| 나 ① | `age`(계산, `birth_year`에서. 출생연도만 있어 만 나이는 두 값 중 하나다. 경계에 걸리면 확인 필요), `gender`, `sido`, `sigungu`, `marital_status`(미혼\|예비부부\|신혼\|기혼\|이혼·사별), `marriage_years`(계산, `marriage_date`에서. 혼인신고 전이면 혼인 기간 조건은 탈락), `pregnant`, `due_month`, `children_count`, `youngest_child_age`, `household_size`, `employment_status`(재학\|구직\|재직\|자영업\|육아휴직\|기타) |
+| 나 ① | `age`(계산, `birth_date`에서. 판정 기준일과 생년월일로 만 나이 한 값. 2월 29일생은 평년엔 3월 1일에 한 살 든다), `gender`, `sido`, `sigungu`, `marital_status`(미혼\|예비부부\|신혼\|기혼\|이혼·사별), `marriage_years`(계산, `marriage_date`에서. 혼인신고 전이면 혼인 기간 조건은 탈락), `pregnant`, `due_month`, `children_count`, `youngest_child_age`, `household_size`, `employment_status`(재학\|구직\|재직\|자영업\|육아휴직\|기타) |
 | 나 ② | `tenure_type`(자가\|전세\|월세\|보증부월세\|무상거주), `is_householder`(세대주\|세대원), `is_homeless`, `deposit`, `monthly_rent`, `residence_months`(계산, `move_in_date`에서), `house_price`, `employment_type`(맞벌이\|외벌이\|해당없음), `income_self`, `income_spouse`, `income_household`, `income_couple`(계산. 미혼·이혼·사별이면 `income_self`, 예비부부·신혼·기혼이면 `income_self + income_spouse`이고 하나라도 모르면 비어 있다. 부부합산 조건에 쓰고 `income_household`로 대신하지 않는다), `income_band_median`(계산), `income_band_urban`(계산), `dependents_count`, `supports_parent_65`, `support_years`(계산, `support_start_date`에서), `has_account`, `subscription_months`(계산, `joined_date`에서), `payment_count`, `deposit_amount` |
 | 나 ③ | `qual_code`(`in`/`not_in`, 시트 `DB코드표_자격코드`), `history`(이력 종류와 날짜, 시트 `DB코드표_이력종류`. 예: `homeless_years`(계산, `주택_처분` 날짜에서)), `income_recognized`(소득인정액, 상수 없음, 항상 확인 필요). 자산·자동차가액은 시트에 칸이 없어 `other`로 쓰고 항상 확인 필요 |
 | 부모님 | `relation`(부\|모), `age`(계산), `sido`, `sigungu`, `lives_alone`, `lives_with_child`, `ltc_grade`(없음\|1등급\|2등급\|3등급\|4등급\|5등급\|인지지원등급. 값은 이 글자 그대로), `disability_registered`, `basic_pension`, `livelihood_status`(생계\|의료\|주거\|교육\|차상위\|해당없음), `care_wanted` |
 | 공통 | `apply_date`(계산, 오늘. `?today=`로 바꾼다. 접수 기간은 `apply_date >=` 시작일과 `apply_date <=` 마감일 두 조건으로 쓴다), `other`(어휘 밖 조건) |
 
-출생은 `birth_year`(출생연도)가 기준이다. 만 나이 두 값, 단계 날짜, 질문, 비슷한 가구가 모두 이 칸을 쓴다. DB의 `birth_date`(생년월일, `0001_init.sql`)는 시트 칸이라 남겨 두었지만 판정에 쓰지 않고, 화면도 받지 않는다(`0002_birth_year.sql`이 `users`·`parents`에 `birth_year`를 더했다).
+출생은 `birth_date`(생년월일)가 기준이다(팀 결정). 만 나이, 단계 날짜, 질문, 비슷한 가구가 모두 이 칸을 쓴다. 0002가 더했던 `birth_year` 칸은 `0004_drop_birth_year.sql`이 뺐고, 프로필에 `birth_year`를 보내면 422(모르는 칸)다. 엔진은 출생연도만 있는 옛 데이터(가상 인구 등)를 받으면 예전처럼 만 나이를 두 값으로 읽는다.
 
 금액은 전부 만원이다(시트 기준). 조건 JSON의 키는 DB의 `policy_requirements` 열과 이렇게 대응한다: `field` = `field`, `op` = `operator`, `value` = `value`, `income_basis` = `standard`. 나머지 키(`any_of`의 묶음·가지 번호, `as_of`, `evidence`, `status`, `checks`, `text`)는 시트 예시보다 우리가 더 붙이는 열이다.
 
@@ -146,7 +146,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
   "consents": {"sensitive": true, "parent": true},
   "self": {
     // ① users
-    "nickname": "지원", "gender": "여", "birth_year": 1999, "sido": "서울", "sigungu": "마포구",
+    "nickname": "지원", "gender": "여", "birth_date": "1999-04-15", "sido": "서울", "sigungu": "마포구",
     "marital_status": "예비부부", "marriage_date": null, "pregnant": "N", "due_month": null,
     "children_count": 0, "youngest_child_age": null, "household_size": 1, "employment_status": "재직",
     // ② user_housing, user_income, user_subscription, user_alert
@@ -160,10 +160,10 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
     "history": []
   },
   "parents": [                              // 탭을 안 열면 []. 부·모 각각 한 줄
-    {"relation": "모", "birth_year": 1966, "sido": "경기", "sigungu": "고양시", "lives_alone": "Y", "lives_with_child": "N",
+    {"relation": "모", "birth_date": "1966-07-03", "sido": "경기", "sigungu": "고양시", "lives_alone": "Y", "lives_with_child": "N",
      "ltc_grade": "없음", "disability_registered": "N", "basic_pension": "N", "livelihood_status": "해당없음", "care_wanted": "Y"}
   ],
-  "derived": {"age": [26, 27], "income_couple": null, "tags": ["youth", "marriage_planned", "homeless"], "income_band_median": null, "income_band_urban": null}   // 서버 계산, 저장 안 함. 만 나이는 출생연도만 있어 두 값. income_couple은 예비부부라 배우자 소득을 알아야 나온다. 태그는 여러 개
+  "derived": {"age": [27], "income_couple": null, "tags": ["youth", "marriage_planned", "homeless"], "income_band_median": null, "income_band_urban": null}   // 서버 계산, 저장 안 함. 만 나이는 생년월일로 한 값(목록 모양은 유지. 출생연도만 있는 옛 데이터는 두 값). income_couple은 예비부부라 배우자 소득을 알아야 나온다. 태그는 여러 개
 }
 ```
 
@@ -171,7 +171,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 
 | 없는 것 | 처리 |
 |---|---|
-| 예정 사건의 날짜(혼인신고 예정일, 둘째 시점 등) | 타임라인은 날짜 대신 단계로 넘긴다. "다음 단계로 가면 프로필이 이렇게 바뀐다"고 가정하고 다시 판정한다. 날짜는 시트의 날짜 칸(`marriage_date`, `due_month`, `birth_year`, `joined_date`, `move_in_date`)에서 계산되는 것만 쓴다 |
+| 예정 사건의 날짜(혼인신고 예정일, 둘째 시점 등) | 타임라인은 날짜 대신 단계로 넘긴다. "다음 단계로 가면 프로필이 이렇게 바뀐다"고 가정하고 다시 판정한다. 날짜는 시트의 날짜 칸(`marriage_date`, `due_month`, `birth_date`, `joined_date`, `move_in_date`)에서 계산되는 것만 쓴다 |
 | 부모 출생월 | 기초연금은 만 65세가 되는 해까지만 알려주고, 시작 달은 "생일이 속한 달 1개월 전부터"라는 원문 문장으로 안내한다 |
 | 부모 퇴직, 수술 예정, 소득, 주택 | 부모 사건은 65세 도달과 장기요양등급 신청(돌봄 희망 + 등급 없음)만 쓴다. 소득·주택 조건은 확인 필요 |
 | 자산, 자동차가액 | 그런 조건은 항상 확인 필요 |
@@ -210,7 +210,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
         // AI 조건은 "checks"가 같이 온다. 빠짐 검사에서 남은 줄은 {"read_as": "원문 조건 미반영", "grade": "확인 필요", "why": "AI가 조건으로 읽지 못한 원문 줄", …}
       ],
       "exclusive_with": [{"rule_id": "manual:hug-buttimok-youth", "name": "청년전용 버팀목", "both_eligible": false}],   // AI 조건표는 "exclusive_evidence"(원문 줄)만 표시
-      "opens_at":  {"step": "newlywed"},                                       // 다음 단계로 가면 열린다 (날짜 없음). 그 밖에 {"field", "when"|"year"}(시간이 지나면), {"action": "ltc_grade_apply"}(해둘 일을 하면)
+      "opens_at":  {"step": "newlywed"},                                       // 다음 단계로 가면 열린다 (날짜 없음). 그 밖에 {"field", "when"|"year"}(시간이 지나면. 나이는 생년월일이 있으면 그 나이가 되는 날 when과 해 year 둘 다), {"action": "ltc_grade_apply"}(해둘 일을 하면)
       "closes_at": {"field": "marriage_years", "from": "marriage_date", "plus_years": 7, "when": null},   // 통과 중인 <= 조건에서 계산. 혼인신고일이 생기면 날짜가 나온다
       "apply_from": null,                   // 손 조건표의 apply_window에서
       "prerequisites": [{"action": "subscription_account", "min_months": 6, "have_months": 67, "status": "met", "evidence": ["nhuf-newlywed-jeonse:l16"]}],   // subscription_months >= 6 조건에서 계산(joined_date 기준). 원문 확인 전 예시
@@ -233,11 +233,11 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
     ],
     "parent": [
       {"step": "ltc_apply", "now": true, "why": "돌봄 희망 + 장기요양등급 없음", "opens": ["manual:ltc-insurance"], "todo": [{"action": "ltc_grade_apply", "evidence": ["…"]}]},
-      {"step": "age65", "relation": "모", "age": 65, "year": 2031, "opens": ["manual:basic-pension"], "apply_from": "2031년 생일이 속한 달의 1개월 전부터(생일 달은 출생연도만 있어 확인 필요)"}   // 부모 한 명씩, 조건의 나이별로(age70이면 70세 되는 해). apply_from은 65세 apply_window만
+      {"step": "age65", "relation": "모", "age": 65, "year": 2031, "opens": ["manual:basic-pension"], "apply_from": "2031년 6월부터"}   // 부모 한 명씩, 조건의 나이별로(age70이면 70세 되는 해). apply_from은 65세 apply_window만
     ],
     "dated": [                              // 날짜가 계산되는 것만. 시트의 날짜 칸에서
-      {"what": "청년 나이 상한(만 34세) 지남", "year": 2034, "from": "birth_year", "note": "만 35세 생일부터 해당 안 됨"},   // 카드 closes_at의 year와 같은 해
-      {"what": "어머니 만 65세", "year": 2031, "from": "parents.birth_year"}
+      {"what": "청년 나이 상한(만 34세) 지남", "year": 2034, "from": "birth_date", "note": "만 35세 생일부터 해당 안 됨"},   // 카드 closes_at의 year와 같은 해
+      {"what": "어머니 만 65세", "year": 2031, "from": "parents.birth_date"}
     ]
   },
   "similar": {                            // 비슷한 가구 알림 . 맞춤 추천과 섞지 않는다
@@ -463,7 +463,7 @@ JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 �
 | 메서드·경로 | 보내는 것 | 받는 것 · 에러 |
 |---|---|---|
 | `POST /profiles` | `{"self": {① 가입 칸}, "consents"?: {"sensitive": bool, "parent": bool}, "parents"?: [...]}` | `{"user_id"}`. 동의는 기본 `false`. 이미 있으면 409, 모르는 칸이 있으면 422 |
-| `GET /profiles/{user_id}` | 없음(`?today=` 선택) | §2 프로필 + `derived`(만 나이 두 값, 부부합산 소득, 태그, 소득 구간 %). `derived`는 저장하지 않고 응답 때마다 계산한다. 없거나 남의 것이면 404 |
+| `GET /profiles/{user_id}` | 없음(`?today=` 선택) | §2 프로필 + `derived`(만 나이(생년월일로 한 값), 부부합산 소득, 태그, 소득 구간 %). `derived`는 저장하지 않고 응답 때마다 계산한다. 없거나 남의 것이면 404 |
 | `PATCH /profiles/{user_id}` | 바꿀 것만: `{"self"?: {...}, "parents"?: [...], "consents"?: {...}, "stages_done"?: [...]}`. `self`는 칸 단위로 합치고 `parents`는 통째로 바꾼다 | 바뀐 프로필 전체(+ `derived`) |
 | `DELETE /profiles/{user_id}` | 없음 | 204 |
 

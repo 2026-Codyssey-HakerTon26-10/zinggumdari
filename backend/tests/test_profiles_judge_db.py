@@ -17,7 +17,7 @@ from backend.app.routers import judge
 from backend.data.config import env
 
 ME = {"user_id": "Uown", "stages_done": ["signup"], "consents": {"sensitive": True, "parent": False},
-      "self": {"birth_year": 1999, "marital_status": "미혼", "income_self": 270}, "parents": []}
+      "self": {"birth_date": "1999-04-15", "marital_status": "미혼", "income_self": 270}, "parents": []}
 OK = {"id": "manual:ok", "source": "manual", "subject": "self", "name": "ok", "updated": "2026-10-31",
       "detail_url": "https://x", "review": {"status": "reviewed"},
       "conditions": [{"field": "age", "op": "<=", "value": 34, "evidence": ["doc:l1"], "status": "reviewed"}]}
@@ -130,7 +130,7 @@ def test_preset_to_judge_end_to_end(db_client):
     user_id = me.post("/profiles/presets/jiwon").json()["user_id"]
     assert me.get("/auth/me").json()["user_id"] == user_id          # 검색 배지가 쓰는 세션 프로필과 같다
     p = me.get(f"/profiles/{user_id}?today=2026-11-01").json()
-    assert p["self"]["birth_year"] == 1999 and p["parents"][0]["birth_year"] == 1966
+    assert p["self"]["birth_date"] == "1999-04-15" and p["parents"][0]["birth_date"] == "1966-07-03"
     assert p["derived"]["tags"] == ["youth", "marriage_planned", "homeless"]
 
     body = me.post("/judge?today=2026-11-01", json={}).json()
@@ -139,14 +139,21 @@ def test_preset_to_judge_end_to_end(db_client):
 
 
 @_db
+def test_birth_year_is_not_a_profile_field(db_client):
+    me = db_client()
+    _signup(me, "by@test.com")
+    assert me.post("/profiles", json={"self": {"birth_year": 1999}}).status_code == 422   # 생년월일(birth_date)로 받는다
+
+
+@_db
 def test_other_account_cannot_see(db_client):
     a, b = db_client(), db_client()
     _signup(a, "a@test.com")
     _signup(b, "b@test.com")
-    a_id = a.post("/profiles", json={"self": {"birth_year": 1996}}).json()["user_id"]
-    b.post("/profiles", json={"self": {"birth_year": 1990}})
+    a_id = a.post("/profiles", json={"self": {"birth_date": "1996-03-01"}}).json()["user_id"]
+    b.post("/profiles", json={"self": {"birth_date": "1990-03-01"}})
     assert b.get(f"/profiles/{a_id}").status_code == 404             # 남의 것은 없는 것과 같다
     assert b.patch(f"/profiles/{a_id}", json={"self": {"sido": "서울"}}).status_code == 404
     assert b.delete(f"/profiles/{a_id}").status_code == 404
     assert b.post("/judge", json={"user_id": a_id}).status_code == 403
-    assert a.get(f"/profiles/{a_id}").json()["self"]["birth_year"] == 1996
+    assert a.get(f"/profiles/{a_id}").json()["self"]["birth_date"] == "1996-03-01"

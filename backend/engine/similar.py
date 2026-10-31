@@ -19,6 +19,7 @@ import numpy as np
 
 from backend.engine import judge
 from backend.engine.derive import tags as profile_tags
+from backend.engine.values import birth_year_of
 
 ROOT = Path(__file__).resolve().parents[2]
 POP_DIR = ROOT / "data" / "population"
@@ -125,9 +126,11 @@ def similar_for(profile: dict, verdicts: dict[str, dict], rules: list[dict], tod
             rule["region"] = {**rule["region"], "sido": short_sido(rule["region"]["sido"])}
         use.append(rule)
     me = profile.get("self", profile)
-    query = features.query_vector(profile, cache["scale"], year=today.year)
+    # 가상 인구(행렬)는 출생연도로 만들었다. 프로필은 생년월일이 기준이라 연도만 꺼내 넘긴다
+    by = birth_year_of(me)
+    query = features.query_vector({"self": {**me, "birth_year": by}}, cache["scale"], year=today.year)
     known = sum(1 for f in features.STAGE1 if f not in ("user_id", "age") and me.get(f) is not None) \
-        + (1 if me.get("birth_year") is not None else 0)
+        + (1 if by is not None else 0)
     return knn.recommend(cache["matrix"], query, cache["eligibility"][:, cols], use, verdicts,
                          tags=cache["tags"], known_fields=known, sido=short_sido(me.get("sido")),
                          sigungu=me.get("sigungu"), today=today, k=k)

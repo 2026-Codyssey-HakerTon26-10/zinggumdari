@@ -9,7 +9,7 @@
 from datetime import date
 
 from backend.engine.constants import STANDARDS
-from backend.engine.values import Values, ages, income_couple
+from backend.engine.values import Values, age_values, income_couple
 
 YOUTH = (19, 39)
 
@@ -25,10 +25,10 @@ def _band(me: dict, basis: str, year: int) -> float | None:
 def tags(me: dict, today: date) -> list[str]:
     out = []
     try:
-        a = ages(me.get("birth_year"), today)
+        a = age_values(me, today)
     except (TypeError, ValueError):
         a = None
-    if a and a[1] >= YOUTH[0] and a[0] <= YOUTH[1]:
+    if a and max(a) >= YOUTH[0] and min(a) <= YOUTH[1]:
         out.append("youth")
     status = me.get("marital_status")
     if status == "예비부부":
@@ -51,7 +51,7 @@ def derive(profile: dict, today: date | None = None) -> dict:
     me = profile.get("self", profile)
     sensitive_ok = bool((profile.get("consents") or {}).get("sensitive"))
     try:
-        age = ages(me.get("birth_year"), today)
+        age = age_values(me, today)   # 생년월일이면 한 값, 출생연도만 있으면 두 값
     except (TypeError, ValueError):
         age = None
     couple = income_couple(me)

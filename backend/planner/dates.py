@@ -6,7 +6,15 @@
 """
 
 from backend.engine.evaluate import FINAL
-from backend.engine.values import SPAN, boundary, parse_date
+from backend.engine.values import (
+    SPAN,
+    add_months,
+    birth_date_of,
+    birth_year_of,
+    birthday_at,
+    boundary,
+    parse_date,
+)
 
 
 def flat(rule: dict) -> list[tuple[dict, dict]]:
@@ -29,14 +37,26 @@ def _when(person: dict, cond: dict, closing: bool) -> dict | None:
     if f == "apply_date":
         return {"field": f, "when": str(v)}
     if f == "age":
-        by = person.get("birth_year")
+        # 생년월일이 있으면 그 나이가 되는 날(when)까지, 출생연도만 있는 옛 데이터는 해(year)만
+        try:
+            born = birth_date_of(person)
+        except ValueError:
+            return None
+        by = born.year if born else birth_year_of(person)
         if by is None or v is None:
             return None
+        src = "birth_date" if born else "birth_year"
         if closing:
             limit = v if cond["op"] == "<=" else v - 1
-            return {"field": f, "from": "birth_year", "max_age": limit, "year": int(by) + limit + 1}
-        need = v if cond["op"] == ">=" else v + 1
-        return {"field": f, "from": "birth_year", "min_age": need, "year": int(by) + need}
+            out = {"field": f, "from": src, "max_age": limit, "year": by + limit + 1}
+            age = limit + 1   # 만 limit+1세 생일부터 해당 안 됨
+        else:
+            need = v if cond["op"] == ">=" else v + 1
+            out = {"field": f, "from": src, "min_age": need, "year": by + need}
+            age = need
+        if born:
+            out["when"] = birthday_at(born, age).isoformat()
+        return out
     if f in SPAN:
         # 날짜 기간은 정수 보정 없이 경계일 = 시작일 + N(엔진과 같은 boundary). <=는 그날까지 통과, <는 그날 닫힌다
         src, unit = SPAN[f]
@@ -83,12 +103,21 @@ def deadline(rule: dict) -> str | None:
 
 
 def apply_from(rule: dict, person: dict) -> str | None:
-    """손 조건표의 apply_window(SPEC §7.2). 지금은 만 65세 기준(age65)만 안다. 출생월은 받지 않는다."""
+    """손 조건표의 apply_window(SPEC §7.2). 지금은 만 65세 기준(age65)만 안다.
+    생년월일이 있으면 신청을 시작하는 달까지, 출생연도만 있는 옛 데이터는 해만 말한다."""
     window = rule.get("apply_window") or {}
-    by = person.get("birth_year")
-    if window.get("anchor") != "age65" or by is None:
+    if window.get("anchor") != "age65":
         return None
-    year = int(by) + 65
     offset = window.get("offset_months") or 0
+    try:
+        born = birth_date_of(person)
+    except ValueError:
+        born = None
+    if born is not None:
+        start = add_months(birthday_at(born, 65).replace(day=1), offset)   # 생일이 속한 달 기준
+        return f"{start.year}년 {start.month}월부터"
+    by = birth_year_of(person)
+    if by is None:
+        return None
     when = f"{-offset}개월 전부터" if offset < 0 else f"{offset}개월 뒤부터" if offset > 0 else "부터"
-    return f"{year}년 생일이 속한 달의 {when}(생일 달은 출생연도만 있어 확인 필요)"
+    return f"{by + 65}년 생일이 속한 달의 {when}(생일 달은 출생연도만 있어 확인 필요)"
