@@ -1,0 +1,167 @@
+{
+ "id": "manual:hug-newborn-buttimok",
+ "source": "manual",
+ "name": "신생아 특례 버팀목대출",
+ "org": "주택도시기금",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "신생아 특례",
+  "신생아 특례 전세대출",
+  "신생아 버팀목"
+ ],
+ "same_as": [],
+ "doc_id": "nhuf-newborn-buttimok",
+ "conditions": [
+  {
+   "field": "other",
+   "text": "민법상 성년인 세대주(대출실행일로부터 1개월 이내 세대주 예정자 포함)",
+   "quote": "대출접수일 현재 민법상 성년인 세대주(대출실행일로부터 1개월 이내에 세대분가 또는 세대합가로 인한 세대주 예정자 포함)",
+   "evidence": [
+    "nhuf-newborn-buttimok:l356"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 2,
+   "as_of": "application_date",
+   "quote": "대출접수일 기준 2년 내 출산(입양)한 가구",
+   "evidence": [
+    "nhuf-newborn-buttimok:l361"
+   ],
+   "status": "reviewed",
+   "note": "’23.1.1. 이후 출생아부터, 임신 중인 태아는 미포함, 입양아는 만 2살 미만(l363~l364)"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "quote": "세대주를 포함한 세대원 전원이 무주택인 자(혼인신고를 하지 않은 경우",
+   "evidence": [
+    "nhuf-newborn-buttimok:l366"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     }
+    ],
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 20000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "income_self",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "income_spouse",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     }
+    ]
+   ],
+   "quote": "대출신청인과 배우자의 합산 총소득이 연간 1.3억원 이하인 자. 다만 대출신청인과 배우자가 모두 소득이 있는 경우 합산 총소득이 2억원 이하인 자(부부 각 1인의 소득이 1.3억원 이하)",
+   "evidence": [
+    "nhuf-newborn-buttimok:l367"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "대출신청인과 배우자의 합산 순자산 3.45억원 이하(2026년)",
+   "quote": "합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 … 2026년도 기준 3.45억원",
+   "evidence": [
+    "nhuf-newborn-buttimok:l369",
+    "nhuf-newborn-buttimok:l370"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "기금·은행 전세자금대출, 주택담보대출 이용 중이면 불가",
+   "quote": "(중복대출 금지) 주택도시기금 대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자 등",
+   "evidence": [
+    "nhuf-newborn-buttimok:l347"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "주택임대차계약 체결, 임차보증금 5% 이상 지불",
+   "quote": "주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자",
+   "evidence": [
+    "nhuf-newborn-buttimok:l355"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "신용정보·연체 등 해제 정보가 남아 있으면 불가",
+   "quote": "신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능",
+   "evidence": [
+    "nhuf-newborn-buttimok:l374"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "공공임대주택 입주 중이면 불가",
+   "quote": "대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가",
+   "evidence": [
+    "nhuf-newborn-buttimok:l379"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "대상주택: 전용면적 85㎡ 이하(수도권 밖 읍·면 100㎡), 임차보증금 수도권 5억원, 수도권 외 4억원 이하",
+   "quote": "임차 전용면적 85㎡ (수도권을 제외한 도시지역이 아닌 읍 또는 면지역은 100㎡) 이하 주택 … 수도권 5억원, 수도권외 4억원",
+   "evidence": [
+    "nhuf-newborn-buttimok:l398",
+    "nhuf-newborn-buttimok:l401"
+   ],
+   "status": "reviewed"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "대출금리 연 1.3%~4.3%\n대출한도 최대 2.4억원 이내(임차보증금의 80% 이내)\n대출기간 2년 이내(최장 12년 이용 가능)",
+ "apply_text": "임대차계약서상 잔금지급일과 주민등록등본상 전입일 중 빠른 날로부터 3개월이내까지 신청",
+ "documents": [
+  "건강보험자격득실확인서",
+  "사업자등록증",
+  "사업자등록증명원",
+  "가족관계증명서"
+ ],
+ "documents_official": [],
+ "detail_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05021401.jsp",
+ "updated": "2026-11-01",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}
