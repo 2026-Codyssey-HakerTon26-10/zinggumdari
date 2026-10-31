@@ -132,46 +132,6 @@
    "status": "auto_verified"
   },
   {
-   "any_of": [
-    [
-     {
-      "field": "income_household",
-      "op": "<=",
-      "value": 65,
-      "income_basis": "median_pct",
-      "as_of": "notice_date"
-     }
-    ],
-    [
-     {
-      "field": "age",
-      "op": "<",
-      "value": 20,
-      "as_of": "notice_date"
-     },
-     {
-      "field": "income_household",
-      "op": "<=",
-      "value": 72,
-      "income_basis": "median_pct",
-      "as_of": "notice_date"
-     }
-    ]
-   ],
-   "evidence": [],
-   "checks": {
-    "schema": "ok",
-    "evidence": "fail:no_evidence",
-    "value": "fail:b0.0:not_in_evidence",
-    "comparator": "fail:b0.0:no_value",
-    "unit": "fail:b0.0:no_value",
-    "keyword": "fail:b0.0:keyword_not_in_evidence",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
-  },
-  {
    "field": "other",
    "text": "원문 조건 미반영",
    "reason": "unaccounted",

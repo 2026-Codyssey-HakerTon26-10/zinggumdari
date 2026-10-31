@@ -16,50 +16,6 @@
  ],
  "conditions": [
   {
-   "any_of": [
-    [
-     {
-      "field": "age",
-      "op": "<=",
-      "value": 18
-     }
-    ],
-    [
-     {
-      "field": "age",
-      "op": ">=",
-      "value": 65
-     }
-    ],
-    [
-     {
-      "field": "pregnant",
-      "op": "==",
-      "value": "Y"
-     }
-    ],
-    [
-     {
-      "field": "disability_registered",
-      "op": "==",
-      "value": "Y"
-     }
-    ]
-   ],
-   "evidence": [],
-   "checks": {
-    "schema": "ok",
-    "evidence": "fail:no_evidence",
-    "value": "fail:b0.0:not_in_evidence",
-    "comparator": "fail:b0.0:no_value",
-    "unit": "fail:b0.0:no_value",
-    "keyword": "fail:b0.0:keyword_not_in_evidence",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
-  },
-  {
    "field": "other",
    "text": "원문 조건 미반영",
    "reason": "unaccounted",
