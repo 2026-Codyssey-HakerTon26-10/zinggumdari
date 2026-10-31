@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 공개 공고 검색 API 연결
+
+`/search`는 고정 예시 대신 백엔드 `GET /search`를 호출합니다. 실행 명령은 루트 README를 따릅니다.
+
+- `frontend/.env.example`을 참고해 `frontend/.env.local`에 `NEXT_PUBLIC_API_BASE`를 설정합니다. 생략하면 로컬 API 주소를 사용합니다. 설정 변경 뒤 프론트 개발 서버를 다시 시작합니다.
+- 이 값은 브라우저에 공개됩니다. API 키·비밀번호를 넣지 않습니다.
+- 로컬에서는 프론트를 `http://localhost:3000`, API를 `http://localhost:8000`으로 사용합니다. 다른 프론트 주소는 백엔드 CORS 담당자와 허용 주소를 맞춰야 합니다.
+- 검색어와 대상 필터를 API로 전송합니다. 인증 쿠키와 사용자 ID는 보내지 않으며, 검색어는 프론트 URL·저장소·콘솔에 남기지 않습니다.
+- 결과의 원문 링크·기준일은 서버 값을 사용합니다. 링크가 없으면 미연결로 표시합니다. `judge: fake`의 배지를 확정 자격으로 표시하지 않습니다.
