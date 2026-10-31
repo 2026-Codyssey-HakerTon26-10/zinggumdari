@@ -36,7 +36,7 @@ export default function SearchPage() { // 목업 대신 실제 공개 검색 결
         setView({ status: "loading", data: null, message: "" }); // 검색 중에는 이전 결과를 지워요.
         const timeout = window.setTimeout(() => current.abort("timeout"), 15000); // 응답이 오지 않는 상태에서 무한히 기다리지 않아요.
         try { // 연결 오류와 취소를 구분해요.
-            const data = await searchPolicies(trimmed, target, current.signal); // 인증 정보 없이 검색 API에 요청해요.
+            const data = await searchPolicies(trimmed, target, current.signal); // 로그인 상태에서는 세션 쿠키를 포함해 검색 API에 요청해요.
             if (controller.current === current && !current.signal.aborted) setView({ status: "ready", data, message: "" }); // 가장 최근 요청만 표시해요.
         } catch { // 내부 오류·주소·검색어는 콘솔이나 화면에 그대로 출력하지 않아요.
             if (controller.current === current && (!current.signal.aborted || current.signal.reason === "timeout")) setView({ status: "error", data: null, message: current.signal.reason === "timeout" ? "검색 응답이 지연되고 있습니다. 다시 시도해 주세요." : "검색하지 못했습니다. API 서버 연결 상태와 주소 설정을 확인한 뒤 다시 시도해 주세요." }); // 초기화로 취소된 요청은 오류를 표시하지 않아요.

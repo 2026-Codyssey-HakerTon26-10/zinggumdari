@@ -1,6 +1,8 @@
 "use client"; // 버튼과 탭을 누를 때 현재 화면의 상태를 바꿔요.
 import Link from "next/link"; // 페이지를 새로 불러오지 않고 다른 화면으로 이동해요.
 import { useEffect, useRef, useState } from "react"; // 화면 상태와 대화상자 참조를 관리해요.
+import { useRouter } from "next/navigation"; // 로그아웃 후 로그인 화면으로 이동해요.
+import { getMe, logout, getAccountData, setAccountData } from "../lib/auth"; // 세션 확인, 로그아웃, 계정별 로컬 데이터 접근을 담당해요.
 import { Icon, SiteFooter, SiteHeader } from "../components/ui"; // 모든 화면이 공유하는 아이콘과 머리말을 가져와요.
 import "./my.css"; // 내 징검다리 화면에만 쓰는 디자인을 불러와요.
 type Subject = "self" | "parent"; // 본인과 부모님 화면을 구분해요.
@@ -41,13 +43,18 @@ const parentPolicies: Policy[] = [ // 부모님 예시는 본인 예시와 별�
 ]; // 부모님 정책 예시를 마쳐요.
 const disclaimer = "참고용 모의 판정, 실제 자격은 접수 기관 심사로 결정"; // 모든 예시 카드에 같은 모의 판정 안내를 붙여요.
 export default function MyPage() { // 내 징검다리 화면을 만들어요.
+    const router = useRouter(); // 로그아웃 후 로그인 화면으로 이동해요.
     const [subject, setSubject] = useState<Subject>("self"); // 처음에는 본인 탭을 보여줘요.
     const [stage, setStage] = useState<Stage>("youth"); // 처음에는 청년 단계를 보여줘요.
     const [filter, setFilter] = useState("all"); // 전체 보기와 저장한 예시를 구분해요.
     const [bookmarks, setBookmarks] = useState<string[]>([]); // 저장 버튼 상태를 현재 화면에서만 기억해요.
     const [selected, setSelected] = useState<Policy | null>(null); // 자세히 살펴볼 예시 카드를 기억해요.
-    const [nickname, setNickname] = useState("민지"); // 실제 개인정보 대신 가상의 닉네임을 보여줘요.
-    const [draftNickname, setDraftNickname] = useState("민지"); // 닉네임 편집 중인 값을 별도로 기억해요.
+    const [nickname, setNickname] = useState(""); // 로그인 계정에 연결된 닉네임이에요.
+    const [draftNickname, setDraftNickname] = useState(""); // 닉네임 편집 중인 임시 값이에요.
+    const [accountId, setAccountId] = useState<string | null>(null); // getMe()로 얻은 로그인 계정 ID예요.
+    const [logoutPending, setLogoutPending] = useState(false); // 서버 세션 폐기 요청 중 중복 클릭을 막아요.
+    const [logoutError, setLogoutError] = useState(""); // 로그아웃 실패는 화면에 남겨 재시도할 수 있게 해요.
+    const logoutBusy = useRef(false); // 같은 순간의 중복 요청도 차단해요.
     const [alertSettings, setAlertSettings] = useState([true, true, false]); // 알림 스위치의 시연 상태를 기억해요.
     const [toast, setToast] = useState(""); // 버튼을 눌렀을 때 짧은 안내를 보여줘요.
     const detailDialog = useRef<HTMLDialogElement>(null); // 정책 미리보기 대화상자를 가리켜요.
@@ -55,14 +62,32 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
     const stageIndex = stages.findIndex((item) => item.id === stage); // 선택한 단계의 순서를 찾아요.
     const cards = subject === "parent" ? parentPolicies : catalog[stage]; // 본인과 부모님의 예시를 분리해서 보여줘요.
     const shownCards = filter === "saved" ? cards.filter((card) => bookmarks.includes(card.id)) : cards; // 저장 필터를 누르면 저장한 예시만 보여줘요.
-    useEffect(() => { // 부모님 바로가기 주소에서 들어왔는지 확인해요.
+    useEffect(() => { // 화면을 처음 열 때 세션을 확인하고 계정별 닉네임을 읽어요.
+        getMe()
+            .then((me) => {
+                setAccountId(me.account_id); // 로그인 계정 ID를 저장해요.
+                const stored = getAccountData(me.account_id); // 계정 전용 키에서 닉네임을 읽어요.
+                if (stored?.nickname) { setNickname(stored.nickname); setDraftNickname(stored.nickname); } // 편집 다이얼로그 초기값도 함께 맞춰요.
+            })
+            .catch(() => { /* 미로그인·세션 만료 시 예시 화면을 그대로 보여줘요. */ });
         if (new URLSearchParams(window.location.search).get("subject") === "parent") setSubject("parent"); // 부모님 바로가기라면 부모님 탭을 열어요.
-    }, []); // 화면을 처음 열 때만 주소를 읽어요.
+    }, []); // 화면을 처음 열 때만 실행해요.
     useEffect(() => { // 짧은 안내가 표시되면 자동으로 지워요.
         if (!toast) return; // 보여줄 안내가 없다면 아무 일도 하지 않아요.
         const timer = window.setTimeout(() => setToast(""), 3500); // 잠시 뒤 안내를 닫아요.
         return () => window.clearTimeout(timer); // 화면을 떠나거나 안내가 바뀌면 예약을 취소해요.
     }, [toast]); // 안내 문구가 바뀔 때만 실행해요.
+    async function handleLogout() { // 세션을 폐기하고 로그인 화면으로 이동해요.
+        if (logoutBusy.current) return; // 이미 진행 중인 세션 폐기 요청은 중복 전송하지 않아요.
+        logoutBusy.current = true; setLogoutPending(true); setLogoutError(""); // 요청 시작과 이전 오류 정리를 함께 처리해요.
+        try { // 서버 성공 응답을 확인하기 전에는 이동하지 않아요.
+            await logout(); // 204 응답일 때만 다음 줄로 진행해요.
+            setAccountId(null); setNickname(""); setDraftNickname(""); // 성공한 뒤에만 화면의 계정 표시를 지워요.
+            router.replace("/login"); // 로그아웃이 확인되면 로그인 화면으로 이동해요.
+        } catch { // 통신 오류와 서버 오류를 세션 만료로 가정하지 않아요.
+            setLogoutError("로그아웃하지 못했습니다. 로그인 상태가 남아 있을 수 있습니다. 다시 시도해 주세요."); // 현재 화면과 계정 표시를 유지해 실패를 알리죠.
+        } finally { logoutBusy.current = false; setLogoutPending(false); } // 성공·실패 후 요청 잠금을 해제해요.
+    } // 로그아웃 처리를 마쳐요.
     function toggleBookmark(id: string) { // 카드의 저장 상태를 바꿔요.
         setBookmarks((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]); // 이미 저장했다면 빼고 아니라면 추가해요.
         setToast("이 화면에서만 저장 상태를 유지해요. 실제 보관함에는 저장되지 않아요."); // 시연 버튼이 실제 저장과 다름을 알려줘요.
@@ -77,14 +102,18 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
             <main id="main-content" className="container my-main"> {/* 건너뛰기 링크가 이동할 본문이에요. */}
                 <div className="my-breadcrumb"><Link href="/">홈</Link><Icon name="chevron-right" /><span>내 징검다리</span></div> {/* 현재 위치를 안내해요. */}
                 <section className="my-heading"> {/* 페이지 제목과 시연 안내를 묶어요. */}
-                    <div><p className="eyebrow">MY STEPPING STONES</p><h1>{nickname} 님의 다음 걸음,<br className="my-mobile-break" /> 미리 준비해 볼까요?</h1><p className="muted">지금 필요한 제도부터 다음 단계에서 열릴 제도까지 함께 살펴봐요.</p></div> {/* 닉네임과 안내 문장을 보여줘요. */}
+                    <div><p className="eyebrow">MY STEPPING STONES</p><h1>{nickname ? `${nickname} 님의` : "나의"} 다음 걸음,<br className="my-mobile-break" /> 미리 준비해 볼까요?</h1><p className="muted">지금 필요한 제도부터 다음 단계에서 열릴 제도까지 함께 살펴봐요.</p></div> {/* 닉네임과 안내 문장을 보여줘요. */}
                     <Link href="/demo" className="button button-secondary">가상 프로필로 추천 카드 체험</Link> {/* 실제 개인의 판정 결과가 아님을 표시해요. */}
                 </section> {/* 제목 영역을 마쳐요. */}
                 <section className="my-profile" aria-label="시연 프로필 요약"> {/* 참고 디자인의 프로필 요약 구성을 보여줘요. */}
                     <div className="my-avatar"><Icon name="user" /></div> {/* 실명이나 사진 대신 기본 아이콘을 사용해요. */}
-                    <div className="my-profile-info"><div><strong>{nickname} 님</strong><span>가상 닉네임</span></div><p>프로필과 공고가 연결되면 내 조건에 맞는 정보를 보여드려요.</p><div className="my-profile-tags"><span>청년</span><span>주거 관심</span><span>소득 정보 미입력</span></div></div> {/* 민감정보 없이 예시 프로필 상태를 보여줘요. */}
-                    <button className="button button-secondary" type="button" onClick={() => { setDraftNickname(nickname); profileDialog.current?.showModal(); }}><Icon name="settings" />닉네임 바꾸기</button> {/* 현재 화면의 가상 닉네임만 바꿀 수 있어요. */}
+                    <div className="my-profile-info"><div><strong>{nickname || "닉네임"} 님</strong><span>닉네임</span></div><p>프로필과 공고가 연결되면 내 조건에 맞는 정보를 보여드려요.</p><div className="my-profile-tags"><span>청년</span><span>주거 관심</span><span>소득 정보 미입력</span></div></div> {/* 민감정보 없이 예시 프로필 상태를 보여줘요. */}
+                    <div className="my-profile-actions"> {/* 닉네임 편집과 로그아웃 버튼을 나란히 배치해요. */}
+                        <button className="button button-secondary" type="button" onClick={() => { setDraftNickname(nickname); profileDialog.current?.showModal(); }}><Icon name="settings" />닉네임 바꾸기</button>
+                        {accountId && <button className="button button-secondary" type="button" onClick={handleLogout} disabled={logoutPending} aria-busy={logoutPending}><Icon name="log-out" />{logoutPending ? "로그아웃 중…" : logoutError ? "로그아웃 다시 시도" : "로그아웃"}</button>}
+                    </div> {/* 현재 화면의 가상 닉네임만 바꿀 수 있어요. */}
                 </section> {/* 프로필 요약 영역을 마쳐요. */}
+                {logoutError && <p role="alert" className="my-logout-error">{logoutError}</p>} {/* 자동으로 사라지지 않는 실패 안내를 제공해요. */}
                 <div className="my-subject-tabs" role="tablist" aria-label="추천 대상"> {/* 본인과 부모님 정보를 명확히 구분해요. */}
                     <button role="tab" type="button" id="my-tab-self" aria-controls="my-subject-panel" aria-selected={subject === "self"} onClick={() => { setSubject("self"); setFilter("all"); }}><Icon name="user" />나의 징검다리</button> {/* 본인 예시로 이동해요. */}
                     <button role="tab" type="button" id="my-tab-parent" aria-controls="my-subject-panel" aria-selected={subject === "parent"} onClick={() => { setSubject("parent"); setFilter("all"); }}><Icon name="family" />부모님 챙김<span>함께</span></button> {/* 부모님 예시로 이동해요. */}
@@ -112,7 +141,7 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
             </main> {/* 본문을 마쳐요. */}
             <SiteFooter /> {/* 공통 바닥글을 보여줘요. */}
             <dialog className="my-dialog" ref={detailDialog} aria-labelledby="my-detail-title"><button className="my-dialog-close" type="button" aria-label="닫기" onClick={() => detailDialog.current?.close()}><Icon name="close" /></button><p className="eyebrow">시연용 예시 · 확인 항목</p><h2 id="my-detail-title">{selected?.title}</h2><p className="my-dialog-disclaimer">{disclaimer}</p><p>아래는 화면 구성을 보여주기 위한 확인 항목 예시예요. 실제 제도 조건은 원문 연결 후 확인해 주세요.</p><ul>{selected?.checks.map((check) => <li key={check}><Icon name="plus" /><span>{check}</span><em>확인 필요</em></li>)}</ul><p className="my-detail-source"><Icon name="file" />원문·기준일 연결 전 · 자격 판정 결과가 아니에요.</p><button className="button button-primary" type="button" onClick={() => detailDialog.current?.close()}>확인했어요</button></dialog> {/* 실제 자격을 단정하지 않는 정책 설명 대화상자예요. */}
-            <dialog className="my-dialog" ref={profileDialog} aria-labelledby="my-profile-title"><button className="my-dialog-close" type="button" aria-label="닫기" onClick={() => profileDialog.current?.close()}><Icon name="close" /></button><p className="eyebrow">가상 프로필 미리보기</p><h2 id="my-profile-title">어떤 닉네임으로 불러드릴까요?</h2><p>실명 대신 가상 닉네임을 사용해 주세요. 입력한 값은 현재 화면에서만 사용하고 저장하거나 전송하지 않아요.</p><form onSubmit={(event) => { event.preventDefault(); setNickname(draftNickname.trim() || "민지"); profileDialog.current?.close(); setToast("가상 닉네임을 바꿨어요. 현재 화면에서만 유지돼요."); }}><label htmlFor="my-nickname">가상 닉네임</label><input id="my-nickname" autoComplete="off" value={draftNickname} maxLength={12} onChange={(event) => setDraftNickname(event.target.value)} /><button className="button button-primary" type="submit">화면에 적용하기</button></form></dialog> {/* 서버나 저장소에 접근하지 않는 닉네임 편집 대화상자예요. */}
+            <dialog className="my-dialog" ref={profileDialog} aria-labelledby="my-profile-title"><button className="my-dialog-close" type="button" aria-label="닫기" onClick={() => profileDialog.current?.close()}><Icon name="close" /></button><p className="eyebrow">프로필 편집</p><h2 id="my-profile-title">어떤 닉네임으로 불러드릴까요?</h2><p>실명 대신 사용할 별명을 2~12자로 입력해 주세요. 닉네임은 이 기기의 브라우저에 저장되며 서버에 전송하지 않아요.</p><form onSubmit={(event) => { event.preventDefault(); const next = draftNickname.trim(); setNickname(next); if (accountId) setAccountData(accountId, { nickname: next }); /* 로그인 상태일 때만 계정 전용 키에 저장해요. */ profileDialog.current?.close(); setToast("닉네임을 저장했어요."); }}><label htmlFor="my-nickname">닉네임</label><input id="my-nickname" autoComplete="off" value={draftNickname} maxLength={12} onChange={(event) => setDraftNickname(event.target.value)} /><button className="button button-primary" type="submit">저장하기</button></form></dialog> {/* 서버나 저장소에 접근하지 않는 닉네임 편집 대화상자예요. */}
             <div className={`my-toast ${toast ? "is-visible" : ""}`} role="status" aria-live="polite">{toast}</div> {/* 저장 및 편집 결과를 방해 없이 알려줘요. */}
         </div> // 마이페이지 전체 구성을 마쳐요.
     ); // 그린 화면을 반환해요.

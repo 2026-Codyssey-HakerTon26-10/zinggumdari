@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from collections import Counter
 from datetime import date
 
@@ -75,7 +76,7 @@ def search(q: str, profile_id: str | None = None, tag: str | None = None, subjec
     today = today or date.today()
     index = get_index()
     profile = (ports.load_profile(profile_id) if profile_id else None) or {}
-    similar = ports.similar_rule_ids(profile_id) if profile_id else set()
+    similar = ports.similar(profile_id, profile, list(index.rules.values()), today) if profile_id else set()
     # 1단계: BM25로 후보를 넉넉히 뽑는다. 2단계: 관련도·마감·지역·배지 구간으로 다시 줄 세우고 같은 이름을 묶는다
     candidates = index.search(q, limit=CANDIDATES, tag=tag, subject=subject,
                               sido=short_sido(region) if region else None)
@@ -106,12 +107,15 @@ def search(q: str, profile_id: str | None = None, tag: str | None = None, subjec
             "judge": "engine" if ports.engine_connected else "fake"}
 
 
+_SEARCH_PATH = re.compile(r"/search/?\?", re.IGNORECASE)   # /search/?q=… 는 307로 /search?q=… 가 되는데 둘 다 로그에 찍힌다
+
+
 class _HideSearchQuery(logging.Filter):
     """검색어를 서버 로그에 남기지 않는다(uvicorn 접근 로그의 /search 쿼리를 지운다)."""
 
     def filter(self, record: logging.LogRecord) -> bool:
         args = record.args
-        if isinstance(args, tuple) and len(args) >= 3 and isinstance(args[2], str) and args[2].startswith("/search?"):
+        if isinstance(args, tuple) and len(args) >= 3 and isinstance(args[2], str) and _SEARCH_PATH.match(args[2]):
             record.args = (*args[:2], "/search?…", *args[3:])
         return True
 

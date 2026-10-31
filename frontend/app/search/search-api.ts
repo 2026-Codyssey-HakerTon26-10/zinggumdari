@@ -33,7 +33,7 @@ export async function searchPolicies(query: string, subject: SearchSubject, sign
     if (!["http:", "https:"].includes(url.protocol) || url.username || url.password) throw new Error("검색 API 주소 설정을 확인해 주세요."); // 공개 설정에 비밀정보를 넣지 못하게 해요.
     url.searchParams.set("q", query); url.searchParams.set("limit", "20"); // 사용자 ID를 전달하지 않고 검색어를 안전하게 인코딩해요.
     if (subject !== "all") url.searchParams.set("subject", subject); // 전체 선택에서는 대상 조건을 보내지 않아요.
-    const response = await fetch(url, { signal, credentials: "omit", cache: "no-store", referrerPolicy: "no-referrer" }); // 인증 쿠키·브라우저 캐시·참조 주소 없이 공개 검색만 요청해요.
+    const response = await fetch(url, { signal, credentials: "include", cache: "no-store", referrerPolicy: "no-referrer" }); // 로그인 세션 쿠키는 브라우저가 보내고 캐시·참조 주소는 남기지 않아요.
     if (!response.ok) throw new Error(response.status === 422 ? "검색 조건을 확인해 주세요." : "검색 서버에 연결하지 못했습니다. 잠시 후 다시 시도해 주세요."); // 서버 내부 오류나 검색어를 로그에 출력하지 않아요.
     return parseResponse(await response.json()); // 정상 HTTP라도 응답 모양이 다르면 실패로 처리해요.
 } // 공개 검색 호출을 마쳐요.
