@@ -1,0 +1,27 @@
+{
+  "note": "손 조건표 15개의 개발·시험 분할(SPEC §17, Background §6.4). 개발용 5개는 시연에 나와 누구나 보게 되므로 개발용이다. AI 공고 읽기(프롬프트, 신호어 목록)는 개발용으로만 맞추고, 프롬프트를 짜는 사람은 시험용 조건표 파일을 열지 않는다. 시험용 채점은 프롬프트를 동결한 뒤 한 번 돌린다. id는 rules/manual/의 조건표 id와 같아야 하고, 조건표가 생기면 이름을 맞춘다.",
+  "made_by": "임종한",
+  "made_at": "2026-10-31",
+  "dev": [
+    {"id": "manual:hug-buttimok-youth", "name": "청년전용 버팀목전세자금", "subject": "self", "stage": "youth"},
+    {"id": "manual:hug-newlywed-jeonse", "name": "신혼부부전용 전세자금", "subject": "self", "stage": "marriage_planned"},
+    {"id": "manual:hug-newborn-buttimok", "name": "신생아 특례 버팀목대출", "subject": "self", "stage": "child"},
+    {"id": "manual:basic-pension", "name": "기초연금", "subject": "parent", "stage": "parent"},
+    {"id": "manual:ltc-insurance", "name": "노인장기요양보험(등급 신청)", "subject": "parent", "stage": "parent"}
+  ],
+  "test": [
+    {"id": "manual:seoul-youth-deposit", "name": "서울 청년 임차보증금 이자지원", "subject": "self", "stage": "youth"},
+    {"id": "manual:subscription-newlywed", "name": "청약 신혼부부·생애최초 특별공급", "subject": "self", "stage": "marriage_planned"},
+    {"id": "manual:hug-newlywed-purchase", "name": "신혼부부전용 구입자금", "subject": "self", "stage": "newlywed"},
+    {"id": "manual:seoul-newlywed-deposit", "name": "서울 신혼부부 임차보증금 이자지원", "subject": "self", "stage": "newlywed"},
+    {"id": "manual:hug-newborn-didimdol", "name": "신생아 특례 디딤돌대출", "subject": "self", "stage": "child"},
+    {"id": "manual:subscription-multichild", "name": "청약 다자녀가구 특별공급", "subject": "self", "stage": "multi_child"},
+    {"id": "manual:lh-multichild-rental", "name": "LH 다자녀 매입임대주택", "subject": "self", "stage": "multi_child"},
+    {"id": "manual:elderly-care", "name": "노인맞춤돌봄서비스", "subject": "parent", "stage": "parent"},
+    {"id": "manual:knee-surgery", "name": "노인 무릎인공관절 수술 지원", "subject": "parent", "stage": "parent"},
+    {"id": "manual:housing-repair", "name": "주거급여 수선유지급여 또는 서울 희망의 집수리", "subject": "parent", "stage": "parent"}
+  ],
+  "outside": [
+    {"id": "manual:youth-rent-2026", "name": "청년월세 한시 특별지원", "why": "함정. 2026년 접수(03-30~05-29)가 끝나 추천하면 오답. 판정 정확도(페르소나 정답)에만 쓰고 추출 평가 15개에는 넣지 않는다"}
+  ]
+}
