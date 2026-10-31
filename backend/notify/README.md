@@ -29,8 +29,13 @@ superseded_by와 no_subject 카드는 알림에서 제외한다. opens_later는 
 due는 발송일이다. D-90 등의 발송일은 플래너가 계산한다. 여러 날 표시할 경우 플래너가
 notify_from(ISO 날짜)을 제공하면 그 날부터 due까지 생성한다. 숫자 90을 알림 코드에 넣지 않는다.
 
-공고 투입 연결점은 backend.notify.api.connect(handler)다. handler는 rule_ids와 today를 받아
-service.rebuild의 동일 인자에 전달한다. 모든 규칙은 판정에 주되 알림 대상만 rule_ids로 제한한다.
+공고 투입 연결점은 backend.notify.api.connect(handler)다. handler는 rule_ids·today·account_id를 받아
+service.rebuild의 동일 인자에 전달한다. 계정이 있는 요청에서 해당 인자를 받지 못하는 handler는
+호출하지 않는다. upload: 제도는 account_id 없이 호출할 수 없으며 전체 사용자로 폴백하지 않는다.
+DB 어댑터는 세션의 계정 소유 관계를 확인하고 내부 profile.account_id를 붙여 전달한다.
+service.rebuild도 해당 account_id의 프로필만 판정한다. 내부 계정 메타데이터가 없으면 제외한다.
+공용 규칙은 모두 판정에 주되 업로드는 범위가 있는 선택된 제도만 포함한다.
+전 사용자 공개 공고 재판정은 account_id=None이며 사용자 업로드 규칙을 판정·알림에서 제외한다.
 
 ID 중복 upsert는 기존 read, created, emailed_at을 유지해야 한다. 메일 발송은 upsert 후
 DB에서 다시 읽은 레코드로 판단해야 한다. 생성 직후의 read=False 레코드를 바로 발송하지 않는다.

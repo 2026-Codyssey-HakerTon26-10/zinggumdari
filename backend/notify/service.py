@@ -62,12 +62,16 @@ def explore_notification(user_id, item, similar, *, today):
                 label=similar["label"], assignment=similar["assignment"])
 
 
-def rebuild(profiles, rules, judge, save, *, today, events=None, rule_ids=None):
+def rebuild(profiles, rules, judge, save, *, today, events=None, rule_ids=None, account_id=None):
     """save(user_id, 알림)는 ID별 upsert. 프로필·날짜를 LLM에 보내지 않는다."""
+    # DB 어댑터가 소유 관계를 내부 account_id로 붙인다. 누락은 전체 사용자로 해석하지 않는다.
+    selected_profiles = [p for p in profiles if not account_id or p.get("account_id") == account_id]
+    visible_rules = [r for r in rules if r.get("source") != "upload" or
+                     (account_id and (rule_ids is None or r["id"] in rule_ids))]
     count = 0
-    for profile in profiles:
-        results = judge(profile, rules, today=today)
-        for rule in rules:
+    for profile in selected_profiles:
+        results = judge(profile, visible_rules, today=today)
+        for rule in visible_rules:
             if rule_ids is not None and rule["id"] not in rule_ids:
                 continue
             result = results[rule["id"]]
@@ -79,4 +83,4 @@ def rebuild(profiles, rules, judge, save, *, today, events=None, rule_ids=None):
                 if item:
                     save(profile["user_id"], item)
                     count += 1
-    return {"processed_profiles": len(profiles), "notifications": count}
+    return {"processed_profiles": len(selected_profiles), "notifications": count}

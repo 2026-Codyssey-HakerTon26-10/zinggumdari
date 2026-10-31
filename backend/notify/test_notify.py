@@ -104,3 +104,39 @@ def test_test_email_does_not_expose_recipient_exception():
     app.include_router(create_router(store, lambda: "owner", lambda: "admin"))
     response = TestClient(app).post("/notify/test-email")
     assert response.status_code == 503 and "private" not in response.text
+
+
+def test_ingest_api_forwards_scope_and_fails_closed(monkeypatch):
+    from backend.notify import api
+    handler = MagicMock()
+    def scoped(*, rule_ids, today, account_id):
+        return handler(rule_ids=rule_ids, today=today, account_id=account_id)
+    monkeypatch.setattr(api, "_handler", scoped)
+    assert api.rebuild(rule_ids=["upload:r"], today=TODAY)["status"] == "skipped"
+    handler.assert_not_called()
+    api.rebuild(rule_ids=["upload:r", "upload:r"], today=TODAY, account_id="A")
+    handler.assert_called_once_with(rule_ids=["upload:r"], today=TODAY, account_id="A")
+    handler.reset_mock()
+    def legacy(*, rule_ids, today):
+        return handler(rule_ids=rule_ids, today=today)
+    monkeypatch.setattr(api, "_handler", legacy)
+    assert api.rebuild(rule_ids=["upload:r"], account_id="A")["status"] == "skipped"
+    handler.assert_not_called()
+    api.rebuild(rule_ids=["gov24:r"], today=TODAY)
+    handler.assert_called_once_with(rule_ids=["gov24:r"], today=TODAY)
+
+
+def test_upload_rebuild_only_judges_uploader_profiles():
+    rule = {**RULE, "id": "upload:r", "source": "upload"}
+    profiles = [{"user_id": "ua", "account_id": "A"}, {"user_id": "ub", "account_id": "B"}, {"user_id": "unknown"}]
+    judge = MagicMock(return_value={"upload:r": {"verdict": "needs_check"}})
+    save = MagicMock()
+    result = rebuild(profiles, [rule], judge, save, today=TODAY, rule_ids=["upload:r"], account_id="A")
+    assert result == {"processed_profiles": 1, "notifications": 1}
+    judge.assert_called_once_with(profiles[0], [rule], today=TODAY)
+    assert save.call_args.args[0] == "ua"
+    save.reset_mock()
+    judge.reset_mock()
+    rebuild(profiles, [rule], judge, save, today=TODAY, rule_ids=["upload:r"])
+    save.assert_not_called()
+    assert all(call.args[1] == [] for call in judge.call_args_list)
