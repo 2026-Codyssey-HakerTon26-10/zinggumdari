@@ -434,8 +434,8 @@ JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 �
 | 메서드·경로 | 보내는 것 | 받는 것 · 에러 |
 |---|---|---|
 | `POST /profiles` | `{"self": {① 가입 칸}, "consents"?: {"sensitive": bool, "parent": bool}, "parents"?: [...]}` | `{"user_id"}`. 동의는 기본 `false` |
-| `GET /profiles/{user_id}` | 없음 | §2 프로필. 없으면 404 |
-| `PATCH /profiles/{user_id}` | 바꿀 것만: `{"self"?: {...}, "parents"?: [...], "consents"?: {...}, "stages_done"?: [...]}`. `self`는 칸 단위로 합치고 `parents`는 통째로 바꾼다 | 바뀐 프로필 전체 |
+| `GET /profiles/{user_id}` | 없음(`?today=` 선택) | §2 프로필 + `derived`(만 나이 두 값, 부부합산 소득, 태그, 소득 구간 %). `derived`는 저장하지 않고 응답 때마다 계산한다. 없으면 404 |
+| `PATCH /profiles/{user_id}` | 바꿀 것만: `{"self"?: {...}, "parents"?: [...], "consents"?: {...}, "stages_done"?: [...]}`. `self`는 칸 단위로 합치고 `parents`는 통째로 바꾼다 | 바뀐 프로필 전체(+ `derived`) |
 | `DELETE /profiles/{user_id}` | 없음 | 204 |
 
 - `consents` 값은 JSON `true`/`false`만 받는다. `"false"`, `1`, `null`이면 **422**
