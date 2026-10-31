@@ -61,6 +61,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
     {"field": "other", "text": "원문 조건 미반영", "reason": "unaccounted", "evidence": ["lh-2026-11-mapo:p8-l9"], "status": "needs_review"}
                                             // 빠짐 검사에서 남은 줄. 판정에서 항상 확인 필요
     // 글자를 읽지 못한 쪽이 있으면: {"field": "other", "text": "읽지 못한 쪽이 있어 …", "reason": "unread_pages", "pages": [3], "evidence": [], "status": "needs_review"}
+    // LLM이 field나 op를 빼먹었거나 빈 any_of를 냈으면: {"field": "other", "text": "<모델이 쓴 문장>", "reason": "malformed", "evidence": […], "status": "needs_review"}. 엔진과 플래너는 field, op, value가 다 있는 조건만 받는다
   ],
   "exclusive_evidence": ["lh-2026-11-mapo:p9-l2"],   // LLM이 exclusive로 답한 줄. 카드에 "중복 불가 조건이 있어요"로 표시만
   "coverage": {"marked": 21, "used": 15, "labeled": {"definition": 2, "procedure": 1, "exclusive": 1, "out_of_scope": 1, "not_condition": 0}, "unaccounted": 1},
