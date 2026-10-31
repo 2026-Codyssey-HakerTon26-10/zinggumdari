@@ -13,6 +13,7 @@ import json
 import re
 import secrets
 import socket
+import time
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
@@ -68,8 +69,22 @@ def _discard(doc_id: str) -> None:
 MAX_REDIRECTS = 3
 
 
-def _check_public(url: str) -> None:
-    """서버가 대신 받아 오는 주소라 내부망(localhost, 사설·예약 IP)은 막는다."""
+FETCH_SECONDS = 60   # URL 하나를 받는 데 쓰는 전체 시간. httpx timeout은 읽기 한 번 기준이라 따로 잰다
+_NAT64 = ipaddress.ip_network("64:ff9b::/96")
+
+
+def _is_public(ip: str) -> bool:
+    addr = ipaddress.ip_address(ip)
+    if isinstance(addr, ipaddress.IPv6Address):
+        if addr.ipv4_mapped:
+            addr = addr.ipv4_mapped
+        elif addr in _NAT64:   # 64:ff9b::7f00:1은 127.0.0.1로 간다
+            addr = ipaddress.IPv4Address(int(addr) & 0xFFFFFFFF)
+    return addr.is_global
+
+
+def _check_public(url: str) -> str:
+    """서버가 대신 받아 오는 주소라 내부망(localhost, 사설·예약 IP)은 막는다. 확인한 IP 하나를 돌려준다."""
     u = urlparse(url)
     if u.scheme not in ("http", "https") or not u.hostname:
         raise Rejected("http(s) 주소만 받습니다")
@@ -77,16 +92,32 @@ def _check_public(url: str) -> None:
         infos = socket.getaddrinfo(u.hostname, u.port or (443 if u.scheme == "https" else 80))
     except socket.gaierror as exc:
         raise Rejected("주소를 찾지 못했습니다") from exc
-    if not infos or any(not ipaddress.ip_address(info[4][0]).is_global for info in infos):
+    if not infos or any(not _is_public(info[4][0]) for info in infos):
         raise Rejected("내부 주소는 받지 않습니다")
+    return infos[0][4][0]
+
+
+def _pinned(url: str, ip: str) -> tuple[str, dict, dict]:
+    """확인한 IP로 바로 접속하는 주소. 접속할 때 이름을 다시 풀면 그사이 내부 주소로 바꿔치기할 수 있다
+    (DNS 재바인딩). Host 헤더와 TLS 인증서 확인(sni_hostname)은 원래 이름으로 한다."""
+    u = urlparse(url)
+    host = f"[{ip}]" if ":" in ip else ip
+    netloc = f"{host}:{u.port}" if u.port else host
+    headers = {"Host": u.netloc.rsplit("@", 1)[-1]}
+    extensions = {"sni_hostname": u.hostname} if u.scheme == "https" else {}
+    return u._replace(netloc=netloc).geturl(), headers, extensions
 
 
 def fetch_url(url: str, transport: httpx.BaseTransport | None = None) -> bytes:
-    """URL의 PDF를 받는다. 리다이렉트마다 주소를 다시 검사하고, 받는 도중 30MB를 넘으면 끊는다."""
-    with httpx.Client(timeout=30, follow_redirects=False, transport=transport) as client:
+    """URL의 PDF를 받는다. 리다이렉트마다 주소를 다시 검사하고, 받는 도중 30MB나 전체 시간을 넘으면 끊는다."""
+    deadline = time.monotonic() + FETCH_SECONDS
+    timeout = httpx.Timeout(10.0)
+    with httpx.Client(timeout=timeout, follow_redirects=False, transport=transport) as client:
         for _ in range(MAX_REDIRECTS + 1):
-            _check_public(url)
-            with client.stream("GET", url) as res:
+            if time.monotonic() > deadline:
+                raise Rejected(f"받는 데 너무 오래 걸립니다({FETCH_SECONDS}초까지)")
+            target, headers, extensions = _pinned(url, _check_public(url))
+            with client.stream("GET", target, headers=headers, extensions=extensions) as res:
                 if res.is_redirect:
                     url = urljoin(url, res.headers.get("location", ""))
                     continue
@@ -97,6 +128,8 @@ def fetch_url(url: str, transport: httpx.BaseTransport | None = None) -> bytes:
                     buf += chunk
                     if len(buf) > MAX_BYTES:
                         raise Rejected("파일이 너무 큽니다(30MB까지)")
+                    if time.monotonic() > deadline:
+                        raise Rejected(f"받는 데 너무 오래 걸립니다({FETCH_SECONDS}초까지)")
                 return bytes(buf)
     raise Rejected("리다이렉트가 너무 많습니다")
 
