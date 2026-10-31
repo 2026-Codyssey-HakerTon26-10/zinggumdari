@@ -1,0 +1,11 @@
+{
+  "source": "ssis_local",
+  "dataset": "15108347",
+  "endpoint": "https://apis.data.go.kr/B554287/LocalGovernmentWelfareInformations/LcgvWelfarelist",
+  "params": {},
+  "page_size": 500,
+  "fetched_at": "2026-10-31T22:04:18",
+  "pages": 10,
+  "items": 4827,
+  "total": 4827
+}

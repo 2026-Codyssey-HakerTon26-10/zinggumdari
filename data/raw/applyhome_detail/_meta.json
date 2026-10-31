@@ -1,0 +1,13 @@
+{
+  "source": "applyhome_detail",
+  "dataset": "15098547",
+  "endpoint": "https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancDetail",
+  "params": {
+    "cond[RCRIT_PBLANC_DE::GTE]": "2026-01-01"
+  },
+  "page_size": 500,
+  "fetched_at": "2026-10-31T22:01:55",
+  "pages": 1,
+  "items": 293,
+  "total": 2929
+}
