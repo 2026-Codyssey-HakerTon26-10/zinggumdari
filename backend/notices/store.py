@@ -14,7 +14,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import secrets
 import shutil
 from datetime import date
 from pathlib import Path
@@ -85,10 +87,26 @@ def paths_of(doc_id: str, notices_dir: Path | None = None) -> list[Path]:
     return [base / f"{doc_id}{s}" for s in (*SUFFIX.values(), ".meta.json", ".lines.json")]
 
 
+def _tmp_for(path: Path) -> Path:
+    """같은 폴더의 임시 이름. 점으로 시작하고 .tmp로 끝나 list_doc_ids의 *.meta.json에 걸리지 않는다."""
+    return path.with_name(f".{path.name}.{secrets.token_hex(4)}.tmp")
+
+
+def _write_atomic(path: Path, text: str) -> None:
+    """임시 파일에 다 쓴 뒤 이름만 바꾼다. 쓰다 죽거나 두 요청이 겹쳐도 반쯤 쓴 머리가 남지 않는다
+    (반쯤 쓴 JSON은 _read에서 깨져 그 원문이 통째로 사라져 보인다)."""
+    tmp = _tmp_for(path)
+    try:
+        tmp.write_text(text, encoding="utf-8")
+        os.replace(tmp, path)
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 def save_meta(meta: dict, notices_dir: Path | None = None) -> None:
     _check(meta["doc_id"])
     path = _base(notices_dir) / f"{meta['doc_id']}.meta.json"
-    path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    _write_atomic(path, json.dumps(meta, ensure_ascii=False, indent=2))
 
 
 def evidence(ids: list[str], notices_dir: Path | None = None, owner: str | None = None) -> list[dict]:
@@ -147,7 +165,12 @@ def register(
     if Path(src).resolve() != dest.resolve():
         for old in SUFFIX.values():   # 종류가 바뀌어 다시 등록하면 옛 원문을 지운다
             (base / f"{doc_id}{old}").unlink(missing_ok=True)
-        shutil.copyfile(src, dest)
+        tmp = _tmp_for(dest)
+        try:
+            shutil.copyfile(src, tmp)
+            os.replace(tmp, dest)
+        finally:
+            tmp.unlink(missing_ok=True)
     old = load_meta(doc_id, notices_dir) or {}
     meta = {
         "doc_id": doc_id,
@@ -167,7 +190,7 @@ def register(
         **(extra or {}),
     }
     save_lines(doc_id, lines, None, out_dir=base)
-    (base / f"{doc_id}.meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    _write_atomic(base / f"{doc_id}.meta.json", json.dumps(meta, ensure_ascii=False, indent=2))
     return meta
 
 
@@ -178,7 +201,7 @@ def register_text(text: str, doc_id: str, source: str, source_url: str | None, t
     base = _base(notices_dir)
     base.mkdir(parents=True, exist_ok=True)
     path = base / f"{doc_id}.txt"
-    path.write_text(text, encoding="utf-8")
+    _write_atomic(path, text)
     return register(path, doc_id, source, source_url, title, fetched_at, notices_dir=notices_dir)
 
 
