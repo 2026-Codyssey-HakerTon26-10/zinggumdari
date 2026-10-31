@@ -8,6 +8,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from eval.provenance import engine_digest
+
 
 def build(document, population, rules_dir, *, today):
     from backend.engine import judge
@@ -38,6 +40,7 @@ def build(document, population, rules_dir, *, today):
             actual = judge(profile, [ai], today=today, ai_eligible=True)[rid]['verdict']
             verdicts.append({"user_id": str(record['user_id']), "rule_id": rid, "expected": expected, "actual": actual})
     return {"verdicts": verdicts, "population_sha256": hashlib.sha256(Path(population).read_bytes()).hexdigest(),
+            "engine_sha256": engine_digest(Path(__file__).resolve().parents[1]),
             "today": today.isoformat(), "households": len(pool), "skipped_parent_rules": skipped,
             "limitation": "가상 인구의 pool만 사용. 부모 정보가 없어 부모 제도는 제외. 같은 엔진에 손/AI 조건을 각각 넣어 비교한 값이며 독립적인 법률 정확도가 아님."}
 
