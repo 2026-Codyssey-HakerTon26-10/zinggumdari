@@ -26,7 +26,8 @@
 | 오픈소스(선택) | Tesseract OCR(kor 학습 데이터) | 스캔 PDF 글자 인식과 줄 좌표. 깔린 PC에서만 쓰고, 없으면 네이토 API | Apache-2.0 |
 | 데이터 | 한컴 「한글 문서 파일 형식 5.0」 공개 문서 | HWP 레코드 구조 참고(코드는 직접 작성) | 한컴 공개 문서(출처 표기) |
 | 오픈소스 | SQLite (python 표준 `sqlite3`) | 기존 구현의 프로필·알림 저장. PostgreSQL 전환 완료 전 사용 이력 유지 | Public Domain |
-| 오픈소스 | PostgreSQL | 계정·세션·프로필·알림 저장소 전환 대상(명세, 아직 전환 완료 아님) | PostgreSQL License |
+| 오픈소스 | PostgreSQL | 계정·세션·프로필·알림 저장(`backend/db/`, 스키마는 `backend/db/migrations/`) | PostgreSQL License |
+| 오픈소스 | psycopg 3 (`psycopg[binary]`) | 파이썬에서 PostgreSQL 연결 | LGPL-3.0 |
 | 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표 | BSD-3 |
 | 오픈소스 | rank-bm25 | 검색 점수(글자 2-gram BM25) | Apache-2.0 |
@@ -49,4 +50,4 @@
 | 기타 | AI 코딩 도구(실제 이름은 채울 것. 예: Claude Code, Cursor, GitHub Copilot) | 코드 작성 보조 | 상용 |
 
 
-PostgreSQL 드라이버·마이그레이션 도구·비밀번호 해시 라이브러리는 아직 선정·추가하지 않았다. 선정 후 사용 전에 정확한 패키지명·용도·라이선스를 이 표에 기재한다.
+PostgreSQL 드라이버는 psycopg 3, 마이그레이션은 별도 도구 없이 `backend/db/migrations/*.sql` 번호 파일과 적용기(`backend/db/migrate.py`)로 한다. 비밀번호 해시 라이브러리는 아직 선정·추가하지 않았다. 선정 후 사용 전에 정확한 패키지명·용도·라이선스를 이 표에 기재한다.

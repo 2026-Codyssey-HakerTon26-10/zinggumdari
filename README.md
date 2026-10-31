@@ -64,6 +64,15 @@ cd frontend && npm install && cd ..
 
 명령은 전부 **레포 루트에서** 실행합니다. uv 프로젝트는 `backend/` 안에 있어서 `--project backend`를 붙입니다. 그래야 `backend.engine` 같은 모듈 경로가 잡힙니다.
 
+DB 준비 (PostgreSQL, 처음 한 번과 `backend/db/migrations/`에 새 파일이 생겼을 때). `.env`의 `DATABASE_URL`에 적용한다:
+
+```bash
+createdb zinggumdari
+uv run --project backend python -m backend.db.migrate
+```
+
+DB 테스트까지 돌리려면 빈 DB를 하나 더 만들고(`createdb zinggumdari_test`) `.env`에 `TEST_DATABASE_URL`을 넣는다. 없으면 DB 테스트는 건너뛴다.
+
 API 서버 (http://localhost:8000, 문서는 /docs):
 
 ```bash
