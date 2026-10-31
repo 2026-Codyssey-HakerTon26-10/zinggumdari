@@ -26,6 +26,7 @@
 
 - Python 3.11, [uv](https://docs.astral.sh/uv/)
 - Node.js 20 이상, npm
+- (선택) 스캔 PDF의 줄 좌표가 필요하면 tesseract: `brew install tesseract tesseract-lang`. 없으면 네이토 API가 글자를 읽고 좌표 없이 쪽만 칠한다.
 
 uv가 없으면 먼저 설치합니다(macOS).
 
@@ -53,7 +54,7 @@ cd frontend && npm install && cd ..
 
 | 변수 | 어디서 받나 |
 |---|---|
-| `CODYSSEY_API_KEY`, `CODYSSEY_BASE_URL`, `LLM_MODEL`, `LLM_MODEL_BULK` | 대회 지급 네이토 API(usr.codyssey.kr API 콘솔). Anthropic 방식 키라 Claude 모델만 쓴다 |
+| `CODYSSEY_API_KEY`, `CODYSSEY_BASE_URL`, `LLM_MODEL`, `LLM_MODEL_BULK`, `LLM_MODEL_OCR`(선택), `ZINGGUM_OCR`(선택) | 대회 지급 네이토 API(usr.codyssey.kr API 콘솔). Anthropic 방식 키라 Claude 모델만 쓴다 |
 | `DATA_GO_KR_KEY` | data.go.kr 마이페이지의 인증키. 쓰는 API마다 활용신청 |
 | `YOUTHCENTER_API_KEY` | 온통청년 마이페이지 > OPEN API 신청(심의 뒤 발급) |
 | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `MAIL_FROM` | 이메일 알림 발송 계정 |
