@@ -1,6 +1,7 @@
 """엔진 결과 → /judge 응답(docs/api.md §3). 카드에 올릴 것을 고르고 근거 줄·중복 불가·서류를 채운다.
 
-단계 넘기기·타임라인(planner), 공고별 질문(ask), 비슷한 가구(similar)는 아직 비어 있다.
+날짜·해둘 일·타임라인은 플래너(backend/planner)가, 공고별 질문(ask)은 engine/ask.py가 채운다.
+비슷한 가구(similar)는 아직 비어 있다.
 """
 
 import logging
@@ -8,6 +9,7 @@ from collections.abc import Callable
 from datetime import date
 
 from backend.engine import judge
+from backend.engine.ask import choose_ask
 
 log = logging.getLogger(__name__)
 
@@ -36,14 +38,28 @@ def _explain(card: dict) -> str:
 
 
 def build_judge(profile: dict, rules: list[dict], today: date | None = None,
-                evidence: Callable[[list[str]], list[dict]] = _no_lines) -> dict:
+                evidence: Callable[[list[str]], list[dict]] = _no_lines, step: str | None = None,
+                focus: str | None = None) -> dict:
+    """step: 단계 넘기기. 그 단계까지 가정한 프로필로 판정한다(SPEC §7.1).
+    focus: 사용자가 연 카드의 rule_id. 있으면 그 제도를 막는 칸을 묻는다(SPEC §6)."""
+    from backend import planner   # planner가 engine.judge를 쓰므로 여기서 가져온다
+
+    today = today or date.today()
+    if step:
+        profile = planner.apply_step(profile, step, today)
     results = judge(profile, rules, today)
+    plan = planner.timeline(profile, rules, today, results)
     by_id = {r["id"]: r for r in rules}
     cards = []
+    next_step = {i for s in plan["self"] for i in s["opens"]}
     for rule in rules:
         card = results[rule["id"]]
+        if card["verdict"] == "ineligible" and rule["id"] in next_step:
+            # 다음 단계(혼인신고·출산)로 가면 열리는 제도는 카드로 올리고 언제 열리는지 단다
+            card.update(verdict="opens_later", verdict_why="next_step")
         if card["verdict"] not in SHOWN or card.get("no_subject") or card.get("superseded_by"):
             continue
+        planner.annotate(card, rule, profile, today, plan["self"])
         for row in card["conditions"]:
             row["evidence"] = evidence([e["id"] for e in row["evidence"]])
             missing = [e["id"] for e in row["evidence"] if e.get("text") is None]
@@ -55,15 +71,15 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
              and (results.get(x["rule_id"]) or {}).get("verdict") == "eligible"}
             for x in card["exclusive_with"]]
         card["exclusive_evidence"] = evidence(card["exclusive_evidence"]) if card["exclusive_evidence"] else []
-        card.update(opens_at=None, closes_at=None, apply_from=None, prerequisites=[],
-                    documents=_documents(rule), explain=_explain(card))
+        card.update(documents=_documents(rule), explain=_explain(card))
         cards.append(card)
     cards.sort(key=lambda c: (c["subject"] != "self", SHOWN[c["verdict"]]))
     return {
         "user_id": profile.get("user_id"),
-        "ask": None,
+        "ask": choose_ask(cards, by_id, profile, focus),
         "cards": cards,
-        "timeline": {"self": [], "parent": [], "dated": []},
+        "step": step,
+        "timeline": plan,
         "similar": None,
         "disclaimer": DISCLAIMER,
     }

@@ -174,8 +174,10 @@ def _resolve(person: dict, cond: dict, field: str, today: date, year: int) -> Va
         return Period(start, unit)
     if field == "qual_code":
         quals = person.get("qualifications") or []
-        # 물어본 자격만 저장한다. 본인 대상 자격만 본인 조건에 쓴다(배우자 대상은 세지 않는다)
-        return Values([[q.get("qual_code") for q in quals if (q or {}).get("target") in (None, "본인")]])
+        # 물어본 자격만 저장한다. 본인 대상 자격만 본인 조건에 쓴다(배우자 대상은 세지 않는다).
+        # has "N"은 "해당 안 됨"이라고 답한 줄이다 → (코드, 해당 여부)
+        return Values([[(q.get("qual_code"), q.get("has", "Y") != "N") for q in quals
+                        if (q or {}).get("target") in (None, "본인")]])
     if field in ("history", "homeless_years"):
         return Check("이력 조건은 아직 판정하지 않아요")
     v = person.get(field)
