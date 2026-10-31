@@ -370,3 +370,18 @@ def test_ingest_accepts_text_and_passes_meta(tmp_path, world, monkeypatch):
     bad.write_bytes(b"\x00\x01\x02 binary")
     with pytest.raises(ing.Rejected):
         ing.ingest(bad, "bin.dat", uploaded_by="A1")
+
+
+@needs_pdf
+def test_log_takes_section_and_calls_from_compile_log(tmp_path, world, notice_pdf, monkeypatch):
+    """자격 구간과 LLM 호출 수는 조건표만 보고 셀 수 없어 compile() 로그에서 가져오고, 캐시 재생에도 남는다."""
+    section = {"from": "p1-l1", "to": "p1-l3", "found_by": "heading", "lines": 3}
+
+    def compile_with_log(doc_id, lines, source, *, meta=None, return_log=False):
+        rules = [{"id": f"upload:{doc_id}:x", "name": "t", "conditions": []}]
+        return (rules, {"section": section, "llm_calls": 1, "schema_retries": 0}) if return_log else rules
+    monkeypatch.setattr(world, "_compile", lambda: compile_with_log)
+    first = world.ingest(notice_pdf, "a.pdf", uploaded_by="A")
+    assert first["log"]["section"] == section and first["log"]["llm_calls"] == 1
+    again = world.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="A")
+    assert again["replayed"] is True and again["log"]["section"] == section and again["log"]["llm_calls"] == 1

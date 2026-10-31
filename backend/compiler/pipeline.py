@@ -18,7 +18,7 @@ from backend.compiler.lines import _check_id, has_rrn
 from backend.compiler.prompt import OUTPUT_SCHEMA, PROMPT_VERSION, SYSTEM, build_user_content, parse_output
 from backend.compiler.section import API_SOURCES, cut_section, find_tracks, mark_lines
 from backend.compiler.verify import index_lines, used_lines, verify
-from backend.compiler.vocab import LABELS
+from backend.compiler.vocab import LABELS, OPS
 
 REPO_ROOT = llm.REPO_ROOT
 OUT_DIR = REPO_ROOT / "rules/compiled"
@@ -31,6 +31,7 @@ RRN_MESSAGE = "주민등록번호가 있는 문서는 받지 않습니다. 개�
 EMPTY_MESSAGE = "글자를 읽지 못한 문서입니다. 공고문 원본(PDF, HWP, HWPX, 텍스트)을 올려 주세요."
 UNACCOUNTED = "원문 조건 미반영"
 UNREAD = "읽지 못한 쪽이 있어 그 쪽의 조건이 빠졌을 수 있음"
+MALFORMED = "AI가 읽은 조건의 형식이 맞지 않음"
 
 _BRANCH = re.compile(r"b(\d+)\.(\d+):")
 
@@ -104,6 +105,7 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
                 "benefit_type": d.get("benefit_type"), "aliases": d["aliases"], "conditions": d["conditions"],
                 "exclusive_evidence": exclusive, "documents": d["documents"], "detail_url": meta.get("source_url"),
                 "updated": meta.get("fetched_at") or datetime.now(KST).date().isoformat(), "review": {"status": "unreviewed"}}
+        rule["conditions"] = [_well_formed(c) for c in rule["conditions"]]
         rule = verify(rule, lines)
         rule["region"] = _region(rule["conditions"], source, meta)
         rules.append(rule)
@@ -203,6 +205,26 @@ def _merge(parts: list[tuple[str | None, str]], outputs: list[dict]) -> dict:
 
 
 # --- 조건표·로그 ---
+
+def _as_other(c: dict) -> dict:
+    """형식이 깨진 조건(field나 op가 없거나 any_of가 비었다)을 other로. 모델이 쓴 문장은 text에 남기고 확인 필요로 둔다."""
+    keep = {k: c[k] for k in ("evidence", "as_of") if k in c}
+    return {"field": "other", "text": c.get("text") or MALFORMED, "reason": "malformed", **keep}
+
+
+def _bad(c: dict) -> bool:
+    if c.get("field") == "other":
+        return False
+    return not c.get("field") or c.get("op") not in OPS or "value" not in c
+
+
+def _well_formed(c: dict) -> dict:
+    """판정 엔진과 플래너는 field, op, value가 다 있는 조건만 받는다(없으면 문장을 만들다 멈춘다). 깨진 조건은 other로 바꾼다."""
+    if "any_of" in c:
+        branches = [[_as_other(x) if _bad(x) else x for x in b] for b in c.get("any_of") or [] if b]
+        return {**c, "any_of": branches} if branches else _as_other(c)
+    return _as_other(c) if _bad(c) else c
+
 
 def _rule_ids(drafts: list[dict], doc_id: str, source: str) -> list[str]:
     """조건표가 하나이고 track이 main이면 "{source}:{doc_id}", 아니면 트랙 이름을 붙인다(겹치면 -2, -3).

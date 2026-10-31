@@ -87,10 +87,30 @@ def _post(body: dict, *, timeout: float) -> dict:
         "anthropic-beta": STRUCTURED_BETA,
         "content-type": "application/json",
     }
-    r = httpx.post(f"{base}/v1/messages", headers=headers, json=body, timeout=timeout)
-    if r.status_code != 200:
-        raise LLMError(f"HTTP {r.status_code}: {r.text[:300]}")
-    return r.json()
+    # 스트리밍으로 받는다. 긴 공고(입력 2만 토큰 넘게, 출력 수천 토큰)는 한 번에 받으면 게이트웨이가 504로 끊는다
+    text, out = [], {"content": [], "model": body["model"], "usage": {}, "stop_reason": None}
+    with httpx.stream("POST", f"{base}/v1/messages", headers=headers, json={**body, "stream": True},
+                      timeout=timeout) as r:
+        if r.status_code != 200:
+            raise LLMError(f"HTTP {r.status_code}: {r.read().decode(errors='replace')[:300]}")
+        for line in r.iter_lines():
+            if not line.startswith("data:"):
+                continue
+            event = json.loads(line[5:])
+            kind = event.get("type")
+            if kind == "message_start":
+                msg = event.get("message", {})
+                out["model"] = msg.get("model", out["model"])
+                out["usage"] = dict(msg.get("usage") or {})
+            elif kind == "content_block_delta" and event.get("delta", {}).get("type") == "text_delta":
+                text.append(event["delta"]["text"])
+            elif kind == "message_delta":
+                out["stop_reason"] = event.get("delta", {}).get("stop_reason")
+                out["usage"].update(event.get("usage") or {})
+            elif kind == "error":
+                raise LLMError(f"스트림 오류: {json.dumps(event.get('error'), ensure_ascii=False)[:300]}")
+    out["content"] = [{"type": "text", "text": "".join(text)}]
+    return out
 
 
 def call_json(system: str, content: str | list, schema: dict, *, model: str | None = None,

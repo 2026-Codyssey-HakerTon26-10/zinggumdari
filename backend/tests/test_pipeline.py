@@ -530,3 +530,15 @@ def test_upload_rules_go_to_uncommitted_dir(fake, tmp_path, monkeypatch):
     assert paths and all(p.parent == tmp_path / "uploads" for p in paths)
     _, paths = run_one(NOTICE, "lh-2", source="lh", raw_dir=tmp_path / "raw")
     assert paths and all(p.parent == tmp_path / "compiled" for p in paths)
+
+
+def test_malformed_conditions_become_other():
+    """field나 op가 없거나 any_of가 빈 조건은 other(확인 필요)로 바꿔 엔진과 플래너가 멈추지 않게 한다."""
+    from backend.compiler.pipeline import _well_formed
+    assert _well_formed({"field": "age", "op": ">=", "value": 19}) == {"field": "age", "op": ">=", "value": 19}
+    assert _well_formed({"field": "history", "text": "중복대출 불가", "evidence": ["d:l1"]}) == \
+        {"field": "other", "text": "중복대출 불가", "reason": "malformed", "evidence": ["d:l1"]}
+    assert _well_formed({"text": "출생신고 후 신청", "evidence": []})["field"] == "other"
+    assert _well_formed({"any_of": [], "evidence": ["d:l2"]})["field"] == "other"
+    fixed = _well_formed({"any_of": [[{"field": "age", "op": "<=", "value": 34}], [{"field": "gender"}]]})
+    assert fixed["any_of"][1] == [{"field": "other", "text": "AI가 읽은 조건의 형식이 맞지 않음", "reason": "malformed"}]
