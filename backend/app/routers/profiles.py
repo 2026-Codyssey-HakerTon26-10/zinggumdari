@@ -1,13 +1,24 @@
-"""/profiles (docs/api.md §2). 스텁: DB 대신 메모리에 둔다. 서버를 재시작하면 지워진다."""
+"""/profiles (docs/api.md §2). 스텁: DB 대신 메모리에 둔다. 서버를 재시작하면 지워진다.
+
+로그인·소유권 확인이 붙기 전까지는 개발 모드(DEV_STUB_API=1)에서만 열린다. 기본은 닫힘(404).
+"""
 
 import copy
+import os
 import secrets
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
+from backend.engine.fields import SENSITIVE
 from backend.engine.stub_data import EXAMPLE_PROFILE
 
-router = APIRouter(prefix="/profiles", tags=["profiles"])
+
+def require_dev_api() -> None:
+    if os.environ.get("DEV_STUB_API", "").lower() not in ("1", "true", "yes", "on"):
+        raise HTTPException(status_code=404)
+
+
+router = APIRouter(prefix="/profiles", tags=["profiles"], dependencies=[Depends(require_dev_api)])
 
 _store: dict[str, dict] = {EXAMPLE_PROFILE["user_id"]: copy.deepcopy(EXAMPLE_PROFILE)}
 
@@ -18,13 +29,29 @@ def _get(user_id: str) -> dict:
     return _store[user_id]
 
 
+def _apply_consents(profile: dict) -> None:
+    """동의가 없는 정보는 저장하지 않는다(SPEC §4.4). 동의를 거두면 이미 있던 값도 지운다."""
+    consents = profile["consents"]
+    if not consents.get("sensitive"):
+        profile["self"] = {k: v for k, v in profile["self"].items() if k not in SENSITIVE}
+        profile["parents"] = [{k: v for k, v in p.items() if k not in SENSITIVE} for p in profile["parents"]]
+    if not consents.get("parent"):
+        profile["parents"] = []
+
+
 @router.post("")
 def create_profile(body: dict) -> dict:
-    """① 가입 칸 저장. body는 {"self": {...}} 또는 ① 칸 그대로."""
+    """① 가입 칸 저장. body: {"self": {...}, "consents"?: {...}, "parents"?: [...]}. 동의는 기본 False."""
     user_id = "U" + secrets.token_hex(4)
-    profile = copy.deepcopy(EXAMPLE_PROFILE)
-    profile.update(user_id=user_id, stages_done=["signup"], parents=[])
-    profile["self"] = body.get("self", body)
+    consents = body.get("consents") or {}
+    profile = {
+        "user_id": user_id,
+        "stages_done": ["signup"],
+        "consents": {"sensitive": bool(consents.get("sensitive")), "parent": bool(consents.get("parent"))},
+        "self": dict(body.get("self") or {}),
+        "parents": list(body.get("parents") or []),
+    }
+    _apply_consents(profile)
     _store[user_id] = profile
     return {"user_id": user_id}
 
@@ -38,10 +65,14 @@ def get_profile(user_id: str) -> dict:
 def update_profile(user_id: str, body: dict) -> dict:
     """② 알림 설정, ③ 공고별 확인에서 받은 칸을 더한다."""
     profile = _get(user_id)
-    profile["self"].update(body.get("self", {}))
-    for key in ("parents", "consents", "stages_done"):
-        if key in body:
-            profile[key] = body[key]
+    if "consents" in body:
+        profile["consents"].update({k: bool(v) for k, v in body["consents"].items() if k in ("sensitive", "parent")})
+    profile["self"].update(body.get("self") or {})
+    if "parents" in body:
+        profile["parents"] = list(body["parents"])
+    if "stages_done" in body:
+        profile["stages_done"] = body["stages_done"]
+    _apply_consents(profile)
     return profile
 
 

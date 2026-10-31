@@ -3,13 +3,14 @@
 import copy
 from datetime import date
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
+from backend.app.routers.profiles import require_dev_api
 from backend.engine import judge
 from backend.engine.stub_data import EXAMPLE_JUDGE
 
-router = APIRouter(tags=["judge"])
+router = APIRouter(tags=["judge"], dependencies=[Depends(require_dev_api)])   # 로그인 붙기 전까지 개발 모드에서만
 
 
 class JudgeRequest(BaseModel):
