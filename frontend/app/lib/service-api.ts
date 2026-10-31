@@ -1,7 +1,7 @@
-export const API_BASE = (process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000").replace(/\/$/, ""); // 기존 API 주소 설정을 모든 서비스에서 사용해요.
+export const API_BASE = "/api/backend"; // 기존 API 주소 설정을 모든 서비스에서 사용해요.
 export class ServiceError extends Error { constructor(public status: number, message: string) { super(message); } } // 화면에서 인증·연결 실패를 구분해요.
-export async function api<T>(path: string, init: RequestInit = {}): Promise<T> { // 세션 쿠키와 시간 제한을 사용하는 공통 요청이에요.
-    const timeout = AbortSignal.timeout(30000); // 응답이 없는 요청을 무한히 기다리지 않아요.
+export async function api<T>(path: string, init: RequestInit = {}, timeoutMs = 30000): Promise<T> { // 세션 쿠키와 시간 제한을 사용하는 공통 요청이에요.
+    const timeout = AbortSignal.timeout(timeoutMs); // 응답이 없는 요청을 무한히 기다리지 않아요.
     let response: Response; // HTTP 응답을 받아요.
     try { response = await fetch(`${API_BASE}${path}`, { ...init, credentials: "include", cache: "no-store", referrerPolicy: "no-referrer", signal: init.signal ? AbortSignal.any([init.signal, timeout]) : timeout, headers: init.body instanceof FormData ? init.headers : { "Content-Type": "application/json", ...init.headers } }); } // 파일의 multipart 경계는 브라우저가 만들어요.
     catch (error) { if (init.signal?.aborted) throw error; throw new ServiceError(0, "API에 연결하지 못했습니다. 서버 주소·실행 상태·CORS 설정을 확인해 주세요."); } // 입력값이나 비밀정보를 오류에 넣지 않아요.
@@ -13,8 +13,7 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
 } // 공통 요청을 마쳐요.
 export type Fields = Record<string, string | number | boolean | null>; // 시트 칸에 해당하는 원값만 저장해요.
 export type Qualification = { qual_code: string; target: string; verified: string; has?: string }; // 자격은 코드표의 한 줄로 저장해요.
-export type Profile = { user_id: string; self: Fields & { qualifications?: never }; parents: Fields[]; consents: { sensitive: boolean; parent: boolean }; stages_done: string[] }; // 프로필의 기본 응답 모양이에요.
-export type FullProfile = Omit<Profile, "self"> & { self: Record<string, unknown> & { nickname?: string; qualifications?: Qualification[] } }; // 배열 자격을 가진 프로필 응답도 보존해요.
+export type FullProfile = { user_id: string; self: Record<string, unknown> & { nickname?: string; qualifications?: Qualification[] }; parents: Fields[]; consents: { sensitive: boolean; parent: boolean }; stages_done: string[] }; // 배열 자격을 포함한 실제 프로필을 보존해요.
 export type Me = { account_id: string; email: string; user_id: string | null; nickname?: string | null }; // 계정 토큰 없이 세션 소유 정보만 받아요.
 export type Evidence = { id: string; page: number | null; bbox: number[] | null; text: string | null }; // 근거 위치는 서버 응답만 사용해요.
 export type Condition = { read_as: string; grade: string; ok: boolean | null; why?: string; evidence: Evidence[]; checks?: Record<string, string> }; // 카드 조건과 검증 상태예요.

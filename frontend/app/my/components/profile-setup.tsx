@@ -4,7 +4,7 @@ import { api, message } from "../../lib/service-api"; // 계정 세션으로 프
 export function ProfileSetup({ nickname, onSaved }: { nickname: string; onSaved: () => void }) { // 기존 프로필이 없는 계정에만 보여줘요.
     const [busy, setBusy] = useState(false); const [error, setError] = useState(""); // 중복 제출과 실패 안내를 관리해요.
     async function submit(event: FormEvent<HTMLFormElement>) { // 입력한 원값으로만 최소 프로필을 만들어요.
-        event.preventDefault(); if (busy) return; const form = new FormData(event.currentTarget); setBusy(true); setError(""); // 브라우저 주소에 입력값을 남기지 않아요.
+        event.preventDefault(); if (busy) return; const form = new FormData(event.currentTarget); if (String(form.get("nickname") || "").trim().length < 2) { setError("닉네임을 공백 제외 2자 이상 입력해 주세요."); return; } setBusy(true); setError(""); // 브라우저 주소에 입력값을 남기지 않아요.
         try { await api("/profiles", { method: "POST", body: JSON.stringify({ self: { nickname: String(form.get("nickname")).trim(), gender: form.get("gender"), birth_year: Number(form.get("birth_year")), sido: form.get("sido"), sigungu: String(form.get("sigungu")).trim(), marital_status: form.get("marital_status"), children_count: Number(form.get("children_count")), household_size: Number(form.get("household_size")), employment_status: form.get("employment_status") }, consents: { sensitive: false, parent: false }, parents: [] }) }); onSaved(); } // 민감정보·부모님 동의는 기본 false예요.
         catch (cause) { setError(message(cause)); } finally { setBusy(false); } // 실패하면 입력을 유지하고 다시 저장할 수 있어요.
     } // 최소 프로필 저장을 마쳐요.
