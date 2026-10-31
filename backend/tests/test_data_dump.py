@@ -114,3 +114,9 @@ def test_dump_details_resume(raw):
         dump.dump_details(dump.DETAIL_SOURCES["lh_detail"], c, 2)
     assert calls == ["P1", "P2", "P3"]
     assert [i for i, _ in load.iter_details("lh_detail", raw)] == ["P1", "P2", "P3"]
+
+
+def test_odcloud_total_prefers_match_count():
+    from backend.data.sources import odcloud_total
+    assert odcloud_total({"totalCount": 2929, "matchCount": 293, "data": []}) == 293
+    assert odcloud_total({"totalCount": 10942, "data": []}) == 10942

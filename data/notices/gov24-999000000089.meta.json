@@ -8,6 +8,8 @@
   "sha256": "e265970a3bb3128e5b2a778fc27f4623bc8ad84b2bf8138c7765518fc246ba8b",
   "pages": null,
   "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
   "pblanc_no": null,
   "section": null,
   "rules": []

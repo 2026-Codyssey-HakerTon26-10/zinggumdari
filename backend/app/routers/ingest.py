@@ -1,6 +1,6 @@
 """공고 투입 API (docs/api.md §6, 「인증·소유권 계약」). 담당 백엔드2.
 
-    POST /ingest   multipart: file(PDF) 또는 url, replay(캐시 재생, 기본 false)
+    POST /ingest   multipart: file(PDF, HWP, HWPX, 텍스트) 또는 url, replay(캐시 재생, 기본 false)
 
 사용자 업로드라 로그인이 필수다. 로그인하지 않았으면(세션이 아직 연결되지 않은 경우 포함) 401.
 """
@@ -16,6 +16,7 @@ from backend.collector.ingest import MAX_BYTES, NOTICE, Rejected, fetch_url, ing
 from backend.search.ports import ports
 
 router = APIRouter(tags=["ingest"])
+ALLOWED_SUFFIX = (".pdf", ".hwp", ".hwpx", ".txt", ".md")
 
 
 @router.get("/ingest/notice")
@@ -37,8 +38,10 @@ def post_ingest(request: Request, file: UploadFile | None = File(None), url: str
             data, name = file.file.read(MAX_BYTES + 1), file.filename or "upload.pdf"
         else:
             data, name = fetch_url(url), url.rsplit("/", 1)[-1] or "upload.pdf"
+        suffix = Path(name).suffix.lower()
+        suffix = suffix if suffix in ALLOWED_SUFFIX else ""   # 형식은 줄 만들기가 앞 바이트로 다시 가린다
         with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "upload.pdf"
+            path = Path(tmp) / f"upload{suffix}"
             path.write_bytes(data)
             return ingest(path, name, source_url=url, replay=replay, uploaded_by=user.get("account_id"))
     except Rejected as exc:

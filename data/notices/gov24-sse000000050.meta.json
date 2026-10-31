@@ -1,0 +1,14 @@
+{
+  "doc_id": "gov24-sse000000050",
+  "title": "노인맞춤돌봄서비스 (보건복지부)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=757126&bnefType=all&svcId=SSE000000050",
+  "fetched_at": "2026-10-31",
+  "sha256": "5af5b99bd2d2382db69cef912dbb8569f8c48f4154e6f2a41ea3f7a5a4c56100",
+  "pages": null,
+  "text_layer": null,
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

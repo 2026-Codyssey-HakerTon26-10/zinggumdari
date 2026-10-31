@@ -1,0 +1,233 @@
+[
+{
+"id": "l1",
+"page": null,
+"bbox": null,
+"text": "[서비스명]",
+"mark": false
+},
+{
+"id": "l2",
+"page": null,
+"bbox": null,
+"text": "노인 무릎인공관절 수술 지원",
+"mark": false
+},
+{
+"id": "l3",
+"page": null,
+"bbox": null,
+"text": "[소관기관]",
+"mark": false
+},
+{
+"id": "l4",
+"page": null,
+"bbox": null,
+"text": "보건복지부",
+"mark": false
+},
+{
+"id": "l5",
+"page": null,
+"bbox": null,
+"text": "[지원대상]",
+"mark": false
+},
+{
+"id": "l6",
+"page": null,
+"bbox": null,
+"text": "○ (연령) 만 60세 이상",
+"mark": true
+},
+{
+"id": "l7",
+"page": null,
+"bbox": null,
+"text": "○ (대상 질환) 건강보험급여 '인공관절 치환술(무릎관절)' 인정기준에 준하는 질환자",
+"mark": false
+},
+{
+"id": "l8",
+"page": null,
+"bbox": null,
+"text": "○ (소득 기준) 국민기초생활보장법에 따른 수급자 또는 차상위계층, 한부모가족 지원법에 따른 지원대상자",
+"mark": true
+},
+{
+"id": "l9",
+"page": null,
+"bbox": null,
+"text": "[선정기준]",
+"mark": false
+},
+{
+"id": "l10",
+"page": null,
+"bbox": null,
+"text": "○ (연령) 만 60세 이상",
+"mark": true
+},
+{
+"id": "l11",
+"page": null,
+"bbox": null,
+"text": "○ (대상 질환) 건강보험급여 '인공관절 치환술(무릎관절)' 인정기준에 준하는 질환자",
+"mark": false
+},
+{
+"id": "l12",
+"page": null,
+"bbox": null,
+"text": "○ (소득 기준) 국민기초생활보장법에 따른 수급자 또는 차상위계층, 한부모가족 지원법에 따른 지원대상자",
+"mark": true
+},
+{
+"id": "l13",
+"page": null,
+"bbox": null,
+"text": "[지원내용]",
+"mark": false
+},
+{
+"id": "l14",
+"page": null,
+"bbox": null,
+"text": "○ (수술비 지원액) 한쪽 무릎 기준 120만원 한도 실비 지원",
+"mark": false
+},
+{
+"id": "l15",
+"page": null,
+"bbox": null,
+"text": "○ (지원범위) 본인부담금에 해당하는 검사비, 진료비 및 수술비",
+"mark": false
+},
+{
+"id": "l16",
+"page": null,
+"bbox": null,
+"text": "○ (지원제외) 간병비, 상급병실료, 선택진료비, 보호자 식대, 무릎인공관절수술과 관련이 없는 검사비, 치료비, 입원료 등, 지원대상자 통보 전 발생한 검사비, 진료비 및 수술비, 통원치료비, 제증명료, 긴급복지의료지원 등 타 기관과의 지원 중복 수령",
+"mark": true
+},
+{
+"id": "l17",
+"page": null,
+"bbox": null,
+"text": "○ (중복지원제외) 노인무릎인공관절수술 지원사업의 대상자로서 의료비 지원을 받은 경우, 실손 보험금 수령 및 기타 타기관과의 지원 중복 수령(긴급복지의료지원 등)이 발생할 경우, 지원 선정 취소 및 향후 지원사업 참여 제한, 지원금 환수 조치 등 불이익을 받을 수 있음",
+"mark": true
+},
+{
+"id": "l18",
+"page": null,
+"bbox": null,
+"text": "[신청기한]",
+"mark": false
+},
+{
+"id": "l19",
+"page": null,
+"bbox": null,
+"text": "상시신청",
+"mark": false
+},
+{
+"id": "l20",
+"page": null,
+"bbox": null,
+"text": "[신청방법]",
+"mark": false
+},
+{
+"id": "l21",
+"page": null,
+"bbox": null,
+"text": "○ (지원자) 수술받기 전, 보건소에 서류 접수",
+"mark": false
+},
+{
+"id": "l22",
+"page": null,
+"bbox": null,
+"text": "○ (보건소) 노인의료나눔재단에 대상자 추천",
+"mark": false
+},
+{
+"id": "l23",
+"page": null,
+"bbox": null,
+"text": "○ (노인의료나눔재단) 보건소 추천받은 자 중 예산범위 내 지원기능대상자에게 수술 가능 여부 통보",
+"mark": false
+},
+{
+"id": "l24",
+"page": null,
+"bbox": null,
+"text": "○ (수술비 청구- 의료기관) 대상자는 재단으로부터 통보받은 후 3개월 기한 내 수술 시행, 의료기관은 수술비 청구서, 진료비 영수증 및 통장사본을 첨부하여 재단에 수술비 청구",
+"mark": false
+},
+{
+"id": "l25",
+"page": null,
+"bbox": null,
+"text": "○ (노인의료나눔재단) 재단은 의료기관에게 지원 가능 수술비를 신청 다음 달 10일까지 은행 계좌로 송금",
+"mark": false
+},
+{
+"id": "l26",
+"page": null,
+"bbox": null,
+"text": "[구비서류]",
+"mark": false
+},
+{
+"id": "l27",
+"page": null,
+"bbox": null,
+"text": "○ 제출서류",
+"mark": false
+},
+{
+"id": "l28",
+"page": null,
+"bbox": null,
+"text": "- 무릎관절증 의료지원신청서(노인 의료나눔재단 홈페이지에서 다운로드 가능)",
+"mark": false
+},
+{
+"id": "l29",
+"page": null,
+"bbox": null,
+"text": "- 수술할 병원의 진단서(소견서)(수술명 기재)",
+"mark": false
+},
+{
+"id": "l30",
+"page": null,
+"bbox": null,
+"text": "- 기초생활수급자‧차상위계층‧한부모가족 증명서(최근 1개월 이내 발급된 증명서)",
+"mark": true
+},
+{
+"id": "l31",
+"page": null,
+"bbox": null,
+"text": "- 개인정보수집 및 이용제공 동의서",
+"mark": false
+},
+{
+"id": "l32",
+"page": null,
+"bbox": null,
+"text": "- 자격확인을 위한 행정정보 공동이용 사전동의서 1부",
+"mark": false
+},
+{
+"id": "l33",
+"page": null,
+"bbox": null,
+"text": "*모든 서류는 최근 1개월 이내 발급된 증명서",
+"mark": true
+}
+]

@@ -1,0 +1,105 @@
+{
+  "id": "manual:housing-repair",
+  "source": "manual",
+  "name": "희망의 집수리(서울)",
+  "org": "서울특별시",
+  "region": {
+    "sido": "서울특별시",
+    "sigungu": null
+  },
+  "domain": "housing",
+  "subject": "parent",
+  "benefit_type": "service",
+  "aliases": [
+    "집수리",
+    "서울 집수리",
+    "주택 수선"
+  ],
+  "same_as": [
+    "gov24:611000019603"
+  ],
+  "doc_id": "gov24-611000019603",
+  "conditions": [
+    {
+      "field": "sido",
+      "op": "in",
+      "value": [
+        "서울",
+        "서울특별시"
+      ],
+      "quote": "서울특별시",
+      "evidence": [
+        "gov24-611000019603:l4"
+      ],
+      "note": "서울시 사업(소관기관). 주택 소재지 동주민센터 접수(l17)",
+      "status": "reviewed"
+    },
+    {
+      "any_of": [
+        [
+          {
+            "field": "livelihood_status",
+            "op": "in",
+            "value": [
+              "생계",
+              "의료",
+              "주거",
+              "교육",
+              "차상위"
+            ]
+          }
+        ],
+        [
+          {
+            "field": "other",
+            "text": "차차상위계층"
+          }
+        ]
+      ],
+      "quote": "기초생활수급자, 차상위계층, 차차상위계층",
+      "evidence": [
+        "gov24-611000019603:l7"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "field": "other",
+      "text": "주택법상 주택에 거주하는 기준중위소득 60% 이하 가구",
+      "quote": "주택법상 ‘주택’ 거주 기준중위소득 60% 이하 가구",
+      "evidence": [
+        "gov24-611000019603:l6"
+      ],
+      "note": "부모님 프로필에 가구 소득 칸이 없어 확인 필요",
+      "status": "reviewed"
+    },
+    {
+      "field": "other",
+      "text": "신청 기간: 상반기(2월초~3월초), 하반기(7월), 변동 가능",
+      "quote": "상반기(2월초~3월초), 하반기(7월) … 변동가능",
+      "evidence": [
+        "gov24-611000019603:l14",
+        "gov24-611000019603:l15"
+      ],
+      "note": "해마다 날짜가 바뀌어 apply_date로 확정하지 않는다",
+      "status": "reviewed"
+    }
+  ],
+  "exclusive_with": [],
+  "apply_window": null,
+  "benefit_text": "ㅇ 사업내용 : 도배·장판 등 20개 공종 집수리 지원(가구당 250만원)",
+  "apply_text": "주택 소재지 동주민센터에 직접 방문 접수",
+  "documents": [
+    "신청서",
+    "개인정보제공동의서",
+    "임대인(소유주) 집수리 동의서"
+  ],
+  "documents_official": [],
+  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2123305&bnefType=all&svcId=611000019603",
+  "updated": "2026-08-04",
+  "review": {
+    "status": "reviewed",
+    "by": "이초롱",
+    "at": "2026-11-01"
+  },
+  "compiled": null
+}

@@ -1,6 +1,6 @@
 """data/notices/ 안의 원문. 원문 하나에 파일 셋이다.
 
-    {doc_id}.pdf | .html | .txt   원문 그대로
+    {doc_id}.pdf | .hwp | .hwpx | .html | .txt   원문 그대로
     {doc_id}.meta.json            docs/api.md §8의 머리(출처, 받은 날짜, 해시, 쪽 수)
     {doc_id}.lines.json           줄 목록
 
@@ -13,19 +13,28 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import re
 import shutil
 from datetime import date
 from pathlib import Path
 
+from backend.compiler.lines import read_document, save_lines
+from backend.compiler.pipeline import raw_dir_for
+from backend.compiler.readers import UnsupportedDocument
 from backend.data import config
-from backend.notices.lines import ScannedPdf, html_to_text, kind_of, pdf_lines, text_lines
 
 DOC_ID = re.compile(r"^[a-z0-9][a-z0-9._-]{0,120}$")   # `:`를 쓰지 않는다(근거 ID의 구분자)
 SOURCES = ("applyhome", "lh", "local", "upload", "web", "api")
-SUFFIX = {"pdf": ".pdf", "html": ".html", "text": ".txt"}
+SUFFIX = {"pdf": ".pdf", "hwp": ".hwp", "hwpx": ".hwpx", "html": ".html", "text": ".txt"}
+
+
+class ScannedPdf(ValueError):
+    """글자를 한 줄도 읽지 못한 PDF(이미지 스캔인데 글자 인식도 못 한 것). 받지 않는다."""
+
+
+class Unsupported(ValueError):
+    """읽을 수 없는 형식(암호·배포용 HWP, HWP 3.x, 그 밖의 형식). 메시지를 화면에 그대로 보여준다."""
 
 
 def valid_doc_id(doc_id: str) -> bool:
@@ -82,14 +91,22 @@ def save_meta(meta: dict, notices_dir: Path | None = None) -> None:
     path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def evidence(ids: list[str], notices_dir: Path | None = None) -> list[dict]:
-    """근거 ID 목록 → [{"id", "page", "bbox", "text"}]. 카드의 evidence 모양(api.md §3). 없는 줄은 text None."""
+def evidence(ids: list[str], notices_dir: Path | None = None, owner: str | None = None) -> list[dict]:
+    """근거 ID 목록 → [{"id", "page", "bbox", "text"}]. 카드의 evidence 모양(api.md §3).
+
+    없는 줄은 page, bbox, text가 None이다. 사용자 업로드(source: upload) 원문은 owner(계정 ID)가 올린 사람과
+    같을 때만 줄을 준다. 다르거나 owner가 없으면 없는 줄과 같게 None이다(인증·소유권 계약).
+    """
     cache: dict[str, dict] = {}
     out = []
     for eid in ids:
         doc_id, _, line_id = eid.partition(":")
         if doc_id not in cache:
-            cache[doc_id] = {ln["id"]: ln for ln in (load_lines(doc_id, notices_dir) or [])} if valid_doc_id(doc_id) else {}
+            meta = load_meta(doc_id, notices_dir) if valid_doc_id(doc_id) else None
+            allowed = bool(meta) and (meta.get("source") != "upload"
+                                      or bool(owner and meta.get("uploaded_by") and meta["uploaded_by"] == owner))
+            lines = load_lines(doc_id, notices_dir) if allowed else None
+            cache[doc_id] = {ln["id"]: ln for ln in lines or []}
         ln = cache[doc_id].get(line_id)
         out.append({"id": eid, "page": ln and ln["page"], "bbox": ln and ln["bbox"], "text": ln and ln["text"]})
     return out
@@ -108,26 +125,26 @@ def register(
 ) -> dict:
     """원문 파일을 data/notices/로 옮기고 줄 목록과 머리를 쓴다. 다시 부르면 덮어쓴다.
 
+    줄 만들기는 AI 공고 읽기와 같은 backend.compiler.lines.read_document다(줄 ID가 어디서 만들어도 같게).
+    스캔한 쪽은 글자 인식으로 읽고, 사용자 업로드는 네이토로 보내지 않는다(tesseract만). 그래도 못 읽은 쪽은
+    머리의 unread_pages에 남고 compile(meta=)가 그 쪽에 확인 필요 조건을 붙인다.
     extra는 머리에 같이 쓸 값이다(사용자 업로드의 uploaded_by처럼 등록 순간에 있어야 하는 것).
     """
     _check(doc_id)
     if source not in SOURCES:
         raise ValueError(f"source는 {SOURCES} 중 하나다")
-    kind = kind_of(src)
-    if kind == "hwp":
-        raise ValueError("HWP는 받지 않는다")
     base = _base(notices_dir)
     base.mkdir(parents=True, exist_ok=True)
-    dest = base / f"{doc_id}{SUFFIX[kind]}"
-
-    pages = None
-    if kind == "pdf":
-        lines, pages = pdf_lines(src)   # 스캔이면 여기서 ScannedPdf
-    else:
-        raw = src.read_text(encoding="utf-8", errors="replace")
-        lines = text_lines(html_to_text(raw) if kind == "html" else raw)
-
-    if src.resolve() != dest.resolve():
+    try:
+        doc, lines = read_document(doc_id, Path(src), ocr_cache=raw_dir_for(source) / f"{doc_id}.ocr.json",
+                                   llm_ocr=source != "upload")
+    except UnsupportedDocument as exc:
+        raise Unsupported(str(exc)) from exc
+    kind = doc["kind"]
+    if kind == "pdf" and not lines:
+        raise ScannedPdf("글자를 읽을 수 없는 PDF(이미지 스캔)는 받지 않는다")
+    dest = base / f"{doc_id}{SUFFIX.get(kind, '.txt')}"
+    if Path(src).resolve() != dest.resolve():
         for old in SUFFIX.values():   # 종류가 바뀌어 다시 등록하면 옛 원문을 지운다
             (base / f"{doc_id}{old}").unlink(missing_ok=True)
         shutil.copyfile(src, dest)
@@ -136,18 +153,20 @@ def register(
         "doc_id": doc_id,
         "title": title,
         "source": source,
-        "kind": "pdf" if kind == "pdf" else "text",
+        "kind": "pdf" if kind == "pdf" else "text",   # api.md §8. HWP·HWPX·HTML도 줄 목록을 그리는 text다
         "source_url": source_url,
         "fetched_at": fetched_at or old.get("fetched_at") or date.today().isoformat(),
-        "sha256": hashlib.sha256(dest.read_bytes()).hexdigest(),
-        "pages": len(pages) if pages else None,
-        "text_layer": True if kind == "pdf" else None,
+        "sha256": doc["sha256"],
+        "pages": doc["pages"] if kind == "pdf" else None,
+        "text_layer": doc["text_layer"] if kind == "pdf" else None,
+        "ocr": doc.get("ocr"),
+        "unread_pages": doc.get("unread_pages") or [],
         "pblanc_no": pblanc_no,
         "section": old.get("section"),   # 자격 구간은 AI 공고 읽기(compiler)가 채운다
         "rules": old.get("rules", []),
         **(extra or {}),
     }
-    (base / f"{doc_id}.lines.json").write_text(json.dumps(lines, ensure_ascii=False, indent=0), encoding="utf-8")
+    save_lines(doc_id, lines, None, out_dir=base)
     (base / f"{doc_id}.meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     return meta
 
@@ -175,7 +194,7 @@ def main(argv: list[str] | None = None) -> None:
     a = ap.parse_args(argv)
     try:
         meta = register(a.src, a.doc_id or a.src.stem, a.source, a.source_url, a.title, a.fetched_at, a.pblanc_no)
-    except ScannedPdf as exc:
+    except (ScannedPdf, Unsupported) as exc:
         raise SystemExit(str(exc)) from exc
     lines = load_lines(meta["doc_id"]) or []
     print(json.dumps({**meta, "lines": len(lines), "marked": sum(ln["mark"] for ln in lines)}, ensure_ascii=False, indent=2))

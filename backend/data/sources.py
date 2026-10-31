@@ -88,7 +88,10 @@ def odcloud_items(p: Any) -> list:
 
 
 def odcloud_total(p: Any) -> int | None:
-    return to_int(p.get("totalCount")) if isinstance(p, dict) else None
+    """cond[...]로 거르면 totalCount는 거르기 전 전체, matchCount가 걸러진 수다(청약홈 2026 공고: 2929 / 293)."""
+    if not isinstance(p, dict):
+        return None
+    return to_int(p.get("matchCount")) if p.get("matchCount") is not None else to_int(p.get("totalCount"))
 
 
 def ssis_root(p: Any) -> dict:
