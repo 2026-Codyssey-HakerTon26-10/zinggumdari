@@ -1,6 +1,7 @@
 """엔진 결과 → /judge 응답(docs/api.md §3). 카드에 올릴 것을 고르고 근거 줄·중복 불가·서류를 채운다.
 
-날짜·해둘 일·타임라인은 플래너(backend/planner)가 채운다. 공고별 질문(ask), 비슷한 가구(similar)는 아직 비어 있다.
+날짜·해둘 일·타임라인은 플래너(backend/planner)가, 공고별 질문(ask)은 engine/ask.py가 채운다.
+비슷한 가구(similar)는 아직 비어 있다.
 """
 
 import logging
@@ -8,6 +9,7 @@ from collections.abc import Callable
 from datetime import date
 
 from backend.engine import judge
+from backend.engine.ask import choose_ask
 
 log = logging.getLogger(__name__)
 
@@ -36,8 +38,10 @@ def _explain(card: dict) -> str:
 
 
 def build_judge(profile: dict, rules: list[dict], today: date | None = None,
-                evidence: Callable[[list[str]], list[dict]] = _no_lines, step: str | None = None) -> dict:
-    """step: 단계 넘기기. 그 단계까지 가정한 프로필로 판정한다(SPEC §7.1)."""
+                evidence: Callable[[list[str]], list[dict]] = _no_lines, step: str | None = None,
+                focus: str | None = None) -> dict:
+    """step: 단계 넘기기. 그 단계까지 가정한 프로필로 판정한다(SPEC §7.1).
+    focus: 사용자가 연 카드의 rule_id. 있으면 그 제도를 막는 칸을 묻는다(SPEC §6)."""
     from backend import planner   # planner가 engine.judge를 쓰므로 여기서 가져온다
 
     today = today or date.today()
@@ -72,7 +76,7 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
     cards.sort(key=lambda c: (c["subject"] != "self", SHOWN[c["verdict"]]))
     return {
         "user_id": profile.get("user_id"),
-        "ask": None,
+        "ask": choose_ask(cards, by_id, profile, focus),
         "cards": cards,
         "step": step,
         "timeline": plan,
