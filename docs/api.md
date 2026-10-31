@@ -55,15 +55,15 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
   "id": "upload:lh-2026-11-mapo:newlywed", "source": "upload", "review": {"status": "unreviewed"},
   "conditions": [
     {"field": "subscription_months", "op": ">=", "value": 6, "as_of": "notice_date", "evidence": ["lh-2026-11-mapo:p7-l23"],
-     "status": "auto_verified", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "ok", "keyword": "ok", "pair": "ok"}},
+     "status": "auto_verified", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "ok", "unit": "ok", "keyword": "ok", "pair": "ok"}},
     {"field": "income_couple", "op": "<=", "value": 120, "income_basis": "urban_worker_pct", "evidence": ["lh-2026-11-mapo:p8-l4"],
-     "status": "needs_review", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "fail:no_comparator", "keyword": "ok", "pair": "ok"}},
+     "status": "needs_review", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "fail:no_comparator", "unit": "ok", "keyword": "ok", "pair": "ok"}},
     {"field": "other", "text": "원문 조건 미반영", "reason": "unaccounted", "evidence": ["lh-2026-11-mapo:p8-l9"], "status": "needs_review"}
                                             // 빠짐 검사에서 남은 줄. 판정에서 항상 확인 필요
   ],
   "exclusive_evidence": ["lh-2026-11-mapo:p9-l2"],   // LLM이 exclusive로 답한 줄. 카드에 "중복 불가 조건이 있어요"로 표시만
   "coverage": {"marked": 21, "used": 15, "labeled": {"definition": 2, "procedure": 1, "exclusive": 1, "out_of_scope": 1, "not_condition": 0}, "unaccounted": 1},
-  "compiled": {"model": "…", "prompt": "v1", "doc_sha256": "…", "raw": "rules/compiled/_raw/lh-2026-11-mapo.json", "at": "2026-10-31T21:10"}
+  "compiled": {"model": "claude-opus-4-8", "prompt": "v1", "doc_sha256": "…", "raw": "rules/compiled/_raw/lh-2026-11-mapo.json", "at": "2026-10-31T21:10"}
 }
 ```
 
