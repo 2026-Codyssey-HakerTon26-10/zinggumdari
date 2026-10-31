@@ -1,0 +1,11 @@
+{
+  "source": "lh_list",
+  "dataset": "15058530",
+  "endpoint": "https://apis.data.go.kr/B552555/lhLeaseNoticeInfo1/lhLeaseNoticeInfo1",
+  "params": {},
+  "page_size": 100,
+  "fetched_at": "2026-10-31T22:02:06",
+  "pages": 6,
+  "items": 591,
+  "total": 591
+}

@@ -1,0 +1,11 @@
+{
+  "source": "applyhome_mdl",
+  "dataset": "15098547",
+  "endpoint": "https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancMdl",
+  "params": {},
+  "page_size": 500,
+  "fetched_at": "2026-10-31T22:02:00",
+  "pages": 30,
+  "items": 14987,
+  "total": 14987
+}
