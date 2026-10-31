@@ -1,0 +1,105 @@
+{
+  "id": "manual:elderly-care",
+  "source": "manual",
+  "name": "노인맞춤돌봄서비스",
+  "org": "보건복지부",
+  "region": null,
+  "domain": "elderly",
+  "subject": "parent",
+  "benefit_type": "service",
+  "aliases": [
+    "노인돌봄",
+    "독거노인 돌봄",
+    "맞춤돌봄"
+  ],
+  "same_as": [
+    "gov24:SSE000000050"
+  ],
+  "doc_id": "gov24-sse000000050",
+  "conditions": [
+    {
+      "field": "age",
+      "op": ">=",
+      "value": 65,
+      "quote": "65세 이상 ①국민기초생활수급자",
+      "evidence": [
+        "gov24-sse000000050:l15"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "any_of": [
+        [
+          {
+            "field": "livelihood_status",
+            "op": "in",
+            "value": [
+              "생계",
+              "의료",
+              "주거",
+              "교육",
+              "차상위"
+            ]
+          }
+        ],
+        [
+          {
+            "field": "basic_pension",
+            "op": "==",
+            "value": "Y"
+          }
+        ],
+        [
+          {
+            "field": "other",
+            "text": "시장·군수·구청장이 서비스가 필요하다고 인정하면 예외적으로 제공"
+          }
+        ]
+      ],
+      "quote": "①국민기초생활수급자, ②차상위계층 또는 ③기초연금수급자 … 시장･군수･구청장이 서비스가 필요하다고 인정하는 경우 예외적으로 제공 가능",
+      "evidence": [
+        "gov24-sse000000050:l15",
+        "gov24-sse000000050:l16"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "field": "other",
+      "text": "유사중복사업 자격에 해당하지 않아야 함",
+      "quote": "유사중복사업 자격에 해당되지 않는 자",
+      "evidence": [
+        "gov24-sse000000050:l15"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "field": "other",
+      "text": "돌봄이 필요한 노인(독거·조손·고령부부 가구, 기능 저하, 고독사·자살 위험 등)",
+      "quote": "독거･조손･고령부부 가구 노인 등 돌봄이 필요한 노인 … 신체적 기능 저하, 정신적 어려움 … 고독사 및 자살 위험이 높은 노인",
+      "evidence": [
+        "gov24-sse000000050:l17",
+        "gov24-sse000000050:l18",
+        "gov24-sse000000050:l19"
+      ],
+      "status": "reviewed"
+    }
+  ],
+  "exclusive_with": [],
+  "apply_window": null,
+  "benefit_text": "○ 방문형, 통원형(집단 프로그램) 등의 직접서비스 및 연계서비스 제공\n - 직접서비스: 안전지원, 사회참여, 생활교육, 일상생활지원",
+  "apply_text": "신청자의 주민등록상 주소지의 읍･면･동 행정복지센터에 방문하여 신청(부득이하면 전화, 우편･팩스, 복지로 온라인)",
+  "documents": [
+    "신청서",
+    "신청자의 신분증",
+    "위임장 및 대리신청자의 신분증"
+  ],
+  "documents_official": [],
+  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=757126&bnefType=all&svcId=SSE000000050",
+  "updated": "2026-08-20",
+  "review": {
+    "status": "reviewed",
+    "by": "이초롱",
+    "at": "2026-11-01"
+  },
+  "compiled": null
+}
