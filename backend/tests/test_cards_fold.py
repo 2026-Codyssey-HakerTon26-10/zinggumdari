@@ -91,3 +91,8 @@ def test_ask_ignores_folded_cards():
     body = build_judge(ME, rules, TODAY)
     assert body["cards"] == [] and body["folded"]["count"] == 8
     assert body["ask"] is None
+
+
+def test_birth_date_profile_gets_youth_tag():
+    me = {**ME, "self": {**{k: v for k, v in ME["self"].items() if k != "birth_year"}, "birth_date": "1999-04-15"}}
+    assert ids(build_judge(me, [YOUTH, PLAIN], TODAY)) == ["gov24:youth"]
