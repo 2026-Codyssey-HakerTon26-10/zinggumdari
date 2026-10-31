@@ -1,6 +1,16 @@
 평가 연결
 =========
 
+현재 상태 (2026-11-01)
+---------------------
+
+#60은 main에 병합됐다. 페르소나 정답 5건, 표본 50개·개발용 원출력 45개 채점 기록,
+results.json이 이미 존재한다. 과거의 "아직 없음" 요청은 현재 상태와 다르다.
+이번 결과는 생년월일 전환 이후 엔진으로 다시 실행했다. 개발용 엄격 키 일치 3/11,
+표본 근거 대조 31/50, 원출력 오답 포착 9/12다. 수치를 독립 시험 정확도로 말하지 않는다.
+부모 판정 일치(가상 인구에 부모 정보 없음), KNN 독립 시험, 외부 서비스 확인은 여전히 미완료다.
+
+
 `uv run --project backend python -m eval.score --input 채점기록.json --split eval/split.json --output eval/results.json`
 
 채점기록의 verdicts는 expected/actual 판정 쌍, extraction은 gold/extracted 조건 배열 쌍이다.
@@ -13,7 +23,7 @@ KNN 20/50/100, 동일 필터를 거친 전체 해당 비율 순위와 무작위�
 인기순 기준보다 낮은 시나리오가 있으면 demo_enabled=False다. 이 기준선 이름은 평가에서만 쓰고
 추천 카드에서는 선호·인기라는 표현을 쓰지 않는다.
 
-`coverage.create_router(load_rules)`는 main 담당자가 등록한다. 평가 전에는 null을 반환한다.
+`coverage.create_router(load_rules)`는 main에 등록돼 있다. 평가 전에는 null을 반환한다.
 공개 results.json에 개인별 프로필·정답을 넣지 않는다. silent_omissions는 공고 조건과 근거 줄만 포함한다.
 손 조건표·엔진은 연결됐지만 AI 조건표·실제 채점 기록이 없으면 결과 파일과 표본 채점 숫자를 생성하지 않는다.
 
@@ -103,19 +113,19 @@ persona-results.json은 이 5건의 안전성 점검 결과이며, 개발용 추
 지역 분기 누락은 오답으로 보수적으로 처리한다. 발표 전 이 채점 기준과 개별 판단을 검토할 수 있다.
 other의 문구 차이로 인한 엄격 키 일치의 한계도 그대로 남겼으며 근거 겹침만으로 정답을 늘리지 않는다.
 
-#54 입력 세 파일을 동일한 내용으로 받은 디렉터리에서:
+#54 입력 세 파일은 main의 eval/에 병합돼 있다:
 
-`uv run --project backend python -m eval.assemble --inputs-dir /path/to/eval54`
+`uv run --project backend python -m eval.assemble --inputs-dir eval`
 
-현재 원본 파일은 #54에서 제공한다. 입력 파일/조건의 해시가 달라지면 기존 리뷰를 재사용하지 않는다.
-개발용 5개 추출 점수와 표본 점수는 별도 분모로 보고, test는 항상 null이다. PR 스냅샷이므로
-main의 조건표 개수와 혼동하지 않도록 source_snapshot을 공개 통계에도 전달한다.
+원본 입력의 출처 커밋은 source_snapshot에 보존한다. 현재 main 입력 파일/조건의 해시가 달라지면 기존 리뷰를 재사용하지 않는다.
+개발용 5개 추출 점수와 표본 점수는 별도 분모로 보고, test는 항상 null이다. 고정 원본 스냅샷과
+현재 조건표 개수를 혼동하지 않도록 source_snapshot을 공개 통계에도 전달한다.
 
 원래 생성된 가상 인구 users.parquet 캐시가 있으면 네트워크 없이 판정 일치를 계산한다:
 
-`uv run --project backend python -m eval.agreement --input /path/to/eval54/score_input.json --population data/population/users.parquet --today 2026-11-01 --output /tmp/agreement.json`
+`uv run --project backend python -m eval.agreement --input eval/score_input.json --population data/population/users.parquet --today 2026-11-01 --output /tmp/agreement.json`
 
-`uv run --project backend python -m eval.assemble --inputs-dir /path/to/eval54 --agreement /tmp/agreement.json`
+`uv run --project backend python -m eval.assemble --inputs-dir eval --agreement /tmp/agreement.json`
 
 캐시의 pool 9000가구 × 개발용 본인 제도 3개 = 27000쌍을 비교했다. 부모 정보가 없는 캐시라
 부모 제도 2개는 지어내지 않고 제외했으며 agreement_source에 기록했다. 같은 엔진의 손/AI 조건
@@ -131,3 +141,15 @@ submission 명령은 이 파일에서 팀명과 확인된 5명 대응을 읽는�
 파일 값을 덮어쓴다. GitHub 계정은 대소문자 구분 없이 중복 검사한다. 과거 git author 별칭을
 실명으로 바꾸거나 커밋 이력을 재작성한 것은 아니며, 점검 출력에서 원래 저자 이름도 확인한다.
 팀명·실명이 확인돼도 나머지 평가/외부 자원 점검이 통과하기 전에는 제출 파일을 생성하지 않는다.
+
+
+제출 점검의 재생성 조건
+----------------------
+
+submission은 파일 존재만으로 평가 완료를 판단하지 않는다. 원본 입력 세 파일과 채점 기록 해시,
+채점기 코드 해시, 판정 일치 평가의 엔진 코드 해시를 현재 코드와 대조한다. 페르소나 안전성은
+모든 사례 통과·위험 eligible 0건과 현재 페르소나/엔진 해시를 확인한다. KNN은 독립 시험 결과가
+없으면 미완료로 남긴다. 해시 계산은 정답 본문을 출력하지 않는다. 코드나 입력이 바뀌면
+agreement/personas/assemble 명령을 다시 실행해야 한다. 현재 결과를 통과시키기 위해 누락된
+부모 정보나 미측정 KNN 수치를 지어내지 않는다. 이 점검은 영상·발표자료 및 대회 규정의
+전체 준수 여부를 자동 보증하지 않는다.

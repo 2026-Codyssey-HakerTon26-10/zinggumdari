@@ -5,6 +5,8 @@ from datetime import date
 import json
 from pathlib import Path
 
+from eval.provenance import digest_files, engine_digest
+
 
 def evaluate(personas, rules, judge):
     rows = []
@@ -45,6 +47,9 @@ def main():
         rules.append(r)
     from backend.engine import judge
     result = evaluate(personas, rules, judge)
+    root = Path(__file__).resolve().parents[1]
+    result["engine_sha256"] = engine_digest(root)
+    result["personas_sha256"] = digest_files(args.personas_dir, [Path(p.name) for p in args.personas_dir.glob("*.json")])
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:result[k] for k in ('scope','n','passed','danger')},ensure_ascii=False))

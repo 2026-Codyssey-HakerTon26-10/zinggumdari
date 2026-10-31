@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from eval.score import score
+from eval.provenance import scorer_digest
 
 
 def apply_grades(input_path, review_path, key):
@@ -57,6 +58,10 @@ def main():
                                  "inputs_sha256": input_hashes(args.inputs_dir)}
     if agreement is not None:
         result["agreement_source"] = {k:v for k,v in agreement.items() if k != "verdicts"}
+    result["source_snapshot"]["review_sha256"] = {
+        name: hashlib.sha256((args.reviews_dir / name).read_bytes()).hexdigest()
+        for name in ("sample50.json", "verifier_dev.json")}
+    result["scorer_sha256"] = scorer_digest(Path(__file__).resolve().parents[1])
     result["scoring_method"] = "조건 키 엄격 일치(자동 집계) + 원문 근거 대조(Codex 보조 평가); other 근거 겹침만으로 정답 인정하지 않음"
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")

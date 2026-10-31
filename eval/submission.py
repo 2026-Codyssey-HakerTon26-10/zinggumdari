@@ -1,10 +1,14 @@
 """제출 전 읽기 전용 점검. --write는 준비가 끝난 지정 커밋의 소스코드 안내만 만든다."""
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
 import subprocess
+
+from eval.assemble import input_hashes
+from eval.provenance import digest_files, engine_digest, scorer_digest
 
 
 def audit(root, *, team_name=None, authors_confirmed=False):
@@ -35,7 +39,41 @@ def audit(root, *, team_name=None, authors_confirmed=False):
             issues.append("부모 제도의 가상 인구 판정 일치 평가가 미완료입니다")
         if not results.get("agreement", {}).get("households"):
             issues.append("가구별 판정 일치 평가가 미완료입니다")
-    if not list((root / "eval/personas").glob("*.json")):
+    if results:
+        try:
+            snapshot = results.get("source_snapshot") or {}
+            if input_hashes(root / "eval") != snapshot.get("inputs_sha256"):
+                issues.append("현재 입력과 평가 결과의 해시가 다릅니다")
+            reviews = {name: hashlib.sha256((root / "eval/reviews" / name).read_bytes()).hexdigest()
+                       for name in ("sample50.json", "verifier_dev.json")}
+            if reviews != snapshot.get("review_sha256"):
+                issues.append("채점 검토 기록이 결과 생성 이후 바뀌었습니다")
+            if results.get("scorer_sha256") != scorer_digest(root):
+                issues.append("현재 채점기로 결과를 다시 생성해야 합니다")
+            if results.get("agreement_source", {}).get("engine_sha256") != engine_digest(root):
+                issues.append("현재 엔진으로 판정 일치 평가를 다시 실행해야 합니다")
+        except FileNotFoundError:
+            issues.append("평가 입력·검토·코드 해시를 확인할 파일이 없습니다")
+    persona_paths = sorted((root / "eval/personas").glob("*.json"))
+    safety_path = root / "eval/persona-results.json"
+    if persona_paths and safety_path.exists():
+        safety = json.loads(safety_path.read_text())
+        if (safety.get("n") != len(persona_paths) or safety.get("passed") != len(persona_paths)
+                or safety.get("danger") != 0):
+            issues.append("가상 페르소나 안전성 검증이 실패했거나 미완료입니다")
+        try:
+            current = digest_files(root / "eval/personas", [Path(p.name) for p in persona_paths])
+            if safety.get("personas_sha256") != current or safety.get("engine_sha256") != engine_digest(root):
+                issues.append("현재 페르소나·엔진으로 안전성 검증을 다시 실행해야 합니다")
+        except FileNotFoundError:
+            issues.append("안전성 코드 해시를 확인할 파일이 없습니다")
+    else:
+        issues.append("가상 페르소나 안전성 결과가 없습니다")
+    explore_path = root / "eval/explore-results.json"
+    explore = json.loads(explore_path.read_text()) if explore_path.exists() else None
+    if not explore or explore.get("purpose") != "test" or explore.get("precision_at_5") is None:
+        issues.append("KNN 독립 시험 평가가 미완료입니다")
+    if not persona_paths:
         issues.append("가상 페르소나 정답이 없습니다")
     if not team_name or not re.fullmatch(r"[\w가-힣 -]+", team_name):
         issues.append("제출 팀명을 확정해야 합니다(파일명에 경로 문자는 허용하지 않습니다)")
