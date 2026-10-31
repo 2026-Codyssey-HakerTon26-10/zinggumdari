@@ -1,0 +1,14 @@
+{
+  "doc_id": "gov24-611000019603",
+  "title": "희망의 집수리 (서울특별시)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2123305&bnefType=all&svcId=611000019603",
+  "fetched_at": "2026-10-31",
+  "sha256": "d03554d1e29de1354919352530adc2dc36b393d3f03e6ae9cf79b61ee03a074d",
+  "pages": null,
+  "text_layer": null,
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}
