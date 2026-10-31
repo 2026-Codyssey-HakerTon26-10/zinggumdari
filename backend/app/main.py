@@ -9,10 +9,23 @@ from backend.app.routers import auth, ingest, judge, notices, profiles_db, searc
 from backend.data.config import env
 from backend.search import ports as search_ports
 
+LOCAL_FRONTEND = "http://localhost:3000"
+
+
+def cors_origins() -> list[str]:
+    """쿠키를 실어 API를 부를 수 있는 화면 주소. `.env`의 CORS_ORIGINS(쉼표로 여러 개), 없으면 로컬 화면.
+    쿠키를 싣는 요청에 *를 허용하면 아무 사이트나 로그인한 사용자의 세션으로 API를 부를 수 있어 받지 않는다."""
+    raw = [o.strip().rstrip("/") for o in (env("CORS_ORIGINS") or "").split(",")]
+    origins = [o for o in raw if o]
+    if not origins or "*" in origins:
+        return [LOCAL_FRONTEND]
+    return origins
+
+
 app = FastAPI(title="징검")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=cors_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
