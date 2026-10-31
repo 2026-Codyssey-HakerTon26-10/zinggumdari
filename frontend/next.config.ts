@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
     if (!["http:", "https:"].includes(address.protocol) || address.username || address.password) throw new Error("API 주소 설정을 확인해 주세요."); // 주소에 키·비밀번호를 넣지 않아요.
     return [{ source: "/api/backend/:path*", destination: `${target}/:path*` }]; // 쿠키를 포함한 원래 요청을 백엔드로 전달해요.
   },
+  experimental: {
+    proxyTimeout: 900_000, // 공고 투입은 캐시 재생도 40초 넘게 걸려요. 기본 30초면 프록시가 먼저 끊어 500이 나서 화면 요청 시간(15분)과 맞춰요.
+    proxyClientMaxBodySize: 31 * 1024 * 1024, // 투입 파일 30MB(백엔드 MAX_BYTES) + 폼 여유. 기본 10MB면 큰 공고가 프록시에서 잘려요.
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
