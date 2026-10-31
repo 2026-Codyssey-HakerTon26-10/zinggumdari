@@ -49,5 +49,8 @@ def post_judge(req: JudgeRequest, own: Annotated[dict, Depends(own_profile)], to
         result = copy.deepcopy(EXAMPLE_JUDGE)
         result["user_id"] = profile["user_id"]
         return result
+    from backend.engine import similar   # numpy·가상 인구는 판정할 때만 읽는다
+
     return build_judge(profile, rules, today, evidence=partial(sources.evidence, owner=owner),
-                       step=req.step, focus=req.rule_id)
+                       step=req.step, focus=req.rule_id,
+                       similar=lambda p, verdicts: similar.similar_for(p, verdicts, rules, today=today))

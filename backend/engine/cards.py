@@ -1,7 +1,7 @@
 """엔진 결과 → /judge 응답(docs/api.md §3). 카드에 올릴 것을 고르고 근거 줄·중복 불가·서류를 채운다.
 
 날짜·해둘 일·타임라인은 플래너(backend/planner)가, 공고별 질문(ask)은 engine/ask.py가 채운다.
-비슷한 가구(similar)는 아직 비어 있다.
+비슷한 가구(similar)는 넘겨받은 함수(라우터가 engine.similar.similar_for를 꽂는다)로 채우고, 없거나 실패하면 null이다.
 """
 
 import logging
@@ -39,9 +39,10 @@ def _explain(card: dict) -> str:
 
 def build_judge(profile: dict, rules: list[dict], today: date | None = None,
                 evidence: Callable[[list[str]], list[dict]] = _no_lines, step: str | None = None,
-                focus: str | None = None) -> dict:
+                focus: str | None = None, similar: Callable[[dict, dict], dict | None] | None = None) -> dict:
     """step: 단계 넘기기. 그 단계까지 가정한 프로필로 판정한다(SPEC §7.1).
-    focus: 사용자가 연 카드의 rule_id. 있으면 그 제도를 막는 칸을 묻는다(SPEC §6)."""
+    focus: 사용자가 연 카드의 rule_id. 있으면 그 제도를 막는 칸을 묻는다(SPEC §6).
+    similar: (프로필, judge 결과) → api.md §3 similar. 맞춤 추천과 섞지 않는다(SPEC §13)."""
     from backend import planner   # planner가 engine.judge를 쓰므로 여기서 가져온다
 
     today = today or date.today()
@@ -73,6 +74,12 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
         card["exclusive_evidence"] = evidence(card["exclusive_evidence"]) if card["exclusive_evidence"] else []
         card.update(documents=_documents(rule), explain=_explain(card))
         cards.append(card)
+    near = None
+    if similar is not None:
+        try:
+            near = similar(profile, results)
+        except Exception:   # 가상 인구 캐시가 깨져도 카드는 내보낸다
+            log.exception("비슷한 가구 계산 실패")
     cards.sort(key=lambda c: (c["subject"] != "self", SHOWN[c["verdict"]]))
     return {
         "user_id": profile.get("user_id"),
@@ -80,6 +87,6 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
         "cards": cards,
         "step": step,
         "timeline": plan,
-        "similar": None,
+        "similar": near,
         "disclaimer": DISCLAIMER,
     }
