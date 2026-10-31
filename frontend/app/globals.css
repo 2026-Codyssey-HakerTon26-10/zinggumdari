@@ -1,7 +1,7 @@
 :root { --primary: #2474c7; --primary-dark: #185eab; --ink: #1f2937; --muted: #6b7280; --line: #e5e7eb; --sky: #fafafa; --surface: #ffffff; --radius: 18px; --background: #ffffff; --foreground: #1f2937; } /* 서비스 전체에서 같은 색상과 둥근 모서리를 사용해요. */
 * { box-sizing: border-box; } /* 테두리와 안쪽 여백까지 포함해서 크기를 계산해요. */
 html { scroll-behavior: smooth; scroll-padding-top: 100px; } /* 화면 안의 안내 영역으로 부드럽게 이동해요. */
-body { margin: 0; color: var(--ink); background: var(--background); font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif; font-size: 15px; line-height: 1.6; letter-spacing: -.025em; -webkit-font-smoothing: antialiased; } /* 별도 폰트 다운로드 없이 읽기 편한 한글 서체를 사용해요. */
+body { margin: 0; color: var(--ink); background: var(--background); font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif; font-size: 17px; line-height: 1.6; letter-spacing: -.025em; -webkit-font-smoothing: antialiased; } /* 글씨 크기를 키워서 더 잘 보이게 해요. */
 h1, h2, h3, h4, p { margin: 0; } /* 화면마다 다르게 붙는 기본 바깥 여백을 정리해요. */
 h1, h2, h3, h4 { text-wrap: balance; } /* 제목의 줄 길이를 자연스럽게 맞춰요. */
 p { word-break: keep-all; overflow-wrap: anywhere; } /* 한글 단어를 가능한 한 나누지 않고 긴 글은 넘치지 않게 해요. */
@@ -24,10 +24,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .button-secondary { border-color: #e5e7eb; color: #4b5563; background: #fff; } /* 보조 행동은 흰색 바탕으로 차분하게 보여줘요. */
 .button-secondary:hover { border-color: #d1d5db; background: #fafafa; } /* 보조 버튼에도 선택 반응을 제공해요. */
 .button-large { min-height: 52px; padding: 15px 20px; font-size: 15px; } /* 첫 화면의 주요 행동을 넉넉한 터치 영역으로 만들어요. */
-.eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); font-size: 12px; font-weight: 700; letter-spacing: .015em; } /* 제목 위의 짧은 안내를 파란색으로 구분해요. */
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); font-size: 14px; font-weight: 700; letter-spacing: .015em; } /* 제목 위의 짧은 안내를 파란색으로 구분해요. */
 .section-title { color: var(--ink); font-size: clamp(26px, 3vw, 34px); font-weight: 750; line-height: 1.4; letter-spacing: -.045em; } /* 각 구역의 제목 크기를 화면에 맞춰 조절해요. */
 .muted { color: var(--muted); } /* 보조 설명에 차분한 색을 사용해요. */
-.pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 5px; color: #3e78ad; background: #edf5fd; font-size: 10px; font-weight: 650; line-height: 1.5; white-space: nowrap; } /* 짧은 상태 설명을 작은 배지로 보여줘요. */
+.pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 5px; color: #3e78ad; background: #edf5fd; font-size: 14px; font-weight: 650; line-height: 1.5; white-space: nowrap; } /* 짧은 상태 설명을 작은 배지로 보여줘요. */
 .pill-gray { color: #7b8794; background: #f0f3f5; } /* 참고용 표시를 회색 배지로 구분해요. */
 .live-dot { display: inline-block; width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: #4a93cf; box-shadow: 0 0 0 4px #4a93cf12; } /* 작은 파란 점을 장식으로 사용해요. */
 .site-header { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid #e7edf4; background: #fff; backdrop-filter: blur(12px); } /* 스크롤 중에도 주요 메뉴를 볼 수 있게 해요. */
@@ -53,112 +53,112 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .mobile-nav nav a:hover { background: var(--sky); } /* 모바일 메뉴 선택 위치를 알려줘요. */
 .landing-hero { position: relative; overflow: hidden; padding: 72px 0 0; border-bottom: 1px solid #eef0f3; background: #fff; } /* 흰색 바탕과 가는 경계선으로 첫 화면을 구성해요. */
 .hero-grid { display: grid; grid-template-columns: 1.04fr 1fr; gap: 54px; align-items: center; padding-bottom: 59px; } /* 소개 글과 징검다리 그림을 나란히 보여줘요. */
-.hero-eyebrow { padding: 6px 11px; border: 1px solid #e5e7eb; border-radius: 6px; background: #fff; font-size: 11px; } /* 부모님까지 챙기는 안내를 작고 선명하게 보여줘요. */
+.hero-eyebrow { padding: 6px 11px; border: 1px solid #e5e7eb; border-radius: 6px; background: #fff; font-size: 14px; } /* 부모님까지 챙기는 안내를 작고 선명하게 보여줘요. */
 .hero-copy h1 { margin-top: 21px; font-size: clamp(37px, 4.15vw, 57px); font-weight: 800; line-height: 1.32; letter-spacing: -.065em; } /* 짧은 서비스 메시지를 큰 한글 제목으로 보여줘요. */
 .hero-copy h1 > span:first-of-type { color: var(--primary); } /* 먼저 찾아준다는 핵심 메시지를 강조해요. */
 .headline-period { color: #85b1d8; } /* 제목의 마침표를 밝은 색으로 마무리해요. */
 .hero-description { margin-top: 24px; color: #74899c; font-size: 15px; line-height: 1.95; } /* 제목 아래의 설명에 편안한 줄 간격을 줘요. */
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; } /* 본인과 부모님 시작 버튼을 함께 배치해요. */
-.hero-action-note { margin-top: 12px; color: #8b9ba9; font-size: 10px; } /* 로그인 여부와 입력 시간의 개인차를 안내해요. */
+.hero-action-note { margin-top: 12px; color: #8b9ba9; font-size: 14px; } /* 로그인 여부와 입력 시간의 개인차를 안내해요. */
 .hero-trust { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; } /* 개인정보와 원문 근거 안내를 나란히 보여줘요. */
-.hero-trust > span { display: inline-flex; align-items: center; gap: 6px; color: #748a9d; font-size: 10px; } /* 신뢰 안내는 제목보다 작고 차분하게 표시해요. */
+.hero-trust > span { display: inline-flex; align-items: center; gap: 6px; color: #748a9d; font-size: 14px; } /* 신뢰 안내는 제목보다 작고 차분하게 표시해요. */
 .hero-trust .icon { width: 14px; height: 14px; color: #6f98bb; } /* 안내 아이콘을 작은 파란 선으로 표현해요. */
-.hero-bottom-label { display: flex; align-items: center; justify-content: center; gap: 17px; padding: 0 20px 24px; color: #98aec0; font-size: 10px; letter-spacing: .08em; } /* 첫 화면 아래에 서비스의 방향을 짧게 덧붙여요. */
+.hero-bottom-label { display: flex; align-items: center; justify-content: center; gap: 17px; padding: 0 20px 24px; color: #98aec0; font-size: 14px; letter-spacing: .08em; } /* 첫 화면 아래에 서비스의 방향을 짧게 덧붙여요. */
 .hero-bottom-label > span { width: 36px; height: 1px; background: #ccdfef; } /* 문장 양옆에 가는 선을 그려요. */
 .journey-preview { position: relative; padding: 20px 20px 14px; border: 1px solid #e5e7eb; border-radius: 21px; background: #fff; box-shadow: 0 20px 60px #11182706, 0 3px 7px #11182703; transform: rotate(-1deg); } /* 징검다리 미리보기를 하나의 부드러운 패널로 만들어요. */
 .journey-preview > * { transform: rotate(0deg); } /* 내부 요소는 자연스럽게 패널 방향을 따라가게 해요. */
-.journey-topline { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-bottom: 16px; color: #8b9fb1; font-size: 9px; } /* 그림 위쪽에 미리보기 안내를 배치해요. */
-.journey-topline > span:first-child { display: inline-flex; align-items: center; gap: 8px; color: #5a7b96; font-size: 10px; font-weight: 600; } /* 미리보기 이름을 작은 파란 점과 함께 보여줘요. */
+.journey-topline { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-bottom: 16px; color: #8b9fb1; font-size: 14px; } /* 그림 위쪽에 미리보기 안내를 배치해요. */
+.journey-topline > span:first-child { display: inline-flex; align-items: center; gap: 8px; color: #5a7b96; font-size: 14px; font-weight: 600; } /* 미리보기 이름을 작은 파란 점과 함께 보여줘요. */
 .journey-summary { position: relative; display: flex; align-items: center; gap: 11px; min-height: 89px; border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px 14px; background: #fff; box-shadow: 0 5px 12px #32557004; } /* 선택한 단계의 소개를 흰색 카드로 보여줘요. */
 .journey-summary-icon { display: grid; width: 40px; height: 40px; flex-shrink: 0; place-items: center; border-radius: 12px; color: #327fbe; background: #edf6fd; } /* 선택한 생애 단계의 아이콘을 구분해요. */
-.journey-summary-kicker { color: #75a0c4; font-size: 9px; font-weight: 600; } /* 현재 단계의 순서를 안내해요. */
+.journey-summary-kicker { color: #75a0c4; font-size: 14px; font-weight: 600; } /* 현재 단계의 순서를 안내해요. */
 .journey-summary h2 { margin-top: 2px; font-size: 14px; font-weight: 750; letter-spacing: -.04em; } /* 선택한 단계의 제목을 표시해요. */
-.journey-summary p { margin-top: 3px; color: #90a0ae; font-size: 9px; } /* 단계 설명을 짧게 덧붙여요. */
-.journey-page { align-self: flex-start; margin-left: auto; color: #347fbd; font-size: 11px; font-weight: 700; white-space: nowrap; } /* 총 다섯 단계 중 현재 번호를 표시해요. */
+.journey-summary p { margin-top: 3px; color: #90a0ae; font-size: 14px; } /* 단계 설명을 짧게 덧붙여요. */
+.journey-page { align-self: flex-start; margin-left: auto; color: #347fbd; font-size: 14px; font-weight: 700; white-space: nowrap; } /* 총 다섯 단계 중 현재 번호를 표시해요. */
 .journey-page > span { color: #c2cdd8; font-weight: 400; } /* 총 단계 수는 연한 색으로 구분해요. */
 .river-map { position: relative; height: 252px; overflow: hidden; margin: 0 -20px; } /* 징검돌과 곡선 물길을 그릴 영역을 만들어요. */
 .river-lines { position: absolute; inset: 0; width: 100%; height: 100%; } /* 패널 폭에 맞춰 물길 그림을 확대해요. */
 .journey-stone { position: absolute; display: flex; width: 70px; flex-direction: column; align-items: center; gap: 5px; border: 0; padding: 0; background: none; color: #819cb2; } /* 물길 위의 각 단계를 누를 수 있는 버튼으로 만들어요. */
 .stone-shape { position: relative; display: grid; width: 48px; height: 44px; place-items: center; border: 1px solid #e5e7eb; border-radius: 40% 46% 43% 38%; color: #86a3b9; background: #fff; box-shadow: 0 5px 0 #e5e7eb, 0 8px 10px #1118270a; transition: transform .2s, background .2s, box-shadow .2s; } /* 물 위의 돌처럼 둥글고 비대칭인 모양을 그려요. */
 .stone-shape .icon { width: 20px; height: 20px; } /* 단계 그림을 돌의 가운데에 배치해요. */
-.stone-number { position: absolute; top: -10px; right: -5px; display: grid; width: 19px; height: 19px; place-items: center; border: 2px solid #f1f8ff; border-radius: 50%; color: #8ba9c0; background: #dfeefb; font-size: 8px; font-weight: 700; } /* 돌 위에 단계 번호를 작게 표시해요. */
-.stone-label { padding-top: 5px; font-size: 10px; font-weight: 600; } /* 각 돌 아래에 생애 단계의 이름을 표시해요. */
+.stone-number { position: absolute; top: -10px; right: -5px; display: grid; width: 22px; height: 22px; place-items: center; border: 2px solid #f1f8ff; border-radius: 50%; color: #8ba9c0; background: #dfeefb; font-size: 10px; font-weight: 700; } /* 돌 위 번호 배지는 원 안에 맞게 작게 표시해요. */
+.stone-label { padding-top: 5px; font-size: 14px; font-weight: 600; } /* 각 돌 아래에 생애 단계의 이름을 표시해요. */
 .journey-stone:hover .stone-shape { transform: translateY(-3px); } /* 마우스를 올리면 돌을 살짝 들어올려요. */
 .journey-stone.is-selected .stone-shape { border-color: #418dcd; color: #fff; background: #3487ca; box-shadow: 0 5px 0 #226bac, 0 10px 15px #2474c730; transform: translateY(-4px); } /* 선택한 단계는 진한 파란 돌로 보여줘요. */
 .journey-stone.is-selected .stone-number { color: #fff; background: #1c65a1; } /* 선택한 단계 번호도 함께 강조해요. */
 .journey-stone.is-selected .stone-label { color: #2d76b3; } /* 현재 단계의 글자색을 구분해요. */
-.stone-youth { left: 2%; top: 161px; } /* 청년 단계를 물길의 시작에 배치해요. */
+.stone-youth { left: 5%; top: 161px; } /* 청년 단계를 river-caption과 겹치지 않도록 오른쪽으로 조정했어요. */
 .stone-marriage { left: 21%; top: 71px; } /* 신혼 단계를 첫 번째 굽이에 배치해요. */
 .stone-birth { left: 43%; top: 88px; } /* 출산 단계를 물길의 가운데에 배치해요. */
 .stone-care { left: 64%; top: 145px; } /* 육아 단계를 두 번째 굽이에 배치해요. */
 .stone-family { left: 82%; top: 29px; } /* 다자녀 단계를 물길의 다음 방향에 배치해요. */
-.river-caption { position: absolute; top: 25px; left: 28px; color: #a0b7ca; font-size: 9px; writing-mode: vertical-rl; letter-spacing: .1em; } /* 물길 옆에 다음 단계로 이어진다는 설명을 덧붙여요. */
+.river-caption { display: none; } /* 세로 텍스트가 stone과 겹쳐서 숨겼어요. */
 .parent-preview { position: relative; display: flex; align-items: center; gap: 12px; margin-top: -4px; border: 1px solid #e5e7eb; border-radius: 11px; padding: 13px 15px; background: #fff; } /* 나의 흐름 아래에 부모님을 별도 영역으로 보여줘요. */
 .parent-preview:hover { border-color: #accce7; } /* 부모님 바로가기의 선택 상태를 알려줘요. */
 .parent-preview-icon { display: grid; width: 35px; height: 35px; flex-shrink: 0; place-items: center; border-radius: 10px; color: #7a91ab; background: #fafafa; } /* 부모님 안내를 차분한 회색 아이콘으로 보여줘요. */
-.parent-preview strong { display: block; font-size: 11px; font-weight: 650; } /* 부모님 안내 제목을 표시해요. */
-.parent-preview small { display: block; margin-top: 2px; color: #99a8b7; font-size: 9px; } /* 부모님은 별도로 살펴본다는 설명을 붙여요. */
+.parent-preview strong { display: block; font-size: 14px; font-weight: 650; } /* 부모님 안내 제목을 표시해요. */
+.parent-preview small { display: block; margin-top: 2px; color: #99a8b7; font-size: 14px; } /* 부모님은 별도로 살펴본다는 설명을 붙여요. */
 .parent-preview > .icon { width: 15px; height: 15px; margin-left: auto; color: #86a8c3; } /* 부모님 화면으로 이동하는 방향을 표시해요. */
-.journey-disclaimer { margin-top: 10px; color: #8fa5b7; font-size: 8px; text-align: center; } /* 장식 그림이 실제 자격 판정이 아님을 명시해요. */
+.journey-disclaimer { margin-top: 10px; color: #8fa5b7; font-size: 14px; text-align: center; } /* 장식 그림이 실제 자격 판정이 아님을 명시해요. */
 .discover-section { padding: 65px 0 71px; } /* 사례 카드 영역에 넉넉한 위아래 여백을 줘요. */
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 29px; } /* 제목과 보조 문구를 같은 기준선에 맞춰요. */
 .section-heading .section-title { margin-top: 9px; } /* 작은 안내와 큰 제목 사이를 띄워요. */
-.section-side-note { padding-bottom: 7px; color: #9aabb8; font-size: 11px; white-space: nowrap; } /* 구역의 짧은 부연 설명을 옆에 배치해요. */
+.section-side-note { padding-bottom: 7px; color: #9aabb8; font-size: 14px; white-space: nowrap; } /* 구역의 짧은 부연 설명을 옆에 배치해요. */
 .discovery-grid { display: grid; grid-template-columns: 1.12fr 1fr 1fr; gap: 18px; } /* 세 장의 카드를 동일한 높이로 배치해요. */
 .discovery-card { display: flex; min-width: 0; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 14px; padding: 25px 25px 21px; background: #fff; } /* 사례마다 독립된 흰색 카드 틀을 만들어요. */
 .story-card { border-color: #e5e7eb; background: #fff; } /* 가상 사례도 다른 카드와 같은 흰색 바탕으로 보여줘요. */
 .card-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 19px; } /* 카드 위의 아이콘과 상태 배지를 정렬해요. */
 .soft-icon { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid #e3edf6; border-radius: 10px; color: #5d93c1; background: #fafafa; } /* 카드별 주제를 작은 선 아이콘으로 보여줘요. */
 .story-card .soft-icon { background: #e4f0fc; } /* 가상 사례 아이콘의 바탕을 조금 진하게 해요. */
-.card-label { color: #7a94a9; font-size: 11px; font-weight: 600; } /* 카드의 맥락을 작은 제목으로 설명해요. */
+.card-label { color: #7a94a9; font-size: 14px; font-weight: 600; } /* 카드의 맥락을 작은 제목으로 설명해요. */
 .discovery-card h3 { margin-top: 11px; color: #2b5576; font-size: 19px; font-weight: 700; line-height: 1.6; letter-spacing: -.04em; } /* 가상 사례의 메시지를 읽기 쉽게 강조해요. */
-.discovery-card > p:not(.card-label) { margin-top: 9px; color: #7b8e9e; font-size: 12px; line-height: 1.85; } /* 카드의 추가 설명을 작고 여유 있게 보여줘요. */
-.card-footnote { display: block; margin-top: auto; padding-top: 24px; color: #9baab7; font-size: 9px; line-height: 1.8; } /* 수치의 성격과 출처를 카드 하단에 명시해요. */
+.discovery-card > p:not(.card-label) { margin-top: 9px; color: #7b8e9e; font-size: 14px; line-height: 1.85; } /* 카드의 추가 설명을 작고 여유 있게 보여줘요. */
+.card-footnote { display: block; margin-top: auto; padding-top: 24px; color: #9baab7; font-size: 14px; line-height: 1.8; } /* 수치의 성격과 출처를 카드 하단에 명시해요. */
 .discovery-metric { margin-top: 12px; color: #245a86; font-size: 44px; font-weight: 750; line-height: 1.3; letter-spacing: -.05em; } /* 참고 지표를 큰 글자로 보여줘요. */
 .discovery-metric > span { margin-left: 3px; font-size: 22px; font-weight: 600; } /* 수치의 단위를 본문보다 크게 표시해요. */
 .discovery-metric .metric-asterisk { margin-left: 4px; color: #9db6ca; font-size: 16px; vertical-align: super; } /* 검증되지 않은 참고 수치의 주석 표시를 붙여요. */
 .discovery-metric .unmeasured-number { margin: 0 3px; color: #bad3e8; font-size: 38px; } /* 아직 집계하지 않은 값을 빈 원으로 구분해요. */
 .how-section { padding: 66px 0 51px; border-block: 1px solid #eef0f3; background: #fff; scroll-margin-top: 20px; } /* 사용 방법도 흰색 바탕에 가는 선으로 구분해요. */
 .section-heading.centered { flex-direction: column; align-items: center; gap: 0; margin-bottom: 36px; text-align: center; } /* 설명형 구역의 제목을 가운데에 모아요. */
-.section-heading.centered > p { margin-top: 13px; color: #93a1ae; font-size: 12px; line-height: 1.85; } /* 제목 아래의 보조 설명을 차분하게 보여줘요. */
+.section-heading.centered > p { margin-top: 13px; color: #93a1ae; font-size: 14px; line-height: 1.85; } /* 제목 아래의 보조 설명을 차분하게 보여줘요. */
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 55px; padding-inline: 22px; } /* 세 단계의 설명을 충분한 간격으로 배치해요. */
 .process-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; } /* 아이콘과 순서를 양쪽에 배치해요. */
 .process-icon { display: grid; width: 47px; height: 47px; place-items: center; border: 1px solid #e0eaf3; border-radius: 13px; color: #598eb9; background: #fff; } /* 사용 과정의 주요 행동을 그림으로 보여줘요. */
 .process-icon .icon { width: 22px; height: 22px; } /* 사용 과정의 아이콘을 조금 크게 표시해요. */
 .process-number { color: #d7e4ee; font-size: 35px; font-weight: 750; line-height: 1; } /* 순서 번호를 배경처럼 차분하게 표시해요. */
 .process-step h3 { font-size: 16px; font-weight: 700; letter-spacing: -.04em; } /* 단계별 제목을 표시해요. */
-.process-step p { margin-top: 10px; color: #899cab; font-size: 12px; line-height: 1.9; white-space: pre-line; } /* 사용 과정의 설명을 두 줄로 보여줘요. */
-.process-note { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 38px; color: #9aabba; font-size: 10px; } /* 민감정보 처리 원칙을 중앙에 알려줘요. */
+.process-step p { margin-top: 10px; color: #899cab; font-size: 14px; line-height: 1.9; white-space: pre-line; } /* 사용 과정의 설명을 두 줄로 보여줘요. */
+.process-note { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 38px; color: #9aabba; font-size: 14px; } /* 민감정보 처리 원칙을 중앙에 알려줘요. */
 .process-note .icon { width: 14px; height: 14px; } /* 보호 원칙의 방패 그림 크기를 맞춰요. */
 .comparison-section { padding: 72px 0 77px; } /* 비교 영역을 넉넉한 흰색 공간에 배치해요. */
 .comparison-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; padding-top: 9px; } /* 서비스 비교를 같은 폭의 세 칸으로 보여줘요. */
 .comparison-card { position: relative; display: flex; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 14px; padding: 28px 24px 26px; background: #fff; } /* 비교할 서비스의 정보 틀을 동일하게 맞춰요. */
 .comparison-featured { border-color: #7baee0; background: #fff; box-shadow: 0 8px 24px #11182705; } /* 징검다리의 방식에 파란 테두리를 사용해요. */
-.comparison-ribbon { position: absolute; top: -12px; right: 19px; border-radius: 5px; padding: 4px 10px; color: #fff; background: #397fba; font-size: 9px; font-weight: 600; } /* 징검다리 카드의 짧은 안내를 위쪽에 붙여요. */
+.comparison-ribbon { position: absolute; top: -12px; right: 19px; border-radius: 5px; padding: 4px 10px; color: #fff; background: #397fba; font-size: 14px; font-weight: 600; } /* 징검다리 카드의 짧은 안내를 위쪽에 붙여요. */
 .comparison-icon { display: grid; width: 39px; height: 39px; place-items: center; margin-bottom: 19px; border: 1px solid #e7edf3; border-radius: 10px; color: #8399aa; background: #fafafa; } /* 서비스 유형을 아이콘으로 나타내요. */
 .comparison-featured .comparison-icon { border-color: #d6e7f7; color: #347eba; background: #e5f1fd; } /* 징검다리 아이콘에 브랜드 색상을 사용해요. */
-.comparison-caption { color: #a0adba; font-size: 10px; } /* 서비스 유형을 작은 보조 문구로 보여줘요. */
+.comparison-caption { color: #a0adba; font-size: 14px; } /* 서비스 유형을 작은 보조 문구로 보여줘요. */
 .comparison-card h3 { margin-top: 4px; font-size: 20px; font-weight: 750; letter-spacing: -.045em; } /* 서비스 이름을 주요 정보로 보여줘요. */
-.comparison-title { margin-top: 17px; padding-bottom: 17px; border-bottom: 1px solid #eaf0f5; color: #6c8295; font-size: 12px; font-weight: 550; } /* 이용 방식과 세부 설명을 가는 선으로 구분해요. */
+.comparison-title { margin-top: 17px; padding-bottom: 17px; border-bottom: 1px solid #eaf0f5; color: #6c8295; font-size: 14px; font-weight: 550; } /* 이용 방식과 세부 설명을 가는 선으로 구분해요. */
 .comparison-featured .comparison-title { border-color: #dce9f6; color: #377cad; font-weight: 650; } /* 징검다리의 핵심 방식을 강조해요. */
 .comparison-card ul { display: grid; gap: 12px; margin: 19px 0 0; padding: 0; list-style: none; } /* 비교 항목을 목록 점 없이 정리해요. */
-.comparison-card li { display: flex; align-items: flex-start; gap: 7px; color: #91a0ae; font-size: 11px; line-height: 1.8; word-break: keep-all; } /* 각 설명을 확인 아이콘과 함께 보여줘요. */
+.comparison-card li { display: flex; align-items: flex-start; gap: 7px; color: #91a0ae; font-size: 14px; line-height: 1.8; word-break: keep-all; } /* 각 설명을 확인 아이콘과 함께 보여줘요. */
 .comparison-card li .icon { width: 14px; height: 14px; margin-top: 3px; color: #a4b5c3; } /* 비교 항목의 선 아이콘을 표시해요. */
 .comparison-featured li { color: #6b8ca8; } /* 강조 카드의 설명을 배경과 구분해요. */
 .comparison-featured li .icon { color: #508fc2; } /* 징검다리 항목의 확인 표시를 파란색으로 보여줘요. */
-.comparison-closing { margin-top: 19px; color: #7b9dba; font-size: 10px; font-weight: 600; } /* 원문 근거를 함께 본다는 방향을 마무리로 알려줘요. */
+.comparison-closing { margin-top: 19px; color: #7b9dba; font-size: 14px; font-weight: 600; } /* 원문 근거를 함께 본다는 방향을 마무리로 알려줘요. */
 .start-section { padding-bottom: 73px; } /* 시작 안내와 하단 사이의 여백을 확보해요. */
 .start-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; border: 1px solid #e5e7eb; border-radius: 18px; padding: 42px 48px; background: #fff; } /* 마지막 시작 안내도 흰색 패널과 중립 테두리로 구성해요. */
 .start-copy h2 { margin-top: 10px; font-size: 29px; font-weight: 750; line-height: 1.55; letter-spacing: -.05em; } /* 어느 정보를 살펴볼지 묻는 질문을 강조해요. */
-.start-copy > p { margin-top: 12px; color: #849bb0; font-size: 12px; line-height: 1.9; } /* 다음 행동의 목적을 짧게 설명해요. */
+.start-copy > p { margin-top: 12px; color: #849bb0; font-size: 14px; line-height: 1.9; } /* 다음 행동의 목적을 짧게 설명해요. */
 .start-choices { display: grid; gap: 10px; } /* 나와 부모님 시작 버튼을 세로로 쌓아요. */
 .start-choice { display: flex; align-items: center; gap: 13px; border: 1px solid #e5e7eb; border-radius: 11px; padding: 17px; background: #fff; transition: border-color .2s, transform .2s; } /* 시작 대상을 고르는 흰색 버튼을 만들어요. */
 .start-choice:hover { transform: translateX(3px); border-color: #9dc3e5; } /* 선택 가능한 시작 버튼에 움직임을 줘요. */
 .start-choice-icon { display: grid; width: 38px; height: 38px; flex-shrink: 0; place-items: center; border-radius: 11px; color: #5e92bb; background: #eff6fd; } /* 각 시작 대상을 사람 아이콘으로 구분해요. */
-.start-choice strong { display: block; font-size: 13px; font-weight: 650; } /* 시작 버튼의 제목을 표시해요. */
-.start-choice small { display: block; margin-top: 4px; color: #95a5b3; font-size: 10px; } /* 버튼 아래에 시작 후 볼 정보를 안내해요. */
+.start-choice strong { display: block; font-size: 14px; font-weight: 650; } /* 시작 버튼의 제목을 표시해요. */
+.start-choice small { display: block; margin-top: 4px; color: #95a5b3; font-size: 14px; } /* 버튼 아래에 시작 후 볼 정보를 안내해요. */
 .start-choice > .icon { width: 17px; height: 17px; margin-left: auto; color: #8aabc6; } /* 시작 화면으로 가는 화살표를 오른쪽에 배치해요. */
-.start-demo-note { color: #8fa7ba; font-size: 9px; text-align: center; } /* 아직 디자인 시연이며 프로필을 저장하지 않음을 알려줘요. */
+.start-demo-note { color: #8fa7ba; font-size: 14px; text-align: center; } /* 아직 디자인 시연이며 프로필을 저장하지 않음을 알려줘요. */
 .site-footer { border-top: 1px solid #e9eef3; padding-top: 36px; background: #fff; } /* 서비스 하단을 가는 선으로 구분해요. */
 .footer-main { display: flex; justify-content: space-between; gap: 30px; padding-bottom: 30px; } /* 서비스 소개와 하단 링크를 양쪽에 배치해요. */
 .footer-main .brand-name { font-size: 18px; } /* 하단 로고의 글자 크기를 조금 줄여요. */
@@ -171,7 +171,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 @media (min-width: 1450px) { .hero-grid { gap: 70px; } .landing-hero { padding-top: 86px; } .hero-grid { padding-bottom: 76px; } } /* 큰 화면에서는 첫 화면의 여백을 조금 더 늘려요. */
 @media (max-width: 1080px) { .hero-grid { gap: 30px; } .hero-copy h1 { font-size: 44px; } .hero-actions { gap: 8px; } .hero-actions .button-large { padding-inline: 15px; font-size: 13px; } .desktop-nav { gap: 20px; } .discovery-card { padding-inline: 21px; } .process-grid { gap: 34px; } .start-panel { gap: 35px; padding: 35px; } } /* 중간 폭에서는 버튼과 카드 간격을 줄여요. */
 @media (max-width: 900px) { .container { width: calc(100% - 48px); } .header-inner { min-height: 74px; gap: 18px; } .desktop-nav { gap: 15px; } .nav-link { font-size: 12px; } .nav-link .icon { display: none; } .header-cta { font-size: 11px; padding-inline: 12px; } .hero-grid { gap: 24px; } .hero-copy h1 { font-size: 36px; } .hero-description { font-size: 13px; } .hero-actions { align-items: flex-start; flex-direction: column; } .hero-actions .button-large { min-width: 202px; min-height: 45px; } .hero-trust { gap: 12px; } .journey-preview { padding-inline: 14px; } .river-map { margin-inline: -14px; height: 242px; } .journey-summary { gap: 8px; padding: 14px 10px; } .journey-summary h2 { font-size: 12px; } .journey-summary-icon { width: 32px; height: 32px; } .journey-page { font-size: 9px; } .journey-summary p { font-size: 8px; } .journey-stone { width: 57px; } .stone-shape { width: 42px; height: 39px; } .discovery-card h3 { font-size: 17px; } .discovery-metric { font-size: 37px; } .discovery-metric > span { font-size: 18px; } .discovery-grid { gap: 12px; } .card-topline { flex-wrap: wrap; gap: 8px; } .section-side-note { display: none; } .process-grid { gap: 24px; padding-inline: 0; } .process-step h3 { font-size: 14px; } .process-step p { font-size: 11px; } .comparison-grid { gap: 12px; } .comparison-card { padding-inline: 18px; } .comparison-card h3 { font-size: 18px; } .start-panel { gap: 28px; padding: 32px; } } /* 태블릿에서는 정보 밀도를 조절하면서 두 열 구성을 유지해요. */
-@media (max-width: 700px) { .container { width: calc(100% - 36px); } .header-inner { min-height: 68px; gap: 12px; } .brand-name { font-size: 20px; } .brand-mark { width: 36px; height: 34px; } .brand-caption { font-size: 8px; } .desktop-nav { display: none; } .mobile-nav { display: block; } .header-cta { margin-left: auto; font-size: 10px; min-height: 37px; padding: 9px 11px; } .header-cta .icon { display: none; } .landing-hero { padding-top: 40px; } .hero-grid { grid-template-columns: 1fr; gap: 34px; padding-bottom: 33px; } .hero-copy { text-align: center; } .hero-eyebrow { font-size: 10px; } .hero-copy h1 { margin-top: 19px; font-size: clamp(34px, 7.8vw, 48px); } .hero-description { margin-top: 19px; font-size: 13px; line-height: 1.9; } .hero-actions { flex-direction: row; justify-content: center; gap: 8px; margin-top: 24px; } .hero-actions .button-large { min-width: 0; min-height: 47px; padding-inline: 17px; font-size: 12px; } .hero-actions .button-large .icon { width: 16px; height: 16px; } .hero-action-note { font-size: 9px; } .hero-trust { justify-content: center; gap: 19px; margin-top: 22px; } .hero-trust > span { font-size: 9px; } .journey-preview { width: min(450px, 100%); margin: 0 auto; padding: 18px 18px 12px; transform: none; } .journey-summary { min-height: 82px; padding: 14px; gap: 10px; } .journey-summary h2 { font-size: 14px; } .journey-summary p { font-size: 9px; } .journey-summary-icon { width: 37px; height: 37px; } .river-map { height: 247px; margin-inline: -18px; } .hero-bottom-label { font-size: 9px; } .discover-section { padding-block: 43px; } .section-title { font-size: 25px; } .section-heading { margin-bottom: 22px; } .section-heading .eyebrow { font-size: 10px; } .discovery-grid { grid-template-columns: 1fr; gap: 12px; } .discovery-card { padding: 23px; } .card-topline { flex-wrap: nowrap; margin-bottom: 14px; } .discovery-card h3 { font-size: 21px; } .discovery-card > p:not(.card-label) { font-size: 12px; } .card-footnote { padding-top: 19px; } .discovery-metric { font-size: 43px; } .discovery-metric > span { font-size: 22px; } .how-section { padding-block: 43px 32px; } .section-heading.centered > p { font-size: 11px; } .process-grid { grid-template-columns: 1fr; gap: 25px; } .process-step { border-bottom: 1px solid #e7eef5; padding-bottom: 23px; } .process-step:last-child { border-bottom: 0; padding-bottom: 0; } .process-top { margin-bottom: 12px; } .process-step h3 { font-size: 17px; } .process-step p { font-size: 12px; white-space: normal; } .process-note { align-items: flex-start; margin-top: 27px; font-size: 9px; } .process-note .icon { margin-top: 2px; } .comparison-section { padding-block: 45px; } .comparison-grid { grid-template-columns: 1fr; gap: 16px; } .comparison-card { padding: 24px; } .comparison-card h3 { font-size: 21px; } .comparison-icon { margin-bottom: 12px; } .comparison-card li { font-size: 12px; } .comparison-featured { margin-top: 5px; } .start-section { padding-bottom: 43px; } .start-panel { grid-template-columns: 1fr; gap: 25px; padding: 28px 22px; } .start-copy h2 { font-size: 26px; } .start-copy > p { font-size: 11px; } .start-choice { padding: 14px 12px; gap: 10px; } .start-choice strong { font-size: 12px; } .start-choice small { font-size: 9px; } .start-choice-icon { width: 33px; height: 33px; } .start-demo-note { font-size: 8px; } .footer-main { flex-direction: column; gap: 19px; padding-bottom: 25px; } .footer-links { gap: 21px; padding-top: 0; } .footer-bottom { flex-direction: column; gap: 5px; font-size: 8px; } } /* 모바일에서는 모든 주요 정보를 한 열로 쌓고 메뉴를 접어 보여줘요. */
+@media (max-width: 700px) { .container { width: calc(100% - 36px); } .header-inner { min-height: 68px; gap: 12px; } .brand-name { font-size: 20px; } .brand-mark { width: 36px; height: 34px; } .brand-caption { font-size: 8px; } .desktop-nav { display: none; } .mobile-nav { display: block; } .header-cta { margin-left: auto; font-size: 10px; min-height: 37px; padding: 9px 11px; } .header-cta .icon { display: none; } .landing-hero { padding-top: 40px; } .hero-grid { grid-template-columns: 1fr; gap: 34px; padding-bottom: 33px; } .hero-copy { text-align: center; } .hero-eyebrow { font-size: 10px; } .hero-copy h1 { margin-top: 19px; font-size: clamp(34px, 7.8vw, 48px); } .hero-description { margin-top: 19px; font-size: 13px; line-height: 1.9; } .hero-actions { flex-direction: row; justify-content: center; gap: 8px; margin-top: 24px; } .hero-actions .button-large { min-width: 0; min-height: 47px; padding-inline: 17px; font-size: 12px; } .hero-actions .button-large .icon { width: 16px; height: 16px; } .hero-action-note { font-size: 9px; } .hero-trust { justify-content: center; gap: 19px; margin-top: 22px; } .hero-trust > span { font-size: 9px; } .journey-preview { width: min(450px, 100%); margin: 0 auto; padding: 18px 18px 12px; transform: none; } .journey-summary { min-height: 82px; padding: 14px; gap: 10px; } .journey-summary h2 { font-size: 14px; } .journey-summary p { font-size: 9px; } .journey-summary-icon { width: 37px; height: 37px; } .river-map { height: 247px; margin-inline: -18px; } .hero-bottom-label { font-size: 9px; } .discover-section { padding-block: 43px; } .section-title { font-size: 25px; } .section-heading { margin-bottom: 22px; } .section-heading .eyebrow { font-size: 10px; } .discovery-grid { grid-template-columns: 1fr; gap: 12px; } .discovery-card { padding: 23px; } .card-topline { flex-wrap: nowrap; margin-bottom: 14px; } .discovery-card h3 { font-size: 21px; } .discovery-card > p:not(.card-label) { font-size: 12px; } .card-footnote { padding-top: 19px; } .discovery-metric { font-size: 43px; } .discovery-metric > span { font-size: 22px; } .how-section { padding-block: 43px 32px; } .section-heading.centered > p { font-size: 11px; } .process-grid { grid-template-columns: 1fr; gap: 25px; } .process-step { border-bottom: 1px solid #e7eef5; padding-bottom: 23px; } .process-step:last-child { border-bottom: 0; padding-bottom: 0; } .process-top { margin-bottom: 12px; } .process-step h3 { font-size: 17px; } .process-step p { font-size: 12px; white-space: normal; } .process-note { align-items: flex-start; margin-top: 27px; font-size: 9px; } .process-note .icon { margin-top: 2px; } .comparison-section { padding-block: 45px; } .comparison-grid { grid-template-columns: 1fr; gap: 16px; } .comparison-card { padding: 24px; } .comparison-card h3 { font-size: 21px; } .comparison-icon { margin-bottom: 12px; } .comparison-card li { font-size: 14px; } .comparison-featured { margin-top: 5px; } .start-section { padding-bottom: 43px; } .start-panel { grid-template-columns: 1fr; gap: 25px; padding: 28px 22px; } .start-copy h2 { font-size: 26px; } .start-copy > p { font-size: 11px; } .start-choice { padding: 14px 12px; gap: 10px; } .start-choice strong { font-size: 12px; } .start-choice small { font-size: 9px; } .start-choice-icon { width: 33px; height: 33px; } .start-demo-note { font-size: 8px; } .footer-main { flex-direction: column; gap: 19px; padding-bottom: 25px; } .footer-links { gap: 21px; padding-top: 0; } .footer-bottom { flex-direction: column; gap: 5px; font-size: 8px; } } /* 모바일에서는 모든 주요 정보를 한 열로 쌓고 메뉴를 접어 보여줘요. */
 @media (max-width: 360px) { .container { width: calc(100% - 28px); } .brand { gap: 7px; } .brand-name { font-size: 18px; } .brand-caption { display: none; } .header-inner { gap: 8px; } .header-cta { font-size: 9px; padding-inline: 8px; } .hero-actions { flex-direction: column; align-items: stretch; } .hero-actions .button-large { width: 100%; } .hero-copy h1 { font-size: 33px; } .journey-summary h2 { font-size: 12px; } .journey-summary p { font-size: 8px; } .journey-summary-icon { width: 31px; height: 31px; } .journey-page { display: none; } .journey-topline { font-size: 8px; } .stone-shape { width: 36px; height: 35px; } .journey-stone { width: 46px; } .stone-label { font-size: 9px; } .section-title { font-size: 23px; } } /* 작은 휴대전화에서도 버튼과 제목이 가로로 넘치지 않게 해요. */
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } } /* 움직임을 줄이도록 설정한 사용자의 선택을 따라요. */
 .header-account-actions { display: flex; align-items: center; gap: 17px; flex-shrink: 0; } /* 계정 메뉴를 기존 서비스 메뉴 옆에 묶어서 배치해요. */
@@ -179,3 +179,26 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .header-login:hover { color: var(--primary); } /* 로그인 링크에 마우스를 올리면 파란색으로 알려줘요. */
 @media (max-width: 700px) { .header-account-actions { margin-left: auto; gap: 11px; } .header-login { font-size: 11px; } } /* 휴대전화에서도 로그인과 회원가입 버튼을 나란히 보여줘요. */
 @media (max-width: 360px) { .header-account-actions > .header-login { display: none; } } /* 아주 작은 화면에서는 로그인 링크를 펼침 메뉴 안에 남겨요. */
+.hero-banner-dots { display: flex; align-items: center; gap: 7px; margin-top: 22px; } /* 배너 선택 점을 가로로 나열해요. */
+.hero-banner-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: #cdd9e5; cursor: pointer; transition: background .25s, width .25s; } /* 선택하지 않은 점은 연한 회색으로 표시해요. */
+.hero-banner-dot.is-active { width: 20px; border-radius: 4px; background: #2474c7; } /* 현재 배너의 점은 파란 막대 모양으로 강조해요. */
+.trust-section { padding: 66px 0 70px; background: #f5f9fd; border-block: 1px solid #eaeff5; } /* 보안 안내 영역을 연한 파란 배경으로 구분해요. */
+.trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; } /* 보호 원칙 카드 4개를 한 행으로 배치해요. */
+.trust-card { display: flex; flex-direction: column; gap: 10px; border: 1px solid #dce9f6; border-radius: 14px; padding: 22px 20px; background: #fff; } /* 각 원칙을 흰색 카드에 담아요. */
+.trust-card-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 11px; background: #e5f0fd; color: #2474c7; } /* 원칙 아이콘을 파란색 배경에 배치해요. */
+.trust-card-icon .icon { width: 20px; height: 20px; } /* 카드 아이콘 크기예요. */
+.trust-card-title { display: block; color: #1e4060; font-size: 14px; font-weight: 700; line-height: 1.5; } /* 원칙의 제목을 진하게 표시해요. */
+.trust-card p { margin: 0; color: #7895ab; font-size: 14px; line-height: 1.85; } /* 원칙의 설명을 차분하게 표시해요. */
+.trust-footnote { display: flex; justify-content: center; align-items: center; gap: 6px; margin-top: 24px; color: #8da9bd; font-size: 14px; } /* 보안 안내의 마무리 문구를 가운데에 작게 표시해요. */
+.trust-footnote .icon { width: 14px; height: 14px; } /* 마무리 문구의 아이콘 크기예요. */
+.footer-contact a { color: inherit; } /* 연락처 이메일 링크에 footer 기본 색을 사용해요. */
+.footer-contact a:hover { color: var(--primary); } /* 이메일 링크에 마우스를 올리면 파란색으로 알려줘요. */
+@media (max-width: 900px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } } /* 태블릿에서 카드를 2열로 줄여요. */
+@media (max-width: 700px) { .trust-section { padding-block: 40px; } .trust-grid { grid-template-columns: 1fr; gap: 10px; } .trust-card { padding: 18px; flex-direction: row; align-items: flex-start; gap: 14px; } .trust-card-icon { flex-shrink: 0; } } /* 모바일에서는 카드를 1열 가로 배치로 보여줘요. */
+
+.hero-banner-playback { min-height: 36px; margin-left: 7px; padding: 6px 10px; border: 1px solid #e5e7eb; border-radius: 7px; background: #fff; color: #6b7280; font-size: 11px; } /* 흰색 재생·정지 버튼을 배너 선택 점 옆에 배치해요. */
+.hero-banner-playback:hover:not(:disabled) { color: var(--primary); border-color: #9dc1e4; } /* 재생 버튼의 조작 가능 상태를 알려줘요. */
+.hero-banner-dot { display: grid; place-items: center; width: 30px; height: 36px; background: transparent; border-radius: 7px; transition: none; } /* 배너 선택의 키보드·터치 영역을 넓혀요. */
+.hero-banner-dot::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #cdd9e5; } /* 선택 영역 안에 작은 회색 점을 그려요. */
+.hero-banner-dot.is-active { width: 30px; background: transparent; } /* 선택 상태에서도 버튼 위치와 크기를 유지해요. */
+.hero-banner-dot.is-active::before { width: 20px; border-radius: 4px; background: var(--primary); } /* 현재 배너만 파란색 막대로 구분해요. */

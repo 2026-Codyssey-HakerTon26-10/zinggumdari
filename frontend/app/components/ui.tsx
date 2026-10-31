@@ -53,5 +53,23 @@ export function SiteHeader({ active = "home" }: { active?: "home" | "search" | "
 } // 공통 헤더를 마쳐요.
 
 export function SiteFooter() { // 서비스의 성격을 분명히 알리는 하단을 만들어요.
-    return <footer className="site-footer"><div className="container footer-main"><div><Brand /><p>오늘을 챙기고, 다음을 준비하는 작은 징검다리.<br />나의 생애주기부터 부모님의 일상까지 함께 살펴봐요.</p></div><div className="footer-links"><Link href="/#how-it-works">서비스 소개</Link><Link href="/search">공고 검색</Link><Link href="/my?subject=parent">부모님 챙김</Link></div></div><div className="container footer-bottom"><span>© 2026 징검다리 · 코디세이 AI 해커톤 프로젝트</span><span>공공기관이 운영하는 서비스가 아닙니다.</span></div></footer>; // 정부기관 사칭이나 확인되지 않은 인증 표시 없이 프로젝트 정보를 보여줘요.
+    return (
+        <footer className="site-footer"> {/* 하단 전체 영역이에요. */}
+            <div className="container footer-main"> {/* 브랜드 소개와 링크를 양쪽에 배치해요. */}
+                <div>
+                    <Brand /> {/* 하단 로고예요. */}
+                    <p>오늘을 챙기고, 다음을 준비하는 작은 징검다리.<br />나의 생애주기부터 부모님의 일상까지 함께 살펴봐요.</p> {/* 서비스 소개 한 줄이에요. */}
+                </div>
+                <div className="footer-links"> {/* 주요 바로가기 링크 목록이에요. */}
+                    <Link href="/#how-it-works">서비스 소개</Link> {/* 사용 방법으로 이동해요. */}
+                    <Link href="/search">공고 검색</Link> {/* 검색 화면으로 이동해요. */}
+                    <Link href="/my?subject=parent">부모님 챙김</Link> {/* 부모님 진단 화면으로 이동해요. */}
+                </div>
+            </div>
+            <div className="container footer-bottom"> {/* 저작권과 안내를 하단에 표시해요. */}
+                <span>© 2026 징검다리팀 · 코디세이 AI 해커톤 프로젝트</span> {/* 팀 이름과 프로젝트 이름이에요. */}
+                <span>공공기관이 운영하는 서비스가 아닙니다.</span> {/* 공공기관 사칭 방지 안내예요. */}
+            </div>
+        </footer>
+    );
 } // 공통 푸터를 마쳐요.

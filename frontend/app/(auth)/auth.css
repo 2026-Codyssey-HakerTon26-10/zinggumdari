@@ -88,3 +88,31 @@
 @media (max-width: 1000px) { .auth-main { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 45px; } .auth-intro-title { font-size: 32px; } .auth-stages { gap: 5px; } .auth-stage { gap: 4px; padding-inline: 7px; font-size: 9px; } .auth-form-card { padding: 29px; } } /* 중간 화면에서 두 열의 간격과 폼 여백을 줄입니다. */
 @media (max-width: 760px) { .auth-header-inner { min-height: 76px; width: calc(100% - 40px); } .auth-home-link { font-size: 11px; } .auth-main { grid-template-columns: minmax(0, 430px); justify-content: center; gap: 28px; width: calc(100% - 40px); padding: 35px 0 44px; } .auth-intro { text-align: center; } .auth-intro-eyebrow { font-size: 10px; } .auth-intro-title { margin: 16px 0 0; font-size: 27px; line-height: 1.5; } .auth-intro-description, .auth-intro-points { display: none; } .auth-stages { justify-content: center; margin: 20px 0 0; gap: 6px; } .auth-stage { min-height: 29px; padding: 4px 8px; font-size: 9px; } .auth-footer { width: calc(100% - 40px); align-items: center; flex-direction: column; gap: 4px; padding: 20px 0; text-align: center; font-size: 9px; } } /* 작은 화면에서는 소개를 축약하고 폼을 한 열로 표시합니다. */
 @media (max-width: 400px) { .auth-main { width: calc(100% - 32px); padding-top: 28px; gap: 23px; } .auth-header-inner { width: calc(100% - 32px); } .auth-intro-title { font-size: 24px; } .auth-form-card { padding: 25px 20px; border-radius: 16px; } .auth-form-title { font-size: 24px; } .auth-home-link { gap: 5px; font-size: 10px; } .auth-form-options { gap: 8px; } .auth-checkbox-label, .auth-inline-link { font-size: 10px; } } /* 아주 좁은 화면에서는 여백과 글자 크기를 조금 줄입니다. */
+.auth-preview-profile { display: flex; align-items: center; gap: 8px; margin: 16px 0 14px; padding: 10px 13px; border: 1px solid #e9edf3; border-radius: 9px; background: #f8fafc; color: #6a8097; font-size: 11px; } /* 가상 프로필 표시줄을 회색 배경으로 보여줍니다. */
+.auth-preview-profile-icon { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: #e4effa; color: #4a85bb; flex-shrink: 0; } /* 프로필 아이콘을 작은 파란 원에 넣어요. */
+.auth-preview-profile-icon .icon { width: 14px; height: 14px; } /* 프로필 아이콘 크기예요. */
+.auth-preview-badge { margin-left: auto; padding: 2px 7px; border-radius: 4px; background: #edf5fd; color: #3e78ad; font-size: 9px; font-weight: 650; white-space: nowrap; } /* 가상 사례 배지를 오른쪽에 작게 표시해요. */
+.auth-preview-cards { display: grid; gap: 9px; } /* 필터링 결과 카드들을 세로로 쌓아요. */
+.auth-preview-card { border: 1px solid #e5e7eb; border-radius: 11px; padding: 14px 15px; background: #fff; } /* 각 제도를 흰색 카드로 표시해요. */
+.auth-preview-card--eligible { border-color: #c8dff5; background: #f5f9fe; } /* 확정 판정 카드는 연한 파란색 배경이에요. */
+.auth-preview-card--needs-check { border-color: #e8e2cc; background: #fdfbf5; } /* 확인 필요 카드는 연한 노란 배경이에요. */
+.auth-preview-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; } /* 판정 배지와 제도 이름을 나란히 배치해요. */
+.auth-preview-verdict { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 4px; font-size: 9px; font-weight: 700; white-space: nowrap; flex-shrink: 0; } /* 판정 등급 배지예요. */
+.auth-preview-verdict--eligible { color: #2060a0; background: #d6ebfd; } /* 확정은 파란색 배지예요. */
+.auth-preview-verdict--needs-check { color: #7a6000; background: #fdefc0; } /* 확인 필요는 노란색 배지예요. */
+.auth-preview-card-name { font-size: 12px; font-weight: 700; color: #1e3a55; line-height: 1.4; } /* 제도 이름을 진하게 표시해요. */
+.auth-preview-card-amount { margin: 0 0 6px; color: #2474c7; font-size: 13px; font-weight: 700; } /* 지원 금액을 파란색으로 강조해요. */
+.auth-preview-card-condition { display: flex; align-items: flex-start; gap: 5px; margin: 0 0 5px; color: #8a7050; font-size: 10px; line-height: 1.6; } /* 확인 조건을 작게 표시해요. */
+.auth-preview-card-condition .icon { width: 11px; height: 11px; flex-shrink: 0; margin-top: 2px; } /* 조건 아이콘 크기예요. */
+.auth-preview-card-quote { display: flex; align-items: flex-start; gap: 5px; margin: 0; color: #9aabb8; font-size: 9px; line-height: 1.6; } /* 원문 출처를 가장 작은 글씨로 표시해요. */
+.auth-preview-card-quote .icon { width: 10px; height: 10px; flex-shrink: 0; margin-top: 2px; } /* 원문 아이콘 크기예요. */
+.auth-preview-disclaimer { margin: 10px 0 0; color: #9aabb8; font-size: 9px; text-align: center; } /* 가상 판정임을 작게 명시해요. */
+@media (max-width: 760px) { .auth-preview-cards { grid-template-columns: repeat(2, 1fr); } .auth-preview-cards > :last-child { display: none; } } /* 작은 화면에서는 카드를 2열로 줄이고 세 번째 카드를 숨겨요. */
+@media (max-width: 400px) { .auth-preview-cards { grid-template-columns: 1fr; } .auth-preview-cards > :last-child { display: block; } } /* 아주 작은 화면에서는 카드를 1열로 표시해요. */
+
+.auth-preview-card--needs-check { background: #fff; border-color: #e5e7eb; } /* 확인 필요 카드도 흰색 중심 디자인을 유지해요. */
+.auth-preview-card-disclaimer { margin: 0 0 10px; color: #4b5563; font-size: 12px; line-height: 1.7; } /* 카드 머리의 필수 고지를 진하고 읽기 쉽게 보여줘요. */
+.auth-preview-disclaimer { color: #4b5563; font-size: 12px; line-height: 1.7; } /* 하단 모의 판정 안내도 충분히 크게 표시해요. */
+.auth-preview-card-quote { color: #64748b; font-size: 11px; } /* 원문 연결 전이라는 안내가 배경에 묻히지 않게 해요. */
+.auth-requirement { color: #64748b; font-size: 11px; } /* 미충족 조건도 읽을 수 있는 진한 색으로 표시해요. */
+.auth-requirement.is-met { color: #185eab; } /* 충족 여부는 글자와 파란색으로 함께 구분해요. */
