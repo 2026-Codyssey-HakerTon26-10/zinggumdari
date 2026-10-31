@@ -2,7 +2,7 @@
 
 > 백엔드, AI, 프론트가 주고받는 데이터 모양이다. 맞춘 뒤에는 팀 합의 없이 바꾸지 않는다. 코드보다 이 문서를 먼저 고친다.
 > 아홉 모양이다. ① 조건 JSON(규칙표 한 행) ② 프로필(폼 결과, 나, 부모) ③ 판정 결과 ④ 서류 사전 ⑤ 알림 ⑥ 공고 투입. ①이 핵심이다: AI 공고 읽기의 출력, 손 조건표의 양식, 규칙 엔진의 입력, 공고 투입의 출력이 전부 이 모양이다. ⑦ 비슷한 가구(`data/population/`) ⑧ 검색 결과(`GET /search`) ⑨ 원문과 줄(`GET /notices/…`, `data/notices/*.lines.json`).
-> AI 공고 읽기 진입점(스텁을 먼저 커밋해 다른 사람이 붙을 수 있게): `to_lines(doc_id: str, src: str) -> list[Line]`(원문 → 줄, §8), `compile(doc_id: str, lines: list[Line], source: str) -> list[Rule]`(자격 구간 → LLM 1회 → 검증기 → 빠짐 검사), `verify(rule: Rule, lines: list[Line]) -> Rule`(검증기만. 손 조건표에도 돌린다).
+> AI 공고 읽기 진입점(스텁을 먼저 커밋해 다른 사람이 붙을 수 있게): `to_lines(doc_id: str, src: str | Path) -> list[Line]`(원문 → 줄, §8. `str`은 언제나 원문 텍스트, 파일은 `Path`로 준다), `compile(doc_id: str, lines: list[Line], source: str) -> list[Rule]`(자격 구간 → LLM 1회 → 검증기 → 빠짐 검사), `verify(rule: Rule, lines: list[Line]) -> Rule`(검증기만. 손 조건표에도 돌린다).
 
 ## 1. 조건 JSON (`rules/compiled/*.json`, `rules/manual/*.json`)
 
@@ -55,9 +55,9 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
   "id": "upload:lh-2026-11-mapo:newlywed", "source": "upload", "review": {"status": "unreviewed"},
   "conditions": [
     {"field": "subscription_months", "op": ">=", "value": 6, "as_of": "notice_date", "evidence": ["lh-2026-11-mapo:p7-l23"],
-     "status": "auto_verified", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "ok", "unit": "ok", "keyword": "ok", "pair": "ok"}},
+     "status": "auto_verified", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "ok", "unit": "ok", "keyword": "ok", "pair": "ok", "layer": "ok"}},
     {"field": "income_couple", "op": "<=", "value": 120, "income_basis": "urban_worker_pct", "evidence": ["lh-2026-11-mapo:p8-l4"],
-     "status": "needs_review", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "fail:no_comparator", "unit": "ok", "keyword": "ok", "pair": "ok"}},
+     "status": "needs_review", "checks": {"schema": "ok", "evidence": "ok", "value": "ok", "comparator": "fail:no_comparator", "unit": "ok", "keyword": "ok", "pair": "ok", "layer": "ok"}},
     {"field": "other", "text": "원문 조건 미반영", "reason": "unaccounted", "evidence": ["lh-2026-11-mapo:p8-l9"], "status": "needs_review"}
                                             // 빠짐 검사에서 남은 줄. 판정에서 항상 확인 필요
   ],
@@ -80,7 +80,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 | `evidence` | 근거 줄 ID 목록. `{doc_id}:{줄 ID}`(§8). 모든 조건에 필수 |
 | `quote` | 손 조건표만. 사람이 쓴 원문 문장이다. `python -m backend.compiler.resolve_manual`이 `evidence`로 바꾸고, 못 찾으면 실패한다 |
 | `status` | `reviewed`(사람이 쓰거나 확인), `auto_verified`(AI, 검사 전부 통과), `needs_review`(AI, 검사 하나라도 실패). 확정 판정에는 앞의 둘만 쓴다 |
-| `checks` | AI 조건만. 검사별 `ok` 또는 `fail:사유`(SPEC §9.3) |
+| `checks` | AI 조건만. 검사(`schema`, `evidence`, `value`, `comparator`, `unit`, `keyword`, `pair`, `layer`)별 `ok`, `na`(해당 없음), `fail:사유`(SPEC §9.3) |
 | `note` | 사람용 메모. 엔진은 읽지 않는다. 판정을 바꿔야 하는 말은 `other` 조건으로 쓴다 |
 
 `confidence`, `votes`, `chunk_id`, `page`, `bbox`, `source_doc`은 조건에 쓰지 않는다. 쪽과 좌표는 근거 줄에 있다(§8).
@@ -297,7 +297,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 ## 6. 공고 투입 (`POST /ingest`)
 
-입력: PDF 파일 또는 URL (안내문: "개인 서류를 올리지 마세요", 주민번호 패턴 거부, HWP와 이미지 스캔 PDF 거부). 출력: §1 조건 JSON(`source: "upload"`, `review.status: "unreviewed"`) + 로그.
+입력: PDF·HWP·HWPX·텍스트 파일 또는 URL (안내문: "개인 서류를 올리지 마세요", 주민번호 패턴 거부. 이미지 스캔 PDF는 글자 인식으로 읽고, 암호·배포용 HWP와 HWP 3.x는 거부). 출력: §1 조건 JSON(`source: "upload"`, `review.status: "unreviewed"`) + 로그.
 
 ```jsonc
 {"doc_id": "upload-20261031-01", "lines": 412, "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"}, "marked": 21,
@@ -338,16 +338,17 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
   "doc_id": "2026-11-mapo-apt",           // `:`를 쓰지 않는다. API 산문은 gov24-WII…, local-…
   "title": "○○ 아파트 입주자모집공고",
   "source": "applyhome",                  // applyhome(청약홈) | lh(LH 공고) | local(지자체) | upload(사용자 투입) | web(손 조건표의 출처 페이지) | api(공공데이터 산문)
-  "kind": "pdf",                          // pdf | text
+  "kind": "pdf",                          // pdf | hwp | hwpx | text
   "source_url": "https://…",              // 받은 곳
   "fetched_at": "2026-10-31",
   "sha256": "…",                          // 원문이 바뀌면 줄 ID도 바뀔 수 있다. 다르면 조건표를 다시 만든다
   "pages": 48,                            // pdf만
-  "text_layer": true,                     // false = 이미지 스캔, 받지 않는다
+  "text_layer": true,                     // false = 이미지 스캔 쪽이 있다. 그 쪽은 글자 인식으로 줄을 만들었다
+  "ocr": null,                            // null | "tesseract" | "llm"(네이토 API)
   "pblanc_no": "2026000123",              // 청약홈 공고번호(있으면). 15098547 응답과 연결
   "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"},   // 자격 구간. 제목을 못 찾으면 {"found_by": "none"}(전체를 썼다)
   "rules": ["applyhome:2026000123:newlywed", "applyhome:2026000123:first_home"],
-  "lines": null                           // text면 줄 목록을 싣는다. pdf는 /file을 그리고 근거 줄 좌표로 칠한다
+  "lines": null                           // text·hwp·hwpx면 줄 목록을 싣는다(좌표 없음). pdf는 /file을 그리고 근거 줄 좌표로 칠한다
 }
 ```
 
@@ -356,7 +357,9 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 ```jsonc
 [
   {"id": "p7-l23", "page": 7, "bbox": [72.0, 418.5, 310.2, 431.0], "text": "…청약통장 가입 후 6개월이 지난…", "mark": true},   // pdf: pdfplumber 단어를 같은 줄끼리 묶고 상자를 합친다
-  {"id": "l14", "page": null, "bbox": null, "text": "…혼인기간 7년 이내…", "mark": true}   // text: 줄바꿈과 항목 기호(○, -, ※) 단위
+  {"id": "p8-l6", "page": 8, "bbox": [72.0, 520.1, 520.4, 534.0], "text": "3인 | 7,004,509원 | 120%", "mark": true, "table": "p8-t1"},   // 표 한 행. 칸 사이 " | "
+  {"id": "p2-l5", "page": 2, "bbox": null, "text": "…", "mark": true, "src": "ocr"},   // 스캔 쪽의 글자 인식 줄. tesseract면 bbox가 있고 네이토(llm)면 없다. 이 줄을 근거로 한 조건은 needs_review
+  {"id": "l14", "page": null, "bbox": null, "text": "…혼인기간 7년 이내…", "mark": true}   // text·hwp·hwpx: 줄바꿈과 항목 기호(○, -, ※) 단위, 문단 단위
 ]
 ```
 

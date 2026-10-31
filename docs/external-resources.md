@@ -23,6 +23,8 @@
 | 오픈소스 | pdfplumber | 공고 PDF 텍스트 추출 | MIT |
 | 오픈소스 | pypdfium2, Pillow (pdfplumber 의존성) | 스캔 PDF 쪽을 이미지로 그려 글자 인식에 넘기기 | Apache-2.0·BSD-3, MIT-CMU |
 | 오픈소스 | olefile | HWP(5.0) 파일 안의 본문 스트림 읽기. 레코드 해석은 한컴 공개 문서 「한글 문서 파일 형식 5.0」을 보고 직접 구현 | BSD-2 |
+| 오픈소스(선택) | Tesseract OCR(kor 학습 데이터) | 스캔 PDF 글자 인식과 줄 좌표. 깔린 PC에서만 쓰고, 없으면 네이토 API | Apache-2.0 |
+| 데이터 | 한컴 「한글 문서 파일 형식 5.0」 공개 문서 | HWP 레코드 구조 참고(코드는 직접 작성) | 한컴 공개 문서(출처 표기) |
 | 오픈소스 | SQLite (python 표준 `sqlite3`) | 프로필·알림 저장 | Public Domain |
 | 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표 | BSD-3 |
