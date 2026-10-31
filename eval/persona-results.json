@@ -39,5 +39,7 @@
       "passed": true,
       "danger": false
     }
-  ]
+  ],
+  "engine_sha256": "a4ce51fb844b7fc5eabf6f0361eeb764ae32d9ac0d4bc0266cb9cbc9573c6c7f",
+  "personas_sha256": "ca234439415cf75bda64248bdfd2a44be61c848295d35d9a28c319965c5a9a53"
 }

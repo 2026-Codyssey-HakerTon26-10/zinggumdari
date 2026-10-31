@@ -456,10 +456,15 @@
       "score_input.json": "b3673e24003d00b1cf8365c4b9c8417540a708afbb698551c2941d2995915110",
       "sample50.json": "332a481dc0c229f40646ae09e6cc90ab44cddbfd55ecd8b287cda4bb200cae5d",
       "verifier_dev.json": "6e9f7d72cdfa6847c457cd0b0afd76a895a69f30d665fba68a6acc9165fca2fc"
+    },
+    "review_sha256": {
+      "sample50.json": "59118df3c21aea9520e920c6fca50837b2fa7b02a7905d40b68de20bbcdb48eb",
+      "verifier_dev.json": "079c950e0bb1b3863b2fe7de98462e5730cff9358bfee410ef62fb2059a93a27"
     }
   },
   "agreement_source": {
     "population_sha256": "fd3e1440dc3cc613c5d4c343ab18b29d755fca99919e2e8982ed7f573ba12131",
+    "engine_sha256": "a4ce51fb844b7fc5eabf6f0361eeb764ae32d9ac0d4bc0266cb9cbc9573c6c7f",
     "today": "2026-11-01",
     "households": 9000,
     "skipped_parent_rules": [
@@ -468,5 +473,6 @@
     ],
     "limitation": "가상 인구의 pool만 사용. 부모 정보가 없어 부모 제도는 제외. 같은 엔진에 손/AI 조건을 각각 넣어 비교한 값이며 독립적인 법률 정확도가 아님."
   },
+  "scorer_sha256": "db4963072cb581faf6d2619539849271e94c5aea4b0bc4cf6a19bdb93f793285",
   "scoring_method": "조건 키 엄격 일치(자동 집계) + 원문 근거 대조(Codex 보조 평가); other 근거 겹침만으로 정답 인정하지 않음"
 }
