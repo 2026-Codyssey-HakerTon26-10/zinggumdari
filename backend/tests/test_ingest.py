@@ -440,6 +440,33 @@ def test_ingest_accepts_text_and_passes_meta(tmp_path, world, monkeypatch):
         ing.ingest(bad, "bin.dat", uploaded_by="A1")
 
 
+@pytest.mark.parametrize("url", [
+    "https://x.kr/a/900101%2D1234567.pdf",          # 인코딩된 하이픈
+    "https://x.kr/a/900101%20-%201234567.pdf",      # 인코딩된 빈칸
+    "https://x.kr/d?rrn=900101%2D1234567",          # 쿼리 값
+    "https://x.kr/d?rrn=900101+-+1234567",          # 쿼리 값의 + 빈칸
+    "https://x.kr/a/900101%252D1234567.pdf",        # 이중 인코딩
+    "https://x.kr/a/%EF%BC%99%EF%BC%90%EF%BC%90%EF%BC%91%EF%BC%90%EF%BC%91-1234567.pdf",   # 전각 숫자를 인코딩
+])
+def test_rrn_in_encoded_url_or_name_is_rejected_before_saving(tmp_path, world, url):
+    """주소와 URL에서 딴 파일 이름은 퍼센트 인코딩을 풀어 본다. 본문이 깨끗해도 아무것도 남기지 않는다."""
+    ing = world
+    src = tmp_path / "notice.txt"
+    src.write_text("○ 지원대상\n - 만 19세 이상 39세 이하 무주택 세대주\n", encoding="utf-8")
+    for name, source_url in ((url.rsplit("/", 1)[-1], url), ("notice.txt", url)):
+        with pytest.raises(ing.Rejected, match="주민등록번호"):
+            ing.ingest(src, name, source_url=source_url, uploaded_by="A1")
+    assert not (tmp_path / "notices").exists() or not list((tmp_path / "notices").iterdir())
+
+
+def test_unquoted_stops_after_three_rounds():
+    from backend.collector.ingest import _unquoted
+    assert _unquoted("900101%2D1234567") == "900101-1234567"
+    assert _unquoted("900101%25252D1234567") == "900101-1234567"          # 세 번 풀면 끝
+    assert _unquoted("900101%2525252D1234567") == "900101%2D1234567"      # 네 겹은 세 번까지만 푼다
+    assert _unquoted("공고문.pdf") == "공고문.pdf"
+
+
 @needs_pdf
 def test_log_takes_section_and_calls_from_compile_log(tmp_path, world, notice_pdf, monkeypatch):
     """자격 구간과 LLM 호출 수는 조건표만 보고 셀 수 없어 compile() 로그에서 가져오고, 캐시 재생에도 남는다."""
