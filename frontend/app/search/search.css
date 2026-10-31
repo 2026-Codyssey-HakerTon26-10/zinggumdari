@@ -59,3 +59,10 @@
 .search-bottom-cta .button { flex-shrink: 0; font-size: 12px; } /* 이동 버튼의 폭이 줄어들지 않게 합니다. */
 @media (max-width: 900px) { .search-policy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } } /* 중간 화면에서는 정책 예시를 두 열로 배치합니다. */
 @media (max-width: 600px) { .search-hero { padding-bottom: 30px; } .search-breadcrumb { margin-bottom: 28px; } .search-hero h1 { font-size: 32px; } .search-hero-description { font-size: 13px; } .search-form { gap: 8px; padding-left: 14px; } .search-form input { font-size: 12px; } .search-form .button { min-width: 58px; padding-inline: 15px; } .search-suggestions { gap: 9px; font-size: 11px; } .search-desktop-break { display: none; } .search-results-toolbar { gap: 10px; margin: 24px 0; } .search-category-list { gap: 5px; } .search-category-list button { min-height: 36px; padding: 8px 12px; font-size: 11px; } .search-result-heading > span { display: none; } .search-policy-grid { grid-template-columns: 1fr; gap: 15px; } .search-policy-description { min-height: 0; } .search-bottom-cta { align-items: flex-start; flex-direction: column; padding: 24px; } .search-bottom-cta h2 { font-size: 17px; } } /* 휴대폰에서는 입력창과 카드를 한 열로 편하게 표시합니다. */
+.search-subject { margin: 0; padding: 0; border: 0; } /* 대상 선택을 의미 있는 그룹으로 묶어요. */
+.search-subject legend { margin-bottom: 10px; color: #445b70; font-size: 13px; } /* 필터 적용 시점을 설명해요. */
+.search-policy-disclaimer { color: #445b70; font-size: 12px; line-height: 1.7; } /* 필수 고지의 크기와 대비를 확보해요. */
+.search-status { color: #72551c; font-size: 12px; max-width: 80%; line-height: 1.6; } /* 긴 상태도 줄바꿈하고 대비를 확보해요. */
+.search-policy-description, .search-policy-evidence, .search-notice { color: #526579; } /* 실제 공고 정보를 읽을 수 있는 대비로 표시해요. */
+.search-policy-evidence a { color: #075c91; text-decoration: underline; } /* 공식 원문 링크를 알아보기 쉽게 해요. */
+.search-page button:focus-visible, .search-page a:focus-visible { outline: 3px solid #00809a; outline-offset: 4px; } /* 결과 링크와 버튼의 키보드 초점을 표시해요. */
