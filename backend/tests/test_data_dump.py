@@ -40,6 +40,9 @@ def test_api_error_shapes():
     ("예산 소진 시까지", "미정", None),
     ("", "미정", None),
     ("출생일로부터 60일 이내", "기타", None),
+    ("2026년 상반기", "기간", "2026-06-30"),
+    ("2026년 하반기 중 공고", "기간", "2026-12-31"),
+    ("매년 3~4월(※ 자세한 사항은 옥천군 홈페이지 공고문 참고)", "기타", None),
 ])
 def test_parse_deadline(text, kind, day):
     d = parse_deadline(text)
@@ -114,3 +117,9 @@ def test_dump_details_resume(raw):
         dump.dump_details(dump.DETAIL_SOURCES["lh_detail"], c, 2)
     assert calls == ["P1", "P2", "P3"]
     assert [i for i, _ in load.iter_details("lh_detail", raw)] == ["P1", "P2", "P3"]
+
+
+def test_odcloud_total_prefers_match_count():
+    from backend.data.sources import odcloud_total
+    assert odcloud_total({"totalCount": 2929, "matchCount": 293, "data": []}) == 293
+    assert odcloud_total({"totalCount": 10942, "data": []}) == 10942

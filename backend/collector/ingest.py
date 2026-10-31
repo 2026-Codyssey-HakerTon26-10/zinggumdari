@@ -20,10 +20,10 @@ from urllib.parse import urljoin, urlparse
 
 import httpx
 
+from backend.compiler.lines import has_rrn
 from backend.data import config
 from backend.notices import store
 
-RRN = re.compile(r"(?<!\d)\d{6}\s?-\s?[1-4]\d{6}(?!\d)")   # 주민등록번호 꼴
 MAX_BYTES = 30 * 1024 * 1024
 NOTICE = "개인 서류를 올리지 마세요. 주민등록번호가 보이면 받지 않습니다."
 
@@ -38,7 +38,7 @@ def cache_dir() -> Path:
 
 def upload_rules_dir() -> Path:
     """사용자 업로드 조건표. 커밋하는 AI 조건표(rules/compiled/)와 나누고 커밋하지 않는다."""
-    return config.ROOT / "rules" / "uploads"
+    return config.UPLOAD_RULES_DIR
 
 
 def _new_doc_id(today: date) -> str:
@@ -108,6 +108,14 @@ def _compile():
     except ImportError:
         return None
     return fn
+
+
+def _call_compile(fn, doc_id: str, lines: list[dict], meta: dict) -> list[dict]:
+    """compile()에 원문 머리를 넘긴다(제목, 출처, 해시, 읽지 못한 쪽). 읽지 못한 쪽이 있으면 조건표마다
+    확인 필요 조건이 붙는다. 머리를 받지 않는 compile이면 줄만 넘긴다."""
+    if "meta" in inspect.signature(fn).parameters:
+        return fn(doc_id, lines, "upload", meta=meta)
+    return fn(doc_id, lines, "upload")
 
 
 def summarize(doc_id: str, meta: dict, lines: list[dict], rules: list[dict]) -> dict:
@@ -190,49 +198,41 @@ def delete_uploads(account_id: str) -> int:
     return gone
 
 
-def ingest(path: Path, filename: str, source_url: str | None = None, replay: bool = False,
-           today: date | None = None, uploaded_by: str | None = None) -> dict:
-    """올린 파일 하나를 한 바퀴 돌린다. 돌려주는 것: {"log", "rules", "replayed", "notice"}.
+def _rebind(rules: list[dict], old: str, new: str) -> list[dict]:
+    """캐시의 조건표를 새 원문 ID로. doc_id는 무작위 꼬리라 문자열 치환이 다른 값과 겹치지 않는다.
+    같은 PDF는 줄 목록도 같으니 근거 줄 ID(`{doc_id}:p7-l23`)도 그대로 맞는다."""
+    return json.loads(json.dumps(rules, ensure_ascii=False).replace(old, new))
 
-    uploaded_by는 로그인 세션의 계정 ID다. 원문 머리에 남겨 탈퇴 때 같이 지운다.
-    """
-    data = path.read_bytes()
-    if len(data) > MAX_BYTES:
-        raise Rejected("파일이 너무 큽니다(30MB까지)")
-    if data[:5] != b"%PDF-":
-        raise Rejected("PDF만 받습니다. HWP와 다른 형식은 받지 않습니다")
-    sha = hashlib.sha256(data).hexdigest()
 
-    cached = load_cache(sha)
-    if replay:
-        if not cached:
-            raise Rejected("이 파일의 캐시가 없습니다. 캐시 재생을 끄고 다시 올려 주세요")
-        return {**cached, "replayed": True, "replay_reason": "캐시 재생을 켰다"}
+def lines_fingerprint(lines: list[dict]) -> str:
+    """줄 목록의 지문(줄 ID와 글). 같은 원문이라도 줄 만들기가 바뀌면 달라진다."""
+    body = json.dumps([[ln.get("id"), ln.get("text")] for ln in lines], ensure_ascii=False)
+    return hashlib.sha256(body.encode("utf-8")).hexdigest()
 
-    today = today or date.today()
-    doc_id = _new_doc_id(today)
-    try:   # 계정은 등록 순간에 남긴다. 뒤에서 실패해도 탈퇴 때 찾을 수 있게
-        meta = store.register(path, doc_id, "upload", source_url, Path(filename).stem or doc_id, today.isoformat(),
-                              extra={"uploaded_by": uploaded_by})
-    except ValueError as exc:   # 스캔 PDF 등
-        _discard(doc_id)
-        raise Rejected(str(exc)) from exc
-    lines = store.load_lines(doc_id) or []
-    if any(RRN.search(ln["text"]) for ln in lines):
-        _discard(doc_id)
-        raise Rejected("주민등록번호로 보이는 숫자가 있어 받지 않았습니다. " + NOTICE)
 
-    compile_fn = _compile()
+def _reverify(rules: list[dict], lines: list[dict]) -> list[dict]:
+    """캐시의 조건표를 지금 줄 목록으로 검증기에 다시 돌린다(사람이 확인한 조건은 그대로).
+    검증기를 부를 수 없으면 확인되지 않은 조건을 전부 needs_review로 내린다."""
     try:
-        if compile_fn is None:
-            raise RuntimeError("AI 공고 읽기(backend.compiler.compile)가 아직 연결되지 않았다")
-        rules = compile_fn(doc_id, lines, "upload")
-    except Exception as exc:   # 읽기가 실패하면 올린 원문은 지우고, 캐시가 있으면 캐시로 같은 화면을 만든다
-        _discard(doc_id)
-        if cached:
-            return {**cached, "replayed": True, "replay_reason": f"읽기 실패: {exc}"}
-        raise RuntimeError(str(exc)) from exc
+        from backend.compiler.verify import verify
+    except ImportError:
+        verify = None
+    out = []
+    for rule in rules:
+        if verify is not None:
+            out.append(verify(rule, lines))
+            continue
+        rule = json.loads(json.dumps(rule))
+        for c in rule.get("conditions", []):
+            if c.get("status") != "reviewed":
+                c["status"] = "needs_review"
+        out.append(rule)
+    return out
 
+
+def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: str, uploaded_by: str | None,
+           replay_reason: str | None = None, replay_warning: str | None = None) -> dict:
+    """조건표를 올린 계정 앞으로 저장하고 카드에 합류시킨다. 새로 읽었을 때만 캐시를 쓴다."""
     out_dir = upload_rules_dir()
     out_dir.mkdir(parents=True, exist_ok=True)
     for rule in rules:
@@ -246,5 +246,68 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
 
     result = {"log": summarize(doc_id, meta, lines, rules), "rules": rules, "notice": NOTICE,
               "at": datetime.now().isoformat(timespec="seconds")}
-    save_cache(sha, result)
-    return {**result, "replayed": False, "alerts": _after_merge([r["id"] for r in rules], account_id=uploaded_by)}
+    if replay_reason is None:
+        save_cache(sha, {**result, "lines_fp": lines_fingerprint(lines)})
+    out = {**result, "replayed": replay_reason is not None}
+    if replay_reason is not None:
+        out["replay_reason"] = replay_reason
+        if replay_warning:
+            out["replay_warning"] = replay_warning
+    out["alerts"] = _after_merge([r["id"] for r in rules], account_id=uploaded_by)
+    return out
+
+
+def ingest(path: Path, filename: str, source_url: str | None = None, replay: bool = False,
+           today: date | None = None, uploaded_by: str | None = None) -> dict:
+    """올린 파일 하나를 한 바퀴 돌린다. 돌려주는 것: {"log", "rules", "replayed", "notice", "alerts"}.
+
+    uploaded_by는 로그인 세션의 계정 ID다. 원문 머리에 남겨 탈퇴 때 같이 지운다.
+    캐시를 재생할 때(replay를 켰거나 읽기가 실패했을 때)도 지금 올린 계정 앞으로 원문과 조건표를 새로 남겨
+    카드에 합류시킨다. 캐시는 원문 해시로 찾으므로 같은 파일이어야 한다.
+    받는 형식은 줄 만들기(backend.compiler.lines)가 읽는 것(PDF, HWP, HWPX, 텍스트)이다.
+    """
+    data = path.read_bytes()
+    if len(data) > MAX_BYTES:
+        raise Rejected("파일이 너무 큽니다(30MB까지)")
+    sha = hashlib.sha256(data).hexdigest()
+
+    cached = load_cache(sha)
+    if replay and not cached:
+        raise Rejected("이 파일의 캐시가 없습니다. 캐시 재생을 끄고 다시 올려 주세요")
+
+    today = today or date.today()
+    doc_id = _new_doc_id(today)
+    try:   # 계정은 등록 순간에 남긴다. 뒤에서 실패해도 탈퇴 때 찾을 수 있게
+        meta = store.register(path, doc_id, "upload", source_url, Path(filename).stem or doc_id, today.isoformat(),
+                              extra={"uploaded_by": uploaded_by})
+    except ValueError as exc:   # 읽을 수 없는 형식, 글자를 하나도 못 읽은 스캔 PDF
+        _discard(doc_id)
+        raise Rejected(str(exc)) from exc
+    lines = store.load_lines(doc_id) or []
+    if has_rrn(lines):
+        _discard(doc_id)
+        raise Rejected("주민등록번호로 보이는 숫자가 있어 받지 않았습니다. " + NOTICE)
+
+    def replay_with(reason: str) -> dict:
+        rules = _rebind(cached["rules"], cached["log"]["doc_id"], doc_id)
+        warning = None
+        # 줄 만들기가 바뀌면 같은 근거 ID가 다른 문장을 가리킬 수 있다. 그때는 캐시의 상태를 믿지 않고 다시 검사한다
+        if cached.get("lines_fp") != lines_fingerprint(lines):
+            rules = _reverify(rules, lines)
+            warning = "캐시를 만들 때와 줄 목록이 달라 지금 줄 목록으로 검증기를 다시 돌렸다"
+        return _merge(doc_id, meta, lines, rules, sha, uploaded_by, reason, warning)
+
+    if replay:
+        return replay_with("캐시 재생을 켰다")
+
+    compile_fn = _compile()
+    try:
+        if compile_fn is None:
+            raise RuntimeError("AI 공고 읽기(backend.compiler.compile)가 아직 연결되지 않았다")
+        rules = _call_compile(compile_fn, doc_id, lines, meta)
+    except Exception as exc:   # 읽기가 실패하면 캐시가 있을 때 캐시로 같은 화면을 만들고, 없으면 올린 원문을 지운다
+        if cached:
+            return replay_with(f"읽기 실패: {exc}")
+        _discard(doc_id)
+        raise RuntimeError(str(exc)) from exc
+    return _merge(doc_id, meta, lines, rules, sha, uploaded_by)

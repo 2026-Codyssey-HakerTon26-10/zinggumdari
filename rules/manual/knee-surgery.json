@@ -1,0 +1,87 @@
+{
+  "id": "manual:knee-surgery",
+  "source": "manual",
+  "name": "노인 무릎인공관절 수술 지원",
+  "org": "보건복지부",
+  "region": null,
+  "domain": "elderly",
+  "subject": "parent",
+  "benefit_type": "cash",
+  "aliases": [
+    "무릎 수술비",
+    "인공관절 수술비"
+  ],
+  "same_as": [
+    "gov24:135200000113"
+  ],
+  "doc_id": "gov24-135200000113",
+  "conditions": [
+    {
+      "field": "age",
+      "op": ">=",
+      "value": 60,
+      "quote": "(연령) 만 60세 이상",
+      "evidence": [
+        "gov24-135200000113:l10"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "field": "other",
+      "text": "건강보험급여 인공관절 치환술(무릎관절) 인정기준에 준하는 질환",
+      "quote": "건강보험급여 '인공관절 치환술(무릎관절)' 인정기준에 준하는 질환자",
+      "evidence": [
+        "gov24-135200000113:l11"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "any_of": [
+        [
+          {
+            "field": "livelihood_status",
+            "op": "in",
+            "value": [
+              "생계",
+              "의료",
+              "주거",
+              "교육",
+              "차상위"
+            ]
+          }
+        ],
+        [
+          {
+            "field": "other",
+            "text": "한부모가족 지원법에 따른 지원대상자"
+          }
+        ]
+      ],
+      "quote": "국민기초생활보장법에 따른 수급자 또는 차상위계층, 한부모가족 지원법에 따른 지원대상자",
+      "evidence": [
+        "gov24-135200000113:l12"
+      ],
+      "status": "reviewed"
+    }
+  ],
+  "exclusive_with": [],
+  "apply_window": null,
+  "benefit_text": "○ (수술비 지원액) 한쪽 무릎 기준 120만원 한도 실비 지원\n○ (지원범위) 본인부담금에 해당하는 검사비, 진료비 및 수술비",
+  "apply_text": "수술받기 전, 보건소에 서류 접수 → 노인의료나눔재단 추천·통보",
+  "documents": [
+    "무릎관절증 의료지원신청서",
+    "수술할 병원의 진단서(소견서)",
+    "기초생활수급자‧차상위계층‧한부모가족 증명서",
+    "개인정보수집 및 이용제공 동의서",
+    "자격확인을 위한 행정정보 공동이용 사전동의서"
+  ],
+  "documents_official": [],
+  "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=701257&bnefType=all&svcId=135200000113",
+  "updated": "2025-11-28",
+  "review": {
+    "status": "reviewed",
+    "by": "이초롱",
+    "at": "2026-11-01"
+  },
+  "compiled": null
+}
