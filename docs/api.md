@@ -409,3 +409,86 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 - `GET /notifications`도 세션 소유자의 목록만 반환한다. 기존 `user_id`가 전달되면 본인 일치를 검사하며 다른 계정 선택에 쓰지 않는다. 알림 읽음 API도 해당 알림의 소유권을 확인한다.
 - 상태 변경 요청에는 CSRF 방어를 적용하며, 인증 실패 메시지는 계정 존재를 드러내지 않는다. 로그인 반복 요청은 제한한다.
 - 계정 이메일 수집은 이메일 알림 수신 동의가 아니다. 소득·건강 등 민감정보 동의도 분리한다. 실제 연결 값과 인증 비밀정보는 문서·로그에 남기지 않는다.
+
+## 10. 프로필·판정 API 호출 안내 (프론트용, 백엔드1)
+
+JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 화면에서 부르는 순서와 요청·응답·에러를 모은다. 들어오는 PR: 프로필·프리셋 #11, 판정 엔진 #11(#12 합침), 카드 #14, 단계 넘기기·타임라인 #15, 공고별 질문 #22, 서류 사전 #25.
+
+### 10.1 공통
+
+- 주소: `http://localhost:8000` (`NEXT_PUBLIC_API_BASE`). CORS는 `http://localhost:3000` 허용
+- **개발 모드에서만 열린다.** 서버를 `DEV_STUB_API=1`로 띄워야 `/profiles`, `/judge`가 열리고, 아니면 404다. 로그인·소유권 확인이 붙으면 세션 기준으로 바뀌고 `user_id`를 body로 보내지 않는다(「인증·소유권 계약」)
+- 프로필은 지금 서버 메모리에 있다. 서버를 다시 켜면 지워진다(DB는 #19)
+- 날짜 재현: 모든 판정에 `?today=YYYY-MM-DD`를 붙일 수 있다(없으면 오늘)
+
+### 10.2 시연 시작: 프리셋
+
+| 메서드·경로 | 보내는 것 | 받는 것 |
+|---|---|---|
+| `GET /profiles/presets` | 없음 | `[{"id": "jiwon", "label": "지원(1999, 예비부부) + 어머니(1966)", "virtual": true}]` |
+| `POST /profiles/presets/{id}` | 없음 | `{"user_id": "U…"}`. 누를 때마다 새 프로필(SPEC §2 가상 페르소나, 동의 완료 상태). 없는 id면 404 |
+
+### 10.3 프로필
+
+| 메서드·경로 | 보내는 것 | 받는 것 · 에러 |
+|---|---|---|
+| `POST /profiles` | `{"self": {① 가입 칸}, "consents"?: {"sensitive": bool, "parent": bool}, "parents"?: [...]}` | `{"user_id"}`. 동의는 기본 `false` |
+| `GET /profiles/{user_id}` | 없음 | §2 프로필. 없으면 404 |
+| `PATCH /profiles/{user_id}` | 바꿀 것만: `{"self"?: {...}, "parents"?: [...], "consents"?: {...}, "stages_done"?: [...]}`. `self`는 칸 단위로 합치고 `parents`는 통째로 바꾼다 | 바뀐 프로필 전체 |
+| `DELETE /profiles/{user_id}` | 없음 | 204 |
+
+- `consents` 값은 JSON `true`/`false`만 받는다. `"false"`, `1`, `null`이면 **422**
+- 민감정보 동의(`sensitive`)가 없으면 소득·임신·장애·수급·장기요양등급 칸과 민감 자격 코드(수급·차상위·장애·한부모 등)는 **저장하지 않고 조용히 뺀다**. 부모님 동의(`parent`)가 없으면 `parents`를 저장하지 않는다. 동의를 `false`로 바꾸면 이미 있던 값도 지운다 → 동의 화면을 먼저 받고 칸을 보내야 한다
+- 자격·이력은 한 줄씩: `self.qualifications`에 `{"qual_code", "target": "본인", "verified": "자기신고"}`를 더해 배열째 보낸다. "해당 안 됨"이라고 답한 줄은 `"has": "N"`
+
+### 10.4 판정: `POST /judge`
+
+```jsonc
+// 요청 (?today=YYYY-MM-DD 선택)
+{"user_id": "U…",
+ "step": null,        // 단계 넘기기: "newlywed" | "child" | "multi_child". 그 단계까지 가정해 다시 판정(프로필은 안 바뀜). 다른 값은 422
+ "rule_id": null}     // 사용자가 연 카드. 그 제도를 막는 빈 칸을 ask로 묻는다
+```
+
+- 없는 `user_id`면 404. 조건표가 하나도 없으면(로컬에 `rules/` 없음) §3 예시 JSON을 그대로 돌려준다
+- 응답은 §3 모양: `ask`, `cards`, `step`, `timeline`, `similar`(아직 `null`), `disclaimer`(모든 카드 머리에 표시)
+
+카드(`cards[]`)를 그릴 때 보는 값
+
+| 키 | 화면 |
+|---|---|
+| `verdict` | `eligible` "신청할 수 있어요"(이때만) · `needs_check` 남은 조건 보여주기 · `opens_later` 언제 열리는지(`opens_at`). `ineligible`은 카드로 오지 않는다 |
+| `verdict_why` | `ai_unreviewed` "AI가 읽은 조건은 모두 맞아요. 원문을 확인하고 신청하세요" · `next_step` 다음 단계로 가면 열림 · `rule_error` 조건표 오류(확인 필요) |
+| `ai_extracted` | `true`면 "AI 추출·검수 전" 배지 |
+| `subject`, `relation` | `self`면 나, `parent`면 부모님(`relation` 모·부). 색은 컨셉보드(나 물빛, 부모님 감빛) |
+| `conditions[]` | `read_as`(우리가 읽은 조건), `grade`(확정/확인 필요/질문), `ok`(true 통과·false 탈락·null 모름), `why`(확인 필요 이유), `ask`(이 칸을 물으면 됨), `fixable`(탈락이 풀리는 방법: `true` 시간, `"action"` 해둘 일), `evidence[]`(근거 줄: `page`·`bbox`가 있으면 PDF 하이라이트, 없으면 텍스트 줄. `GET /notices/{doc_id}`로 원문) |
+| `opens_at` | `{"step": "newlywed"}` 단계 · `{"field", "when"}` 또는 `{"field", "year"}` 날짜 · `{"action": "ltc_grade_apply"}` 해둘 일 |
+| `closes_at`, `deadline` | 닫히는 날(`when` 날짜 또는 `year`), 접수 마감 `YYYY-MM-DD` |
+| `apply_from` | 신청 시작 안내 문장(예: "2031년 생일이 속한 달의 1개월 전부터…") |
+| `prerequisites[]` | 해둘 일: `action`(`subscription_account` 청약통장 · `move_in` 전입 · `marriage_registration` 혼인신고), `read_as`, `status`(met/unmet/unknown), 청약은 `min_months`·`have_months`, `evidence` |
+| `exclusive_with[]` | `{"rule_id", "name", "both_eligible"}` → "둘 중 하나". AI 조건표는 `exclusive_evidence`(원문 줄) → "중복 불가 조건이 있어요" |
+| `documents[]` | `status`: `found` → `issuer`·`online`·`offline`·`fee` · `self_held` "본인이 가진 서류" · `unknown` "발급처 확인 필요". `who_provides: "official"`이면 "공무원이 확인(안 떼도 됨)" |
+| `stage_tags`, `blocking_fields` | 단계 태그(필터·색), 판정을 막는 빈 칸 |
+| `detail_url`, `updated` | 카드 꼬리: 원문 링크, 기준일(반드시 표시) |
+
+타임라인(`timeline`)
+
+- `self[]`: 단계마다 `{"step", "assume", "opens", "closes", "todo"}`. 이미 지난 단계는 없다. 표 보기(단계, 열림, 닫힘, 해둘 일, 근거)도 이 배열로 그린다
+- `parent[]`: `{"step": "ltc_apply", "now": true, "relation", "why", "opens", "todo"}`(장기요양등급 신청 안내), `{"step": "age65" | "age70" …, "relation", "age", "year", "opens", "apply_from"}`
+- `dated[]`: `{"what", "year" 또는 "date", "from", "note"?}` 날짜가 계산되는 것만
+
+질문(`ask`, null이면 띄우지 않는다)
+
+- `{"subject", "field", "question", "options", "why", "rule_id", "qual_code"?}`. 카드를 열었을 때(`rule_id` 요청)는 그 카드 위에, 아니면 카드 목록 위에 한 줄
+- `options[].value`가 `"date"`·`"month"`·`"number"`·`"text"`면 입력칸(`unit: "만원"`이면 금액). 그 밖에는 고르면 그 값이 `field`의 값이다
+- 답 저장: `PATCH /profiles/{user_id}`로 `{"self": {field: 값, ...options[].set}}`(부모님이면 `parents`), 자격이면 `add_qualification`을 `self.qualifications`에 더해서 보낸다 → 다시 `POST /judge`
+
+### 10.5 화면 흐름 (SPEC §19.1 순서)
+
+1. 시작: `GET /profiles/presets` → 버튼 → `POST /profiles/presets/jiwon` → `user_id` 보관
+2. 추천 카드·타임라인: `POST /judge {"user_id"}`
+3. 단계 넘기기 버튼: `POST /judge {"user_id", "step": "newlywed"}` → `"child"` → `"multi_child"`. 카드와 타임라인이 바뀐다
+4. 카드 열기: `POST /judge {"user_id", "rule_id"}` → `ask` 한 줄 → 답 `PATCH /profiles` → 다시 `/judge`
+5. 조건 클릭: `evidence[].id`의 `doc_id`로 `GET /notices/{doc_id}`(§8), PDF면 `/file`을 그리고 `page`·`bbox`를 칠한다
+6. 부모님 탭: `timeline.parent`와 `subject: "parent"` 카드
+7. 설정의 삭제: `DELETE /profiles/{user_id}`
