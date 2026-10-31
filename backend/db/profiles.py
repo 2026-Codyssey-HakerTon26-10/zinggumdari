@@ -14,6 +14,7 @@ from decimal import Decimal
 
 import psycopg
 from psycopg.rows import dict_row
+from backend.engine.fields import PARENT_PROFILE_FIELDS  # 저장과 질문 생성이 같은 부모님 칸 목록을 사용해요.
 
 # self 칸이 들어가는 테이블. users 칸은 ① 가입, 나머지는 ② 알림 설정.
 USERS = ("nickname", "gender", "birth_date", "sido", "sigungu", "marital_status", "marriage_date", "pregnant",
@@ -28,8 +29,7 @@ ONE_ROW = {
 }
 QUALIFICATION = ("qual_code", "target", "verified", "has")  # 자격의 해당·미해당 답변을 함께 저장하고 읽는다.
 HISTORY = ("event_type", "event_date")
-PARENT = ("relation", "birth_date", "sido", "sigungu", "lives_alone", "lives_with_child", "ltc_grade",
-          "disability_registered", "basic_pension", "livelihood_status", "care_wanted")
+PARENT = PARENT_PROFILE_FIELDS  # 기존 저장 칸을 공유하며 DB나 API에 새 칸을 추가하지 않아요.
 SELF_FIELDS = set(USERS).union(*ONE_ROW.values(), {"qualifications", "history"})
 
 

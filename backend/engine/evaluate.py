@@ -2,7 +2,7 @@
 
 from datetime import date
 
-from backend.engine.fields import SENSITIVE
+from backend.engine.fields import PARENT_CONDITION_FIELDS, SENSITIVE  # 부모님 조건은 부모님이 수집하는 칸만 판정해요.
 from backend.engine.values import GROWING, Ask, Check, Period, Values, boundary, months_between, resolve
 
 FINAL = ("reviewed", "auto_verified")   # 확정 판정에 쓰는 조건 상태
@@ -88,6 +88,9 @@ def _one(person: dict, cond: dict, ctx: dict) -> dict:
         return _other(cond)
     if not field or "op" not in cond:
         return {"grade": "확인 필요", "ok": None, "why": "조건표 형식 오류"}
+    if ctx.get("subject") == "parent" and field not in PARENT_CONDITION_FIELDS:  # 본인 전용 칸을 부모님에게 묻거나 본인 값으로 대신 판정하지 않아요.
+        why = "소득인정액은 재산 환산이 필요해요" if field == "income_recognized" or cond.get("income_basis") == "recognized" else "부모님에 대해 수집하지 않는 정보라 접수 기관 확인이 필요해요"  # 소득인정액의 재산 환산 안내는 유지해요.
+        return {"grade": "확인 필요", "ok": None, "why": why}  # 저장할 수 없는 답변을 요구하지 않고 미확정 상태로 남겨요.
     got = resolve(person, cond, ctx["today"], ctx["year"])
     if isinstance(got, Check):
         return {"grade": "확인 필요", "ok": None, "why": got.why}
@@ -176,5 +179,5 @@ def rule_verdict(results: list[dict], rule: dict, ai_eligible: bool) -> tuple[st
 def context(profile: dict, rule: dict, today: date) -> dict:
     updated = str(rule.get("updated") or "")
     year = int(updated[:4]) if updated[:4].isdigit() else today.year
-    return {"today": today, "year": year,
+    return {"today": today, "year": year, "subject": rule.get("subject", "self"),  # 같은 이름의 조건도 누구의 정보인지 구분해요.
             "sensitive_ok": bool((profile.get("consents") or {}).get("sensitive"))}
