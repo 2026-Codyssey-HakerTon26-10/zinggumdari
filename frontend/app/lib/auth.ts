@@ -3,7 +3,7 @@
  *  AGENTS.md §3: 키·토큰을 커밋하지 않는다 — API 주소만 환경변수로 받아요.
  */
 
-const BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000"; // 환경변수가 없으면 로컬 기본값을 사용해요.
+const BASE = "/api/backend"; // 환경변수가 없으면 로컬 기본값을 사용해요.
 
 export class AuthError extends Error { // API 오류를 상태코드와 함께 전달해요.
     constructor(public readonly status: number, message: string) {

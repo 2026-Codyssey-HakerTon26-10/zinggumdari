@@ -28,7 +28,7 @@ function parseResponse(value: unknown): SearchResponse { // 서버 응답을 신
     return { q: data.q, results, judge: data.judge as SearchResponse["judge"] }; // 개인화 정보 갱신 제안은 이번 공개 검색에서 사용하지 않아요.
 } // 응답 확인을 마쳐요.
 export async function searchPolicies(query: string, subject: SearchSubject, signal: AbortSignal): Promise<SearchResponse> { // 공개 검색의 네트워크 경계를 한 곳에 모아요.
-    const base = process.env.NEXT_PUBLIC_API_BASE?.trim() || "http://localhost:8000"; // README에 정해진 공개 API 주소를 사용해요.
+    const base = `${window.location.origin}/api/backend`; // README에 정해진 공개 API 주소를 사용해요.
     const url = new URL(`${base.replace(/\/$/, "")}/search`); // 프론트 페이지 주소와 백엔드 경로를 구분해요.
     if (!["http:", "https:"].includes(url.protocol) || url.username || url.password) throw new Error("검색 API 주소 설정을 확인해 주세요."); // 공개 설정에 비밀정보를 넣지 못하게 해요.
     url.searchParams.set("q", query); url.searchParams.set("limit", "20"); // 사용자 ID를 전달하지 않고 검색어를 안전하게 인코딩해요.

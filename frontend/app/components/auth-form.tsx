@@ -170,31 +170,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                             <p className="auth-consent-detail-note">실명·전화번호·주민번호는 수집하지 않습니다.</p>
                         </ConsentItem>
 
-                        <p className="auth-consent-detail-note">이메일 알림과 민감정보 동의는 설정 저장 연결 전이라 선택할 수 없습니다. 가입해도 이메일 알림이나 민감정보 처리가 활성화되지 않습니다. 연결 후 알림 설정에서 별도로 동의해 주세요.</p> {/* 실제 적용되지 않는 동의를 받지 않고 제한을 안내해요. */}
-                        {/* [선택] 이메일 알림 수신 동의 */}
-                        <ConsentItem id="consent-email" label="이메일 알림 수신 동의 · 준비 중" required={false} disabled checked={consents.email} onCheck={(v) => toggleOne("email", v)} open={consentDetail.email} onToggle={() => toggleDetail("email")}>
-                            <table className="auth-consent-table">
-                                <tbody>
-                                    <tr><th>수집 항목</th><td>이메일 주소</td></tr>
-                                    <tr><th>수집 목적</th><td>새 공고·기한·맞춤 알림 발송</td></tr>
-                                    <tr><th>보유 기간</th><td>알림 수신 해제 또는 탈퇴 즉시 삭제</td></tr>
-                                    <tr><th>동의 거부 시</th><td>이메일 알림을 받지 못합니다. 서비스 이용에는 영향이 없습니다.</td></tr>
-                                </tbody>
-                            </table>
-                        </ConsentItem>
-
-                        {/* [선택] 민감정보 수집·이용 동의 */}
-                        <ConsentItem id="consent-sensitive" label="민감정보 수집·이용 동의 · 준비 중" required={false} disabled checked={consents.sensitive} onCheck={(v) => toggleOne("sensitive", v)} open={consentDetail.sensitive} onToggle={() => toggleDetail("sensitive")}>
-                            <table className="auth-consent-table">
-                                <tbody>
-                                    <tr><th>수집 항목</th><td>소득 정보(만원 단위), 건강 정보(장기요양등급·장애 등록 여부·임신 여부), 수급 여부, 차상위계층 여부</td></tr>
-                                    <tr><th>수집 목적</th><td>소득·건강 조건이 포함된 제도의 자격 모의 판정</td></tr>
-                                    <tr><th>보유 기간</th><td>동의 철회 또는 탈퇴 즉시 삭제</td></tr>
-                                    <tr><th>동의 거부 시</th><td>민감 조건 제도 판정에서 해당 항목이 제외됩니다. 소득·건강 무관 제도는 계속 이용 가능합니다.</td></tr>
-                                </tbody>
-                            </table>
-                            <p className="auth-consent-detail-note">민감정보는 별도 동의 시에만 저장되며, 판정 시 원값만 보관하고 % 환산은 판정 때 계산합니다.</p>
-                        </ConsentItem>
+                        <p className="auth-consent-detail-note">이메일 알림과 민감정보 동의는 가입 후 <Link href="/my/alerts">② 알림 설정</Link>에서 별도로 선택하고 저장합니다. 회원가입만으로 해당 동의가 활성화되지 않습니다.</p> {/* 저장 가능한 별도 설정 화면으로 안내해요. */}
                     </div>
                 ) : (
                     // 로그인 화면에는 비밀번호 찾기 보조 안내만 표시해요.
