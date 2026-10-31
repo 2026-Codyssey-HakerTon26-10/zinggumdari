@@ -13,63 +13,6 @@
  ],
  "conditions": [
   {
-   "any_of": [
-    [
-     {
-      "field": "qual_code",
-      "op": "in",
-      "value": [
-       "기초생활수급자"
-      ]
-     },
-     {
-      "field": "livelihood_status",
-      "op": "in",
-      "value": [
-       "차상위"
-      ]
-     }
-    ],
-    [
-     {
-      "field": "qual_code",
-      "op": "in",
-      "value": [
-       "한부모가족"
-      ]
-     }
-    ],
-    [
-     {
-      "field": "qual_code",
-      "op": "in",
-      "value": [
-       "장애인연금"
-      ]
-     }
-    ],
-    [
-     {
-      "field": "children_count",
-      "op": ">=",
-      "value": 2
-     }
-    ]
-   ],
-   "evidence": [],
-   "checks": {
-    "schema": "ok",
-    "evidence": "fail:no_evidence",
-    "value": "fail:b0.0:unverifiable",
-    "comparator": "fail:b3.0:no_value",
-    "unit": "fail:b3.0:no_value",
-    "keyword": "fail:b0.1:keyword_not_in_evidence",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
-  },
-  {
    "field": "apply_date",
    "op": ">=",
    "value": "2024-01-01",

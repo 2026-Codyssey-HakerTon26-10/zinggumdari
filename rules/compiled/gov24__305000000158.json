@@ -35,46 +35,6 @@
    "status": "auto_verified"
   },
   {
-   "any_of": [
-    [
-     {
-      "field": "qual_code",
-      "op": "in",
-      "value": [
-       "장애인"
-      ]
-     },
-     {
-      "field": "qual_code",
-      "op": "in",
-      "value": [
-       "기초생활수급자"
-      ]
-     },
-     {
-      "field": "other",
-      "text": "사회복지법인과 사회복지시설로부터 사회복지서비스를 제공받고 있는 사람"
-     },
-     {
-      "field": "other",
-      "text": "결혼이민자 등 다문화가족"
-     }
-    ]
-   ],
-   "evidence": [],
-   "checks": {
-    "schema": "ok",
-    "evidence": "fail:no_evidence",
-    "value": "fail:b0.0:unverifiable",
-    "comparator": "na",
-    "unit": "na",
-    "keyword": "na",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
-  },
-  {
    "field": "other",
    "text": "원문 조건 미반영",
    "reason": "unaccounted",

@@ -73,40 +73,6 @@
     "layer": "na"
    },
    "status": "needs_review"
-  },
-  {
-   "any_of": [
-    [
-     {
-      "field": "other",
-      "text": "완전 틀니(레진상, 금속상) - 상악 또는 하악에 치아가 전혀 없음"
-     }
-    ],
-    [
-     {
-      "field": "other",
-      "text": "부분 틀니 - 상악 또는 하악에 부분 치아결손으로 남은 치아를 이용하여 부분 틀니 제작 가능"
-     }
-    ],
-    [
-     {
-      "field": "other",
-      "text": "부분 무치악(치아가 전혀 없는 경우는 제외)"
-     }
-    ]
-   ],
-   "evidence": [],
-   "checks": {
-    "schema": "ok",
-    "evidence": "fail:no_evidence",
-    "value": "na",
-    "comparator": "na",
-    "unit": "na",
-    "keyword": "na",
-    "pair": "na",
-    "layer": "ok"
-   },
-   "status": "needs_review"
   }
  ],
  "exclusive_evidence": [],
