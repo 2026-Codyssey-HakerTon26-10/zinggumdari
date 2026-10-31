@@ -66,7 +66,8 @@ def test_judge_shape(dev):
     card = body["cards"][0]
     assert card["verdict"] in {"eligible", "needs_check", "ineligible", "opens_later"}
     assert card["detail_url"] and card["updated"]
-    assert all(c["evidence"] for c in card["conditions"])
+    # 엔진이 조건표의 region(API 메타데이터)으로 붙이는 「거주지 …」 줄은 원문 줄이 없다(api.md §1 region)
+    assert all(c["evidence"] for c in card["conditions"] if not c["read_as"].startswith("거주지 "))
 
 
 @pytest.mark.parametrize("bad", ["false", "true", 1, 0, None, [], {}])

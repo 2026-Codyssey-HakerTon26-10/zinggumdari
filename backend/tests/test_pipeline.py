@@ -410,7 +410,7 @@ def test_region(fake, tmp_path):
     lines = to_lines("d", "Ⅱ. 신청자격\n○ 공고일 현재 서울특별시에 거주하는 무주택 청년\n")
     seoul = c("sido", "==", "서울특별시", ["l2"])
     fake(lambda content: {"rules": [r("main", [seoul])], "labels": []})
-    assert compile("d", lines, "upload", raw_dir=tmp_path)[0]["region"] == {"sido": "서울특별시", "sigungu": None}
+    assert compile("d", lines, "upload", raw_dir=tmp_path)[0]["region"] == {"sido": "서울", "sigungu": None}  # sido는 짧은 이름
     assert compile("d", lines, "upload", meta={"region": None}, raw_dir=tmp_path)[0]["region"] is None  # 메타데이터가 먼저
     fake(lambda content: {"rules": [r("main", [c("sido", "==", "부산광역시", ["l2"])])], "labels": []})
     assert compile("d", lines, "upload", use_cache=False, raw_dir=tmp_path)[0]["region"] == {"unknown": True}  # 검사 실패
@@ -542,3 +542,13 @@ def test_malformed_conditions_become_other():
     assert _well_formed({"any_of": [], "evidence": ["d:l2"]})["field"] == "other"
     fixed = _well_formed({"any_of": [[{"field": "age", "op": "<=", "value": 34}], [{"field": "gender"}]]})
     assert fixed["any_of"][1] == [{"field": "other", "text": "AI가 읽은 조건의 형식이 맞지 않음", "reason": "malformed"}]
+
+
+def test_sido_values_match_profile():
+    """sido 조건 값은 프로필과 같은 짧은 이름이고, sido에 들어간 시군구는 sigungu로 옮긴다."""
+    from backend.compiler.pipeline import _well_formed
+    assert _well_formed({"field": "sido", "op": "==", "value": "서울특별시"})["value"] == "서울"
+    assert _well_formed({"field": "sido", "op": "in", "value": ["서울특별시", "경기도", "인천광역시"]})["value"] == ["서울", "경기", "인천"]
+    assert _well_formed({"field": "sido", "op": "==", "value": "종로구"}) == {"field": "sigungu", "op": "==", "value": "종로구"}
+    branch = _well_formed({"any_of": [[{"field": "sido", "op": "==", "value": "부산광역시"}]]})
+    assert branch["any_of"][0][0]["value"] == "부산"
