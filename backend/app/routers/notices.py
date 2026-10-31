@@ -53,6 +53,9 @@ def get_notice_file(doc_id: str, request: Request) -> FileResponse:
     path = store.original_path(doc_id)
     if not path:
         raise HTTPException(status_code=404, detail="원문 파일 없음")
-    # 웹 원문 HTML은 남의 페이지라 그대로 그리지 않고 글자로만 준다
-    media = "application/pdf" if meta.get("kind") == "pdf" else "text/plain; charset=utf-8"
-    return FileResponse(path, media_type=media, content_disposition_type="inline")
+    # 웹 원문 HTML은 남의 페이지라 그대로 그리지 않고 글자로만 준다. HWP·HWPX는 내려받기만 한다
+    if meta.get("kind") == "pdf":
+        return FileResponse(path, media_type="application/pdf", content_disposition_type="inline")
+    if path.suffix in (".hwp", ".hwpx"):
+        return FileResponse(path, media_type="application/octet-stream", filename=path.name)
+    return FileResponse(path, media_type="text/plain; charset=utf-8", content_disposition_type="inline")

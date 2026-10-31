@@ -300,6 +300,19 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 입력: PDF·HWP·HWPX·텍스트 파일 또는 URL (안내문: "개인 서류를 올리지 마세요", 주민번호 패턴 거부. 이미지 스캔 PDF는 서버 안의 tesseract로만 읽고(없으면 거부. 업로드는 네이토로 보내지 않는다), 암호·배포용 HWP와 HWP 3.x는 거부). 출력: §1 조건 JSON(`source: "upload"`, `review.status: "unreviewed"`) + 로그.
 
+요청은 multipart의 `file` 또는 `url`, `replay`(캐시 재생, 기본 false). 로그인 필수(미인증 401). 안내문은 `GET /ingest/notice`. 받지 않는 입력(위의 거부 대상, 30MB 초과, 내부 주소 URL)은 422.
+
+```jsonc
+{"log": { /* 아래 로그 */ }, "rules": [ /* §1 조건 JSON */ ], "notice": "개인 서류를 올리지 마세요. …", "at": "2026-10-31T21:10:00",
+ "replayed": false,                       // true면 캐시 재생. "replay_reason"("캐시 재생을 켰다" | "읽기 실패: …")이 같이 온다. 자막으로 밝힌다
+ "replay_warning": "…",                   // 재생 때 줄 목록이 캐시를 만들 때와 다르면만. 그때는 캐시의 상태를 쓰지 않고 지금 줄 목록으로 검증기를 다시 돌린다
+ "alerts": null}                          // 알림 재판정 결과(올린 계정만). 알림 쪽이 없으면 null
+```
+
+캐시는 원문 해시로 찾는다. 재생해도 지금 올린 계정 앞으로 원문(`doc_id`)과 조건표를 새로 남겨 카드에 합류시킨다(조건표 id와 근거 줄 ID는 새 `doc_id`로 바뀐다). 업로드 원문은 `data/notices/upload-*`, 조건표는 `rules/uploads/`이고 커밋하지 않는다. 탈퇴하면 그 계정의 업로드 원문, 조건표, 캐시를 지운다.
+
+로그(`log`)
+
 ```jsonc
 {"doc_id": "upload-20261031-01", "lines": 412, "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"}, "marked": 21,
  "llm_calls": 1, "schema_retries": 0, "rules": 2, "conditions": 12, "auto_verified": 9, "needs_review": 3,
@@ -330,7 +343,13 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 }
 ```
 
-태그는 프로필에서 계산하고 여러 개가 동시에 붙는다. `youth`는 나이 묶음(만 19~39세. 실제 나이 조건은 제도마다 규칙이 판정), `marriage_planned`(예비부부), `newlywed`(신혼·기혼, 자녀 없음), `child`(자녀 1), `multi_child`(자녀 2 이상)는 생애 단계, `homeless`는 주거 태그다. 30세 신혼은 `youth`와 `newlywed`를 둘 다 갖는다. 다섯 단계 타임라인은 이야기 순서이고 태그를 하나로 묶지 않는다. 검색어는 서버 로그에 남기지 않는다. 단계 키워드 사전은 `docs/stage_keywords.json`(C). 제도 쪽 `stage_tags`는 조건에서 계산한다(§1).
+태그는 프로필에서 계산하고 여러 개가 동시에 붙는다. `youth`는 나이 묶음(만 19~39세. 실제 나이 조건은 제도마다 규칙이 판정), `marriage_planned`(예비부부), `newlywed`(신혼·기혼, 자녀 없음), `child`(자녀 1), `multi_child`(자녀 2 이상)는 생애 단계, `homeless`는 주거 태그다. 30세 신혼은 `youth`와 `newlywed`를 둘 다 갖는다. 다섯 단계 타임라인은 이야기 순서이고 태그를 하나로 묶지 않는다. 검색어는 서버 로그에 남기지 않는다. 단계 키워드 사전은 `docs/stage_keywords.json`(백엔드2, 조건표가 없는 덤프 항목에만 쓴다). 제도 쪽 `stage_tags`는 조건에서 계산한다(§1).
+
+- 로그인하지 않으면 조건표가 있는 제도의 `badge`는 `null`이다(개인화 배지 없음). 조건표가 없는 제도는 그대로 `no_rule`, `nudge`도 `null`.
+- 응답에 `"judge": "engine" | "fake"`가 붙는다. 규칙 엔진이 연결되기 전에는 가짜 판정(`fake`)이다.
+- 쿼리: `q`(필수), `tag`, `subject`, `region`(시도. 그 시도와 전국 제도만), `limit`(기본 20, 최대 50), `today`(판정 기준일 재현). 예전 `user_id`는 로그인한 본인 프로필 ID와 같을 때만 받는다(미인증 401, 불일치 403).
+- 결과마다 `subject`(self | parent)가 붙는다.
+- 사용자 업로드 조건표(`source: "upload"`)는 검색에 나오지 않는다. 올린 본인에게는 판정 카드로 합류한다.
 
 ## 8. 원문과 줄 (`GET /notices/{doc_id}`, `GET /notices/{doc_id}/file`, `data/notices/{doc_id}.lines.json`)
 
@@ -367,6 +386,9 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 - 근거 ID는 `{doc_id}:{줄 ID}`다.
 - `mark`는 조건 신호어가 있는 줄이다(SPEC §9.2). LLM은 표시된 줄마다 근거로 쓰거나 라벨을 단다.
 - PDF 보기는 `file`을 pdf.js(react-pdf)로 그리고, 카드 조건의 `evidence[].page`·`bbox`로 해당 줄을 칠한다. 텍스트 원문은 줄 목록을 그리고 근거 줄을 칠한다. 런타임에 텍스트 검색으로 위치를 찾지 않는다.
+- `GET /notices`는 볼 수 있는 원문의 머리 목록이다. 사용자 업로드(`source: "upload"`)는 올린 본인 세션에만 보이고 다른 사람에게는 없는 원문과 같은 404다. 올린 계정(`uploaded_by`)은 응답에 싣지 않는다.
+- `GET /notices/{doc_id}/file`은 PDF면 `application/pdf`, HWP·HWPX는 내려받기(`application/octet-stream`), 웹 원문·API 산문은 원문을 그리지 않고 `text/plain`으로 준다(남의 페이지 HTML을 우리 화면에서 실행하지 않는다).
+- 줄 목록은 원문 등록(`backend.notices.store`)과 AI 공고 읽기가 같은 `backend.compiler.lines.read_document`로 만든다. 같은 원문이면 어디서 만들어도 줄 ID가 같다. 머리의 `unread_pages`는 글자 인식으로도 읽지 못한 쪽이다.
 
 ## 인증·소유권 계약 (구현 전환 요구사항)
 

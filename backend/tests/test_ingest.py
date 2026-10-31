@@ -68,13 +68,21 @@ def test_ingest_flow_cache_and_rejects(tmp_path, notice_pdf, monkeypatch):
     assert store.load_meta(log["doc_id"])["uploaded_by"] == "A1"
 
     replay = c.post("/ingest", files={"file": ("a.pdf", pdf, "application/pdf")}, data={"replay": "true"}).json()
-    assert replay["replayed"] is True and replay["log"] == log
+    rlog = replay["log"]
+    assert replay["replayed"] is True and rlog["doc_id"] != log["doc_id"]      # 지금 올린 계정 앞으로 새 원문
+    import json as _json
+    assert rlog == _json.loads(_json.dumps(log).replace(log["doc_id"], rlog["doc_id"]))   # 같은 화면, 원문 ID만 새것
+    assert rlog["unaccounted"] == [f"{rlog['doc_id']}:p1-l1"]                  # 근거 줄도 새 원문을 가리킨다
+    assert replay["rules"][0]["id"] == f"upload:{rlog['doc_id']}:newlywed"
+    assert store.load_meta(rlog["doc_id"])["rules"] == [replay["rules"][0]["id"]]   # 카드에 합류
+    assert "replay_warning" not in replay
 
     def broken(*a):
         raise RuntimeError("LLM 시간 초과")
     monkeypatch.setattr(ing, "_compile", lambda: broken)
     fallback = c.post("/ingest", files={"file": ("a.pdf", pdf, "application/pdf")}).json()
     assert fallback["replayed"] is True and "시간 초과" in fallback["replay_reason"]
+    assert store.load_meta(fallback["log"]["doc_id"])["uploaded_by"] == "A1"
 
     assert c.post("/ingest", files={"file": ("a.hwp", b"\xd0\xcf\x11\xe0", "application/x-hwp")}).status_code == 422
     rrn = make_pdf(tmp_path / "rrn.pdf", [[(72, 700 - 14 * k, f"name 900101-1234567 line {k} more text here") for k in range(5)]])
@@ -84,7 +92,7 @@ def test_ingest_flow_cache_and_rejects(tmp_path, notice_pdf, monkeypatch):
     assert c.post("/ingest").status_code == 400
 
     assert ing.delete_uploads("someone-else") == 0
-    assert ing.delete_uploads("A1") == 1                                   # 탈퇴하면 올린 것 전부
+    assert ing.delete_uploads("A1") == 3                                   # 탈퇴하면 올린 것 전부(새로 읽기, 재생 둘)
     assert store.load_meta(log["doc_id"]) is None and not list((tmp_path / "compiled").glob("*.json"))
     assert not list(ing.cache_dir().glob("*.json"))
 
@@ -134,8 +142,9 @@ def test_failed_read_leaves_nothing(tmp_path, world, notice_pdf, monkeypatch):
     monkeypatch.setattr(ing, "_compile", lambda: broken)
     again = ing.ingest(notice_pdf, "a.pdf", uploaded_by="erin")
     assert again["replayed"] is True
-    assert store.list_doc_ids() == [first["log"]["doc_id"]]                 # 캐시 재생 때도 새 원문은 지운다
+    assert store.load_meta(again["log"]["doc_id"])["uploaded_by"] == "erin"    # 재생한 원문은 erin 것으로 남는다
     assert store.load_meta(first["log"]["doc_id"])["uploaded_by"] == "dave"
+    assert ing.delete_uploads("erin") == 1 and store.list_doc_ids() == [first["log"]["doc_id"]]
 
 
 def test_fetch_url_blocks_internal_and_caps_size(monkeypatch):
@@ -269,3 +278,95 @@ def test_after_merge_passes_uploader_only(monkeypatch):
     mod.rebuild = rebuild_old
     assert ing._after_merge(["upload:x"], account_id="A1")["status"] == "skipped"
     assert calls[-1] != "everyone"
+
+
+@needs_pdf
+def test_rules_and_evidence_are_scoped_to_uploader(tmp_path, world, notice_pdf, monkeypatch):
+    """A의 업로드가 B의 판정과 근거 줄에 섞이지 않는다(#14 리뷰)."""
+    from backend.data.rules import load_rules
+
+    ing = world
+    monkeypatch.setattr(config, "UPLOAD_RULES_DIR", tmp_path / "uploads")
+    monkeypatch.setattr(config, "RULES_DIRS", (tmp_path / "manual",))
+    (tmp_path / "manual").mkdir()
+    (tmp_path / "manual" / "m.json").write_text('{"id": "manual:x", "conditions": []}')
+    monkeypatch.setattr(ing, "_compile", lambda: lambda doc_id, lines, source: [
+        {"id": f"upload:{doc_id}:y", "conditions": [{"field": "age", "evidence": [f"{doc_id}:p1-l1"]}]}])
+    a = ing.ingest(notice_pdf, "a.pdf", uploaded_by="A1")["log"]["doc_id"]
+    other = make_pdf(tmp_path / "b.pdf", [[(72, 700 - 14 * k, f"other notice line {k} with text") for k in range(5)]])
+    b = ing.ingest(other, "b.pdf", uploaded_by="B1")["log"]["doc_id"]
+
+    assert [r["id"] for r in load_rules()] == ["manual:x"]                          # 기본은 업로드 없음
+    assert sorted(r["id"] for r in load_rules(owner="A1")) == ["manual:x", f"upload:{a}:y"]
+    assert f"upload:{b}:y" not in {r["id"] for r in load_rules(owner="A1")}
+
+    eid = f"{a}:p1-l1"
+    assert store.evidence([eid], owner="A1")[0]["text"] == "Notice for newlyweds"
+    assert store.evidence([eid], owner="B1")[0] == {"id": eid, "page": None, "bbox": None, "text": None}
+    assert store.evidence([eid])[0]["text"] is None
+
+
+@needs_pdf
+def test_replay_reverifies_when_lines_changed(tmp_path, world, notice_pdf, monkeypatch):
+    """캐시를 만들 때와 줄 목록이 다르면 캐시의 상태를 쓰지 않고 검증기를 다시 돌린다(#20 리뷰)."""
+    import importlib
+    import json as _json
+
+    verify_mod = importlib.import_module("backend.compiler.verify")   # 패키지가 같은 이름의 함수를 내보내서 모듈로 집는다
+
+    ing = world
+    monkeypatch.setattr(ing, "_compile", lambda: lambda doc_id, lines, source: [
+        {"id": f"upload:{doc_id}:x", "conditions": [
+            {"field": "age", "op": "<=", "value": 39, "evidence": [f"{doc_id}:p1-l2"], "status": "auto_verified"},
+            {"field": "is_homeless", "op": "==", "value": "Y", "evidence": [f"{doc_id}:p1-l2"], "status": "reviewed"}]}])
+    first = ing.ingest(notice_pdf, "a.pdf", uploaded_by="A1")
+    cache = next(ing.cache_dir().glob("*.json"))
+    assert _json.loads(cache.read_text())["lines_fp"] == ing.lines_fingerprint(store.load_lines(first["log"]["doc_id"]))
+
+    calls = []
+
+    def fake_verify(rule, lines, **kw):
+        calls.append(len(lines))
+        out = _json.loads(_json.dumps(rule))
+        for c in out["conditions"]:
+            if c["status"] != "reviewed":
+                c["status"] = "needs_review"
+        return out
+    monkeypatch.setattr(verify_mod, "verify", fake_verify)
+
+    same = ing.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="B1")       # 줄 목록이 같으면 그대로
+    assert calls == [] and "replay_warning" not in same
+    assert same["rules"][0]["conditions"][0]["status"] == "auto_verified"
+
+    data = _json.loads(cache.read_text())
+    cache.write_text(_json.dumps({**data, "lines_fp": "줄 만들기가 바뀜"}, ensure_ascii=False))
+    changed = ing.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="C1")
+    assert calls and "검증기" in changed["replay_warning"]
+    conds = changed["rules"][0]["conditions"]
+    assert [c["status"] for c in conds] == ["needs_review", "reviewed"]           # 사람이 확인한 조건은 그대로
+    assert changed["log"]["needs_review"] == 1 and changed["log"]["auto_verified"] == 0
+
+    data.pop("lines_fp")
+    cache.write_text(_json.dumps(data, ensure_ascii=False))                       # 지문이 없는 옛 캐시도 다시 검사
+    calls.clear()
+    assert "replay_warning" in ing.ingest(notice_pdf, "a.pdf", replay=True, uploaded_by="D1") and calls
+
+
+def test_ingest_accepts_text_and_passes_meta(tmp_path, world, monkeypatch):
+    """줄 만들기를 compiler.lines로 바꿔서 텍스트도 받는다. 원문 머리는 compile(meta=)로 넘긴다."""
+    ing = world
+    seen = {}
+
+    def compile_with_meta(doc_id, lines, source, *, meta=None):
+        seen["meta"], seen["lines"] = meta, lines
+        return [{"id": f"upload:{doc_id}:x", "conditions": []}]
+    monkeypatch.setattr(ing, "_compile", lambda: compile_with_meta)
+    src = tmp_path / "notice.txt"
+    src.write_text("○ 지원대상\n - 만 19세 이상 39세 이하 무주택 세대주\n", encoding="utf-8")
+    out = ing.ingest(src, "notice.txt", uploaded_by="A1")
+    assert out["replayed"] is False and seen["meta"]["kind"] == "text" and seen["meta"]["uploaded_by"] == "A1"
+    assert seen["meta"]["unread_pages"] == [] and [ln["id"] for ln in seen["lines"]] == ["l1", "l2"]
+    bad = tmp_path / "bin.dat"
+    bad.write_bytes(b"\x00\x01\x02 binary")
+    with pytest.raises(ing.Rejected):
+        ing.ingest(bad, "bin.dat", uploaded_by="A1")

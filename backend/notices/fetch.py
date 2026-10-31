@@ -19,7 +19,7 @@ import httpx
 from backend.data.load import iter_details, iter_items
 from backend.notices import store
 from backend.notices.lh import find_attachments
-from backend.notices.lines import ScannedPdf
+from backend.notices.store import ScannedPdf
 
 UA = {"User-Agent": "Mozilla/5.0 (zinggum notice fetch)"}
 
