@@ -1,0 +1,139 @@
+{
+ "id": "manual:subscription-firsthome",
+ "source": "manual",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "subscription",
+ "subject": "self",
+ "benefit_type": "service",
+ "name": "청약 생애최초 특별공급",
+ "aliases": [
+  "생애최초 특공",
+  "생애최초 특별공급",
+  "생애 최초 주택 구입자 특별공급"
+ ],
+ "same_as": [],
+ "doc_id": "law-housing-supply",
+ "conditions": [
+  {
+   "field": "other",
+   "text": "생애 최초 주택 구입(세대에 속한 모든 사람이 과거 주택을 소유한 사실이 없음)",
+   "quote": "입주자모집공고일 현재 생애 최초(세대에 속한 모든 자가 과거 주택을 소유한 사실이 없는 경우로 한정한다",
+   "evidence": [
+    "law-housing-supply:p32-l4"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "quote": "1. 제27조제1항의 1순위에 해당하는 무주택세대구성원으로서 저축액이",
+   "evidence": [
+    "law-housing-supply:p32-l10"
+   ],
+   "status": "reviewed",
+   "note": "민영주택은 제28조제1항의 1순위에 해당하는 무주택세대구성원(p32-l42)"
+  },
+  {
+   "field": "other",
+   "text": "청약 1순위(국민주택은 제27조제1항, 민영주택은 제28조제1항)",
+   "quote": "1. 제27조제1항의 1순위에 해당하는 무주택세대구성원으로서 저축액이 … 1. 제28조제1항의 1순위에 해당하는 무주택세대구성원인 자",
+   "evidence": [
+    "law-housing-supply:p32-l10",
+    "law-housing-supply:p32-l42"
+   ],
+   "status": "reviewed",
+   "note": "1순위 요건(가입 기간, 납입 횟수, 지역)은 제27조·제28조에 있고 이 조건표에는 옮기지 않았다"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "deposit_amount",
+      "op": ">=",
+      "value": 600
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "민영주택에 신청(저축액 600만원 요건 없음)"
+     }
+    ]
+   ],
+   "quote": "저축액이 선납금을 포함하여 600만원 이상인 자",
+   "evidence": [
+    "law-housing-supply:p32-l10"
+   ],
+   "status": "reviewed",
+   "note": "600만원 요건은 국민주택(제43조①)에만 있다. 주택 종류는 받지 않아, 모자라면 탈락이 아니라 확인 필요로 둔다"
+  },
+  {
+   "field": "other",
+   "text": "근로자 또는 자영업자로서 5년 이상 소득세 납부(과거 1년 내 납부자 포함, 공제·감면으로 납부의무액이 없는 경우 포함)",
+   "quote": "입주자모집공고일 현재 근로자 또는 자영업자[과거 1년 내에 소득세 … 5년 이상 소득세를 납부한 자",
+   "evidence": [
+    "law-housing-supply:p32-l14",
+    "law-housing-supply:p32-l16"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 130,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 160,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     },
+     {
+      "field": "other",
+      "text": "민영주택에 신청(소득 기준 160%)"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "소득이 기준을 넘으면 세대원 부동산 가액 합계가 건강보험 재산등급 29등급 하한·상한 평균 이하"
+     }
+    ]
+   ],
+   "quote": "4명 이상인 세대는 가구원수(주택공급신청자의 직계존속은 1년 이상 … 같다]의 130퍼센트 이하일 것 … 130퍼센트를 초과하는 경우로서 세대원이 소유하는 부동산의 가액 … 가. 전년도 도시근로자 가구당 월평균 소득의 160퍼센트 이하일 것 … 160퍼센트를 초과하는 경우로서 세대원이 소유하는 부동산의 가액",
+   "evidence": [
+    "law-housing-supply:p32-l19",
+    "law-housing-supply:p32-l21",
+    "law-housing-supply:p32-l22",
+    "law-housing-supply:p33-l7",
+    "law-housing-supply:p33-l8"
+   ],
+   "status": "reviewed",
+   "note": "국민주택(제43조①) 130%, 85㎡ 이하 민영주택(제43조③) 160%. 직계존속은 1년 이상 같은 주민등록표에 있어야 가구원으로 센다. 공급 몫: 국민주택 50%는 100% 이하, 20%는 130% 이하. 민영주택 50%는 130% 이하, 20%는 160% 이하. 나머지는 추첨"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "국민주택 건설량의 20% 범위, 85㎡ 이하 민영주택 건설량의 17%(공공택지 외 7%) 범위에서 추첨으로 한 차례에 한정하여 1세대 1주택 기준으로 특별공급\n단독세대주 등은 전용 60㎡ 이하 주택만. 혼인 중이 아니고 자녀가 없는 사람은 소득 몫(50%, 20%)이 아닌 나머지 추첨만",
+ "apply_text": "청약홈에서 단지별 입주자모집공고에 따라 신청",
+ "documents": [],
+ "documents_official": [],
+ "detail_url": "https://www.law.go.kr/법령/주택공급에관한규칙",
+ "updated": "2026-06-15",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}

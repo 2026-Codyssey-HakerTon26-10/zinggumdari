@@ -1,0 +1,103 @@
+{
+ "id": "manual:subscription-multichild",
+ "source": "manual",
+ "name": "청약 다자녀가구 특별공급",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "subscription",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "다자녀 특별공급",
+  "다자녀 특공",
+  "다자녀가구 특별공급"
+ ],
+ "same_as": [],
+ "doc_id": "law-housing-supply",
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 2,
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 1,
+      "as_of": "notice_date"
+     },
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     }
+    ]
+   ],
+   "quote": "입주자모집공고일 현재 미성년자인 두 명 이상의 자녀를 둔 무주택세대구성원 … 태아나 입양한 자녀를 포함하여 제1항에 따른 입주자로 선정된 경우에는",
+   "evidence": [
+    "law-housing-supply:p29-l32",
+    "law-housing-supply:p29-l38"
+   ],
+   "status": "reviewed",
+   "note": "태아와 입양한 자녀도 자녀로 세므로 자녀 1명 + 임신 중도 두 명으로 본다(출산 자료 제출, 입양은 입주 때까지 유지). 미성년 자녀만 세므로 성년 자녀를 센 children_count는 넓게 통과할 수 있다"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "quote": "“무주택세대구성원”이란 세대원 전원이 주택을 소유하고 있지 않은 세대의 구성원을 말한다",
+   "evidence": [
+    "law-housing-supply:p1-l34"
+   ],
+   "status": "reviewed",
+   "note": "주택 소유 여부는 분양권등도 주택으로 본다(제53조)"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 120,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "민영주택, 또는 공공 사업주체가 공급하는 85㎡ 초과 주택에 신청(소득 기준 없음)"
+     }
+    ]
+   ],
+   "quote": "제18조 각 호의 어느 하나에 해당하는 사업주체가 건설하여 공급하는 85제곱미터 이하의 … 해당 세대의 월평균소득이 전년도 도시근로자 가구당 월평균소득(태아를 포함한 가구원 수가 4명 이상인 세 … 120퍼센트 이하인 무주택세대구성원",
+   "evidence": [
+    "law-housing-supply:p29-l34",
+    "law-housing-supply:p29-l35",
+    "law-housing-supply:p29-l36"
+   ],
+   "status": "reviewed",
+   "note": "소득 기준은 국가·지자체·LH 같은 공공 사업주체가 짓는 85㎡ 이하 주택에만 붙는다. 주택 종류는 받지 않아, 소득이 넘으면 탈락이 아니라 확인 필요로 둔다. 가구원 수는 태아를 포함해 센다"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "건설량의 10%(입주자모집 승인권자가 인정하면 15%) 범위에서 한 차례에 한정하여 1세대 1주택 기준으로 특별공급",
+ "apply_text": "청약홈에서 단지별 입주자모집공고에 따라 신청",
+ "documents": [],
+ "documents_official": [],
+ "detail_url": "https://www.law.go.kr/법령/주택공급에관한규칙",
+ "updated": "2026-06-15",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}
