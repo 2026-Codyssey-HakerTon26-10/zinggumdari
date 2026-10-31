@@ -133,3 +133,12 @@
 .auth-consent-table th { width: 80px; min-width: 80px; color: #9aaab6; font-weight: 600; white-space: nowrap; } /* 항목 이름을 고정 너비와 연한 색으로 표시해요. */
 .auth-consent-table td { color: #6a7d8c; } /* 항목 내용을 중립 색으로 표시해요. */
 .auth-consent-table tr:not(:last-child) th, .auth-consent-table tr:not(:last-child) td { border-bottom: 1px solid #f0f2f4; } /* 마지막 행을 제외한 행 사이에 구분선을 넣어요. */
+
+/* 동의 배지 */
+.auth-badge { display: inline-flex; align-items: center; padding: 1px 5px; border-radius: 3px; font-size: 9px; font-weight: 700; line-height: 1.6; vertical-align: 1px; margin-right: 2px; } /* 필수·선택 구분 배지의 기본 모양이에요. */
+.auth-badge--required { color: #b83232; background: #fff0ef; } /* 필수 항목은 붉은 배경으로 강조해요. */
+.auth-badge--optional { color: #64748b; background: #f3f4f6; } /* 선택 항목은 중립 회색으로 표시해요. */
+
+/* 체크된 동의 항목 시각적 피드백 */
+.auth-consent-item:has(input[type="checkbox"]:checked) .auth-consent-row { background: #f5f9ff; border-radius: 7px; padding: 6px 8px; margin: -2px -8px; } /* 동의한 항목은 연한 파란 배경으로 구분해요. */
+.auth-consent-item:has(input[type="checkbox"]:checked) .auth-checkbox-label { color: #3e6a8f; } /* 동의한 항목의 글자를 파란 계열로 강조해요. */

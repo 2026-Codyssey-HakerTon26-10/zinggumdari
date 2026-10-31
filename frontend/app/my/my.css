@@ -66,7 +66,7 @@
 .my-policy-filters button span { opacity: .7; } /* 필터 안의 개수는 가볍게 보여줘요. */
 .my-policy-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; } /* 정책 예시 두 장을 나란히 보여줘요. */
 .my-policy-card { border: 1px solid #e5e7eb; border-radius: 13px; overflow: hidden; background: #fff; } /* 정책 카드를 흰색 바탕과 중립 테두리로 보여줘요. */
-.my-card-disclaimer { color: #8997a3; background: #fff; border-bottom: 1px solid #eef0f3; padding: 9px 16px; font-size: 8px; line-height: 1.6; word-break: keep-all; } /* 모의 판정 안내도 흰색 카드 머리에 표시해요. */
+.my-card-disclaimer { color: #8997a3; background: #fff; border-bottom: 1px solid #eef0f3; padding: 9px 16px; font-size: 10px; line-height: 1.6; word-break: keep-all; } /* 모의 판정 안내도 흰색 카드 머리에 표시해요. */
 .my-card-body { padding: 18px; } /* 카드 내부 여백을 정해요. */
 .my-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 17px; } /* 카드 아이콘과 상태를 나란히 놓아요. */
 .my-card-icon { width: 39px; height: 39px; border-radius: 12px; background: #eaf4ff; color: #367bb9; display: grid; place-items: center; } /* 카드 분류 아이콘의 바탕을 만들어요. */
@@ -76,17 +76,17 @@
 .my-bookmark svg { width: 18px; height: 18px; } /* 저장 아이콘 크기를 정해요. */
 .my-bookmark.is-saved { color: #2474c7; } /* 저장한 상태를 파란색으로 표시해요. */
 .my-bookmark.is-saved svg { fill: #dcecff; } /* 저장한 책갈피의 안쪽을 채워요. */
-.my-card-category { font-size: 9px; color: #8998a5; margin-bottom: 6px; } /* 정책 분류를 작은 글씨로 보여줘요. */
+.my-card-category { font-size: 10px; color: #8998a5; margin-bottom: 6px; } /* 정책 분류를 작은 글씨로 보여줘요. */
 .my-policy-card h3 { font-size: 16px; font-weight: 700; line-height: 1.5; letter-spacing: -.5px; color: #163a56; } /* 정책 이름을 강조해요. */
 .my-card-description { font-size: 11px; color: #81909d; line-height: 1.85; margin: 9px 0 17px; min-height: 41px; word-break: keep-all; } /* 카드 설명이 편하게 읽히도록 만들어요. */
 .my-check-line { display: flex; align-items: center; gap: 4px; padding: 10px 8px; border-radius: 5px; background: #fafafa; font-size: 9px; color: #71889c; } /* 확인할 항목만 연한 중립 배경으로 구분해요. */
 .my-check-line svg { width: 11px; height: 11px; flex-shrink: 0; } /* 확인 항목 앞에 작은 아이콘을 놓아요. */
-.my-check-line > span:last-child { margin-left: auto; font-size: 8px; color: #ad8d54; white-space: nowrap; } /* 항목 상태를 오른쪽에 붙여요. */
+.my-check-line > span:last-child { margin-left: auto; font-size: 9px; color: #ad8d54; white-space: nowrap; } /* 항목 상태를 오른쪽에 붙여요. */
 .my-card-bottom { border-top: 1px solid #eef0f3; margin-top: 15px; padding-top: 13px; display: flex; flex-direction: column; gap: 12px; } /* 중립 구분선으로 카드 아래의 출처와 버튼을 나눠요. */
-.my-card-bottom > span { color: #a0adb8; font-size: 8px; } /* 원문 연결 전 상태를 분명하게 보여줘요. */
+.my-card-bottom > span { color: #a0adb8; font-size: 10px; } /* 원문 연결 전 상태를 분명하게 보여줘요. */
 .my-card-bottom button { display: flex; align-items: center; justify-content: center; gap: 6px; color: #2474c7; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 8px; font-size: 11px; font-weight: 650; cursor: pointer; } /* 항목 확인 버튼도 흰색 바탕과 파란 글자로 보여줘요. */
 .my-card-bottom button svg { width: 13px; height: 13px; } /* 버튼의 화살표 크기를 정해요. */
-.my-data-note { display: flex; align-items: flex-start; gap: 5px; font-size: 9px; color: #91a0ad; line-height: 1.8; margin-top: 13px; } /* 원문과 규칙 엔진 연결 전 상태를 안내해요. */
+.my-data-note { display: flex; align-items: flex-start; gap: 5px; font-size: 10px; color: #91a0ad; line-height: 1.8; margin-top: 13px; } /* 원문과 규칙 엔진 연결 전 상태를 안내해요. */
 .my-data-note svg { width: 12px; height: 12px; margin-top: 2px; flex-shrink: 0; } /* 데이터 안내의 작은 문서 아이콘이에요. */
 .my-sidebar { display: flex; flex-direction: column; gap: 17px; } /* 오른쪽 안내 카드 사이에 간격을 만들어요. */
 .my-next-card { padding: 24px; border: 1px solid #e5e7eb; background: #fff; border-radius: 14px; } /* 조건 안내를 흰색 카드에 담아요. */
@@ -182,12 +182,12 @@
     .my-stage-bottom button { align-self: flex-end; } /* 다음 단계 버튼을 오른쪽에 붙여요. */
     .my-dashboard-grid { grid-template-columns: 1fr; gap: 26px; } /* 정책과 안내 카드를 한 열로 보여줘요. */
     .my-policy-list { grid-template-columns: 1fr; } /* 정책 카드를 세로로 나열해요. */
-    .my-card-disclaimer { font-size: 9px; } /* 모바일에서 모의 판정 문구를 조금 키워요. */
+    .my-card-disclaimer { font-size: 10px; } /* 모바일에서도 최소 10px 이상을 유지해요. */
     .my-card-category { font-size: 10px; } /* 정책 분류 글씨를 조절해요. */
     .my-card-description { font-size: 12px; } /* 모바일 카드 설명을 읽기 쉽게 키워요. */
     .my-check-line { font-size: 10px; } /* 확인할 항목의 크기를 조절해요. */
     .my-check-line > span:last-child { font-size: 9px; } /* 항목 상태의 글씨 크기를 맞춰요. */
-    .my-card-bottom > span { font-size: 9px; } /* 원문 연결 안내를 읽기 쉽게 해요. */
+    .my-card-bottom > span { font-size: 10px; } /* 원문 연결 안내를 읽기 쉽게 해요. */
     .my-sidebar { gap: 16px; } /* 보조 카드 사이의 간격을 정해요. */
     .my-next-card h2 br { display: none; } /* 넓어진 보조 카드의 제목을 자연스럽게 줄바꿈해요. */
     .my-next-card > p:last-of-type { font-size: 12px; } /* 안내 카드의 본문 글씨를 맞춰요. */

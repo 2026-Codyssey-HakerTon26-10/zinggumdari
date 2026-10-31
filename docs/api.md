@@ -133,7 +133,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 - 민감정보(소득, 임신·출산, 장애, 수급, 장기요양등급, 일부 자격 코드)는 별도 동의 + 최소 수집이다. 동의가 없으면 그 칸은 비고, 그 칸에 걸린 조건은 "확인 필요"가 된다.
 - 비슷한 사용자 피처는 ①② 칸 중 `KNN 사용` = Y인 것만, 원핫 + 0~1 정규화(`KNN용_2단계`, 열 대응은 `KNN용_피처사전`). ③ 칸은 대부분 비어 있어 거리 계산을 망치므로 뺀다. 소득 구간(%)은 규칙 판정에만 쓴다.
 - 공고 원문의 세부 기준값(소득 %, 가격 상한, 부양 기간)은 `policy_requirements`에 들어간다.
-- 더미데이터는 시연 공고 20개(손 15 + AI 추출 5)가 실제로 쓰는 칸부터 채운다.
+- 더미데이터는 시연 공고(손 조건표 17개 + AI 추출 5)가 실제로 쓰는 칸부터 채운다.
 - 시트의 상황 문장 칸은 MVP에서 받지 않는다. 입력은 폼이고, 사용자 입력은 LLM에 보내지 않는다(SPEC §1.3).
 
 ```jsonc
@@ -256,13 +256,13 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 ```jsonc
 {
-  "manual": 15,
+  "manual": 17,
   "compiled": {"rules": …, "conditions": …, "auto_verified": …, "needs_review": …, "unaccounted_lines": …},
   "eval": {
-    "split": {"dev": 5, "test": 10},
-    "precision_auto_verified": {"test": {"correct": …, "n": …}, "sample": {"correct": …, "n": 50}},   // 시험용 10개, 대량 추출 무작위 표본
+    "split": {"dev": 5, "test": 11},                                      // 시험용은 채점하지 않는다(SPEC §17). 개수만 싣는다
+    "precision_auto_verified": {"dev": {"correct": …, "n": …}, "test": null, "sample": {"correct": …, "n": 50}},   // 개발용 5개(프롬프트를 맞춘 집합), 시험용은 채점하지 않아 null, 대량 추출 무작위 표본
     "missed": …,                                              // 정답 조건 중 AI 조건표에 없고 미반영 줄로도 안 뜬 수. 목표 0
-    "agreement": {"households": 9000, "rules": 10, "same": …, "danger": …, "missed_benefit": …},   // danger = AI eligible·정답 ineligible, missed_benefit = AI ineligible·정답은 그 밖
+    "agreement": {"households": 9000, "rules": 5, "same": …, "danger": …, "missed_benefit": …},   // 개발용 5개 제도. danger = AI eligible·정답 ineligible, missed_benefit = AI ineligible·정답은 그 밖
     "verifier": {"llm_wrong": …, "caught": …, "llm_right": …, "flagged_right": …}             // LLM 원출력 기준. 검사별 내역은 results.json에
   }
 }
@@ -391,30 +391,51 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 - 근거 ID는 `{doc_id}:{줄 ID}`다.
 - `mark`는 조건 신호어가 있는 줄이다(SPEC §9.2). LLM은 표시된 줄마다 근거로 쓰거나 라벨을 단다.
-- PDF 보기는 `file`을 pdf.js(react-pdf)로 그리고, 카드 조건의 `evidence[].page`·`bbox`로 해당 줄을 칠한다. 텍스트 원문은 줄 목록을 그리고 근거 줄을 칠한다. 런타임에 텍스트 검색으로 위치를 찾지 않는다.
+- PDF 보기는 `file`을 pdf.js(react-pdf)로 그리고, 카드 조건의 `evidence[].page`와 `bbox`로 해당 줄을 칠한다. `bbox`는 PDF 포인트 단위 `[x0, top, x1, bottom]`이고 원점은 쪽의 왼쪽 위다(pdfplumber 좌표). 렌더한 쪽 위에 겹쳐 그릴 때는 네 값에 `렌더 폭 / 쪽 폭(포인트)`을 곱한다. pdf.js의 `convertToViewportRectangle`처럼 PDF 좌표(왼쪽 아래 원점)를 받는 함수에는 y를 `쪽 높이 - 값`으로 바꿔 넣는다. 텍스트 원문은 줄 목록을 그리고 근거 줄을 칠한다. 런타임에 텍스트 검색으로 위치를 찾지 않는다.
 - `GET /notices`는 볼 수 있는 원문의 머리 목록이다. 사용자 업로드(`source: "upload"`)는 올린 본인 세션에만 보이고 다른 사람에게는 없는 원문과 같은 404다. 올린 계정(`uploaded_by`)은 응답에 싣지 않는다.
 - `GET /notices/{doc_id}/file`은 PDF면 `application/pdf`, HWP·HWPX는 내려받기(`application/octet-stream`), 웹 원문·API 산문은 원문을 그리지 않고 `text/plain`으로 준다(남의 페이지 HTML을 우리 화면에서 실행하지 않는다).
 - 줄 목록은 원문 등록(`backend.notices.store`)과 AI 공고 읽기가 같은 `backend.compiler.lines.read_document`로 만든다. 같은 원문이면 어디서 만들어도 줄 ID가 같다. 머리의 `unread_pages`는 글자 인식으로도 읽지 못한 쪽이다.
 
-## 인증·소유권 계약 (구현 전환 요구사항)
+## 인증·소유권 계약 (`/auth/*`, 백엔드1)
 
-기존 예시의 `user_id`는 응답 식별자이며 다른 계정에 접근할 권한을 뜻하지 않는다. 아래 내용은 인증·PostgreSQL 전환 설계이며 기존 서버에 구현되었다는 뜻이 아니다.
+`user_id`는 응답 식별자이고 다른 계정에 접근할 권한을 뜻하지 않는다. 로그인 백엔드는 #38로 들어갔다(`backend/app/routers/auth.py`, `backend/db/sessions.py`). 아래 표는 지금 코드가 하는 일이다. 요구사항 중 아직 안 된 것은 표 아래에 따로 적는다.
 
-| 메서드 | 경로 | 계약 |
+| 메서드 | 경로 | 보내는 것 | 받는 것 |
+|---|---|---|---|
+| POST | `/auth/signup` | `{"email", "password"}` | 201 `{"account_id"}`와 세션 쿠키. 같은 이메일(대소문자 무시)이 있으면 409 |
+| POST | `/auth/login` | `{"email", "password"}` | 200 `{"account_id"}`와 세션 쿠키. 틀리면 401 "이메일 또는 비밀번호가 올바르지 않습니다"(계정이 있는지 드러내지 않는다) |
+| POST | `/auth/logout` | 없음 | 204. 쿠키의 세션을 폐기(`revoked_at`)하고 쿠키를 지운다. 세션이 없어도 204 |
+| GET | `/auth/me` | 없음 | 200 `{"account_id", "email", "user_id"}`. `user_id`는 DB에 프로필이 없으면 null. 세션이 없거나 만료되거나 폐기됐으면 401 |
+| DELETE | `/auth/me` | 없음 | 204. 계정을 지우면 세션, 프로필(`users`와 딸린 표), 알림이 같이 지워진다(ON DELETE CASCADE). 사용자 업로드 원문과 조건표는 `backend.collector.ingest.delete_uploads(account_id)`로 지운다 |
+
+- 세션 쿠키: 이름 `session`, `HttpOnly`, `SameSite=Strict`, `Path=/`, 30일. `Secure`는 `.env`의 `COOKIE_SECURE=1`일 때만 붙는다(로컬 http 개발에서는 끈다. 배포하면 켠다).
+- 세션 토큰은 `secrets.token_urlsafe(32)`로 만들고 DB(`auth_sessions.token_hash`)에는 SHA-256만 둔다. 비밀번호는 파이썬 표준 `hashlib.scrypt`(N=2^14, r=8, p=1, 솔트 16바이트)로 해시해 `salt:hash` 형식으로 둔다. 원문과 비밀번호 확인 값은 저장하지 않는다.
+- CSRF 방어는 `SameSite=Strict` 쿠키로 한다. 따로 토큰을 받지 않는다.
+- 화면은 `http://localhost:3000`에서만 쿠키를 실어 부를 수 있다(CORS `allow_origins`, `allow_credentials`). `fetch`에 `credentials: "include"`를 넣는다.
+- `DATABASE_URL`이 없거나 DB에 붙지 못하면 `/auth/*`는 500이다(쿠키 없는 `/auth/logout`만 DB를 거치지 않아 204). 세션을 읽는 다른 API(아래)는 로그인하지 않은 것으로 처리한다.
+
+세션을 읽는 곳(`backend.search.ports.session_user`, `backend/app/main.py`에서 연결)
+
+| API | 세션으로 하는 일 |
+|---|---|
+| `GET /search` | 로그인했으면 세션의 프로필(DB)로 개인화 배지를 단다. 없으면 배지 null. `user_id` 쿼리는 로그인하지 않았으면 401, 본인 프로필이 아니면 403 |
+| `POST /ingest` | 로그인이 필수다. 올린 계정을 원문 머리(`uploaded_by`)에 남긴다 |
+| `GET /notices`, `GET /notices/{doc_id}` | 사용자 업로드 원문은 올린 본인 세션에만 보이고, 다른 사람에게는 없는 원문과 같은 404 |
+
+아직 안 된 것 (2026-11-01 03:00 기준. 담당은 roles.md)
+
+| 요구(SPEC §4.1, §15) | 지금 | 담당 |
 |---|---|---|
-| POST | `/auth/signup` | 이메일·비밀번호·닉네임·필수 동의로 계정 생성. 비밀번호 확인은 클라이언트 입력 보조이며 저장하지 않는다 |
-| POST | `/auth/login` | 이메일·비밀번호 인증 후 HttpOnly·Secure 세션 쿠키 발급 |
-| POST | `/auth/logout` | 현재 서버 세션 폐기 및 쿠키 삭제 |
-| GET | `/auth/me` | 현재 계정의 비밀정보 없는 식별 정보와 연결된 프로필 ID 반환 |
-| DELETE | `/auth/me` | 계정·모든 세션·프로필·알림·사용자 업로드 데이터 삭제 |
+| 가입 때 닉네임과 필수 동의를 받는다 | `/auth/signup`은 이메일과 비밀번호만 받고 저장한다. 이메일 형식과 비밀번호 길이도 검사하지 않는다 | 이초롱 |
+| 로그인 반복 요청을 제한한다 | 제한 없음 | 이초롱 |
+| `/profiles`, `/judge`가 세션의 본인 프로필만 쓴다(미인증 401, 남의 것은 404, `user_id` 불일치 403) | 둘 다 아직 개발 모드(`DEV_STUB_API=1`) 메모리 저장소를 쓰고 세션을 보지 않는다. 그래서 프리셋으로 만든 프로필은 DB에 없어 검색 배지가 붙지 않는다 | 이초롱 |
+| `/notifications`, `/notifications/{id}/read`, `/trigger/rebuild`, `/notify/test-email`, `/stats/*`가 열린다 | 라우터(`backend/notify/router.py`, `eval/coverage.py`)는 있지만 `backend/app/main.py`에 등록되지 않아 서버에 없다 | 이초롱(main.py), 박범규 |
+| 탈퇴하면 사용자 업로드도 지운다 | 프로필(`user_id`)이 있을 때만 `delete_uploads`를 부른다. 프로필 없이 올린 업로드는 남는다 | 이초롱 |
+| 화면의 회원가입과 로그인이 `/auth`를 부른다 | 회원가입과 로그인 화면은 아직 API를 부르지 않는다 | 손보람 |
+| 배포 주소에서 쿠키가 실린다 | CORS 허용 주소가 `http://localhost:3000` 하나다 | 이초롱 |
+| 비슷한 가구 배지(`similar`)를 검색에 단다 | `search.ports.connect(similar_rule_ids=…)`가 연결되지 않았다 | 임종한 |
 
-- DB는 PostgreSQL이며 기존 추천 테이블에 `auth_accounts`, `auth_sessions`를 추가한다. 계정과 프로필은 외래 키로 연결한다. 비밀번호와 세션 토큰은 해시만 저장한다.
-- `POST /profiles`는 세션 계정에 프로필을 연결한다. `GET/PATCH/DELETE /profiles/{id}` 경로는 유지하되 서버에서 세션 계정의 소유 프로필과 ID를 비교한다. 미인증은 401, 타인 또는 존재하지 않는 프로필 요청은 동일한 404 응답을 사용한다.
-- `POST /judge`는 세션에서 본인 프로필을 결정한다. 기존 요청의 `user_id`는 생략 가능하며, 전환 중 전달되면 본인 프로필과 일치하는지 검사하고 다르면 403으로 거부한다.
-- `GET /search`는 로그인 없이 공고를 검색할 수 있지만 개인화 배지는 반환하지 않는다. 로그인 상태에서는 세션의 프로필만 사용한다. 기존 `user_id` 쿼리가 전달되면 로그인·본인 일치를 확인하며 미인증은 401, 불일치는 403으로 거부한다.
-- `GET /notifications`도 세션 소유자의 목록만 반환한다. 기존 `user_id`가 전달되면 본인 일치를 검사하며 다른 계정 선택에 쓰지 않는다. 알림 읽음 API도 해당 알림의 소유권을 확인한다.
-- 상태 변경 요청에는 CSRF 방어를 적용하며, 인증 실패 메시지는 계정 존재를 드러내지 않는다. 로그인 반복 요청은 제한한다.
-- 계정 이메일 수집은 이메일 알림 수신 동의가 아니다. 소득·건강 등 민감정보 동의도 분리한다. 실제 연결 값과 인증 비밀정보는 문서·로그에 남기지 않는다.
+계정 이메일 수집은 이메일 알림 수신 동의가 아니다. 소득·건강 같은 민감정보 동의도 따로 받는다. 실제 연결 값과 인증 비밀정보는 문서와 로그에 남기지 않는다.
 
 ## 10. 프로필·판정 API 호출 안내 (프론트용, 백엔드1)
 
@@ -423,7 +444,7 @@ JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 �
 ### 10.1 공통
 
 - 주소: `http://localhost:8000` (`NEXT_PUBLIC_API_BASE`). CORS는 `http://localhost:3000` 허용
-- **개발 모드에서만 열린다.** 서버를 `DEV_STUB_API=1`로 띄워야 `/profiles`, `/judge`가 열리고, 아니면 404다. 로그인·소유권 확인이 붙으면 세션 기준으로 바뀌고 `user_id`를 body로 보내지 않는다(「인증·소유권 계약」)
+- **개발 모드에서만 열린다.** 서버를 `DEV_STUB_API=1`로 띄워야(`.env`에 넣어도 된다) `/profiles`, `/judge`가 열리고, 아니면 404다. 로그인(`/auth/*`)은 개발 모드와 상관없이 열려 있지만, `/profiles`와 `/judge`는 아직 세션을 보지 않는다. 세션 기준으로 바뀌면 `user_id`를 body로 보내지 않는다(「인증·소유권 계약」의 「아직 안 된 것」)
 - 프로필은 지금 서버 메모리에 있다. 서버를 다시 켜면 지워진다(DB는 #19)
 - 날짜 재현: 모든 판정에 `?today=YYYY-MM-DD`를 붙일 수 있다(없으면 오늘)
 
