@@ -188,25 +188,14 @@ def _flat(conditions: list[dict]) -> list[dict]:
 
 
 def rule_stage_tags(rule: dict) -> list[str]:
-    """제도의 단계 태그는 조건에서 계산한다(docs/api.md §1 「조건표에 쓰지 않고 계산하는 것」)."""
-    tags = []
-    for c in _flat(rule.get("conditions")):
-        field, op, value = c.get("field"), c.get("op"), c.get("value")
-        values = value if isinstance(value, list) else [value]
-        if field == "age" and op in ("<=", "<") and isinstance(value, (int, float)) and value <= 39:
-            tags.append("youth")
-        if field == "marital_status" and op in ("==", "in") and "예비부부" in values:
-            tags.append("marriage_planned")
-        if field == "marriage_years" or (field == "marital_status" and op in ("==", "in") and "신혼" in values):
-            tags.append("newlywed")
-        if (field == "children_count" and value == 1) or field in ("youngest_child_age", "pregnant", "due_month"):
-            tags.append("child")
-        if field == "children_count" and isinstance(value, (int, float)) and value >= 2:
-            tags.append("multi_child")
-    if rule.get("subject") == "parent":
-        tags.append("parent")
-    return list(dict.fromkeys(tags))
+    """제도의 단계 태그는 조건에서 계산한다(docs/api.md §1 「조건표에 쓰지 않고 계산하는 것」).
 
+    계산은 플래너(backend.planner.stage_tags) 한 곳에 둔다. 검색이 따로 세던 때는 제외 조건(not_in, !=)과
+    children_count >= 1, 부모님 제도의 나이 상한을 다르게 다뤄 AI 조건표에서 태그가 갈렸다.
+    """
+    from backend.planner import stage_tags   # planner가 engine을 불러오므로 색인을 만들 때만 읽는다
+
+    return stage_tags(rule)
 
 def _criteria_text(rule: dict) -> str:
     """색인할 조건 문장. 손 조건표는 quote, AI 조건표는 근거 줄의 원문."""
