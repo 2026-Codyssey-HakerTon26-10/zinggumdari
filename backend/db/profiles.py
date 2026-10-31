@@ -16,7 +16,7 @@ import psycopg
 from psycopg.rows import dict_row
 
 # self 칸이 들어가는 테이블. users 칸은 ① 가입, 나머지는 ② 알림 설정.
-USERS = ("nickname", "gender", "birth_date", "sido", "sigungu", "marital_status", "marriage_date", "pregnant",
+USERS = ("nickname", "gender", "birth_year", "birth_date", "sido", "sigungu", "marital_status", "marriage_date", "pregnant",
          "due_month", "children_count", "youngest_child_age", "household_size", "employment_status")
 ONE_ROW = {
     "user_housing": ("tenure_type", "is_householder", "is_homeless", "deposit", "monthly_rent", "move_in_date",
@@ -28,7 +28,7 @@ ONE_ROW = {
 }
 QUALIFICATION = ("qual_code", "target", "verified")
 HISTORY = ("event_type", "event_date")
-PARENT = ("relation", "birth_date", "sido", "sigungu", "lives_alone", "lives_with_child", "ltc_grade",
+PARENT = ("relation", "birth_year", "birth_date", "sido", "sigungu", "lives_alone", "lives_with_child", "ltc_grade",
           "disability_registered", "basic_pension", "livelihood_status", "care_wanted")
 SELF_FIELDS = set(USERS).union(*ONE_ROW.values(), {"qualifications", "history"})
 

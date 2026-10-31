@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 
 from backend.app import sources
 from backend.app.main import app
-from backend.app.routers import profiles
+from backend.app.routers import judge
 from backend.engine.cards import build_judge
 from backend.planner import apply_step, stage_tags
 
@@ -165,10 +165,10 @@ def test_stage_tags():
 
 @pytest.fixture
 def client(monkeypatch):
-    monkeypatch.setenv("DEV_STUB_API", "1")
-    monkeypatch.setattr(sources, "load_rules", lambda: RULES)
-    profiles._store["Uplan"] = JIWON
-    return TestClient(app)
+    monkeypatch.setattr(sources, "load_rules", lambda owner=None: RULES)
+    app.dependency_overrides[judge.own_profile] = lambda: {"account_id": "acct", "profile": {**JIWON, "user_id": "Uplan"}}
+    yield TestClient(app)
+    app.dependency_overrides.pop(judge.own_profile, None)
 
 
 def test_router_step(client):

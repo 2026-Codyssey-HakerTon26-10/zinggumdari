@@ -13,7 +13,7 @@ from backend.app.routers import search as search_router
 from backend.data import config
 from backend.search import service
 from backend.search.corpus import build_corpus, rule_stage_tags, short_sido
-from backend.search.index import BM25, SearchIndex, bigrams, expand_query
+from backend.search.index import BM25, SearchIndex, _in_region, bigrams, expand_query
 from backend.search.ports import Ports, fake_judge, ports, profile_tags
 from backend.search.rank import closed
 
@@ -130,6 +130,15 @@ def test_corpus_same_as_and_regions(client):
     assert by["local:WLF001"]["region"] == {"sido": "부산", "sigungu": "해운대구"}
     assert "multi_child" in by["local:WLF001"]["stage_tags"]
     assert short_sido("충청북도 청주시") == "충북"
+
+
+def test_region_filter_matches_full_and_short_sido():
+    """덤프는 짧은 이름, 손 조건표는 "경상남도"처럼 긴 이름이라 지역 필터는 둘을 맞춰 비교한다."""
+    assert _in_region({"region": {"sido": "경상남도", "sigungu": "의령군"}}, "경남")
+    assert _in_region({"region": {"sido": "경남", "sigungu": "거창군"}}, "경상남도")
+    assert _in_region({"region": None}, "경남")   # 전국
+    assert not _in_region({"region": {"sido": "경상북도"}}, "경남")
+    assert not _in_region({"region": {"sido": "서울특별시"}}, "경남")
 
 
 def test_applyhome_and_lh_deadline_and_special_supply(tmp_path):
@@ -358,3 +367,18 @@ def test_exact_name_beats_long_mentions():
               for i in range(5)]
     idx = SearchIndex([*others, long], {})
     assert idx.search("기초연금")[0][0]["service_id"] == "a"
+
+
+def test_tracked_ai_rules_replace_dump_doc(client):
+    """AI가 트랙으로 나눈 조건표(gov24:X:youth)는 덤프 문서(gov24:X)를 대신하고, 손 조건표 same_as는 서비스 id로 거른다."""
+    ai = {"source": "gov24", "subject": "self", "review": {"status": "unreviewed"}, "conditions": [],
+          "detail_url": None, "updated": None}
+    rules = [{**ai, "id": "gov24:135200000001:youth", "name": "출산 축하금 청년"},
+             {**ai, "id": "gov24:135200000001:elderly", "name": "출산 축하금 어르신"},
+             {**ai, "id": "gov24:WII000001:youth", "name": "AI가 읽은 서울 신혼 트랙"}, RULES[4]]
+    docs, by_id = build_corpus(rules=rules)
+    ids = {d["service_id"] for d in docs}
+    assert "gov24:135200000001" not in ids and {"gov24:135200000001:youth", "gov24:135200000001:elderly"} <= ids
+    track = next(d for d in docs if d["service_id"] == "gov24:135200000001:youth")
+    assert track["fields"]["target"] == "출산 가정"            # 덤프의 지원대상이 트랙 문서로 옮겨 온다
+    assert "gov24:WII000001:youth" not in by_id               # 손 조건표 same_as(gov24:WII000001)의 트랙도 뺀다

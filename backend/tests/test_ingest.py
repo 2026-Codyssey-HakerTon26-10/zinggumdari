@@ -170,6 +170,70 @@ def test_fetch_url_blocks_internal_and_caps_size(monkeypatch):
     assert ing.fetch_url("http://8.8.8.8/a.pdf", transport=ok) == b"%PDF-1.4 small"
 
 
+def test_ingest_checks_login_and_size_before_reading_body(monkeypatch):
+    """로그인하지 않았으면 본문을 받기 전에 401, 상한을 넘는 본문은 받다가 413."""
+    from backend.app.routers import ingest as ingest_router
+    from backend.search.ports import ports
+
+    read = []
+    real = ingest_router._read_form
+
+    async def spy(request):
+        read.append(1)
+        return await real(request)
+
+    monkeypatch.setattr(ingest_router, "_read_form", spy)
+    monkeypatch.setattr(ingest_router, "MAX_BYTES", 1000)
+    monkeypatch.setattr(ingest_router, "FORM_SLACK", 100)
+    monkeypatch.setattr(ports, "session_user", lambda req: {"account_id": "A1"} if req.headers.get("x-test-login") else None)
+    app = FastAPI()
+    app.include_router(ingest_router.router)
+    big = {"file": ("a.pdf", b"%PDF-" + b"x" * 5000, "application/pdf")}
+
+    assert TestClient(app).post("/ingest", files=big).status_code == 401
+    assert read == []                                                   # 본문을 열어 보지도 않았다
+    c = TestClient(app, headers={"x-test-login": "1"})
+    assert c.post("/ingest", files=big).status_code == 413              # Content-Length로 바로 끊는다
+    chunks = iter([b"x" * 600, b"x" * 600])
+    assert c.post("/ingest", content=chunks, headers={"content-type": "multipart/form-data; boundary=b"}).status_code == 413
+    assert c.post("/ingest", data={"replay": "true"}).status_code == 400   # 파일도 URL도 없다
+
+
+def test_fetch_url_connects_to_checked_ip(monkeypatch):
+    """DNS 재바인딩: 검사할 때는 공개 IP, 접속할 때는 127.0.0.1을 주는 이름. 검사한 IP로만 접속해야 한다."""
+    import socket
+
+    import httpx
+
+    from backend.collector import ingest as ing
+
+    answers = iter(["8.8.8.8", "127.0.0.1", "127.0.0.1"])
+    monkeypatch.setattr(socket, "getaddrinfo", lambda host, port, *a, **k: [(2, 1, 6, "", (next(answers), port))])
+    seen = []
+
+    def handler(req):
+        seen.append((req.url.host, req.headers["host"], req.extensions.get("sni_hostname")))
+        return httpx.Response(200, content=b"%PDF-1.4 ok")
+
+    assert ing.fetch_url("https://notice.example.kr/a.pdf", transport=httpx.MockTransport(handler)) == b"%PDF-1.4 ok"
+    assert seen == [("8.8.8.8", "notice.example.kr", "notice.example.kr")]
+
+
+def test_fetch_url_blocks_nat64_and_stops_at_total_time(monkeypatch):
+    import httpx
+
+    from backend.collector import ingest as ing
+
+    with pytest.raises(ing.Rejected, match="내부"):
+        ing.fetch_url("http://[64:ff9b::7f00:1]/a.pdf",
+                      transport=httpx.MockTransport(lambda r: httpx.Response(200, content=b"%PDF-")))
+
+    monkeypatch.setattr(ing, "FETCH_SECONDS", -1)   # 이미 시간이 다 지난 것처럼
+    slow = httpx.MockTransport(lambda r: httpx.Response(200, content=iter([b"%PDF-", b"x"])))
+    with pytest.raises(ing.Rejected, match="오래"):
+        ing.fetch_url("http://8.8.8.8/a.pdf", transport=slow)
+
+
 @needs_pdf
 def test_upload_visible_only_to_owner(tmp_path, world, notice_pdf, monkeypatch):
     from backend.app.routers import notices as notices_router
