@@ -2,10 +2,11 @@
 import Link from "next/link"; // 기존 화면으로 돌아가는 링크를 사용해요.
 import { useRef, useState } from "react"; // 요청 순서와 화면 상태를 관리해요.
 import { SiteFooter, SiteHeader } from "../components/ui"; // 기존 서비스의 공통 머리말과 꼬리말이에요.
-import { demoProfile, demoNotice, demoStages, loadDemoRecommendation, type DemoStage, type DemoResult } from "./demo-data"; // 가상 데이터와 API 응답 모양을 가져와요.
+import { demoProfile, demoNotice, demoStages, loadDemoRecommendation, type DemoStage, type DemoResult, type DemoCard } from "./demo-data"; // 가상 데이터와 API 응답 모양을 가져와요.
 import { DemoTimeline } from "./demo-timeline"; // 추천 응답의 다음 단계와 비교표를 보여줘요.
 import { DemoSearch } from "./demo-search"; // 시연 경로의 정책명 검색과 배지 예시를 연결해요.
 import { DemoEvidence } from "./demo-evidence"; // 각 조건에서 근거 ID로 연결한 텍스트 줄을 펼쳐요.
+import { DemoIngest } from "./demo-ingest"; // 가상 공고 재생 결과를 추천 카드에 합류시켜요.
 import "./demo.css"; // 흰색 바탕의 시연 화면 스타일을 적용해요.
 type View = { status: "idle" | "loading" | "error"; result: null } | { status: "ready"; result: DemoResult }; // 결과가 없을 때와 준비됐을 때를 구분해요.
 export default function DemoPage() { // 실제 계정과 분리된 가상 사례 화면이에요.
@@ -23,6 +24,9 @@ export default function DemoPage() { // 실제 계정과 분리된 가상 사례
             if (current === requestId.current) setView({ status: "error", result: null }); // 재시도 안내로 바꿔요.
         } // 데이터 처리를 마쳐요.
     } // 선택 처리를 마쳐요.
+    function addReplayCard(card: DemoCard) { // 같은 가상 공고를 여러 번 재생해도 중복 카드가 생기지 않게 해요.
+        setView((current) => current.status === "ready" ? { status: "ready", result: { ...current.result, cards: [...current.result.cards.filter((entry) => entry.rule_id !== card.rule_id), card] } } : current); // 현재 가상 결과만 바꾸고 실제 프로필은 저장하지 않아요.
+    } // 재생 카드 합류를 마쳐요.
     function reset() { // 실제 계정에 영향을 주지 않고 이 화면만 초기화해요.
         setStage("marriage_planned"); // 초기화하면 원래 가상 프로필의 단계로 돌아가요.
         requestId.current += 1; // 진행 중인 요청이 결과를 덮어쓰지 못하게 해요.
@@ -68,6 +72,7 @@ export default function DemoPage() { // 실제 계정과 분리된 가상 사례
                 </section> {/* 결과 영역을 마쳐요. */}
                 {view.status === "ready" && <DemoTimeline key={view.result.user_id} steps={view.result.timeline.self} activeStep={stage} />} {/* 선택된 가상 사례에만 타임라인을 표시해요. */}
                 {view.status === "ready" && <DemoSearch />} {/* 프로필 초기화 시 검색어와 결과도 함께 사라져요. */}
+                {view.status === "ready" && <DemoIngest onAdd={addReplayCard} />} {/* 실제 업로드 대신 고정 가상 결과의 화면 흐름을 체험해요. */}
             </main> {/* 본문을 마쳐요. */}
             <SiteFooter /> {/* 공공기관이 운영하는 서비스가 아니라는 기존 고지를 보여줘요. */}
         </div> // 전체 화면을 마쳐요.

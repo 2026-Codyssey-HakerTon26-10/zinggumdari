@@ -44,3 +44,7 @@
 .demo-source-lines li { display: grid; grid-template-columns: 50px minmax(0, 1fr); } /* 줄 ID와 본문을 나란히 배치해요. */
 .demo-source-lines mark { color: #263e4b; background: #fff0b3; padding: 8px; border-left: 4px solid #806018; } /* 근거 줄은 대비가 높은 배경과 테두리로 강조해요. */
 .demo-evidence-label { display: block; font-size: 12px; font-weight: 700; margin-top: 8px; } /* 색을 구분하지 못해도 선택 근거를 알 수 있게 해요. */
+.demo-ingest-select { display: block; width: 100%; max-width: 480px; padding: 12px; margin-block: 10px; border: 1px solid #7c8f99; border-radius: 8px; background: #fff; color: #263e4b; font: inherit; } /* 가상 공고 선택을 흰색 입력 요소로 표시해요. */
+.demo-ingest-select:focus-visible { outline: 3px solid #00809a; outline-offset: 3px; } /* 선택 목록의 키보드 초점을 표시해요. */
+.demo-ingest-steps { display: flex; flex-wrap: wrap; gap: 24px; padding-left: 24px; margin-block: 20px; } /* 처리 단계는 실제 실행 진행률과 구분해 목록으로 보여줘요. */
+.demo-ingest-log { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 320px; overflow: auto; padding: 16px; border: 1px solid #d9e1e5; border-radius: 8px; background: #fff; color: #263e4b; } /* 긴 가상 로그가 화면 밖으로 넘치지 않게 해요. */
