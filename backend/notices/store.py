@@ -82,14 +82,22 @@ def save_meta(meta: dict, notices_dir: Path | None = None) -> None:
     path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def evidence(ids: list[str], notices_dir: Path | None = None) -> list[dict]:
-    """근거 ID 목록 → [{"id", "page", "bbox", "text"}]. 카드의 evidence 모양(api.md §3). 없는 줄은 text None."""
+def evidence(ids: list[str], notices_dir: Path | None = None, owner: str | None = None) -> list[dict]:
+    """근거 ID 목록 → [{"id", "page", "bbox", "text"}]. 카드의 evidence 모양(api.md §3).
+
+    없는 줄은 page, bbox, text가 None이다. 사용자 업로드(source: upload) 원문은 owner(계정 ID)가 올린 사람과
+    같을 때만 줄을 준다. 다르거나 owner가 없으면 없는 줄과 같게 None이다(인증·소유권 계약).
+    """
     cache: dict[str, dict] = {}
     out = []
     for eid in ids:
         doc_id, _, line_id = eid.partition(":")
         if doc_id not in cache:
-            cache[doc_id] = {ln["id"]: ln for ln in (load_lines(doc_id, notices_dir) or [])} if valid_doc_id(doc_id) else {}
+            meta = load_meta(doc_id, notices_dir) if valid_doc_id(doc_id) else None
+            allowed = bool(meta) and (meta.get("source") != "upload"
+                                      or bool(owner and meta.get("uploaded_by") and meta["uploaded_by"] == owner))
+            lines = load_lines(doc_id, notices_dir) if allowed else None
+            cache[doc_id] = {ln["id"]: ln for ln in lines or []}
         ln = cache[doc_id].get(line_id)
         out.append({"id": eid, "page": ln and ln["page"], "bbox": ln and ln["bbox"], "text": ln and ln["text"]})
     return out

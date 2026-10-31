@@ -38,7 +38,7 @@ def cache_dir() -> Path:
 
 def upload_rules_dir() -> Path:
     """사용자 업로드 조건표. 커밋하는 AI 조건표(rules/compiled/)와 나누고 커밋하지 않는다."""
-    return config.ROOT / "rules" / "uploads"
+    return config.UPLOAD_RULES_DIR
 
 
 def _new_doc_id(today: date) -> str:
@@ -190,11 +190,46 @@ def delete_uploads(account_id: str) -> int:
     return gone
 
 
+def _rebind(rules: list[dict], old: str, new: str) -> list[dict]:
+    """캐시의 조건표를 새 원문 ID로. doc_id는 무작위 꼬리라 문자열 치환이 다른 값과 겹치지 않는다.
+    같은 PDF는 줄 목록도 같으니 근거 줄 ID(`{doc_id}:p7-l23`)도 그대로 맞는다."""
+    return json.loads(json.dumps(rules, ensure_ascii=False).replace(old, new))
+
+
+def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: str, uploaded_by: str | None,
+           replay_reason: str | None = None, cached_lines: int | None = None) -> dict:
+    """조건표를 올린 계정 앞으로 저장하고 카드에 합류시킨다. 새로 읽었을 때만 캐시를 쓴다."""
+    out_dir = upload_rules_dir()
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for rule in rules:
+        rule.setdefault("source", "upload")
+        rule.setdefault("review", {"status": "unreviewed"})
+        _rule_file(doc_id, rule["id"]).write_text(json.dumps(rule, ensure_ascii=False, indent=2), encoding="utf-8")
+    meta = {**(store.load_meta(doc_id) or meta), "rules": [r["id"] for r in rules]}
+    store.save_meta(meta)
+    from backend.search.service import reset_index
+    reset_index()
+
+    result = {"log": summarize(doc_id, meta, lines, rules), "rules": rules, "notice": NOTICE,
+              "at": datetime.now().isoformat(timespec="seconds")}
+    if replay_reason is None:
+        save_cache(sha, result)
+    out = {**result, "replayed": replay_reason is not None}
+    if replay_reason is not None:
+        out["replay_reason"] = replay_reason
+        if cached_lines is not None and cached_lines != len(lines):   # 줄 만들기가 바뀌면 근거 줄이 어긋날 수 있다
+            out["replay_warning"] = f"캐시를 만들 때와 줄 수가 다르다({cached_lines} → {len(lines)}). 근거 줄을 확인해야 한다"
+    out["alerts"] = _after_merge([r["id"] for r in rules], account_id=uploaded_by)
+    return out
+
+
 def ingest(path: Path, filename: str, source_url: str | None = None, replay: bool = False,
            today: date | None = None, uploaded_by: str | None = None) -> dict:
-    """올린 파일 하나를 한 바퀴 돌린다. 돌려주는 것: {"log", "rules", "replayed", "notice"}.
+    """올린 파일 하나를 한 바퀴 돌린다. 돌려주는 것: {"log", "rules", "replayed", "notice", "alerts"}.
 
     uploaded_by는 로그인 세션의 계정 ID다. 원문 머리에 남겨 탈퇴 때 같이 지운다.
+    캐시를 재생할 때(replay를 켰거나 읽기가 실패했을 때)도 지금 올린 계정 앞으로 원문과 조건표를 새로 남겨
+    카드에 합류시킨다. 캐시는 원문 해시로 찾으므로 같은 PDF여야 한다.
     """
     data = path.read_bytes()
     if len(data) > MAX_BYTES:
@@ -204,10 +239,8 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     sha = hashlib.sha256(data).hexdigest()
 
     cached = load_cache(sha)
-    if replay:
-        if not cached:
-            raise Rejected("이 파일의 캐시가 없습니다. 캐시 재생을 끄고 다시 올려 주세요")
-        return {**cached, "replayed": True, "replay_reason": "캐시 재생을 켰다"}
+    if replay and not cached:
+        raise Rejected("이 파일의 캐시가 없습니다. 캐시 재생을 끄고 다시 올려 주세요")
 
     today = today or date.today()
     doc_id = _new_doc_id(today)
@@ -222,29 +255,21 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
         _discard(doc_id)
         raise Rejected("주민등록번호로 보이는 숫자가 있어 받지 않았습니다. " + NOTICE)
 
+    def replay_with(reason: str) -> dict:
+        rules = _rebind(cached["rules"], cached["log"]["doc_id"], doc_id)
+        return _merge(doc_id, meta, lines, rules, sha, uploaded_by, reason, cached["log"].get("lines"))
+
+    if replay:
+        return replay_with("캐시 재생을 켰다")
+
     compile_fn = _compile()
     try:
         if compile_fn is None:
             raise RuntimeError("AI 공고 읽기(backend.compiler.compile)가 아직 연결되지 않았다")
         rules = compile_fn(doc_id, lines, "upload")
-    except Exception as exc:   # 읽기가 실패하면 올린 원문은 지우고, 캐시가 있으면 캐시로 같은 화면을 만든다
-        _discard(doc_id)
+    except Exception as exc:   # 읽기가 실패하면 캐시가 있을 때 캐시로 같은 화면을 만들고, 없으면 올린 원문을 지운다
         if cached:
-            return {**cached, "replayed": True, "replay_reason": f"읽기 실패: {exc}"}
+            return replay_with(f"읽기 실패: {exc}")
+        _discard(doc_id)
         raise RuntimeError(str(exc)) from exc
-
-    out_dir = upload_rules_dir()
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for rule in rules:
-        rule.setdefault("source", "upload")
-        rule.setdefault("review", {"status": "unreviewed"})
-        _rule_file(doc_id, rule["id"]).write_text(json.dumps(rule, ensure_ascii=False, indent=2), encoding="utf-8")
-    meta = {**(store.load_meta(doc_id) or meta), "rules": [r["id"] for r in rules]}
-    store.save_meta(meta)
-    from backend.search.service import reset_index
-    reset_index()
-
-    result = {"log": summarize(doc_id, meta, lines, rules), "rules": rules, "notice": NOTICE,
-              "at": datetime.now().isoformat(timespec="seconds")}
-    save_cache(sha, result)
-    return {**result, "replayed": False, "alerts": _after_merge([r["id"] for r in rules], account_id=uploaded_by)}
+    return _merge(doc_id, meta, lines, rules, sha, uploaded_by)
