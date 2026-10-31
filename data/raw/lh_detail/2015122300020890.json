@@ -1,0 +1,4 @@
+
+
+[{"dsSch":[{"PAN_ID":"2015122300020890","CCR_CNNT_SYS_DS_CD":"03","SPL_INF_TP_CD":"224","UPP_AIS_TP_CD":"22","AIS_TP_CD":"38"}]},{"dsCtrtPlcNm":[{"CTRT_PLC_DTL_ADR":"접수처소재지상세주소","CTRT_PLC_ADR":"접수처소재지주소","PAN_DTL_CTS":"공고내용"}],"dsAhflInfoNm":[{"AHFL_URL":"다운로드","SL_PAN_AHFL_DS_CD_NM":"파일구분명","CMN_AHFL_NM":"첨부파일명"}],"dsCtrtPlc":[{"CTRT_PLC_DTL_ADR":"1층 주거복지사업팀","CTRT_PLC_ADR":"제주특별자치도 제주시 전농로 100(삼도일동)","PAN_DTL_CTS":""}],"resHeader":[{"RS_DTTM":"20261031100405","SS_CODE":"Y"}],"dsAhflInfo":[{"AHFL_URL":"https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68903677","SL_PAN_AHFL_DS_CD_NM":"카탈로그","CMN_AHFL_NM":"(비고)위치도등.hwpx"},{"AHFL_URL":"https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68903672","SL_PAN_AHFL_DS_CD_NM":"공고문(hwp)","CMN_AHFL_NM":"서귀포성산단지내상가(1호)입점자모집공고문(일반형)_선착순수의계약.hwpx"},{"AHFL_URL":"https://apply.lh.or.kr/lhapply/lhFile.do?fileid=68903675","SL_PAN_AHFL_DS_CD_NM":"공고문(PDF)","CMN_AHFL_NM":"서귀포성산단지내상가(1호)입점자모집공고문(일반형)_선착순수의계약.pdf"}]}]
+
