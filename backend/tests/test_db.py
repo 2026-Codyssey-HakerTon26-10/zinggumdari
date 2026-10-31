@@ -27,7 +27,7 @@ PROFILE = {
     "stages_done": ["signup", "alerts"],
     "consents": {"sensitive": True, "parent": True},
     "self": {
-        "nickname": "지원", "gender": "여", "birth_date": "1999-04-15", "sido": "서울", "sigungu": "마포구",
+        "nickname": "지원", "gender": "여", "birth_year": 1999, "birth_date": "1999-04-15", "sido": "서울", "sigungu": "마포구",
         "marital_status": "예비부부", "marriage_date": None, "pregnant": "N", "due_month": None,
         "children_count": 0, "youngest_child_age": None, "household_size": 1, "employment_status": "재직",
         "tenure_type": "월세", "is_householder": "세대주", "is_homeless": "Y", "deposit": 1000, "monthly_rent": 55,
@@ -40,7 +40,7 @@ PROFILE = {
         "history": [{"event_type": "청약_당첨", "event_date": "2023-05-10"}],
     },
     "parents": [
-        {"relation": "모", "birth_date": "1966-07-03", "sido": "경기", "sigungu": "고양시", "lives_alone": "Y",
+        {"relation": "모", "birth_year": 1966, "birth_date": "1966-07-03", "sido": "경기", "sigungu": "고양시", "lives_alone": "Y",
          "lives_with_child": "N", "ltc_grade": "없음", "disability_registered": "N", "basic_pension": "N",
          "livelihood_status": "해당없음", "care_wanted": "Y"},
     ],
@@ -165,7 +165,7 @@ def test_sheet_columns_exist(conn):
     """팀 시트 DB필드_ 탭의 칸 이름 그대로(계산값 income_band_*, MVP에서 안 받는 situation_text는 뺌)."""
     cols = {(t, c) for t, c in conn.execute(
         "SELECT table_name, column_name FROM information_schema.columns WHERE table_schema = current_schema()")}
-    for want in [("users", "birth_date"), ("parents", "birth_date"), ("user_housing", "house_price"), ("user_income", "support_start_date"),
+    for want in [("users", "birth_date"), ("parents", "birth_date"), ("users", "birth_year"), ("parents", "birth_year"), ("user_housing", "house_price"), ("user_income", "support_start_date"),
                  ("user_history", "event_type"), ("user_history", "event_date"),
                  ("policy_requirements", "policy_id"), ("policy_requirements", "field"),
                  ("policy_requirements", "operator"), ("policy_requirements", "value"),

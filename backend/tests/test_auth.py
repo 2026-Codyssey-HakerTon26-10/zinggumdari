@@ -142,15 +142,15 @@ def test_signup_returns_201(client):
 
 @_db
 def test_signup_duplicate_email_returns_409(client):
-    client.post("/auth/signup", json={"email": "dup@test.com", "password": "p"})
-    r = client.post("/auth/signup", json={"email": "dup@test.com", "password": "p"})
+    client.post("/auth/signup", json={"email": "dup@test.com", "password": "pass1234"})
+    r = client.post("/auth/signup", json={"email": "dup@test.com", "password": "pass1234"})
     assert r.status_code == 409
 
 
 @_db
 def test_login_success(client):
-    client.post("/auth/signup", json={"email": "user@test.com", "password": "pass"})
-    r = client.post("/auth/login", json={"email": "user@test.com", "password": "pass"})
+    client.post("/auth/signup", json={"email": "user@test.com", "password": "pass1234"})
+    r = client.post("/auth/login", json={"email": "user@test.com", "password": "pass1234"})
     assert r.status_code == 200
     assert "account_id" in r.json()
     assert "session" in r.cookies
@@ -158,8 +158,8 @@ def test_login_success(client):
 
 @_db
 def test_login_wrong_password_returns_401(client):
-    client.post("/auth/signup", json={"email": "u@test.com", "password": "real"})
-    r = client.post("/auth/login", json={"email": "u@test.com", "password": "wrong"})
+    client.post("/auth/signup", json={"email": "u@test.com", "password": "real1234"})
+    r = client.post("/auth/login", json={"email": "u@test.com", "password": "wrong123"})
     assert r.status_code == 401
     assert r.json()["detail"] == "이메일 또는 비밀번호가 올바르지 않습니다"
 
@@ -173,8 +173,8 @@ def test_login_unknown_email_returns_401(client):
 
 @_db
 def test_login_case_insensitive_email(client):
-    client.post("/auth/signup", json={"email": "Case@Test.com", "password": "pw"})
-    r = client.post("/auth/login", json={"email": "case@test.com", "password": "pw"})
+    client.post("/auth/signup", json={"email": "Case@Test.com", "password": "pass1234"})
+    r = client.post("/auth/login", json={"email": "case@test.com", "password": "pass1234"})
     assert r.status_code == 200
 
 
@@ -186,7 +186,7 @@ def test_me_requires_login(client):
 
 @_db
 def test_me_returns_account_info(client):
-    client.post("/auth/signup", json={"email": "me@test.com", "password": "pw"})
+    client.post("/auth/signup", json={"email": "me@test.com", "password": "pass1234"})
     r = client.get("/auth/me")
     assert r.status_code == 200
     data = r.json()
@@ -196,7 +196,7 @@ def test_me_returns_account_info(client):
 
 @_db
 def test_logout_clears_session(client):
-    client.post("/auth/signup", json={"email": "lo@test.com", "password": "pw"})
+    client.post("/auth/signup", json={"email": "lo@test.com", "password": "pass1234"})
     client.post("/auth/logout")
     r = client.get("/auth/me")
     assert r.status_code == 401
@@ -210,11 +210,11 @@ def test_logout_without_session_is_ok(client):
 
 @_db
 def test_delete_me_removes_account(client):
-    client.post("/auth/signup", json={"email": "bye@test.com", "password": "pw"})
+    client.post("/auth/signup", json={"email": "bye@test.com", "password": "pass1234"})
     r = client.delete("/auth/me")
     assert r.status_code == 204
     # 삭제 후 같은 이메일로 재가입 가능
-    r2 = client.post("/auth/signup", json={"email": "bye@test.com", "password": "pw2"})
+    r2 = client.post("/auth/signup", json={"email": "bye@test.com", "password": "pass5678"})
     assert r2.status_code == 201
 
 
@@ -222,3 +222,28 @@ def test_delete_me_removes_account(client):
 def test_delete_me_requires_login(client):
     r = client.delete("/auth/me")
     assert r.status_code == 401
+
+
+# ── 가입 검증: 비밀번호 8~128자, 이메일 형식 (DB 없이도 422) ─────────────────────
+
+@pytest.mark.parametrize("body", [
+    {"email": "ok@test.com", "password": "short7!"},          # 7자
+    {"email": "ok@test.com", "password": "x" * 129},          # 129자
+    {"email": "not-an-email", "password": "pass1234"},
+    {"email": "a@b", "password": "pass1234"},
+    {"email": "a b@test.com", "password": "pass1234"},
+    {"email": "", "password": "pass1234"},
+])
+def test_signup_rejects_bad_input(body):
+    from fastapi.testclient import TestClient
+
+    from backend.app.main import app
+    r = TestClient(app).post("/auth/signup", json=body)
+    assert r.status_code == 422
+    assert "pass1234" not in r.text and "short7!" not in r.text   # 비밀번호 값을 에러에 되돌려주지 않는다
+
+
+@_db
+@pytest.mark.parametrize("password", ["x" * 8, "x" * 128])
+def test_signup_accepts_boundary_lengths(client, password):
+    assert client.post("/auth/signup", json={"email": "edge@test.com", "password": password}).status_code == 201

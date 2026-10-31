@@ -1,11 +1,18 @@
-"""/profiles, /judge 스텁이 docs/api.md 모양으로 답하는지, 개발 모드가 아니면 닫혀 있는지, 동의를 지키는지."""
+"""메모리 스텁 /profiles(backend/app/routers/profiles.py)가 docs/api.md 모양으로 답하는지, 개발 모드가 아니면 닫혀 있는지,
+동의를 지키는지. 서버(main.py)에는 DB 라우터(profiles_db)가 올라가므로 스텁 라우터만 올린 작은 앱으로 본다.
+/judge 응답 모양은 서버 앱에서 본다(세션 의존성을 예시 프로필로 바꿔 끼움)."""
 
 import pytest
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from backend.app.main import app
+from backend.app.routers import judge, profiles
+from backend.engine.stub_data import EXAMPLE_PROFILE
 
-client = TestClient(app)
+_stub = FastAPI()
+_stub.include_router(profiles.router)
+client = TestClient(_stub)
 
 
 @pytest.fixture
@@ -17,7 +24,6 @@ def test_closed_by_default(monkeypatch):
     monkeypatch.delenv("DEV_STUB_API", raising=False)
     assert client.get("/profiles/U7f3a").status_code == 404
     assert client.post("/profiles", json={"self": {}}).status_code == 404
-    assert client.post("/judge", json={}).status_code == 404
 
 
 def test_profile_crud(dev):
@@ -60,8 +66,12 @@ def test_sensitive_kept_with_consent(dev):
     assert "income_self" not in p["self"] and "ltc_grade" not in p["parents"][0]   # 동의를 거두면 지운다
 
 
-def test_judge_shape(dev):
-    body = client.post("/judge", json={"user_id": "U7f3a"}).json()
+def test_judge_shape():
+    app.dependency_overrides[judge.own_profile] = lambda: {"account_id": "acct", "profile": EXAMPLE_PROFILE}
+    try:
+        body = TestClient(app).post("/judge", json={"user_id": "U7f3a"}).json()
+    finally:
+        app.dependency_overrides.pop(judge.own_profile, None)
     assert set(body) >= {"user_id", "ask", "cards", "timeline", "similar", "disclaimer"}
     card = body["cards"][0]
     assert card["verdict"] in {"eligible", "needs_check", "ineligible", "opens_later"}

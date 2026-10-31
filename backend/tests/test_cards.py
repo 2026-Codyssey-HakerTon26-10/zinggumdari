@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 
 from backend.app import sources
 from backend.app.main import app
-from backend.app.routers import profiles
+from backend.app.routers import judge
 from backend.engine.cards import DISCLAIMER, build_judge
 
 TODAY = date(2026, 11, 1)
@@ -89,25 +89,31 @@ def test_documents_without_dictionary():
 client = TestClient(app)
 
 
-@pytest.fixture(autouse=True)
-def dev(monkeypatch):
-    monkeypatch.setenv("DEV_STUB_API", "1")
+@pytest.fixture
+def signed_in():
+    """세션 본인 프로필을 바꿔 끼운다(DB 경로는 test_profiles_judge_db)."""
+    def use(profile):
+        app.dependency_overrides[judge.own_profile] = lambda: {"account_id": "acct", "profile": profile}
+    yield use
+    app.dependency_overrides.pop(judge.own_profile, None)
 
 
-def test_router_uses_engine_when_rules_exist(monkeypatch):
-    monkeypatch.setattr(sources, "load_rules", lambda: [OK, NO])
-    profiles._store["Utest"] = {"user_id": "Utest", **ME}
+def test_router_uses_engine_when_rules_exist(monkeypatch, signed_in):
+    monkeypatch.setattr(sources, "load_rules", lambda owner=None: [OK, NO])
+    signed_in({"user_id": "Utest", **ME})
     body = client.post("/judge?today=2026-11-01", json={"user_id": "Utest"}).json()
     assert body["user_id"] == "Utest" and ids(body) == ["manual:ok"]
 
 
-def test_router_unknown_user_404(monkeypatch):
-    monkeypatch.setattr(sources, "load_rules", lambda: [OK])
-    assert client.post("/judge", json={"user_id": "Unope"}).status_code == 404
+def test_router_other_user_403(monkeypatch, signed_in):
+    monkeypatch.setattr(sources, "load_rules", lambda owner=None: [OK])
+    signed_in({"user_id": "Utest", **ME})
+    assert client.post("/judge", json={"user_id": "Unope"}).status_code == 403
 
 
-def test_router_falls_back_to_stub_without_rules(monkeypatch):
-    monkeypatch.setattr(sources, "load_rules", lambda: [])
+def test_router_falls_back_to_stub_without_rules(monkeypatch, signed_in):
+    monkeypatch.setattr(sources, "load_rules", lambda owner=None: [])
+    signed_in({"user_id": "U7f3a", **ME})
     body = client.post("/judge", json={"user_id": "U7f3a"}).json()
     assert body["cards"][0]["rule_id"] == "manual:hug-newlywed-jeonse"
 
