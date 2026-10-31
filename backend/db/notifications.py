@@ -35,7 +35,7 @@ def mark_read(conn: psycopg.Connection, user_id: str, notification_id: str) -> d
 
 
 def upsert(conn: psycopg.Connection, user_id: str, item: dict) -> None:
-    """알림 ID로 upsert. 같은 ID면 title·read 외에는 갱신하지 않는다."""
+    """알림 ID로 upsert. 같은 ID면 title만 갱신한다(read·emailed_at은 그대로 둔다)."""
     extra = {k: v for k, v in item.items()
              if k not in ("id", "kind", "subject", "rule_id", "title", "created", "due", "read", "emailed_at")}
     conn.execute(

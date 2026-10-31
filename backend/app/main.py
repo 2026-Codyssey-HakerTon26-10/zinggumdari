@@ -1,4 +1,6 @@
+import logging
 import secrets as _secrets
+from contextlib import contextmanager
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -34,8 +36,8 @@ def health() -> dict:
 
 def _session_user(request: Request):
     try:
-        from backend.db import connect
-        from backend.db import profiles as db_profiles, sessions
+        from backend.db import connect, sessions
+        from backend.db import profiles as db_profiles
         token = request.cookies.get(sessions.COOKIE)
         if not token:
             return None
@@ -85,35 +87,49 @@ def _require_admin(request: Request) -> None:
 
 # ── 알림 라우터 (#13) ─────────────────────────────────────────────────────────
 
+_log = logging.getLogger(__name__)
+
+
+@contextmanager
+def _db_errors(what: str):
+    """DB 오류를 빈 결과나 200으로 숨기지 않고 503으로 올린다. 로그에는 오류 종류만 남긴다."""
+    try:
+        yield
+    except HTTPException:
+        raise
+    except Exception as exc:  # noqa: BLE001 — 오류를 503으로 바꿔 올림
+        _log.error("%s 실패: %s", what, type(exc).__name__)
+        raise HTTPException(status_code=503, detail="알림 저장소를 쓸 수 없습니다") from None
+
+
 class _NotifyStore:
     """알림 DB 저장소. router.create_router에 주입한다."""
 
     def list(self, user_id: str) -> list:
-        try:
+        with _db_errors("알림 목록"):
             from backend.db import connect
             from backend.db import notifications as db_notif
             with connect() as conn:
                 return db_notif.list_for_user(conn, user_id)
-        except Exception:
-            return []
 
     def mark_read(self, user_id: str, notification_id: str):
-        try:
+        with _db_errors("알림 읽음"):
             from backend.db import connect
             from backend.db import notifications as db_notif
             with connect() as conn:
                 return db_notif.mark_read(conn, user_id, notification_id)
-        except Exception:
-            return None
 
     def rebuild(self, today):
-        try:
-            from datetime import date
+        from datetime import date
+
+        from backend.app.sources import load_rules
+        from backend.engine import judge as judge_fn
+        from backend.notify import service as notify_svc
+
+        with _db_errors("알림 재판정"):
             from backend.db import connect
-            from backend.db import profiles as db_profiles, notifications as db_notif
-            from backend.engine import judge as judge_fn
-            from backend.app.sources import load_rules
-            from backend.notify import service as notify_svc
+            from backend.db import notifications as db_notif
+            from backend.db import profiles as db_profiles
 
             rules = load_rules()
             with connect() as conn:
@@ -130,43 +146,45 @@ class _NotifyStore:
 
                 return notify_svc.rebuild(all_profiles, rules, judge_fn, save,
                                           today=today if isinstance(today, date) else date.today())
-        except Exception as exc:
-            return {"error": str(exc), "processed_profiles": 0, "notifications": 0}
 
     def test_email(self, user_id: str):
-        from backend.db import connect
-        from backend.db import profiles as db_profiles, notifications as db_notif
         from backend.notify.email import send_email
 
-        with connect() as conn:
+        with _db_errors("테스트 메일 준비"):
+            from backend.db import connect
+            from backend.db import notifications as db_notif
+            from backend.db import profiles as db_profiles
+            conn_cm = connect()
+        with conn_cm as conn:
             profile = db_profiles.load(conn, user_id)
             if not profile:
                 raise HTTPException(status_code=404, detail="프로필이 없습니다")
             items = db_notif.list_for_user(conn, user_id)
             if not items:
                 return {"sent": False, "reason": "보낼 알림이 없습니다"}
-            item = items[0]
+            categories = (profile.get("self") or {}).get("alert_categories") or []
+            if not categories:
+                return {"sent": False, "reason": "이메일로 받을 알림 분야가 없습니다"}
 
             def record(uid, nid, at):
                 db_notif.record_sent(conn, uid, nid, at)
 
-            sent = send_email(profile, item, category=(profile.get("self") or {}).get("alert_categories", [""])[0],
-                              record_sent=record)
+            try:
+                sent = send_email(profile, items[0], category=categories[0], record_sent=record)
+            except ValueError:  # SMTP_HOST·MAIL_FROM 미설정
+                raise HTTPException(status_code=503, detail="메일 서버 설정이 없습니다") from None
             return {"sent": sent}
 
 
-try:
-    from backend.notify.router import create_router as _notify_router
-    app.include_router(_notify_router(_NotifyStore(), _require_user, _require_admin))
-except Exception:
-    pass
+# import가 깨지면 서버가 바로 실패해야 한다. 조용히 라우트가 빠지지 않게 try로 감싸지 않는다.
+from backend.notify.router import create_router as _notify_router
+
+app.include_router(_notify_router(_NotifyStore(), _require_user, _require_admin))
 
 
 # ── 통계 라우터 (#14) ─────────────────────────────────────────────────────────
 
-try:
-    from eval.coverage import create_router as _coverage_router
-    from backend.app.sources import load_rules as _load_rules
-    app.include_router(_coverage_router(_load_rules))
-except Exception:
-    pass
+from backend.app.sources import load_rules as _load_rules
+from eval.coverage import create_router as _coverage_router
+
+app.include_router(_coverage_router(_load_rules))
