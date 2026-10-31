@@ -1,0 +1,10 @@
+{
+  "source": "ssis_local_detail",
+  "dataset": "15108347",
+  "endpoint": "https://apis.data.go.kr/B554287/LocalGovernmentWelfareInformations/LcgvWelfaredetailed",
+  "parent": "ssis_local",
+  "fetched_at": "2026-10-31T22:04:18",
+  "fetched_now": 0,
+  "already_had": 0,
+  "files": 301
+}
