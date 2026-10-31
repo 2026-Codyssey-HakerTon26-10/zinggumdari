@@ -20,10 +20,10 @@ from urllib.parse import urljoin, urlparse
 
 import httpx
 
+from backend.compiler.lines import has_rrn
 from backend.data import config
 from backend.notices import store
 
-RRN = re.compile(r"(?<!\d)\d{6}\s?-\s?[1-4]\d{6}(?!\d)")   # 주민등록번호 꼴
 MAX_BYTES = 30 * 1024 * 1024
 NOTICE = "개인 서류를 올리지 마세요. 주민등록번호가 보이면 받지 않습니다."
 
@@ -108,6 +108,14 @@ def _compile():
     except ImportError:
         return None
     return fn
+
+
+def _call_compile(fn, doc_id: str, lines: list[dict], meta: dict) -> list[dict]:
+    """compile()에 원문 머리를 넘긴다(제목, 출처, 해시, 읽지 못한 쪽). 읽지 못한 쪽이 있으면 조건표마다
+    확인 필요 조건이 붙는다. 머리를 받지 않는 compile이면 줄만 넘긴다."""
+    if "meta" in inspect.signature(fn).parameters:
+        return fn(doc_id, lines, "upload", meta=meta)
+    return fn(doc_id, lines, "upload")
 
 
 def summarize(doc_id: str, meta: dict, lines: list[dict], rules: list[dict]) -> dict:
@@ -229,13 +237,12 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
 
     uploaded_by는 로그인 세션의 계정 ID다. 원문 머리에 남겨 탈퇴 때 같이 지운다.
     캐시를 재생할 때(replay를 켰거나 읽기가 실패했을 때)도 지금 올린 계정 앞으로 원문과 조건표를 새로 남겨
-    카드에 합류시킨다. 캐시는 원문 해시로 찾으므로 같은 PDF여야 한다.
+    카드에 합류시킨다. 캐시는 원문 해시로 찾으므로 같은 파일이어야 한다.
+    받는 형식은 줄 만들기(backend.compiler.lines)가 읽는 것(PDF, HWP, HWPX, 텍스트)이다.
     """
     data = path.read_bytes()
     if len(data) > MAX_BYTES:
         raise Rejected("파일이 너무 큽니다(30MB까지)")
-    if data[:5] != b"%PDF-":
-        raise Rejected("PDF만 받습니다. HWP와 다른 형식은 받지 않습니다")
     sha = hashlib.sha256(data).hexdigest()
 
     cached = load_cache(sha)
@@ -247,11 +254,11 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     try:   # 계정은 등록 순간에 남긴다. 뒤에서 실패해도 탈퇴 때 찾을 수 있게
         meta = store.register(path, doc_id, "upload", source_url, Path(filename).stem or doc_id, today.isoformat(),
                               extra={"uploaded_by": uploaded_by})
-    except ValueError as exc:   # 스캔 PDF 등
+    except ValueError as exc:   # 읽을 수 없는 형식, 글자를 하나도 못 읽은 스캔 PDF
         _discard(doc_id)
         raise Rejected(str(exc)) from exc
     lines = store.load_lines(doc_id) or []
-    if any(RRN.search(ln["text"]) for ln in lines):
+    if has_rrn(lines):
         _discard(doc_id)
         raise Rejected("주민등록번호로 보이는 숫자가 있어 받지 않았습니다. " + NOTICE)
 
@@ -266,7 +273,7 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     try:
         if compile_fn is None:
             raise RuntimeError("AI 공고 읽기(backend.compiler.compile)가 아직 연결되지 않았다")
-        rules = compile_fn(doc_id, lines, "upload")
+        rules = _call_compile(compile_fn, doc_id, lines, meta)
     except Exception as exc:   # 읽기가 실패하면 캐시가 있을 때 캐시로 같은 화면을 만들고, 없으면 올린 원문을 지운다
         if cached:
             return replay_with(f"읽기 실패: {exc}")

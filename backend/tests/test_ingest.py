@@ -304,3 +304,23 @@ def test_rules_and_evidence_are_scoped_to_uploader(tmp_path, world, notice_pdf, 
     assert store.evidence([eid], owner="A1")[0]["text"] == "Notice for newlyweds"
     assert store.evidence([eid], owner="B1")[0] == {"id": eid, "page": None, "bbox": None, "text": None}
     assert store.evidence([eid])[0]["text"] is None
+
+
+def test_ingest_accepts_text_and_passes_meta(tmp_path, world, monkeypatch):
+    """줄 만들기를 compiler.lines로 바꿔서 텍스트도 받는다. 원문 머리는 compile(meta=)로 넘긴다."""
+    ing = world
+    seen = {}
+
+    def compile_with_meta(doc_id, lines, source, *, meta=None):
+        seen["meta"], seen["lines"] = meta, lines
+        return [{"id": f"upload:{doc_id}:x", "conditions": []}]
+    monkeypatch.setattr(ing, "_compile", lambda: compile_with_meta)
+    src = tmp_path / "notice.txt"
+    src.write_text("○ 지원대상\n - 만 19세 이상 39세 이하 무주택 세대주\n", encoding="utf-8")
+    out = ing.ingest(src, "notice.txt", uploaded_by="A1")
+    assert out["replayed"] is False and seen["meta"]["kind"] == "text" and seen["meta"]["uploaded_by"] == "A1"
+    assert seen["meta"]["unread_pages"] == [] and [ln["id"] for ln in seen["lines"]] == ["l1", "l2"]
+    bad = tmp_path / "bin.dat"
+    bad.write_bytes(b"\x00\x01\x02 binary")
+    with pytest.raises(ing.Rejected):
+        ing.ingest(bad, "bin.dat", uploaded_by="A1")
