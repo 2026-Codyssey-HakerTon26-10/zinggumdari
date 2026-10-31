@@ -30,7 +30,7 @@ function ConsentItem({ id, label, required, checked, onCheck, open, onToggle, ch
             <div className="auth-consent-row"> {/* 체크박스 행과 보기 버튼을 나란히 배치해요. */}
                 <label className="auth-checkbox-label"> {/* 체크박스와 문구를 함께 클릭할 수 있게 해요. */}
                     <input className="auth-checkbox" type="checkbox" id={id} checked={checked} onChange={(e) => onCheck(e.target.checked)} />
-                    <span><strong>{required ? "[필수]" : "[선택]"}</strong> {label}</span>
+                    <span><span className={required ? "auth-badge auth-badge--required" : "auth-badge auth-badge--optional"}>{required ? "필수" : "선택"}</span> {label}</span>
                 </label>
                 <button type="button" className="auth-inline-link" onClick={onToggle} aria-expanded={open} aria-controls={`${id}-detail`}>{open ? "접기" : "보기"}</button>
             </div>
