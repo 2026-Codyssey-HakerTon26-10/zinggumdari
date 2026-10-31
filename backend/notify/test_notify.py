@@ -140,3 +140,20 @@ def test_upload_rebuild_only_judges_uploader_profiles():
     rebuild(profiles, [rule], judge, save, today=TODAY, rule_ids=["upload:r"])
     save.assert_not_called()
     assert all(call.args[1] == [] for call in judge.call_args_list)
+
+
+def test_collector_to_handler_keeps_account_scope(monkeypatch):
+    from backend.collector.ingest import _after_merge
+    from backend.notify import api
+    profiles = [{"user_id": "ua", "account_id": "A"}, {"user_id": "ub", "account_id": "B"}]
+    rule = {**RULE, "id": "upload:r", "source": "upload"}
+    save = MagicMock()
+    judge = MagicMock(return_value={"upload:r": {"verdict": "needs_check"}})
+    def handler(*, rule_ids, today, account_id):
+        return rebuild(profiles, [rule], judge, save, today=today, rule_ids=rule_ids, account_id=account_id)
+    monkeypatch.setattr(api, "_handler", handler)
+    assert _after_merge(["upload:r"], account_id="A")["notifications"] == 1
+    assert save.call_args.args[0] == "ua"
+    save.reset_mock()
+    assert _after_merge(["upload:r"])["status"] == "skipped"
+    save.assert_not_called()
