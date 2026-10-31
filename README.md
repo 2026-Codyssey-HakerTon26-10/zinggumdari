@@ -26,6 +26,7 @@
 
 - Python 3.11, [uv](https://docs.astral.sh/uv/)
 - Node.js 20 이상, npm
+- PostgreSQL 14 이상(CI는 16, 새로 깔면 16 권장): macOS `brew install postgresql@16 && brew services start postgresql@16`, Ubuntu `sudo apt install postgresql`. 가입·로그인·프로필·판정이 DB를 쓴다
 - (선택) 스캔 PDF의 줄 좌표가 필요하면 tesseract: `brew install tesseract tesseract-lang`. 없으면 네이토 API가 글자를 읽고 좌표 없이 쪽만 칠한다.
 
 uv가 없으면 먼저 설치합니다(macOS).
@@ -50,7 +51,7 @@ uv sync --project backend
 cd frontend && npm install && cd ..
 ```
 
-`.env`에 키를 채웁니다. 키는 커밋하지 않습니다.
+`.env`에 키를 채웁니다. 키는 커밋하지 않습니다. 다른 컴퓨터(서버)로 옮길 때도 git이나 채팅이 아니라 그 컴퓨터에서 직접 넣거나 `scp .env 사용자@서버:레포경로/`로 보냅니다.
 
 | 변수 | 어디서 받나 |
 |---|---|
@@ -70,12 +71,17 @@ cd frontend && npm install && cd ..
 
 명령은 전부 **레포 루트에서** 실행합니다. uv 프로젝트는 `backend/` 안에 있어서 `--project backend`를 붙입니다. 그래야 `backend.engine` 같은 모듈 경로가 잡힙니다.
 
-DB 준비 (PostgreSQL, 처음 한 번과 `backend/db/migrations/`에 새 파일이 생겼을 때). `.env`의 `DATABASE_URL`에 적용한다:
+DB 준비 (PostgreSQL, 처음 한 번과 `backend/db/migrations/`에 새 파일이 생겼을 때). 스크립트 하나로 끝난다:
 
 ```bash
-createdb zinggumdari
-uv run --project backend python -m backend.db.migrate
+bash backend/db/setup.sh
 ```
+
+- PostgreSQL이 켜져 있는지 보고, `.env`가 없으면 `.env.example`로 만들고, 비어 있는 `DATABASE_URL`만 `postgresql://localhost/zinggumdari`로 채운다. 이미 있는 값과 API 키는 건드리지 않는다
+- DB가 없으면 만들고(`createdb`), 마이그레이션을 적용하고, 몇 개 적용됐는지 보여 준다. 여러 번 돌려도 이미 한 것은 건너뛴다
+- 다른 DB 이름은 `bash backend/db/setup.sh 이름`. 사용자·비밀번호가 있는 DB는 `.env`의 `DATABASE_URL`을 먼저 적어 두면 그 주소를 쓴다
+
+손으로 하려면 `createdb zinggumdari` → `.env`에 `DATABASE_URL` → `uv run --project backend python -m backend.db.migrate`.
 
 DB 테스트까지 돌리려면 테스트용 DB를 하나 더 만들고(`createdb zinggumdari_test`) `.env`에 `TEST_DATABASE_URL`을 넣는다. 없으면 DB 테스트는 건너뛴다. 테스트는 그 DB 안에 무작위 스키마(`test_…`)를 만들어 쓰고 끝나면 그 스키마만 지운다(`public`은 건드리지 않는다). CI는 PostgreSQL 서비스를 띄워 DB 테스트까지 돌린다.
 
@@ -97,11 +103,14 @@ cd frontend && npm run dev
 uv run --project backend python -m backend.data.dump --source gov24
 ```
 
-가상 인구와 비슷한 가구 표 만들기:
+가상 인구와 비슷한 가구 표 만들기(없으면 `/judge`의 `similar`가 `null`이다. 판정표는 약 2분):
 
 ```bash
 uv run --project backend python -m backend.population.build --n 10000 --holdout 1000 --seed 42
+uv run --project backend python -m backend.engine.similar
 ```
+
+시연 데이터: 화면에서 가입(닉네임·필수 동의) → 기본 정보 입력, 또는 로그인 뒤 `POST /profiles/presets/jiwon`(가상 프리셋 「지원」) → `/my`.
 
 테스트:
 
