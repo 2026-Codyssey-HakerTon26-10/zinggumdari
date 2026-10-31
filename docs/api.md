@@ -323,7 +323,9 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 {"doc_id": "upload-20261031-01", "lines": 412, "section": {"from": "p6-l1", "to": "p9-l40", "found_by": "heading"}, "marked": 21,
  "llm_calls": 1, "schema_retries": 0, "rules": 2, "conditions": 12, "auto_verified": 9, "needs_review": 3,
  "fails": [{"rule_id": "upload:upload-20261031-01:newlywed", "field": "income_couple", "check": "comparator", "reason": "no_comparator", "evidence": ["upload-20261031-01:p8-l4"]}],
- "unaccounted": ["upload-20261031-01:p8-l9"], "unread_pages": [], "model": "…", "prompt": "v1"}
+ "unaccounted": ["upload-20261031-01:p8-l9"], "unread_pages": [],
+ "no_evidence": 0,                         // 모델이 근거 줄 없이 낸 조건 수. 조건표에 넣지 않고 그 원문 줄은 unaccounted로 남는다
+ "model": "…", "prompt": "v1"}
 ```
 
 화면은 진행 표시(줄 만들기 → 자격 구간 → 읽기 → 검증 → 합류) 뒤 조건 표를 보여준다: 우리가 읽은 조건(템플릿 문장), 근거 줄, 검사별 ✓/✗, 미반영 줄. 그다음 카드에 합류시키고 `new_rule` 알림을 만든다. 검수 전이라 카드는 `eligible`이 되지 않는다(SPEC §5.2). 시연 PDF 2건은 결과 캐시 + "캐시 재생" 토글.
