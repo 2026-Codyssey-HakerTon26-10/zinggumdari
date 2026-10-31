@@ -98,14 +98,18 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
                 "doc_sha256": meta.get("sha256") or _sha("\n".join(l.get("text") or "" for l in lines)),
                 "raw": _rel(raw_path), "at": raw["at"]}
 
-    rules = []
+    rules, no_evidence = [], 0
     for rid, d in zip(_rule_ids(drafts, doc_id, source), drafts):
         rule = {"id": rid, "source": source, "name": d.get("name") or meta.get("title") or doc_id, "org": meta.get("org"),
                 "region": None, "domain": d.get("domain"), "subject": d.get("subject", "self"),
                 "benefit_type": d.get("benefit_type"), "aliases": d["aliases"], "conditions": d["conditions"],
                 "exclusive_evidence": exclusive, "documents": d["documents"], "detail_url": meta.get("source_url"),
                 "updated": meta.get("fetched_at") or datetime.now(KST).date().isoformat(), "review": {"status": "unreviewed"}}
-        rule["conditions"] = [_well_formed(c) for c in rule["conditions"]]
+        conds = [_well_formed(c) for c in rule["conditions"]]
+        # 근거 줄은 모든 조건에 필수다(api.md §1). 모델이 근거 없이 낸 조건은 넣지 않고, 그 원문 줄은 아래 빠짐 검사가
+        # 「원문 조건 미반영」(근거 줄 있음, 확인 필요)으로 남긴다
+        rule["conditions"] = [c for c in conds if c.get("evidence")]
+        no_evidence += len(conds) - len(rule["conditions"])
         rule = verify(rule, lines)
         rule["region"] = _region(rule["conditions"], source, meta)
         rules.append(rule)
@@ -127,6 +131,9 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
                          "labeled": {k: labeled[k] for k in LABELS}, "unaccounted": len(unaccounted)}
         r["compiled"] = dict(compiled)
 
+    # 조건이 하나도 없는 조건표(개인 자격이 없는 기관·시설 지원 등)는 판정에서 아무것도 떨어지지 않아
+    # 모든 사람에게 「AI가 읽은 조건은 모두 맞아요」로 뜬다. 조건표로 내지 않는다
+    rules = [r for r in rules if r["conditions"]]
     if not return_log:
         return rules
     conds = [c for r in rules for c in r["conditions"]]
@@ -134,7 +141,7 @@ def compile(doc_id: str, lines: list[dict], source: str = "upload", *, meta: dic
     log = {"doc_id": doc_id, "lines": len(lines), "section": info, "marked": len(marked), **calls,
            "rules": len(rules), "conditions": len(conds), "auto_verified": status["auto_verified"],
            "needs_review": status["needs_review"], "fails": [f for r in rules for f in _fails(r)],
-           "unaccounted": [f"{doc_id}:{i}" for i in unaccounted], "unread_pages": unread,
+           "unaccounted": [f"{doc_id}:{i}" for i in unaccounted], "unread_pages": unread, "no_evidence": no_evidence,
            "model": raw["model"], "prompt": PROMPT_VERSION,
            "usage": raw["usage"]}
     return rules, log

@@ -150,7 +150,7 @@ def test_end_to_end(fake, lines, tmp_path):
     assert set(raw) == {"key", "model", "prompt", "usage", "raw_text", "at"} and json.loads(raw["raw_text"]) == OUTPUT
 
     assert list(log) == ["doc_id", "lines", "section", "marked", "llm_calls", "schema_retries", "cache", "rules", "conditions",
-                         "auto_verified", "needs_review", "fails", "unaccounted", "unread_pages", "model", "prompt", "usage"]
+                         "auto_verified", "needs_review", "fails", "unaccounted", "unread_pages", "no_evidence", "model", "prompt", "usage"]
     assert log["section"]["from"] == "l4" and log["section"]["found_by"] == "heading"
     assert (log["lines"], log["marked"], log["llm_calls"], log["cache"], log["rules"]) == (17, 10, 1, False, 2)
     assert (log["conditions"], log["auto_verified"], log["needs_review"]) == (14, 10, 4)
@@ -542,3 +542,22 @@ def test_malformed_conditions_become_other():
     assert _well_formed({"any_of": [], "evidence": ["d:l2"]})["field"] == "other"
     fixed = _well_formed({"any_of": [[{"field": "age", "op": "<=", "value": 34}], [{"field": "gender"}]]})
     assert fixed["any_of"][1] == [{"field": "other", "text": "AI가 읽은 조건의 형식이 맞지 않음", "reason": "malformed"}]
+
+
+def test_condition_without_evidence_is_dropped_and_its_line_surfaces(fake, tmp_path):
+    """근거 없는 조건(모델이 any_of 묶음에 evidence를 빼먹은 경우)은 넣지 않고, 그 원문 줄은 미반영 줄로 남는다."""
+    lines = to_lines("d", "Ⅱ. 신청자격\n○ 만 19세 이상 무주택 청년\n○ 기초생활수급자 또는 차상위계층\n")
+    no_ev = {**c("age", ">=", 19, []), "field": None, "op": None, "value": None,
+             "any_of": [[{**c("qual_code", "in", ["기초생활수급자"], []), "evidence": None}]]}
+    fake(lambda content: {"rules": [r("main", [c("age", ">=", 19, ["l2"]), no_ev])], "labels": []})
+    rules, log = compile("d", lines, "upload", raw_dir=tmp_path, return_log=True)
+    assert all(x.get("evidence") for x in rules[0]["conditions"]) and log["no_evidence"] == 1
+    assert "d:l3" in log["unaccounted"]                           # 그 줄은 「원문 조건 미반영」으로 남는다
+
+
+def test_rule_without_conditions_is_not_emitted(fake, tmp_path):
+    """조건이 하나도 없는 조건표는 모든 사람에게 확인 필요 카드로 뜨므로 내지 않는다."""
+    lines = to_lines("d", "Ⅱ. 신청자격\n○ 사회복지시설 운영 지원\n")
+    fake(lambda content: {"rules": [r("main", [])], "labels": [{"line": "l2", "label": "not_condition"}]})
+    rules, log = compile("d", lines, "upload", raw_dir=tmp_path, return_log=True)
+    assert rules == [] and log["rules"] == 0
