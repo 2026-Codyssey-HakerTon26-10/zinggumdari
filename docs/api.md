@@ -274,7 +274,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 ]
 ```
 
-매핑 규칙(오프라인, 손 조건표 15 + AI 추출 5를 미리 매핑해 캐시): 조건 JSON `documents[]` 문자열 → 이름·`aliases`와 정확히 일치(괄호 안 설명·띄어쓰기·가운뎃점 무시). "기초생활수급자‧차상위계층‧한부모가족 증명서"처럼 묶인 이름은 나눠서 각각 맞추고 카드에 줄을 여럿 낸다 → 없으면 `status: "unknown"`("발급처 확인 필요"). 신분증·통장 사본·임대차계약서·위임장은 `self_held`. 캐시는 `docs/documents_map.json`(서류명 → `{"doc_ids", "status"}`)이고 조건표를 더하면 `uv run --project backend python -m backend.engine.documents`로 다시 만든다(테스트가 커밋된 조건표의 서류명이 캐시에 다 있는지 본다). LLM 제안은 쓰지 않는다. gov24 `documents_official`에 있으면 `who_provides: official`. 런타임 `/judge`는 캐시만 읽는다. AI 조건표의 서류명은 원문 줄에 그대로 있는 것만 남는다(SPEC §9.3).
+매핑 규칙(오프라인, 손 조건표 15 + AI 추출 5를 미리 매핑해 캐시): 조건 JSON `documents[]` 문자열 → 이름·`aliases`와 정확히 일치(괄호 안 설명·띄어쓰기·가운뎃점 무시). "기초생활수급자‧차상위계층‧한부모가족 증명서"처럼 묶인 이름은 나눠서 각각 맞추고 카드에 줄을 여럿 낸다 → 없으면 `status: "unknown"`("발급처 확인 필요"). 신분증·통장 사본·임대차계약서·위임장은 `self_held`. 캐시는 `docs/documents_map.json`(서류명 → `{"doc_ids", "status"}`)이고 조건표를 더하면 `uv run --project backend python -m backend.engine.documents`로 다시 만든다(캐시에 없는 서류명은 "발급처 확인 필요"로 안전하게 나가므로 테스트는 실패 대신 경고만 낸다). LLM 제안은 쓰지 않는다. gov24 `documents_official`에 있으면 `who_provides: official`. 런타임 `/judge`는 캐시만 읽는다. AI 조건표의 서류명은 원문 줄에 그대로 있는 것만 남는다(SPEC §9.3).
 
 ## 5. 알림 (`GET /notifications`, 사용자 선택은 로그인 세션)
 

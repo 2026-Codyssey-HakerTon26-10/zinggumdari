@@ -106,6 +106,15 @@ def rows(rule: dict, cache: dict[str, dict] | None = None, docs: list[dict] | No
     return out
 
 
+def missing_from_map() -> list[str]:
+    """커밋된 조건표의 서류명 중 캐시에 없는 것."""
+    from backend.data.rules import load_rules
+
+    cache = load_map()
+    names = {n for r in load_rules() for n in (r.get("documents") or []) + (r.get("documents_official") or [])}
+    return sorted(names - set(cache))
+
+
 def main() -> None:
     from backend.data.rules import load_rules
 
