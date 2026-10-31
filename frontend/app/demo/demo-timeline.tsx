@@ -14,7 +14,7 @@ function todoText(step: DemoStep) { // 근거가 없는 준비 사항은 만들�
     const supported = step.todo.filter((todo) => todo.evidence.length > 0); // 근거 줄 ID가 있는 해둘 일만 표시 대상으로 삼아요.
     return supported.length ? supported.map((todo) => `${todo.action} · 근거: ${todo.evidence.join(", ")}`).join(" / ") : "근거가 연결된 해둘 일 없음"; // 미연결 상태를 그대로 알려줘요.
 } // 준비 사항 설명을 마쳐요.
-export function DemoTimeline({ steps }: { steps: DemoStep[] }) { // 프로필 응답의 타임라인을 받는 독립 화면 조각이에요.
+export function DemoTimeline({ steps, activeStep }: { steps: DemoStep[]; activeStep?: string }) { // 프로필 응답의 타임라인을 받는 독립 화면 조각이에요.
     const [table, setTable] = useState(false); // 처음에는 읽기 쉬운 단계 목록을 보여줘요.
     return ( // 타임라인 영역을 그려요.
         <section className="demo-results" aria-labelledby="demo-timeline-title"> {/* 단계 목록의 제목을 연결해요. */}
@@ -28,12 +28,12 @@ export function DemoTimeline({ steps }: { steps: DemoStep[] }) { // 프로필 �
                         <table className="demo-table"> {/* 비교 정보를 실제 표 구조로 전달해요. */}
                             <caption>가정한 단계별 변화 · 문서 예시</caption> {/* 표의 용도를 설명해요. */}
                             <thead><tr><th scope="col">단계·가정</th><th scope="col">열림 예시</th><th scope="col">닫힘 예시</th><th scope="col">해둘 일·근거</th></tr></thead> {/* 각 열의 의미를 지정해요. */}
-                            <tbody>{steps.map((step) => <tr key={step.step}><th scope="row">{labels[step.step] ?? step.step}<small>{assumptionText(step)}</small></th><td>{policyText(step.opens)}</td><td>{policyText(step.closes)}</td><td>{todoText(step)}</td></tr>)}</tbody> {/* 목록 보기와 같은 응답을 사용해요. */}
+                            <tbody>{steps.map((step) => <tr key={step.step} aria-current={activeStep === step.step ? "step" : undefined}><th scope="row">{labels[step.step] ?? step.step}<small>{assumptionText(step)}</small></th><td>{policyText(step.opens)}</td><td>{policyText(step.closes)}</td><td>{todoText(step)}</td></tr>)}</tbody> {/* 목록 보기와 같은 응답을 사용해요. */}
                         </table> {/* 비교표를 마쳐요. */}
                     </div> // 스크롤 영역을 마쳐요.
                 ) : ( // 기본 단계 목록을 보여줘요.
                     <ol className="demo-timeline-list"> {/* 단계 순서를 순서 있는 목록으로 전달해요. */}
-                        {steps.map((step) => <li className="demo-panel" key={step.step}><h3>{labels[step.step] ?? step.step}</h3><p>가정: {assumptionText(step)}</p><dl><dt>열림 예시</dt><dd>{policyText(step.opens)}</dd><dt>닫힘 예시</dt><dd>{policyText(step.closes)}</dd><dt>해둘 일·근거</dt><dd>{todoText(step)}</dd></dl></li>)} {/* 응답에 없는 사건 날짜나 지원 조건은 추가하지 않아요. */}
+                        {steps.map((step) => <li className="demo-panel" key={step.step} aria-current={activeStep === step.step ? "step" : undefined}><h3>{labels[step.step] ?? step.step}</h3><p>가정: {assumptionText(step)}</p><dl><dt>열림 예시</dt><dd>{policyText(step.opens)}</dd><dt>닫힘 예시</dt><dd>{policyText(step.closes)}</dd><dt>해둘 일·근거</dt><dd>{todoText(step)}</dd></dl></li>)} {/* 응답에 없는 사건 날짜나 지원 조건은 추가하지 않아요. */}
                     </ol> // 단계 목록을 마쳐요.
                 )} {/* 보기 전환을 마쳐요. */}
             </div> {/* 결과 영역을 마쳐요. */}
