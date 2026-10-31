@@ -25,6 +25,10 @@ if _URL:
 
 # ── 격리 스키마 (test_db.py와 동일 패턴) ────────────────────────────────────
 
+# 가입 필수 칸(SPEC §4.1). 화면이 닉네임·필수 동의를 같이 보낸다
+REQ = {"nickname": "테스터", "consents": {"terms": True, "privacy": True}}
+
+
 @contextmanager
 def _isolated_schema():
     name = "test_" + secrets.token_hex(6)
@@ -136,7 +140,7 @@ def client(monkeypatch):
 
 @_db
 def test_signup_returns_201(client):
-    r = client.post("/auth/signup", json={"email": "new@test.com", "password": "pass1234"})
+    r = client.post("/auth/signup", json={"email": "new@test.com", "password": "pass1234", **REQ})
     assert r.status_code == 201
     assert "account_id" in r.json()
     assert "session" in r.cookies
@@ -144,14 +148,14 @@ def test_signup_returns_201(client):
 
 @_db
 def test_signup_duplicate_email_returns_409(client):
-    client.post("/auth/signup", json={"email": "dup@test.com", "password": "pass1234"})
-    r = client.post("/auth/signup", json={"email": "dup@test.com", "password": "pass1234"})
+    client.post("/auth/signup", json={"email": "dup@test.com", "password": "pass1234", **REQ})
+    r = client.post("/auth/signup", json={"email": "dup@test.com", "password": "pass1234", **REQ})
     assert r.status_code == 409
 
 
 @_db
 def test_login_success(client):
-    client.post("/auth/signup", json={"email": "user@test.com", "password": "pass1234"})
+    client.post("/auth/signup", json={"email": "user@test.com", "password": "pass1234", **REQ})
     r = client.post("/auth/login", json={"email": "user@test.com", "password": "pass1234"})
     assert r.status_code == 200
     assert "account_id" in r.json()
@@ -160,7 +164,7 @@ def test_login_success(client):
 
 @_db
 def test_login_wrong_password_returns_401(client):
-    client.post("/auth/signup", json={"email": "u@test.com", "password": "real1234"})
+    client.post("/auth/signup", json={"email": "u@test.com", "password": "real1234", **REQ})
     r = client.post("/auth/login", json={"email": "u@test.com", "password": "wrong123"})
     assert r.status_code == 401
     assert r.json()["detail"] == "이메일 또는 비밀번호가 올바르지 않습니다"
@@ -175,7 +179,7 @@ def test_login_unknown_email_returns_401(client):
 
 @_db
 def test_login_case_insensitive_email(client):
-    client.post("/auth/signup", json={"email": "Case@Test.com", "password": "pass1234"})
+    client.post("/auth/signup", json={"email": "Case@Test.com", "password": "pass1234", **REQ})
     r = client.post("/auth/login", json={"email": "case@test.com", "password": "pass1234"})
     assert r.status_code == 200
 
@@ -188,7 +192,7 @@ def test_me_requires_login(client):
 
 @_db
 def test_me_returns_account_info(client):
-    client.post("/auth/signup", json={"email": "me@test.com", "password": "pass1234"})
+    client.post("/auth/signup", json={"email": "me@test.com", "password": "pass1234", **REQ})
     r = client.get("/auth/me")
     assert r.status_code == 200
     data = r.json()
@@ -198,7 +202,7 @@ def test_me_returns_account_info(client):
 
 @_db
 def test_logout_clears_session(client):
-    client.post("/auth/signup", json={"email": "lo@test.com", "password": "pass1234"})
+    client.post("/auth/signup", json={"email": "lo@test.com", "password": "pass1234", **REQ})
     client.post("/auth/logout")
     r = client.get("/auth/me")
     assert r.status_code == 401
@@ -212,11 +216,11 @@ def test_logout_without_session_is_ok(client):
 
 @_db
 def test_delete_me_removes_account(client):
-    client.post("/auth/signup", json={"email": "bye@test.com", "password": "pass1234"})
+    client.post("/auth/signup", json={"email": "bye@test.com", "password": "pass1234", **REQ})
     r = client.delete("/auth/me")
     assert r.status_code == 204
     # 삭제 후 같은 이메일로 재가입 가능
-    r2 = client.post("/auth/signup", json={"email": "bye@test.com", "password": "pass5678"})
+    r2 = client.post("/auth/signup", json={"email": "bye@test.com", "password": "pass5678", **REQ})
     assert r2.status_code == 201
 
 
@@ -248,10 +252,10 @@ def test_signup_rejects_bad_input(body):
 @_db
 @pytest.mark.parametrize("password", ["x" * 8, "x" * 128])
 def test_signup_accepts_boundary_lengths(client, password):
-    assert client.post("/auth/signup", json={"email": "edge@test.com", "password": password}).status_code == 201
+    assert client.post("/auth/signup", json={"email": "edge@test.com", "password": password, **REQ}).status_code == 201
 
 
-# ── 가입 닉네임·필수 동의 (SPEC §4.1). 지금 화면은 이메일·비밀번호만 보내므로 둘 다 선택 칸 ─────────
+# ── 가입 닉네임·필수 동의 (SPEC §4.1). 둘 다 필수 ─────────────────────────────────
 
 @pytest.mark.parametrize("extra", [
     {"nickname": "a"},                                        # 1자
@@ -279,11 +283,16 @@ def test_signup_saves_nickname_and_consents(client):
     assert me["nickname"] == "지원" and me["consents"]["terms"] and me["consents"]["privacy"]
 
 
-@_db
-def test_signup_without_new_fields_still_works(client):
-    assert client.post("/auth/signup", json={"email": "old@test.com", "password": "pass1234"}).status_code == 201
-    me = client.get("/auth/me").json()
-    assert me["nickname"] is None and me["consents"] == {"terms": None, "privacy": None}
+@pytest.mark.parametrize("missing", ["nickname", "consents"])
+def test_signup_requires_nickname_and_consents(missing):
+    from fastapi.testclient import TestClient
+
+    from backend.app.main import app
+    body = {"email": "ok@test.com", "password": "pass1234", **REQ}
+    body.pop(missing)
+    r = TestClient(app).post("/auth/signup", json=body)
+    assert r.status_code == 422
+    assert "pass1234" not in r.text   # 빠진 칸 오류에도 비밀번호를 되돌려주지 않는다
 
 
 # ── 로그인 반복 요청 제한 ─────────────────────────────────────────────────────
@@ -322,7 +331,7 @@ def test_login_limiter_caps_one_ip_across_emails():
 def test_login_returns_429_with_retry_after(client, monkeypatch):
     from backend.app.routers import auth as auth_router
     monkeypatch.setattr(auth_router, "limiter", auth_router.LoginLimiter(max_fails=2, window=60))
-    client.post("/auth/signup", json={"email": "rl@test.com", "password": "pass1234"})
+    client.post("/auth/signup", json={"email": "rl@test.com", "password": "pass1234", **REQ})
     for _ in range(2):
         assert client.post("/auth/login", json={"email": "rl@test.com", "password": "wrong123"}).status_code == 401
     r = client.post("/auth/login", json={"email": "rl@test.com", "password": "pass1234"})   # 맞는 비밀번호여도
@@ -337,7 +346,7 @@ def test_delete_me_deletes_uploads_without_profile(client, monkeypatch):
     import backend.collector.ingest as ing
     seen = []
     monkeypatch.setattr(ing, "delete_uploads", lambda account_id: seen.append(account_id) or 0)
-    account_id = client.post("/auth/signup", json={"email": "up@test.com", "password": "pass1234"}).json()["account_id"]
+    account_id = client.post("/auth/signup", json={"email": "up@test.com", "password": "pass1234", **REQ}).json()["account_id"]
     assert client.get("/auth/me").json()["user_id"] is None
     assert client.delete("/auth/me").status_code == 204
     assert seen == [account_id]
