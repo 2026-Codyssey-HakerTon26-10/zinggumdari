@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200000015",
+  "title": "노인실명예방사업",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=701248&bnefType=all&svcId=135200000015",
+  "fetched_at": "2026-10-31",
+  "sha256": "d59a6c25b91d98d9ede13a3ab73f453a0d582e31976d3a1bb8d9c444b80a78d0",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

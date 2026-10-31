@@ -1,0 +1,13 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 65세 이상의 개인 한정 또는 부부 특약 자동차 운전보험 가입자로서 인지 지각검사에 합격하고 3년 이내 이수한 교육 수료증 제출한 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 지원 대상", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 개인 한정 또는 부부 특약 자동차 운전보험 가입자", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 연령 기준", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 65세 이상", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 기타 기준", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 인지 지각검사에 합격하고 3년 이내 이수한 교육 수료증 제출", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

@@ -1,0 +1,13 @@
+{
+ "key": "22c57484574f0948fd1b2bd854837b3b58bb84f833c34df4ff0306c44f5e9591",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6553,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 746
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"청년 행정체험단\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"행정체험\", \"청년일자리\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 29, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"성북구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"!=\", \"value\": \"성북구 청년 행정체험단 직전 3회기 중 1회 이상 참여\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"youth\", \"name\": \"청년 행정체험단 우선선발\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"행정체험\", \"청년일자리\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 29, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"성북구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모\", \"차상위\", \"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"!=\", \"value\": \"성북구 청년 행정체험단 직전 3회기 중 1회 이상 참여\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

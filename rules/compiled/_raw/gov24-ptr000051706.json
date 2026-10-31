@@ -1,0 +1,13 @@
+{
+ "key": "5b222e102dd7c2155835799ff169d84477e6b001177d2d5da41068ae2fc0d1e2",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6662,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 415
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"오피스텔구입 자금융자\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"오피스텔 대출\",\"오피스텔 구입 자금\"],\"conditions\":[{\"field\":\"income_couple\",\"op\":\"<=\",\"value\":6000,\"income_basis\":\"absolute_annual\",\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_householder\",\"op\":\"==\",\"value\":\"세대주\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">=\",\"value\":30,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null}],[{\"field\":\"age\",\"op\":\"<\",\"value\":30,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null},{\"field\":\"supports_parent_65\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null},{\"field\":\"support_years\",\"op\":\">=\",\"value\":0.5,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"definition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

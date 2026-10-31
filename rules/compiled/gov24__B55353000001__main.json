@@ -1,0 +1,312 @@
+{
+ "id": "gov24:B55353000001:main",
+ "source": "gov24",
+ "name": "에너지바우처",
+ "org": "기후에너지환경부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "에너지바우처",
+  "난방비 지원",
+  "에너지 지원"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 1961,
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 2019,
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "소년소녀가정"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     },
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 2
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-b55353000001:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:의료",
+    "comparator": "fail:b0.1:no_value",
+    "unit": "fail:b0.1:no_value",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "보장시설 수급자 제외",
+   "evidence": [
+    "gov24-b55353000001:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l17"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l19"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-b55353000001:l20"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999178&bnefType=all&svcId=B55353000001",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 22,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 4,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 12
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c33863e694f3f37b293c5395943ae342b61d28e2e303cd01a6c61cdb2557e263",
+  "raw": "rules/compiled/_raw/gov24-b55353000001.json",
+  "at": "2026-11-01T04:02"
+ }
+}

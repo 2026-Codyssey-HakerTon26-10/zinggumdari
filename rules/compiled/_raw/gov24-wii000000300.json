@@ -1,0 +1,13 @@
+{
+ "key": "c637678e1f95613296c7a93b603e20d04b3fb8f354ba9792c65a9457c43e1a5b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6674,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 226
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"노후긴급자금 대부지원\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"노후자금\",\"긴급자금\",\"국민연금\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":60,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국민연금수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

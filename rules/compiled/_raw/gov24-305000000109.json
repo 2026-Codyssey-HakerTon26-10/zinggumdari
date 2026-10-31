@@ -1,0 +1,13 @@
+{
+ "key": "c488f0ada0adfcd394a228a1eaeecc972f607ddd5aefc4010180348c7855db9f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6461,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 403
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"임산부 등록 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"임산부 지원\", \"산모 지원\"], \"conditions\": [{\"field\": \"pregnant\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"임산부 등록 지원 - 산모\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"산모 지원\", \"유축기 대여\"], \"conditions\": [{\"field\": \"pregnant\", \"op\": \"==\", \"value\": \"N\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"동대문구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

@@ -1,0 +1,161 @@
+{
+ "id": "gov24:319000000106",
+ "source": "gov24",
+ "name": "저소득주민 국민건강보험료 지원",
+ "org": "서울특별시 동작구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동작구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "건강보험료 지원",
+  "저소득 보험료"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울",
+   "evidence": [
+    "gov24-319000000106:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "동작구",
+   "evidence": [
+    "gov24-319000000106:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "국민건강보험공단 동작지사 지역가입자",
+   "evidence": [
+    "gov24-319000000106:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "보험료 부과 금액이 최저보험료 이하",
+   "evidence": [
+    "gov24-319000000106:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "이혼·사별"
+      ],
+      "text": "한부모"
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "other",
+      "text": "만성질환자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-319000000106:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.1:not_in_evidence:이혼·사별",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002391&bnefType=all&svcId=319000000106",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "951a8dea161f43cdc1c8eb2f2084ffccc1fc007580779132361c1fd211feff83",
+  "raw": "rules/compiled/_raw/gov24-319000000106.json",
+  "at": "2026-11-01T03:58"
+ }
+}

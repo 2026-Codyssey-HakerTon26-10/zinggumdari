@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-320000000120",
+  "title": "국가보훈대상자 위문금 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110222&bnefType=all&svcId=320000000120",
+  "fetched_at": "2026-10-31",
+  "sha256": "ef9c4312dd64501da5407601a037c17caf514bfd94aaaad675edbf4260eb14d4",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

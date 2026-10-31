@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000174",
+  "title": "구민건강검진(무료)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803548&bnefType=all&svcId=304000000174",
+  "fetched_at": "2026-10-31",
+  "sha256": "f8d64b4d21078c97019ca5cda95201f9bf5ad47ed622eceb4353ba3477690196",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

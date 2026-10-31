@@ -1,0 +1,16 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 국가유공자", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 장애인", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 고엽제후유의증 환자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 5·18 민주화유공자", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 저공해자동차", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 다자녀", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 모범납세자", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 보훈보상대상자", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 장기기증자", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 병역명문가", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 의사상자", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

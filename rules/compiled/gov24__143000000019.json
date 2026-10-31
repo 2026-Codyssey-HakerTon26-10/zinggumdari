@@ -1,0 +1,60 @@
+{
+ "id": "gov24:143000000019",
+ "source": "gov24",
+ "name": "사업화 연계 지식재산평가 지원",
+ "org": "지식재산처",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "지식재산평가",
+  "특허평가"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "개인 또는 중소기업으로서 공개된 출원 특허 또는 등록된 특허·실용신안의 권리자(전용실시권자 포함)",
+   "evidence": [
+    "gov24-143000000019:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=588593&bnefType=all&svcId=143000000019",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c6a57bd00bd35150eb977443d4b133db786ce50f8b5d4acb6246b4d08731a1b2",
+  "raw": "rules/compiled/_raw/gov24-143000000019.json",
+  "at": "2026-11-01T03:56"
+ }
+}

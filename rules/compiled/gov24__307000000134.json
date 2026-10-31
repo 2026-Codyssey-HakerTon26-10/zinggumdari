@@ -1,0 +1,79 @@
+{
+ "id": "gov24:307000000134",
+ "source": "gov24",
+ "name": "사랑의 PC 지원",
+ "org": "서울특별시 성북구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "성북구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "PC 지원",
+  "컴퓨터 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "장애인",
+    "결혼이민자",
+    "보호대상아동",
+    "국가유공자"
+   ],
+   "evidence": [
+    "gov24-307000000134:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-307000000134:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=810324&bnefType=all&svcId=307000000134",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "5857326747256da4e3a11bec00d92b784148cca367560476dd171da886edd0d9",
+  "raw": "rules/compiled/_raw/gov24-307000000134.json",
+  "at": "2026-11-01T03:57"
+ }
+}

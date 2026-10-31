@@ -1,0 +1,13 @@
+{
+ "key": "b09202c3f9fd4375b9637765d2b8e98f88eaa2dab688aa6f4135b732a18a0c53",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6780,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 667
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"강서구 전세피해지원금(청년 월세) 지원\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세피해지원금\",\"청년월세지원\",\"강서구월세\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"강서구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":19,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":39,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"==\",\"value\":\"월세\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l10\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전세피해자(특별법에 따라 국토교통부 장관이 결정한 전세사기피해자 또는 HUG 전세피해확인서 발급자)\",\"evidence\":[\"l4\",\"l5\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"월세를 1회 이상 납부\",\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"직계존속·형제·자매 등 2촌 이내 혈족의 주택을 임차하지 않음\",\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"exclusive\"},{\"line\":\"l12\",\"label\":\"procedure\"},{\"line\":\"l13\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "9b9413fd242aafad2aef5a82e4c11ef86a7fdc13a142334e0989f38976ddd824",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6424,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 239
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"소규모 공동주택관리 보조금 지원\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"공동주택관리\",\"소규모주택\",\"관리비지원\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"구로구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"사용승인일로부터 20년 이상 경과된 20세대 미만의 소규모 공동주택\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

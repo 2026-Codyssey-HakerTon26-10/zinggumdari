@@ -1,0 +1,13 @@
+{
+ "key": "ce21169a84a7e7cdec0b78ec51cdc772640533ef5f55ff8cb07d03508d6c2f03",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6556,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 488
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"중장년 경력지원제\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"중장년 경력전환\", \"퇴직자 재취업\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 50, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"퇴직 후 경력전환을 위해 자격을 취득했거나 직업훈련을 이수\", \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"중장년 경력지원제 참여기업\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"중장년 고용지원\", \"기업 채용지원\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"고용보험 피보험자수 5인 이상\", \"evidence\": [\"l3\", \"l6\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

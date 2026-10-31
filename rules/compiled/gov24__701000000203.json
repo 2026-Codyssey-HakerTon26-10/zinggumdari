@@ -1,0 +1,106 @@
+{
+ "id": "gov24:701000000203",
+ "source": "gov24",
+ "name": "저소득층 수익자부담경비 지원",
+ "org": "서울특별시교육청",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "수익자부담경비",
+  "저소득층 지원"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자",
+       "한부모가족",
+       "차상위"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "난민인정자, 특별기여자 또는 그 자녀"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-701000000203:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "fail:b1.0:no_value",
+    "unit": "fail:b1.0:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-701000000203:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-701000000203:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000398&bnefType=all&svcId=701000000203",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7cde2c1b6ad037d8ca6168867c60cdf3a81faf0715c8e41f4b4251b64a0f91ce",
+  "raw": "rules/compiled/_raw/gov24-701000000203.json",
+  "at": "2026-11-01T03:59"
+ }
+}

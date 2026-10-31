@@ -1,0 +1,101 @@
+{
+ "id": "gov24:611000000131:main-2",
+ "source": "gov24",
+ "name": "시각장애인 가정내 잔고장수리사업",
+ "org": "서울특별시",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "시각장애인 수리",
+  "가정내 잔고장"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울",
+   "evidence": [
+    "gov24-611000000131:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-611000000131:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "시각장애인",
+   "evidence": [
+    "gov24-611000000131:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002483&bnefType=all&svcId=611000000131",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ca2a470b01dbdee187cd9627109064a5d1854d75026cbe5352df4128f0aeb3dc",
+  "raw": "rules/compiled/_raw/gov24-611000000131.json",
+  "at": "2026-11-01T03:59"
+ }
+}

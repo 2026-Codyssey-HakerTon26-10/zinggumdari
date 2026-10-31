@@ -1,0 +1,284 @@
+{
+ "id": "gov24:WII000001310",
+ "source": "gov24",
+ "name": "국가보훈대상자 교육지원",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "보훈대상자 교육지원",
+  "국가유공자 교육지원",
+  "보훈 수업료 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "무공수훈자",
+    "보국수훈자",
+    "4·19혁명공로자",
+    "5·18기타희생자",
+    "특수임무공로자",
+    "7급상이자",
+    "경도고엽제후유의증환자",
+    "12·13·14급5·18민주화운동부상자"
+   ],
+   "evidence": [
+    "gov24-wii000001310:l3",
+    "gov24-wii000001310:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<",
+   "value": 30,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-wii000001310:l4",
+    "gov24-wii000001310:l5",
+    "gov24-wii000001310:l18",
+    "gov24-wii000001310:l19"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:자녀",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "무공수훈자(태극/을지 제외): 기준소득 100% 이하",
+   "evidence": [
+    "gov24-wii000001310:l7",
+    "gov24-wii000001310:l21"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "무공수훈자(태극/을지): 기준소득 200% 이하",
+   "evidence": [
+    "gov24-wii000001310:l7",
+    "gov24-wii000001310:l21"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "보국수훈자: 기준소득 100% 이하",
+   "evidence": [
+    "gov24-wii000001310:l8",
+    "gov24-wii000001310:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "4·19혁명공로자: 기준소득 100% 이하",
+   "evidence": [
+    "gov24-wii000001310:l9",
+    "gov24-wii000001310:l23"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "5·18기타희생자: 기준소득 100% 이하",
+   "evidence": [
+    "gov24-wii000001310:l10",
+    "gov24-wii000001310:l24"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "특수임무공로자: 기준소득 100% 이하",
+   "evidence": [
+    "gov24-wii000001310:l11",
+    "gov24-wii000001310:l25"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "7급상이자 자녀(2012.7.1. 이후 등록자): 기준소득 125% 이하",
+   "evidence": [
+    "gov24-wii000001310:l12",
+    "gov24-wii000001310:l26"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "경도 고엽제후유의증환자 자녀(2016.6.23. 이후 등록자): 기준소득 125% 이하",
+   "evidence": [
+    "gov24-wii000001310:l13",
+    "gov24-wii000001310:l27"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "12·13·14급 5·18민주화운동부상자 자녀(2016.6.23. 이후 등록자): 기준소득 125% 이하",
+   "evidence": [
+    "gov24-wii000001310:l14",
+    "gov24-wii000001310:l28"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000001310:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000001310:l17"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=106222&bnefType=all&svcId=WII000001310",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 28,
+  "used": 20,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 5
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "bd06bbb75e12cd4d635a5cd73d9a9085da96e724f37f358f348e0cced0157513",
+  "raw": "rules/compiled/_raw/gov24-wii000001310.json",
+  "at": "2026-11-01T04:03"
+ }
+}

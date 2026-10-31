@@ -1,0 +1,98 @@
+{
+ "id": "gov24:SSE000000030",
+ "source": "gov24",
+ "name": "기타재가급여 (장기요양보험 복지용구)",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "장기요양보험",
+  "복지용구",
+  "재가급여"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-sse000000030:l2",
+    "gov24-sse000000030:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "ltc_grade",
+   "op": "in",
+   "value": [
+    "1등급",
+    "2등급",
+    "3등급",
+    "4등급",
+    "5등급"
+   ],
+   "evidence": [
+    "gov24-sse000000030:l2",
+    "gov24-sse000000030:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:1등급",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sse000000030:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=716766&bnefType=all&svcId=SSE000000030",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f512fb413b87541dc7d682957f75e0a8bd268bf6e542691471f205bfea439657",
+  "raw": "rules/compiled/_raw/gov24-sse000000030.json",
+  "at": "2026-11-01T04:03"
+ }
+}

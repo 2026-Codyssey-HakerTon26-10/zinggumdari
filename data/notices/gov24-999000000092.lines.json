@@ -1,0 +1,18 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 정부 양곡 구매를 희망하는 수급자 및 차상위 계층 가구", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 다음에 해당하는 국민기초생활보장수급자 가구 중 신청가구에 양곡가액의 약 90% 할인 지원", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 기초생계급여 수급자가구", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 기초의료급여 수급자가구", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 다음에 해당하는 차상위 복지수급자 가구로서 정부 양곡 구매를 희망하여 시군구(읍면동) 사회복지담당 부서에 신청하는 자에게 정부 양곡 약 60% 할인지원", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 기초주거, 교육급여 가구", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 한부모가족 지원법 제5조 및 제5조의2에 따른 지원 대상 가구", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 법정 차상위계층(차상위계층 건강보험 본인부담 경감, 차상위 장애(아동) 수당, 차상위", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "장애인연금, 차상위 자활근로, 차상위계층 자격확인)", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 수급자 및 차상위 계층", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "○ 중복수혜 불가 조건", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 긴급복지 사회복지시설 이용 지원", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "매월 1일부터 10일까지", "mark": true}
+]

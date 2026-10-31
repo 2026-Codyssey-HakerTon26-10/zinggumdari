@@ -1,0 +1,13 @@
+{
+ "key": "12a5349b88e4771c18bd72b94fadcdf7e2d1987418659ecb9f14a742424df1ac",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6629,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 322
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"긴급복지 교육지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"긴급복지\",\"교육지원\",\"학비지원\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"긴급복지주지원\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":6,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"in\",\"value\":[\"재학\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"exclusive\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

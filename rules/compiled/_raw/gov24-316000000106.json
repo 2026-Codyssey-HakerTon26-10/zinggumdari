@@ -1,0 +1,13 @@
+{
+ "key": "9b1d4209df0cb74b18b27af2d63b39f4f029a99c12525fcebde1fe0bc857af34",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6399,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 212
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"기초생활보장수급노인 생신축하금 지원\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"기초생활보장\",\"노인생신축하금\",\"어르신축하금\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

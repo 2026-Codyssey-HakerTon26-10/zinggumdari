@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-322000000115",
+  "title": "저소득 노인가구 국민건강보험료 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004825&bnefType=all&svcId=322000000115",
+  "fetched_at": "2026-10-31",
+  "sha256": "1e45d67fa50bcf12a5d43d7ec51a81dc631332a130a990a350d6fe3de4b4a7c9",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

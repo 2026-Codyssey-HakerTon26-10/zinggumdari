@@ -1,0 +1,92 @@
+{
+ "id": "gov24:316000000148:main-2",
+ "source": "gov24",
+ "name": "자치회관 수강료 감면 지원 - 다자녀 가정",
+ "org": "서울특별시 구로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "구로구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "자치회관 수강료",
+  "다자녀 감면"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "서울특별시 구로구 출산장려 및 다자녀 가정 지원에 관한 조례에 따른 다자녀 가정",
+   "evidence": [
+    "gov24-316000000148:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-316000000148:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-316000000148:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-316000000148:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-316000000148:l14"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2166920&bnefType=all&svcId=316000000148",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "e5035796ef3be23e539838fcf975db0790074c38ed564322bcb9241d14988f0f",
+  "raw": "rules/compiled/_raw/gov24-316000000148.json",
+  "at": "2026-11-01T03:58"
+ }
+}

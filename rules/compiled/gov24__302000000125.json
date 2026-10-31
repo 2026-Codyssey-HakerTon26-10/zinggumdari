@@ -1,0 +1,131 @@
+{
+ "id": "gov24:302000000125",
+ "source": "gov24",
+ "name": "용산구 산모신생아 건강관리 본인부담금 지원",
+ "org": "서울특별시 용산구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "용산구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "산모신생아 건강관리",
+  "신생아 지원",
+  "출산 지원"
+ ],
+ "conditions": [
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 12,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-302000000125:l4",
+    "gov24-302000000125:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 12,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-302000000125:l4",
+    "gov24-302000000125:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "용산구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-302000000125:l4",
+    "gov24-302000000125:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 100,
+   "income_basis": "median_pct",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-302000000125:l6",
+    "gov24-302000000125:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2152520&bnefType=all&svcId=302000000125",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "956a73cc81151696533dd521877ee3e45e69c918560d772344af3fe53cb46458",
+  "raw": "rules/compiled/_raw/gov24-302000000125.json",
+  "at": "2026-11-01T03:57"
+ }
+}

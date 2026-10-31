@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 개인 : 장애인, 기초생활수급자, 차상위계층, 보호대상아동, 국가유공자(상이등급판정자), 결혼이민자 등", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 단체 : 비영리 사회복지시설ㆍ법인ㆍ단체", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 단, 최근 2년 이내 광진구 및 타 기관(서울시, 한국정보화진흥원 등)에서 수혜이력이 있는 경우 보급대상에서 제외", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "사업 수행 기간 중 신청", "mark": false}
+]

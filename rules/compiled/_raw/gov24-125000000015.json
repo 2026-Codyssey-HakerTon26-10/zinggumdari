@@ -1,0 +1,13 @@
+{
+ "key": "b94dce61e4ae481efe1a74c8aab22279f6a3ad8413c30b8bb267cc368a2f0d3b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6626,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 465
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"북한이탈주민 정착금 지원(가산금)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"북한이탈주민 정착금\", \"가산금\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 60, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"marital_status\", \"op\": \"in\", \"value\": [\"이혼·사별\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"제3국출생 아동 자녀 있음\", \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l8\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000036",
+  "title": "장애인 스포츠강좌이용권 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999119&bnefType=all&svcId=999000000036",
+  "fetched_at": "2026-10-31",
+  "sha256": "6b585b07e175aa434bfdf579b3382e3adbdcf1933ca2e30273e098c509e0c67e",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

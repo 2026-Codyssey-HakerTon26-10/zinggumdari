@@ -61,7 +61,7 @@ cd frontend && npm install && cd ..
 | `NEXT_PUBLIC_API_BASE` | 화면이 부를 API 주소. `frontend/.env.local`에 같은 이름으로 둔다 |
 | `DATABASE_URL`, `TEST_DATABASE_URL` | 로컬 PostgreSQL 주소(아래 「실행」의 DB 준비). 회원가입과 로그인, 검색 개인화에 필요하다 |
 | `COOKIE_SECURE` | 세션 쿠키 `Secure`. HTTPS 배포에서 `1`, 로컬 http 개발에서는 비운다 |
-| `DEV_STUB_API` | `1`이면 `/profiles`, `/judge`가 열린다(시연 프리셋). `/profiles`와 `/judge`가 세션으로 바뀌기 전까지 시연에 필요하다 |
+| `DEV_STUB_API` | 쓰지 않는다. `/profiles`, `/judge`는 로그인 세션과 DB(`DATABASE_URL`)로 열린다. 시연은 가입·로그인 → `POST /profiles/presets/jiwon` 순서다 |
 | `AI_ELIGIBLE` | 검수 전 AI 조건표도 `eligible`을 낼지. 이번 제출은 비운다(SPEC §5.2) |
 
 ## 실행
@@ -148,7 +148,7 @@ cd backend && uv add "fastapi[standard]" && cd ..
 ```
 
 ```bash
-uv add --project backend httpx pdfplumber rank-bm25 scikit-learn numpy pandas pyarrow python-dotenv
+uv add --project backend httpx pdfplumber scikit-learn numpy pandas pyarrow python-dotenv
 ```
 
 ```bash

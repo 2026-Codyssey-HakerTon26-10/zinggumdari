@@ -1,0 +1,13 @@
+{
+ "key": "efb27e7b552ec86824e9608fb8de1ad4263a563f8d35fa469554556a29a52968",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6449,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 422
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득층 건강보험료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"저소득층 지원\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"용산구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"최저건강보험료 20,160원 이하\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":\"65세이상 노인가구\"},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":\"등록장애인이 있는 가구\"},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가유공자\"],\"income_basis\":null,\"as_of\":null,\"text\":\"국가유공자 가구\"},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":\"한부모가족 가구\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

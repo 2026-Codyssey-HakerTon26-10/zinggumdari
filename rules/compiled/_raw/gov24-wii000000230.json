@@ -1,0 +1,13 @@
+{
+ "key": "be7fd2b5da12d6a0e4d4aca227fae3ea0ddce5da63a58aa1be4a21d428d2891c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6667,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 391
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"다문화·탈북학생 멘토링\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화학생 멘토링\", \"탈북학생 멘토링\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"국공립유치원, 초·중·고등학교에 재학 또는 지역아동센터에 소속된 다문화 학생\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"국공립유치원, 초·중·고등학교에 재학 중이거나 남북하나재단에 소속된 탈북학생\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

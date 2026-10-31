@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000164",
+  "title": "폐지수집 어르신 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803616&bnefType=all&svcId=304000000164",
+  "fetched_at": "2026-10-31",
+  "sha256": "fdb45c3805118d9b23a3d0fb70f5b064654f75747f5988bc772e37160841a76d",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "<★아래 3가지 중 단 1가지라도 불충족 할 경우 환급대상 아닙니다.★", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "환급대상에게는 산모신생아 건강관리 지원사업 등급 판정시부터 미리 안내를 드립니다.>", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 신생아의 출생일 기준 12개월 전부터 주민등록상 용산구에 신청일까지 계속 거주하는 출산가정", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 신생아의 출생신고가 용산구에 되어 있는 출산가정", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 기준중위소득 100% 이하 출산가정", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "출산일로부터 6개월 이내 신청 (대상: 3가지 조건 모두 충족 필요 - 등급판정일 기준, ①기준중위소득 100% 이하, ②용산구 거주 1년 이상, ③신생아 용산구 출생신고)", "mark": true}
+]

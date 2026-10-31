@@ -1,0 +1,13 @@
+{
+ "key": "3e200a00527f929cf8e4791eff08d8641cace17b2c73f3b0aaf9cb496a608c64",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6442,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 139
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"노인보호전문기관 및 학대피해노인 전용쉼터 운영 지원\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"학대피해노인\",\"노인학대\",\"노인쉼터\"],\"conditions\":[],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

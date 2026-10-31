@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "어려운 경제상황과 전ㆍ월세값 상승으로 생활에 어려움을 겪고 있는 저소득 주민", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 기초생활수급자/ 의료급여 대상자/ 65세 이상 홀몸어르신/ 저소득 국가유공자/ 저소득 장애인/ 저소득 북한이탈주민 등", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 관내 대학교 재학생", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 1인가구", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 다자녀가구", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

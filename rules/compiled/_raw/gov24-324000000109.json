@@ -1,0 +1,13 @@
+{
+ "key": "2bfe640c0ef73de0b5f5a293b44d0911f5aea607cba7a69ed4816b266af0202f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6513,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 290
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"노인 성인용 보행기 지원\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"보행기 지원\",\"노인 보조기구\",\"이동 보조\"],\"conditions\":[{\"field\":\"ltc_grade\",\"op\":\"in\",\"value\":[\"없음\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l3\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"신체활동이 불편하여 성인용 보행기가 필요하다고 인정\",\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

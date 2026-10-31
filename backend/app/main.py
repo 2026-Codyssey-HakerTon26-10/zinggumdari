@@ -5,7 +5,7 @@ from contextlib import contextmanager
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.app.routers import auth, ingest, judge, notices, profiles, search
+from backend.app.routers import auth, ingest, judge, notices, profiles_db, search
 from backend.data.config import env
 from backend.search import ports as search_ports
 
@@ -22,7 +22,7 @@ app.include_router(notices.router)
 app.include_router(ingest.router)
 app.include_router(search.router)
 
-app.include_router(profiles.router)
+app.include_router(profiles_db.router)   # 세션 본인 프로필(DB). 메모리 스텁(profiles.py)은 엔진 테스트용으로만 남는다
 app.include_router(judge.router)
 
 

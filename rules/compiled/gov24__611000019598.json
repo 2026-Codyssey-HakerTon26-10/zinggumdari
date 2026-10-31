@@ -1,0 +1,203 @@
+{
+ "id": "gov24:611000019598",
+ "source": "gov24",
+ "name": "주택용 소방시설 보급 및 설치 지원",
+ "org": "서울특별시",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "주택화재경보기",
+  "소화기 설치"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "lives_alone",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "소년소녀가장",
+       "한부모가족"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육",
+       "차상위"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "다문화가족"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "지하층을 거주 목적으로 사용하는 주택"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "화재예방강화지구 접경 20미터 이내에 위치한 주택"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-611000019598:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.0:not_in_evidence:Y",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:b1.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울",
+   "evidence": [
+    "gov24-611000019598:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019598:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019598:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019598:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019598:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019598:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019598:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019598:l11"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2112601&bnefType=all&svcId=611000019598",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 7
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f7969f7cfc87ee6a70b0336c62cf724e6ac54a9fae6578b6264fe70fab5ee3c6",
+  "raw": "rules/compiled/_raw/gov24-611000019598.json",
+  "at": "2026-11-01T03:59"
+ }
+}

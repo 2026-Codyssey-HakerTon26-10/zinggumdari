@@ -1,0 +1,13 @@
+{
+ "key": "d66f9dafc9dca2fad220045a8e102ad2eb4b455b9db1266e114c06daab52235a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6396,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 401
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"독거어르신 야쿠르트 지원\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"독거노인\",\"야쿠르트\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"lives_alone\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"생계\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"의료\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"주거\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"교육\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"차상위\",\"income_basis\":null,\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "352454e6acf2909a17e7fdf6f061aee6cf16a0ec4384d6099d396471167de623",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7362,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 576
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"개발제한구역 생활비용보조 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"개발제한구역 지원\", \"생활비용보조\"], \"conditions\": [{\"field\": \"history\", \"op\": \"in\", \"value\": [\"지정당시거주자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": null, \"income_basis\": \"urban_worker_pct\", \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"is_householder\", \"op\": \"==\", \"value\": \"세대주\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": \"최근 3년간 3회 이상 불법행위로 형사 처벌을 받지 않은 사람\", \"evidence\": [\"l8\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": \"불법행위에 대한 시정명령을 받고 이를 이행하지 아니한 사람이 아닌 경우\", \"evidence\": [\"l8\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

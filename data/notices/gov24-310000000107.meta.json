@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-310000000107",
+  "title": "청년일경험 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001523&bnefType=all&svcId=310000000107",
+  "fetched_at": "2026-10-31",
+  "sha256": "7af622f7a335afccabe730d7c57d75a57a7c41d261a02ea64082b963315cbd22",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

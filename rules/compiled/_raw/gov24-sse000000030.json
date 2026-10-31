@@ -1,0 +1,13 @@
+{
+ "key": "c01e9ba5dfac30fa0f58858f076c66562a8eff6e53405c4d11c60dfe78e75b3e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6573,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 240
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"기타재가급여 (장기요양보험 복지용구)\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"장기요양보험\",\"복지용구\",\"재가급여\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"ltc_grade\",\"op\":\"in\",\"value\":[\"1등급\",\"2등급\",\"3등급\",\"4등급\",\"5등급\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

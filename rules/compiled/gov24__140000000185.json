@@ -1,0 +1,178 @@
+{
+ "id": "gov24:140000000185",
+ "source": "gov24",
+ "name": "귀산촌인 창업 및 주택 구입 지원",
+ "org": "산림청",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "귀산촌",
+  "임업 창업",
+  "산촌 주택"
+ ],
+ "conditions": [
+  {
+   "field": "homeless_years",
+   "op": "<",
+   "value": 5,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-140000000185:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:op_mismatch",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "AI가 읽은 조건의 형식이 맞지 않음",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-140000000185:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "evidence": [
+    "gov24-140000000185:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 12,
+   "evidence": [
+    "gov24-140000000185:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "산림청, 농림축산식품부, 농촌진흥청 및 지자체 주관 교육 40시간 이상 이수(2021년부터 60시간 이상)",
+   "evidence": [
+    "gov24-140000000185:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "금융기관 연체 중이 아님",
+   "evidence": [
+    "gov24-140000000185:l25"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "신용정보 연체, 대위변제, 부도, 금융질서문란 등 정보 미등록",
+   "evidence": [
+    "gov24-140000000185:l26"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-140000000185:l21",
+  "gov24-140000000185:l22",
+  "gov24-140000000185:l29"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=752978&bnefType=all&svcId=140000000185",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 22,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 6,
+   "exclusive": 3,
+   "out_of_scope": 0,
+   "not_condition": 9
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "39160bcd1e4153d1555b4bec4df5a9caeaf09ab229cca9c702c479464243b1f5",
+  "raw": "rules/compiled/_raw/gov24-140000000185.json",
+  "at": "2026-11-01T03:56"
+ }
+}

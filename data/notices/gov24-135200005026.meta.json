@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200005026",
+  "title": "긴급돌봄 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2119615&bnefType=all&svcId=135200005026",
+  "fetched_at": "2026-10-31",
+  "sha256": "35f6c899ceffacb53317b7b609222a31d02bc5f472d9b1d4349d777f7830d6bb",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

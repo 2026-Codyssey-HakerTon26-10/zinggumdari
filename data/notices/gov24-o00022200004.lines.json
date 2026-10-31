@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 성실납세자", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 장애인", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 국가유공자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 고엽제후유증 환자", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 서울시 다둥이 행복카드 소지차량 중 2자녀이상 (막내 만 18세 이하)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 5.18 민주유공자증서 소지자", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 장기기증자", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 임산부 탑승 자동차", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 병역명문가 예우대상자", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "없음", "mark": false}
+]

@@ -200,6 +200,12 @@ def test_has_rrn():
     assert has_rrn([{"text": "900101 - 2234567"}])
     assert not has_rrn(to_lines("r", "문의 02-123-4567\n공고 제2026-123호\n900101-5234567\n1900101-1234567"))
     assert not has_rrn([])
+    assert not has_rrn([{"text": "(주민등록번호 표시 예시) 123456-1234567"}])   # LH 행복주택 공고의 예시 번호(34월 56일)
+    assert has_rrn([{"text": "예시 123456-1234567, 신청인 900101-1234567"}])    # 예시가 있어도 진짜 꼴이 있으면 거부
+    for front in ("900001", "901301", "900100", "900132"):                      # 월 00과 13, 일 00과 32는 날짜가 아니다
+        assert not has_rrn([{"text": f"{front}-1234567"}]), front
+    for front in ("900101", "901231", "900131", "001201"):                      # 월 01과 12, 일 01과 31은 날짜다
+        assert has_rrn([{"text": f"{front}-1234567"}]), front
 
 
 # --- 검토 지적 재현 ---

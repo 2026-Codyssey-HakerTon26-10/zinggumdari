@@ -1,0 +1,13 @@
+{
+ "key": "6dee7d009c8edeb31b98243a9df73bbcea50db30ed0f57d61ded8c1d8a48f517",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6449,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 341
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"효행장려금 지급\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"효행장려금\",\"부모부양\",\"노부모지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":100,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"서대문구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":12,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_householder\",\"op\":\"==\",\"value\":\"세대주\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

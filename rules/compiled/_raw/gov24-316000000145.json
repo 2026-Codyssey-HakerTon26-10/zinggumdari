@@ -1,0 +1,13 @@
+{
+ "key": "6873a97e0726202be69a13d362dd66362639c80242894b670439471f7596e66c",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6503,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 365
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"구로구 전세사기피해지원금(이사비) 지원\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해지원금\",\"이사비지원\",\"구로구주거지원\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"==\",\"value\":\"전세\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":0,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"구로구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전세사기피해자등으로 결정됨\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

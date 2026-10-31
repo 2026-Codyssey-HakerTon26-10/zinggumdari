@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 
 from backend.app import sources
 from backend.app.main import app
-from backend.app.routers import profiles
+from backend.app.routers import judge as judge_router
 from backend.engine import judge
 from backend.engine.cards import build_judge
 
@@ -115,10 +115,11 @@ def test_sensitive_qual_code_not_asked_without_consent():
 
 @pytest.fixture
 def client(monkeypatch):
-    monkeypatch.setenv("DEV_STUB_API", "1")
-    monkeypatch.setattr(sources, "load_rules", lambda: six()[4:])
-    profiles._store["Uask"] = ME
-    return TestClient(app)
+    monkeypatch.setattr(sources, "load_rules", lambda owner=None: six()[4:])
+    app.dependency_overrides[judge_router.own_profile] = lambda: {"account_id": "acct",
+                                                                   "profile": {**ME, "user_id": "Uask"}}
+    yield TestClient(app)
+    app.dependency_overrides.pop(judge_router.own_profile, None)
 
 
 def test_router_focus(client):

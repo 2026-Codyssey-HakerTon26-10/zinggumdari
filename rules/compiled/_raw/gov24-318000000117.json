@@ -1,0 +1,13 @@
+{
+ "key": "9a6c42e8599264e1345752a7e2feaa2aae1043eab7bdda537deaf4f43f65ea73",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6397,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 209
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득 주민 건강보험료 등 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"저소득 건강보험료 지원\", \"건강보험료 납부 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"노인\", \"장애인\", \"한부모\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "0d3af084390e60281e86aadffff88f97a93f7df1ee2fdac06db7c6266a612770",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6452,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 305
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"첫돌(출산)축하금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"출산축하금\",\"첫돌축하금\"],\"conditions\":[{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2025-01-01\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"광진구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":12,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"출생일 기준 1년 경과 후 6개월 이내\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

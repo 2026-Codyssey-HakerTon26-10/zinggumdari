@@ -1,0 +1,93 @@
+{
+ "id": "gov24:GPV000000070:main",
+ "source": "gov24",
+ "name": "제대군인 교육지원",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "제대군인 교육비",
+  "군인 교육지원"
+ ],
+ "conditions": [
+  {
+   "field": "history",
+   "op": "in",
+   "value": [
+    "10년 이상 군복무"
+   ],
+   "evidence": [
+    "gov24-gpv000000070:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "전역 후 3년 이내",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-gpv000000070:l2",
+    "gov24-gpv000000070:l7"
+   ],
+   "as_of": "application_date",
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-gpv000000070:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2948&bnefType=all&svcId=GPV000000070",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f752ebf1cfbd2825ff91fd031d2633bc63821f4853ebf757fbe800da683d88cd",
+  "raw": "rules/compiled/_raw/gov24-gpv000000070.json",
+  "at": "2026-11-01T04:02"
+ }
+}

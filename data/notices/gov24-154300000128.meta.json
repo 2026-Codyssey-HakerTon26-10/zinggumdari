@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-154300000128",
+  "title": "농지연금",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=710143&bnefType=all&svcId=154300000128",
+  "fetched_at": "2026-10-31",
+  "sha256": "9c0d5967d5caaeda6f2cb0308a419c72f2d54609e3ea99f5c6af6d2d34b94c5c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

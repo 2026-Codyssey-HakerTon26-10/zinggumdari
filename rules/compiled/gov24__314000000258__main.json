@@ -1,0 +1,170 @@
+{
+ "id": "gov24:314000000258:main",
+ "source": "gov24",
+ "name": "취약계층 세탁서비스 지원사업",
+ "org": "서울특별시 양천구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "양천구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "세탁서비스",
+  "취약계층지원",
+  "대형세탁물"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위"
+   ],
+   "evidence": [
+    "gov24-314000000258:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65,
+      "text": "65세이상 독거 어르신"
+     },
+     {
+      "field": "lives_alone",
+      "op": "==",
+      "value": "Y",
+      "text": "65세이상 독거 어르신"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65,
+      "text": "부부노인"
+     },
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "기혼"
+      ],
+      "text": "부부노인"
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y",
+      "text": "중증장애인"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ],
+      "text": "한부모"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "조손가족"
+      ],
+      "text": "조손"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "소년소녀가정"
+      ],
+      "text": "소년소녀가정"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "동주민센터에서 추천한 자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-314000000258:l3",
+    "gov24-314000000258:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.1:not_in_evidence:기혼",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-314000000258:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2163818&bnefType=all&svcId=314000000258",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "3a88190494cd0ff5f72307aef1b9c81e6d6e46b66635af7d0f83aeb65b625bcf",
+  "raw": "rules/compiled/_raw/gov24-314000000258.json",
+  "at": "2026-11-01T03:58"
+ }
+}

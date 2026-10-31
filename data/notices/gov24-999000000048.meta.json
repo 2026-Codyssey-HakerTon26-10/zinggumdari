@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000048",
+  "title": "특별현금급여 (가족요양비)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999169&bnefType=all&svcId=999000000048",
+  "fetched_at": "2026-10-31",
+  "sha256": "2a7a4553591b0b4876fa1c30ae10021c0c7e29a960281ec73abb375d57de96b7",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -367,3 +367,18 @@ def test_exact_name_beats_long_mentions():
               for i in range(5)]
     idx = SearchIndex([*others, long], {})
     assert idx.search("기초연금")[0][0]["service_id"] == "a"
+
+
+def test_tracked_ai_rules_replace_dump_doc(client):
+    """AI가 트랙으로 나눈 조건표(gov24:X:youth)는 덤프 문서(gov24:X)를 대신하고, 손 조건표 same_as는 서비스 id로 거른다."""
+    ai = {"source": "gov24", "subject": "self", "review": {"status": "unreviewed"}, "conditions": [],
+          "detail_url": None, "updated": None}
+    rules = [{**ai, "id": "gov24:135200000001:youth", "name": "출산 축하금 청년"},
+             {**ai, "id": "gov24:135200000001:elderly", "name": "출산 축하금 어르신"},
+             {**ai, "id": "gov24:WII000001:youth", "name": "AI가 읽은 서울 신혼 트랙"}, RULES[4]]
+    docs, by_id = build_corpus(rules=rules)
+    ids = {d["service_id"] for d in docs}
+    assert "gov24:135200000001" not in ids and {"gov24:135200000001:youth", "gov24:135200000001:elderly"} <= ids
+    track = next(d for d in docs if d["service_id"] == "gov24:135200000001:youth")
+    assert track["fields"]["target"] == "출산 가정"            # 덤프의 지원대상이 트랙 문서로 옮겨 온다
+    assert "gov24:WII000001:youth" not in by_id               # 손 조건표 same_as(gov24:WII000001)의 트랙도 뺀다

@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 서비스 지원 대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 경로식당(만60세이상), 주 6회 제공", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 식사배달(만65세이상), 주 7회 제공", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 밑반찬배달(만65세이상), 주 2회 제공", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 대상자 선정기준", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 1순위 : 생계급여수급자 기준 부적합으로 탈락된 생활이 어려운 독거어르신으로서 실제 부양가족이 없는 자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 2순위 : 기초생활수급 어르신(기준중위소득 48%이하)", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 3순위 : 실제 부양가족이 없는 차상위 어르신(수급권자가 아닌 기준중위소득 50%이하)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 4순위 : 기타 구청장이 인정하는 어르신", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

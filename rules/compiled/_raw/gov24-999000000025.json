@@ -1,0 +1,13 @@
+{
+ "key": "3d3582e71856c0e65dcf42cbf637d89566483afd7197d94d475be0558d05ad03",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6508,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 469
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"주거안정 월세대출 우대형\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"월세대출\", \"주거안정대출\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"is_homeless\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"is_householder\", \"op\": \"==\", \"value\": \"세대주\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"주거안정 월세대출 일반형\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"월세대출\", \"주거안정대출\"], \"conditions\": [{\"field\": \"income_couple\", \"op\": \"<=\", \"value\": 5000, \"income_basis\": \"absolute_annual\", \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

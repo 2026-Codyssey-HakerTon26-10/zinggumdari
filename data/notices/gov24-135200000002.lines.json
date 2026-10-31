@@ -1,0 +1,22 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 틀니", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- '16.7.1.부터 65세 이상 의료급여 수급자로 7년 이내에 중복 수혜 이력이 없는 자.", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "(보건소·건강보험 틀니 기(旣) 수혜자라 하더라도 시술 부위 또는 틀니 종류가 동일하지 않을 경우 의료급여 틀니 등록 가능)", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 완전 틀니(레진상,금속상)는 상악(위턱) 또는 하악(아래턱)에 치아가 전혀 없는 어르신", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 부분 틀니는 상악(위턱) 또는 하악(아래턱)에 부분 치아결손으로 남은 치아를 이용하여 부분 틀니 제작이 가능한 어르신", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 치과임플란트", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "- '16.7.1.부터 65세 이상 의료급여 수급권자로, 부분 무치악인 자. (치아가 전혀 없는 경우는 제외)", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 1인당 평생 2개 이내에서 급여 적용", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 틀니", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "- '16.7.1.부터 65세 이상 의료급여 수급자로 7년 이내에 중복 수혜 이력이 없는 자.", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "(보건소·건강보험 틀니 기(旣) 수혜자라 하더라도 시술 부위 또는 틀니 종류가 동일하지 않을 경우 의료급여 틀니 등록 가능)", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 완전 틀니(레진상,금속상)는 상악(위턱) 또는 하악(아래턱)에 치아가 전혀 없는 어르신", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 부분 틀니는 상악(위턱) 또는 하악(아래턱)에 부분 치아결손으로 남은 치아를 이용하여 부분 틀니 제작이 가능한 어르신", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "○ 치과임플란트", "mark": false},
+  {"id": "l17", "page": null, "bbox": null, "text": "- '16.7.1.부터 65세 이상 의료급여 수급권자로, 부분 무치악인 자. (치아가 전혀 없는 경우는 제외)", "mark": true},
+  {"id": "l18", "page": null, "bbox": null, "text": "- 1인당 평생 2개 이내에서 급여 적용", "mark": true},
+  {"id": "l19", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l20", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

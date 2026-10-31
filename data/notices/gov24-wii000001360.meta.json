@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000001360",
+  "title": "제대군인 대부지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=15761&bnefType=all&svcId=WII000001360",
+  "fetched_at": "2026-10-31",
+  "sha256": "5512f4c2dcc9f59346cbdefdaa97835923c473718ca9ed19499faa91ec4825d7",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

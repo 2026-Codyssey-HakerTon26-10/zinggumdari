@@ -1,0 +1,13 @@
+{
+ "key": "c437c94233999dda3d452e45f4b3feac66b4f76a583e04fbb0dd25d20e850c16",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6542,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 231
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"지역사회 통합건강증진 서비스 제공\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"통합건강증진\", \"지역사회 건강서비스\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l7\", \"label\": \"out_of_scope\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

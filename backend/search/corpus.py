@@ -225,6 +225,12 @@ def from_rule(rule: dict) -> dict:
     )
 
 
+def service_id_of(rule_id: str) -> str:
+    """AI가 한 제도를 트랙으로 나눈 조건표 id(gov24:WII…:youth)에서 서비스 id(gov24:WII…)를 뗀다."""
+    parts = rule_id.split(":")
+    return ":".join(parts[:2]) if len(parts) > 2 else rule_id
+
+
 def build_corpus(raw_dir: Path | None = None, rules: list[dict] | None = None,
                  docs_dir: Path | None = None) -> tuple[list[dict], dict[str, dict]]:
     """(문서들, rule_id → 조건표)."""
@@ -248,7 +254,7 @@ def build_corpus(raw_dir: Path | None = None, rules: list[dict] | None = None,
     # 사용자 업로드 조건표는 공용 색인에 넣지 않는다(올린 본인에게만 판정 카드로 합류한다, 인증·소유권 계약)
     rules = [r for r in rules if r.get("source") != "upload"]
     manual_same = {sid: r for r in rules if r.get("source") == "manual" for sid in r.get("same_as") or []}
-    rules = [r for r in rules if r.get("source") == "manual" or r["id"] not in manual_same]
+    rules = [r for r in rules if r.get("source") == "manual" or service_id_of(r["id"]) not in manual_same]
     by_id = {r["id"]: r for r in rules}
     for rule in rules:
         rdoc = from_rule(rule)
@@ -264,6 +270,21 @@ def build_corpus(raw_dir: Path | None = None, rules: list[dict] | None = None,
             doc["fields"].update({k: v for k, v in rdoc["fields"].items() if v})
         else:
             docs[rule["id"]] = rdoc
+
+    # 트랙으로 나뉜 AI 조건표는 덤프 문서와 같은 제도다. 덤프 문서를 빼고 그 요약과 지원 내용은 트랙 문서로 옮긴다
+    # (안 그러면 같은 이름이 조건표 있는 것과 없는 것으로 두 번 뜬다. 조건표가 있는 문서는 이름으로 묶지 않는다)
+    tracked = {}
+    for rule in rules:
+        base = service_id_of(rule["id"])
+        if rule.get("source") != "manual" and base != rule["id"] and base in docs and not docs[base]["rule_id"]:
+            tracked.setdefault(base, []).append(rule["id"])
+    for base, ids in tracked.items():
+        dump = docs.pop(base)
+        for rid in ids:
+            doc = docs[rid]
+            doc["fields"] = {**dump["fields"], **{k: v for k, v in doc["fields"].items() if v}}
+            doc["detail_url"] = doc["detail_url"] or dump["detail_url"]
+            doc["updated"] = doc["updated"] or dump["updated"]
 
     for doc in docs.values():
         if not doc["rule_id"] and not doc["stage_tags"]:

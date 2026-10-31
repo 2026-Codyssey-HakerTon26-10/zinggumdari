@@ -1,0 +1,13 @@
+{
+ "key": "1ab4a402fb96f4abb387e3c204e0bd774a467436e704523bed1a22c868103e3b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6500,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 426
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국내 입양가정 입양축하금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"입양축하금\", \"입양가정 지원\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"입양특례법상 입양기관을 통해 입양\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"선천적 요인의 장애, 질환\", \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 6, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"금천구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

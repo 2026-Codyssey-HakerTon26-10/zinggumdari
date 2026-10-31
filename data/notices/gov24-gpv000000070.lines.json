@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 본인 교육지원: 10년 이상 군복무한 장기복무 제대군인 등록자로서 전역 후 3년 이내에 대학 입학한 사람", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 자녀교육지원: 10년 이상 군복무자로 국가보훈부 생활수준 조사 결과 지원 대상으로 결정된 제대군인의 고등학교 재학 자녀", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "제대군인 본인 전역 후 3년 이내", "mark": true}
+]

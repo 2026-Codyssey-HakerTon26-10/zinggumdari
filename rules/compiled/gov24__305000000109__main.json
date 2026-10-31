@@ -1,0 +1,64 @@
+{
+ "id": "gov24:305000000109:main",
+ "source": "gov24",
+ "name": "임산부 등록 지원",
+ "org": "서울특별시 동대문구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동대문구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "임산부 지원",
+  "산모 지원"
+ ],
+ "conditions": [
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-305000000109:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003267&bnefType=all&svcId=305000000109",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b404a3a2e7ba1ef1e2d869826957159f0e2e72f51efe40e8593ed59f1c2f4efb",
+  "raw": "rules/compiled/_raw/gov24-305000000109.json",
+  "at": "2026-11-01T03:57"
+ }
+}

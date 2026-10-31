@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-129000000007",
+  "title": "군인 재해보상 유족급여 지급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=744797&bnefType=all&svcId=129000000007",
+  "fetched_at": "2026-10-31",
+  "sha256": "1633108d2a0c8a6af393eba53356fcb0c9243f22d75ed2255b5d683b0704912b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

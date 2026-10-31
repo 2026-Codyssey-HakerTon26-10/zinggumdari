@@ -1,0 +1,13 @@
+{
+ "key": "9c1f2d1e07cb005f7e1129561b320b561ece01fcbe5c3b0d5ab54464be61885a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6434,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 328
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득가구 명절 위문금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"명절 위문금\", \"저소득가구 지원\", \"한부모가정 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모가족\", \"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"주거\", \"교육\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"income_recognized\", \"op\": \"!=\", \"value\": null, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": [[], [], []]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

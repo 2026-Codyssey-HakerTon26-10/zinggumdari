@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-302000000113",
+  "title": "출산지원금 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004945&bnefType=all&svcId=302000000113",
+  "fetched_at": "2026-10-31",
+  "sha256": "c22e07c0b4aa45ea5140bc5bc167dc45bfc0af4b9bbd61c3f21487e79e512750",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

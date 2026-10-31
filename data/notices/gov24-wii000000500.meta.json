@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000000500",
+  "title": "저소득층 기저귀·조제분유 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=165908&bnefType=all&svcId=WII000000500",
+  "fetched_at": "2026-10-31",
+  "sha256": "da983540869451fc51e8fdeb89a05e1ebcfd689ca2e92b066313cf819fc0e041",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

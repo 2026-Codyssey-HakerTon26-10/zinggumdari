@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000002014",
+  "title": "해산급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=575762&bnefType=all&svcId=SD0000002014",
+  "fetched_at": "2026-10-31",
+  "sha256": "b50624dc9dfbf69f3cc329140cde131831fc7cfcab53b948bce91d6b64861a9d",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

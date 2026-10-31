@@ -1,0 +1,94 @@
+{
+ "id": "gov24:GES000000150",
+ "source": "gov24",
+ "name": "방과후학교 자유수강권",
+ "org": "교육부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "방과후학교",
+  "자유수강권"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-ges000000150:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 100,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-ges000000150:l3",
+    "gov24-ges000000150:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "fail:missing_bound:80",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ges000000150:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=592721&bnefType=all&svcId=GES000000150",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 4,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "22042e113ee39b50c3aa5a85b228849037d80ce4a97db0e809059773596db079",
+  "raw": "rules/compiled/_raw/gov24-ges000000150.json",
+  "at": "2026-11-01T04:01"
+ }
+}

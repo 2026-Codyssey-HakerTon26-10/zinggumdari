@@ -1,0 +1,13 @@
+{
+ "key": "d11b028b802d6dc5fafe72573d864611757454894a07edd765c7ffd7e7cbd1aa",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6677,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 470
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"강북구 장학생 선발\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"강북구 장학금\", \"장학생 선발\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"강북구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 12, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"not_in\", \"value\": [\"국가유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 120, \"income_basis\": \"median_pct\", \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

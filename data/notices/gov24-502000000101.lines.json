@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 출산(예정) 후 미혼,이혼 한부모로서 지원 기간 입양(동의) 사실이 없으며, 아래 선정기준을 충족한 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "(단, 지원기간동안 입양(동의) 사실이 없을 것)", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 출산(예정) 여부 : 출산(예정)일 전 40일 또는 후 7일 이내에 있는 자", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 혼인 여부 : 혼인관계 증명서상 혼인관계에 있지 아니한 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "출산(예정)일 전 40일 또는 후 7일 이내 신청 가능", "mark": true}
+]

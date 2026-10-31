@@ -1,0 +1,13 @@
+{
+ "key": "9101bbf59d88b8cc962f4ac9da9367d5f2856604f62785c80abfbb49ee010fad",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6468,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 286
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"보훈예우수당\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"국가유공자\",\"보훈\",\"예우수당\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가유공자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":1,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

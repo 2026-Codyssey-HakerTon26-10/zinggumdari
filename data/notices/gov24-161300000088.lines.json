@@ -1,0 +1,17 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 19세이상 ~ 34세이하 연 5천만원 이하의 소득이 있는 무주택자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 연령 : 19세이상 ~ 34세이하(단, 병역기간 최대 6년 인정)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 우대금리", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 소득 : 소득이 있는 자로 직전년도 소득이 5천만원 이하인 자(근로소득, 사업소득 및 기타소득 인정)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 주택 : 무주택자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 비과세 혜택", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 소득 : 직전년도 소득이 3천6백만원 이하인 근로소득자 / 종합소득금액이 2천6백만원 이하인 사업소득자 등", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 주택 : 무주택세대의 세대주[세대는 가입자와 그 배우자(세대분리된 경우 포함), 가입자와 동일한 주소 또는 거소에서 생계를 같이하는 가입자와 그 배우자의 직계존비속(그 배우자를 포함) 및 형제자매를 모두 포함한 세대]", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 소득공제 혜택", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 소득 : 과세기간 소득이 7천만원 이하인 근로소득자(일용근로자 제외)", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 주택 : 무주택세대의 세대주[세대는 가입자와 그 배우자(세대분리된 경우 포함), 가입자와 동일한 주소 또는 거소에서 생계를 같이하는 가입자와 그 배우자의 직계존비속(그 배우자를 포함) 및 형제자매를 모두 포함한 세대]", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

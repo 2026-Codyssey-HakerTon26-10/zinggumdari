@@ -1,0 +1,51 @@
+{
+ "id": "gov24:154300000330",
+ "source": "gov24",
+ "name": "바른 식생활교육 지원",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "식생활교육",
+  "영양교육"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300000330:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=727798&bnefType=all&svcId=154300000330",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "4eee3a25316f04b9cf3ecc5d1646dbd376ca9721e4a0b646225741e1dac050fd",
+  "raw": "rules/compiled/_raw/gov24-154300000330.json",
+  "at": "2026-11-01T03:56"
+ }
+}

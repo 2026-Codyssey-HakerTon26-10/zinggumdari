@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000000300",
+  "title": "노후긴급자금 대부지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=760851&bnefType=all&svcId=WII000000300",
+  "fetched_at": "2026-10-31",
+  "sha256": "040ed0c317612f1559e3486f085fa5d313680664e5bed26114fec0c3981dd042",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

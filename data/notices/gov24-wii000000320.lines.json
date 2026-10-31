@@ -1,0 +1,22 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 주민등록상 거주지와 동거자 유무와 상관없이 실제로 혼자 살고 있는 만 65세 이상의 노인", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 노인2인 가구 및 조손가구", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 장애인 활동 지원 수급자로 독거, 취약가구, 가족의 직장·학교생활 등으로 상시 보호가 필요한 장애인", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 독거 노인", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 주민등록상 거주지와 동거자 유무, 소득과 관계없이 실제로 혼자 살고있는 65세이상의 노인", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 노인2인가구 : 노인(65세이상)2인으로 구성되며, 기초생활수급자, 차상위 또는 기초연금수급자인 가구 중", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 한 명이 질환(당뇨, 혈압, 뇌졸증 및 치매 등)을 앓고 있거나 거동이 불편한 경우", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 모두 75세 이상인 경우", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 조손가구 : 노인(65세이상)과 손자녀(24세이하)로만 구성된 가구 중", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- (노인1인 및 손자녀) 독거노인 기준과 동일", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- (노인2인 및 손자녀) 노인2인가구 기준과 동일", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "○ 장애인", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 장애인활동지원 수급자이면서 독거 또는 취약가구에 해당하는 장애인", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "- 장애인 활동지원 수급자 외 장애인으로서 기초지자체장이 독거 또는 취약가구 등의 생황 여건을 고려해 상시 보호가 필요하다고 인정하는 장애인", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "- 정부(지자체) 재정이 투입되어 24시간 활동지원을 받고 있는 장애인은 선정에서 제외되며, 응급안전안심서비스를 이용하던 중 '24시간 활동지원'을 받는 경우, 댁내장비는 반드시 철거", "mark": true},
+  {"id": "l18", "page": null, "bbox": null, "text": "※ 단, 서울시는 장애인가구에 한하여 서비스 제공", "mark": true},
+  {"id": "l19", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l20", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

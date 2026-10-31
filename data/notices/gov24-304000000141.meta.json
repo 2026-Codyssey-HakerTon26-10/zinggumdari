@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000141",
+  "title": "출생아 작명 서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803294&bnefType=all&svcId=304000000141",
+  "fetched_at": "2026-10-31",
+  "sha256": "423d96154ed21f5ebbd17c56aeaf142ec4986043ad4328ef5f7389f701131623",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 활동지원 X1점수 300점이상 독거 중증장애인", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 활동지원 X1점수 248점이상 성인 발달장애인", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 만13세이하 자녀 양육 부모장애인(주양육자 1인)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 시설퇴소자(국고 특별지원급여 종료 후 신청가능)", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

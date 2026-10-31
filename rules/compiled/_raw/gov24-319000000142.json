@@ -1,0 +1,13 @@
+{
+ "key": "75c2ee2b828ae39230f26886753417496536c52a7e8a8825fa818fc2c211a7eb",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6498,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 285
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"동작구 신생아 상해,질병 보험료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"신생아 보험료\",\"신생아 지원\",\"출생 축하금\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"children_count\",\"op\":\">=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"2025-12-31\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

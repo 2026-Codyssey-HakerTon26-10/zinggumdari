@@ -1,0 +1,108 @@
+{
+ "id": "gov24:309000000130:main",
+ "source": "gov24",
+ "name": "무의탁·독거노인 지원",
+ "org": "서울특별시 도봉구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "도봉구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "독거노인",
+  "기초생활수급자노인",
+  "차상위노인"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-309000000130:l2",
+    "gov24-309000000130:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "차상위"
+     },
+     {
+      "field": "lives_alone",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료",
+       "주거",
+       "교육"
+      ]
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-309000000130:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.1:not_in_evidence:Y",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002449&bnefType=all&svcId=309000000130",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "4293154ff01c37aab4fae47da2aaecea881f2ca67f680018e96baae11173b95e",
+  "raw": "rules/compiled/_raw/gov24-309000000130.json",
+  "at": "2026-11-01T03:58"
+ }
+}

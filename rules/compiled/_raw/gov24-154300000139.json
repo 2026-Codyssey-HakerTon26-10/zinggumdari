@@ -1,0 +1,13 @@
+{
+ "key": "b4a7aa25f7a486c9d63b27bb2d9b01e533e32260d7b37c33147991a17bceb882",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7079,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 834
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"공영도매시장 시설현대화 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"도매시장 현대화\", \"시설현대화 지원\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"공영도매시장 개설자(지방자치단체)\", \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"전문기관을 활용한 타당성 검토 및 세부사업추진계획 수립 관련 연구용역 실시\", \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"타당성 조사가 기획재정부 예비 타당성 조사에 준하는 수준으로 실시되고 시설현대화 필요성 및 경제성분석 결과 도출\", \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2018-01-01\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"not_in\", \"value\": [\"기 사업대상자로 선정\", \"사업 중도 포기\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l9\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"사업을 포기한 경우 포기한 날로부터 5년 경과\", \"evidence\": [\"l10\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"도시 및 주거환경정비법의 노후·불량건축물 기준에 따라 건축된 지 20년 이상 경과\", \"evidence\": [\"l11\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"최근 3년 평균 농안법 제77조에 따른 도매시장 평가결과 하위 30% 미만\", \"evidence\": [\"l12\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"definition\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

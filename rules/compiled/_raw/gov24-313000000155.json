@@ -1,0 +1,13 @@
+{
+ "key": "9654b5efbe3ee1a983bef0766a80930b1de816bf6475aa306297f8675048093e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6390,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 335
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"청년 면접정장 대여사업\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"면접정장 대여\", \"청년 정장 지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"마포구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"employment_status\", \"op\": \"==\", \"value\": \"구직\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2026-01-26\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": \"2026-12-18\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}]}",
+ "at": "2026-11-01T03:58"
+}

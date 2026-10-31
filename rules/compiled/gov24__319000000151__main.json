@@ -1,0 +1,121 @@
+{
+ "id": "gov24:319000000151:main",
+ "source": "gov24",
+ "name": "창업지원센터 운영",
+ "org": "서울특별시 동작구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동작구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "창업지원",
+  "창업센터"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "창업 3년 이내 초기 창업자",
+   "evidence": [
+    "gov24-319000000151:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "제조업, 건축·엔지니어링, 기술서비스업, 정보처리, 컴퓨터 운영 관련 업종",
+   "evidence": [
+    "gov24-319000000151:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "op": "!=",
+   "value": "공해 배출업",
+   "text": "환경관련 법규에 저촉되는 공해 배출업 제외",
+   "evidence": [
+    "gov24-319000000151:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "op": "!=",
+   "value": "국세·지방세 체납기업",
+   "text": "국세·지방세 체납기업 제외",
+   "evidence": [
+    "gov24-319000000151:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2113232&bnefType=all&svcId=319000000151",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "955938104f3a757652b50bb65ab05439c7a65bc5e4929ea9589bfe2c01a10b61",
+  "raw": "rules/compiled/_raw/gov24-319000000151.json",
+  "at": "2026-11-01T03:59"
+ }
+}

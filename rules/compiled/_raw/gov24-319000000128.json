@@ -1,0 +1,13 @@
+{
+ "key": "d8368c0e2db292a116b094fd0dbad68d7d97e61eb52999dcec967ab4f1f2293b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6413,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 385
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"동작 청년내일근속지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"청년 근속지원\", \"동작구 청년\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<=\", \"value\": 39, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"동작구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"employment_status\", \"op\": \"==\", \"value\": \"재직\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"동작구 소재 1인 이상 중소기업 정규직\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}]}",
+ "at": "2026-11-01T03:58"
+}

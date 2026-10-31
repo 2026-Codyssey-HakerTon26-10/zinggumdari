@@ -1,0 +1,126 @@
+{
+ "id": "gov24:999000000004",
+ "source": "gov24",
+ "name": "배우자 출산휴가 급여",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "배우자 출산휴가",
+  "출산휴가 급여"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "우선지원대상기업 소속 근로자로서 남녀고용평등과 일·가정 양립 지원에 관한 법률 제18조의2에 따른 배우자 출산휴가를 받음",
+   "evidence": [
+    "gov24-999000000004:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "notice_date",
+   "text": "휴가가 끝난 날 이전에 고용보험 피보험 단위기간이 합산하여 180일 이상",
+   "evidence": [
+    "gov24-999000000004:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": 12,
+   "text": "휴가가 끝난 날 이후 12개월 이내에 신청",
+   "evidence": [
+    "gov24-999000000004:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "fail:unit_mismatch",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000004:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000004:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000004:l8"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999019&bnefType=all&svcId=999000000004",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "21e17b8cf64fb14bbc538073a1308cf0969fb43a34e33adff225fe34b9de3beb",
+  "raw": "rules/compiled/_raw/gov24-999000000004.json",
+  "at": "2026-11-01T03:59"
+ }
+}

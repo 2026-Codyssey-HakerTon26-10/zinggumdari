@@ -1,0 +1,102 @@
+{
+ "id": "gov24:321000000121",
+ "source": "gov24",
+ "name": "서리풀 희망사다리 프로젝트 자립준비청년(보호종료아동) 자립정착금 지원",
+ "org": "서울특별시 서초구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "서초구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "자립준비청년",
+  "보호종료아동",
+  "자립정착금"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "서초구",
+   "evidence": [
+    "gov24-321000000121:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 12,
+   "evidence": [
+    "gov24-321000000121:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "자립준비청년(보호종료아동)",
+   "evidence": [
+    "gov24-321000000121:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004616&bnefType=all&svcId=321000000121",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "493495c15607e7a1e89d7e21f9468c53421ce25e11ed7417a9f56e963b6f9c75",
+  "raw": "rules/compiled/_raw/gov24-321000000121.json",
+  "at": "2026-11-01T03:59"
+ }
+}

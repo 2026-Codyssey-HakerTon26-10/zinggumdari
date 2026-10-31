@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 보조기기 서비스가 필요한 장애인, 노인 등", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 장애인복지법에 따른 장애인", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 노인장기요양보험법에 따른 노인등", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 국가유공자 등 예우 및 지원에 관한 법률에 따른 국가유공자 등", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

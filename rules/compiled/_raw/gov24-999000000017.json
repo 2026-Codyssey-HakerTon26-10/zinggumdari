@@ -1,0 +1,13 @@
+{
+ "key": "3e909d840e823b49770faa3a933c576b9af2f339b07ca181da9144379915f5a3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6861,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 506
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국가보훈대상자 주택우선공급\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"discount\", \"aliases\": [\"국가보훈\", \"보훈대상자\", \"독립유공자\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"독립유공자\", \"독립유공자유족\", \"영주귀국독립유공자유족\", \"국가유공자\", \"국가유공자유족\", \"5·18민주유공자\", \"5·18민주유공자유족\", \"특수임무유공자\", \"특수임무유공자유족\", \"보훈보상대상자\", \"보훈보상대상자유족\", \"참전유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\", \"l5\", \"l7\", \"l8\", \"l9\", \"l12\"], \"any_of\": null}, {\"field\": \"is_householder\", \"op\": \"==\", \"value\": \"세대주\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"is_homeless\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l14\", \"l15\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"definition\"}, {\"line\": \"l11\", \"label\": \"definition\"}, {\"line\": \"l13\", \"label\": \"not_condition\"}, {\"line\": \"l16\", \"label\": \"procedure\"}, {\"line\": \"l17\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

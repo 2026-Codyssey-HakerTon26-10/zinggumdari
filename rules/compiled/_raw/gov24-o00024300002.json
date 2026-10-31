@@ -1,0 +1,13 @@
+{
+ "key": "1704fea2479801b0641fdd0a688bfc41cb41062d7fb372381d5de055515d7c8b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6763,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 636
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"체육시설 이용요금 감면\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"discount\",\"aliases\":[\"노인 체육시설\",\"장애인 체육시설\",\"다자녀 체육시설\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가유공자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"children_count\",\"op\":\">=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<=\",\"value\":13,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":13,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l7\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":55,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l7\"],\"any_of\":null},{\"field\":\"gender\",\"op\":\"==\",\"value\":\"여\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l7\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"out_of_scope\"},{\"line\":\"l9\",\"label\":\"procedure\"},{\"line\":\"l10\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

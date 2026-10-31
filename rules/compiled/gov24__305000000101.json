@@ -1,0 +1,123 @@
+{
+ "id": "gov24:305000000101",
+ "source": "gov24",
+ "name": "노인 성인용 보행기 지원",
+ "org": "서울특별시 동대문구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동대문구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "보행기 지원",
+  "노인 보조기구",
+  "거동 불편"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-305000000101:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "의료"
+   ],
+   "evidence": [
+    "gov24-305000000101:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:의료",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "ltc_grade",
+      "op": "==",
+      "value": "없음"
+     },
+     {
+      "field": "other",
+      "text": "거동이 불편하여 성인용 보행기가 필요"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "거동이 불편하여 성인용 보행기가 필요"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-305000000101:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:없음",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000531&bnefType=all&svcId=305000000101",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "08153a1131b524adc9bdd69f3d2cbe5a150b9276040d562c7d78dd94f6376840",
+  "raw": "rules/compiled/_raw/gov24-305000000101.json",
+  "at": "2026-11-01T03:57"
+ }
+}

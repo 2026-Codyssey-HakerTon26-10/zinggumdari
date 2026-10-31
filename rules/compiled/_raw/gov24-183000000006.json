@@ -1,0 +1,13 @@
+{
+ "key": "7389bbde730f0bf3a482a8c8e2a02a95098d3f1f9445f9ccf22b839a78e93261",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7846,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 918
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국가보훈대상자 보훈장학금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"보훈장학금\", \"국가유공자 장학금\", \"보훈 교육지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"국가유공자\", \"고엽제후유의증환자\", \"5·18민주유공자\", \"특수임무유공자\", \"보훈보상대상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\", \"l5\", \"l18\", \"l19\"], \"any_of\": null}],\"documents\": []}, {\"track\": \"main\", \"name\": \"국가보훈대상자 보훈장학금 지원 - 자녀\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"보훈장학금\", \"국가유공자 자녀 장학금\", \"보훈 교육지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"전상군경자녀\", \"공상군경자녀\", \"전몰군경자녀\", \"순직군경자녀\", \"재해부상군경자녀\", \"재해사망군경자녀\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\", \"l20\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<\", \"value\": 35, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\", \"l20\"], \"any_of\": null}],\"documents\": []}, {\"track\": \"main\", \"name\": \"국가보훈대상자 보훈장학금 지원 - 6.25전몰군경 손자녀\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"보훈장학금\", \"6.25전몰군경 손자녀 장학금\", \"보훈 교육지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"6.25전몰군경손자녀\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l10\"], \"any_of\": null}],\"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"exclusive\"}, {\"line\": \"l12\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"procedure\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"not_condition\"}, {\"line\": \"l21\", \"label\": \"not_condition\"}, {\"line\": \"l23\", \"label\": \"not_condition\"}, {\"line\": \"l25\", \"label\": \"exclusive\"}, {\"line\": \"l26\", \"label\": \"procedure\"}, {\"line\": \"l27\", \"label\": \"not_condition\"}, {\"line\": \"l28\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "d06eafe3272e42dc53390b1fbbaa8197bcf63e7553410c1cd81551593a192618",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6552,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 419
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"청년 국가자격시험 응시료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"청년 자격시험\",\"응시료 지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":19,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":39,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"영등포구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":1,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"in\",\"value\":[\"구직\"],\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":\"사업자등록사실이 없는 자(휴업중인 자 포함)\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

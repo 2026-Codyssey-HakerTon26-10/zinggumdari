@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "서울시 거주 만 19세~39세 청년", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "('26년 기준 : 1986년생~2007년생)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "분기별 모집(1월, 3월, 7월, 9월)", "mark": false}
+]

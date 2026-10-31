@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-183000000015",
+  "title": "국가유공자 등 보상금",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156419&bnefType=all&svcId=183000000015",
+  "fetched_at": "2026-10-31",
+  "sha256": "a61ed798de7f24383a9cec61f3ad53380b0518a34b854060a282883a10cef3a9",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

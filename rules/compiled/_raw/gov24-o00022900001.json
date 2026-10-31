@@ -1,0 +1,13 @@
+{
+ "key": "bd8f513eaef66e84f524b9573e05a5ebbc2ccc9c628f658e8556a111e106d729",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6879,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 392
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"거주자우선주차 요금감면\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"장애인 주차요금\", \"국가유공자 주차요금\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"국가유공자\", \"고엽제후유의증환자\", \"의사상자\", \"독립유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"경형자동차 또는 환경친화적자동차 또는 다둥이카드소지자 또는 5·18민주유공자 또는 보훈보상대상자 또는 시장·구청장 지정 승용차공동이용자동차 월정기권 발행이용자\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

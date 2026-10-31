@@ -1,0 +1,96 @@
+{
+ "id": "gov24:SD0000010578",
+ "source": "gov24",
+ "name": "농어촌 출신 대학(원)생 학자금 융자 지원 (무이자)",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "농어촌 학자금 융자",
+  "농어촌 대학생 지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "농어촌지역에 주민등록 주소를 두고 6개월 이상 거주하거나 농어업에 종사하는 학부모(보호자)의 자녀",
+   "evidence": [
+    "gov24-sd0000010578:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농어업에 종사하는 대학생 및 대학원생 본인",
+   "evidence": [
+    "gov24-sd0000010578:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농식품인재 대상 학과(농업계대학 농림축산식품계열 학과)에 재학, 복학, 입학 예정인 대학생 및 대학원생 본인",
+   "evidence": [
+    "gov24-sd0000010578:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=10578&bnefType=all&svcId=SD0000010578",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 3,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "eb3ea3cff816d9eefe0d9417e69284212241692b37b60b405eae91e35e3ce11e",
+  "raw": "rules/compiled/_raw/gov24-sd0000010578.json",
+  "at": "2026-11-01T04:02"
+ }
+}

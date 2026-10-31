@@ -1,0 +1,13 @@
+{
+ "key": "e47aa7b1f7f4dbd1db5586f8c749e24df057274a31172df175d0c8b8a2b409d4",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7217,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 841
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"한국형 상병수당 시범사업\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"상병수당\", \"질병 수당\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"in\", \"value\": [\"서울특별시\", \"경기도\", \"충청남도\", \"전라남도\", \"경상북도\", \"경상남도\", \"충청북도\", \"강원도\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"in\", \"value\": [\"종로구\", \"부천시\", \"천안시\", \"순천시\", \"포항시\", \"창원시\", \"안양시\", \"용인시\", \"달서구\", \"익산시\", \"충주시\", \"홍성군\", \"전주시\", \"원주시\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l4\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 15, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"employment_status\", \"op\": \"in\", \"value\": [\"재직\", \"자영업\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": null, \"income_basis\": \"median_pct\", \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l12\"], \"any_of\": [[{\"field\": \"has_account\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"employment_status\", \"op\": \"==\", \"value\": \"재직\", \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"subscription_months\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"definition\"}, {\"line\": \"l7\", \"label\": \"definition\"}, {\"line\": \"l8\", \"label\": \"definition\"}, {\"line\": \"l9\", \"label\": \"definition\"}, {\"line\": \"l10\", \"label\": \"definition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"definition\"}, {\"line\": \"l14\", \"label\": \"definition\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"procedure\"}, {\"line\": \"l17\", \"label\": \"procedure\"}, {\"line\": \"l18\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

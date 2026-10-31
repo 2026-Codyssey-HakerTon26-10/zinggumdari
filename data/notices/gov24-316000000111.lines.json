@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 아래의 기준을 동시에 충족하여야 함", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 65세 이상 단독 가구", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 국민기초생활보장수급권자(생계,의료,주거급여) 및 차상위계층", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 타 재가서비스 미 이용자", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

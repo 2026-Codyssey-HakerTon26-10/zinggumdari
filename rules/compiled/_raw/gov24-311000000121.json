@@ -1,0 +1,13 @@
+{
+ "key": "a8e68a2551fa70ed4d080f7c799823eee82e8ae5196216b501f94a2c7b12dd3f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6406,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 444
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"노인맞춤돌봄지원 강화사업\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"노인돌봄\",\"어르신지원\",\"맞춤돌봄\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"basic_pension\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"household_size\",\"op\":\"==\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"household_size\",\"op\":\"==\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"basic_pension\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"household_size\",\"op\":\"==\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "86a8e6f075704e866e79c6aee755532409e2404c48ec6380906b069016f3b7f4",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6433,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 343
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"은평구 구민안전보험\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"구민안전보험\", \"안전보험\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"은평구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 15, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": [[{\"field\": \"age\", \"op\": \">=\", \"value\": 15, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"age\", \"op\": \"<\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

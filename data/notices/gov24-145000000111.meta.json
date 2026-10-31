@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-145000000111",
+  "title": "연탄쿠폰",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2114213&bnefType=all&svcId=145000000111",
+  "fetched_at": "2026-10-31",
+  "sha256": "6117774480b12a82314a3e0156fcc57a5f32202a46253ee9354594e4f5ed2ce1",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

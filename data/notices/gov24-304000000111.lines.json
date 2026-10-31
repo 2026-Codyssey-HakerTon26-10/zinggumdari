@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 1순위 : 만65세 이상 국민기초생활보장수급자 중 중증희귀질환자 및 만성질환자 독거어르신", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 2순위 : 만 65세 이상 차상위계층 중 독거어르신 중 독거어르신 중증희귀 질환자 및 만성질환자 독거어르신", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 3순위 : 그외 사회적인 관례 단절 및 질병, 장애 등 특별한 사유로 방문을 통한 안부확인 보호가 필요한 대상", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

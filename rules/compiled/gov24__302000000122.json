@@ -1,0 +1,130 @@
+{
+ "id": "gov24:302000000122",
+ "source": "gov24",
+ "name": "저소득층 건강보험료 지원",
+ "org": "서울특별시 용산구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "용산구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "건강보험료 지원",
+  "저소득층 지원"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "용산구",
+   "evidence": [
+    "gov24-302000000122:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "최저건강보험료 20,160원 이하",
+   "evidence": [
+    "gov24-302000000122:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65,
+      "text": "65세이상 노인가구"
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y",
+      "text": "등록장애인이 있는 가구"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "국가유공자"
+      ],
+      "text": "국가유공자 가구"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ],
+      "text": "한부모가족 가구"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-302000000122:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.2:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2150431&bnefType=all&svcId=302000000122",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "acb092cc4b95d03cd78eb1e6624fd7551367b216715c09483f75fa31e2fdd824",
+  "raw": "rules/compiled/_raw/gov24-302000000122.json",
+  "at": "2026-11-01T03:57"
+ }
+}

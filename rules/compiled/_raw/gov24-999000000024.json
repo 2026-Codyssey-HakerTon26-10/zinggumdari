@@ -1,0 +1,13 @@
+{
+ "key": "2123a2dbd0313840aa948dcb055b21e6e6312adf5134c2f437662284c40c3153",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6497,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 220
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장기전세 주택공급\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"rent\", \"aliases\": [\"장기전세\", \"전세주택\"], \"conditions\": [{\"field\": \"is_homeless\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

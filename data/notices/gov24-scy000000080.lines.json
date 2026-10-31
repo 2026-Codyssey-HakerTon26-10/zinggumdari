@@ -1,0 +1,16 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 보호대상 아동 : 만 18세 미만의 아동양육시설, 가정위탁, 공동생활가정, 소년소녀가정, 장애인 생활시설 아동", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 기초수급가구 아동 : 만 18세 미만의 생계,의료,주거,교육 급여 수급가구 아동", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 차상위계층 아동 : 만 18세 미만의 차상위계층, 한부모가족 아동", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "* 차상위계층: 차상위장애인, 차상위자활, 차상위본인부담경감대상자, 차상위계층 확인", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "* 한부모가정: 모자가족, 조손가족, 부자가족, 청소년한부모모자가족, 청소년한부모부자가족", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 보호대상 아동 : 만 18세 미만의 아동양육시설, 가정위탁, 공동생활가정, 소년소녀가정, 장애인 생활시설 아동", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 기초수급가구 아동 : 만 18세 미만의 생계,의료,주거,교육 급여 수급가구 아동", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 차상위계층 아동 : 만 18세 미만의 차상위계층, 한부모가족 아동", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "* 차상위계층: 차상위장애인, 차상위자활, 차상위본인부담경감대상자, 차상위계층 확인", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "* 한부모가정: 모자가족, 조손가족, 부자가족, 청소년한부모모자가족, 청소년한부모부자가족", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

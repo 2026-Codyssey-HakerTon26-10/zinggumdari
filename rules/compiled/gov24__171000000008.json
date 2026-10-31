@@ -1,0 +1,129 @@
+{
+ "id": "gov24:171000000008",
+ "source": "gov24",
+ "name": "다문화가정 EMS 요금 할인 지원",
+ "org": "과학기술정보통신부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "다문화가족 EMS 할인",
+  "결혼이민자 요금 지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "내국인과 결혼한 다문화 가족",
+   "evidence": [
+    "gov24-171000000008:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "외국인 등록증 체류자격 F-6-1, F-6-2, F-6-3 중 하나"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "다문화 가족지원법 제2조 제2호에 의한 결혼이민자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "귀화 허가를 받은 자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "국적 취득자로 주민등록증 및 가족관계증명서 등으로 확인 가능한 자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-171000000008:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "다문화 가족지원법 제2조 제2호에 의한 결혼이민자, 귀화 허가를 받은 자임을 증빙할 수 있는 자",
+   "evidence": [
+    "gov24-171000000008:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-171000000008:l6"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=581554&bnefType=all&svcId=171000000008",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "2e35286bddabace8f3968f6b63103661c14d9fe9f8b9e4df30b44314b202cdea",
+  "raw": "rules/compiled/_raw/gov24-171000000008.json",
+  "at": "2026-11-01T03:56"
+ }
+}

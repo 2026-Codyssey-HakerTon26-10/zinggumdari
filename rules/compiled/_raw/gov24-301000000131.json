@@ -1,0 +1,13 @@
+{
+ "key": "055b06a6af309d1ace8fa930ab7572dd28122a732316bed1e3a282d290396b31",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6490,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 536
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 주민 국민건강보험료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"저소득층 보험료\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"중구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[]}],\"documents\":[]},{\"track\":\"main\",\"name\":\"저소득 주민 국민건강보험료 지원 장애인연금\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"저소득층 보험료\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"중구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"장애인연금\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":[]}],\"documents\":[]},{\"track\":\"main\",\"name\":\"저소득 주민 국민건강보험료 지원 한부모세대\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"저소득층 보험료\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"중구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

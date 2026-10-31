@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-161300000101",
+  "title": "통합공공임대주택 공급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2103502&bnefType=all&svcId=161300000101",
+  "fetched_at": "2026-10-31",
+  "sha256": "1da1be625b1fe8c5738217aee94cf05d29a486a5a004b6f5ea28cf5be5d8f290",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

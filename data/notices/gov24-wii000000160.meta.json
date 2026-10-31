@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000000160",
+  "title": "무주택 전후 납북피해자 주거 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=518440&bnefType=all&svcId=WII000000160",
+  "fetched_at": "2026-10-31",
+  "sha256": "288d8b7b9248dcbcabdc1c465181106103e22388a8bd347028d91392f9db6309",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

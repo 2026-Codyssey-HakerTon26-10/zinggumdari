@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "□ 지원대상 : 사회적 취약계층", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 기초생활수급자, 장애인, 독거노인, 결혼이주여성, 범죄피해자, 저소득 주민 등", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

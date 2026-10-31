@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 내국인과 결혼한 다문화 가족", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 외국인 등록증에 체류자격 F-6-1, F-6-2, F-6-3으로 명시된 자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 다문화 가족지원법 제2조 제2호에 의한 결혼이민자, 귀화 허가를 받은 자임을 증빙할 수 있는 자", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 국적 취득자의 경우 주민등록증 및 가족관계증명서 등으로 확인 가능한 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

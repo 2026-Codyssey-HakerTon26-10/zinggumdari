@@ -1,0 +1,13 @@
+{
+ "key": "2394e5fac8711c29aebea1c8b25e9a8778efa0c7f5a27b93daace8aa637112e6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6465,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 462
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 어르신 보행보조차 지원\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"보행보조차\",\"어르신 지원\",\"거동불편\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"기타\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"주거\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"기타\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"basic_pension\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"기타\",\"income_basis\":null,\"as_of\":null,\"text\":null}]]},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"거동불편\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

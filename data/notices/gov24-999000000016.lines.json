@@ -1,0 +1,11 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "독립유공자 및 보상금 지급대상 선순위 유족", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "국가유공자, 5.18민주유공자, 특수임무유공자와 그 유족(자녀제외)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "고엽제후유의증환자 중 수당지급대상자, 참전유공자, 보훈보상대상자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "65세 이상 남성 또는 60세 이상 여성(단, 상이자는 60세 이상 남성 또는 55세 이상 여성)으로 부양 의무자가 없어야 함.", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "* 부양의무자가 있더라도 부양능력이 없는 경우 포함", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "수시신청", "mark": false}
+]

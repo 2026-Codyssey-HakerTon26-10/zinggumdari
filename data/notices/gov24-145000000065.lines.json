@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 근로자대책비 : 폐광 및 감축하는 석탄광산에 소속한 근로자로서 해당 광산에서 3월 이상 재직한 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 광업자대책비 : 광업권 등의 소멸등록을 마친 석탄광업자", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 폐광 및 감축지원금, 자녀학자금 : 퇴직 후 최초의 신청은 폐광일로부터 3월 이내, 매분기 신청은 개시일로부터 3월 이내 /", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 재해위로금 : 장해등급이 확정된 날로부터 6월 이내", "mark": true}
+]

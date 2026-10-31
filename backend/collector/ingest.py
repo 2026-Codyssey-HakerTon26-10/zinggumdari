@@ -13,6 +13,7 @@ import json
 import re
 import secrets
 import socket
+import time
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
@@ -68,8 +69,22 @@ def _discard(doc_id: str) -> None:
 MAX_REDIRECTS = 3
 
 
-def _check_public(url: str) -> None:
-    """서버가 대신 받아 오는 주소라 내부망(localhost, 사설·예약 IP)은 막는다."""
+FETCH_SECONDS = 60   # URL 하나를 받는 데 쓰는 전체 시간. httpx timeout은 읽기 한 번 기준이라 따로 잰다
+_NAT64 = ipaddress.ip_network("64:ff9b::/96")
+
+
+def _is_public(ip: str) -> bool:
+    addr = ipaddress.ip_address(ip)
+    if isinstance(addr, ipaddress.IPv6Address):
+        if addr.ipv4_mapped:
+            addr = addr.ipv4_mapped
+        elif addr in _NAT64:   # 64:ff9b::7f00:1은 127.0.0.1로 간다
+            addr = ipaddress.IPv4Address(int(addr) & 0xFFFFFFFF)
+    return addr.is_global
+
+
+def _check_public(url: str) -> str:
+    """서버가 대신 받아 오는 주소라 내부망(localhost, 사설·예약 IP)은 막는다. 확인한 IP 하나를 돌려준다."""
     u = urlparse(url)
     if u.scheme not in ("http", "https") or not u.hostname:
         raise Rejected("http(s) 주소만 받습니다")
@@ -77,16 +92,32 @@ def _check_public(url: str) -> None:
         infos = socket.getaddrinfo(u.hostname, u.port or (443 if u.scheme == "https" else 80))
     except socket.gaierror as exc:
         raise Rejected("주소를 찾지 못했습니다") from exc
-    if not infos or any(not ipaddress.ip_address(info[4][0]).is_global for info in infos):
+    if not infos or any(not _is_public(info[4][0]) for info in infos):
         raise Rejected("내부 주소는 받지 않습니다")
+    return infos[0][4][0]
+
+
+def _pinned(url: str, ip: str) -> tuple[str, dict, dict]:
+    """확인한 IP로 바로 접속하는 주소. 접속할 때 이름을 다시 풀면 그사이 내부 주소로 바꿔치기할 수 있다
+    (DNS 재바인딩). Host 헤더와 TLS 인증서 확인(sni_hostname)은 원래 이름으로 한다."""
+    u = urlparse(url)
+    host = f"[{ip}]" if ":" in ip else ip
+    netloc = f"{host}:{u.port}" if u.port else host
+    headers = {"Host": u.netloc.rsplit("@", 1)[-1]}
+    extensions = {"sni_hostname": u.hostname} if u.scheme == "https" else {}
+    return u._replace(netloc=netloc).geturl(), headers, extensions
 
 
 def fetch_url(url: str, transport: httpx.BaseTransport | None = None) -> bytes:
-    """URL의 PDF를 받는다. 리다이렉트마다 주소를 다시 검사하고, 받는 도중 30MB를 넘으면 끊는다."""
-    with httpx.Client(timeout=30, follow_redirects=False, transport=transport) as client:
+    """URL의 PDF를 받는다. 리다이렉트마다 주소를 다시 검사하고, 받는 도중 30MB나 전체 시간을 넘으면 끊는다."""
+    deadline = time.monotonic() + FETCH_SECONDS
+    timeout = httpx.Timeout(10.0)
+    with httpx.Client(timeout=timeout, follow_redirects=False, transport=transport) as client:
         for _ in range(MAX_REDIRECTS + 1):
-            _check_public(url)
-            with client.stream("GET", url) as res:
+            if time.monotonic() > deadline:
+                raise Rejected(f"받는 데 너무 오래 걸립니다({FETCH_SECONDS}초까지)")
+            target, headers, extensions = _pinned(url, _check_public(url))
+            with client.stream("GET", target, headers=headers, extensions=extensions) as res:
                 if res.is_redirect:
                     url = urljoin(url, res.headers.get("location", ""))
                     continue
@@ -97,6 +128,8 @@ def fetch_url(url: str, transport: httpx.BaseTransport | None = None) -> bytes:
                     buf += chunk
                     if len(buf) > MAX_BYTES:
                         raise Rejected("파일이 너무 큽니다(30MB까지)")
+                    if time.monotonic() > deadline:
+                        raise Rejected(f"받는 데 너무 오래 걸립니다({FETCH_SECONDS}초까지)")
                 return bytes(buf)
     raise Rejected("리다이렉트가 너무 많습니다")
 
@@ -110,12 +143,20 @@ def _compile():
     return fn
 
 
-def _call_compile(fn, doc_id: str, lines: list[dict], meta: dict) -> list[dict]:
+# compile()의 로그에서 가져오는 칸. 조건표만 보고는 셀 수 없다(자격 구간, LLM 호출 수)
+COMPILE_LOG_KEYS = ("section", "llm_calls", "schema_retries", "unread_pages", "usage")
+
+
+def _call_compile(fn, doc_id: str, lines: list[dict], meta: dict) -> tuple[list[dict], dict]:
     """compile()에 원문 머리를 넘긴다(제목, 출처, 해시, 읽지 못한 쪽). 읽지 못한 쪽이 있으면 조건표마다
-    확인 필요 조건이 붙는다. 머리를 받지 않는 compile이면 줄만 넘긴다."""
-    if "meta" in inspect.signature(fn).parameters:
-        return fn(doc_id, lines, "upload", meta=meta)
-    return fn(doc_id, lines, "upload")
+    확인 필요 조건이 붙는다. (조건표, compile 로그)를 돌려준다. 머리나 로그를 받지 않는 compile이면 있는 만큼만."""
+    params = inspect.signature(fn).parameters
+    if "meta" not in params:
+        return fn(doc_id, lines, "upload"), {}
+    if "return_log" not in params:
+        return fn(doc_id, lines, "upload", meta=meta), {}
+    rules, log = fn(doc_id, lines, "upload", meta=meta, return_log=True)
+    return rules, {k: log[k] for k in COMPILE_LOG_KEYS if k in log}
 
 
 def summarize(doc_id: str, meta: dict, lines: list[dict], rules: list[dict]) -> dict:
@@ -231,7 +272,7 @@ def _reverify(rules: list[dict], lines: list[dict]) -> list[dict]:
 
 
 def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: str, uploaded_by: str | None,
-           replay_reason: str | None = None, replay_warning: str | None = None) -> dict:
+           replay_reason: str | None = None, replay_warning: str | None = None, compile_log: dict | None = None) -> dict:
     """조건표를 올린 계정 앞으로 저장하고 카드에 합류시킨다. 새로 읽었을 때만 캐시를 쓴다."""
     out_dir = upload_rules_dir()
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -244,7 +285,8 @@ def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: s
     from backend.search.service import reset_index
     reset_index()
 
-    result = {"log": summarize(doc_id, meta, lines, rules), "rules": rules, "notice": NOTICE,
+    log = {**summarize(doc_id, meta, lines, rules), **{k: v for k, v in (compile_log or {}).items() if v is not None}}
+    result = {"log": log, "rules": rules, "notice": NOTICE,
               "at": datetime.now().isoformat(timespec="seconds")}
     if replay_reason is None:
         save_cache(sha, {**result, "lines_fp": lines_fingerprint(lines)})
@@ -295,7 +337,9 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
         if cached.get("lines_fp") != lines_fingerprint(lines):
             rules = _reverify(rules, lines)
             warning = "캐시를 만들 때와 줄 목록이 달라 지금 줄 목록으로 검증기를 다시 돌렸다"
-        return _merge(doc_id, meta, lines, rules, sha, uploaded_by, reason, warning)
+        # 자격 구간과 LLM 호출 수는 캐시를 만들 때 읽은 값이다(재생은 LLM을 부르지 않는다. replayed로 밝힌다)
+        return _merge(doc_id, meta, lines, rules, sha, uploaded_by, reason, warning,
+                      compile_log={k: cached["log"].get(k) for k in COMPILE_LOG_KEYS})
 
     if replay:
         return replay_with("캐시 재생을 켰다")
@@ -304,10 +348,10 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     try:
         if compile_fn is None:
             raise RuntimeError("AI 공고 읽기(backend.compiler.compile)가 아직 연결되지 않았다")
-        rules = _call_compile(compile_fn, doc_id, lines, meta)
+        rules, compile_log = _call_compile(compile_fn, doc_id, lines, meta)
     except Exception as exc:   # 읽기가 실패하면 캐시가 있을 때 캐시로 같은 화면을 만들고, 없으면 올린 원문을 지운다
         if cached:
             return replay_with(f"읽기 실패: {exc}")
         _discard(doc_id)
         raise RuntimeError(str(exc)) from exc
-    return _merge(doc_id, meta, lines, rules, sha, uploaded_by)
+    return _merge(doc_id, meta, lines, rules, sha, uploaded_by, compile_log=compile_log)

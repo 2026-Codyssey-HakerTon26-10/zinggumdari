@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-174100000034",
+  "title": "온라인 신청 시연 테스트(운영)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=808591&bnefType=all&svcId=174100000034",
+  "fetched_at": "2026-10-31",
+  "sha256": "974555bd49db592c375ada320a3b6cb8776e478936d4b0229dca19cb71c91f05",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

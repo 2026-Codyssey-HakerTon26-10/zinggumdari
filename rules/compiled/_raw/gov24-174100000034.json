@@ -1,0 +1,13 @@
+{
+ "key": "d0919e39865d7465b1f7603126474fd775f517c03ef5150f8323f7cdad375761",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 8104,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 594
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"온라인 신청 시연 테스트(운영)\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"service\",\"aliases\":[],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"사용검사일로부터 15년이 경과한 공동주택 및 부대·복리시설\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"history\",\"op\":\"!=\",\"value\":\"5년 이내 보조금 지원\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2026-10-01\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l25\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"2026-10-30\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l25\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"out_of_scope\"},{\"line\":\"l5\",\"label\":\"out_of_scope\"},{\"line\":\"l6\",\"label\":\"out_of_scope\"},{\"line\":\"l7\",\"label\":\"out_of_scope\"},{\"line\":\"l8\",\"label\":\"out_of_scope\"},{\"line\":\"l9\",\"label\":\"out_of_scope\"},{\"line\":\"l10\",\"label\":\"out_of_scope\"},{\"line\":\"l11\",\"label\":\"out_of_scope\"},{\"line\":\"l12\",\"label\":\"out_of_scope\"},{\"line\":\"l13\",\"label\":\"out_of_scope\"},{\"line\":\"l14\",\"label\":\"out_of_scope\"},{\"line\":\"l15\",\"label\":\"out_of_scope\"},{\"line\":\"l16\",\"label\":\"out_of_scope\"},{\"line\":\"l17\",\"label\":\"out_of_scope\"},{\"line\":\"l18\",\"label\":\"out_of_scope\"},{\"line\":\"l19\",\"label\":\"out_of_scope\"},{\"line\":\"l20\",\"label\":\"out_of_scope\"},{\"line\":\"l21\",\"label\":\"out_of_scope\"},{\"line\":\"l22\",\"label\":\"out_of_scope\"},{\"line\":\"l23\",\"label\":\"out_of_scope\"},{\"line\":\"l24\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "9dcd9d527e8a1cf731cfe2869b897dff5f3576536a4f6117bc80508f09f26b9f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6654,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 481
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"연탄쿠폰\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"연탄\",\"난방\",\"에너지\"],\"conditions\":[{\"field\":\"tenure_type\",\"op\":\"==\",\"value\":\"자가\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"연탄보일러를 가정난방용으로 사용\",\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null}]]},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":60,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l12\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"definition\"},{\"line\":\"l7\",\"label\":\"definition\"},{\"line\":\"l9\",\"label\":\"definition\"},{\"line\":\"l13\",\"label\":\"out_of_scope\"},{\"line\":\"l14\",\"label\":\"procedure\"},{\"line\":\"l15\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

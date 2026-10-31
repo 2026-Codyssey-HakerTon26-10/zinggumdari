@@ -1,0 +1,13 @@
+{
+ "key": "9488ba6811b12b9c50b646ae3bdc762e47be4ec212f12b7ee7650acdb7c1020d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6543,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 390
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득 국민건강보험료 및 장기요양보험료 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"건강보험료 지원\", \"장기요양보험료 지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"광진구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"income_recognized\", \"op\": \"<=\", \"value\": null, \"income_basis\": \"recognized\", \"as_of\": null, \"text\": \"월 최저보험료 이하\", \"evidence\": [\"l2\"], \"any_of\": [[{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"등록장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

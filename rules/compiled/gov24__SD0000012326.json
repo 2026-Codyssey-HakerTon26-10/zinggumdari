@@ -1,0 +1,124 @@
+{
+ "id": "gov24:SD0000012326",
+ "source": "gov24",
+ "name": "의료급여 (임신·출산진료비)",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "임신출산진료비",
+  "의료급여 임산부",
+  "출산진료비 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "의료급여수급자"
+   ],
+   "evidence": [
+    "gov24-sd0000012326:l2",
+    "gov24-sd0000012326:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 0
+     }
+    ],
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "N"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-sd0000012326:l2",
+    "gov24-sd0000012326:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.1:not_in_evidence",
+    "comparator": "fail:b0.1:no_value",
+    "unit": "fail:b0.1:no_value",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 2,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-sd0000012326:l2",
+    "gov24-sd0000012326:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999151&bnefType=all&svcId=SD0000012326",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 2,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "64d5ea39833cf6387b725e18d6819922e48c1901dc480bc11c1a69c6e854dade",
+  "raw": "rules/compiled/_raw/gov24-sd0000012326.json",
+  "at": "2026-11-01T04:03"
+ }
+}

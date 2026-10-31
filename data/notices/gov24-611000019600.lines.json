@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "ㅇ 임신 확인 후~출산 후 6개월(서울시 임산부 교통비 지원사업 대상과 동일)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 신청일 기준 서울시 거주 임산부", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 다문화가족 외국인 임산부의 경우, 부부 모두 외국인인 경우는 제외", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

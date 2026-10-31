@@ -1,0 +1,96 @@
+{
+ "id": "gov24:304000000127",
+ "source": "gov24",
+ "name": "임산부 건강관리 지원",
+ "org": "서울특별시 광진구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "광진구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "임산부 지원",
+  "산모 건강관리",
+  "임신 지원"
+ ],
+ "conditions": [
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-304000000127:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 0,
+      "as_of": "application_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-304000000127:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.1:not_in_evidence",
+    "comparator": "fail:b0.1:no_value",
+    "unit": "fail:b0.1:no_value",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006710&bnefType=all&svcId=304000000127",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f9b96a59bafe44c6d4e4eabbf7ba87a1e55dacdae8a1f6de255ec91390ac6f9c",
+  "raw": "rules/compiled/_raw/gov24-304000000127.json",
+  "at": "2026-11-01T03:57"
+ }
+}

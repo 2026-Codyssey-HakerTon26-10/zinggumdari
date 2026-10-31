@@ -1,0 +1,13 @@
+{
+ "key": "033ab9acb409f28ed92eb06ea507e3029fbc155db4eaac44920bca9147fa69b5",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6441,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 362
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"찾아가는 구로맘 수유 온 지원 서비스\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"구로맘 수유 지원\",\"출산모 방문 서비스\",\"산후 관리 서비스\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"구로구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"due_month\",\"op\":\"<=\",\"value\":\"2024-12\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"marital_status\",\"op\":\"!=\",\"value\":\"미혼\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"다문화 가족(부부 모두 외국인 제외)\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

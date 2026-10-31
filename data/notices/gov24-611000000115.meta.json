@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000000115",
+  "title": "동행센터 방문건강관리서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001621&bnefType=all&svcId=611000000115",
+  "fetched_at": "2026-10-31",
+  "sha256": "549ab669fde04f54fa5e329b96822bf5575a5d18cd242e24925d5bf600a4c6f2",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

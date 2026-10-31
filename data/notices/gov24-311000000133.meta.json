@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-311000000133",
+  "title": "은평구 드림스타트",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100505&bnefType=all&svcId=311000000133",
+  "fetched_at": "2026-10-31",
+  "sha256": "b5fa0255e39523ef1bcd764a0c1048ebeb88e95627f374b6d57bb003f505bab7",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

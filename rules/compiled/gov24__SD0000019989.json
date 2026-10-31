@@ -1,0 +1,384 @@
+{
+ "id": "gov24:SD0000019989",
+ "source": "gov24",
+ "name": "특허료·등록료 및 수수료의 감면",
+ "org": "지식재산처",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "특허료 감면",
+  "등록료 감면",
+  "수수료 감면"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "의료급여수급자",
+    "국가유공자",
+    "국가유공자유족",
+    "국가유공자가족",
+    "5·18민주유공자",
+    "5·18민주유공자유족",
+    "5·18민주유공자가족",
+    "고엽제후유증환자",
+    "고엽제후유의증환자",
+    "고엽제후유증2세환자",
+    "특수임무유공자",
+    "특수임무유공자유족",
+    "특수임무유공자가족",
+    "독립유공자",
+    "독립유공자유족",
+    "독립유공자가족",
+    "참전유공자",
+    "의사상자",
+    "의사상자유족",
+    "의사상자가족",
+    "장애인",
+    "초중등학교재학생",
+    "병역복무자",
+    "사회복무요원",
+    "전환복무자"
+   ],
+   "evidence": [
+    "gov24-sd0000019989:l3",
+    "gov24-sd0000019989:l4",
+    "gov24-sd0000019989:l5",
+    "gov24-sd0000019989:l6",
+    "gov24-sd0000019989:l7",
+    "gov24-sd0000019989:l8",
+    "gov24-sd0000019989:l9",
+    "gov24-sd0000019989:l10",
+    "gov24-sd0000019989:l11",
+    "gov24-sd0000019989:l12",
+    "gov24-sd0000019989:l13",
+    "gov24-sd0000019989:l15",
+    "gov24-sd0000019989:l16"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 6,
+   "evidence": [
+    "gov24-sd0000019989:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 18,
+   "evidence": [
+    "gov24-sd0000019989:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "evidence": [
+    "gov24-sd0000019989:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 29,
+   "evidence": [
+    "gov24-sd0000019989:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-sd0000019989:l18"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "개인(발명자·고안자·창작자과 출원인이 동일한 경우)",
+   "evidence": [
+    "gov24-sd0000019989:l19"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중소기업",
+   "evidence": [
+    "gov24-sd0000019989:l20"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중소기업과의 공동연구결과물을 공동출원",
+   "evidence": [
+    "gov24-sd0000019989:l21"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "공공연구기관",
+   "evidence": [
+    "gov24-sd0000019989:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "전담조직",
+   "evidence": [
+    "gov24-sd0000019989:l23"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "지방자치단체",
+   "evidence": [
+    "gov24-sd0000019989:l24"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중견기업",
+   "evidence": [
+    "gov24-sd0000019989:l25"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "은행",
+   "evidence": [
+    "gov24-sd0000019989:l26"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "기술신탁관리기관",
+   "evidence": [
+    "gov24-sd0000019989:l27"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000019989:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000019989:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000019989:l12"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999202&bnefType=all&svcId=SD0000019989",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 42,
+  "used": 3,
+  "labeled": {
+   "definition": 4,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 32
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "91778fce84e419d3e975cd306d0d0098de8fbeb87dc4c671970518b5826f4905",
+  "raw": "rules/compiled/_raw/gov24-sd0000019989.json",
+  "at": "2026-11-01T04:03"
+ }
+}

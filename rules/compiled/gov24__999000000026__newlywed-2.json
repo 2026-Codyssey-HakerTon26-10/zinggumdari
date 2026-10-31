@@ -1,0 +1,156 @@
+{
+ "id": "gov24:999000000026:newlywed-2",
+ "source": "gov24",
+ "name": "행복주택 공급 예비신혼부부",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "행복주택",
+  "예비신혼부부"
+ ],
+ "conditions": [
+  {
+   "field": "marital_status",
+   "op": "in",
+   "value": [
+    "예비부부"
+   ],
+   "evidence": [
+    "gov24-999000000026:l23"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-999000000026:l23"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 120,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 130,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 110,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": ">=",
+      "value": 3
+     },
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 120,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "household_size",
+      "op": ">=",
+      "value": 3
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000026:l25"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "세대내 총자산 3.45억원 이하, 자동차 3,708만원 이하",
+   "evidence": [
+    "gov24-999000000026:l26"
+   ],
+   "status": "reviewed"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01",
+  "note": "소득 가지를 원문(1인 120%, 2인 110%, 2인 맞벌이 130%, 3인 이상 맞벌이 120%, 그 밖 100%, 평균소득은 도시근로자 월평균소득)대로 다시 썼다. 가구원 수는 예비부부면 혼인으로 구성될 세대 기준인데 프로필은 지금 가구원 수라 넓게 통과할 수 있다. 대학생, 주거급여 수급자 줄(l2, l4, l10)의 미반영 표시는 다른 대상이라 지웠다"
+ },
+ "coverage": {
+  "marked": 32,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7dc705940d434a5102b08b2051491c6e2f300cda70d034ed8268bb1aff6d8719",
+  "raw": "rules/compiled/_raw/gov24-999000000026.json",
+  "at": "2026-11-01T04:00"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "fb6e5e04a4d9e454b6c31b5676c4ae3e5995b9ad537efc322a8987b2b760414e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6438,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 364
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"양천구 주택형 태양광 미니발전소 설치 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"태양광 미니발전소\", \"태양광 설치 지원\"], \"conditions\": [{\"field\": \"tenure_type\", \"op\": \"in\", \"value\": [\"자가\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"is_householder\", \"op\": \"==\", \"value\": \"세대주\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2025-01-01\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": \"2025-11-30\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

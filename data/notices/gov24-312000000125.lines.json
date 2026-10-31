@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "♥ 신청대상 : 출산예정일을 기준으로 1년 전부터 신청일 현재까지 계속하여 서대문구에 주민등록을 두고 실제 거주하고 있는 임산부", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 소득, 재산 기준 없음", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "♥ 신청기간 : 출산예정일 전일까지(출산전이어야 함)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

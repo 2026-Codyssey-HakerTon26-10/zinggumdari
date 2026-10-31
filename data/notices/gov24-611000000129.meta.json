@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000000129",
+  "title": "서울형 입원 생활비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002480&bnefType=all&svcId=611000000129",
+  "fetched_at": "2026-10-31",
+  "sha256": "c4c9dc28222010f17424a9fec63018600c5e3fbaf2d647dcda1456274dade19a",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

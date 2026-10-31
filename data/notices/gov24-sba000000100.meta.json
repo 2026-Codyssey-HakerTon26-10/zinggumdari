@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sba000000100",
+  "title": "자활근로(기초, 차상위)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=167950&bnefType=all&svcId=SBA000000100",
+  "fetched_at": "2026-10-31",
+  "sha256": "ed7e083fb2f46680eb5bceac104d4e2bec10b383ddf968a5f60e000d62e42550",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

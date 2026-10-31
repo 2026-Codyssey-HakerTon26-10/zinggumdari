@@ -1,0 +1,82 @@
+{
+ "id": "gov24:320000000119:main-2",
+ "source": "gov24",
+ "name": "관악구 국가보훈대상자 보훈수당 배우자복지수당",
+ "org": "서울특별시 관악구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "관악구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "참전유공자 배우자 수당",
+  "배우자복지수당"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "관악구",
+   "evidence": [
+    "gov24-320000000119:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "사망한 참전유공자의 배우자",
+   "evidence": [
+    "gov24-320000000119:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110221&bnefType=all&svcId=320000000119",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 19,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 6,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 7
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7f675ac6a0688050a8306f0d894d9570dffb65ba733820e4a061139016ccb5b4",
+  "raw": "rules/compiled/_raw/gov24-320000000119.json",
+  "at": "2026-11-01T03:59"
+ }
+}

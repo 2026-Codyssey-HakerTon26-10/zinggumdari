@@ -1,0 +1,13 @@
+{
+ "key": "c40893a20ba437bf703c0177396da48132186186ab6bf46c141bfc27d62b4a4b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6421,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 322
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득층 국민건강보험료 지원\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"건강보험료 지원\", \"저소득 노인 보험료\"], \"conditions\": [{\"field\": \"lives_alone\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"매월 보험료 부과금액이 보건복지부가 고시한 최저보험료 이하\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

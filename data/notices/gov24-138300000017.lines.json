@@ -1,0 +1,16 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "< 특별공급 대상 >", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 입주대상 : 한부모가족지원법상 지원 대상 한부모가족", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 입주자모집공고일 기준 무주택세대구성원(세대주 및 세대주와 동일 주민등록표등본에 등재되어 있는 직계존･비속인 세대원)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 분양대상 : 한국토지주택공사 및 민간 주택사업자 등의 임대주택", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 한국토지주택공사: 각 지역본부와 협의하여 공급 물량 파악", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 민간 주택사업자 등: 사업계획 수립 및 승인 단계에서 공급 물량 파악", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 입주대상 : 한부모가족지원법상 지원 대상 한부모가족", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 입주자모집공고일 기준 무주택세대구성원(세대주 및 세대주와 동일 주민등록표등본에 등재되어 있는 직계존･비속인 세대원)", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 시.도지사가 지원 우선순위를 정하여 특별공급대상 한부모 선정", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 선정 기준은‘특별공급 배점기준표’를 참고하여 지역 사정에 따라 수정 가능", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "LH공사 서비스담당자 확인필요", "mark": false}
+]

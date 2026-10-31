@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-322000000112",
+  "title": "구강보건서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004378&bnefType=all&svcId=322000000112",
+  "fetched_at": "2026-10-31",
+  "sha256": "cc0594e15db96df9973dce6aa343e3cd341ccf03d0b17d0ecf54d23869876c8f",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

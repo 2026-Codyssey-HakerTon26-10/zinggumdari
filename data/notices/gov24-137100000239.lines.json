@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "19세~20세 청년('26년 기준 2006~2007년 출생자)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "* 2025년 포인트 사용자 신청 불가", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "19세~20세 청년('26년 기준 2006~2007년 출생자)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "* 2025년 포인트 사용자 신청 불가, 지역별 예산 소진 시 해당 지역 발급 마감", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "2026.02.25.~2026.06.30.", "mark": true}
+]

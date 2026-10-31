@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 슬레이트 건축물(주택, 창고, 축사, 「건축법」제2조제2항에 따른 노인 및 어린이시설) 소유자", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 주택 슬레이트 철거처리 및 지붕개량은 우선지원 대상을 먼저 지원 후 일반가구 지원(소규모 우선지원)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "※ 우선지원 대상 : ① 기초수급자 → ② 차상위계층 → ③ 기타 취약계층", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 축사, 창고, 「건축법」제2조제2항에 따른 노인 및 어린이시설 철거처리는 슬레이트 면적이 200㎡이하시 지원(소규모 우선지원)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "해당 지자체가 정하는 시기에 신청(물량 소진시 까지)", "mark": true}
+]

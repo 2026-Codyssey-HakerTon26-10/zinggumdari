@@ -1,0 +1,61 @@
+{
+ "id": "gov24:138300000009",
+ "source": "gov24",
+ "name": "결혼이민예정자 현지사전교육 지원",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "결혼이민",
+  "현지사전교육",
+  "이민예정자"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "혼인신고자 또는 비자발급신청자",
+   "evidence": [
+    "gov24-138300000009:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999181&bnefType=all&svcId=138300000009",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "4178e3574363d0fd4c74a03d1709e818ba7a8ce8f7eda88502f820f4796bebe3",
+  "raw": "rules/compiled/_raw/gov24-138300000009.json",
+  "at": "2026-11-01T03:55"
+ }
+}

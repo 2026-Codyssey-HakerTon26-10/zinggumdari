@@ -3,9 +3,10 @@
 from datetime import date
 
 import pytest
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from backend.app.main import app
+from backend.app.routers import profiles
 from backend.engine.derive import derive
 from backend.engine.stub_data import EXAMPLE_PROFILE
 
@@ -46,6 +47,8 @@ def test_unknown_values_stay_none():
 
 def test_get_profile_has_derived(monkeypatch):
     monkeypatch.setenv("DEV_STUB_API", "1")
+    app = FastAPI()
+    app.include_router(profiles.router)   # 메모리 스텁. DB 경로는 test_profiles_judge_db
     client = TestClient(app)
     user_id = client.post("/profiles", json={"self": {"birth_year": 1996, "marital_status": "신혼"}}).json()["user_id"]
     body = client.get(f"/profiles/{user_id}?today=2026-11-01").json()

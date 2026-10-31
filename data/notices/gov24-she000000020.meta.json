@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-she000000020",
+  "title": "의료급여 (요양비)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=753167&bnefType=all&svcId=SHE000000020",
+  "fetched_at": "2026-10-31",
+  "sha256": "15376651e4f95d05fd39d46ec8f62bdcc799fbbcb47b24e9fd49d43f6e7bcae2",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,13 @@
+{
+ "key": "57f4255e357bdfcd480ebf6e921d1d77c361e9c3344843427fc5f1338ea43140",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7034,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 599
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"자영업자 실업급여\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"자영업자 구직급여\", \"폐업 실업급여\"], \"conditions\": [{\"field\": \"employment_status\", \"op\": \"==\", \"value\": \"자영업\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"history\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"폐업일 이전 24개월간 자영업자 피보험 단위기간 합산 1년 이상\", \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"폐업사유가 수급자격 제한 사유에 해당하지 않을 것\", \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"6개월 연속 적자, 또는 폐업일 직전 3개월 월평균 매출액이 전년도 같은 기간 또는 전년도 월평균 매출액 대비 20% 이상 감소, 또는 3분기 연속 월평균 매출액 감소 추세 중 1가지 요건 충족\", \"evidence\": [\"l11\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

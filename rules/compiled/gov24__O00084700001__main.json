@@ -1,0 +1,262 @@
+{
+ "id": "gov24:O00084700001:main",
+ "source": "gov24",
+ "name": "금천미래장학회 장학금",
+ "org": "서울특별시 금천구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "금천구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "금천구 장학금",
+  "금천미래장학회"
+ ],
+ "conditions": [
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 12,
+   "evidence": [
+    "gov24-o00084700001:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "employment_status",
+   "op": "==",
+   "value": "재학",
+   "evidence": [
+    "gov24-o00084700001:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "금천구",
+   "evidence": [
+    "gov24-o00084700001:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "학교장(동장) 추천자",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-o00084700001:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "==",
+      "value": 15,
+      "text": "직전학기 내신 백분위 성적 상위 5% 이내"
+     },
+     {
+      "field": "other",
+      "text": "중3 성적우수"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 16,
+      "text": "직전학기 내신 백분위 성적 상위 5% 이내"
+     },
+     {
+      "field": "other",
+      "text": "고등학생 성적우수"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 16,
+      "text": "직전학년(학기) 성적이 월등히 향상된 학생(전교석차 20% 또는 내신 2등급 이상)"
+     },
+     {
+      "field": "other",
+      "text": "고등학생 성적향상"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "예술, 체육, 과학, 수학, 문학 분야 등의 전국 규모 대회에서 우수한 성적으로 입상한 개인 및 단체"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "사회의 모범이 될 만한 선행을 행한 학생"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 14,
+      "text": "부 또는 모가 외국인이거나 귀화 등으로 한국 국적을 취득한 다문화 저소득 가족 자녀"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "다문화"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 13,
+      "text": "저소득가정 학생중 자기주도적인 발전계획을 수립하고 실천할 의지가 있는 학생"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "저소득"
+      ]
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-o00084700001:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00084700001:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00084700001:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00084700001:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00084700001:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00084700001:l10"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000123&bnefType=all&svcId=O00084700001",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 5
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ee3a12ebed76ba97ea5b96c0801608282988f85a80bb86ebb3a2c2819e8f96d6",
+  "raw": "rules/compiled/_raw/gov24-o00084700001.json",
+  "at": "2026-11-01T04:02"
+ }
+}

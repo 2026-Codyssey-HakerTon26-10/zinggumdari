@@ -13,6 +13,8 @@ COOKIE_SECURE=1 환경변수 세팅 시 Secure 플래그 추가(HTTPS 전용).
 
 from __future__ import annotations
 
+import re
+
 import psycopg.errors
 from fastapi import APIRouter, HTTPException, Request, Response
 from pydantic import BaseModel
@@ -23,6 +25,9 @@ from backend.db import profiles, sessions
 
 _SECURE = env("COOKIE_SECURE") == "1"
 _WRONG = "이메일 또는 비밀번호가 올바르지 않습니다"
+PASSWORD_MIN, PASSWORD_MAX = 8, 128   # 화면 가입 폼(minLength·maxLength)과 같다
+# 로컬@도메인.최상위. 공백·@ 두 개는 거른다. 실제 수신 확인은 하지 않는다(가입은 메일 인증 없음)
+_EMAIL = re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+")
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -64,11 +69,20 @@ class LoginBody(BaseModel):
     password: str
 
 
+def _check_signup(body: SignupBody) -> None:
+    """가입 값 검사. 틀리면 422. FastAPI 기본 422와 달리 입력값(비밀번호)을 응답에 되돌려주지 않는다."""
+    if len(body.email) > 254 or not _EMAIL.fullmatch(body.email):
+        raise HTTPException(status_code=422, detail="이메일 형식이 아닙니다")
+    if not PASSWORD_MIN <= len(body.password) <= PASSWORD_MAX:
+        raise HTTPException(status_code=422, detail=f"비밀번호는 {PASSWORD_MIN}~{PASSWORD_MAX}자로 입력해 주세요")
+
+
 # ── 엔드포인트 ────────────────────────────────────────────────────────────────
 
 @router.post("/signup", status_code=201)
 def signup(body: SignupBody, response: Response) -> dict:
-    """계정 생성 + 세션 쿠키 발급."""
+    """계정 생성 + 세션 쿠키 발급. 이메일 형식·비밀번호 길이가 틀리면 422(DB에 닿기 전)."""
+    _check_signup(body)
     with connect() as conn:
         try:
             account_id = profiles.create_account(conn, body.email, sessions.hash_password(body.password))

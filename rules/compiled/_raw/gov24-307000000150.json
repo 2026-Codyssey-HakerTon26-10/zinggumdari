@@ -1,0 +1,13 @@
+{
+ "key": "2b9dce0e0e48a671e5f81919cd4929c1cee86223c0ca794eec96c352ca5dcf53",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6863,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 605
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"성북구푸드마켓센터 이용 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"푸드마켓\", \"식품지원\", \"생활용품지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"긴급지원대상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l8\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"주거\", \"교육\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l8\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"생계의료급여 수급신청 탈락자\", \"중지자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l9\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l10\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"타 식품지원사업 지원대상자 아님\", \"evidence\": [\"l6\"], \"any_of\": null}], \"documents\": [\"신분증\"]}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"exclusive\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

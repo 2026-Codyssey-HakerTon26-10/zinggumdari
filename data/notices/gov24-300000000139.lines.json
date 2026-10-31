@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "〇 출산일 기준 10개월전부터 신청일까지 계속하여 종로구에 주민등록이 되어있는 출산가정 중", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 기준중위소득 100%이하 출산가정", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 아래에 해당되는경우, 소득수준 상관없이 지원", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "· 쌍생아이상 출산가정, 셋째아이상 출산가정, 희귀난치성질환자인 산모, 장애인복지법에 따라 등록된 장애인 산모, 북한이탈주민산모, 결혼이민산모,", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "18세 이하의 미혼모산모(미혼모 시설에 입소 중인 산모는 18세를 초과하더라도 지원 가능)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "산모신생아 건강관리사 서비스 종료일로부터 30일 이내 신청", "mark": true}
+]

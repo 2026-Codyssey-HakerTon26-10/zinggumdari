@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "- 일반대상(80명): 2년 이상 연속 거주한 양천구민으로 만18세 이상인 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 특별대상(20명): 일반대상 중 틈새계층 및 이동약자 7개 분야 (국민기초생활수급자, 차상위계층, 국가유공자, 북한이탈주민, 장애인, 한부모가족, 다자녀가구)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "공고 후 지정한 기간 내 신청", "mark": false}
+]

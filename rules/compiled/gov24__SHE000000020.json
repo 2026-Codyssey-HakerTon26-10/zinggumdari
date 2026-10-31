@@ -1,0 +1,84 @@
+{
+ "id": "gov24:SHE000000020",
+ "source": "gov24",
+ "name": "의료급여 (요양비)",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "의료급여",
+  "요양비",
+  "긴급의료"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "의료급여수급권자"
+   ],
+   "evidence": [
+    "gov24-she000000020:l2",
+    "gov24-she000000020:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "긴급하거나 그 밖의 부득이한 사유로 의료급여기관과 동일한 기능을 수행하는 기관에서 질병·부상·출산 등에 대하여 의료급여를 받거나 의료급여기관 외의 장소에서 출산",
+   "evidence": [
+    "gov24-she000000020:l2",
+    "gov24-she000000020:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=753167&bnefType=all&svcId=SHE000000020",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "15376651e4f95d05fd39d46ec8f62bdcc799fbbcb47b24e9fd49d43f6e7bcae2",
+  "raw": "rules/compiled/_raw/gov24-she000000020.json",
+  "at": "2026-11-01T04:03"
+ }
+}

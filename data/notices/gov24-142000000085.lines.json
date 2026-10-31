@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 특성화고생, 학부모, 대학생 등(인력양성사업 참여 학교는 제외)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 학교당 5학급 이내", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 학급 당 20명 이상(불가피한 경우 20명 미만도 가능)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상반기", "mark": false}
+]

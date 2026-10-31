@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-b55353000001",
+  "title": "에너지바우처",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999178&bnefType=all&svcId=B55353000001",
+  "fetched_at": "2026-10-31",
+  "sha256": "c33863e694f3f37b293c5395943ae342b61d28e2e303cd01a6c61cdb2557e263",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

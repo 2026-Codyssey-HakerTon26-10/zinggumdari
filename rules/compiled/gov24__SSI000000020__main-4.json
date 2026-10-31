@@ -1,0 +1,160 @@
+{
+ "id": "gov24:SSI000000020:main-4",
+ "source": "gov24",
+ "name": "한부모가족 아동양육비 지원 - 추가 아동 양육비(청년 한부모)",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "청년한부모",
+  "추가양육비"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 25,
+   "evidence": [
+    "gov24-ssi000000020:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:자녀",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 34,
+   "evidence": [
+    "gov24-ssi000000020:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:자녀",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 65,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-ssi000000020:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "youngest_child_age",
+      "op": "<",
+      "value": 18
+     },
+     {
+      "field": "employment_status",
+      "op": "!=",
+      "value": "재학"
+     }
+    ],
+    [
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 22
+     },
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "재학"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-ssi000000020:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.1:not_in_evidence:재학",
+    "comparator": "fail:b1.0:no_value",
+    "unit": "fail:b1.0:no_value",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ssi000000020:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ssi000000020:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=87903&bnefType=all&svcId=SSI000000020",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "e5faab181ba684221a2e1c7ea2001ea2d1af7e198cfc3100a0bd219d96005ef4",
+  "raw": "rules/compiled/_raw/gov24-ssi000000020.json",
+  "at": "2026-11-01T04:03"
+ }
+}

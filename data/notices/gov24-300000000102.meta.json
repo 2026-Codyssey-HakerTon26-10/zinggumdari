@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-300000000102",
+  "title": "저소득주민 국민건강보험료 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000509&bnefType=all&svcId=300000000102",
+  "fetched_at": "2026-10-31",
+  "sha256": "7d053698ea271dd409b106f405a3ed7de0d2352eb5e2cd0642ad569a8b7d1f04",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

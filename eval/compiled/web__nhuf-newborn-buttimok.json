@@ -1,0 +1,354 @@
+{
+ "id": "web:nhuf-newborn-buttimok",
+ "source": "web",
+ "name": "신생아 특례 버팀목대출",
+ "org": "주택도시기금",
+ "region": {
+  "unknown": true
+ },
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "신생아 전세대출",
+  "버팀목전세자금",
+  "신생아 특례대출"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "중복대출 금지: 기금대출, 은행재원 전세자금대출, 주택담보대출 미이용자",
+   "evidence": [
+    "nhuf-newborn-buttimok:l347",
+    "nhuf-newborn-buttimok:l348",
+    "nhuf-newborn-buttimok:l349"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "주택임대차계약 체결 및 임차보증금의 5% 이상 지불",
+   "evidence": [
+    "nhuf-newborn-buttimok:l355"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "as_of": "application_date",
+   "evidence": [
+    "nhuf-newborn-buttimok:l356"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "as_of": "application_date",
+   "evidence": [
+    "nhuf-newborn-buttimok:l356"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "대출접수일 기준 2년 내 출산(입양)한 가구(’23.1.1. 이후 출생아, 입양시 만2살 미만)",
+   "evidence": [
+    "nhuf-newborn-buttimok:l330",
+    "nhuf-newborn-buttimok:l361",
+    "nhuf-newborn-buttimok:l363",
+    "nhuf-newborn-buttimok:l364"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "nhuf-newborn-buttimok:l330",
+    "nhuf-newborn-buttimok:l366"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     }
+    ],
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 20000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "income_self",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "income_spouse",
+      "op": "<=",
+      "value": 13000,
+      "income_basis": "absolute_annual"
+     }
+    ]
+   ],
+   "evidence": [
+    "nhuf-newborn-buttimok:l331",
+    "nhuf-newborn-buttimok:l367"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b1.2:income_owner:income_couple",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "본인 및 배우자 합산 순자산가액 3.45억원 이하(2026년 기준)",
+   "evidence": [
+    "nhuf-newborn-buttimok:l331",
+    "nhuf-newborn-buttimok:l369",
+    "nhuf-newborn-buttimok:l370"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "한국신용정보원 신용정보 관련 연체·대위변제 등 정보가 없을 것",
+   "evidence": [
+    "nhuf-newborn-buttimok:l374"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "대출접수일 현재 공공임대주택에 입주 중인 경우 불가",
+   "evidence": [
+    "nhuf-newborn-buttimok:l379"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "대상주택: 임차 전용면적 85㎡(읍면 100㎡) 이하",
+   "evidence": [
+    "nhuf-newborn-buttimok:l398"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "deposit",
+   "op": "<=",
+   "value": 50000,
+   "text": "수도권 임차보증금 5억원 이하",
+   "evidence": [
+    "nhuf-newborn-buttimok:l401"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "deposit",
+   "op": "<=",
+   "value": 40000,
+   "text": "수도권외 임차보증금 4억원 이하",
+   "evidence": [
+    "nhuf-newborn-buttimok:l401"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "임대차계약 잔금지급일과 전입일 중 빠른 날로부터 3개월 이내 신청",
+   "reason": "malformed",
+   "evidence": [
+    "nhuf-newborn-buttimok:l382",
+    "nhuf-newborn-buttimok:l383"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "nhuf-newborn-buttimok:l507"
+ ],
+ "documents": [],
+ "detail_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05021401.jsp",
+ "updated": "2026-11-01",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 261,
+  "used": 20,
+  "labeled": {
+   "definition": 7,
+   "procedure": 33,
+   "exclusive": 1,
+   "out_of_scope": 135,
+   "not_condition": 65
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-opus-4-8",
+  "prompt": "v1",
+  "doc_sha256": "6a925456b521abb0ee212f9bcd04e05d3d1cf80fbf8209d8b00e28f78f514206",
+  "raw": "eval/compiled/_raw/nhuf-newborn-buttimok.json",
+  "at": "2026-11-01T03:40"
+ }
+}

@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "① 혼례비, ② 자녀양육비, ③ 노부모부양비, ④장례비", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 3개월 이상 근속 중인 노동자, 특수형태근로종사자, 중소기업 사업주 산재보험 임의 가입한 1인 자영업자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 월평균 소득이 중위소득(3인 가구) 이하", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "① 혼례비, ② 자녀양육비, ③ 노부모부양비, ④장례비", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 3개월 이상 근속 중인 노동자, 특수형태근로종사자, 중소기업 사업주 산재보험 임의 가입한 1인 자영업자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 월평균 소득이 중위소득(3인 가구) 이하", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

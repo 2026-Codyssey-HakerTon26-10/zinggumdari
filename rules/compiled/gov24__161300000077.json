@@ -1,0 +1,167 @@
+{
+ "id": "gov24:161300000077",
+ "source": "gov24",
+ "name": "민간임대주택건설자금 융자",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "임대주택건설자금",
+  "민간임대주택융자"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "사업수행 능력을 구비하고 사업자등록증을 소지한 자",
+   "evidence": [
+    "gov24-161300000077:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "주택건설사업 등록업자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "주택건설사업 등록업자와 공동으로 사업을 수행하는 토지소유자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "주택건설사업 등록업자를 시공자로하여 주택을 건설하는 고용자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "29세대이하 (준)주택 건설의 경우 토지소유자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-161300000077:l4",
+    "gov24-161300000077:l5",
+    "gov24-161300000077:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "10년 이상 임대를 목적으로 주택건설사업계획승인 또는 건축허가를 받아 주택 또는 준주택을 건설",
+   "evidence": [
+    "gov24-161300000077:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "세대(가구)당 주거전용면적이 85㎡이하인 단독주택(다가구), 30호 이상 단지형 단독주택, 다세대주택 등 공동주택 및 준주택",
+   "evidence": [
+    "gov24-161300000077:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "계좌별 대출대상 세대수 4호 이상",
+   "evidence": [
+    "gov24-161300000077:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000077:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=739252&bnefType=all&svcId=161300000077",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "4020808a9c96351211b2abd9a797c94d99371fd05b7a82cf37ec2e5039a3381d",
+  "raw": "rules/compiled/_raw/gov24-161300000077.json",
+  "at": "2026-11-01T03:56"
+ }
+}

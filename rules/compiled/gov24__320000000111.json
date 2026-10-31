@@ -1,0 +1,171 @@
+{
+ "id": "gov24:320000000111",
+ "source": "gov24",
+ "name": "저소득주민 국민건강보험료 및 노인장기요양보험료 지원",
+ "org": "서울특별시 관악구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "관악구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "건강보험료 지원",
+  "노인장기요양보험료 지원",
+  "저소득층 보험료"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "관악구",
+   "evidence": [
+    "gov24-320000000111:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "주거",
+    "차상위"
+   ],
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-320000000111:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_recognized",
+   "op": "<=",
+   "value": 50,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-320000000111:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "국가유공자"
+      ]
+     },
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 55
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-320000000111:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.2:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "건강보험료 및 노인장기요양보험료 부과금액이 최저보험료 이하",
+   "evidence": [
+    "gov24-320000000111:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-320000000111:l6"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006175&bnefType=all&svcId=320000000111",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "e9dd40235cb45c4ee9046b021c3ef04f1e4481430a830c92f57f6b4b17591293",
+  "raw": "rules/compiled/_raw/gov24-320000000111.json",
+  "at": "2026-11-01T03:59"
+ }
+}

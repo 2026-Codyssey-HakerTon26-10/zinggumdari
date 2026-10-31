@@ -1,0 +1,61 @@
+{
+ "id": "gov24:SSE000000100:main-3",
+ "source": "gov24",
+ "name": "노인일자리 및 사회활동 지원 민간형",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "노인일자리",
+  "민간형"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 60,
+   "evidence": [
+    "gov24-sse000000100:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=577852&bnefType=all&svcId=SSE000000100",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "333cf6550937fd10cdf4ab262ddf85f380a1abf853f3b3b63b0020357512fdcc",
+  "raw": "rules/compiled/_raw/gov24-sse000000100.json",
+  "at": "2026-11-01T04:03"
+ }
+}

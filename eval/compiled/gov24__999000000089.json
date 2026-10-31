@@ -1,0 +1,85 @@
+{
+ "id": "gov24:999000000089",
+ "source": "gov24",
+ "name": "노인장기요양보험(장기요양인정)",
+ "org": "보건복지부·국민건강보험공단",
+ "region": {
+  "unknown": true
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "장기요양",
+  "노인장기요양보험",
+  "요양등급"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": "<",
+      "value": 65
+     },
+     {
+      "field": "other",
+      "text": "치매·뇌혈관성 질환 등 노인성 질병(시행령 제2조)이 있는 자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000089:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [
+  "장기요양인정 신청서",
+  "의사소견서",
+  "진단서"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999256&bnefType=all&svcId=999000000089",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 32,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 9,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 22
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-opus-4-8",
+  "prompt": "v1",
+  "doc_sha256": "e265970a3bb3128e5b2a778fc27f4623bc8ad84b2bf8138c7765518fc246ba8b",
+  "raw": "eval/compiled/_raw/gov24-999000000089.json",
+  "at": "2026-11-01T03:39"
+ }
+}

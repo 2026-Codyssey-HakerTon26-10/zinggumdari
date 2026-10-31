@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-311000000145",
+  "title": "법률홈닥터사업",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100908&bnefType=all&svcId=311000000145",
+  "fetched_at": "2026-10-31",
+  "sha256": "189f9b48f3ef95680b9cac1c55ef882682d9b5ba4457db15e82678d5bace81fc",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

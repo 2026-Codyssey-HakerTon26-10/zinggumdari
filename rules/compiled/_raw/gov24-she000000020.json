@@ -1,0 +1,13 @@
+{
+ "key": "5db88b941d6bfd825780aef023c7b8116fe03e59a061479eb45fe807c78b3527",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6612,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 306
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"의료급여 (요양비)\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"의료급여\",\"요양비\",\"긴급의료\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"의료급여수급권자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"긴급하거나 그 밖의 부득이한 사유로 의료급여기관과 동일한 기능을 수행하는 기관에서 질병·부상·출산 등에 대하여 의료급여를 받거나 의료급여기관 외의 장소에서 출산\",\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

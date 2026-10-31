@@ -1,0 +1,22 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 장애 부모의 12세 미만 비장애아동으로 기준 중위소득 120% 이하의 가구", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 장애 부모 : 한쪽 부모가 시각, 청각, 언어, 지적, 자폐성, 뇌병변 등록 장애인", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 지원 대상 : 장애 부모의 12세 미만 비장애아동으로 기준 중위소득 65% 이하의 가구", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 1인 가구 : -원", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 2인 가구 : 2,394,000원", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 3인 가구 : 3,065,000원", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 4인 가구 : 3,725,000원", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 5인 가구 : 4,353,000원", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 지원 대상 : 장애 부모의 12세 미만 비장애아동으로 기준 중위소득 120% 이하의 가구", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 1인 가구 : -원", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 2인 가구 : 4,,420,000원", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 3인 가구 : 5,658,000원", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 4인 가구 : 6,876,000원", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "- 5인 가구 : 8,035,000원", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "- 장애 부모 : 한쪽 부모가 시각, 청각, 언어, 지적, 자폐성, 뇌 병변 등록 장애인", "mark": true},
+  {"id": "l18", "page": null, "bbox": null, "text": "○ 연령 기준 : 신청일 현재 12세 미만 인자", "mark": true},
+  {"id": "l19", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l20", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

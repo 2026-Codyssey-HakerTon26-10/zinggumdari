@@ -1,0 +1,129 @@
+{
+ "id": "gov24:138300000016",
+ "source": "gov24",
+ "name": "가정폭력피해자 국민임대주택 우선 입주권 부여",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "가정폭력피해자 주택",
+  "피해자 임대주택"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "가정폭력방지 및 피해자보호 등에 관한 법률 제2조제3호에 따른 피해자",
+   "evidence": [
+    "gov24-138300000016:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-138300000016:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "evidence": [
+    "gov24-138300000016:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "가정폭력피해자 보호시설에 6개월 이상 입소하였거나, 퇴소 후 2년 이내(법 제7조의4제3호에 따라 퇴소한 경우 제외)"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "성평등가족부장관이 지원하는 피해자를 위한 주거 지원시설에 2년 이상 입주하였거나, 퇴거 후 2년 이내(거짓이나 부정한 방법으로 입주하여 퇴거한 경우 제외)"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-138300000016:l4",
+    "gov24-138300000016:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=724938&bnefType=all&svcId=138300000016",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "13a590f6fc4a5f3b8a87b4f9ecd4600c10eb931b17ac426b65c950cf2c2837f8",
+  "raw": "rules/compiled/_raw/gov24-138300000016.json",
+  "at": "2026-11-01T03:55"
+ }
+}

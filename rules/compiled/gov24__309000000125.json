@@ -1,0 +1,82 @@
+{
+ "id": "gov24:309000000125",
+ "source": "gov24",
+ "name": "저소득층 국민건강보험료 지원",
+ "org": "서울특별시 도봉구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "도봉구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "cash",
+ "aliases": [
+  "노인 건강보험료 지원",
+  "저소득 어르신 보험료"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-309000000125:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "국민건강보험료 부과금액이 최저보험료(2026년 기준 22,800원) 이하",
+   "evidence": [
+    "gov24-309000000125:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000501&bnefType=all&svcId=309000000125",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "213d98411f7c30019a0e50a564d480fa40ed3b9b1ccde4c756e8033f856e6439",
+  "raw": "rules/compiled/_raw/gov24-309000000125.json",
+  "at": "2026-11-01T03:57"
+ }
+}

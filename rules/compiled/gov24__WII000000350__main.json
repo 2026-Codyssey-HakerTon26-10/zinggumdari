@@ -1,0 +1,140 @@
+{
+ "id": "gov24:WII000000350:main",
+ "source": "gov24",
+ "name": "발달장애인 부모상담지원사업",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "발달장애인 부모 상담",
+  "장애인 부모 지원",
+  "발달장애 상담"
+ ],
+ "conditions": [
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-wii000000350:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "자녀가 지적장애 또는 자폐성 장애를 부장애로 가진 경우도 포함",
+   "evidence": [
+    "gov24-wii000000350:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "부모가 발달장애인과 생계주거를 함께하지 못하는 경우, 발달장애인과 거주를 같이하면서 부모를 대신하여 발달장애인을 돌보는 보호자(2촌 이내)도 이용 가능",
+   "evidence": [
+    "gov24-wii000000350:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "자녀가 영유아(9세 미만)인 경우 장애등록이 되어있지 않으면 발달재활서비스 의뢰서 또는 의사소견서(진단서) 첨부(최근 6개월 이내 발행분)",
+   "evidence": [
+    "gov24-wii000000350:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 9,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-wii000000350:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [
+  "발달재활서비스 의뢰서",
+  "의사소견서(진단서)"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999136&bnefType=all&svcId=WII000000350",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 11,
+  "used": 4,
+  "labeled": {
+   "definition": 1,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "aceac52e580b56ec2f047f848f057aaef21aadf78408e0678eb3c4122bff29b1",
+  "raw": "rules/compiled/_raw/gov24-wii000000350.json",
+  "at": "2026-11-01T04:03"
+ }
+}

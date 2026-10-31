@@ -1,0 +1,13 @@
+{
+ "key": "23bf5ea0dde4fafa796a288af2f2edfbaee9cdc28620cd71ab553254530557a1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6496,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 531
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"노인일자리 및 사회활동 지원 노인공익활동사업\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"노인일자리\", \"노인공익활동\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"basic_pension\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"노인일자리 및 사회활동 지원 노인역량활용사업\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"노인일자리\", \"노인역량활용\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"노인일자리 및 사회활동 지원 민간형\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"노인일자리\", \"민간형\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 60, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

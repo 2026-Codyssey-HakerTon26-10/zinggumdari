@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "- 「근로기준법」 제74조에 따른 출산전후휴가 또는 유산ㆍ사산휴가를 받은 근로자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 휴가가 끝난 날 이전에 고용보험 피보험 단위기간이 합산하여 180일 이상", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 휴가를 시작한 날(소속 사업장이 우선지원대상기업이 아닌 경우에는 휴가 시작 후 60일(다태아 75일)이 지난 날) 이후 1개월부터 휴가가 끝난 날 이후 12개월 이내에 신청", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 「근로기준법」 제74조에 따른 출산전후휴가 또는 유산ㆍ사산휴가를 받은 근로자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 휴가가 끝난 날 이전에 고용보험 피보험 단위기간이 합산하여 180일 이상", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 휴가를 시작한 날(소속 사업장이 우선지원대상기업이 아닌 경우에는 휴가 시작 후 60일(다태아 75일)이 지난 날) 이후 1개월부터 휴가가 끝난 날 이후 12개월 이내에 신청", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "휴가를 시작한 날 이후 1개월부터 휴가가 끝난 날 이후 12개월 이내", "mark": true}
+]

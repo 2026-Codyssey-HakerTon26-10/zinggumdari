@@ -1,0 +1,13 @@
+{
+ "key": "dc9783a1307de3b639ab1675bc9f194f4c2460e1b0703c935a45cc1749a9e803",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6854,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 360
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"구직자·기업 도약보장 패키지\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"도약보장 패키지\", \"구직자 지원\", \"경력단절 지원\"], \"conditions\": [{\"field\": \"employment_status\", \"op\": \"in\", \"value\": [\"구직\", \"실업\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\", \"l13\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"definition\"}, {\"line\": \"l7\", \"label\": \"definition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"definition\"}, {\"line\": \"l10\", \"label\": \"definition\"}, {\"line\": \"l11\", \"label\": \"definition\"}, {\"line\": \"l12\", \"label\": \"definition\"}, {\"line\": \"l14\", \"label\": \"definition\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

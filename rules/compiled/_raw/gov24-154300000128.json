@@ -1,0 +1,13 @@
+{
+ "key": "b0520cb0a9dcf20fa7d76ec6e3d3db1c8849fdedfd3f471bb4dd172f4a9ceff0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6958,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 883
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"농지연금\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"농지담보대출\", \"영농자금\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 60, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l7\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"영농경력 5년 이상\", \"evidence\": [\"l2\", \"l7\"], \"any_of\": [[{\"field\": \"age\", \"op\": \">=\", \"value\": 60, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"영농경력 5년 이상\"}], [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 79, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"영농경력 10년 이상\"}]]}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"공부상 지목이 전, 답, 과수원이면서 실제 영농에 이용중인 농지\", \"evidence\": [\"l3\", \"l8\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"담보농지 2년 이상 보유\", \"evidence\": [\"l3\", \"l8\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"주소지에서 30킬로미터 이내\", \"evidence\": [\"l3\", \"l8\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"근저당이 설정된 농지는 채권최고액이 담보농지 가격의 15% 미만\", \"evidence\": [\"l4\", \"l9\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"농지연금 기간형 지원방식의 가입연령, 담보농지의 기준 및 위험부담금 산출에 적용되는 요율 고시 제4조의 요건 충족\", \"evidence\": [\"l5\", \"l10\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

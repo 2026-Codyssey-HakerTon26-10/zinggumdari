@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "➀ 신청대상 : 서울시 소속 초·중·고 저소득층 및 경제적 환경이 어려운 학생 선수", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "➁ 해당 종목 선수등록 기간 1년 경과자로서, 서울시 대표로 전국규모 대회에 출전할 수 있는 선수", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "➂ 전국규모대회<* 2025년 전국(소년, 동계)체육대회, 기타 중앙경기단체 전국규모대회 등>, 서울특별시장기대회 등 참가 이력이 있는 선수", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "➃ 가정 환경 관련 해당 요건 충족자(기초생활수급자, 차상위계층, 한부가정, 장애인가정, 중증질환자 가정, 다문화가정, 새터민가정, 다자녀가정 등)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "서울시체육회 공고절차에 따라 신청", "mark": false}
+]

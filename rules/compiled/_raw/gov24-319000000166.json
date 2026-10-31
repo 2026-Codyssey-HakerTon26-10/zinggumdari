@@ -1,0 +1,13 @@
+{
+ "key": "1b193bc5d9529ea00d078e614a10a2f818a022ee260083f97abde8f6777df82b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6761,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 734
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"동작구 전세피해임차인 지원금(소송수행비 실비 지원)\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해자지원\",\"소송수행비지원\",\"전세피해지원\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"전세사기피해자\"],\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"집행권원 확보 완료\",\"evidence\":[\"l8\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"임대인 상대 소송(제3자 상대 소송 제외)\",\"evidence\":[\"l9\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"집행권원 확보와 관련된 소송(손해배상청구 소송, 형사사건 제외)\",\"evidence\":[\"l10\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"법률구조사업, 법률구조공단 무료 소송이 아닌 집행권원\",\"evidence\":[\"l11\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"피해자 결정이 취소, 철회되지 않은 상태\",\"evidence\":[\"l12\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2025-03-17\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l14\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l13\",\"label\":\"not_condition\"}]}",
+ "at": "2026-11-01T03:59"
+}

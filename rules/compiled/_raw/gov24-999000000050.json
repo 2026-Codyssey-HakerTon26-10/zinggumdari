@@ -1,0 +1,13 @@
+{
+ "key": "4829443eed476037b103617faba13251f91a04ea808254586d6a9460413d1246",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6569,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 452
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"여성청소년 생리용품 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"생리용품 지원\",\"여성청소년 지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":9,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":24,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"gender\",\"op\":\"==\",\"value\":\"여\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"차상위\",\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\",\"l7\",\"l8\"],\"any_of\":[[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\",\"교육\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"차상위\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"definition\"},{\"line\":\"l9\",\"label\":\"procedure\"},{\"line\":\"l10\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

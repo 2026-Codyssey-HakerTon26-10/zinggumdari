@@ -1,0 +1,211 @@
+{
+ "id": "gov24:154300000139",
+ "source": "gov24",
+ "name": "공영도매시장 시설현대화 지원",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "도매시장 현대화",
+  "시설현대화 지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "공영도매시장 개설자(지방자치단체)",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-154300000139:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "전문기관을 활용한 타당성 검토 및 세부사업추진계획 수립 관련 연구용역 실시",
+   "evidence": [
+    "gov24-154300000139:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "타당성 조사가 기획재정부 예비 타당성 조사에 준하는 수준으로 실시되고 시설현대화 필요성 및 경제성분석 결과 도출",
+   "evidence": [
+    "gov24-154300000139:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": ">=",
+   "value": "2018-01-01",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-154300000139:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "history",
+   "op": "not_in",
+   "value": [
+    "기 사업대상자로 선정",
+    "사업 중도 포기"
+   ],
+   "evidence": [
+    "gov24-154300000139:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "사업을 포기한 경우 포기한 날로부터 5년 경과",
+   "evidence": [
+    "gov24-154300000139:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "도시 및 주거환경정비법의 노후·불량건축물 기준에 따라 건축된 지 20년 이상 경과",
+   "evidence": [
+    "gov24-154300000139:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "최근 3년 평균 농안법 제77조에 따른 도매시장 평가결과 하위 30% 미만",
+   "evidence": [
+    "gov24-154300000139:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300000139:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300000139:l9"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=679510&bnefType=all&svcId=154300000139",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "aeec61f4c3d413556710d68659b99cc1c762e16dbc9a44439f352194c3167650",
+  "raw": "rules/compiled/_raw/gov24-154300000139.json",
+  "at": "2026-11-01T03:56"
+ }
+}

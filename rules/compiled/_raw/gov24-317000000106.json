@@ -1,0 +1,13 @@
+{
+ "key": "02ed0051d2a2b940eb3df64508fdf162166f634e14f949d8dca53b1f4ff1db20",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6411,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 201
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"금천구 출생축하금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"출생축하금\",\"다자녀 지원\",\"셋째아\"],\"conditions\":[{\"field\":\"residence_months\",\"op\":\">=\",\"value\":12,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"children_count\",\"op\":\">=\",\"value\":3,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

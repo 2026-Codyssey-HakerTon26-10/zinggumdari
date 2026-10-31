@@ -1,0 +1,13 @@
+{
+ "key": "952a5f1da6bf9edbae4ad25e13e9f341a21f80f848baddd4dcebba646bc6cb30",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6592,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 459
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득층 교육정보화 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"교육정보화\", \"저소득층 지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<\", \"value\": 22, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l4\", \"l5\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\", \"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"income_household\", \"op\": \"<=\", \"value\": 100, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"난민인정자\", \"특별기여자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

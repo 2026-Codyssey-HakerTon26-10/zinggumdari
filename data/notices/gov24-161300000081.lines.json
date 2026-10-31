@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 「장애인복지법 」제2조에 해당하는 등록장애인 중 자로서 가구의 소득이 전년도 도시근로자 가구당 월평균소득액 이하인 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 중복수혜불가 조건", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 지자체 등에서 지원을 받고 3년이 경과하지 아니한 자 또는 금융기관 등에 주택개조 비용융자를 추천하여 개조지원을 받은 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 수급자의 수선유지급여, 유사한 주거환경 등과 관련된 개선사업 지원을 받은 자. 다만, 지원내용이 중복되지 않은 경우 지원 가능", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "* 타 법령에 의한 주택개선사업 등 수혜자도 지원내용이 중복되지 않으면 지원 가능", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "지자체에서 별도로 정하여 운영", "mark": false}
+]

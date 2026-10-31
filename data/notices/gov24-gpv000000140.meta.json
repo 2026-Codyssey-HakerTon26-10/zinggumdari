@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-gpv000000140",
+  "title": "국가보훈대상자 재가복지 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=46097&bnefType=all&svcId=GPV000000140",
+  "fetched_at": "2026-10-31",
+  "sha256": "ea0d0a5f04e5821db0c7f3dfc926f968057985f0dd400add32702fbecb7cf068",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

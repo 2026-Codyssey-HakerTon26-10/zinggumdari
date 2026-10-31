@@ -1,0 +1,21 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 사업대상자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "가. 개별경영체(농업인: 후계농, 귀농인, 청창농 등 포함)", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "나. 법인경영체(영농조합법인, 농업회사법인)", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 법인의 경우 재정사업관리 기본규정의 농업법인 지원요건을 충족하는 경영체", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "가. 개별경영체", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "▪ 농업인(후계농, 귀농인, 청창농 등 포함)", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "* 농업경영체 등록 필수(단, 청년농 영농정착지원사업 선정자 중 독립경영 예정자는 농업경영체 등록 제외)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "나. 법인경영체", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ (공통조건)", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "▪ 설립 후 운영실적 1년 이상", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "▪ 총 출자금이 5천만원 이상", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "▪ 자본금이 자부담금 이상으로 확보되었고, 자기자본이 자부담금의 50% 이상 확보(단, 자기자본이 자부담금 이상이면 자본금은 자부담금의 50% 이상 확보해도 가능)", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "* 법인경영체의 경우 농림축산식품분야 재정사업관리 기본규정 제35조 제9항 관련[별표6] 충족 필수", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "* 농업경영체 등록 필수", "mark": false},
+  {"id": "l17", "page": null, "bbox": null, "text": "○ (개별조건) 농업법인(영농조합법인, 농업회사법인) 설립조건 준수", "mark": false},
+  {"id": "l18", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l19", "page": null, "bbox": null, "text": "연도별 공모 시기 상이(일반적으로 전년 말)", "mark": false}
+]

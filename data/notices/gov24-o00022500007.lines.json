@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 관악구 관내 거주자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 임산부(출산 후 6개월까지): 본인명의 차량에 임산부 자동차 표지를 부착한 임산부", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 영유아 : 만 7세 이하 영유아 2명 보육 세대 및 만 7세 이하 영유아 3명 보육 세대", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

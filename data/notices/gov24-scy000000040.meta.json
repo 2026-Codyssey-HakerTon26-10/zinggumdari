@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-scy000000040",
+  "title": "입양비용지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=102404&bnefType=all&svcId=SCY000000040",
+  "fetched_at": "2026-10-31",
+  "sha256": "a04911cf3ec22f71a73665562ed0e19d2e4f05dad17a68d18c992395e91f7abd",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}
