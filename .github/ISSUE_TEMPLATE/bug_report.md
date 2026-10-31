@@ -1,38 +1,31 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
+name: 버그 신고
+about: 재현 가능한 오류와 기대한 동작을 알려주세요.
+title: "[BUG] "
 labels: ''
 assignees: ''
-
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## 오류 내용
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+어떤 문제가 발생했는지 설명해 주세요.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## 재현 방법
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+1. 접속한 화면을 적어 주세요.
+2. 수행한 동작과 입력 조건을 적어 주세요.
+3. 실제로 나타난 결과를 적어 주세요.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## 기대한 동작
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+정상적으로 어떤 결과가 나와야 하는지 설명해 주세요.
 
-**Additional context**
-Add any other context about the problem here.
+## 실행 환경
+
+- 기기 및 운영체제:
+- 브라우저 및 버전:
+- 발생한 화면 또는 URL:
+
+## 화면 및 추가 정보
+
+필요한 경우 화면 캡처와 관련 이슈를 첨부해 주세요. 비밀번호·API 키·이메일 등 개인정보와 인증정보는 제거해 주세요.
