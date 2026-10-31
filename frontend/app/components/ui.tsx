@@ -1,4 +1,5 @@
 import Link from "next/link"; // 페이지를 새로 불러오지 않고 화면 사이를 이동해요.
+import { HeaderSessionActions } from "./header-session-actions"; // 서버 세션에 맞춰 계정 메뉴를 보여줘요.
 
 const iconPaths: Record<string, string> = { // 외부 아이콘 파일 대신 직접 그린 선 모양을 모아 둬요.
     "arrow-right": "M4 12h15m-6-6 6 6-6 6", // 오른쪽 이동 화살표를 그려요.
@@ -50,7 +51,7 @@ export function Brand() { // 모든 화면에 사용할 징검다리 로고를 �
 
 export function SiteHeader({ active = "home" }: { active?: "home" | "search" | "my" | "notifications" }) { // 현재 화면을 표시하는 공통 메뉴를 만들어요.
     const links = [{ href: "/my", label: "내 징검다리", key: "my", icon: "layers" }, { href: "/search", label: "공고 검색", key: "search", icon: "search" }, { href: "/notifications", label: "알림함", key: "notifications", icon: "bell" }]; // 메뉴와 연결될 화면을 정해요.
-    return <header className="site-header"><div className="container header-inner"><Brand /><nav className="desktop-nav" aria-label="주요 메뉴">{links.map((link) => <Link key={link.key} href={link.href} className={active === link.key ? "nav-link is-active" : "nav-link"} aria-current={active === link.key ? "page" : undefined}><Icon name={link.icon} />{link.label}</Link>)}</nav><div className="header-account-actions"><Link className="header-login" href="/login">로그인</Link><Link className="button button-primary header-cta" href="/signup">회원가입<Icon name="arrow-right" /></Link></div><details className="mobile-nav"><summary aria-label="메뉴 열기"><Icon name="menu" /></summary><nav aria-label="모바일 메뉴">{links.map((link) => <Link key={link.key} href={link.href} aria-current={active === link.key ? "page" : undefined}><Icon name={link.icon} />{link.label}</Link>)}<Link href="/login"><Icon name="lock" />로그인</Link><Link href="/signup"><Icon name="user" />회원가입</Link></nav></details></div></header>; // 데스크톱과 모바일 메뉴에서 로그인과 회원가입 화면으로 이동할 수 있어요.
+    return <header className="site-header"><div className="container header-inner"><Brand /><nav className="desktop-nav" aria-label="주요 메뉴">{links.map((link) => <Link key={link.key} href={link.href} className={active === link.key ? "nav-link is-active" : "nav-link"} aria-current={active === link.key ? "page" : undefined}><Icon name={link.icon} />{link.label}</Link>)}</nav><HeaderSessionActions navigation={links.map((link) => <Link key={link.key} href={link.href} aria-current={active === link.key ? "page" : undefined}><Icon name={link.icon} />{link.label}</Link>)} menuIcon={<Icon name="menu" />} arrowIcon={<Icon name="arrow-right" />} /></div></header>; // 데스크톱과 모바일에서 실제 계정 상태에 맞는 메뉴를 보여줘요.
 } // 공통 헤더를 마쳐요.
 
 export function SiteFooter() { // 서비스의 성격을 분명히 알리는 하단을 만들어요.

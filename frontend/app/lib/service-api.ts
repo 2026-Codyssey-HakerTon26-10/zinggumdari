@@ -1,10 +1,10 @@
 export const API_BASE = "/api/backend"; // 기존 API 주소 설정을 모든 서비스에서 사용해요.
 export class ServiceError extends Error { constructor(public status: number, message: string) { super(message); } } // 화면에서 인증·연결 실패를 구분해요.
-export async function api<T>(path: string, init: RequestInit = {}, timeoutMs = 30000): Promise<T> { // 세션 쿠키와 시간 제한을 사용하는 공통 요청이에요.
+export async function api<T>(path: string, init: RequestInit = {}, timeoutMs = 90000): Promise<T> { // 배포 서버의 첫 기동을 기다리는 시간과 세션 요청을 함께 관리해요.
     const timeout = AbortSignal.timeout(timeoutMs); // 응답이 없는 요청을 무한히 기다리지 않아요.
     let response: Response; // HTTP 응답을 받아요.
     try { response = await fetch(`${API_BASE}${path}`, { ...init, credentials: "include", cache: "no-store", referrerPolicy: "no-referrer", signal: init.signal ? AbortSignal.any([init.signal, timeout]) : timeout, headers: init.body instanceof FormData ? init.headers : { "Content-Type": "application/json", ...init.headers } }); } // 파일의 multipart 경계는 브라우저가 만들어요.
-    catch (error) { if (init.signal?.aborted) throw error; throw new ServiceError(0, "API에 연결하지 못했습니다. 서버 주소·실행 상태·CORS 설정을 확인해 주세요."); } // 입력값이나 비밀정보를 오류에 넣지 않아요.
+    catch (error) { if (init.signal?.aborted) throw error; throw new ServiceError(0, "서버에 연결하지 못했습니다. 첫 연결은 시간이 걸릴 수 있어요. 잠시 후 다시 시도해 주세요."); } // 입력값이나 내부 설정을 오류 안내에 넣지 않아요.
     if (response.status === 204) return undefined as T; // 삭제·로그아웃의 빈 응답을 처리해요.
     const body = await response.json().catch(() => null); // HTML 오류 페이지를 결과로 오해하지 않아요.
     if (!response.ok) throw new ServiceError(response.status, response.status === 401 ? "로그인이 필요합니다. 다시 로그인해 주세요." : response.status === 404 ? "정보를 찾지 못했습니다. 새로고침해 주세요." : response.status === 409 ? "이미 프로필이 있습니다. 새로고침해 주세요." : typeof body?.detail === "string" && response.status < 500 ? body.detail : "서버에서 요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요."); // 서버 내부 메시지·검증 입력값을 그대로 노출하지 않아요.

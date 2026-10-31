@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react"; // 요청 취소·입력·화면 상태를 관리해요.
 import Link from "next/link"; // 사이트 안의 이동에는 Next 링크를 사용해요.
 import { Icon, SiteHeader, SiteFooter } from "../components/ui"; // 기존 공통 디자인을 유지해요.
-import { safeSourceUrl, searchPolicies, type SearchHit, type SearchResponse, type SearchSubject } from "./search-api"; // 실제 공개 검색 API와 표시 계약을 가져와요.
+import { safeSourceUrl, formatSourceDate, searchPolicies, type SearchHit, type SearchResponse, type SearchSubject } from "./search-api"; // 실제 공개 검색 API와 원문 날짜 표시 계약을 가져와요.
 import "./search.css"; // 흰색 검색 화면 스타일을 사용해요.
 type View = { status: "idle" | "loading" | "error"; data: null; message: string } | { status: "ready"; data: SearchResponse; message: string }; // 실패와 결과 없음이 섞이지 않게 구분해요.
 const subjects: { value: SearchSubject; label: string }[] = [{ value: "all", label: "전체" }, { value: "self", label: "본인" }, { value: "parent", label: "부모님" }]; // 실제 API가 지원하는 필터만 표시해요.
@@ -16,7 +16,7 @@ function PolicyCard({ hit, judge }: { hit: SearchHit; judge: SearchResponse["jud
             <div className="search-policy-top"><span className="search-policy-icon"><Icon name={hit.subject === "parent" ? "family" : "file"} /></span><span className="search-status">{badge}</span></div> {/* 대상과 상태를 글자로도 알려줘요. */}
             <p className="search-policy-category">{hit.subject === "parent" ? "부모님" : "본인"} · {hit.org || "기관 정보 없음"} · {region || "지역 미상"}</p> {/* 알 수 없는 지역을 전국으로 바꾸지 않아요. */}
             <h2>{hit.name}</h2><p className="search-policy-description">{hit.snippet || "요약 정보가 없습니다. 공식 원문을 확인해 주세요."}</p> {/* 검색 요약은 서버 문자열 그대로 안전하게 표시해요. */}
-            <div className="search-policy-evidence"><p>기준일: {hit.updated || "원문에서 확인 필요"}</p>{source ? <a href={source} target="_blank" rel="noopener noreferrer" referrerPolicy="no-referrer">공식 원문 보기 ↗</a> : <p>공식 원문 링크 없음 · 접수 기관에서 확인해 주세요.</p>}</div> {/* 없는 원문 주소나 기준일을 만들어 넣지 않아요. */}
+            <div className="search-policy-evidence"><p>기준일: {formatSourceDate(hit.updated)}</p>{source ? <a href={source} target="_blank" rel="noopener noreferrer" referrerPolicy="no-referrer">공식 원문 보기 ↗</a> : <p>공식 원문 링크 없음 · 접수 기관에서 확인해 주세요.</p>}</div> {/* 원문 날짜의 표시만 정리하고 없는 기준일은 만들지 않아요. */}
         </article> // 공고 카드 표시를 마쳐요.
     ); // 화면 반환을 마쳐요.
 } // 카드 컴포넌트를 마쳐요.
@@ -34,12 +34,12 @@ export default function SearchPage() { // 목업 대신 실제 공개 검색 결
         const current = new AbortController(); controller.current = current; // 이번 요청을 식별할 취소 객체예요.
         setLastRequest({ query: trimmed, subject: target }); // 재시도할 조건을 기억해요.
         setView({ status: "loading", data: null, message: "" }); // 검색 중에는 이전 결과를 지워요.
-        const timeout = window.setTimeout(() => current.abort("timeout"), 15000); // 응답이 오지 않는 상태에서 무한히 기다리지 않아요.
+        const timeout = window.setTimeout(() => current.abort("timeout"), 90000); // 배포 서버가 처음 깨어나는 시간도 기다리되 무한 요청은 막아요.
         try { // 연결 오류와 취소를 구분해요.
             const data = await searchPolicies(trimmed, target, current.signal); // 로그인 상태에서는 세션 쿠키를 포함해 검색 API에 요청해요.
             if (controller.current === current && !current.signal.aborted) setView({ status: "ready", data, message: "" }); // 가장 최근 요청만 표시해요.
         } catch { // 내부 오류·주소·검색어는 콘솔이나 화면에 그대로 출력하지 않아요.
-            if (controller.current === current && (!current.signal.aborted || current.signal.reason === "timeout")) setView({ status: "error", data: null, message: current.signal.reason === "timeout" ? "검색 응답이 지연되고 있습니다. 다시 시도해 주세요." : "검색하지 못했습니다. API 서버 연결 상태와 주소 설정을 확인한 뒤 다시 시도해 주세요." }); // 초기화로 취소된 요청은 오류를 표시하지 않아요.
+            if (controller.current === current && (!current.signal.aborted || current.signal.reason === "timeout")) setView({ status: "error", data: null, message: current.signal.reason === "timeout" ? "검색 응답이 지연되고 있어요. 잠시 후 다시 시도해 주세요." : "공고를 불러오지 못했어요. 잠시 후 다시 시도해 주세요." }); // 서버 설정 용어 대신 사용자가 취할 수 있는 다음 행동을 알려줘요.
         } finally { window.clearTimeout(timeout); } // 완료되거나 취소되면 시간 제한 예약을 해제해요.
     } // 검색 요청 처리를 마쳐요.
     function submit(event: FormEvent<HTMLFormElement>) { // Enter나 검색 버튼 제출을 처리해요.
@@ -62,7 +62,7 @@ export default function SearchPage() { // 목업 대신 실제 공개 검색 결
                 {view.status === "error" && <div className="search-empty" role="alert"><h2>검색을 완료하지 못했습니다</h2><p>{view.message}</p>{lastRequest.query && <button type="button" className="button button-secondary" onClick={() => { setQuery(lastRequest.query); setSubject(lastRequest.subject); void runSearch(lastRequest.query, lastRequest.subject); }}>다시 시도</button>}</div>} {/* 이전 조건으로 명시적으로 재시도할 수 있어요. */}
                 {view.status === "ready" && view.data.results.length === 0 && <div className="search-empty"><h2>검색 결과가 없습니다</h2><p>다른 검색어나 검색 대상을 선택해 다시 검색해 주세요.</p></div>} {/* 통신 실패와 빈 목록을 구분해요. */}
                 {view.status === "ready" && <div className="search-policy-grid">{view.data.results.map((hit) => <PolicyCard key={hit.service_id} hit={hit} judge={view.data.judge} />)}</div>} {/* 로컬 샘플 대신 API 결과만 표시해요. */}
-                <aside className="search-bottom-cta"><div><h2>나의 다음 단계도 살펴보세요</h2><p>가상 프로필로 추천 화면의 흐름을 체험할 수 있습니다.</p></div><Link href="/my" className="button button-secondary">내 징검다리 보기<Icon name="arrow-right" /></Link></aside> {/* 공개 검색과 기존 가상 체험을 구분해요. */}
+                <aside className="search-bottom-cta"><div><h2>나의 다음 단계도 살펴보세요</h2><p>내 정보를 입력하고 지금과 다음 생활에 맞는 제도를 살펴보세요.</p></div><Link href="/my" className="button button-secondary">내 징검다리 보기<Icon name="arrow-right" /></Link></aside> {/* 실제 프로필로 연결되는 버튼의 목적을 정확하게 안내해요. */}
             </section> {/* 결과 영역을 마쳐요. */}
         </main><SiteFooter /></> // 공통 하단을 유지해요.
     ); // 화면 반환을 마쳐요.

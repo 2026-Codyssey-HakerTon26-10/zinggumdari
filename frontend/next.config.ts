@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     const target = (process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000").replace(/\/$/, ""); // 기존 API 주소를 서버의 전달 대상으로 사용해요.
     const address = new URL(target); // 잘못된 주소는 조용히 다른 곳으로 보내지 않아요.
     if (!["http:", "https:"].includes(address.protocol) || address.username || address.password) throw new Error("API 주소 설정을 확인해 주세요."); // 주소에 키·비밀번호를 넣지 않아요.
-    return [{ source: "/api/backend/:path*", destination: `${target}/:path*` }]; // 쿠키를 포함한 원래 요청을 백엔드로 전달해요.
+    return [{ source: "/api/backend/:path*", destination: `${target}/:path*` }, { source: "/api/health", destination: `${target}/health` }, { source: "/api/search", destination: `${target}/search` }]; // 공개 별칭과 인증 요청을 같은 API 원점의 실제 라우트로 전달해요.
   },
   experimental: {
     proxyTimeout: 900_000, // 공고 투입은 캐시 재생도 40초 넘게 걸려요. 기본 30초면 프록시가 먼저 끊어 500이 나서 화면 요청 시간(15분)과 맞춰요.
