@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/health",
+      "destination": "https://api.choboim.p-e.kr/api/health"
+    },
+    {
+      "source": "/api/search",
+      "destination": "https://api.choboim.p-e.kr/api/search"
+    }
+  ]
+}
