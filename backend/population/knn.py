@@ -6,6 +6,20 @@ from datetime import date
 import numpy as np
 
 BASIS = "가상 인구(가정 분포)"
+TAG_LABELS = {"youth": "청년", "marriage_planned": "예비부부", "newlywed": "신혼",
+              "child": "자녀", "multi_child": "다자녀", "homeless": "무주택", "parent": "부모님"}
+
+
+def group_label(group):
+    ordered = [TAG_LABELS[t] for t in TAG_LABELS if t in group]
+    ordered += sorted(t for t in group if t not in TAG_LABELS and not t.isascii())
+    return "주로 " + "·".join(ordered) + " 가구" if ordered else "참고"
+
+
+def closing_date(value):
+    if not value or value in ("상시", "미정"):
+        return date.max
+    return date.fromisoformat(value)
 
 
 def neighbors(matrix, query, k=50, *, exclude=None):
@@ -43,7 +57,7 @@ def recommend(matrix, query, eligibility, rules, verdicts, *, tags, known_fields
     label, share = "참고", 0.0
     if len(idx):
         group, n = Counter(tuple(sorted(tags[i])) for i in idx).most_common(1)[0]
-        label, share = "주로 " + "·".join(group) + " 가구", n / len(idx)
+        label, share = group_label(group), n / len(idx)
     result = dict(method="knn", features="sheet_minmax", k=k, neighbors=len(idx),
                   basis=BASIS, label=label, label_share=share, known_fields=known_fields,
                   assignment="reference" if known_fields < 3 or share < .5 else "full", items=[])
@@ -53,13 +67,14 @@ def recommend(matrix, query, eligibility, rules, verdicts, *, tags, known_fields
     for j, rule in enumerate(rules):
         mine = verdicts.get(rule["id"], {})
         region = rule.get("region")
-        if rule.get("subject") != "self" or mine.get("verdict") != "needs_check":
+        if (rule.get("subject") != "self" or mine.get("verdict") != "needs_check"
+                or mine.get("superseded_by") or mine.get("no_subject")):
             continue
         if region and (region.get("unknown") or (region.get("sido") and region["sido"] != sido)
                        or (region.get("sigungu") and region["sigungu"] != sigungu)):
             continue
         deadline = mine.get("deadline")
-        end = date.fromisoformat(deadline) if deadline else date.max
+        end = closing_date(deadline)
         prevalence = float(y[idx, j].mean())
         if end < today or prevalence < .3:
             continue
