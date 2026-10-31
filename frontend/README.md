@@ -53,4 +53,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - `/settings`: 로그아웃과 계정 전체 탈퇴. 삭제 실패를 성공으로 표시하지 않습니다.
 - `/notifications`: 실제 알림과 읽음 저장. 실제 이메일 발송 완료를 의미하지 않습니다.
 - PDF는 `pdfjs-dist`로 렌더링하고 서버 `evidence.page/bbox`만 강조합니다. 좌표 없는 OCR 근거는 텍스트로 표시합니다.
-- 현재 서버의 자격 저장 테이블은 `has` 칸이 없어 자격 질문의 미해당(`has: N`) 답변을 보존하지 못합니다. 이 답은 프론트에서 저장을 막고 안내하며, 백엔드 계약 보완이 필요합니다.
+- 자격 질문의 예·아니오는 `has: Y/N`으로 DB에 저장됩니다. 사용 전 `0005_qualification_has.sql`까지 기존 마이그레이션 명령으로 적용해야 합니다. 생년월일은 최신 계약의 `birth_date`를 사용합니다.

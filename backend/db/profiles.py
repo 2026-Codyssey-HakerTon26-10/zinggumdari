@@ -26,7 +26,7 @@ ONE_ROW = {
     "user_subscription": ("has_account", "joined_date", "payment_count", "deposit_amount"),
     "user_alert": ("alert_categories", "alert_channel", "email"),
 }
-QUALIFICATION = ("qual_code", "target", "verified")
+QUALIFICATION = ("qual_code", "target", "verified", "has")  # 자격의 해당·미해당 답변을 함께 저장하고 읽는다.
 HISTORY = ("event_type", "event_date")
 PARENT = ("relation", "birth_date", "sido", "sigungu", "lives_alone", "lives_with_child", "ltc_grade",
           "disability_registered", "basic_pension", "livelihood_status", "care_wanted")
@@ -120,6 +120,9 @@ def delete_account(conn: psycopg.Connection, account_id: str) -> None:
 
 
 def _check_fields(profile: dict) -> None:
+    for qualification in (profile.get("self") or {}).get("qualifications") or []:  # 저장 직전에도 자격 답변을 확인한다.
+        if qualification.get("has", "Y") not in ("Y", "N"):  # 생략은 기존 계약대로 해당함이다.
+            raise ValueError("자격의 has는 Y 또는 N이어야 합니다")  # 잘못된 답을 해당함으로 바꾸지 않는다.
     unknown = set(profile.get("self") or {}) - SELF_FIELDS
     for p in profile.get("parents") or []:
         unknown |= set(p) - set(PARENT)
@@ -146,7 +149,10 @@ def _write(conn: psycopg.Connection, profile: dict) -> None:
                                ("parents", PARENT, profile.get("parents"))):
         conn.execute(f"DELETE FROM {table} WHERE user_id = %s", (user_id,))
         for item in items or []:
-            _insert(conn, table, {"user_id": user_id, **{k: item.get(k) for k in cols}})
+            row = {"user_id": user_id, **{k: item.get(k) for k in cols}}  # 실제 테이블 칸만 저장한다.
+            if table == "user_qualifications":  # 기존 has 생략 입력은 기본 의미를 유지한다.
+                row["has"] = item.get("has", "Y")  # 명시적인 N은 덮어쓰지 않는다.
+            _insert(conn, table, row)  # 답변까지 포함해 한 트랜잭션에서 저장한다.
 
 
 def _insert(conn: psycopg.Connection, table: str, row: dict) -> None:
