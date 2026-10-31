@@ -1,4 +1,5 @@
--- 처음 스키마 (SPEC §14.1, api.md §2·§5·인증 절). 칸 이름은 팀 시트 `복지추천_필드스키마_3단계.xlsx`의 DB필드_ 탭 그대로.
+-- 처음 스키마 (SPEC §14.1, api.md §2·§5·인증 절). 칸 이름은 팀 시트 `복지추천_필드스키마_3단계(생년월일로 분리).xlsx`의
+-- DB필드_ 탭 그대로(출생연도 대신 생년월일 birth_date).
 -- 시트에서 뺀 것: 계산값 income_band_median·income_band_urban(판정 때 계산), situation_text(MVP에서 안 받음).
 -- 시트에 없는데 더한 것: 동의·stages_done(api.md §2), user_alert.email(알림 주소, api.md §2), 계정·세션·알림 테이블.
 -- 금액은 전부 만원. 계정을 지우면 세션·프로필·알림이 같이 지워진다(ON DELETE CASCADE).
@@ -31,7 +32,7 @@ CREATE TABLE users (
     consent_parent      boolean NOT NULL DEFAULT false,
     nickname            text,
     gender              text,
-    birth_year          integer,
+    birth_date          date,          -- 만 나이는 판정 기준일로 계산
     sido                text,
     sigungu             text,
     marital_status      text,
@@ -105,7 +106,7 @@ CREATE INDEX user_history_user_idx ON user_history (user_id);
 CREATE TABLE parents (
     user_id                text NOT NULL REFERENCES users ON DELETE CASCADE,
     relation               text NOT NULL CHECK (relation IN ('부', '모')),
-    birth_year             integer,
+    birth_date             date,
     sido                   text,
     sigungu                text,
     lives_alone            text,

@@ -1,10 +1,14 @@
 """프로필 저장·읽기. api.md §2 모양(dict) ↔ 테이블 여러 개. 칸 이름은 팀 시트 DB필드_ 탭 그대로.
 
+고칠 때(PATCH)는 `update`만 쓴다. 프로필 줄을 잠그고 최신 값을 읽은 뒤 고쳐 쓰므로,
+동시에 온 요청이 서로의 변경을 덮거나 철회한 동의를 되살리지 않는다.
+
 동의 확인(민감정보·부모님 칸 지우기)은 라우터가 저장 전에 한다. 여기서는 받은 칸을 그대로 넣는다.
 `derived`는 판정 때 계산하는 값이라 저장하지 않는다.
 """
 
 import secrets
+from collections.abc import Callable
 from datetime import date
 from decimal import Decimal
 
@@ -12,7 +16,7 @@ import psycopg
 from psycopg.rows import dict_row
 
 # self 칸이 들어가는 테이블. users 칸은 ① 가입, 나머지는 ② 알림 설정.
-USERS = ("nickname", "gender", "birth_year", "sido", "sigungu", "marital_status", "marriage_date", "pregnant",
+USERS = ("nickname", "gender", "birth_date", "sido", "sigungu", "marital_status", "marriage_date", "pregnant",
          "due_month", "children_count", "youngest_child_age", "household_size", "employment_status")
 ONE_ROW = {
     "user_housing": ("tenure_type", "is_householder", "is_homeless", "deposit", "monthly_rent", "move_in_date",
@@ -24,7 +28,7 @@ ONE_ROW = {
 }
 QUALIFICATION = ("qual_code", "target", "verified")
 HISTORY = ("event_type", "event_date")
-PARENT = ("relation", "birth_year", "sido", "sigungu", "lives_alone", "lives_with_child", "ltc_grade",
+PARENT = ("relation", "birth_date", "sido", "sigungu", "lives_alone", "lives_with_child", "ltc_grade",
           "disability_registered", "basic_pension", "livelihood_status", "care_wanted")
 SELF_FIELDS = set(USERS).union(*ONE_ROW.values(), {"qualifications", "history"})
 
@@ -46,13 +50,22 @@ def create(conn: psycopg.Connection, account_id: str, profile: dict) -> str:
     return user_id
 
 
-def save(conn: psycopg.Connection, profile: dict) -> None:
-    """있는 프로필(user_id 필수)을 통째로 다시 쓴다. PATCH는 load → 합치기 → save."""
-    _check_fields(profile)
+def update(conn: psycopg.Connection, user_id: str, change: Callable[[dict], None]) -> dict | None:
+    """프로필 줄을 잠근(FOR UPDATE) 채 최신 값을 읽어 change(profile)로 고치고 다시 쓴다. 고친 프로필을 돌려준다.
+
+    change는 받은 dict를 그 자리에서 고친다(합치기, 동의 정리). 없는 프로필이면 None.
+    같은 프로필을 고치는 다른 요청은 이 트랜잭션이 끝날 때까지 기다렸다가 고친 값 위에서 시작한다.
+    change나 저장 중 에러가 나면 아무것도 바뀌지 않는다.
+    """
     with conn.transaction():
-        if conn.execute("SELECT 1 FROM users WHERE user_id = %s", (profile["user_id"],)).fetchone() is None:
-            raise KeyError(profile["user_id"])
+        if conn.execute("SELECT 1 FROM users WHERE user_id = %s FOR UPDATE", (user_id,)).fetchone() is None:
+            return None
+        profile = load(conn, user_id)
+        change(profile)
+        profile["user_id"] = user_id
+        _check_fields(profile)
         _write(conn, profile)
+        return load(conn, user_id)
 
 
 def load(conn: psycopg.Connection, user_id: str) -> dict | None:

@@ -49,6 +49,18 @@ jobs:
     name: 백엔드 설치 · 테스트
     runs-on: ubuntu-latest
     # 명령은 레포 루트에서 --project backend로 실행한다 (README와 같다)
+    # DB 테스트용 빈 PostgreSQL. 테스트는 무작위 스키마 안에서만 테이블을 만들고 지운다
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: zinggumdari_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 5
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/zinggumdari_test
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
@@ -56,7 +68,7 @@ jobs:
           enable-cache: true
       - run: uv sync --project backend --locked
       - run: uv run --project backend --no-sync python -m compileall -q -x '/\.venv/' backend
-      - name: pytest (인구 · 알림 · 평가 포함)
+      - name: pytest (인구 · 알림 · 평가 · DB 포함)
         run: uv run --project backend --no-sync pytest -q
 
   frontend:

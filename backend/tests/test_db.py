@@ -1,10 +1,14 @@
 """PostgreSQL 테이블과 프로필 저장(SPEC §14.1, api.md §2).
 
-진짜 PostgreSQL에 붙는다. TEST_DATABASE_URL(환경변수나 .env)이 없으면 건너뛴다. 매 테스트마다 스키마를 지우고 다시 만든다.
-예: TEST_DATABASE_URL=postgresql://localhost/zinggumdari_test
+진짜 PostgreSQL에 붙는다. TEST_DATABASE_URL(환경변수나 .env)이 없으면 건너뛴다.
+테스트마다 무작위 이름의 스키마(test_…)를 만들어 그 안에만 테이블을 만들고, 끝나면 그 스키마만 지운다.
+public이나 다른 스키마는 건드리지 않는다. 예: TEST_DATABASE_URL=postgresql://localhost/zinggumdari_test
 """
 
 import copy
+import secrets
+import threading
+from contextlib import contextmanager
 from datetime import date
 
 import pytest
@@ -23,7 +27,7 @@ PROFILE = {
     "stages_done": ["signup", "alerts"],
     "consents": {"sensitive": True, "parent": True},
     "self": {
-        "nickname": "지원", "gender": "여", "birth_year": 1999, "sido": "서울", "sigungu": "마포구",
+        "nickname": "지원", "gender": "여", "birth_date": "1999-04-15", "sido": "서울", "sigungu": "마포구",
         "marital_status": "예비부부", "marriage_date": None, "pregnant": "N", "due_month": None,
         "children_count": 0, "youngest_child_age": None, "household_size": 1, "employment_status": "재직",
         "tenure_type": "월세", "is_householder": "세대주", "is_homeless": "Y", "deposit": 1000, "monthly_rent": 55,
@@ -36,21 +40,44 @@ PROFILE = {
         "history": [{"event_type": "청약_당첨", "event_date": "2023-05-10"}],
     },
     "parents": [
-        {"relation": "모", "birth_year": 1966, "sido": "경기", "sigungu": "고양시", "lives_alone": "Y",
+        {"relation": "모", "birth_date": "1966-07-03", "sido": "경기", "sigungu": "고양시", "lives_alone": "Y",
          "lives_with_child": "N", "ltc_grade": "없음", "disability_registered": "N", "basic_pension": "N",
          "livelihood_status": "해당없음", "care_wanted": "Y"},
     ],
 }
 
 
+@contextmanager
+def isolated_schema():
+    """무작위 스키마 하나를 만들고 search_path를 거기로. 나갈 때 그 스키마만 지운다."""
+    name = "test_" + secrets.token_hex(6)
+    c = connect(URL)
+    try:
+        c.execute(f"CREATE SCHEMA {name}")
+        c.execute(f"SET search_path TO {name}")
+        migrate.run(c)
+        yield c, name
+    finally:
+        c.execute(f"DROP SCHEMA IF EXISTS {name} CASCADE")
+        c.close()
+
+
 @pytest.fixture
 def conn():
-    with psycopg.connect(URL, autocommit=True) as c:
-        c.execute("DROP SCHEMA public CASCADE; CREATE SCHEMA public")
+    with isolated_schema() as (c, _):
+        yield c
+
+
+@pytest.fixture
+def schema():
+    with isolated_schema() as (c, name):
+        yield c, name
+
+
+def _connect_to(name):
     c = connect(URL)
-    migrate.run(c)
-    yield c
-    c.close()
+    c.execute(f"SET search_path TO {name}")
+    return c
 
 
 def _account(conn, email="a@example.com"):
@@ -64,10 +91,25 @@ def _count(conn, table):
 def test_migrate_twice_is_noop(conn):
     assert migrate.run(conn) == []
     tables = {r[0] for r in conn.execute(
-        "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'")}
+        "SELECT table_name FROM information_schema.tables WHERE table_schema = current_schema()")}
     assert {"auth_accounts", "auth_sessions", "users", "user_housing", "user_income", "user_subscription",
             "user_alert", "user_qualifications", "user_history", "parents", "policy_requirements",
             "income_standards", "notifications", "schema_migrations"} <= tables
+
+
+def test_public_schema_is_untouched():
+    marker = "zz_test_marker_" + secrets.token_hex(4)
+    with psycopg.connect(URL, autocommit=True) as c:
+        c.execute(f"CREATE TABLE public.{marker} (x int)")
+        c.execute(f"INSERT INTO public.{marker} VALUES (1)")
+        try:
+            with isolated_schema() as (inner, name):
+                profiles.create(inner, _account(inner), PROFILE)
+            assert c.execute(f"SELECT x FROM public.{marker}").fetchone() == (1,)
+            assert c.execute("SELECT 1 FROM information_schema.schemata WHERE schema_name = %s",
+                             (name,)).fetchone() is None
+        finally:
+            c.execute(f"DROP TABLE public.{marker}")
 
 
 def test_save_and_load_roundtrip(conn):
@@ -91,15 +133,18 @@ def test_dates_come_back_as_iso_strings(conn):
     assert got["history"] == [{"event_type": "청약_당첨", "event_date": "2023-05-10"}]
 
 
-def test_save_replaces_rows(conn):
+def test_update_replaces_rows(conn):
     user_id = profiles.create(conn, _account(conn), PROFILE)
-    p = profiles.load(conn, user_id)
-    p["self"]["income_self"] = 300
-    p["self"]["qualifications"] = []
-    p["self"]["history"] = []
-    p["parents"] = []
-    profiles.save(conn, p)
+
+    def change(p):
+        p["self"]["income_self"] = 300
+        p["self"]["qualifications"] = []
+        p["self"]["history"] = []
+        p["parents"] = []
+
+    returned = profiles.update(conn, user_id, change)
     got = profiles.load(conn, user_id)
+    assert returned == got
     assert got["self"]["income_self"] == 300
     assert got["self"]["qualifications"] == []
     assert got["self"]["history"] == []
@@ -108,7 +153,7 @@ def test_save_replaces_rows(conn):
 
 def test_signup_only_profile_has_empty_later_stages(conn):
     p = {"stages_done": ["signup"], "consents": {"sensitive": False, "parent": False},
-         "self": {"nickname": "민", "birth_year": 1995}, "parents": []}
+         "self": {"nickname": "민", "birth_date": "1995-01-01"}, "parents": []}
     got = profiles.load(conn, profiles.create(conn, _account(conn), p))
     assert got["self"]["nickname"] == "민"
     assert got["self"]["income_self"] is None
@@ -119,13 +164,62 @@ def test_signup_only_profile_has_empty_later_stages(conn):
 def test_sheet_columns_exist(conn):
     """팀 시트 DB필드_ 탭의 칸 이름 그대로(계산값 income_band_*, MVP에서 안 받는 situation_text는 뺌)."""
     cols = {(t, c) for t, c in conn.execute(
-        "SELECT table_name, column_name FROM information_schema.columns WHERE table_schema = 'public'")}
-    for want in [("user_housing", "house_price"), ("user_income", "support_start_date"),
+        "SELECT table_name, column_name FROM information_schema.columns WHERE table_schema = current_schema()")}
+    for want in [("users", "birth_date"), ("parents", "birth_date"), ("user_housing", "house_price"), ("user_income", "support_start_date"),
                  ("user_history", "event_type"), ("user_history", "event_date"),
                  ("policy_requirements", "policy_id"), ("policy_requirements", "field"),
                  ("policy_requirements", "operator"), ("policy_requirements", "value"),
                  ("policy_requirements", "standard")]:
         assert want in cols, want
+
+
+def test_update_missing_returns_none(conn):
+    assert profiles.update(conn, "Unope", lambda p: None) is None
+
+
+def test_update_unknown_field_keeps_old_values(conn):
+    user_id = profiles.create(conn, _account(conn), PROFILE)
+
+    def change(p):
+        p["self"]["income_self"] = 1
+        p["self"]["real_name"] = "홍길동"
+
+    with pytest.raises(ValueError):
+        profiles.update(conn, user_id, change)
+    assert profiles.load(conn, user_id)["self"]["income_self"] == 270
+
+
+def test_concurrent_updates_do_not_lose_changes(schema):
+    """A가 동의를 거두고 소득을 지우는 동안 B가 닉네임을 바꾼다. B는 A가 끝난 최신 값 위에 고쳐야 한다."""
+    conn, name = schema
+    user_id = profiles.create(conn, _account(conn), PROFILE)
+    other = _connect_to(name)
+    b_done = threading.Event()
+
+    def b_change(p):
+        p["self"]["nickname"] = "민"
+
+    def run_b():
+        profiles.update(other, user_id, b_change)
+        b_done.set()
+
+    def a_change(p):
+        threading.Thread(target=run_b).start()
+        assert not b_done.wait(0.5)  # A가 잠금을 쥐고 있는 동안 B는 기다린다
+        p["consents"]["sensitive"] = False
+        p["self"]["income_self"] = None
+        p["self"]["income_household"] = None
+
+    try:
+        profiles.update(conn, user_id, a_change)
+        assert b_done.wait(5)
+    finally:
+        other.close()
+    got = profiles.load(conn, user_id)
+    assert got["self"]["nickname"] == "민"
+    assert got["consents"]["sensitive"] is False
+    assert got["self"]["income_self"] is None
+    assert got["self"]["income_household"] is None
 
 
 def test_unknown_field_is_rejected(conn):

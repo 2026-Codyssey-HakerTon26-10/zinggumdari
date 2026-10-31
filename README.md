@@ -71,7 +71,7 @@ createdb zinggumdari
 uv run --project backend python -m backend.db.migrate
 ```
 
-DB 테스트까지 돌리려면 빈 DB를 하나 더 만들고(`createdb zinggumdari_test`) `.env`에 `TEST_DATABASE_URL`을 넣는다. 없으면 DB 테스트는 건너뛴다.
+DB 테스트까지 돌리려면 테스트용 DB를 하나 더 만들고(`createdb zinggumdari_test`) `.env`에 `TEST_DATABASE_URL`을 넣는다. 없으면 DB 테스트는 건너뛴다. 테스트는 그 DB 안에 무작위 스키마(`test_…`)를 만들어 쓰고 끝나면 그 스키마만 지운다(`public`은 건드리지 않는다). CI는 PostgreSQL 서비스를 띄워 DB 테스트까지 돌린다.
 
 API 서버 (http://localhost:8000, 문서는 /docs):
 
