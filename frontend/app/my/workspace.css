@@ -1,0 +1,25 @@
+.work-main { max-width: 1120px; padding-block: 36px 72px; color: #263e4b; } /* 흰색 바탕에 읽기 쉬운 본문을 배치해요. */
+.work-heading { margin-bottom: 30px; } /* 제목과 서비스 화면을 구분해요. */
+.work-heading h1 { font-size: clamp(26px, 5vw, 38px); margin-block: 12px 24px; } /* 작은 화면에서도 제목이 맞게 해요. */
+.work-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-block: 16px; } /* 버튼과 링크를 좁은 화면에서는 줄바꿈해요. */
+.work-main a { color: #006a80; text-decoration: underline; } /* 이동 가능한 링크를 명확하게 표시해요. */
+.work-panel { border: 1px solid #d9e1e5; border-radius: 16px; background: #fff; padding: 24px; margin-block: 20px; overflow-wrap: anywhere; } /* 카드와 폼을 흰색 패널에 담아요. */
+.work-panel p, .work-panel li { line-height: 1.8; margin-block: 10px; } /* 긴 조건도 읽기 쉬운 간격으로 보여줘요. */
+.work-panel h2, .work-panel h3 { margin-bottom: 16px; } /* 제목 아래에 여백을 둬요. */
+.work-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; } /* 카드가 작은 화면에서는 한 열로 배치돼요. */
+.work-disclaimer { font-size: 13px; font-weight: 600; border-bottom: 1px solid #d9e1e5; padding-bottom: 12px; } /* 필수 고지를 카드 머리에 표시해요. */
+.work-badge { color: #72551c; font-weight: 700; } /* 판정 상태를 글자로 구분해요. */
+.work-form fieldset { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 18px; border: 0; padding: 0; margin-block: 20px; } /* 폼을 반응형으로 배치해요. */
+.work-form label { display: flex; flex-direction: column; gap: 8px; font-weight: 600; } /* 입력 이름을 항상 표시해요. */
+.work-form input, .work-form select, .work-form textarea { padding: 12px; border: 1px solid #7c8f99; border-radius: 8px; background: #fff; color: #263e4b; font: inherit; min-width: 0; } /* 입력란은 흰색과 충분한 대비를 사용해요. */
+.work-main button { cursor: pointer; } /* 버튼을 조작할 수 있음을 표시해요. */
+.work-main button:disabled { opacity: .6; cursor: wait; } /* 요청 중에는 중복 조작을 막아요. */
+.work-main button[aria-pressed="true"] { outline: 2px solid #00809a; outline-offset: 3px; } /* 현재 선택을 색 이외의 테두리로도 구분해요. */
+.work-main [role="alert"] { color: #922626; padding: 14px; border: 1px solid #b34a4a; border-radius: 8px; } /* 실패를 지속되는 메시지로 표시해요. */
+.work-main :is(button, a, input, select, summary):focus-visible { outline: 3px solid #00809a; outline-offset: 4px; } /* 키보드 초점을 볼 수 있게 해요. */
+.work-table-wrap { overflow: auto; margin-top: 20px; } /* 표는 좁은 화면에서만 가로로 스크롤해요. */
+.work-table-wrap table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: left; } /* 비교 열의 너비를 확보해요. */
+.work-table-wrap th, .work-table-wrap td { padding: 14px; border: 1px solid #d9e1e5; vertical-align: top; line-height: 1.7; } /* 표 셀을 구분해요. */
+.work-table-wrap small { display: block; } /* 근거를 별도 줄에 표시해요. */
+.work-timeline { padding-left: 22px; } /* 단계 목록 순서를 보여줘요. */
+.work-timeline li { padding: 20px 0; border-bottom: 1px solid #d9e1e5; } /* 단계 사이를 나눠요. */
