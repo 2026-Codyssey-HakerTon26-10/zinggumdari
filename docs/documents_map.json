@@ -1,4 +1,8 @@
 {
+  "4대보험 가입내역서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "가족관계증명서": {
     "doc_ids": [
       "family_relation_cert"
@@ -23,6 +27,18 @@
     ],
     "status": "found"
   },
+  "고엽제후유증 환자증서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "국가유공자 증서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "국가유공자증": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "금융 정보 등(금융, 신용, 보험정보) 제공 동의서(본인, 배우자)": {
     "doc_ids": [
       "financial_consent"
@@ -35,6 +51,10 @@
     ],
     "status": "found"
   },
+  "급여명세서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "기초생활수급자‧차상위계층‧한부모가족 증명서": {
     "doc_ids": [
       "livelihood_cert",
@@ -43,11 +63,27 @@
     ],
     "status": "found"
   },
+  "다둥이행복카드": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "매입임대 공급 신청서": {
     "doc_ids": [],
     "status": "unknown"
   },
   "무릎관절증 의료지원신청서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "발달재활서비스 의뢰서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "병역명문가증": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "보훈보상대상자증": {
     "doc_ids": [],
     "status": "unknown"
   },
@@ -64,6 +100,10 @@
       "social_service_application"
     ],
     "status": "found"
+  },
+  "산재보험 또는 고용보험 가입자 명부": {
+    "doc_ids": [],
+    "status": "unknown"
   },
   "생계·주거·의료·교육급여 수급자 증명서": {
     "doc_ids": [],
@@ -91,11 +131,19 @@
     "doc_ids": [],
     "status": "self_held"
   },
+  "요양보호사 주민등록초본": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "위임장 및 대리신청자의 신분증": {
     "doc_ids": [],
     "status": "self_held"
   },
   "의사소견서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "의사소견서(진단서)": {
     "doc_ids": [],
     "status": "unknown"
   },
@@ -111,6 +159,14 @@
     "doc_ids": [],
     "status": "unknown"
   },
+  "자동차 표지": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "자동차등록증": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "자산 보유사실 확인서": {
     "doc_ids": [],
     "status": "unknown"
@@ -118,6 +174,36 @@
   "장기요양인정 신청서": {
     "doc_ids": [
       "ltc_application"
+    ],
+    "status": "found"
+  },
+  "장기요양인정서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "장애인 등록증": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "장애인복지카드": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "장애인증명서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "저공해 스티커": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "전세사기피해자(등) 결정문": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "주민등록등본": {
+    "doc_ids": [
+      "resident_register"
     ],
     "status": "found"
   },
@@ -137,6 +223,14 @@
     "doc_ids": [],
     "status": "unknown"
   },
+  "지원대상자확인원": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "진단서 또는 소견서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
   "차상위계층 확인서": {
     "doc_ids": [
       "near_poverty_cert"
@@ -146,6 +240,10 @@
   "통장 사본": {
     "doc_ids": [],
     "status": "self_held"
+  },
+  "특수임무유공자증": {
+    "doc_ids": [],
+    "status": "unknown"
   },
   "혼인관계증명서": {
     "doc_ids": [

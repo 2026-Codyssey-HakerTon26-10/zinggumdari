@@ -9,7 +9,7 @@ import logging
 from collections.abc import Callable
 from datetime import date
 
-from backend.engine import judge
+from backend.engine import documents, judge
 from backend.engine.ask import choose_ask
 from backend.engine.derive import tags as profile_tags
 
@@ -23,15 +23,6 @@ def _no_lines(ids: list[str]) -> list[dict]:
     return [{"id": e, "page": None, "bbox": None, "text": None} for e in ids]
 
 
-def _documents(rule: dict) -> list[dict]:
-    """서류 사전 매핑 전이라 전부 "발급처 확인 필요"(status unknown)다. 발급처를 지어내지 않는다."""
-    docs = [{"name": n, "doc_id": None, "who_provides": "applicant", "status": "unknown"}
-            for n in rule.get("documents") or []]
-    docs += [{"name": n, "doc_id": None, "who_provides": "official", "status": "unknown"}
-             for n in rule.get("documents_official") or []]
-    return docs
-
-
 def _foldable(rule: dict) -> bool:
     """검수 전 AI 조건표. 내가 올린 조건표는 직접 고른 것이라 접지 않는다."""
     return (rule.get("review") or {}).get("status") != "reviewed" and rule.get("source") != "upload"
@@ -39,7 +30,7 @@ def _foldable(rule: dict) -> bool:
 
 def _focus_tags(profile: dict, today: date) -> set[str]:
     """지금 프로필의 단계 태그와 바로 다음 단계. 제도 태그(planner.stage_tags)와 같은 이름을 쓴다."""
-    from backend.planner.steps import upcoming
+    from backend.planner.steps import upcoming   # planner가 engine을 불러오므로 여기서 가져온다(순환 import)
 
     me = profile.get("self", {})
     out = set(profile_tags(me, today)) | set(upcoming(me)[:1])
@@ -68,6 +59,7 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
     results = judge(profile, rules, today)
     plan = planner.timeline(profile, rules, today, results)
     by_id = {r["id"]: r for r in rules}
+    doc_map, doc_dict = documents.load_map(), documents.load_dictionary()   # 서류 사전 캐시. 런타임에 새로 맞추지 않는다
     cards, folded = [], []
     next_step = {i for s in plan["self"] for i in s["opens"]}
     focus_tags = _focus_tags(profile, today)
@@ -95,7 +87,7 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
              and (results.get(x["rule_id"]) or {}).get("verdict") == "eligible"}
             for x in card["exclusive_with"]]
         card["exclusive_evidence"] = evidence(card["exclusive_evidence"]) if card["exclusive_evidence"] else []
-        card.update(documents=_documents(rule), explain=_explain(card))
+        card.update(documents=documents.rows(rule, doc_map, doc_dict), explain=_explain(card))
         cards.append(card)
     cards.sort(key=lambda c: (c["subject"] != "self", c["ai_extracted"], SHOWN[c["verdict"]]))
     return {

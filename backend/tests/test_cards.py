@@ -77,11 +77,29 @@ def test_exclusive_with_names():
     assert card["exclusive_with"] == [{"rule_id": "manual:b", "name": "신혼 전세", "both_eligible": True}]
 
 
-def test_documents_without_dictionary():
-    rule = {**OK, "documents": ["임대차계약서"], "documents_official": ["주민등록등본"]}
+def test_documents_from_dictionary(monkeypatch):
+    # 카드 서류는 서류 사전 캐시(docs/documents_map.json)에서 발급처를 붙인다(api.md §3·§4)
+    from backend.engine import documents
+    cache = {"임대차계약서": {"doc_ids": [], "status": "self_held"},
+             "주민등록표 등본": {"doc_ids": ["resident_register"], "status": "found"},
+             "처음 보는 확인서": {"doc_ids": [], "status": "unknown"}}
+    monkeypatch.setattr(documents, "load_map", lambda *a, **k: cache)
+    rule = {**OK, "documents": ["임대차계약서", "처음 보는 확인서"], "documents_official": ["주민등록표 등본"]}
     docs = build_judge(ME, [rule], TODAY)["cards"][0]["documents"]
-    assert docs == [{"name": "임대차계약서", "doc_id": None, "who_provides": "applicant", "status": "unknown"},
-                    {"name": "주민등록등본", "doc_id": None, "who_provides": "official", "status": "unknown"}]
+    assert [(d["name"], d["status"], d["who_provides"]) for d in docs] == [
+        ("임대차계약서", "self_held", "applicant"), ("처음 보는 확인서", "unknown", "applicant"),
+        ("주민등록표 등본", "found", "official")]
+    found = docs[2]
+    assert found["doc_id"] == "resident_register" and found["issuer"] and found["online"]
+
+
+def test_documents_not_in_cache_stay_unknown(monkeypatch):
+    # 캐시에 없는 서류명은 런타임에 새로 맞추지 않고 "발급처 확인 필요"로 둔다
+    from backend.engine import documents
+    monkeypatch.setattr(documents, "load_map", lambda *a, **k: {})
+    rule = {**OK, "documents": ["주민등록등본"]}
+    docs = build_judge(ME, [rule], TODAY)["cards"][0]["documents"]
+    assert docs == [{"name": "주민등록등본", "doc_id": None, "who_provides": "applicant", "status": "unknown"}]
 
 
 # 라우터 -----------------------------------------------------------------------------------------
