@@ -1,0 +1,31 @@
+{
+  "id": "parent-age64",
+  "virtual": true,
+  "today": "2026-11-01",
+  "profile": {
+    "self": {},
+    "parents": [
+      {
+        "relation": "모",
+        "birth_year": 1962
+      }
+    ],
+    "user_id": "virtual:parent-age64",
+    "consents": {
+      "sensitive": true,
+      "parent": true
+    }
+  },
+  "expected": {
+    "rule_id": "manual:basic-pension",
+    "allowed_verdicts": [
+      "opens_later",
+      "needs_check"
+    ],
+    "evidence": [
+      "gov24-sse000000170:l5"
+    ],
+    "rationale": "출생연도만으로 가능한 만 나이는 63~64세다. 현재 eligible은 허용하지 않으며 소득인정액과 연금 제외는 별도 확인이 필요하다."
+  },
+  "basis": "검수된 손 조건표의 명시적 탈락/확인 필요 근거에서 평가 담당자가 작성. 엔진 출력은 정답 생성에 사용하지 않음."
+}

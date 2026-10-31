@@ -1,0 +1,28 @@
+{
+  "id": "expired-youth-rent-2026",
+  "virtual": true,
+  "today": "2026-11-01",
+  "profile": {
+    "self": {
+      "birth_year": 2000,
+      "is_homeless": "Y"
+    },
+    "parents": [],
+    "user_id": "virtual:expired-youth-rent-2026",
+    "consents": {
+      "sensitive": true,
+      "parent": true
+    }
+  },
+  "expected": {
+    "rule_id": "manual:youth-rent-2026",
+    "allowed_verdicts": [
+      "ineligible"
+    ],
+    "evidence": [
+      "bokjiro-youth-rent-2026:l6"
+    ],
+    "rationale": "신청 마감 2026-05-29가 지났다. 나머지 조건과 관계없이 현재 추천하지 않는다."
+  },
+  "basis": "검수된 손 조건표의 명시적 탈락/확인 필요 근거에서 평가 담당자가 작성. 엔진 출력은 정답 생성에 사용하지 않음."
+}
