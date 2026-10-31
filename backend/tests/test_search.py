@@ -179,9 +179,16 @@ def test_nudge(client):
 
 def test_engine_port_reads_cards():
     p = Ports()
-    p._judge = lambda profile, rules: {"cards": [{"rule_id": "a", "verdict": "opens_later"}]}
-    out = p.verdicts({}, [{"id": "a"}, {"id": "b"}, {"id": "c", "subject": "parent"}])
+    seen = {}
+
+    def engine(profile, rules, today=None):
+        seen["today"] = today
+        return {"cards": [{"rule_id": "a", "verdict": "opens_later"}]}
+
+    p._judge = engine
+    out = p.verdicts({}, [{"id": "a"}, {"id": "b"}, {"id": "c", "subject": "parent"}], date(2031, 1, 15))
     assert out == {"a": "opens_later", "b": "ineligible", "c": "needs_check"}
+    assert seen["today"] == date(2031, 1, 15)                       # ?today=가 엔진까지 간다
 
 
 def test_fake_judge_age_boundary_and_any_of():

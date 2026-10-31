@@ -1,6 +1,7 @@
 """검색 배지가 다른 담당 모듈에 붙는 자리.
 
-- 판정: backend.engine에 judge(profile, rules)가 생기면 자동으로 그것을 쓴다(docs/roles.md).
+- 판정: backend.engine에 judge(profile, rules, today=None)가 생기면 자동으로 그것을 쓴다(docs/roles.md).
+  today는 검색의 ?today=를 그대로 넘긴다(날짜 재현이 배지까지 맞게).
   돌려주는 값은 판정 결과(docs/api.md §3, {"cards": [...]})나 카드 목록 둘 다 받는다.
   카드에 없는 제도는 ineligible로 본다(§5.2: 확정 탈락은 카드에 올리지 않는다).
   엔진이 없으면 fake_judge(아래)로 돈다. 검색 응답의 "judge"가 engine인지 fake인지 알려준다.
@@ -133,7 +134,7 @@ class Ports:
         fn = self._judge or _engine_judge()
         if fn is None:
             return {r["id"]: fake_judge(profile, r, today) for r in rules}
-        out = fn(profile, rules)
+        out = fn(profile, rules, today=today)
         cards = out.get("cards", []) if isinstance(out, dict) else out
         got = {c["rule_id"]: c.get("verdict") for c in cards or [] if isinstance(c, dict) and c.get("rule_id")}
         result = {}
