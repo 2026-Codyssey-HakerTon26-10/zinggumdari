@@ -1,0 +1,245 @@
+[
+  {
+    "doc_id": "resident_register",
+    "name": "주민등록등본",
+    "aliases": [
+      "주민등록표 등본",
+      "주민등록표등본",
+      "등본"
+    ],
+    "issuer": "정부24 / 읍면동 행정복지센터",
+    "online": "https://www.gov.kr",
+    "offline": "행정복지센터·무인민원발급기",
+    "fee": "정부24 무료(본인·세대원), 창구 400원, 무인민원발급기 200원",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/main?a=AA020InfoCappViewApp&CappBizCD=13100000015",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "resident_abstract",
+    "name": "주민등록초본",
+    "aliases": [
+      "주민등록표 초본",
+      "주민등록표초본",
+      "초본"
+    ],
+    "issuer": "정부24 / 읍면동 행정복지센터",
+    "online": "https://www.gov.kr",
+    "offline": "행정복지센터·무인민원발급기",
+    "fee": "정부24 무료(본인·세대원), 창구 400원, 무인민원발급기 200원",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/main?a=AA020InfoCappViewApp&CappBizCD=13100000015",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "family_relation_cert",
+    "name": "가족관계증명서",
+    "aliases": [
+      "가족관계 증명서"
+    ],
+    "issuer": "대법원 전자가족관계등록시스템 / 행정복지센터",
+    "online": "https://efamily.scourt.go.kr",
+    "offline": "행정복지센터·무인발급기",
+    "fee": "인터넷 무료, 창구 1,000원, 무인발급기 500원(조례에 따라 다를 수 있음)",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "family_marriage_cert",
+    "name": "혼인관계증명서",
+    "aliases": [
+      "혼인관계 증명서"
+    ],
+    "issuer": "대법원 전자가족관계등록시스템 / 행정복지센터",
+    "online": "https://efamily.scourt.go.kr",
+    "offline": "행정복지센터·무인발급기",
+    "fee": "인터넷 무료, 창구 1,000원, 무인발급기 500원(조례에 따라 다를 수 있음)",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=97400000004",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "health_insurance_eligibility",
+    "name": "건강보험 자격득실확인서",
+    "aliases": [
+      "건강보험자격득실확인서",
+      "자격득실확인서"
+    ],
+    "issuer": "국민건강보험공단 / 정부24",
+    "online": "https://www.nhis.or.kr",
+    "offline": "공단 지사·무인민원발급기",
+    "fee": "무료",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=PG4CADM0107",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "health_insurance_payment",
+    "name": "건강보험료 납부확인서",
+    "aliases": [
+      "건강보험료납부확인서",
+      "보험료 납부확인서"
+    ],
+    "issuer": "국민건강보험공단 / 정부24",
+    "online": "https://www.nhis.or.kr",
+    "offline": "공단 지사·무인민원발급기",
+    "fee": "무료",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=SG4CADM2017",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "income_amount_cert",
+    "name": "소득금액증명",
+    "aliases": [
+      "소득금액증명원",
+      "소득금액 증명"
+    ],
+    "issuer": "국세청 홈택스 / 세무서",
+    "online": "https://www.hometax.go.kr",
+    "offline": "세무서·행정복지센터·무인발급기",
+    "fee": "무료",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000021",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "local_tax_cert",
+    "name": "지방세 세목별 과세증명서",
+    "aliases": [
+      "지방세 세목별 과세 증명서",
+      "세목별 과세증명서",
+      "지방세 과세증명서"
+    ],
+    "issuer": "위택스 / 정부24 / 시군구청",
+    "online": "https://www.wetax.go.kr",
+    "offline": "시군구청·행정복지센터",
+    "fee": "위택스·정부24 무료, 방문은 지자체 조례에 따름",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000084",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "livelihood_cert",
+    "name": "국민기초생활수급자 증명서",
+    "aliases": [
+      "기초생활수급자 증명서",
+      "수급자 증명서",
+      "수급자증명서",
+      "기초수급자 증명서"
+    ],
+    "issuer": "정부24 / 읍면동 행정복지센터",
+    "online": "https://www.gov.kr",
+    "offline": "행정복지센터·무인민원발급기",
+    "fee": "무료",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/main?a=AA020InfoCappViewApp&CappBizCD=14600000280",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "near_poverty_cert",
+    "name": "차상위계층 확인서",
+    "aliases": [
+      "차상위계층 증명서",
+      "차상위 확인서"
+    ],
+    "issuer": "정부24 / 읍면동 행정복지센터",
+    "online": "https://www.gov.kr",
+    "offline": "행정복지센터",
+    "fee": null,
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13520000098 (수수료는 확인하지 못함)",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "single_parent_cert",
+    "name": "한부모가족 증명서",
+    "aliases": [
+      "한부모가족증명서",
+      "한부모 증명서"
+    ],
+    "issuer": "정부24 / 읍면동 행정복지센터",
+    "online": "https://www.gov.kr",
+    "offline": "행정복지센터·무인민원발급기",
+    "fee": "무료",
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "정부24 민원안내 https://www.gov.kr/main?a=AA020InfoCappViewApp&CappBizCD=10601000001",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "financial_consent",
+    "name": "금융정보 등 제공 동의서",
+    "aliases": [
+      "금융정보등제공동의서",
+      "금융정보 제공 동의서",
+      "금융 정보 등 제공 동의서"
+    ],
+    "issuer": "읍면동 행정복지센터·국민연금공단 지사 창구 양식",
+    "online": null,
+    "offline": "신청 창구에서 작성",
+    "fee": null,
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "행안부 공공서비스(혜택) API 기초연금(SSE000000170) 구비서류·신청방법",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "social_service_application",
+    "name": "사회복지서비스 및 급여 제공 신청서",
+    "aliases": [
+      "사회복지서비스 및 급여 제공 신청서",
+      "사회복지서비스 및 급여 제공(변경) 신청서"
+    ],
+    "issuer": "읍면동 행정복지센터·국민연금공단 지사 창구 양식",
+    "online": null,
+    "offline": "신청 창구에서 작성",
+    "fee": null,
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "행안부 공공서비스(혜택) API 기초연금(SSE000000170) 구비서류·신청방법",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "income_property_report",
+    "name": "소득·재산 신고서",
+    "aliases": [
+      "소득재산신고서",
+      "소득 재산 신고서"
+    ],
+    "issuer": "읍면동 행정복지센터·국민연금공단 지사 창구 양식",
+    "online": null,
+    "offline": "신청 창구에서 작성",
+    "fee": null,
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "행안부 공공서비스(혜택) API 기초연금(SSE000000170) 구비서류·신청방법",
+    "updated": "2026-11-01"
+  },
+  {
+    "doc_id": "ltc_application",
+    "name": "장기요양인정 신청서",
+    "aliases": [
+      "장기요양인정신청서"
+    ],
+    "issuer": "국민건강보험공단(노인장기요양보험)",
+    "online": "https://www.longtermcare.or.kr",
+    "offline": "공단 지사 방문·팩스·우편",
+    "fee": null,
+    "validity": null,
+    "who_provides_default": "applicant",
+    "verified_from": "행안부 공공서비스(혜택) API 노인장기요양보험(999000000089) 구비서류·신청방법",
+    "updated": "2026-11-01"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "금융 정보 등(금융, 신용, 보험정보) 제공 동의서(본인, 배우자)": {
+    "doc_ids": [
+      "financial_consent"
+    ],
+    "status": "found"
+  },
+  "사회복지서비스 및 급여 제공(변경) 신청서": {
+    "doc_ids": [
+      "social_service_application"
+    ],
+    "status": "found"
+  },
+  "소득·재산 신고서": {
+    "doc_ids": [
+      "income_property_report"
+    ],
+    "status": "found"
+  },
+  "신분증": {
+    "doc_ids": [],
+    "status": "self_held"
+  },
+  "의사소견서": {
+    "doc_ids": [],
+    "status": "unknown"
+  },
+  "장기요양인정 신청서": {
+    "doc_ids": [
+      "ltc_application"
+    ],
+    "status": "found"
+  },
+  "통장 사본": {
+    "doc_ids": [],
+    "status": "self_held"
+  }
+}
