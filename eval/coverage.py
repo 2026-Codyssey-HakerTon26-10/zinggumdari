@@ -19,7 +19,7 @@ def coverage(rules, results=None):
             unaccounted += rule.get("coverage", {}).get("unaccounted", 0)
     return dict(manual=manual, compiled=dict(rules=ai, conditions=sum(states.values()),
                 auto_verified=states["auto_verified"], needs_review=states["needs_review"], unaccounted_lines=unaccounted),
-                eval={k: results.get(k) for k in ("split", "precision_auto_verified", "missed", "agreement", "verifier")} if results else None)
+                eval={k: results.get(k) for k in ("status", "evaluation_scope", "limitation", "source_snapshot", "scoring_method", "agreement_source", "split", "precision_auto_verified", "missed", "agreement", "verifier")} if results else None)
 
 
 def create_router(load_rules, *, results_path=Path("eval/results.json"), explore_path=Path("eval/explore-results.json")):

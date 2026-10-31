@@ -78,15 +78,51 @@ def test_fixed_test_cannot_overlap_validation_and_only_calls_frozen_k(tmp_path):
     assert "validation_ids" not in exported
 
 
-def test_other_text_is_part_of_matching_key_and_dev_is_rejected():
+def test_other_text_is_part_of_matching_key_and_test_is_rejected():
     gold = dict(field="other", text="순자산 기준 이하", evidence=["d:l1"])
     actual = dict(field="other", text="다른 조건", evidence=["d:l2"])
     assert extraction_score([gold], [actual])["silent_omissions"] == [gold]
-    document = {"extraction": [dict(rule_id="dev", gold=[gold], extracted=[actual])]}
+    document = {"extraction": [dict(rule_id="test", gold=[gold], extracted=[actual])]}
     with pytest.raises(ValueError):
         score(document, {"dev": ["dev"], "test": ["test"]})
-    document["extraction"][0]["rule_id"] = "test"
+    document["extraction"][0]["rule_id"] = "dev"
     result = score(document, {"dev": ["dev"], "test": ["test"]})
     assert result["missed"] == 1 and result["split"] == {"dev": 1, "test": 1}
     assert coverage([], result)["eval"]["missed"] == 1
     assert ranking_score([[]], [[]])["recall_n"] == 0
+
+
+@pytest.mark.parametrize("rule_id", ["test", "outside", "unknown", None])
+def test_only_dev_can_contribute_extraction_and_agreement(rule_id):
+    split = {"dev": ["dev"], "test": ["test"], "outside": ["outside"]}
+    for document in ({"extraction": [{"rule_id": rule_id, "gold": [], "extracted": []}]},
+                     {"verdicts": [{"rule_id": rule_id, "user_id": "virtual", "expected": "eligible", "actual": "eligible"}]}):
+        with pytest.raises(ValueError):
+            score(document, split)
+
+
+def test_dev_results_are_labelled_and_test_is_always_null():
+    c = dict(field="age", op=">=", value=19, status="auto_verified")
+    result = score({"extraction": [{"rule_id": "dev", "gold": [c], "extracted": [c]}],
+                    "verdicts": [{"rule_id": "dev", "user_id": "virtual", "expected": "ineligible", "actual": "eligible"}]},
+                   {"dev": ["dev"], "test": ["test"]})
+    assert result["precision_auto_verified"] == {"dev": {"correct": 1, "n": 1}, "test": None, "sample": None}
+    assert result["agreement"]["danger"] == 1
+    assert result["evaluation_scope"] == "dev_only" and result["limitation"]
+    assert score({}, {"dev": ["dev"], "test": ["test"]})["status"] == "not_evaluated"
+
+
+def test_duplicate_judgments_and_extractions_cannot_inflate_counts():
+    p = {"rule_id": "dev", "gold": [], "extracted": []}
+    v = {"rule_id": "dev", "user_id": "virtual", "expected": "eligible", "actual": "eligible"}
+    for document in ({"extraction": [p, p]}, {"verdicts": [v, v]}):
+        with pytest.raises(ValueError):
+            score(document, {"dev": ["dev"], "test": []})
+
+
+def test_outside_metadata_objects_are_supported_and_cannot_overlap():
+    split = {"dev": ["dev"], "test": ["test"], "outside": [{"id": "outside", "why": "virtual"}]}
+    assert score({}, split)["status"] == "not_evaluated"
+    split["outside"][0]["id"] = "dev"
+    with pytest.raises(ValueError):
+        score({}, split)

@@ -1,0 +1,472 @@
+{
+  "status": "scored",
+  "evaluation_scope": "dev_only",
+  "limitation": "개발용은 프롬프트를 맞춘 집합입니다. 시험용은 채점하지 않았습니다.",
+  "verdicts": {
+    "total": 27000,
+    "matched": 18671,
+    "dangerous": 0,
+    "missed": 4356,
+    "accuracy": 0.6915185185185185
+  },
+  "extraction": [
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "auto_verified": 5,
+      "correct": 1,
+      "precision": 0.2,
+      "silent_omissions": [
+        {
+          "field": "other",
+          "text": "세대주(예비 세대주 포함). 쉐어하우스 입주는 예외",
+          "quote": "대출접수일 현재 만19세 이상 만34세 이하의 세대주(예비 세대주 포함)",
+          "evidence": [
+            "nhuf-buttimok-youth:l354"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "quote": "세대주를 포함한 세대원 전원이 무주택인 자",
+          "evidence": [
+            "nhuf-buttimok-youth:l357"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "income_couple",
+                "op": "<=",
+                "value": 5000,
+                "income_basis": "absolute_annual"
+              }
+            ],
+            [
+              {
+                "field": "children_count",
+                "op": ">=",
+                "value": 2
+              },
+              {
+                "field": "income_couple",
+                "op": "<=",
+                "value": 6000,
+                "income_basis": "absolute_annual"
+              }
+            ],
+            [
+              {
+                "field": "marriage_years",
+                "op": "<=",
+                "value": 7
+              },
+              {
+                "field": "income_couple",
+                "op": "<=",
+                "value": 7500,
+                "income_basis": "absolute_annual"
+              }
+            ]
+          ],
+          "quote": "대출신청인과 배우자의 합산 총소득이 5천만원 이하인 자 … 다자녀가구, 2자녀 가구인 경우 6천만원 이하, 신혼가구인 경우는 7.5천만원 이하인 자",
+          "evidence": [
+            "nhuf-buttimok-youth:l358"
+          ],
+          "status": "reviewed",
+          "note": "혁신도시 이전 공공기관 종사자, 타 지역으로 이주하는 재개발 구역내 세입자도 6천만원 이하. 신혼가구는 혼인 7년 이내로 봤다"
+        },
+        {
+          "field": "other",
+          "text": "대출신청인과 배우자의 합산 순자산 3.45억원 이하(2026년)",
+          "quote": "합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 … 2026년도 기준 3.45억원",
+          "evidence": [
+            "nhuf-buttimok-youth:l360",
+            "nhuf-buttimok-youth:l361"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "기금·은행 전세자금대출, 주택담보대출 이용 중이면 불가",
+          "quote": "(중복대출 금지) 주택도시기금대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자",
+          "evidence": [
+            "nhuf-buttimok-youth:l346"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "주택임대차계약 체결, 임차보증금 5% 이상 지불",
+          "quote": "주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자",
+          "evidence": [
+            "nhuf-buttimok-youth:l353"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "신용정보·연체 등 해제 정보가 남아 있으면 불가",
+          "quote": "신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능",
+          "evidence": [
+            "nhuf-buttimok-youth:l364"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "공공임대주택 입주 중이면 불가",
+          "quote": "대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가",
+          "evidence": [
+            "nhuf-buttimok-youth:l369"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "대상주택: 전용면적 85㎡ 이하(만 25세 미만 단독세대주 60㎡ 이하), 임차보증금 3억원 이하",
+          "quote": "임차 전용면적 85㎡ 이하 주택(주거용 오피스텔 포함) … 3억원 이하",
+          "evidence": [
+            "nhuf-buttimok-youth:l388",
+            "nhuf-buttimok-youth:l392"
+          ],
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "auto_verified": 3,
+      "correct": 0,
+      "precision": 0.0,
+      "silent_omissions": [
+        {
+          "field": "other",
+          "text": "민법상 성년인 세대주(대출실행일로부터 1개월 이내 세대주 예정자 포함)",
+          "quote": "대출접수일 현재 민법상 성년인 세대주(대출실행일로부터 1개월 이내에 세대분가 또는 세대합가로 인한 세대주 예정자 포함)",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l356"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "quote": "세대주를 포함한 세대원 전원이 무주택인 자",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l361"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "income_couple",
+                "op": "<=",
+                "value": 7500,
+                "income_basis": "absolute_annual"
+              }
+            ],
+            [
+              {
+                "field": "income_self",
+                "op": "<=",
+                "value": 5000,
+                "income_basis": "absolute_annual"
+              }
+            ]
+          ],
+          "quote": "대출신청인과 배우자의 합산 총소득이 연간 7.5천만원 이하인 자 … 부부 중 1인(대출신청인)의 소득이 5천만원 이하인 경우 대출 가능",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l362",
+            "nhuf-newlywed-jeonse:l363"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "대출신청인과 배우자의 합산 순자산 3.45억원 이하(2026년)",
+          "quote": "합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 … 2026년도 기준 3.45억원",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l365",
+            "nhuf-newlywed-jeonse:l366"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "기금·은행 전세자금대출, 주택담보대출 이용 중이면 불가",
+          "quote": "(중복대출 금지) 주택도시기금대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l347"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "주택임대차계약 체결, 임차보증금 5% 이상 지불",
+          "quote": "주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l355"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "신용정보·연체 등 해제 정보가 남아 있으면 불가",
+          "quote": "신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l369"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "공공임대주택 입주 중이면 불가",
+          "quote": "대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l374"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "대상주택: 전용면적 85㎡ 이하(수도권 밖 읍·면 100㎡), 임차보증금 수도권 4억원, 수도권 외 3억원 이하",
+          "quote": "임차 전용면적 85㎡ (수도권을 제외한 도시지역이 아닌 읍 또는 면지역은 100㎡) 이하 주택 … 수도권 4억원, 수도권 외 3억원",
+          "evidence": [
+            "nhuf-newlywed-jeonse:l394",
+            "nhuf-newlywed-jeonse:l397"
+          ],
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "auto_verified": 2,
+      "correct": 1,
+      "precision": 0.5,
+      "silent_omissions": [
+        {
+          "field": "other",
+          "text": "민법상 성년인 세대주(대출실행일로부터 1개월 이내 세대주 예정자 포함)",
+          "quote": "대출접수일 현재 민법상 성년인 세대주(대출실행일로부터 1개월 이내에 세대분가 또는 세대합가로 인한 세대주 예정자 포함)",
+          "evidence": [
+            "nhuf-newborn-buttimok:l356"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "youngest_child_age",
+          "op": "<",
+          "value": 2,
+          "as_of": "application_date",
+          "quote": "대출접수일 기준 2년 내 출산(입양)한 가구",
+          "evidence": [
+            "nhuf-newborn-buttimok:l361"
+          ],
+          "status": "reviewed",
+          "note": "’23.1.1. 이후 출생아부터, 임신 중인 태아는 미포함, 입양아는 만 2살 미만(l363~l364)"
+        },
+        {
+          "field": "other",
+          "text": "대출신청인과 배우자의 합산 순자산 3.45억원 이하(2026년)",
+          "quote": "합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 … 2026년도 기준 3.45억원",
+          "evidence": [
+            "nhuf-newborn-buttimok:l369",
+            "nhuf-newborn-buttimok:l370"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "기금·은행 전세자금대출, 주택담보대출 이용 중이면 불가",
+          "quote": "(중복대출 금지) 주택도시기금 대출, 은행재원 전세자금대출(이주비대출 포함) 및 주택담보대출 미이용자 등",
+          "evidence": [
+            "nhuf-newborn-buttimok:l347"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "주택임대차계약 체결, 임차보증금 5% 이상 지불",
+          "quote": "주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자",
+          "evidence": [
+            "nhuf-newborn-buttimok:l355"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "신용정보·연체 등 해제 정보가 남아 있으면 불가",
+          "quote": "신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능",
+          "evidence": [
+            "nhuf-newborn-buttimok:l374"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "공공임대주택 입주 중이면 불가",
+          "quote": "대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가",
+          "evidence": [
+            "nhuf-newborn-buttimok:l379"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "other",
+          "text": "대상주택: 전용면적 85㎡ 이하(수도권 밖 읍·면 100㎡), 임차보증금 수도권 5억원, 수도권 외 4억원 이하",
+          "quote": "임차 전용면적 85㎡ (수도권을 제외한 도시지역이 아닌 읍 또는 면지역은 100㎡) 이하 주택 … 수도권 5억원, 수도권외 4억원",
+          "evidence": [
+            "nhuf-newborn-buttimok:l398",
+            "nhuf-newborn-buttimok:l401"
+          ],
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "rule_id": "manual:basic-pension",
+      "auto_verified": 1,
+      "correct": 1,
+      "precision": 1.0,
+      "silent_omissions": [
+        {
+          "field": "income_recognized",
+          "op": "<=",
+          "value": 247,
+          "income_basis": "recognized",
+          "quote": "가구의 소득 인정액이 선정기준액 이하일 것 … 단독 가구 : 247만 원",
+          "evidence": [
+            "gov24-sse000000170:l7",
+            "gov24-sse000000170:l9"
+          ],
+          "status": "reviewed",
+          "note": "단독 가구 247만 원, 부부 가구 395.2만 원(l10). 소득인정액은 재산 환산 필요라 엔진은 항상 확인 필요로 둔다"
+        },
+        {
+          "field": "other",
+          "text": "공무원·사학·군인·별정우체국 연금 수급권자와 배우자는 원칙적으로 제외",
+          "quote": "공무원연금, 사립학교교직원연금, 군인연금, 별정우체국직원연금의 수급권자 및 배우자는 원칙적으로 제외 대상",
+          "evidence": [
+            "gov24-sse000000170:l21"
+          ],
+          "status": "reviewed"
+        }
+      ]
+    },
+    {
+      "rule_id": "manual:ltc-insurance",
+      "auto_verified": 0,
+      "correct": 0,
+      "precision": null,
+      "silent_omissions": [
+        {
+          "any_of": [
+            [
+              {
+                "field": "age",
+                "op": ">=",
+                "value": 65
+              }
+            ],
+            [
+              {
+                "field": "other",
+                "text": "만 65세 미만이면 치매·뇌혈관성 질환 등 노인성 질병이 있어야 함"
+              }
+            ]
+          ],
+          "quote": "만 65세 이상 노인 또는 만 65세 미만자 중 치매ㆍ뇌혈관성 질환 등 노인성 질병",
+          "evidence": [
+            "gov24-999000000089:l3"
+          ],
+          "status": "reviewed"
+        },
+        {
+          "field": "ltc_grade",
+          "op": "in",
+          "value": [
+            "1등급",
+            "2등급",
+            "3등급",
+            "4등급",
+            "5등급",
+            "인지지원등급"
+          ],
+          "quote": "장기요양 1등급 … 장기요양 2등급 … 장기요양 3등급 … 장기요양 4등급 … 장기요양 5등급 … 장기요양 인지지원등급",
+          "evidence": [
+            "gov24-999000000089:l13",
+            "gov24-999000000089:l14",
+            "gov24-999000000089:l15",
+            "gov24-999000000089:l16",
+            "gov24-999000000089:l17",
+            "gov24-999000000089:l18"
+          ],
+          "status": "reviewed",
+          "note": "등급은 장기요양인정 신청 → 방문조사 → 등급판정위원회로 정해진다(l8~l11). 등급이 없으면 플래너가 '장기요양등급 신청'을 해둘 일로 낸다"
+        }
+      ]
+    }
+  ],
+  "split": {
+    "dev": 5,
+    "test": 11
+  },
+  "precision_auto_verified": {
+    "test": null,
+    "dev": {
+      "correct": 3,
+      "n": 11
+    },
+    "sample": {
+      "correct": 31,
+      "n": 50,
+      "seed": 42,
+      "population": 961,
+      "population_sha256": null
+    }
+  },
+  "missed": 30,
+  "agreement": {
+    "households": 9000,
+    "rules": 3,
+    "same": 18671,
+    "danger": 0,
+    "missed_benefit": 4356
+  },
+  "verifier": {
+    "llm_wrong": 12,
+    "caught": 9,
+    "llm_right": 33,
+    "flagged_right": 25
+  },
+  "basis": "가상 인구(가정 분포). 같은 규칙으로 만든 정답이며 분포 가정에 따라 값이 바뀝니다",
+  "source_snapshot": {
+    "commit": "2d6b5adba5ee1b930530ed0ab9dd9df6ee1d86c7",
+    "pr": 54,
+    "status": "고정 커밋 원본 기준; 현재 입력 세 파일과 검토 기록의 해시 대조 후 집계",
+    "inputs_sha256": {
+      "score_input.json": "b3673e24003d00b1cf8365c4b9c8417540a708afbb698551c2941d2995915110",
+      "sample50.json": "332a481dc0c229f40646ae09e6cc90ab44cddbfd55ecd8b287cda4bb200cae5d",
+      "verifier_dev.json": "6e9f7d72cdfa6847c457cd0b0afd76a895a69f30d665fba68a6acc9165fca2fc"
+    }
+  },
+  "agreement_source": {
+    "population_sha256": "fd3e1440dc3cc613c5d4c343ab18b29d755fca99919e2e8982ed7f573ba12131",
+    "today": "2026-11-01",
+    "households": 9000,
+    "skipped_parent_rules": [
+      "manual:basic-pension",
+      "manual:ltc-insurance"
+    ],
+    "limitation": "가상 인구의 pool만 사용. 부모 정보가 없어 부모 제도는 제외. 같은 엔진에 손/AI 조건을 각각 넣어 비교한 값이며 독립적인 법률 정확도가 아님."
+  },
+  "scoring_method": "조건 키 엄격 일치(자동 집계) + 원문 근거 대조(Codex 보조 평가); other 근거 겹침만으로 정답 인정하지 않음"
+}

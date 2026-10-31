@@ -1,0 +1,323 @@
+{
+  "source_commit": "2d6b5adba5ee1b930530ed0ab9dd9df6ee1d86c7",
+  "input_sha256": "6e9f7d72cdfa6847c457cd0b0afd76a895a69f30d665fba68a6acc9165fca2fc",
+  "graded_by": "AI+인프라 담당 작업(Codex 보조)",
+  "rubric": "근거의 수치·주체·비교·기준일·대안 범위를 대조한다. 원문에 없는 as_of와 구조화되지 않은 핵심 대안은 오답. 제도 전체 누락과 개별 조건 일치를 구분한다. 프롬프트/검증기를 수정하지 않고 고정 표본을 채점했다.",
+  "rows": [
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 0,
+      "row_sha256": "df5591a8abc2cf1b5903fcaaa5d6f8954c221944fa0edb2ff49830f8d98d9466",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 1,
+      "row_sha256": "2059ea06ea729ef67fb10f1b38debcefdf9c6af1a44f137ddd015effb424575a",
+      "correct": false,
+      "memo": "임대차계약이라는 원문을 전세/보증부월세 두 주거형태로 임의 제한했다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 2,
+      "row_sha256": "cb17efc83ffc4bea7ac85c1ee53759718aa0e492d739ea852d7324190457e3b6",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 3,
+      "row_sha256": "ad453c42b63c2cda024ed9059d9f4b9ae4e152bfa422a0625e8153d8e7b2fd48",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 4,
+      "row_sha256": "31d3b6cb39ee115acf198905f56a9569c1fe7fd620f9579b8a7f6b598a9c0eba",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 5,
+      "row_sha256": "863ee9b2076eb95014b03dbda647b2f856d3166b19e488be670a7399b8f3748a",
+      "correct": false,
+      "memo": "예비 세대주·쉐어하우스 예외를 세대주 등식의 대안으로 표현하지 못한다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 6,
+      "row_sha256": "d3788cfaa4fe782a1bbb86114da9e4a391cc5d1dcd7311bdb98e648511a0781b",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 7,
+      "row_sha256": "bf6e10b575210c91bac014de896b9ebbe1559b0305f182c3096183edbd610e45",
+      "correct": false,
+      "memo": "6천만원 가지에 해당 가구/직종 제한이 없어 아무 가구나 이 소득 가지를 통과한다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 8,
+      "row_sha256": "a6fdf3f9558b3980a2fa9fe1996d2a08101e6b0e7e4cd0c579d5033389e03346",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 9,
+      "row_sha256": "ace56027adb298d5799d6c220ec0cbb8d68a6044b57b942e583ffda0ac27ef22",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 10,
+      "row_sha256": "293d655b324c5da220c32b56da98e0d89ebd8a711b20dd1c71b9e897b94b544d",
+      "correct": false,
+      "memo": "인용 근거 줄에는 목적물/퇴거 예외가 없는데 조건 text에는 추가했다. 해당 근거만으로 검증 불가."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 11,
+      "row_sha256": "2ef3861f1f39fc11e478069637e378ec5ef071548c2afdca32bb3f9aa6dfb6da",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 12,
+      "row_sha256": "fcef2a7245858594f02f2662d17742fd7f80dd4da1970c8bbe996533d81f236f",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 13,
+      "row_sha256": "75f4a98aa0be008aaeb32a44085cd687c4c0b93447548750d34b1777fd75bb86",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-buttimok-youth",
+      "index": 14,
+      "row_sha256": "7e6404228282cd780cd202ffc7471d8ad0803a646ce23518ebc49a8886339e60",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 0,
+      "row_sha256": "d3aafd929279d07b99ceafacb340ff9afa9ea6672c83daa543788587782f6b6c",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 1,
+      "row_sha256": "c515129d6ff048715e185878c36692d8637af7a081e7a9df812e4756fc6da494",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 2,
+      "row_sha256": "23683199990ed1fa0e21d1bfa48a0caceed193684a14105ebd3a8c91779501f8",
+      "correct": false,
+      "memo": "1개월 이내 예정 세대주를 대안으로 표현하지 않은 세대주 등식이다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 3,
+      "row_sha256": "1f59915cb44aaee2c7a89feb30fc617cfb95a1996cf79683578ec41a99663bd8",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 4,
+      "row_sha256": "a3d6eb5df21a4e2a55a43009fe350d5c2eafbec9fa14fdade63fa2526a50baf0",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 5,
+      "row_sha256": "81e94f0fa91f1d5c7a35d291e40cb3ea4cdd3bec138797a28cc8c6352e690f90",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 6,
+      "row_sha256": "d51d633a0109e7e36b993deadce802a5aeafe7b5c26fcc3d6683561382b8717f",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 7,
+      "row_sha256": "0292787e0509b929cd0fd35427c0b48f55c37b2abfeca68c67e4d94e635e22cc",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 8,
+      "row_sha256": "ca1d8d91afe869cc191cb92cb9edcea75c9d699b197c0a96a813673360339c37",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 9,
+      "row_sha256": "0dc1147671190bc35a0a5704378562148037f4fa17eb1bfc54346d7446b384ea",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 10,
+      "row_sha256": "5f06ed1b3c633483d2f958793386d6d8f50a8663e40733c5d58aa32d9e869f30",
+      "correct": false,
+      "memo": "수도권 적용 범위가 구조화되지 않아 수도권 외에도 4억원을 적용할 수 있다."
+    },
+    {
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "index": 11,
+      "row_sha256": "95b40bee64bd4f69279eb683f26acc815dd3276a57101538d740b446b76c67ba",
+      "correct": false,
+      "memo": "100제곱미터 예외의 수도권 밖·도시지역 아닌 읍면 제한이 text에서 빠졌다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 0,
+      "row_sha256": "2738c6d51f57326bfcf3159f30e2209e2b9d38125581089d5adf62aaa41f0932",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 1,
+      "row_sha256": "2d409813fd86a66be47318cc25bf3efcfc33dd1022bf96a719fa2ae7095cb36e",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 2,
+      "row_sha256": "64493ed46beb59f3f75dcb3fead63130246658a70c745ea76aa93af2c5c6a5ff",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 3,
+      "row_sha256": "c0bc14f22f466cd9b795566a56c408463b67da9ea8439579617ce4d504a0c3fc",
+      "correct": false,
+      "memo": "1개월 이내 예정 세대주를 대안으로 표현하지 않은 세대주 등식이다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 4,
+      "row_sha256": "cd45fb5dbfad58775e410ef46dd70ac2d75bd093dbea8635ce82168a8a8d94a6",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 5,
+      "row_sha256": "03a84ec63da1fa3462c6e1e311582f9a6556b3faa6078b32a4c535329d6f969f",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 6,
+      "row_sha256": "c31394763d7ba2cf3538c90166eccebae0263c7e3351fab9143c2aefacb550df",
+      "correct": false,
+      "memo": "모두 소득이 있는 경우를 employment_type=맞벌이 등식으로 잘못 매핑했다. 코드표 소득형태와 다르다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 7,
+      "row_sha256": "4f4c00f08f5653759cb9cc799a3772ed291c43785652eaf84e193ac5f7c96996",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 8,
+      "row_sha256": "a4e57541ea55c8abb411b37db1b74e1a6d4a8dbc4e79e24dc37570e135a35588",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 9,
+      "row_sha256": "56fa2b48712b5851dff7cb825cfef0d2c6dfb4bde8593f14bbddf0ace256dacb",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 10,
+      "row_sha256": "0225438c7c3229741aca8e43c3a951866888ad7706dfce17556cd8fecf9213dc",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 11,
+      "row_sha256": "ebdbcda48475639eecf18ba6b5c17094dfbd4b28cff72027dfad60b3739ef6e9",
+      "correct": false,
+      "memo": "수도권 5억원 상한이 지역 분기 없이 독립 조건이다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 12,
+      "row_sha256": "74a24d842340e76fe5a023fa41d01706480fed8aa736d25e5f04f23470fabe02",
+      "correct": false,
+      "memo": "수도권 외 4억원 상한이 지역 분기 없이 독립 조건이라 5억원 가지와 동시에 적용된다."
+    },
+    {
+      "rule_id": "manual:hug-newborn-buttimok",
+      "index": 13,
+      "row_sha256": "b77e2335c83991a78126a7fd69c2a3f8d4b1a10fcdf76338d37f3f4b5ad7a283",
+      "correct": false,
+      "memo": "갱신계약은 갱신일 기준이라는 대안을 잔금/전입일 기준으로만 요약했다."
+    },
+    {
+      "rule_id": "manual:basic-pension",
+      "index": 0,
+      "row_sha256": "f478bba1854731bceca20907d7e9a70e1d60781438eea6bba4d8ae4b504e1c57",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:basic-pension",
+      "index": 1,
+      "row_sha256": "8f463942a14e6a4b7a2f796a3b612a33147738e0f4d56961c605735864d1e2f5",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:basic-pension",
+      "index": 2,
+      "row_sha256": "832ad959578cdf6816b94869d88a510970d6064c5b3014e50e3d0bdfa943586d",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    },
+    {
+      "rule_id": "manual:ltc-insurance",
+      "index": 0,
+      "row_sha256": "c4370b6fcd83375fceb00175be5eaaedcdc1a19f95d47b84c1b09aa83c3f0ae0",
+      "correct": true,
+      "memo": "인용된 근거의 해당 원자 조건/수치와 일치한다. 제도 전체의 조건 빠짐은 별도 지표다."
+    }
+  ]
+}

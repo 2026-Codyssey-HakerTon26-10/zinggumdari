@@ -1,0 +1,43 @@
+{
+  "scope": "persona_safety",
+  "n": 5,
+  "passed": 5,
+  "danger": 0,
+  "rows": [
+    {
+      "id": "age-boundary",
+      "rule_id": "manual:basic-pension",
+      "actual": "needs_check",
+      "passed": true,
+      "danger": false
+    },
+    {
+      "id": "expired-youth-rent-2026",
+      "rule_id": "manual:youth-rent-2026",
+      "actual": "ineligible",
+      "passed": true,
+      "danger": false
+    },
+    {
+      "id": "income-over-limit",
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "actual": "ineligible",
+      "passed": true,
+      "danger": false
+    },
+    {
+      "id": "married-eight-years",
+      "rule_id": "manual:hug-newlywed-jeonse",
+      "actual": "ineligible",
+      "passed": true,
+      "danger": false
+    },
+    {
+      "id": "parent-age64",
+      "rule_id": "manual:basic-pension",
+      "actual": "opens_later",
+      "passed": true,
+      "danger": false
+    }
+  ]
+}

@@ -79,19 +79,44 @@ def score(document, split=None):
     pairs = document.get("extraction", [])
     verdicts = document.get("verdicts", [])
     if (pairs or verdicts) and split is None:
-        raise ValueError("시험 채점에는 개발·시험 split이 필요합니다")
+        raise ValueError("개발용 채점에는 개발·시험 split이 필요합니다")
     test_ids = set((split or {}).get("test", []))
     dev_ids = set((split or {}).get("dev", []))
     if test_ids & dev_ids:
         raise ValueError("개발용과 시험용 제도가 겹칩니다")
+    outside_ids = {r["id"] if isinstance(r, dict) else r for r in (split or {}).get("outside", [])}
+    if outside_ids & (dev_ids | test_ids):
+        raise ValueError("outside와 개발·시험 제도가 겹칩니다")
+    if len({p["rule_id"] for p in pairs}) != len(pairs):
+        raise ValueError("추출 제도가 중복됐습니다")
+    seen = set()
+    for row in verdicts:
+        if not isinstance(row.get("user_id"), str) or not row["user_id"]:
+            raise ValueError("판정 채점에는 user_id가 필요합니다")
+        key = (row["user_id"], row.get("rule_id"))
+        if key in seen:
+            raise ValueError("가구·제도 판정이 중복됐습니다")
+        seen.add(key)
     for row in pairs + verdicts:
-        if row.get("rule_id") not in test_ids:
-            raise ValueError("시험용 rule_id가 없거나 개발용 제도가 섞였습니다")
+        if row.get("rule_id") not in dev_ids:
+            raise ValueError("개발용 rule_id만 채점할 수 있습니다(시험용·outside·미지정 제외)")
     extraction = [dict(rule_id=p["rule_id"], **extraction_score(p["gold"], p["extracted"])) for p in pairs]
     agreement = verdict_score(verdicts)
     sample = document.get("sample50")
+    sample_meta = {}
+    if isinstance(sample, dict):
+        sample_meta = {k: sample.get(k) for k in ("seed", "population", "population_sha256")}
+        sample = sample.get("rows")
+        if sample is None:
+            raise ValueError("표본의 rows가 필요합니다")
     if sample is not None and (len(sample) != 50 or any(type(r.get("correct")) is not bool for r in sample)):
         raise ValueError("표본 채점은 correct 불리언 50개여야 합니다")
+    if sample is not None:
+        refs = [(r.get("rule_id"), r.get("condition_index")) for r in sample]
+        if any(not isinstance(rid, str) or not rid or type(i) is not int or i < 0 for rid, i in refs):
+            raise ValueError("표본에는 rule_id와 condition_index가 필요합니다")
+        if len(set(refs)) != 50:
+            raise ValueError("같은 조건을 표본에서 중복 채점할 수 없습니다")
     verifier_rows = document.get("verifier")
     verifier = None
     if verifier_rows is not None:
@@ -102,11 +127,14 @@ def score(document, split=None):
                     "llm_right": sum(r["correct"] for r in verifier_rows),
                     "flagged_right": sum(r["correct"] and r["flagged"] for r in verifier_rows)}
     return dict(
+        status="scored" if pairs or verdicts or sample is not None or verifier_rows else "not_evaluated",
+        evaluation_scope="dev_only",
+        limitation="개발용은 프롬프트를 맞춘 집합입니다. 시험용은 채점하지 않았습니다.",
         verdicts=agreement, extraction=extraction,
         split={"dev": len(dev_ids), "test": len(test_ids)},
-        precision_auto_verified={"test": {"correct": sum(r["correct"] for r in extraction),
+        precision_auto_verified={"test": None, "dev": {"correct": sum(r["correct"] for r in extraction),
                                           "n": sum(r["auto_verified"] for r in extraction)} if extraction else None,
-                                 "sample": {"correct": sum(r["correct"] for r in sample), "n": 50} if sample is not None else None},
+                                 "sample": {"correct": sum(r["correct"] for r in sample), "n": 50, **sample_meta} if sample is not None else None},
         missed=sum(len(r["silent_omissions"]) for r in extraction) if extraction else None,
         agreement={"households": len({r["user_id"] for r in verdicts}) if verdicts else None,
                    "rules": len({r["rule_id"] for r in verdicts}) if verdicts else None,

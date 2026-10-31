@@ -1,0 +1,27 @@
+{
+  "team_name": "초보임",
+  "confirmed_on": "2026-11-01",
+  "confirmation": "사용자가 직접 확인한 GitHub 계정·실명 대응. git 과거 author 이름을 수정한 것은 아님.",
+  "members": [
+    {
+      "github": "0802222",
+      "name": "이초롱"
+    },
+    {
+      "github": "boramson",
+      "name": "손보람"
+    },
+    {
+      "github": "LimJongHan",
+      "name": "임종한"
+    },
+    {
+      "github": "NiceTry3675",
+      "name": "임준현"
+    },
+    {
+      "github": "pbk98",
+      "name": "박범규"
+    }
+  ]
+}
