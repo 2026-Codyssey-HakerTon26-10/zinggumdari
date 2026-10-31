@@ -64,12 +64,10 @@ export function SiteFooter() { // 서비스의 성격을 분명히 알리는 하
                     <Link href="/#how-it-works">서비스 소개</Link> {/* 사용 방법으로 이동해요. */}
                     <Link href="/search">공고 검색</Link> {/* 검색 화면으로 이동해요. */}
                     <Link href="/my?subject=parent">부모님 챙김</Link> {/* 부모님 진단 화면으로 이동해요. */}
-                    <Link href="/privacy">개인정보처리방침</Link> {/* 개인정보처리방침 페이지로 이동해요. */}
                 </div>
             </div>
             <div className="container footer-bottom"> {/* 저작권과 안내를 하단에 표시해요. */}
                 <span>© 2026 징검다리팀 · 코디세이 AI 해커톤 프로젝트</span> {/* 팀 이름과 프로젝트 이름이에요. */}
-                <span className="footer-contact">문의: <a href="mailto:chobolimkyu@gmail.com">chobolimkyu@gmail.com</a></span> {/* 팀 연락처 이메일이에요. */}
                 <span>공공기관이 운영하는 서비스가 아닙니다.</span> {/* 공공기관 사칭 방지 안내예요. */}
             </div>
         </footer>

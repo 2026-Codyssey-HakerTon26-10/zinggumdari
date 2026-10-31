@@ -14,8 +14,8 @@ const banners = [ // 순환할 배너 두 개를 정의해요.
         headlineAccent: "먼저 찾아드려요", // 파란색으로 강조할 핵심 문구예요.
         description: "나와 부모님 정보를 고르기만 하면,\n받을 수 있는 제도와 거의 해당하는 제도를\n공고 원문 근거와 함께 보여드려요.", // 첫 번째 배너의 설명이에요.
         actions: [ // 첫 번째 배너의 CTA 버튼 목록이에요.
-            { href: "/my", label: "3분 만에 확인하기", icon: "arrow-right", primary: true },
-            { href: "/my?subject=parent", label: "부모님 대신 확인하기", icon: "family", primary: false },
+            { href: "/signup", label: "3분 만에 확인하기", icon: "arrow-right", primary: true },
+            { href: "/login", label: "부모님 대신 확인하기", icon: "family", primary: false },
         ],
     },
     {
@@ -24,7 +24,7 @@ const banners = [ // 순환할 배너 두 개를 정의해요.
         headlineAccent: "함께 챙겨드려요", // 두 번째 배너에서 강조할 문구예요.
         description: "기초연금, 돌봄, 장기요양까지.\n부모님 상황에 맞는 제도를 대신 확인해드려요.\n멀리 계셔도 괜찮아요.", // 두 번째 배너의 설명이에요.
         actions: [ // 두 번째 배너의 CTA 버튼 목록이에요.
-            { href: "/my?subject=parent", label: "부모님 혜택 확인하기", icon: "arrow-right", primary: true },
+            { href: "/login", label: "부모님 혜택 확인하기", icon: "arrow-right", primary: true },
             { href: "/search", label: "직접 공고 검색하기", icon: "search", primary: false },
         ],
     },
@@ -61,7 +61,10 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
             className="landing-hero" // 히어로 영역 전체예요.
             onMouseEnter={() => setHovered(true)} // 마우스를 올린 동안에만 임시로 전환을 멈춰요.
             onMouseLeave={() => setHovered(false)} // 호버만 해제하고 사용자의 정지 선택은 유지해요.
-            onFocusCapture={() => setPaused(true)} // 키보드 포커스가 들어오면 명시적으로 재생할 때까지 정지해요.
+            onFocusCapture={(event) => { // 키보드 접근은 멈추고 재생 버튼의 마우스 포커스는 클릭 의도를 유지해요.
+                if (event.target.closest("[data-banner-playback]") && !event.target.matches(":focus-visible")) return; // 마우스로 정지를 누르기 직전 포커스가 상태를 반전시키지 않게 해요.
+                setPaused(true); // 키보드로 들어오면 명시적으로 재생할 때까지 정지해요.
+            }}
         >
             <div className="container hero-grid"> {/* 소개 글과 그림을 나란히 배치해요. */}
                 <div className="hero-copy"> {/* 텍스트, 버튼, 인디케이터 영역이에요. */}
@@ -89,7 +92,7 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
                             </Link>
                         ))}
                     </div>
-                    <p className="hero-action-note">로그인 없이 시작해요 · 입력 시간은 개인마다 달라요</p> {/* 시작 조건을 안내해요. */}
+                    <p className="hero-action-note">회원가입 후 나의 정보를 이어서 살펴봐요 · 현재는 시연용 화면이에요</p> {/* 시작 조건을 안내해요. */}
                     <div className="hero-trust"> {/* 신뢰 안내 요소를 나열해요. */}
                         <span><Icon name="shield" />주민등록번호 입력 없이</span>
                         <span><Icon name="file" />공고 원문 근거와 함께</span>
@@ -108,7 +111,7 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
                                 }}
                             />
                         ))}
-                        <button type="button" className="hero-banner-playback" disabled={reducedMotion} onClick={() => setPaused((previous) => !previous)} aria-label={reducedMotion ? "움직임 줄이기 설정으로 자동 전환 정지됨" : paused ? "배너 자동 전환 재생" : "배너 자동 전환 정지"}>{reducedMotion ? "자동 전환 꺼짐" : paused ? "자동 전환 재생" : "자동 전환 정지"}</button> {/* 마우스와 키보드 모두로 자동 전환을 직접 제어해요. */}
+                        <button type="button" className="hero-banner-playback" data-banner-playback="true" disabled={reducedMotion} onClick={() => setPaused((previous) => !previous)} aria-label={reducedMotion ? "움직임 줄이기 설정으로 자동 전환 정지됨" : paused ? "배너 자동 전환 재생" : "배너 자동 전환 정지"}>{reducedMotion ? "자동 전환 꺼짐" : paused ? "자동 전환 재생" : "자동 전환 정지"}</button> {/* 마우스와 키보드 모두로 자동 전환을 직접 제어해요. */}
                     </div>
                 </div>
                 <JourneyPreview /> {/* 오른쪽 다섯 단계 그림이에요. */}
