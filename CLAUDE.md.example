@@ -1,0 +1,28 @@
+@AGENTS.md.example
+
+<!--
+  Claude Code용. 쓰는 법:  cp CLAUDE.md.example CLAUDE.md   (CLAUDE.md는 gitignore 대상)
+  첫 줄의 @AGENTS.md.example 이 팀 공통 규칙을 그대로 불러온다 — 복사본이 아니라서
+  공통 규칙이 바뀌어도 git pull 만 하면 반영된다. 이 줄은 지우지 않는다.
+  아래는 개인 영역이다. 자유롭게 고치고 늘린다.
+-->
+
+# 내 작업 환경
+
+## 내 담당
+- 역할: (백엔드 / 프론트 / AI / AI+인프라)
+- 폴더:
+- 지금 하는 일:
+
+## 내 선호
+- (예) 설명은 한국어로, 짧게
+- (예) 테스트 먼저 쓰고 구현
+
+## 자주 쓰는 명령
+- (예, 레포 루트에서) 서버: `uv run --project backend uvicorn backend.app.main:app --reload --port 8000`
+- (예) 덤프: `uv run --project backend python -m backend.data.dump --source gov24`
+- (예) 컴파일: `uv run --project backend python -m backend.compiler.run --subset housing`
+- (예) 판정만: `uv run --project backend python -m backend.engine.judge eval/personas/p2.json`
+- (예) 채점: `uv run --project backend python -m eval.score`
+- (예) 테스트: `uv run --project backend pytest -q`
+- (예) 화면: `cd frontend && npm run dev`

@@ -1,0 +1,273 @@
+# 데이터 형식 (팀 계약)
+
+> 백엔드, AI, 프론트가 주고받는 데이터 모양이다. 맞춘 뒤에는 팀 합의 없이 바꾸지 않는다. 코드보다 이 문서를 먼저 고친다.
+> 아홉 모양이다. ① 조건 JSON(규칙표 한 행) ② 프로필(폼 결과, 나, 부모) ③ 판정 결과 ④ 서류 사전 ⑤ 알림 ⑥ 공고 투입. ①이 핵심이다: AI 공고 읽기의 출력, 손 조건표의 양식, 규칙 엔진의 입력, 공고 투입의 출력이 전부 이 모양이다. ⑦ 비슷한 가구(`data/population/`) ⑧ 검색 결과(`GET /search`) ⑨ 공고문 원문(`GET /notices/…`).
+> AI 공고 읽기 진입점(스텁을 먼저 커밋해 다른 사람이 붙을 수 있게): `compile(text: str, source: str, chunk_id: str | None = None) -> list[Rule]`
+
+## 1. 조건 JSON (`rules/compiled/*.json`, `rules/manual/*.json`)
+
+제도 하나 = 파일 하나. 자동 추출과 손 작성이 같은 모양이어야 규칙 수 비교가 선다.
+
+```jsonc
+{
+  "id": "manual:hug-newlywed-jeonse",       // 소스 접두어 + ID. gov24:WII…, local:…, central:…, upload:…
+  "source": "manual",                       // gov24 | local | central | manual | upload
+  "name": "신혼부부전용 전세자금",
+  "org": "주택도시기금",
+  "region": null,                           // null = 전국, {"sido": "서울특별시", "sigungu": null} = 시도 전체, {"unknown": true} = 미상
+  "domain": "fund_loan",                    // housing(임대, 주거급여, 월세) | fund_loan(기금 대출은 항상 이것) | subscription(청약) | elderly | welfare
+  "subject": "self",                        // self | parent, 어느 대상자의 프로필에 매칭하나
+  "events": ["marriage_registered"],
+  "benefit_type": "loan",                  // loan | rent | cash | service | discount. 검색 필터 
+  "stage_tags": ["newlywed"],             // 태그 . 여러 개 가능: youth | marriage_planned | newlywed | child | multi_child | parent
+  "aliases": ["신혼 전세대출", "신혼부부 버팀목"],   // 같은 제도를 부르는 다른 말. 검색어 확장용, LLM이 원문에서 뽑고 사람이 검수
+                                            // events 값: self: marriage_registered | birth | move | lease | lease_fraud / parent: age65 | ltc_grade
+  "conditions": [                           // 조건 하나 = 항목 하나. 규칙 엔진은 이 배열만 본다
+    {"field": "age",            "op": "<=", "value": 39,         "confidence": 0.95, "quote": "만 19세 이상 39세 이하", "chunk_id": "c3", "votes": {"llm": true, "regex": true, "blind": true},
+     "source_doc": "notices/2026-11-mapo-apt.pdf", "page": 7, "bbox": [72.0, 418.5, 310.2, 431.0]},   // 원문 위치 . 없으면 null
+    {"field": "marriage_years", "op": "<=", "value": 7,          "confidence": 0.95, "quote": "혼인기간 7년 이내", "chunk_id": "c3"},   // marriage_date에서 계산
+    {"field": "income_household", "op": "<=", "value": 7500, "income_basis": "absolute_annual", "confidence": 0.75, "quote": "부부합산 연소득 7천 5백만 원 이하", "chunk_id": "c4", "note": "만원. 엔진이 월소득 × 12로 비교. 자녀 수에 따라 상향, 확인 필요"},
+    {"field": "is_homeless",    "op": "==", "value": "Y",        "confidence": 0.75, "quote": "무주택 세대주", "chunk_id": "c3"},
+    {"field": "is_householder", "op": "==", "value": "세대주",   "confidence": 0.75, "quote": "무주택 세대주", "chunk_id": "c3"}
+  ],
+  "exclusive_with": ["manual:hug-buttimok-youth"],   // 최상위. 엔진은 1차 판정 뒤 "둘 중 하나"로 표시만
+  "clock": [                                // 플래너가 읽는 시계. 코드에 숫자를 박지 않는다
+    {"anchor": "marriage_registered", "within_years": 7, "quote": "혼인기간 7년 이내"}   // 예시 숫자. 실제 값은 손 조건표를 쓸 때 원문에서
+    // 또는 {"anchor": "birth_year", "at_age": 65, "quote": "만 65세 이상"}, {"anchor": "move_in_date", "after_months": 0}. 기준 날짜는 시트 칸(marriage_date, due_month, birth_year, move_in_date, joined_date)만 쓴다
+  ],
+  "prerequisites": [                        // "그 전에 해둘 일", quote 없으면 타임라인에 올리지 않는다 
+    {"action": "subscription_account", "min_months": 6, "quote": "…"}   // joined_date로 지금 몇 개월인지 계산. 원문 확인 전 예시, 청약통장 요건이 이 제도에 있는지는 원문으로 확인. 없으면 이 항목 삭제
+  ],
+  "apply_window": {"anchor": "age65", "offset_months": -1, "quote": "만 65세 생일이 속한 달의 1개월 전부터 신청"},   // 선택
+  "benefit_text": "…",                      // 원문 그대로
+  "apply_text": "…",
+  "documents": ["혼인관계증명서", "임대차계약서"],       // 원문 문자열. 사전 매핑은 판정 시
+  "documents_official": ["주민등록등본"],              // gov24 공무원확인구비서류 → who_provides: official
+  "deadline": {"type": "상시", "date": null, "text": "…"},
+  "detail_url": "https://nhuf.molit.go.kr/…",         // 카드에 반드시 표시. 지자체 건은 복지로 검색 링크 폴백
+  "updated": "2026-10-31",                  // 기준일, 카드에 반드시 표시
+  "review": {"status": "verified", "by": "C", "at": "2026-10-31"}   // verified | unverified, 손 조건표 15개는 verified만
+}
+```
+
+`field` 통제 어휘. 값은 팀 시트 `DB필드_` 탭의 필드명이다(`policy_requirements.field`가 "위 필드명 중 하나"). 어휘 밖은 pydantic이 거부한다. 늘리려면 시트와 이 문서를 같이 고친다. (계산)은 직접 받지 않고 계산하는 값이다.
+
+| 대상 | 필드 |
+|---|---|
+| 나 ① | `age`(계산, `birth_year`에서), `gender`, `sido`, `sigungu`, `marital_status`(미혼\|예비부부\|신혼\|기혼\|이혼·사별), `marriage_years`(계산, `marriage_date`에서), `pregnant`, `due_month`, `children_count`, `youngest_child_age`, `household_size`, `employment_status`(재학\|구직\|재직\|자영업\|육아휴직\|기타) |
+| 나 ② | `tenure_type`(자가\|전세\|월세\|보증부월세\|무상거주), `is_householder`(세대주\|세대원), `is_homeless`, `deposit`, `monthly_rent`, `residence_months`(계산, `move_in_date`에서), `house_price`, `employment_type`(맞벌이\|외벌이\|해당없음), `income_self`, `income_spouse`, `income_household`, `income_band_median`(계산), `income_band_urban`(계산), `dependents_count`, `supports_parent_65`, `support_years`(계산, `support_start_date`에서), `has_account`, `subscription_months`(계산, `joined_date`에서), `payment_count`, `deposit_amount` |
+| 나 ③ | `qual_code`(`in`/`not_in`, 시트 `DB코드표_자격코드`), `history`(이력 종류와 날짜, 시트 `DB코드표_이력종류`. 예: `homeless_years`(계산, `주택_처분` 날짜에서)), `income_recognized`(소득인정액, 상수 없음, 항상 확인 필요). 자산·자동차가액은 시트에 칸이 없어 그런 조건은 항상 확인 필요 |
+| 부모님 | `relation`(부\|모), `age`(계산), `sido`, `sigungu`, `lives_alone`, `lives_with_child`, `ltc_grade`(없음\|1~5등급\|인지지원등급), `disability_registered`, `basic_pension`, `livelihood_status`(생계\|의료\|주거\|교육\|차상위\|해당없음), `care_wanted` |
+
+금액은 전부 만원이다(시트 기준). 조건 JSON의 키는 DB의 `policy_requirements` 열과 이렇게 대응한다: `field` = `field`, `op` = `operator`, `value` = `value`, `income_basis` = `standard`. 나머지 키(`quote`, `confidence`, `votes`, `page`, `bbox`, `chunk_id`)는 시트 예시보다 우리가 더 붙이는 열이다.
+
+`income_basis`(소득 조건에 필수, 시트의 `standard`)의 값은 `median_pct`(시트 "기준중위소득"), `urban_worker_pct`(시트 "도시근로자"), `absolute_annual`, `absolute_monthly`, `recognized`(소득인정액). 뒤의 셋은 시트 "없음"에 해당한다. 기준표가 없는 종류나 연도는 확인 필요.
+
+`op`는 `==` `!=` `<=` `>=` `<` `>` `in` `not_in`. `confidence`는 0~1이고 투표 함수가 정한다(3표 0.95, 2표 0.75, 1표 0.4, 인용 실패 0). 문턱 0.7 미만은 확인 필요이고 확정 판정에 쓰지 않는다. 소득 %는 저장값이 아니라 판정할 때 `income_standards`(연도별)로 계산한다. 공고 원문의 세부 기준값(소득 %, 가격 상한, 부양 기간)은 조건의 `value`로 들어가고 DB에서는 `policy_requirements` 한 줄이 된다.
+
+## 2. 프로필 (폼 3단계)
+
+정본은 팀 시트 `복지추천_필드스키마_3단계.xlsx`(볼트 프로젝트 폴더)다. `DB필드_①가입`, `DB필드_②알림설정`, `DB필드_③공고별확인` 탭이 칸, 타입, 필수, 민감정보, KNN 사용 여부를 정한다. 이 절은 API 모양과 시트에 없는 칸만 적는다. 시트와 다르면 시트를 따른다.
+
+| 단계 | 언제 받나 | 테이블 (시트) | 비슷한 사용자 피처 |
+|---|---|---|---|
+| ① 가입 | 처음 가입할 때. 추천에 꼭 필요한 최소 정보 | `users`: 닉네임(실명 아님), 성별, 출생연도, 시도·시군구, 혼인 상태, 혼인신고일, 임신·출산 예정월(민감), 자녀 수, 막내 나이, 가구원 수, 취업 상태, 상황 문장(선택) | `KNN 사용` = Y인 칸(시군구는 빼고 시도만) |
+| ② 알림 설정 | "맞춤 공고 받아보기"를 켤 때 | `user_housing`(점유 형태, 세대주, 무주택, 보증금·월세, 전입일, 주택 가격), `user_income`(맞벌이, 본인·배우자·가구 월소득(민감), 부양가족, 노부모 부양), `user_subscription`(통장, 가입일, 납입 횟수, 예치금), `user_alert`(관심 분야, 알림 방법) | `KNN 사용` = Y인 칸 |
+| ③ 공고별 확인 | 특정 공고를 볼 때. 그 공고에 필요한데 비어 있는 칸만 | `user_qualifications`(자격 코드, 대상, 확인 방법, 한 자격 한 줄), `user_history`(이력 종류, 날짜, 한 이력 한 줄), `parents`(부·모 각각 한 줄) | 아니오 |
+
+원칙 (시트 `00_안내`)
+
+- 소득은 원래 숫자(월, 만원)를 저장한다. `income_band_median`, `income_band_urban`은 저장하지 않고 판정할 때 연도별 기준표(`income_standards`)와 가구원 수로 계산한다.
+- 우선자격과 이력은 칸을 늘리지 않고 한 줄씩 저장한다. 코드 목록은 `DB코드표_자격코드`, `DB코드표_이력종류`.
+- 민감정보(소득, 임신·출산, 장애, 수급, 장기요양등급, 일부 자격 코드)는 별도 동의 + 최소 수집이다. 동의가 없으면 그 칸은 비고, 그 칸에 걸린 조건은 "확인 필요"가 된다.
+- 비슷한 사용자 피처는 ①② 칸 중 `KNN 사용` = Y인 것만, 원핫 + 0~1 정규화(`KNN용_2단계`, 열 대응은 `KNN용_피처사전`). ③ 칸은 대부분 비어 있어 거리 계산을 망치므로 뺀다. 소득 구간(%)은 규칙 판정에만 쓴다.
+- 공고 원문의 세부 기준값(소득 %, 가격 상한, 부양 기간)은 `policy_requirements`에 들어간다.
+- 더미데이터는 시연 공고 20개(손 15 + AI 추출 5)가 실제로 쓰는 칸부터 채운다.
+- 상황 문장(`situation_text`)은 LLM이 ① 칸 값으로 바꿔 *제안*하고 사용자가 확인해야 저장된다. 바꾼 결과는 평가셋 정답과 비교한다. 전송 전 식별자 마스킹.
+
+```jsonc
+{
+  "user_id": "U7f3a…",                      // 무작위. 실명·연락처 없음 
+  "stages_done": ["signup", "alerts"],
+  "consents": {"sensitive": true, "parent": true},
+  "self": {
+    // ① users
+    "nickname": "지원", "gender": "여", "birth_year": 1999, "sido": "서울", "sigungu": "마포구",
+    "marital_status": "예비부부", "marriage_date": null, "pregnant": "N", "due_month": null,
+    "children_count": 0, "youngest_child_age": null, "household_size": 1, "employment_status": "재직",
+    // ② user_housing, user_income, user_subscription, user_alert
+    "tenure_type": "월세", "is_householder": "세대주", "is_homeless": "Y", "deposit": 1000, "monthly_rent": 55, "move_in_date": "2024-03-01",
+    "employment_type": "해당없음", "income_self": 270, "income_spouse": null, "income_household": 270,   // 만원. null = 모름
+    "dependents_count": 0, "supports_parent_65": "N",
+    "has_account": "Y", "joined_date": "2021-03-01", "payment_count": null, "deposit_amount": null,
+    "alert_categories": ["주거", "임신출산"], "alert_channel": "이메일", "email": "…",   // email은 시트에 칸이 없다. 이메일을 고른 사람만 받는다
+    // ③ 물어본 것만
+    "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고"}],
+    "history": []
+  },
+  "parents": [                              // 탭을 안 열면 []. 부·모 각각 한 줄
+    {"relation": "모", "birth_year": 1966, "sido": "경기", "sigungu": "고양시", "lives_alone": "Y", "lives_with_child": "N",
+     "ltc_grade": "없음", "disability_registered": "N", "basic_pension": "N", "livelihood_status": "해당없음", "care_wanted": "Y"}
+  ],
+  "derived": {"age": 27, "tags": ["youth", "marriage_planned", "homeless"], "income_band_median": null, "income_band_urban": null},   // 서버 계산, 저장 안 함. 태그는 여러 개
+  "situation_text": "…"                     // 선택. LLM 변환 제안 → 사용자 확인
+}
+```
+
+시트에 칸이 없어서 생기는 한계 (시트를 늘리지 않고 이렇게 처리한다)
+
+| 없는 것 | 처리 |
+|---|---|
+| 예정 사건의 날짜(혼인신고 예정일, 둘째 시점 등) | 타임라인은 날짜 대신 단계로 넘긴다. "다음 단계로 가면 프로필이 이렇게 바뀐다"고 가정하고 다시 판정한다. 날짜는 시트의 날짜 칸(`marriage_date`, `due_month`, `birth_year`, `joined_date`, `move_in_date`)에서 계산되는 것만 쓴다 |
+| 부모 출생월 | 기초연금은 만 65세가 되는 해까지만 알려주고, 시작 달은 "생일이 속한 달 1개월 전부터"라는 원문 문장으로 안내한다 |
+| 부모 퇴직, 수술 예정, 소득, 주택 | 부모 사건은 65세 도달과 장기요양등급 신청(돌봄 희망 + 등급 없음)만 쓴다. 소득·주택 조건은 확인 필요 |
+| 자산, 자동차가액 | 그런 조건은 항상 확인 필요 |
+| 이메일 주소 | `user_alert.alert_channel`이 이메일일 때만 한 칸 받는다(시트에 칸 추가 필요) |
+
+DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `user_subscription`, `user_alert`, `user_qualifications`, `user_history`, `parents`, `policy_requirements`, 여기에 `income_standards`(연도 × 기준 × 가구원 수 → 금액)를 더한다. API 응답은 `user_id`로 합친 모양이다.
+
+엔드포인트: `POST /profiles`(① 저장, `user_id` 반환), `PATCH /profiles/{id}`(② 또는 ③에서 받은 칸 추가), `GET /profiles/{id}`, `DELETE /profiles/{id}`(프로필, 알림, 업로드 규칙 전부 삭제).
+
+## 3. 판정 결과 (`POST /judge` 응답)
+
+```jsonc
+{
+  "user_id": "U7f3a…",
+  "ask": {"subject": "self", "field": "marriage_date", "question": "혼인신고를 하셨나요? 했다면 언제인가요?",
+          "options": [{"label": "안 함", "value": null, "set": {"marital_status": "예비부부"}}, {"label": "날짜 입력", "value": "date"}],
+          "why": "후보 6개 중 4개가 이 칸으로 갈린다"},   // null = 질문 없음
+  "cards": [
+    {
+      "rule_id": "manual:hug-newlywed-jeonse", "subject": "self", "name": "신혼부부전용 전세자금", "domain": "fund_loan",   // review는 카드에 status 문자열만
+      "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later
+      "ai_extracted": false,                // review.status != verified → true → 배지
+      "conditions": [
+        {"field": "age",            "grade": "확정",     "ok": true,  "quote": "만 19세 이상 39세 이하"},
+        {"field": "marriage_years", "grade": "질문",     "ok": null,  "quote": "혼인기간 7년 이내"},
+        {"field": "income_household", "grade": "확인 필요", "ok": null, "quote": "…", "note": "배우자 소득 모름"}
+      ],
+      "exclusive_with": [{"rule_id": "manual:hug-buttimok-youth", "name": "청년전용 버팀목", "both_eligible": false}],
+      "opens_at":  {"step": "newlywed"},                                       // 다음 단계로 가면 열린다 (날짜 없음)
+      "closes_at": {"anchor": "marriage_date", "plus_years": 7, "when": null},   // 혼인신고일이 생기면 날짜가 계산된다
+      "apply_from": null,
+      "prerequisites": [{"action": "subscription_account", "min_months": 6, "have_months": 67, "status": "met", "quote": "…"}],   // joined_date 기준. 원문 확인 전 예시
+      "documents": [                        // 서류 사전 매핑 결과 
+        {"name": "혼인관계증명서", "doc_id": "family_marriage_cert", "issuer": "대법원 전자가족관계등록시스템 / 주민센터", "online": "https://efamily.scourt.go.kr", "fee": "온라인 무료", "who_provides": "applicant", "status": "found"},
+        {"name": "임대차계약서", "doc_id": null, "who_provides": "applicant", "status": "self_held"},
+        {"name": "주민등록등본", "doc_id": "resident_register", "who_provides": "official", "status": "found"},
+        {"name": "○○확인서", "doc_id": null, "status": "unknown"}     // → "발급처 확인 필요"
+      ],
+      "explain": "…",                       // 템플릿 문장 + quote
+      "detail_url": "…", "updated": "2026-10-31", "review": "verified"
+    }
+  ],
+  "timeline": {                             // 단계 넘기기 . 예정 날짜는 받지 않는다(시트에 없음). 다음 단계로 가면 프로필이 이렇게 바뀐다고 가정하고 다시 판정한다
+    "self": [
+      {"step": "newlywed",    "assume": {"marital_status": "신혼", "marriage_date": "today"}, "opens": ["manual:hug-newlywed-jeonse"], "closes": ["manual:hug-buttimok-youth"],
+       "todo": [{"action": "subscription_account", "min_months": 6, "have_months": 67, "status": "met", "quote": "…"}]},
+      {"step": "child",       "assume": {"children_count": 1, "youngest_child_age": 0}, "opens": ["manual:hug-newborn-buttimok"], "closes": [], "todo": []},
+      {"step": "multi_child", "assume": {"children_count": 2}, "opens": ["…"], "closes": [], "todo": []}
+    ],
+    "parent": [
+      {"step": "ltc_apply", "now": true, "why": "돌봄 희망 + 장기요양등급 없음", "opens": ["manual:ltc-insurance"], "todo": [{"action": "ltc_grade_apply", "quote": "…"}]},
+      {"step": "age65", "year": 2031, "opens": ["manual:basic-pension"], "apply_from": "2031년 생일이 속한 달의 1개월 전부터(생일 달은 출생연도만 있어 확인 필요)"}
+    ],
+    "dated": [                              // 날짜가 계산되는 것만. 시트의 날짜 칸에서
+      {"what": "청년 나이 상한(만 34세) 도달", "year": 2033, "from": "birth_year"},
+      {"what": "어머니 만 65세", "year": 2031, "from": "parents.birth_year"}
+    ]
+  },
+  "similar": {                            // 비슷한 가구 알림 . 맞춤 추천과 섞지 않는다
+    "method": "knn", "features": "sheet_minmax", "k": 50, "neighbors": 50,   // 시트 KNN용_2단계 그대로. 비교판은 "rule_bins"(비슷한 가구 정확도에서 비교). k번째와 거리가 같은 이웃까지 넣으면 50보다 클 수 있다
+    "basis": "가상 인구 9,000가구(가정 분포)",
+    "label": "주로 청년·예비부부·무주택·서울 가구", "label_share": 0.62,   // 이웃의 태그 조합 중 가장 많은 것과 그 비율
+    "known_fields": 9,
+    "assignment": "full",                 // full | reference(아는 칸 3개 미만 또는 label_share < 0.5 → "참고")
+    "items": [{"rule_id": "manual:seoul-youth-deposit", "name": "서울 청년 임차보증금 이자지원", "subject": "self", "benefit_type": "loan",
+               "prevalence": 0.72,           // 이웃 가구 중 해당되는 비율
+               "my_verdict": "needs_check",  // needs_check만 올린다. 낡기 쉬운 칸 때문에 ineligible이면 items가 아니라 "정보가 바뀌었나요?"로
+               "blocking_fields": ["income_household"]}]   // 이 칸을 알려주면 판정된다. 적을수록 앞
+  },
+  "disclaimer": "참고용 모의 판정, 실제 자격은 접수 기관의 심사로 결정됩니다"
+}
+```
+
+규칙 수·거부율은 응답에 싣지 않고 `GET /stats/coverage` → `{"manual": 15, "compiled_passed": 212, "compiled_rejected": 48, "timeline_ai": {"m": 3, "needs_check": 1}}` .
+
+## 4. 서류 사전 (`docs/documents.json`)
+
+```jsonc
+[
+  {"doc_id": "resident_register", "name": "주민등록등본", "aliases": ["주민등록표 등본", "등본"],
+   "issuer": "정부24 / 주민센터", "online": "https://www.gov.kr", "offline": "주민센터·무인발급기", "fee": "온라인 무료, 창구 400원", "validity": "통상 3개월",
+   "who_provides_default": "official", "verified_from": "정부24 발급 서비스 목록", "updated": "2026-10-31"},
+  {"doc_id": "financial_consent", "name": "금융정보등제공동의서", "aliases": ["금융정보제공동의서"], "issuer": "주민센터·국민연금공단 창구 양식", "online": null, "offline": "창구 작성", "fee": "무료", "validity": null, "who_provides_default": "applicant", "verified_from": "복지로 기초연금 안내", "updated": "2026-10-31"}
+]
+```
+
+매핑 규칙(오프라인, 손 조건표 15 + AI 추출 5를 미리 매핑해 캐시): 조건 JSON `documents[]` 문자열 → `aliases` 정확/부분 일치 → 없으면 `status: "unknown"`("발급처 확인 필요"). LLM 제안은 쓰지 않는다. gov24 `documents_official`에 있으면 `who_provides: official`. 런타임 `/judge`는 캐시만 읽는다.
+
+## 5. 알림 (`GET /notifications?user_id=…`)
+
+```jsonc
+[
+  {"id": "n_01", "kind": "new_rule",   "subject": "self",   "rule_id": "upload:seoul-2026-11-youth", "title": "새 공고: 서울 청년 … 조건에 해당할 수 있어요", "created": "2026-10-31T15:02", "read": false},
+  {"id": "n_02", "kind": "d_day",      "subject": "self",   "rule_id": "manual:hug-newborn-buttimok", "title": "출산 예정월(2027-03) 전에 신생아 특례 대출 서류를 준비하세요", "due": "2027-02-01", "from": "due_month", "read": false},
+  {"id": "n_03", "kind": "closing",    "subject": "self",   "rule_id": "…", "title": "청년전용 버팀목 나이 상한 도달 D-90", "due": "…", "read": true},
+  {"id": "n_04", "kind": "apply_open", "subject": "parent", "rule_id": "manual:basic-pension", "title": "어머니가 2031년에 만 65세가 됩니다. 기초연금은 생일이 속한 달 1개월 전부터 신청할 수 있어요", "due": "2031", "read": false},
+  {"id": "n_05", "kind": "explore",    "subject": "self",   "rule_id": "manual:seoul-youth-deposit", "title": "비슷한 나이대·상황에서 72%가 해당돼요(가상 인구 기준). 소득을 알려주시면 확인해 드릴게요", "prevalence": 0.72, "neighbors": 50, "blocking_fields": ["income_household"], "basis": "가상 인구(가정 분포)", "read": false}
+]
+```
+
+알림은 두 단계다. `new_rule`·`d_day`·`closing`·`apply_open`은 확정 알림이다. 확정 알림은 원문에서 확정된 값으로 계산한 알림이다(새 규칙 재판정 결과, `clock`·`apply_window`·`prerequisites`의 날짜). `ineligible` 제도에는 보내지 않는다. "신청할 수 있어요"는 verdict가 `eligible`인 제도에만 쓴다. `explore`는 비슷한 가구 알림이다. 알림은 앱 알림함에 항상 쌓이고, `alert_channel`이 이메일이면 같은 내용을 이메일로도 보낸다(`backend/notify/`, `emailed_at` 기록). `alert_categories`에 없는 분야는 이메일로 보내지 않는다. 신청 기한이 지난 제도는 올리지 않는다. 내 정보로 `ineligible`인 제도는 "정보가 바뀌었나요?"로만 묻는다.
+
+시연: `POST /trigger/rebuild` (새 규칙 재판정), `?today=2031-01-15` (날짜가 계산되는 알림 재현), `POST /notify/test-email` (시연용 메일 한 통), `PATCH /notifications/{id}/read`.
+
+비슷한 가구: `data/population/households.parquet`(가구 × 칸), `eligibility.npz`(가구 × 제도 해당 여부), `X.npy`(시트 `KNN용_2단계` 그대로의 입력 행렬)를 저장한다. 비교판으로 `bins.json`(칸별 기준선, `policy_requirements`에서 생성)을 만든다. 사용자마다 이웃 목록을 `user_neighbors`에 저장하고 프로필이 바뀌면 다시 찾는다. 학습 단계가 없어 신규 가입자도 가입 즉시 계산된다. 생성 `uv run python -m backend.population.build --n 10000 --holdout 1000 --seed 42`(이웃 후보 9,000, 평가 1,000). 평가 `GET /stats/explore` → `{"k": 50, "precision_at_5": …, "recall_at_5": …, "baseline_popular": …, "baseline_random": …, "baseline_question_only": …, "variant_rule_bins": …}` .
+
+고르는 순서: 이웃에서 제도별 해당 비율 → 빼기(이미 `eligible`, 기한 지남, 다른 시도 지자체 제도, 아는 칸으로 확정 탈락) → 순위(비율, `blocking_fields` 적은 순, 마감 가까운 순) → 문턱(30% 이상, 최대 5, 같은 `benefit_type` 2개까지). 새 공고는 거꾸로: 가상 인구에 한 번 판정 → 사용자별 저장된 이웃으로 비율 → 문턱을 넘고 맞춤 추천에 없는 사용자에게만 `explore`.
+
+## 6. 공고 투입 (`POST /ingest`)
+
+입력: PDF 파일 또는 URL (안내문: "개인 서류를 올리지 마세요", 주민번호 패턴 거부). 출력: §1 조건 JSON(`source: "upload"`, `review.status: "unverified"`) + 추출 로그 `{"chunks": 6, "rejected": [{"chunk_id": "c2", "field": "…", "reason": "quote_not_found"}], "retries": 1, "votes_summary": {"3": 4, "2": 3, "1": 1}}`. 화면은 진행 표시(추출 → 검증 → 합류) 뒤 추출된 조건을 표로 보여주고 카드에 합류시키며 `new_rule` 알림을 만든다. 시연 PDF 2건은 결과 캐시 + "캐시 재생" 토글.
+
+## 7. 검색 (`GET /search?q=…&user_id=…&tag=…&subject=self|parent`)
+
+```jsonc
+{
+  "q": "신혼 특공",
+  "results": [
+    {"service_id": "gov24:WII…", "rule_id": "manual:subscription-newlywed", "name": "신혼부부 특별공급", "org": "국토교통부",
+     "region": null, "snippet": "…혼인기간 7년 이내…", "stage_tags": ["marriage_planned", "newlywed"],
+     "badge": "needs_check",            // eligible(추천) | similar(비슷한 가구) | needs_check | ineligible | no_rule(조건표 없음, 원문 보기만)
+     "detail_url": "https://…", "updated": "2026-10-31"},
+    {"service_id": "local:…", "rule_id": null, "name": "○○구 신혼부부 주거비 지원", "badge": "no_rule", "stage_tags": ["newlywed"], "detail_url": "…", "updated": "…"}
+  ],
+  "nudge": {                              // 2단계 . 없으면 null. 자동으로 바꾸지 않는다
+    "missing_tag": "marriage_planned",      // 검색 결과에 많고 내 프로필에 없는 생애 단계 태그
+    "question": "혹시 결혼 준비 중이거나 신혼이세요? 정보를 바꾸면 맞는 제도를 다시 찾아드릴게요",
+    "options": [{"label": "결혼 준비 중", "set": {"marital_status": "예비부부"}}, {"label": "신혼(혼인신고 함)", "set": {"marital_status": "신혼"}}, {"label": "아니요", "set": null}],
+    "why": "상위 5개 중 3개가 결혼 준비·신혼 단계 제도"
+  }
+}
+```
+
+태그는 프로필에서 계산하고 여러 개가 동시에 붙는다. `youth`는 나이 묶음(만 19~39세. 실제 나이 조건은 제도마다 규칙이 판정), `marriage_planned`(예비부부), `newlywed`(신혼·기혼, 자녀 없음), `child`(자녀 1), `multi_child`(자녀 2 이상)는 생애 단계, `homeless`는 주거 태그다. 30세 신혼은 `youth`와 `newlywed`를 둘 다 갖는다. 다섯 단계 타임라인은 이야기 순서이고 태그를 하나로 묶지 않는다. 검색어는 서버 로그에 남기지 않는다. 단계 키워드 사전은 `docs/stage_keywords.json`(C).
+
+## 8. 공고문 원문 (`GET /notices/{doc_id}`, `GET /notices/{doc_id}/file`)
+
+```jsonc
+{
+  "doc_id": "2026-11-mapo-apt",
+  "title": "○○ 아파트 입주자모집공고",
+  "source": "applyhome",                  // applyhome(청약홈) | lh(LH 공고) | local(지자체) | upload(사용자 투입)
+  "source_url": "https://…",              // 받은 곳
+  "fetched_at": "2026-10-31",
+  "pages": 48,
+  "text_layer": true,                     // false = 이미지 스캔, 파싱하지 않음
+  "pblanc_no": "2026000123",              // 청약홈 공고번호(있으면). 15098547 응답과 연결
+  "rules": ["applyhome:2026000123:newlywed", "applyhome:2026000123:first_home"]
+}
+```
+
+PDF 보기는 `file`을 pdf.js(react-pdf)로 그리고, 카드 조건의 `page`·`bbox`로 해당 줄을 표시한다. 좌표가 없으면 쪽만 열고 인용문을 옆에 띄운다.

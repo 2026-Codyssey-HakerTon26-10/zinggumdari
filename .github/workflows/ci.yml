@@ -1,0 +1,81 @@
+# 실격·감점을 막는 검사만 둔다. 실패하면 메시지대로 고치고 다시 push.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  guard:
+    name: 외부 자원 기재 · 키 노출
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 의존성 목록이 바뀌었는데 docs/external-resources.md가 그대로면 실패
+      - name: 외부 자원 기재 확인
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            echo "비교 기준 커밋이 없어 건너뜀"; exit 0
+          fi
+          changed=$(git diff --name-only "$BASE" HEAD)
+          manifests=$(echo "$changed" | grep -E '(^|/)(package\.json|requirements[^/]*\.txt|pyproject\.toml)$' || true)
+          if [ -n "$manifests" ] && ! echo "$changed" | grep -qx 'docs/external-resources.md'; then
+            echo "::error::의존성 파일이 바뀌었는데 docs/external-resources.md가 그대로입니다 — 미기재는 실격입니다."
+            echo "$manifests"
+            exit 1
+          fi
+          echo "ok"
+
+      # fixtures/(일부러 심은 가짜 키)와 .example 파일은 제외
+      - name: 키 노출 확인
+        run: |
+          pattern='sk-(proj-|ant-)?[A-Za-z0-9_-]{20,}|sk_live_[A-Za-z0-9]{10,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30,}|SERVICE_ROLE_KEY[[:space:]]*=[[:space:]]*[^[:space:]]+'
+          hits=$(git ls-files -z -- . ':!fixtures/**' ':!*.example' ':!.github/**' \
+                 | xargs -0 grep -nIE "$pattern" 2>/dev/null | grep -v 'FAKE' || true)
+          if [ -n "$hits" ]; then
+            echo "::error::키처럼 보이는 값이 커밋돼 있습니다. .env로 옮기고 키를 재발급하세요."
+            echo "$hits" | cut -c1-160
+            exit 1
+          fi
+          echo "ok"
+
+  backend:
+    name: 백엔드 설치 · 테스트
+    runs-on: ubuntu-latest
+    # 명령은 레포 루트에서 --project backend로 실행한다 (README와 같다)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --project backend
+      - run: uv run --project backend python -m compileall -q -x '/\.venv/' backend
+      - name: pytest
+        run: |
+          if find backend tests -path '*/.venv' -prune -o -name 'test_*.py' -print 2>/dev/null | grep -q .; then
+            uv run --project backend pytest -q
+          else
+            echo "테스트 없음, 건너뜀"
+          fi
+
+  frontend:
+    name: 화면 빌드
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build

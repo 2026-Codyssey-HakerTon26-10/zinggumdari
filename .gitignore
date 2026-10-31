@@ -1,0 +1,39 @@
+# ── 개인 에이전트 설정 (공통 규칙은 *.example로 커밋) ──
+# (루트만. frontend/AGENTS.md는 Next.js가 만든 파일이라 커밋한다)
+/AGENTS.md
+/AGENTS.md.bak
+/CLAUDE.md
+/CLAUDE.local.md
+.claude/settings.local.json
+
+# ── 키 ──
+.env
+.env.*
+!.env.example
+
+# ── 의존성 · 빌드 ──
+node_modules/
+dist/
+build/
+.next/
+coverage/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# ── 로컬 데이터 (다시 만들 수 있는 것) ──
+#    API 덤프(data/raw/)와 시연 공고문(data/notices/)은 시연 안정성을 위해 커밋한다
+*.db
+*.sqlite3
+data/population/
+.cache/
+
+# ── OS · 에디터 ──
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+~$*
