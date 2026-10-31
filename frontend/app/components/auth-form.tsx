@@ -4,7 +4,7 @@ import { useState, useRef, type FormEvent, type ReactNode } from "react"; // 입
 import { useRouter } from "next/navigation"; // 인증 성공 시 다음 화면으로 이동해요.
 import Link from "next/link"; // 로그인과 회원가입 화면을 서로 연결해요.
 import { Icon } from "./ui"; // 기존 서비스와 같은 선 아이콘을 사용해요.
-import { signup as apiSignup, login as apiLogin, AuthError } from "../lib/auth"; // 백엔드 인증 API를 호출해요.
+import { signup as apiSignup, login as apiLogin, AuthError, setAccountData } from "../lib/auth"; // 백엔드 인증 API를 호출해요.
 
 type PasswordFieldProps = { // 두 화면에서 함께 쓰는 비밀번호 입력칸의 설정을 정해요.
     id: string; // 각 입력칸을 구분하는 고유한 이름이에요.
@@ -107,9 +107,9 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
         setFeedback(""); // 이전 오류 메시지를 지워요.
         try {
             if (isSignup) {
-                await apiSignup(email, password); // 계정을 생성하고 세션 쿠키를 발급받아요.
-                // 닉네임은 백엔드 계정 테이블에 없으므로 로컬 스토리지에 저장해요. 실명이 아닌 가상 이름이에요.
-                try { localStorage.setItem("zing_nickname", nickname.trim()); } catch { /* 스토리지 차단 환경에서도 가입 자체는 성공으로 처리해요. */ }
+                const data = await apiSignup(email, password); // 계정을 생성하고 세션 쿠키를 발급받아요.
+                // 닉네임과 선택 동의(이메일·민감정보)를 계정 ID별 키로 저장해요. 프로필 연결 전 임시 저장이에요.
+                setAccountData(data.account_id, { nickname: nickname.trim(), consents });
             } else {
                 await apiLogin(email, password); // 이메일·비밀번호를 인증하고 세션 쿠키를 받아요.
             }
@@ -198,7 +198,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                     // 로그인 화면에는 비밀번호 찾기 보조 안내만 표시해요.
                     <div className="auth-form-options"><span>나의 다음 걸음을 이어서</span><button type="button" className="auth-inline-link" onClick={() => setShowHelp((previous) => !previous)} aria-expanded={showHelp} aria-controls="auth-password-help">비밀번호를 잊으셨나요?</button></div>
                 )}
-                {!isSignup && showHelp && <p id="auth-password-help" className="auth-consent-detail-panel auth-consent-detail-panel--login">비밀번호 재설정은 정식 로그인 기능이 제공되면 이용하실 수 있습니다. 현재 화면에서는 이메일을 발송하지 않습니다.</p>} {/* 없는 비밀번호 재설정 기능이 작동한 것처럼 표시하지 않아요. */}
+                {!isSignup && showHelp && <p id="auth-password-help" className="auth-consent-detail-panel auth-consent-detail-panel--login">비밀번호 재설정은 아직 지원하지 않습니다. 이메일을 발송하지 않습니다.</p>} {/* 없는 비밀번호 재설정 기능이 작동한 것처럼 표시하지 않아요. */}
                 {feedback && <p className="auth-status" role="status" aria-live="polite">{feedback}</p>} {/* 제출 후 안내를 화면과 보조기기에 함께 전달해요. */}
                 <button className="button button-primary auth-submit" type="submit" disabled={loading} aria-busy={loading}>{loading ? (isSignup ? "가입하는 중…" : "로그인 중…") : (isSignup ? "가입하고 시작하기" : "로그인")}{!loading && <Icon name="arrow-right" />}</button> {/* 요청 중에는 버튼을 비활성화하고 상태를 글자로 알려줘요. */}
             </form> {/* 로그인과 회원가입 입력 영역을 마쳐요. */}
