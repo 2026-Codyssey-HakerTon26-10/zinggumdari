@@ -1,0 +1,99 @@
+{
+ "id": "manual:subscription-newlywed",
+ "source": "manual",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "subscription",
+ "subject": "self",
+ "benefit_type": "service",
+ "name": "청약 신혼부부 특별공급",
+ "aliases": [
+  "신혼부부 특공",
+  "신혼 특별공급",
+  "신혼부부 특별공급"
+ ],
+ "same_as": [],
+ "doc_id": "law-housing-supply",
+ "conditions": [
+  {
+   "field": "marriage_years",
+   "op": "<=",
+   "value": 7,
+   "as_of": "notice_date",
+   "quote": "입주자모집공고일 현재 혼인기간(「가족관계의 등록 등에 관한 법률」 … )이 7년 이내일 것",
+   "evidence": [
+    "law-housing-supply:p30-l5",
+    "law-housing-supply:p30-l6"
+   ],
+   "status": "reviewed",
+   "note": "혼인기간은 혼인관계증명서의 신고일로 센다. 2026-06-15 개정으로 예비신혼부부·한부모 요건은 삭제됐다"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "quote": "다. 무주택세대구성원일 것",
+   "evidence": [
+    "law-housing-supply:p30-l8"
+   ],
+   "status": "reviewed",
+   "note": "무주택세대구성원은 세대원 전원이 주택을 소유하지 않은 세대의 구성원(제2조). 분양권등도 주택으로 본다(제53조)"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 140,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "employment_type",
+      "op": "==",
+      "value": "맞벌이"
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 160,
+      "income_basis": "urban_worker_pct",
+      "as_of": "notice_date"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "소득이 기준을 넘으면 세대원 부동산 가액 합계가 건강보험 재산등급 29등급 하한·상한 평균 이하"
+     }
+    ]
+   ],
+   "quote": "1) 전년도 도시근로자 가구당 월평균 소득의 140퍼센트(배우자가 소득이 있는 경우에는 160퍼센트로 한다) 이 … 2) 전년도 도시근로자 가구당 월평균 소득의 140퍼센트(배우자가 소득이 있는 경우에는 160퍼센트로 한다)를 … 초과하는 경우로서 세대원이 소유하는 부동산의 가액의 합계가 … 상한을 산술평균한 금액 이하일 것",
+   "evidence": [
+    "law-housing-supply:p30-l10",
+    "law-housing-supply:p30-l12",
+    "law-housing-supply:p30-l13",
+    "law-housing-supply:p30-l14"
+   ],
+   "status": "reviewed",
+   "note": "배우자가 소득이 있으면 160%라 맞벌이 가지로 둔다. 공급 몫: 50%는 100%(맞벌이 120%) 이하, 20%는 140%(160%) 이하, 나머지는 부동산 가액 기준 충족자까지 추첨. 민영주택(제41조①)과 국민주택(제41조④) 요건이 같다"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "85㎡ 이하 민영주택 건설량의 15% 범위, 국민주택 건설량의 20% 범위에서 국토교통부장관이 고시하는 비율만큼 한 차례에 한정하여 1세대 1주택 기준으로 특별공급\n1순위: 혼인기간 중 자녀를 출산(임신 중이거나 입양한 경우 포함)하여 자녀가 있는 경우\n같은 순위에서 경쟁하면 해당 주택건설지역 거주자, 자녀 수가 많은 자, 추첨 순",
+ "apply_text": "청약홈에서 단지별 입주자모집공고에 따라 신청",
+ "documents": [],
+ "documents_official": [],
+ "detail_url": "https://www.law.go.kr/법령/주택공급에관한규칙",
+ "updated": "2026-06-15",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}

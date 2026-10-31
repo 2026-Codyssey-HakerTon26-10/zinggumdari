@@ -1,5 +1,5 @@
 {
-  "note": "손 조건표 15개의 개발·시험 분할(SPEC §17, Background §6.4). 개발용 5개는 시연에 나와 누구나 보게 되므로 개발용이다. AI 공고 읽기(프롬프트, 신호어 목록)는 개발용으로만 맞추고, 프롬프트를 짜는 사람은 시험용 조건표 파일을 열지 않는다. 시험용 채점은 프롬프트를 동결한 뒤 한 번 돌린다. dev, test는 조건표 id 문자열 목록이다(채점기가 그대로 집합으로 쓴다). id는 rules/manual/의 조건표 id와 같아야 하고, 사람이 읽을 이름과 단계는 rules에 둔다.",
+  "note": "손 조건표 16개의 개발·시험 분할(SPEC §17, Background §6.4). 개발용 5개는 시연에 나와 누구나 보게 되므로 개발용이다. AI 공고 읽기(프롬프트, 신호어 목록)는 개발용으로만 맞추고, 프롬프트를 짜는 사람은 시험용 조건표 파일을 열지 않는다. 시험용 채점은 프롬프트를 동결한 뒤 한 번 돌린다. dev, test는 조건표 id 문자열 목록이다(채점기가 그대로 집합으로 쓴다). id는 rules/manual/의 조건표 id와 같아야 하고, 사람이 읽을 이름과 단계는 rules에 둔다.",
   "made_by": "임종한",
   "made_at": "2026-10-31",
   "dev": [
@@ -12,6 +12,7 @@
   "test": [
     "manual:seoul-youth-deposit",
     "manual:subscription-newlywed",
+    "manual:subscription-firsthome",
     "manual:hug-newlywed-purchase",
     "manual:seoul-newlywed-deposit",
     "manual:hug-newborn-didimdol",
@@ -53,9 +54,14 @@
       "stage": "youth"
     },
     "manual:subscription-newlywed": {
-      "name": "청약 신혼부부·생애최초 특별공급",
+      "name": "청약 신혼부부 특별공급",
       "subject": "self",
-      "stage": "marriage_planned"
+      "stage": "newlywed"
+    },
+    "manual:subscription-firsthome": {
+      "name": "청약 생애최초 특별공급",
+      "subject": "self",
+      "stage": "newlywed"
     },
     "manual:hug-newlywed-purchase": {
       "name": "신혼부부전용 구입자금",
