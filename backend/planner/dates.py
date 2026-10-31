@@ -5,27 +5,8 @@
 상태가 reviewed·auto_verified인 조건만 쓴다. 재료 날짜가 없으면 날짜를 만들지 않는다.
 """
 
-from datetime import date
-
 from backend.engine.evaluate import FINAL
-
-# 기간 칸 → (재료 날짜 칸, 단위)
-SPAN = {"marriage_years": ("marriage_date", "years"), "residence_months": ("move_in_date", "months"),
-        "subscription_months": ("joined_date", "months"), "support_years": ("support_start_date", "years")}
-
-
-def add_months(d: date, n: int) -> date:
-    y, m = divmod(d.month - 1 + n, 12)
-    year, month = d.year + y, m + 1
-    days = [31, 29 if year % 4 == 0 and (year % 100 or year % 400 == 0) else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    return date(year, month, min(d.day, days[month - 1]))
-
-
-def _parse(v) -> date | None:
-    try:
-        return date.fromisoformat(str(v)[:10])
-    except (TypeError, ValueError):
-        return None
+from backend.engine.values import SPAN, boundary, parse_date
 
 
 def flat(rule: dict) -> list[tuple[dict, dict]]:
@@ -57,13 +38,12 @@ def _when(person: dict, cond: dict, closing: bool) -> dict | None:
         need = v if cond["op"] == ">=" else v + 1
         return {"field": f, "from": "birth_year", "min_age": need, "year": int(by) + need}
     if f in SPAN:
+        # 날짜 기간은 정수 보정 없이 경계일 = 시작일 + N(엔진과 같은 boundary). <=는 그날까지 통과, <는 그날 닫힌다
         src, unit = SPAN[f]
-        start = _parse(person.get(src))
-        if start is None or v is None:
+        start = parse_date(person.get(src))
+        if start is None or not isinstance(v, (int, float)) or isinstance(v, bool):
             return None
-        n = v if cond["op"] in ("<=", ">=") else v + (1 if cond["op"] == ">" else -1)
-        when = add_months(start, n * 12 if unit == "years" else n).isoformat()
-        return {"field": f, "from": src, f"plus_{unit}": n, "when": when}
+        return {"field": f, "from": src, f"plus_{unit}": v, "when": boundary(start, unit, v).isoformat()}
     return None
 
 

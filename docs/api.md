@@ -190,7 +190,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
     {
       "rule_id": "manual:hug-newlywed-jeonse", "subject": "self", "name": "신혼부부전용 전세자금", "domain": "fund_loan",   // 예시 프로필: 신혼인데 혼인신고일과 소득을 아직 안 적었다. review는 카드에 status 문자열만
       "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later(확정 탈락이 전부 시간이 지나거나 해둘 일을 하면 풀린다. 예: 64세의 age >= 65, 부모 장기요양등급 "없음"의 ltc_grade in [등급], 청약통장 없음)
-      "verdict_why": null,                  // "ai_unreviewed" = 검수 전 AI 조건표가 모두 통과했다 → "AI가 읽은 조건은 모두 맞아요. 원문을 확인하고 신청하세요"
+      "verdict_why": null,                  // "ai_unreviewed" = 검수 전 AI 조건표가 모두 통과했다 → "AI가 읽은 조건은 모두 맞아요. 원문을 확인하고 신청하세요". "next_step" = 지금은 아니고 다음 단계(혼인신고·출산)로 가면 열린다(verdict opens_later). "rule_error" = 조건표가 깨져 판정하지 못했다(needs_check)
       "ai_extracted": false,                // review.status != reviewed → true → 배지
       "conditions": [                       // read_as = 조건을 템플릿으로 쓴 문장(우리가 읽은 조건), evidence = 근거 줄(쪽, 좌표, 텍스트)
         {"read_as": "혼인 7년 이내(신청일 기준)", "grade": "질문", "ok": null, "ask": "marriage_date", "status": "reviewed",
@@ -202,7 +202,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
         // AI 조건은 "checks"가 같이 온다. 빠짐 검사에서 남은 줄은 {"read_as": "원문 조건 미반영", "grade": "확인 필요", "why": "AI가 조건으로 읽지 못한 원문 줄", …}
       ],
       "exclusive_with": [{"rule_id": "manual:hug-buttimok-youth", "name": "청년전용 버팀목", "both_eligible": false}],   // AI 조건표는 "exclusive_evidence"(원문 줄)만 표시
-      "opens_at":  {"step": "newlywed"},                                       // 다음 단계로 가면 열린다 (날짜 없음)
+      "opens_at":  {"step": "newlywed"},                                       // 다음 단계로 가면 열린다 (날짜 없음). 그 밖에 {"field", "when"|"year"}(시간이 지나면), {"action": "ltc_grade_apply"}(해둘 일을 하면)
       "closes_at": {"field": "marriage_years", "from": "marriage_date", "plus_years": 7, "when": null},   // 통과 중인 <= 조건에서 계산. 혼인신고일이 생기면 날짜가 나온다
       "apply_from": null,                   // 손 조건표의 apply_window에서
       "prerequisites": [{"action": "subscription_account", "min_months": 6, "have_months": 67, "status": "met", "evidence": ["nhuf-newlywed-jeonse:l16"]}],   // subscription_months >= 6 조건에서 계산(joined_date 기준). 원문 확인 전 예시
@@ -225,7 +225,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
     ],
     "parent": [
       {"step": "ltc_apply", "now": true, "why": "돌봄 희망 + 장기요양등급 없음", "opens": ["manual:ltc-insurance"], "todo": [{"action": "ltc_grade_apply", "evidence": ["…"]}]},
-      {"step": "age65", "year": 2031, "opens": ["manual:basic-pension"], "apply_from": "2031년 생일이 속한 달의 1개월 전부터(생일 달은 출생연도만 있어 확인 필요)"}
+      {"step": "age65", "relation": "모", "age": 65, "year": 2031, "opens": ["manual:basic-pension"], "apply_from": "2031년 생일이 속한 달의 1개월 전부터(생일 달은 출생연도만 있어 확인 필요)"}   // 부모 한 명씩, 조건의 나이별로(age70이면 70세 되는 해). apply_from은 65세 apply_window만
     ],
     "dated": [                              // 날짜가 계산되는 것만. 시트의 날짜 칸에서
       {"what": "청년 나이 상한(만 34세) 지남", "year": 2034, "from": "birth_year", "note": "만 35세 생일부터 해당 안 됨"},   // 카드 closes_at의 year와 같은 해

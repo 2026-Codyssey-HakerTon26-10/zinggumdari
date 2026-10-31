@@ -47,8 +47,12 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
     plan = planner.timeline(profile, rules, today, results)
     by_id = {r["id"]: r for r in rules}
     cards = []
+    next_step = {i for s in plan["self"] for i in s["opens"]}
     for rule in rules:
         card = results[rule["id"]]
+        if card["verdict"] == "ineligible" and rule["id"] in next_step:
+            # 다음 단계(혼인신고·출산)로 가면 열리는 제도는 카드로 올리고 언제 열리는지 단다
+            card.update(verdict="opens_later", verdict_why="next_step")
         if card["verdict"] not in SHOWN or card.get("no_subject") or card.get("superseded_by"):
             continue
         planner.annotate(card, rule, profile, today, plan["self"])

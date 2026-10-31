@@ -93,9 +93,9 @@ def test_step_param_rejudges():
 
 def test_card_opens_at_step():
     assert card(build_judge(JIWON, [YOUTH, NEWLYWED, LATER], TODAY), "manual:youth")["opens_at"] is None
-    body = build_judge(JIWON, [NEWLYWED], TODAY)
-    assert body["cards"] == []   # 지금은 ineligible이라 카드가 없고 타임라인에서 보여준다
-    assert body["timeline"]["self"][0]["opens"] == ["manual:newlywed"]
+    # 다음 단계에서 열리는 제도는 카드로 올리고 언제 열리는지 단다(요청 34)
+    c = card(build_judge(JIWON, [NEWLYWED], TODAY), "manual:newlywed")
+    assert (c["verdict"], c["verdict_why"], c["opens_at"]) == ("opens_later", "next_step", {"step": "newlywed"})
 
 
 def test_card_opens_at_date():
@@ -178,3 +178,65 @@ def test_router_step(client):
 
 def test_router_bad_step(client):
     assert client.post("/judge", json={"user_id": "Uplan", "step": "retire"}).status_code == 422
+
+
+
+# 리뷰 반영 -------------------------------------------------------------------------------------
+
+def test_parent_age_from_condition():
+    # 조건이 만 70세면 70세가 되는 해에 연다(요청 25). 65세 줄과 따로 묶는다
+    care = R("manual:care70", [C("age", ">=", 70, ev="c70:l1")], subject="parent")
+    steps = build_judge({**JIWON, "parents": [MOM]}, [PENSION, care], TODAY)["timeline"]["parent"]
+    by_step = {s["step"]: s for s in steps}
+    assert by_step["age65"]["year"] == 2031 and by_step["age65"]["opens"] == ["manual:pension"]
+    assert by_step["age70"]["year"] == 2036 and by_step["age70"]["opens"] == ["manual:care70"]
+    assert "apply_from" not in by_step["age70"] or by_step["age70"]["apply_from"] is None
+
+
+@pytest.mark.parametrize("op,when", [("<=", "2027-01-01"), ("<", "2027-01-01")])
+def test_period_closes_at_boundary(op, when):
+    # 기간 경계는 혼인일 + 7년(요청 26). 엔진도 같은 날을 경계로 쓴다
+    rule = R("manual:n", [C("marriage_years", op, 7)])
+    me = {**JIWON, "self": {**JIWON["self"], "marital_status": "기혼", "marriage_date": "2020-01-01"}}
+    assert card(build_judge(me, [rule], TODAY), "manual:n")["closes_at"]["when"] == when
+
+
+def test_month_end_opens_at_matches_engine():
+    rule = R("manual:sub", [C("subscription_months", ">=", 6)])
+    me = {**JIWON, "self": {**JIWON["self"], "joined_date": "2026-08-31"}}
+    c = card(build_judge(me, [rule], date(2026, 11, 1)), "manual:sub")
+    assert c["opens_at"]["when"] == "2027-02-28"
+    assert card(build_judge(me, [rule], date(2027, 2, 28)), "manual:sub")["verdict"] == "eligible"
+
+
+def test_parent_card_uses_same_parent():
+    # 판정과 날짜가 같은 부모 기준(요청 35)
+    rule = R("manual:alone65", [C("age", ">=", 65), C("lives_alone", "==", "Y")], subject="parent")
+    dad = {"relation": "부", "birth_year": 1963, "lives_alone": "Y"}
+    mom = {**MOM, "lives_alone": "N"}
+    body = build_judge({**JIWON, "parents": [mom, dad]}, [rule], TODAY)
+    c = card(body, "manual:alone65")
+    assert c["relation"] == "부" and c["opens_at"]["year"] == 2028
+    opened = [(s["relation"], s["step"]) for s in body["timeline"]["parent"] if "manual:alone65" in s.get("opens", [])]
+    assert opened == [("부", "age65")]
+
+
+def test_todo_status_from_current_profile():
+    # 해둘 일 상태는 지금 프로필로(요청 36): 예비부부라 혼인신고는 아직 안 함
+    todo = build_judge(JIWON, RULES, TODAY)["timeline"]["self"][0]["todo"]
+    assert {t["status"] for t in todo if t["action"] == "marriage_registration"} == {"unmet"}
+
+
+def test_stage_tags_respect_op():
+    # 요청 38
+    assert stage_tags(R("manual:x", [C("marital_status", "not_in", ["신혼", "기혼"])])) == []
+    assert stage_tags(R("manual:x", [C("marital_status", "!=", "예비부부")])) == []
+    assert stage_tags(R("manual:x", [C("age", "<", 40)])) == ["youth"]
+    assert stage_tags(R("manual:x", [C("children_count", ">", 1)])) == ["multi_child"]
+    assert stage_tags(R("manual:x", [C("children_count", ">", 0)])) == ["child"]
+
+
+def test_action_opens_at():
+    # 장기요양등급이 없으면 신청하면 열린다(요청 33)
+    body = build_judge({**JIWON, "parents": [MOM]}, [LTC], TODAY)
+    assert card(body, "manual:ltc")["opens_at"] == {"action": "ltc_grade_apply"}
