@@ -228,7 +228,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
       {"step": "age65", "year": 2031, "opens": ["manual:basic-pension"], "apply_from": "2031년 생일이 속한 달의 1개월 전부터(생일 달은 출생연도만 있어 확인 필요)"}
     ],
     "dated": [                              // 날짜가 계산되는 것만. 시트의 날짜 칸에서
-      {"what": "청년 나이 상한(만 34세) 도달", "year": 2033, "from": "birth_year"},
+      {"what": "청년 나이 상한(만 34세) 지남", "year": 2034, "from": "birth_year", "note": "만 35세 생일부터 해당 안 됨"},   // 카드 closes_at의 year와 같은 해
       {"what": "어머니 만 65세", "year": 2031, "from": "parents.birth_year"}
     ]
   },
