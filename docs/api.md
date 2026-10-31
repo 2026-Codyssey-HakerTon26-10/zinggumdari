@@ -14,7 +14,7 @@
   "source": "manual",                       // gov24 | local | central | manual | upload
   "name": "신혼부부전용 전세자금",
   "org": "주택도시기금",
-  "region": null,                           // null = 전국, {"sido": "서울특별시", "sigungu": null} = 시도 전체, {"unknown": true} = 미상. API 메타데이터(시도·시군구, 소관기관)에서 채우고 없으면 sido 조건에서 계산한다. LLM이 쓰지 않는다
+  "region": null,                           // null = 전국, {"sido": "서울특별시", "sigungu": null} = 시도 전체, {"unknown": true} = 미상. API 메타데이터(시도·시군구, 소관기관)에서 채우고 없으면 sido 조건에서 계산한다. LLM이 쓰지 않는다. 엔진은 대상자(나 또는 부모님)의 `sido`·`sigungu`와 비교해(시도 이름은 `search.corpus.short_sido`로 맞춤) 다르면 탈락, 모르면 질문, 미상이면 확인 필요로 카드 조건 줄 끝에 "거주지 …" 줄을 단다
   "domain": "fund_loan",                    // housing(임대, 주거급여, 월세) | fund_loan(기금 대출은 항상 이것) | subscription(청약) | elderly | welfare
   "subject": "self",                        // self | parent, 어느 대상자의 프로필에 매칭하나
   "benefit_type": "loan",                   // loan | rent | cash | service | discount. 검색 필터 전용, 판정에 쓰지 않는다
@@ -36,7 +36,7 @@
                                             // 시트에 칸이 없는 조건. 거부하지 않고 판정에서 항상 확인 필요
   ],
   "exclusive_with": ["manual:hug-buttimok-youth"],   // 손 조건표만. 엔진은 1차 판정 뒤 "둘 중 하나"로 표시만
-  "apply_window": null,                     // 손 조건표만, 선택. 예: 기초연금 {"anchor": "age65", "offset_months": -1, "evidence": ["…"]}, 원문 "생일이 속한 달의 1개월 전부터 신청"
+  "apply_window": null,                     // 손 조건표만, 선택. 예: 기초연금 {"anchor": "age65", "offset_months": -1, "quote": "…", "evidence": ["…"]}, 원문 "생일이 속한 달의 1개월 전부터 신청"
   "benefit_text": "…",                      // 원문 그대로
   "apply_text": "…",
   "documents": ["혼인관계증명서", "임대차계약서"],       // 원문 문자열. AI 조건표는 원문 줄에 그대로 있는 이름만 남는다. 사전 매핑은 오프라인
@@ -79,7 +79,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 | `any_of` | OR. 가지 하나는 AND 묶음이고 한 단계만 둔다. `evidence`, `status`, `quote`는 묶음에 단다 |
 | `as_of` | 기준일. `notice_date`(공고일 현재), `application_date`(신청일·접수일 현재 또는 기준). 원문에 없으면 뺀다. 판정은 오늘(`?today=`)로 하고, 기준일은 카드와 해둘 일 문구에 쓴다 |
 | `evidence` | 근거 줄 ID 목록. `{doc_id}:{줄 ID}`(§8). 모든 조건에 필수. 읽지 못한 쪽을 알리는 조건(`reason: "unread_pages"`)만 비고 `pages`에 쪽 번호가 있다 |
-| `quote` | 손 조건표만. 사람이 쓴 원문 문장이다. `python -m backend.compiler.resolve_manual`이 `evidence`로 바꾸고, 못 찾으면 실패한다 |
+| `quote` | 손 조건표만. 사람이 쓴 원문 문장이다. 조건과 `apply_window`에 단다. `python -m backend.compiler.resolve_manual`이 `evidence`로 바꾸고, 못 찾으면 실패한다 |
 | `status` | `reviewed`(사람이 쓰거나 확인), `auto_verified`(AI, 검사 전부 통과), `needs_review`(AI, 검사 하나라도 실패). 확정 판정에는 앞의 둘만 쓴다 |
 | `checks` | AI 조건만. 검사(`schema`, `evidence`, `value`, `comparator`, `unit`, `keyword`, `pair`, `layer`)별 `ok`, `na`(해당 없음), `fail:사유`(SPEC §9.3) |
 | `note` | 사람용 메모. 엔진은 읽지 않는다. 판정을 바꿔야 하는 말은 `other` 조건으로 쓴다 |
@@ -176,7 +176,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 
 DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `user_subscription`, `user_alert`, `user_qualifications`, `user_history`, `parents`, `policy_requirements`, 여기에 `income_standards`(연도 × 기준 × 가구원 수 → 금액)를 더한다. API 응답은 `user_id`로 합친 모양이다.
 
-엔드포인트: `POST /profiles`(① 저장, `user_id` 반환), `PATCH /profiles/{id}`(② 또는 ③에서 받은 칸 추가), `GET /profiles/{id}`, `DELETE /profiles/{id}`(프로필, 알림, 업로드 규칙 전부 삭제).
+엔드포인트: `POST /profiles`(① 저장, `user_id` 반환), `PATCH /profiles/{id}`(② 또는 ③에서 받은 칸 추가), `GET /profiles/{id}`, `DELETE /profiles/{id}`(프로필, 알림, 업로드 규칙 전부 삭제). 시연 프리셋: `GET /profiles/presets`(`[{"id": "jiwon", "label", "virtual": true}]`), `POST /profiles/presets/{id}`(SPEC §2의 가상 페르소나로 새 프로필을 만들고 `user_id` 반환. 기존 프로필은 덮어쓰지 않는다).
 
 ## 3. 판정 결과 (`POST /judge` 응답)
 
@@ -189,7 +189,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
   "cards": [
     {
       "rule_id": "manual:hug-newlywed-jeonse", "subject": "self", "name": "신혼부부전용 전세자금", "domain": "fund_loan",   // 예시 프로필: 신혼인데 혼인신고일과 소득을 아직 안 적었다. review는 카드에 status 문자열만
-      "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later
+      "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later(확정 탈락이 전부 시간이 지나거나 해둘 일을 하면 풀린다. 예: 64세의 age >= 65, 부모 장기요양등급 "없음"의 ltc_grade in [등급], 청약통장 없음)
       "verdict_why": null,                  // "ai_unreviewed" = 검수 전 AI 조건표가 모두 통과했다 → "AI가 읽은 조건은 모두 맞아요. 원문을 확인하고 신청하세요"
       "ai_extracted": false,                // review.status != reviewed → true → 배지
       "conditions": [                       // read_as = 조건을 템플릿으로 쓴 문장(우리가 읽은 조건), evidence = 근거 줄(쪽, 좌표, 텍스트)
@@ -348,7 +348,8 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 - 로그인하지 않으면 조건표가 있는 제도의 `badge`는 `null`이다(개인화 배지 없음). 조건표가 없는 제도는 그대로 `no_rule`, `nudge`도 `null`.
 - 응답에 `"judge": "engine" | "fake"`가 붙는다. 규칙 엔진이 연결되기 전에는 가짜 판정(`fake`)이다.
 - 쿼리: `q`(필수), `tag`, `subject`, `region`(시도. 그 시도와 전국 제도만), `limit`(기본 20, 최대 50), `today`(판정 기준일 재현). 예전 `user_id`는 로그인한 본인 프로필 ID와 같을 때만 받는다(미인증 401, 불일치 403).
-- 결과마다 `subject`(self | parent)가 붙는다.
+- 결과마다 `subject`(self | parent)와 `same_name`(같은 이름이라 이 결과 아래로 묶인 다른 제도 수, 시군구마다 같은 이름으로 낸 사업)이 붙는다.
+- 순서는 두 단계다. 글자 2-gram BM25로 후보 100개를 뽑고, 아래 기준을 순서대로 본다(앞 기준이 같을 때만 다음): 관련도 구간(이름·별칭에 검색어가 통째로 > 검색어 글자 조각 대부분이 이름에 > 본문에만), 접수가 끝난 제도는 맨 아래, 지역(내 시군구 > 내 시도 > 전국 > 미상 > 다른 지역, 프로필 지역이 있을 때만), 배지(로그인했을 때만, 추천 > 비슷한 가구 > 확인 필요 > 조건표 없음 > 해당 안 됨), BM25 점수. 해당 안 됨도 숨기지 않고 내린다.
 - 사용자 업로드 조건표(`source: "upload"`)는 검색에 나오지 않는다. 올린 본인에게는 판정 카드로 합류한다.
 
 ## 8. 원문과 줄 (`GET /notices/{doc_id}`, `GET /notices/{doc_id}/file`, `data/notices/{doc_id}.lines.json`)
@@ -409,3 +410,86 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 - `GET /notifications`도 세션 소유자의 목록만 반환한다. 기존 `user_id`가 전달되면 본인 일치를 검사하며 다른 계정 선택에 쓰지 않는다. 알림 읽음 API도 해당 알림의 소유권을 확인한다.
 - 상태 변경 요청에는 CSRF 방어를 적용하며, 인증 실패 메시지는 계정 존재를 드러내지 않는다. 로그인 반복 요청은 제한한다.
 - 계정 이메일 수집은 이메일 알림 수신 동의가 아니다. 소득·건강 등 민감정보 동의도 분리한다. 실제 연결 값과 인증 비밀정보는 문서·로그에 남기지 않는다.
+
+## 10. 프로필·판정 API 호출 안내 (프론트용, 백엔드1)
+
+JSON 모양은 §2(프로필), §3(판정 결과)이 정본이다. 이 절은 화면에서 부르는 순서와 요청·응답·에러를 모은다. 들어오는 PR: 프로필·프리셋 #11, 판정 엔진 #11(#12 합침), 카드 #14, 단계 넘기기·타임라인 #15, 공고별 질문 #22, 서류 사전 #25.
+
+### 10.1 공통
+
+- 주소: `http://localhost:8000` (`NEXT_PUBLIC_API_BASE`). CORS는 `http://localhost:3000` 허용
+- **개발 모드에서만 열린다.** 서버를 `DEV_STUB_API=1`로 띄워야 `/profiles`, `/judge`가 열리고, 아니면 404다. 로그인·소유권 확인이 붙으면 세션 기준으로 바뀌고 `user_id`를 body로 보내지 않는다(「인증·소유권 계약」)
+- 프로필은 지금 서버 메모리에 있다. 서버를 다시 켜면 지워진다(DB는 #19)
+- 날짜 재현: 모든 판정에 `?today=YYYY-MM-DD`를 붙일 수 있다(없으면 오늘)
+
+### 10.2 시연 시작: 프리셋
+
+| 메서드·경로 | 보내는 것 | 받는 것 |
+|---|---|---|
+| `GET /profiles/presets` | 없음 | `[{"id": "jiwon", "label": "지원(1999, 예비부부) + 어머니(1966)", "virtual": true}]` |
+| `POST /profiles/presets/{id}` | 없음 | `{"user_id": "U…"}`. 누를 때마다 새 프로필(SPEC §2 가상 페르소나, 동의 완료 상태). 없는 id면 404 |
+
+### 10.3 프로필
+
+| 메서드·경로 | 보내는 것 | 받는 것 · 에러 |
+|---|---|---|
+| `POST /profiles` | `{"self": {① 가입 칸}, "consents"?: {"sensitive": bool, "parent": bool}, "parents"?: [...]}` | `{"user_id"}`. 동의는 기본 `false` |
+| `GET /profiles/{user_id}` | 없음 | §2 프로필. 없으면 404 |
+| `PATCH /profiles/{user_id}` | 바꿀 것만: `{"self"?: {...}, "parents"?: [...], "consents"?: {...}, "stages_done"?: [...]}`. `self`는 칸 단위로 합치고 `parents`는 통째로 바꾼다 | 바뀐 프로필 전체 |
+| `DELETE /profiles/{user_id}` | 없음 | 204 |
+
+- `consents` 값은 JSON `true`/`false`만 받는다. `"false"`, `1`, `null`이면 **422**
+- 민감정보 동의(`sensitive`)가 없으면 소득·임신·장애·수급·장기요양등급 칸과 민감 자격 코드(수급·차상위·장애·한부모 등)는 **저장하지 않고 조용히 뺀다**. 부모님 동의(`parent`)가 없으면 `parents`를 저장하지 않는다. 동의를 `false`로 바꾸면 이미 있던 값도 지운다 → 동의 화면을 먼저 받고 칸을 보내야 한다
+- 자격·이력은 한 줄씩: `self.qualifications`에 `{"qual_code", "target": "본인", "verified": "자기신고"}`를 더해 배열째 보낸다. "해당 안 됨"이라고 답한 줄은 `"has": "N"`
+
+### 10.4 판정: `POST /judge`
+
+```jsonc
+// 요청 (?today=YYYY-MM-DD 선택)
+{"user_id": "U…",
+ "step": null,        // 단계 넘기기: "newlywed" | "child" | "multi_child". 그 단계까지 가정해 다시 판정(프로필은 안 바뀜). 다른 값은 422
+ "rule_id": null}     // 사용자가 연 카드. 그 제도를 막는 빈 칸을 ask로 묻는다
+```
+
+- 없는 `user_id`면 404. 조건표가 하나도 없으면(로컬에 `rules/` 없음) §3 예시 JSON을 그대로 돌려준다
+- 응답은 §3 모양: `ask`, `cards`, `step`, `timeline`, `similar`(아직 `null`), `disclaimer`(모든 카드 머리에 표시)
+
+카드(`cards[]`)를 그릴 때 보는 값
+
+| 키 | 화면 |
+|---|---|
+| `verdict` | `eligible` "신청할 수 있어요"(이때만) · `needs_check` 남은 조건 보여주기 · `opens_later` 언제 열리는지(`opens_at`). `ineligible`은 카드로 오지 않는다 |
+| `verdict_why` | `ai_unreviewed` "AI가 읽은 조건은 모두 맞아요. 원문을 확인하고 신청하세요" · `next_step` 다음 단계로 가면 열림 · `rule_error` 조건표 오류(확인 필요) |
+| `ai_extracted` | `true`면 "AI 추출·검수 전" 배지 |
+| `subject`, `relation` | `self`면 나, `parent`면 부모님(`relation` 모·부). 색은 컨셉보드(나 물빛, 부모님 감빛) |
+| `conditions[]` | `read_as`(우리가 읽은 조건), `grade`(확정/확인 필요/질문), `ok`(true 통과·false 탈락·null 모름), `why`(확인 필요 이유), `ask`(이 칸을 물으면 됨), `fixable`(탈락이 풀리는 방법: `true` 시간, `"action"` 해둘 일), `evidence[]`(근거 줄: `page`·`bbox`가 있으면 PDF 하이라이트, 없으면 텍스트 줄. `GET /notices/{doc_id}`로 원문) |
+| `opens_at` | `{"step": "newlywed"}` 단계 · `{"field", "when"}` 또는 `{"field", "year"}` 날짜 · `{"action": "ltc_grade_apply"}` 해둘 일 |
+| `closes_at`, `deadline` | 닫히는 날(`when` 날짜 또는 `year`), 접수 마감 `YYYY-MM-DD` |
+| `apply_from` | 신청 시작 안내 문장(예: "2031년 생일이 속한 달의 1개월 전부터…") |
+| `prerequisites[]` | 해둘 일: `action`(`subscription_account` 청약통장 · `move_in` 전입 · `marriage_registration` 혼인신고), `read_as`, `status`(met/unmet/unknown), 청약은 `min_months`·`have_months`, `evidence` |
+| `exclusive_with[]` | `{"rule_id", "name", "both_eligible"}` → "둘 중 하나". AI 조건표는 `exclusive_evidence`(원문 줄) → "중복 불가 조건이 있어요" |
+| `documents[]` | `status`: `found` → `issuer`·`online`·`offline`·`fee` · `self_held` "본인이 가진 서류" · `unknown` "발급처 확인 필요". `who_provides: "official"`이면 "공무원이 확인(안 떼도 됨)" |
+| `stage_tags`, `blocking_fields` | 단계 태그(필터·색), 판정을 막는 빈 칸 |
+| `detail_url`, `updated` | 카드 꼬리: 원문 링크, 기준일(반드시 표시) |
+
+타임라인(`timeline`)
+
+- `self[]`: 단계마다 `{"step", "assume", "opens", "closes", "todo"}`. 이미 지난 단계는 없다. 표 보기(단계, 열림, 닫힘, 해둘 일, 근거)도 이 배열로 그린다
+- `parent[]`: `{"step": "ltc_apply", "now": true, "relation", "why", "opens", "todo"}`(장기요양등급 신청 안내), `{"step": "age65" | "age70" …, "relation", "age", "year", "opens", "apply_from"}`
+- `dated[]`: `{"what", "year" 또는 "date", "from", "note"?}` 날짜가 계산되는 것만
+
+질문(`ask`, null이면 띄우지 않는다)
+
+- `{"subject", "field", "question", "options", "why", "rule_id", "qual_code"?}`. 카드를 열었을 때(`rule_id` 요청)는 그 카드 위에, 아니면 카드 목록 위에 한 줄
+- `options[].value`가 `"date"`·`"month"`·`"number"`·`"text"`면 입력칸(`unit: "만원"`이면 금액). 그 밖에는 고르면 그 값이 `field`의 값이다
+- 답 저장: `PATCH /profiles/{user_id}`로 `{"self": {field: 값, ...options[].set}}`(부모님이면 `parents`), 자격이면 `add_qualification`을 `self.qualifications`에 더해서 보낸다 → 다시 `POST /judge`
+
+### 10.5 화면 흐름 (SPEC §19.1 순서)
+
+1. 시작: `GET /profiles/presets` → 버튼 → `POST /profiles/presets/jiwon` → `user_id` 보관
+2. 추천 카드·타임라인: `POST /judge {"user_id"}`
+3. 단계 넘기기 버튼: `POST /judge {"user_id", "step": "newlywed"}` → `"child"` → `"multi_child"`. 카드와 타임라인이 바뀐다
+4. 카드 열기: `POST /judge {"user_id", "rule_id"}` → `ask` 한 줄 → 답 `PATCH /profiles` → 다시 `/judge`
+5. 조건 클릭: `evidence[].id`의 `doc_id`로 `GET /notices/{doc_id}`(§8), PDF면 `/file`을 그리고 `page`·`bbox`를 칠한다
+6. 부모님 탭: `timeline.parent`와 `subject: "parent"` 카드
+7. 설정의 삭제: `DELETE /profiles/{user_id}`

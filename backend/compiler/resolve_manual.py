@@ -2,7 +2,7 @@
 
     python -m backend.compiler.resolve_manual rules/manual/*.json [--notices data/notices]
 
-quote를 "…"(또는 "...")로 나눈 조각(띄어쓰기 빼고 4자 이상)마다 원문 줄 하나를 찾는다(띄어쓰기 무시).
+조건(any_of 묶음 포함)과 apply_window의 quote를 "…"(또는 "...")로 나눈 조각(띄어쓰기 빼고 4자 이상)마다 원문 줄 하나를 찾는다(띄어쓰기 무시).
 같은 조각이 여러 줄에 있으면 이미 근거로 적힌 줄, 없으면 앞 줄을 쓴다. 원문은 data/notices/{doc}.lines.json이고
 doc은 조건표의 doc_id, 없으면 기존 evidence의 접두어다. 끝에 검증기를 돌려 떨어진 검사를 경고로 찍는다(상태는 바꾸지 않는다).
 """
@@ -29,11 +29,19 @@ def _key(text: str | None) -> str:
     return _WS.sub("", unicodedata.normalize("NFKC", text or ""))
 
 
+def _items(rule: dict) -> list[tuple[str, dict]]:
+    """quote를 달 수 있는 자리: 조건(any_of 묶음 포함)과 apply_window."""
+    out = [(f"조건 {i}", c) for i, c in enumerate(rule.get("conditions", []))]
+    if isinstance(rule.get("apply_window"), dict):
+        out.append(("apply_window", rule["apply_window"]))
+    return out
+
+
 def doc_of(rule: dict) -> str:
     """원문 doc_id. 조건표의 doc_id, 없으면 기존 evidence 접두어(하나뿐이어야 한다)."""
     if rule.get("doc_id"):
         return rule["doc_id"]
-    docs = {e.rsplit(":", 1)[0] for c in rule.get("conditions", []) for e in c.get("evidence") or []
+    docs = {e.rsplit(":", 1)[0] for _, c in _items(rule) for e in c.get("evidence") or []
             if isinstance(e, str) and ":" in e}
     if len(docs) == 1:
         return docs.pop()
@@ -41,15 +49,16 @@ def doc_of(rule: dict) -> str:
 
 
 def resolve_rule(rule: dict, lines: list[dict], doc_id: str) -> list[str]:
-    """quote가 있는 조건(any_of 묶음 포함)의 evidence를 원문 줄 ID로 다시 쓴다(rule을 고친다). 오류 문구 목록을 돌려준다."""
+    """quote가 있는 조건(any_of 묶음 포함)과 apply_window의 evidence를 원문 줄 ID로 다시 쓴다(rule을 고친다).
+    오류 문구 목록을 돌려준다."""
     keyed = [(l["id"], _key(l.get("text"))) for l in lines]
     order = {lid: n for n, (lid, _) in enumerate(keyed)}
     errors = []
-    for i, c in enumerate(rule.get("conditions", [])):
+    for name, c in _items(rule):
         quote = c.get("quote")
         if not isinstance(quote, str):
             continue
-        where = f"{rule.get('id')} 조건 {i}"
+        where = f"{rule.get('id')} {name}"
         frags = [(s.strip(), k) for s in _ELLIPSIS.split(quote) if len(k := _key(s)) >= MIN_CHARS]
         if not frags:
             errors.append(f"{where}: quote 조각이 너무 짧습니다(띄어쓰기 빼고 {MIN_CHARS}자 이상): {quote!r}")

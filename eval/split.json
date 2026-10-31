@@ -93,7 +93,7 @@
       "stage": "parent"
     },
     "manual:housing-repair": {
-      "name": "주거급여 수선유지급여 또는 서울 희망의 집수리",
+      "name": "희망의 집수리(서울)",
       "subject": "parent",
       "stage": "parent"
     }

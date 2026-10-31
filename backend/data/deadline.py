@@ -15,6 +15,8 @@ ALWAYS = ("상시", "연중", "수시")
 UNDECIDED = ("미정", "추후", "별도 공지", "별도공지", "예산 소진", "예산소진")
 
 _DATE = re.compile(r"(20\d{2})\s*[.\-/년]\s*(\d{1,2})\s*[.\-/월]\s*(\d{1,2})\s*일?")
+# "2026년 상반기"처럼 연도와 반기만 적은 것. 그 반기의 마지막 날을 마감으로 본다("매년 3~4월"은 연도가 없어 읽지 않는다)
+_HALF = re.compile(r"(20\d{2})\s*년?\s*(상|하)반기")
 
 
 def _dates(text: str) -> list[date]:
@@ -32,6 +34,7 @@ def parse_deadline(text: str | None) -> dict:
     if not raw:
         return {"type": "미정", "date": None, "text": raw}
     found = _dates(raw)
+    found += [date(int(y), 6, 30) if h == "상" else date(int(y), 12, 31) for y, h in _HALF.findall(raw)]
     if found:
         return {"type": "기간", "date": max(found).isoformat(), "text": raw}
     if any(word in raw for word in ALWAYS):

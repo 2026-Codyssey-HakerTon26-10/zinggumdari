@@ -1,0 +1,84 @@
+{
+ "id": "manual:seoul-newlywed-deposit",
+ "source": "manual",
+ "name": "서울 신혼부부 임차보증금 이자지원",
+ "org": "서울특별시",
+ "region": {
+  "sido": "서울특별시",
+  "sigungu": null
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "신혼부부 임차보증금 지원사업",
+  "서울시 신혼부부 임차보증금",
+  "서울 신혼부부 전세대출 이자지원"
+ ],
+ "same_as": [
+  "local:WLF00002617"
+ ],
+ "doc_id": "local-wlf00002617",
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "marriage_years",
+      "op": "<=",
+      "value": 7
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "예비부부"
+      ]
+     }
+    ]
+   ],
+   "quote": "결혼 7년 이내 신혼부부 또는 6개월 이내 결혼예정인 예비신혼부부",
+   "evidence": [
+    "local-wlf00002617:l2"
+   ],
+   "status": "reviewed",
+   "note": "결혼 예정은 6개월 이내만 해당. 예정 날짜는 받지 않아 예비부부 전체로 둔다"
+  },
+  {
+   "field": "income_couple",
+   "op": "<=",
+   "value": 13000,
+   "income_basis": "absolute_annual",
+   "quote": "부부합산 연소득 1억3천만원 이하",
+   "evidence": [
+    "local-wlf00002617:l4"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "대상주택: 서울시 관내 임차보증금 7억원 이내 주택 및 주거용 오피스텔",
+   "quote": "(주택조건) 서울시 관내 임차보증금 7억 이내 주택 및 주거용 오피스텔",
+   "evidence": [
+    "local-wlf00002617:l6"
+   ],
+   "status": "reviewed"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "(주택조건) 서울시 관내 임차보증금 7억 이내 주택 및 주거용 오피스텔(대출한도) 임차보증금의 90% 이내 또는 3억원 중 적은금액(지원금리) 대출금액의 최대 연 4.5%(대출기간) 최장 12년(대출형식) 한국주택금융공사 보증, 협약은행(국민,신한,하나은행) 대출, 서울시 이차보전",
+ "apply_text": "대출한도 조회 등 사전상담(신청자가 은행에서) - 전세계약(신청자) - 추천서 발급신청(신청자가 서울주거포털에서) - 신청서 검토 및 추천서 발급(서울시) - 대출신청(신청자가 은행에) - 대출심사(협약은행) - 전세자금보증(HF) - 대출금 입금(협약은행)",
+ "documents": [],
+ "documents_official": [],
+ "detail_url": "https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00002617&wlfareInfoReldBztpCd=02",
+ "updated": "2026-07-14",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}

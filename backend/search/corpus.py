@@ -197,7 +197,7 @@ def from_rule(rule: dict) -> dict:
         service_id=rule["id"], rule_id=rule["id"], source=rule.get("source"), name=rule.get("name") or "",
         org=rule.get("org"), region=region, subject=rule.get("subject") or "self",
         stage_tags=rule_stage_tags(rule), detail_url=rule.get("detail_url"), updated=rule.get("updated"),
-        fields={"aliases": " ".join(rule.get("aliases") or []), "benefit": rule.get("benefit_text"),
+        fields={"aliases": "\n".join(rule.get("aliases") or []),   # 별칭 하나가 여러 단어일 수 있어 줄로 나눈다 "benefit": rule.get("benefit_text"),
                 "criteria": _criteria_text(rule),
                 "region": (region or {}).get("sido") if isinstance(region, dict) else None},
     )
