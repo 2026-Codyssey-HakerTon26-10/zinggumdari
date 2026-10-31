@@ -1,0 +1,170 @@
+{
+ "id": "manual:hug-newlywed-purchase",
+ "source": "manual",
+ "name": "신혼부부전용 구입자금",
+ "org": "주택도시기금",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "신혼부부 디딤돌",
+  "신혼부부 주택구입대출",
+  "신혼 구입자금"
+ ],
+ "same_as": [],
+ "doc_id": "nhuf-newlywed-purchase",
+ "conditions": [
+  {
+   "field": "other",
+   "text": "민법상 성년인 세대주(세대주의 배우자, 대출접수일 현재 3개월 이내 결혼으로 세대주 예정자 등 간주 포함. 만 30세 미만 단독세대주는 제외)",
+   "quote": "대출접수일 현재 민법상 성년인 세대주 … 만 30세 미만 단독세대주는 대출 제외 … 1) 세대주의 배우자 … 3개월 이내에 결혼으로 세대주로 예정된 자",
+   "evidence": [
+    "nhuf-newlywed-purchase:l346",
+    "nhuf-newlywed-purchase:l347",
+    "nhuf-newlywed-purchase:l351",
+    "nhuf-newlywed-purchase:l352"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "quote": "세대주를 포함한 세대원 전원이 무주택인 자",
+   "evidence": [
+    "nhuf-newlywed-purchase:l354"
+   ],
+   "status": "reviewed",
+   "note": "분양권 및 조합원 입주권도 주택 보유로 간주(l355)"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marriage_years",
+      "op": "<=",
+      "value": 7
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "예비부부"
+      ]
+     }
+    ]
+   ],
+   "quote": "혼인기간(동일한 배우자와 최초 혼인 후 재혼한 경우 최초 혼일일로부터)이 7년 이내인 가구 또는 3개월 이내 결혼을 예정하여 세대 구성이 예정된 가구",
+   "evidence": [
+    "nhuf-newlywed-purchase:l375"
+   ],
+   "status": "reviewed",
+   "note": "결혼 예정은 3개월 이내만 해당. 예정 날짜는 받지 않아 예비부부 전체로 둔다"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 8500,
+      "income_basis": "absolute_annual"
+     }
+    ],
+    [
+     {
+      "field": "income_self",
+      "op": "<=",
+      "value": 6000,
+      "income_basis": "absolute_annual"
+     }
+    ]
+   ],
+   "quote": "대출신청인과 배우자의 합산 총소득이 연간 8.5천만원 이하인 자 … 부부 중 1인(대출신청인)의 소득이 연간 6천만원 이하인 경우 대출 가능",
+   "evidence": [
+    "nhuf-newlywed-purchase:l360",
+    "nhuf-newlywed-purchase:l361"
+   ],
+   "status": "reviewed",
+   "note": "토지임대부 분양주택 대출 신청자는 소득 초과 시에도 신청 가능(l362). 칸에 넣지 않았다"
+  },
+  {
+   "field": "other",
+   "text": "대출신청인과 배우자의 합산 순자산 5.11억원 이하(2026년)",
+   "quote": "합산 순자산 가액이 통계청에서 발표하는 최근년도 가계금융복지조사의 … 2026년도 기준 5.11억원",
+   "evidence": [
+    "nhuf-newlywed-purchase:l364",
+    "nhuf-newlywed-purchase:l365"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "기금대출, 은행재원 주택담보대출 이용 중이면 불가(기금 전세자금대출은 실행일 당일 상환조건부로 가능)",
+   "quote": "(중복대출 금지) 주택도시기금대출 및 은행재원 주택담보대출 미이용자 … 기금의 전세자금 대출을 받은 경우에는 실행일 당일 상환조건부로 대출 가능",
+   "evidence": [
+    "nhuf-newlywed-purchase:l356",
+    "nhuf-newlywed-purchase:l357"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "주택매매계약 체결(상속, 증여, 재산분할로 취득하는 경우 불가)",
+   "quote": "주택을 취득하기 위하여 주택매매계약을 체결한 자(상속, 증여, 재산분할로 주택을 취득하는 경우 불가)",
+   "evidence": [
+    "nhuf-newlywed-purchase:l345"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "신용정보·연체 등 해제 정보가 남아 있으면 불가",
+   "quote": "신용정보관리규약”에서 정하는 아래의 신용정보 및 해제 정보가 남아있는 경우 대출 불가능",
+   "evidence": [
+    "nhuf-newlywed-purchase:l370"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "생애최초 주택구입자: 세대원 전원이 최초로 주택을 구입하고 기금대출(최초주택구입·중도금 대출) 이용 이력(상환 포함)이 없어야 함",
+   "quote": "세대주를 포함한 세대원 전원이 최초로 주택을 구입하는 자로 기금대출(최초주택구입·중도금 대출)을 이용한 이력(상환 포함)이 없는 경우",
+   "evidence": [
+    "nhuf-newlywed-purchase:l376"
+   ],
+   "status": "reviewed"
+  },
+  {
+   "field": "other",
+   "text": "대상주택: 주거 전용면적 85㎡ 이하(수도권 밖 읍·면 100㎡), 담보주택 평가액 6억원 이하",
+   "quote": "주거 전용면적이 85㎡(수도권을 제외한 도시지역이 아닌 읍 또는 면 지역 100㎡) 이하 주택으로 대출 접수일 현재 담보주택의 평가액이 6억원 이하인 주택",
+   "evidence": [
+    "nhuf-newlywed-purchase:l381"
+   ],
+   "status": "reviewed"
+  }
+ ],
+ "exclusive_with": [],
+ "apply_window": null,
+ "benefit_text": "대출금리 연 2.55% ∼ 연 3.85%\n대출한도 최대 3.2억원 이내(LTV 80%, DTI 60% 이내. 단, 수도권·규제지역은 LTV 70% 적용)\n대출기간 10년, 15년, 20년, 30년 (거치 1년 또는 비거치)",
+ "apply_text": "소유권이전등기를 하기 전에 신청. 단, 소유권이전등기를 한 경우에는 이전등기 접수일로부터 3개월 이내까지 신청",
+ "documents": [
+  "건강보험자격득실확인서",
+  "사업자등록증",
+  "사업자등록증명원",
+  "혼인관계증명서"
+ ],
+ "documents_official": [],
+ "detail_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030601.jsp",
+ "updated": "2026-11-01",
+ "review": {
+  "status": "reviewed",
+  "by": "임종한",
+  "at": "2026-11-01"
+ },
+ "compiled": null
+}
