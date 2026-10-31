@@ -131,17 +131,49 @@ def from_lh(item: dict) -> dict:
         service_id=f"lh:{item.get('PAN_ID')}", source="lh", name=item.get("PAN_NM") or "",
         org="한국토지주택공사", region={"sido": s, "sigungu": None} if (s := short_sido(item.get("CNP_CD_NM"))) else None,
         detail_url=item.get("DTL_URL"), updated=item.get("PAN_NT_ST_DT"),
-        fields={"type": item.get("AIS_TP_CD_NM"), "region": item.get("CNP_CD_NM"), "state": item.get("PAN_SS")},
+        fields={"type": item.get("AIS_TP_CD_NM"), "region": item.get("CNP_CD_NM"), "state": item.get("PAN_SS"),
+                "deadline": item.get("CLSG_DT")},
     )
 
 
-def from_applyhome(item: dict) -> dict:
+# 청약홈 주택형별 특별공급 세대수 칸 → (보여줄 이름, 단계 태그). 노부모부양과 기관추천은 단계가 아니라 태그가 없다
+SPECIAL_SUPPLY = [
+    ("NWWDS_HSHLDCO", "신혼부부", "newlywed"), ("LFE_FRST_HSHLDCO", "생애최초", None),
+    ("MNYCH_HSHLDCO", "다자녀", "multi_child"), ("NWBB_HSHLDCO", "신생아", "child"),
+    ("YGMN_HSHLDCO", "청년", "youth"), ("OLD_PARNTS_SUPORT_HSHLDCO", "노부모부양", None),
+    ("INSTT_RECOMEND_HSHLDCO", "기관추천", None),
+]
+
+
+def applyhome_supply(raw_dir: Path | None = None) -> dict[str, dict[str, int]]:
+    """공고번호 → 특별공급 종류별 세대수 합(주택형 행을 더한다)."""
+    out: dict[str, dict[str, int]] = {}
+    for row in iter_items("applyhome_mdl", raw_dir):
+        counts = out.setdefault(str(row.get("PBLANC_NO")), {})
+        for key, label, _ in SPECIAL_SUPPLY:
+            try:
+                n = int(row.get(key) or 0)
+            except (TypeError, ValueError):
+                continue
+            if n > 0:
+                counts[label] = counts.get(label, 0) + n
+    return out
+
+
+def from_applyhome(item: dict, supply: dict[str, dict[str, int]] | None = None) -> dict:
+    counts = (supply or {}).get(str(item.get("PBLANC_NO"))) or {}
+    tags = [tag for _, label, tag in SPECIAL_SUPPLY if tag and counts.get(label)]
+    if item.get("HOUSE_SECD_NM") == "신혼희망타운":   # 전량이 신혼부부 몫이라 주택형 행에 신혼부부 칸이 비어 있다
+        tags.insert(0, "newlywed")
+    text = ", ".join(f"{label} {counts[label]}세대" for _, label, _ in SPECIAL_SUPPLY if counts.get(label))
     return _doc(
         service_id=f"applyhome:{item.get('PBLANC_NO')}", source="applyhome", name=item.get("HOUSE_NM") or "",
         org=item.get("BSNS_MBY_NM"), region={"sido": s, "sigungu": None} if (s := short_sido(item.get("SUBSCRPT_AREA_CODE_NM"))) else None,
-        stage_tags=[], detail_url=item.get("PBLANC_URL"), updated=item.get("RCRIT_PBLANC_DE"),
+        stage_tags=list(dict.fromkeys(tags)), detail_url=item.get("PBLANC_URL"), updated=item.get("RCRIT_PBLANC_DE"),
         fields={"summary": "아파트 입주자모집공고 청약", "region": item.get("HSSPLY_ADRES"),
-                "type": item.get("HOUSE_SECD_NM")},
+                "type": item.get("HOUSE_SECD_NM"), "target": f"특별공급 {text}" if text else None,
+                # 일반공급 접수가 끝나는 날. 특별공급 접수는 그보다 먼저 끝난다
+                "deadline": " ~ ".join(filter(None, [item.get("RCEPT_BGNDE"), item.get("RCEPT_ENDDE")])) or None},
     )
 
 
@@ -197,7 +229,8 @@ def from_rule(rule: dict) -> dict:
         service_id=rule["id"], rule_id=rule["id"], source=rule.get("source"), name=rule.get("name") or "",
         org=rule.get("org"), region=region, subject=rule.get("subject") or "self",
         stage_tags=rule_stage_tags(rule), detail_url=rule.get("detail_url"), updated=rule.get("updated"),
-        fields={"aliases": "\n".join(rule.get("aliases") or []),   # 별칭 하나가 여러 단어일 수 있어 줄로 나눈다 "benefit": rule.get("benefit_text"),
+        fields={"aliases": "\n".join(rule.get("aliases") or []),   # 별칭 하나가 여러 단어일 수 있어 줄로 나눈다
+                "benefit": rule.get("benefit_text"),
                 "criteria": _criteria_text(rule),
                 "region": (region or {}).get("sido") if isinstance(region, dict) else None},
     )
@@ -208,13 +241,14 @@ def build_corpus(raw_dir: Path | None = None, rules: list[dict] | None = None,
     """(문서들, rule_id → 조건표)."""
     keywords = stage_keywords(docs_dir)
     docs: dict[str, dict] = {}
+    supply = applyhome_supply(raw_dir)
     makers = [
         ("gov24_serviceList", from_gov24),
         ("ssis_local", lambda it: from_ssis(it, central=False)),
         ("ssis_central", lambda it: from_ssis(it, central=True)),
         ("youth", from_youth),
         ("lh_list", from_lh),
-        ("applyhome_detail", from_applyhome),
+        ("applyhome_detail", lambda it: from_applyhome(it, supply)),
     ]
     for name, make in makers:
         for item in iter_items(name, raw_dir):

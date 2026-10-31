@@ -15,6 +15,7 @@ from backend.search import service
 from backend.search.corpus import build_corpus, rule_stage_tags, short_sido
 from backend.search.index import BM25, SearchIndex, bigrams, expand_query
 from backend.search.ports import Ports, fake_judge, ports, profile_tags
+from backend.search.rank import closed
 
 R = {"status": "reviewed"}
 REVIEWED = {"review": {"status": "reviewed"}}
@@ -129,6 +130,41 @@ def test_corpus_same_as_and_regions(client):
     assert by["local:WLF001"]["region"] == {"sido": "부산", "sigungu": "해운대구"}
     assert "multi_child" in by["local:WLF001"]["stage_tags"]
     assert short_sido("충청북도 청주시") == "충북"
+
+
+def test_applyhome_and_lh_deadline_and_special_supply(tmp_path):
+    """청약홈은 주택형 행의 특공 세대수를 공고마다 더해 요약과 단계 태그로, 청약홈과 LH는 접수 마감을 deadline으로."""
+    def page(folder, data):
+        (tmp_path / folder).mkdir()
+        (tmp_path / folder / "page-0001.json").write_text(json.dumps({"data": data, "totalCount": len(data)}, ensure_ascii=False))
+    page("applyhome_detail", [
+        {"PBLANC_NO": "2026000001", "HOUSE_NM": "가나 센트럴", "HOUSE_SECD_NM": "APT", "SUBSCRPT_AREA_CODE_NM": "경기",
+         "RCRIT_PBLANC_DE": "2026-10-20", "RCEPT_BGNDE": "2026-11-03", "RCEPT_ENDDE": "2026-11-05"},
+        {"PBLANC_NO": "2026000002", "HOUSE_NM": "다라 신혼희망타운", "HOUSE_SECD_NM": "신혼희망타운",
+         "SUBSCRPT_AREA_CODE_NM": "서울", "RCRIT_PBLANC_DE": "2026-03-02", "RCEPT_BGNDE": "2026-03-16", "RCEPT_ENDDE": "2026-03-18"},
+    ])
+    page("applyhome_mdl", [
+        {"PBLANC_NO": "2026000001", "NWWDS_HSHLDCO": 10, "LFE_FRST_HSHLDCO": 5, "MNYCH_HSHLDCO": 0, "NWBB_HSHLDCO": 2},
+        {"PBLANC_NO": "2026000001", "NWWDS_HSHLDCO": 3, "LFE_FRST_HSHLDCO": "1", "MNYCH_HSHLDCO": 4, "NWBB_HSHLDCO": 0},
+        {"PBLANC_NO": "2026000002", "SPSPLY_HSHLDCO": 200},
+    ])
+    (tmp_path / "lh_list").mkdir()   # LH 응답은 [{"dsSch": …}, {"dsList": […]}] 모양이다
+    (tmp_path / "lh_list" / "page-0001.json").write_text(json.dumps([{"dsSch": []}, {"dsList": [
+        {"PAN_ID": "0001", "PAN_NM": "행복주택", "CNP_CD_NM": "서울특별시", "PAN_SS": "접수마감", "CLSG_DT": "2026.10.10"}]}],
+        ensure_ascii=False))
+    docs, _ = build_corpus(raw_dir=tmp_path, rules=[])
+    by = {d["service_id"]: d for d in docs}
+    apt, town, lh = by["applyhome:2026000001"], by["applyhome:2026000002"], by["lh:0001"]
+    assert apt["fields"]["target"] == "특별공급 신혼부부 13세대, 생애최초 6세대, 다자녀 4세대, 신생아 2세대"
+    assert apt["stage_tags"] == ["newlywed", "multi_child", "child"]
+    assert town["stage_tags"] == ["newlywed"] and town["fields"]["target"] is None   # 신혼희망타운은 주택형 칸이 비어도 신혼
+    today = date(2026, 11, 1)
+    assert not closed(apt, None, today) and closed(town, None, today) and closed(lh, None, today)
+
+
+def test_manual_rule_benefit_is_indexed(client):
+    docs, _ = build_corpus(rules=[{**RULES[0], "benefit_text": "건설량의 15% 범위에서 특별공급"}])
+    assert next(d for d in docs if d["service_id"] == "manual:subscription-newlywed")["fields"]["benefit"].startswith("건설량")
 
 
 @pytest.mark.parametrize("q, want", [("신혼 특공", "신혼부부 특별공급"), ("버팀목", "청년전용 버팀목전세자금"), ("기초연금", "기초연금")])
