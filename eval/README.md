@@ -15,7 +15,7 @@ KNN 20/50/100, 동일 필터를 거친 전체 해당 비율 순위와 무작위�
 
 `coverage.create_router(load_rules)`는 main 담당자가 등록한다. 평가 전에는 null을 반환한다.
 공개 results.json에 개인별 프로필·정답을 넣지 않는다. silent_omissions는 공고 조건과 근거 줄만 포함한다.
-실제 손 조건표·엔진·페르소나가 아직 없어 결과 파일과 정답·표본50 채점은 생성하지 않았다.
+손 조건표·엔진은 연결됐지만 AI 조건표·실제 채점 기록이 없으면 결과 파일과 표본 채점 숫자를 생성하지 않는다.
 
 수정한 평가 계약
 ----------------
@@ -33,6 +33,91 @@ validation_ids=선택결과["validation_ids"])를 한 번 호출한다. pool·�
 baseline_question_only와 variant_rule_bins는 아직 미측정이므로 None이다.
 
 채점기록 extraction·verdicts에는 rule_id가 필수이고 verdicts는 user_id도 필요하다.
-split의 dev/test는 제도 ID 목록이다. dev·미지정 제도는 시험 채점에서 거부한다.
-sample50은 correct 불리언을 가진 정확히 50개 채점 기록, verifier는 correct·flagged 불리언을 가진
+split의 dev/test는 제도 ID 목록이다. 개발용만 채점하며 test·outside·미지정 제도는 거부한다. 시험용은 개수만 기록하고 정밀도는 항상 null이다.
+sample50은 rule_id·condition_index·correct 불리언을 가진 중복 없는 정확히 50개 채점 기록, verifier는 correct·flagged 불리언을 가진
 원출력 조건별 채점 기록이다. 값이 없으면 결과도 None이다. 실제 정답 파일은 변경하지 않는다.
+
+
+개발용 평가와 제출 준비 (#43)
+----------------------------
+
+추출 정밀도와 판정 일치는 개발용 5개만 입력한다. 출력은 evaluation_scope=dev_only,
+precision_auto_verified.dev와 test=null이다. limitation 문구를 /stats/coverage에도 전달한다.
+개발용은 프롬프트를 맞춘 집합이므로 독립 시험 성능으로 발표하면 안 된다.
+채점 기록이 없으면 status=not_evaluated이고 수치는 null이다. 빈 결과 파일로 완료를 대신하지 않는다.
+판정 기록의 (user_id, rule_id) 및 추출 기록의 rule_id 중복은 거부한다.
+
+AI 결과가 준비되면 원문을 다시 호출하지 않고 캐시에서 표본을 만든다:
+
+`uv run --project backend python -m eval.sample --rules-dir rules/compiled --output eval/sample50.json`
+
+표본은 고정 seed, 모집단 해시, 중복 없는 50개 조건을 기록한다. 50개 미만이면 실패하고
+correct는 모두 null이다. 프롬프트를 작성하지 않는 평가 담당자가 evidence의 원문과 대조하여
+각 correct를 true/false로 작성한다. 실패한 조건을 더 좋은 조건으로 바꾸거나 재추출하지 않는다.
+완료된 표본 객체를 채점기록의 sample50에 넣어 eval.score를 실행한다. 표본은 덮어쓰지 않는다.
+페르소나 정답도 원문을 보고 별도로 확정하며 엔진의 출력값을 정답으로 복사하지 않는다.
+
+`uv run --project backend python -m eval.submission`
+
+점검기는 외부 자원 표의 미확정 행, AI 조건표·페르소나·실제 평가 결과 존재와 평가 범위,
+현재 commit과 git 저자 이름을 보여준다. 개인정보 정답 본문은 열지 않는다. 실제 팀원 5명의
+실명 대응 확인·팀명 확정·외부 자원 이용 조건 확인은 사람이 마친 뒤에만 다음을 실행한다:
+
+`uv run --project backend python -m eval.submission --team-name 팀명 --authors-confirmed --commit HEAD --write /tmp/submission`
+
+미완료 항목, 더러운 작업 트리, HEAD와 다른 커밋이면 제출 안내를 만들지 않는다. 생성 파일은
+저장소 공개 주소와 정확한 커밋 해시만 담고 기존 제출 파일은 덮어쓰지 않는다. 이 명령은 main을
+수정하거나 커밋을 고정하지 않으며 마감 뒤 main 변경에는 팀장 승인이 필요하다.
+
+이메일 대상 연결
+----------------
+
+현재 main의 알림 라우터와 send_email은 이메일 채널 선택·관심 분야·수신 주소·기발송 여부를
+확인한다. 프로필 저장 담당자가 동의한 alert_channel/alert_categories/email을 DB에 저장해야 한다.
+실제 SMTP 설정과 수신 계정 확인 없이는 실메일 테스트를 하지 않는다. 앱 재판정은 인앱 알림 저장이며
+자동 이메일 발송 작업자·delivery_unknown 복구까지 완료된 것은 아니다(backend/notify/README.md).
+
+
+가상 함정 페르소나
+-----------------
+
+혼인 8년·소득 초과, 소득 초과 단독 사례, 64세 부모님, 접수 마감 청년월세, 만 나이 경계
+5건을 eval/personas/에 작성했다. 모두 가상이며 독립적인 손 조건표 근거를 expected에 기록했다.
+64세는 미래 개방/확인 필요를 허용하고 eligible을 금지한다. 생년만 아는 만 나이 경계는
+확인 필요만 허용한다. 엔진 결과로 정답을 생성하거나 실패 후 정답을 맞추지 않는다.
+평가 담당자가 명시적으로 실행한다(일반 테스트는 이 정답 파일을 열지 않는다):
+
+`uv run --project backend python -m eval.personas --personas-dir eval/personas --output eval/persona-results.json`
+
+persona-results.json은 이 5건의 안전성 점검 결과이며, 개발용 추출 정밀도나 9000가구 판정 일치,
+표본50 채점을 대체하지 않는다. eval/results.json의 실제 AI 평가와 이 5건의 함정 안전성 결과를 혼동하지 않는다.
+
+
+현재 채점 스냅샷
+----------------
+
+현재 results.json과 reviews/는 #54의 커밋 2d6b5adba5ee1b930530ed0ab9dd9df6ee1d86c7을
+대상으로 Codex 보조 채점한 기록이다. 원래 표본 50개(seed=42, 모집단 961개)를 바꾸지 않았고,
+개발용 원출력 45개도 근거와 대조했다. 첨부 근거 135개를 같은 커밋의 lines.json과 대조했다.
+리뷰 파일에 각 행의 원본 해시와 판정 이유를 남겼다. 원문에 없는 기준일, 주체/대안 상실,
+지역 분기 누락은 오답으로 보수적으로 처리한다. 발표 전 이 채점 기준과 개별 판단을 검토할 수 있다.
+other의 문구 차이로 인한 엄격 키 일치의 한계도 그대로 남겼으며 근거 겹침만으로 정답을 늘리지 않는다.
+
+#54 입력 세 파일을 동일한 내용으로 받은 디렉터리에서:
+
+`uv run --project backend python -m eval.assemble --inputs-dir /path/to/eval54`
+
+현재 원본 파일은 #54에서 제공한다. 입력 파일/조건의 해시가 달라지면 기존 리뷰를 재사용하지 않는다.
+개발용 5개 추출 점수와 표본 점수는 별도 분모로 보고, test는 항상 null이다. PR 스냅샷이므로
+main의 조건표 개수와 혼동하지 않도록 source_snapshot을 공개 통계에도 전달한다.
+
+원래 생성된 가상 인구 users.parquet 캐시가 있으면 네트워크 없이 판정 일치를 계산한다:
+
+`uv run --project backend python -m eval.agreement --input /path/to/eval54/score_input.json --population data/population/users.parquet --today 2026-11-01 --output /tmp/agreement.json`
+
+`uv run --project backend python -m eval.assemble --inputs-dir /path/to/eval54 --agreement /tmp/agreement.json`
+
+캐시의 pool 9000가구 × 개발용 본인 제도 3개 = 27000쌍을 비교했다. 부모 정보가 없는 캐시라
+부모 제도 2개는 지어내지 않고 제외했으며 agreement_source에 기록했다. 같은 엔진의 손/AI 조건
+비교이므로 독립적인 법률 정확도나 KNN 최종 성능이 아니다. KNN 독립 holdout 평가는 아직 미완료다.
+로컬 시연 기준으로 진행하며 Vercel CORS/쿠키 배포 변경은 이번 작업에 포함하지 않는다.
