@@ -33,11 +33,26 @@ PARENT = ("relation", "birth_year", "birth_date", "sido", "sigungu", "lives_alon
 SELF_FIELDS = set(USERS).union(*ONE_ROW.values(), {"qualifications", "history"})
 
 
-def create_account(conn: psycopg.Connection, email: str, password_hash: str) -> str:
-    """계정 한 줄. 비밀번호는 해시만 받는다. account_id(문자열)를 돌려준다."""
-    row = conn.execute("INSERT INTO auth_accounts (email, password_hash) VALUES (%s, %s) RETURNING account_id",
-                       (email, password_hash)).fetchone()
+def create_account(conn: psycopg.Connection, email: str, password_hash: str, nickname: str | None = None,
+                   agreed: bool = False) -> str:
+    """계정 한 줄. 비밀번호는 해시만 받는다. account_id(문자열)를 돌려준다.
+    agreed=True면 필수 동의(이용약관, 개인정보 수집·이용)한 시각을 지금으로 남긴다."""
+    row = conn.execute(
+        "INSERT INTO auth_accounts (email, password_hash, nickname, terms_agreed_at, privacy_agreed_at) "
+        "VALUES (%s, %s, %s, CASE WHEN %s THEN now() END, CASE WHEN %s THEN now() END) RETURNING account_id",
+        (email, password_hash, nickname, agreed, agreed)).fetchone()
     return str(row[0])
+
+
+def account_info(conn: psycopg.Connection, account_id: str) -> dict | None:
+    """/auth/me용 계정 칸. 없으면 None. 동의는 동의한 시각(ISO) 또는 None."""
+    cur = conn.cursor(row_factory=dict_row)
+    row = cur.execute("SELECT email, nickname, terms_agreed_at, privacy_agreed_at FROM auth_accounts "
+                      "WHERE account_id = %s", (account_id,)).fetchone()
+    if row is None:
+        return None
+    at = {k: (row[f"{k}_agreed_at"].isoformat() if row[f"{k}_agreed_at"] else None) for k in ("terms", "privacy")}
+    return {"email": row["email"], "nickname": row["nickname"], "consents": at}
 
 
 def create(conn: psycopg.Connection, account_id: str, profile: dict) -> str:
