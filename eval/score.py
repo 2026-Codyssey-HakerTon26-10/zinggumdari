@@ -13,7 +13,7 @@ VERDICTS = {"eligible", "ineligible", "needs_check", "opens_later", "no_rule"}
 
 
 def condition_key(condition):
-    keys = ("field", "op", "value", "as_of", "income_basis", "any_of")
+    keys = ("field", "op", "value", "as_of", "income_basis", "any_of", "text")
     value = {k: condition[k] for k in keys if k in condition}
     if "any_of" in value:
         value["any_of"] = [[json.loads(condition_key(c)) for c in branch] for branch in value["any_of"]]
@@ -62,7 +62,7 @@ def ranking_score(predictions, expected):
     if len(predictions) != len(expected):
         raise ValueError("추천과 정답의 가구 수가 다릅니다")
     if not predictions:
-        return dict(n=0, precision_at_5=None, recall_at_5=None)
+        return dict(n=0, recall_n=0, precision_at_5=None, recall_at_5=None)
     precision, recall = [], []
     for predicted, gold in zip(predictions, expected):
         selected = set(dict.fromkeys(predicted[:5]))
@@ -71,14 +71,49 @@ def ranking_score(predictions, expected):
         precision.append(hits / 5)
         if gold:
             recall.append(hits / len(gold))
-    return dict(n=len(predictions), precision_at_5=sum(precision) / len(precision),
+    return dict(n=len(predictions), recall_n=len(recall), precision_at_5=sum(precision) / len(precision),
                 recall_at_5=sum(recall) / len(recall) if recall else None)
 
 
-def score(document):
+def score(document, split=None):
+    pairs = document.get("extraction", [])
+    verdicts = document.get("verdicts", [])
+    if (pairs or verdicts) and split is None:
+        raise ValueError("시험 채점에는 개발·시험 split이 필요합니다")
+    test_ids = set((split or {}).get("test", []))
+    dev_ids = set((split or {}).get("dev", []))
+    if test_ids & dev_ids:
+        raise ValueError("개발용과 시험용 제도가 겹칩니다")
+    for row in pairs + verdicts:
+        if row.get("rule_id") not in test_ids:
+            raise ValueError("시험용 rule_id가 없거나 개발용 제도가 섞였습니다")
+    extraction = [dict(rule_id=p["rule_id"], **extraction_score(p["gold"], p["extracted"])) for p in pairs]
+    agreement = verdict_score(verdicts)
+    sample = document.get("sample50")
+    if sample is not None and (len(sample) != 50 or any(type(r.get("correct")) is not bool for r in sample)):
+        raise ValueError("표본 채점은 correct 불리언 50개여야 합니다")
+    verifier_rows = document.get("verifier")
+    verifier = None
+    if verifier_rows is not None:
+        if any(type(r.get("correct")) is not bool or type(r.get("flagged")) is not bool for r in verifier_rows):
+            raise ValueError("검증기 기여 채점은 correct·flagged 불리언이 필요합니다")
+        verifier = {"llm_wrong": sum(not r["correct"] for r in verifier_rows),
+                    "caught": sum(not r["correct"] and r["flagged"] for r in verifier_rows),
+                    "llm_right": sum(r["correct"] for r in verifier_rows),
+                    "flagged_right": sum(r["correct"] and r["flagged"] for r in verifier_rows)}
     return dict(
-        verdicts=verdict_score(document.get("verdicts", [])),
-        extraction=[extraction_score(pair["gold"], pair["extracted"]) for pair in document.get("extraction", [])],
+        verdicts=agreement, extraction=extraction,
+        split={"dev": len(dev_ids), "test": len(test_ids)},
+        precision_auto_verified={"test": {"correct": sum(r["correct"] for r in extraction),
+                                          "n": sum(r["auto_verified"] for r in extraction)} if extraction else None,
+                                 "sample": {"correct": sum(r["correct"] for r in sample), "n": 50} if sample is not None else None},
+        missed=sum(len(r["silent_omissions"]) for r in extraction) if extraction else None,
+        agreement={"households": len({r["user_id"] for r in verdicts}) if verdicts else None,
+                   "rules": len({r["rule_id"] for r in verdicts}) if verdicts else None,
+                   "same": agreement["matched"] if verdicts else None,
+                   "danger": agreement["dangerous"] if verdicts else None,
+                   "missed_benefit": agreement["missed"] if verdicts else None},
+        verifier=verifier,
         basis="가상 인구(가정 분포). 같은 규칙으로 만든 정답이며 분포 가정에 따라 값이 바뀝니다",
     )
 
@@ -87,8 +122,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--output", default=Path("eval/results.json"), type=Path)
+    parser.add_argument("--split", type=Path, help="담당자가 관리하는 개발·시험 분할 JSON")
     args = parser.parse_args()
-    result = score(json.loads(args.input.read_text()))
+    result = score(json.loads(args.input.read_text()), json.loads(args.split.read_text()) if args.split else None)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
 

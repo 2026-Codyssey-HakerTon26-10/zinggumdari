@@ -15,10 +15,11 @@ def coverage(rules, results=None):
             manual += 1
         else:
             ai += 1
-        states.update(c.get("status", "needs_review") for c in rule.get("conditions", []))
-        unaccounted += rule.get("coverage", {}).get("unaccounted", 0)
-    return dict(manual=manual, ai=ai, condition_states=dict(states),
-                unaccounted_lines=unaccounted, evaluation=results)
+            states.update(c.get("status", "needs_review") for c in rule.get("conditions", []))
+            unaccounted += rule.get("coverage", {}).get("unaccounted", 0)
+    return dict(manual=manual, compiled=dict(rules=ai, conditions=sum(states.values()),
+                auto_verified=states["auto_verified"], needs_review=states["needs_review"], unaccounted_lines=unaccounted),
+                eval={k: results.get(k) for k in ("split", "precision_auto_verified", "missed", "agreement", "verifier")} if results else None)
 
 
 def create_router(load_rules, *, results_path=Path("eval/results.json"), explore_path=Path("eval/explore-results.json")):
@@ -33,6 +34,10 @@ def create_router(load_rules, *, results_path=Path("eval/results.json"), explore
 
     @router.get("/stats/explore")
     def stats_explore():
-        return read(explore_path) or {"status": "not_evaluated", "k": None, "precision_at_5": None, "recall_at_5": None}
+        result = read(explore_path)
+        if result and result.get("purpose") == "test":
+            return result
+        return {"status": "not_evaluated", "k": None, "precision_at_5": None, "recall_at_5": None,
+                "baseline_popular": None, "baseline_random": None, "baseline_question_only": None, "variant_rule_bins": None}
 
     return router
