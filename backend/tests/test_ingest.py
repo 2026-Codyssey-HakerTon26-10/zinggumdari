@@ -159,3 +159,36 @@ def test_fetch_url_blocks_internal_and_caps_size(monkeypatch):
 
     ok = httpx.MockTransport(lambda r: httpx.Response(200, content=b"%PDF-1.4 small"))
     assert ing.fetch_url("http://8.8.8.8/a.pdf", transport=ok) == b"%PDF-1.4 small"
+
+
+@needs_pdf
+def test_upload_visible_only_to_owner(tmp_path, world, notice_pdf, monkeypatch):
+    from backend.app.routers import notices as notices_router
+    from backend.search.ports import ports
+
+    ing = world
+    monkeypatch.setattr(ing, "_compile", lambda: lambda doc_id, lines, source: [{"id": "upload:same-id", "conditions": []}])
+    a = ing.ingest(notice_pdf, "a.pdf", uploaded_by="A1")["log"]["doc_id"]
+    b = ing.ingest(make_pdf(tmp_path / "b.pdf", [[(72, 700 - 14 * k, f"other notice line {k} with text") for k in range(5)]]),
+                   "b.pdf", uploaded_by="B1")["log"]["doc_id"]
+    files = sorted(p.name for p in (tmp_path / "uploads").glob("*.json"))
+    assert len(files) == 2 and files[0].startswith(min(a, b))               # 같은 id여도 파일이 따로 남는다
+
+    store.register_text("○ 무주택 세대주", "web-doc", "web", "https://example.org", "공개 원문", notices_dir=None)
+    monkeypatch.setattr(ports, "session_user",
+                        lambda req: {"account_id": acc, "profile_id": "p"} if (acc := req.headers.get("x-acc")) else None)
+    app = FastAPI()
+    app.include_router(notices_router.router)
+    c = TestClient(app)
+    assert [m["doc_id"] for m in c.get("/notices").json()] == ["web-doc"]   # 로그인 안 하면 공개 원문만
+    mine = c.get("/notices", headers={"x-acc": "A1"}).json()
+    assert sorted(m["doc_id"] for m in mine) == sorted([a, "web-doc"]) and all("uploaded_by" not in m for m in mine)
+    assert c.get(f"/notices/{a}", headers={"x-acc": "B1"}).status_code == 404
+    assert c.get(f"/notices/{a}/file", headers={"x-acc": "B1"}).status_code == 404
+    assert c.get(f"/notices/{a}/file").status_code == 404
+    own = c.get(f"/notices/{a}", headers={"x-acc": "A1"})
+    assert own.status_code == 200 and "uploaded_by" not in own.json()
+    assert c.get(f"/notices/{a}/file", headers={"x-acc": "A1"}).status_code == 200
+
+    assert ing.delete_uploads("A1") == 1
+    assert len(list((tmp_path / "uploads").glob("*.json"))) == 1             # B1 조건표는 남는다

@@ -38,6 +38,8 @@ RULES = [
      "conditions": [{"field": "marital_status", "op": "in", "value": ["신혼", "기혼"], "quote": "신혼부부", **R}]},
     {"id": "gov24:WII000001", "source": "gov24", "name": "AI가 읽은 서울 신혼", "subject": "self", "review": {"status": "unreviewed"},
      "conditions": [{"field": "age", "op": "<=", "value": 39, "evidence": ["x:l1"], "status": "auto_verified"}]},
+    {"id": "upload:upload-20261031-ab12cd34:x", "source": "upload", "name": "남이 올린 청년 공고", "subject": "self",
+     "review": {"status": "unreviewed"}, "conditions": []},
     {"id": "gov24:WII000009", "source": "gov24", "name": "AI가 읽은 청년 주거", "subject": "self", "review": {"status": "unreviewed"},
      "conditions": [{"field": "age", "op": "<=", "value": 39, "evidence": ["x:l1"], "status": "auto_verified"}]},
 ]
@@ -119,6 +121,7 @@ def test_corpus_same_as_and_regions(client):
     assert joined["rule_id"] == "manual:seoul-newlywed-interest"            # 손 조건표가 이긴다
     assert joined["name"] == "서울 신혼부부 임차보증금 이자지원" and joined["detail_url"].endswith("WII000001")
     assert "gov24:WII000001" not in rules and "gov24:WII000009" in rules     # same_as에 걸린 AI 조건표는 뺀다
+    assert not any(r.startswith("upload:") for r in rules)                  # 남의 업로드는 공용 색인에 없다
     assert by["gov24:135200000001"]["region"] == {"sido": "경기", "sigungu": "고양시"}
     assert by["gov24:135200000002"]["region"] is None and by["gov24:135200000002"]["subject"] == "parent"
     assert by["local:WLF001"]["region"] == {"sido": "부산", "sigungu": "해운대구"}

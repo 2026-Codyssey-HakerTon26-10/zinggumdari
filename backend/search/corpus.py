@@ -3,6 +3,7 @@
 문서 하나: service_id, rule_id, name, org, region, subject, stage_tags, detail_url, updated,
 fields(색인할 글 칸들). 조건표의 id가 덤프 항목과 같거나(gov24:WII…) 손 조건표의 same_as가 그 항목을
 가리키면 한 문서로 합친다. 손 조건표의 same_as에 걸린 서비스의 AI 조건표는 검색에 쓰지 않는다(SPEC §9.4).
+사용자 업로드 조건표(source: upload)도 쓰지 않는다.
 """
 
 from __future__ import annotations
@@ -220,6 +221,8 @@ def build_corpus(raw_dir: Path | None = None, rules: list[dict] | None = None,
             docs.setdefault(doc["service_id"], doc)
 
     rules = load_rules() if rules is None else rules
+    # 사용자 업로드 조건표는 공용 색인에 넣지 않는다(올린 본인에게만 판정 카드로 합류한다, 인증·소유권 계약)
+    rules = [r for r in rules if r.get("source") != "upload"]
     manual_same = {sid: r for r in rules if r.get("source") == "manual" for sid in r.get("same_as") or []}
     rules = [r for r in rules if r.get("source") == "manual" or r["id"] not in manual_same]
     by_id = {r["id"]: r for r in rules}

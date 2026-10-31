@@ -144,8 +144,9 @@ def _after_merge(rule_ids: list[str]) -> dict | None:
     return rebuild(rule_ids=rule_ids)
 
 
-def _rule_file(rule_id: str) -> Path:
-    return upload_rules_dir() / (re.sub(r"[^a-z0-9._-]", "_", rule_id.lower()) + ".json")
+def _rule_file(doc_id: str, rule_id: str) -> Path:
+    """업로드 조건표 파일. compile()이 업로드마다 같은 id를 내도 다른 업로드를 덮어쓰지 않게 doc_id를 앞에 붙인다."""
+    return upload_rules_dir() / f"{doc_id}__{re.sub(r'[^a-z0-9._-]', '_', rule_id.lower())}.json"
 
 
 def delete_uploads(account_id: str) -> int:
@@ -156,7 +157,7 @@ def delete_uploads(account_id: str) -> int:
         if meta.get("source") != "upload" or meta.get("uploaded_by") != account_id:
             continue
         for rule_id in meta.get("rules", []):
-            _rule_file(rule_id).unlink(missing_ok=True)
+            _rule_file(doc_id, rule_id).unlink(missing_ok=True)
         for p in store.paths_of(doc_id):
             p.unlink(missing_ok=True)
         if cache_dir().is_dir():
@@ -218,7 +219,7 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     for rule in rules:
         rule.setdefault("source", "upload")
         rule.setdefault("review", {"status": "unreviewed"})
-        _rule_file(rule["id"]).write_text(json.dumps(rule, ensure_ascii=False, indent=2), encoding="utf-8")
+        _rule_file(doc_id, rule["id"]).write_text(json.dumps(rule, ensure_ascii=False, indent=2), encoding="utf-8")
     meta = {**(store.load_meta(doc_id) or meta), "rules": [r["id"] for r in rules]}
     store.save_meta(meta)
     from backend.search.service import reset_index
