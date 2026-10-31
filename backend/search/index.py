@@ -14,6 +14,8 @@ from collections import Counter
 
 import numpy as np
 
+from backend.search.corpus import short_sido
+
 # 조건표 aliases로 못 넓히는 흔한 줄임말. 원문 용어로 바꿔 덧붙인다(원래 검색어도 남긴다).
 ABBREV = {
     "특공": "특별공급",
@@ -94,7 +96,8 @@ def _in_region(doc: dict, sido: str) -> bool:
     region = doc.get("region")
     if region is None:
         return True   # 전국
-    return isinstance(region, dict) and region.get("sido") == sido
+    # 덤프는 "경남", 손 조건표는 "경상남도"처럼 적는다. 둘 다 짧은 이름으로 맞춰 비교한다
+    return isinstance(region, dict) and short_sido(region.get("sido")) == short_sido(sido)
 
 
 class SearchIndex:
