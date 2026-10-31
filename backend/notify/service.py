@@ -67,7 +67,7 @@ def rebuild(profiles, rules, judge, save, *, today, events=None, rule_ids=None, 
     # DB 어댑터가 소유 관계를 내부 account_id로 붙인다. 누락은 전체 사용자로 해석하지 않는다.
     selected_profiles = [p for p in profiles if not account_id or p.get("account_id") == account_id]
     visible_rules = [r for r in rules if r.get("source") != "upload" or
-                     (account_id and (rule_ids is None or r["id"] in rule_ids))]
+                     (account_id and rule_ids is not None and r["id"] in rule_ids)]
     count = 0
     for profile in selected_profiles:
         results = judge(profile, visible_rules, today=today)
