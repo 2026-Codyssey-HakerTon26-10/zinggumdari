@@ -70,6 +70,6 @@ def stage2(s1: pd.DataFrame, scale: dict[str, list[float]]) -> pd.DataFrame:
     # 막내 6세 이하면 1, 자녀가 없으면 0. 자녀 수를 모르면 빈 칸
     youngest = pd.to_numeric(s1["youngest_child_age"], errors="coerce")
     kids = pd.to_numeric(s1["children_count"], errors="coerce")
-    x["자녀_6세이하"] = np.where(kids.isna(), np.nan, (youngest <= 6).astype(float))
+    x["자녀_6세이하"] = np.where(kids.isna(), np.nan, (youngest <= 6).fillna(False).astype(float))
     x.insert(0, "user_id", s1["user_id"])
     return x[["user_id", *COLUMNS]]

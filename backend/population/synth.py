@@ -38,6 +38,7 @@ ASSUMPTIONS = {
     # ② 칸
     "tenure_uniform": ["자가", "전세", "월세", "보증부월세"],  # 독립 가구이고 글에 없을 때 균등
     "householder_married_rate": 0.5,  # 부부 중 본인이 세대주
+    "host_home_owned_rate": 0.6,  # 부모·조부모 집에 살고 글에 단서가 없을 때 그 집이 자가(→ 무주택 아님)
     "dual_income_rate": 0.55,  # 일하는 기혼자 중 맞벌이
     "income_monthly": {  # 만원, 균등
         "재직": [180, 450], "자영업": [100, 500], "육아휴직": [100, 250],
@@ -213,11 +214,17 @@ def _person(r, rng: np.random.Generator) -> dict:
     else:
         job = "자영업" if rng.random() < A["self_employed_rate"] else "재직"
 
-    # 주거. 남의 집에 사는 사람은 무상거주·세대원(글의 전세·자가는 그 집 이야기라 쓰지 않는다)
+    # 주거. 남의 집에 사는 사람은 무상거주·세대원이고, 글의 전세·자가는 그 집 이야기라
+    # 무주택 여부(세대 기준)에만 쓴다. 같이 살면 같은 세대로 본다
+    hits = [k for k, p in TENURE_TEXT.items() if p.search(text)]
     if ft.startswith(LIVES_IN_OTHERS_HOME):
         tenure, householder = "무상거주", "세대원"
+        if len(hits) == 1:
+            homeless = "N" if hits[0] == "자가" else "Y"
+            from_text.append("is_homeless")
+        else:
+            homeless = "N" if rng.random() < A["host_home_owned_rate"] else "Y"
     else:
-        hits = [k for k, p in TENURE_TEXT.items() if p.search(text)]
         if len(hits) == 1:
             tenure = hits[0]
             from_text.append("tenure_type")
@@ -229,6 +236,7 @@ def _person(r, rng: np.random.Generator) -> dict:
             householder = "세대주" if rng.random() < A["householder_married_rate"] else "세대원"
         else:
             householder = "세대원"
+        homeless = "N" if tenure == "자가" else "Y"
 
     # 소득(만원/월)과 부양
     parents = _parents_at_home(ft)
@@ -266,7 +274,7 @@ def _person(r, rng: np.random.Generator) -> dict:
         # ② user_housing
         "tenure_type": tenure,
         "is_householder": householder,
-        "is_homeless": "N" if tenure == "자가" else "Y",
+        "is_homeless": homeless,
         # ② user_income
         "employment_type": employment_type,
         "income_self": income_self,
@@ -343,8 +351,8 @@ def check(df: pd.DataFrame) -> list[str]:
         if r.employment_status == "육아휴직" and (youngest is None or youngest > 1):
             fail("육아휴직인데 0~1세 자녀가 없다")
 
-        if (r.tenure_type == "자가") != (r.is_homeless == "N"):
-            fail("자가면 무주택이 아니고, 아니면 무주택")
+        if r.tenure_type != "무상거주" and (r.tenure_type == "자가") != (r.is_homeless == "N"):
+            fail("자가면 무주택이 아니고, 아니면 무주택(무상거주는 같이 사는 세대에 따라)")
         if married == (r.employment_type == "해당없음"):
             fail("맞벌이·외벌이는 신혼·기혼일 때만")
         if r.employment_type == "맞벌이" and r.employment_status not in WORKING:

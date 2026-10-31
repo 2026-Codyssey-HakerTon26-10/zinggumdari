@@ -233,7 +233,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
   },
   "similar": {                            // 비슷한 가구 알림 . 맞춤 추천과 섞지 않는다
     "method": "knn", "features": "sheet_minmax", "k": 50, "neighbors": 50,   // 시트 KNN용_2단계 그대로. 비교판은 "rule_bins"(비슷한 가구 정확도에서 비교). k번째와 거리가 같은 이웃까지 넣으면 50보다 클 수 있다
-    "basis": "가상 인구 9,000가구(가정 분포)",
+    "basis": "가상 인구 9,000명(가정 분포)",
     "label": "주로 청년·예비부부·무주택·서울 가구", "label_share": 0.62,   // 이웃의 태그 조합 중 가장 많은 것과 그 비율
     "known_fields": 9,
     "assignment": "full",                 // full | reference(아는 칸 3개 미만 또는 label_share < 0.5 → "참고")
@@ -291,7 +291,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 시연: `POST /trigger/rebuild` (새 규칙 재판정), `?today=2031-01-15` (날짜가 계산되는 알림 재현), `POST /notify/test-email` (시연용 메일 한 통), `PATCH /notifications/{id}/read`.
 
-비슷한 가구: `data/population/users.parquet`(사람 × 칸, 시트 DB샘플 칸 전부 + `split`·`from_text`), `meta.json`(출처, 가정값, 정규화 최소·최대 `scale`, 열 이름), `eligibility.npz`(가구 × 제도 해당 여부), `X.npy`(시트 `KNN용_2단계` 그대로의 입력 행렬, 32열. 신규 가입자도 `scale`로 편다. 빈 칸은 NaN)를 저장한다. 팀이 열어 볼 `더미데이터.xlsx`도 같이 쓴다. 비교판으로 `bins.json`(칸별 기준선, `policy_requirements`에서 생성)을 만든다. 사용자마다 이웃 목록을 `user_neighbors`에 저장하고 프로필이 바뀌면 다시 찾는다. 학습 단계가 없어 신규 가입자도 가입 즉시 계산된다. 생성 `uv run python -m backend.population.build --n 10000 --holdout 1000 --seed 42`(이웃 후보 9,000, 평가 1,000). 평가 `GET /stats/explore` → `{"k": 50, "precision_at_5": …, "recall_at_5": …, "baseline_popular": …, "baseline_random": …, "baseline_question_only": …, "variant_rule_bins": …}` .
+비슷한 가구: `data/population/users.parquet`(사람 × 칸, 시트 DB샘플 칸 전부 + `split`·`from_text`), `meta.json`(출처, 가정값, 정규화 최소·최대 `scale`, 열 이름), `eligibility.npz`(사람 × 제도 해당 여부), `X.npy`(시트 `KNN용_2단계` 그대로의 입력 행렬, 32열. 신규 가입자도 `scale`로 편다. 빈 칸은 NaN)를 저장한다. 팀이 열어 볼 `더미데이터.xlsx`도 같이 쓴다. 비교판으로 `bins.json`(칸별 기준선, `policy_requirements`에서 생성)을 만든다. 사용자마다 이웃 목록을 `user_neighbors`에 저장하고 프로필이 바뀌면 다시 찾는다. 학습 단계가 없어 신규 가입자도 가입 즉시 계산된다. 생성 `uv run --project backend python -m backend.population.build --n 10000 --holdout 1000 --seed 42`(이웃 후보 9,000, 평가 1,000). 평가 `GET /stats/explore` → `{"k": 50, "precision_at_5": …, "recall_at_5": …, "baseline_popular": …, "baseline_random": …, "baseline_question_only": …, "variant_rule_bins": …}` .
 
 고르는 순서: 이웃에서 제도별 해당 비율 → 빼기(이미 `eligible`, 기한 지남, 다른 시도 지자체 제도, 아는 칸으로 확정 탈락) → 순위(비율, `blocking_fields` 적은 순, 마감 가까운 순) → 문턱(30% 이상, 최대 5, 같은 `benefit_type` 2개까지). 새 공고는 거꾸로: 가상 인구에 한 번 판정 → 사용자별 저장된 이웃으로 비율 → 문턱을 넘고 맞춤 추천에 없는 사용자에게만 `explore`.
 

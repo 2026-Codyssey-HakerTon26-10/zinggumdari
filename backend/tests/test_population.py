@@ -48,6 +48,13 @@ def test_parents_home_is_rent_free_even_if_text_says_jeonse():
     seeker = _users().loc["seeker"]
     assert (seeker.tenure_type, seeker.is_householder) == ("무상거주", "세대원")
     assert seeker.household_size == 3
+    assert seeker.is_homeless == "Y" and "is_homeless" in seeker.from_text  # 부모님 집이 전세
+
+
+def test_parents_owned_home_means_not_homeless():
+    raw = pd.DataFrame([_row(family_type="부모와 동거", family_persona="부모님과 자가 아파트에서 산다.")])
+    u = synthesize(raw, seed=0, holdout=0).iloc[0]
+    assert (u.tenure_type, u.is_homeless) == ("무상거주", "N")
 
 
 def test_ambiguous_tenure_is_not_read_from_text():
@@ -101,6 +108,16 @@ def test_stage2_matches_team_sheet():
         assert (x[cols].sum(axis=1) == 1).all()
     mom = x[u["source_uuid"].to_numpy() == "mom"].iloc[0]
     assert mom["sido_서울"] == 1 and mom["gender_여"] == 1
+    # 자녀가 없으면 자녀_6세이하는 빈 칸이 아니라 0 (시트: 자녀 없으면 0)
+    no_kids = x[(u["children_count"] == 0).to_numpy()]
+    assert (no_kids["자녀_6세이하"] == 0).all()
+
+
+def test_population_matrix_has_no_empty_cells():
+    u = _users(n_copies=300, seed=3)
+    s1 = features.stage1(u)
+    x = features.stage2(s1, features.fit_scale(s1))
+    assert not x[features.COLUMNS].isna().any().any()
 
 
 def test_stage2_leaves_unknown_fields_empty_for_new_users():
