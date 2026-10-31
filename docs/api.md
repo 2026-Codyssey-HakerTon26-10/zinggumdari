@@ -14,7 +14,7 @@
   "source": "manual",                       // gov24 | local | central | manual | upload
   "name": "신혼부부전용 전세자금",
   "org": "주택도시기금",
-  "region": null,                           // null = 전국, {"sido": "서울특별시", "sigungu": null} = 시도 전체, {"unknown": true} = 미상. API 메타데이터(시도·시군구, 소관기관)에서 채우고 없으면 sido 조건에서 계산한다. LLM이 쓰지 않는다
+  "region": null,                           // null = 전국, {"sido": "서울특별시", "sigungu": null} = 시도 전체, {"unknown": true} = 미상. API 메타데이터(시도·시군구, 소관기관)에서 채우고 없으면 sido 조건에서 계산한다. LLM이 쓰지 않는다. 엔진은 대상자(나 또는 부모님)의 `sido`·`sigungu`와 비교해(시도 이름은 `search.corpus.short_sido`로 맞춤) 다르면 탈락, 모르면 질문, 미상이면 확인 필요로 카드 조건 줄 끝에 "거주지 …" 줄을 단다
   "domain": "fund_loan",                    // housing(임대, 주거급여, 월세) | fund_loan(기금 대출은 항상 이것) | subscription(청약) | elderly | welfare
   "subject": "self",                        // self | parent, 어느 대상자의 프로필에 매칭하나
   "benefit_type": "loan",                   // loan | rent | cash | service | discount. 검색 필터 전용, 판정에 쓰지 않는다
@@ -176,7 +176,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
 
 DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `user_subscription`, `user_alert`, `user_qualifications`, `user_history`, `parents`, `policy_requirements`, 여기에 `income_standards`(연도 × 기준 × 가구원 수 → 금액)를 더한다. API 응답은 `user_id`로 합친 모양이다.
 
-엔드포인트: `POST /profiles`(① 저장, `user_id` 반환), `PATCH /profiles/{id}`(② 또는 ③에서 받은 칸 추가), `GET /profiles/{id}`, `DELETE /profiles/{id}`(프로필, 알림, 업로드 규칙 전부 삭제).
+엔드포인트: `POST /profiles`(① 저장, `user_id` 반환), `PATCH /profiles/{id}`(② 또는 ③에서 받은 칸 추가), `GET /profiles/{id}`, `DELETE /profiles/{id}`(프로필, 알림, 업로드 규칙 전부 삭제). 시연 프리셋: `GET /profiles/presets`(`[{"id": "jiwon", "label", "virtual": true}]`), `POST /profiles/presets/{id}`(SPEC §2의 가상 페르소나로 새 프로필을 만들고 `user_id` 반환. 기존 프로필은 덮어쓰지 않는다).
 
 ## 3. 판정 결과 (`POST /judge` 응답)
 
@@ -189,7 +189,7 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
   "cards": [
     {
       "rule_id": "manual:hug-newlywed-jeonse", "subject": "self", "name": "신혼부부전용 전세자금", "domain": "fund_loan",   // 예시 프로필: 신혼인데 혼인신고일과 소득을 아직 안 적었다. review는 카드에 status 문자열만
-      "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later
+      "verdict": "needs_check",             // eligible | needs_check | ineligible | opens_later(확정 탈락이 전부 시간이 지나거나 해둘 일을 하면 풀린다. 예: 64세의 age >= 65, 부모 장기요양등급 "없음"의 ltc_grade in [등급], 청약통장 없음)
       "verdict_why": null,                  // "ai_unreviewed" = 검수 전 AI 조건표가 모두 통과했다 → "AI가 읽은 조건은 모두 맞아요. 원문을 확인하고 신청하세요"
       "ai_extracted": false,                // review.status != reviewed → true → 배지
       "conditions": [                       // read_as = 조건을 템플릿으로 쓴 문장(우리가 읽은 조건), evidence = 근거 줄(쪽, 좌표, 텍스트)
