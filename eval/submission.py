@@ -45,6 +45,21 @@ def audit(root, *, team_name=None, authors_confirmed=False):
             "compiled_rules": len(compiled), "reviewed_compiled_rules": reviewed, "evaluation_status": results.get("status") if results else "not_evaluated"}
 
 
+def load_team(path):
+    path = Path(path)
+    if not path.exists():
+        return None
+    team = json.loads(path.read_text())
+    members = team.get("members", [])
+    if (not isinstance(team.get("team_name"), str) or not team["team_name"].strip()
+            or len(members) != 5
+            or any(not isinstance(m.get(k), str) or not m[k].strip() for m in members for k in ("github", "name"))
+            or len({m["github"].lower() for m in members}) != 5
+            or len({m["name"] for m in members}) != 5):
+        raise ValueError("팀명과 중복 없는 팀원 5명의 계정·실명을 확인하세요")
+    return team
+
+
 def git(root, *args):
     return subprocess.check_output(["git", "-C", str(root), *args], text=True).strip()
 
@@ -58,12 +73,15 @@ def main():
     parser.add_argument("--write", type=Path, help="점검 통과 시 제출 안내 파일을 만들 디렉터리")
     args = parser.parse_args()
     root = args.root.resolve()
+    team = load_team(root / "eval/team.json")
+    team_name = args.team_name or (team["team_name"] if team else None)
+    authors_confirmed = args.authors_confirmed or team is not None
     commit = git(root, "rev-parse", "--verify", args.commit + "^{commit}")
     # 점검한 파일과 제출 대상 파일이 동일해야 한다.
     if commit != git(root, "rev-parse", "HEAD"):
         parser.error("현재 점검하는 HEAD와 제출 커밋이 다릅니다. 지정 커밋을 별도 작업 트리에서 점검하세요")
-    report = audit(root, team_name=args.team_name, authors_confirmed=args.authors_confirmed)
-    report.update(commit=commit, author_names=sorted(set(git(root, "log", "--format=%an").splitlines())))
+    report = audit(root, team_name=team_name, authors_confirmed=authors_confirmed)
+    report.update(team_name=team_name, confirmed_members=team["members"] if team else None, commit=commit, author_names=sorted(set(git(root, "log", "--format=%an").splitlines())))
     if git(root, "status", "--porcelain"):
         report["issues"].append("작업 트리가 깨끗하지 않습니다")
         report["ready"] = False
@@ -77,7 +95,7 @@ def main():
         if not re.fullmatch(r"https://github\.com/[\w.-]+/[\w.-]+(?:\.git)?", remote):
             parser.error("공개 GitHub 주소를 확인하세요(인증정보가 든 주소는 내보내지 않습니다)")
         args.write.mkdir(parents=True, exist_ok=True)
-        output = args.write / f"{args.team_name}_소스코드.txt"
+        output = args.write / f"{team_name}_소스코드.txt"
         if output.exists():
             parser.error("기존 제출 안내 파일은 덮어쓰지 않습니다")
         output.write_text(f"저장소: {remote.removesuffix('.git')}\n커밋: {commit}\n", encoding="utf-8")

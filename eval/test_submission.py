@@ -23,3 +23,16 @@ def test_preflight_requires_real_dev_and_sample_counts(tmp_path):
     p.write_text(json.dumps({"status": "scored", "evaluation_scope": "dev_only", "precision_auto_verified": {"dev": None, "test": None, "sample": None}}))
     assert not audit(tmp_path, team_name="가상팀", authors_confirmed=True)["ready"]
     assert not audit(tmp_path, team_name="../팀", authors_confirmed=True)["ready"]
+
+
+def test_confirmed_team_requires_five_distinct_accounts(tmp_path):
+    import pytest
+    from eval.submission import load_team
+    p = tmp_path / "team.json"
+    team = {"team_name": "가상팀", "members": [{"github": f"virtual{i}", "name": f"가상{i}"} for i in range(5)]}
+    p.write_text(json.dumps(team))
+    assert len(load_team(p)["members"]) == 5
+    team["members"][1]["github"] = "VIRTUAL0"
+    p.write_text(json.dumps(team))
+    with pytest.raises(ValueError):
+        load_team(p)
