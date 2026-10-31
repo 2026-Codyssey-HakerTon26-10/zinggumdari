@@ -41,6 +41,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 - `frontend/.env.example`을 참고해 `frontend/.env.local`에 `NEXT_PUBLIC_API_BASE`를 설정합니다. 생략하면 로컬 API 주소를 사용합니다. 설정 변경 뒤 프론트 개발 서버를 다시 시작합니다.
 - 이 값은 브라우저에 공개됩니다. API 키·비밀번호를 넣지 않습니다.
-- 로컬에서는 프론트를 `http://localhost:3000`, API를 `http://localhost:8000`으로 사용합니다. 다른 프론트 주소는 백엔드 CORS 담당자와 허용 주소를 맞춰야 합니다.
+- 브라우저는 같은 출처의 `/api/backend`로 요청하고 Next.js rewrites가 `NEXT_PUBLIC_API_BASE`의 백엔드에 전달합니다. 따라서 로컬 프론트가 3001번이어도 브라우저 CORS와 교차 사이트 쿠키 문제 없이 같은 경로를 사용합니다. 백엔드는 별도로 실행해야 하며 인증에는 PostgreSQL과 마이그레이션이 필요합니다.
 - 검색어와 대상 필터를 API로 전송합니다. `credentials: "include"`로 로그인 세션 쿠키를 전송합니다. 비로그인 검색도 가능하며, 개인화 대상은 서버가 세션에서 결정합니다. 사용자 ID는 보내지 않고 검색어는 프론트 URL·저장소·콘솔에 남기지 않습니다.
 - 결과의 원문 링크·기준일은 서버 값을 사용합니다. 링크가 없으면 미연결로 표시합니다. `judge: fake`의 배지를 확정 자격으로 표시하지 않습니다.
+
+## 실제 서비스 연결 화면
+
+- `/my`: 세션 확인 → 기본 프로필 저장 → 카드·타임라인·단계 넘기기·공고별 질문·원문·실제 공고 투입.
+- `/my/alerts`: 주거·소득·청약·부양·이메일 설정, 별도 민감정보 동의.
+- `/my/parents`: 부모님 동의와 공식 판정 결과 입력. 민감정보 동의 해제는 본인 정보에도 공통 적용됩니다.
+- `/settings`: 로그아웃과 계정 전체 탈퇴. 삭제 실패를 성공으로 표시하지 않습니다.
+- `/notifications`: 실제 알림과 읽음 저장. 실제 이메일 발송 완료를 의미하지 않습니다.
+- PDF는 `pdfjs-dist`로 렌더링하고 서버 `evidence.page/bbox`만 강조합니다. 좌표 없는 OCR 근거는 텍스트로 표시합니다.
+- 자격 질문의 예·아니오는 `has: Y/N`으로 DB에 저장됩니다. 사용 전 `0005_qualification_has.sql`까지 기존 마이그레이션 명령으로 적용해야 합니다. 생년월일은 최신 계약의 `birth_date`를 사용합니다.

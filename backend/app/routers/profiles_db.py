@@ -84,6 +84,8 @@ def _shape(body: dict) -> None:
         quals = me.get("qualifications")
         if quals is not None and not (isinstance(quals, list) and all(isinstance(q, dict) for q in quals)):
             bad("self.qualifications는 객체 배열")
+        if quals is not None and any(q.get("has", "Y") not in ("Y", "N") for q in quals):  # 미해당 값도 API에서 명시적으로 검사한다.
+            bad("self.qualifications의 has는 Y 또는 N이어야 합니다")  # 불리언·null·오타를 해당함으로 저장하지 않는다.
     parents = body.get("parents")
     if parents is not None and not (isinstance(parents, list) and all(isinstance(p, dict) for p in parents)):
         bad("parents는 객체 배열")

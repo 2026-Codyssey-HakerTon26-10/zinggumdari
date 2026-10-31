@@ -36,7 +36,7 @@ PROFILE = {
         "dependents_count": 0, "supports_parent_65": "N", "support_start_date": None,
         "has_account": "Y", "joined_date": "2021-03-01", "payment_count": None, "deposit_amount": None,
         "alert_categories": ["주거", "임신출산"], "alert_channel": "이메일", "email": "jiwon@example.com",
-        "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고"}],
+        "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고", "has": "Y"}],
         "history": [{"event_type": "청약_당첨", "event_date": "2023-05-10"}],
     },
     "parents": [
@@ -280,3 +280,20 @@ def test_delete_profile_keeps_account(conn):
     assert profiles.load(conn, user_id) is None
     assert _count(conn, "auth_accounts") == 1
     assert _count(conn, "user_qualifications") == 0
+
+
+@pytest.mark.parametrize("answer", ["Y", "N"])  # 해당·미해당 두 답변의 DB 왕복을 확인한다.
+def test_qualification_answer_survives_storage(conn, answer):  # 실제 저장·조회에서 답이 바뀌지 않아야 한다.
+    profile = copy.deepcopy(PROFILE)  # 다른 사례의 입력을 바꾸지 않는다.
+    profile["self"]["qualifications"][0]["has"] = answer  # 사용자가 선택한 답변을 넣는다.
+    user_id = profiles.create(conn, _account(conn), profile)  # 해당 계정 프로필로 저장한다.
+    assert profiles.load(conn, user_id)["self"]["qualifications"][0]["has"] == answer  # 미해당이 해당함으로 복원되지 않아야 한다.
+    profiles.update(conn, user_id, lambda current: current["self"]["qualifications"][0].update(has="N"))  # 이미 있던 자격도 미해당으로 고친다.
+    assert profiles.load(conn, user_id)["self"]["qualifications"][0]["has"] == "N"  # 재조회 후에도 미해당을 유지한다.
+
+
+def test_legacy_qualification_defaults_to_yes(conn):  # 기존 has 생략 계약을 보존한다.
+    profile = copy.deepcopy(PROFILE)  # 기존 입력 모양을 따로 만든다.
+    profile["self"]["qualifications"][0].pop("has")  # 과거 클라이언트처럼 해당 여부를 생략한다.
+    user_id = profiles.create(conn, _account(conn), profile)  # 생략 입력도 저장할 수 있어야 한다.
+    assert profiles.load(conn, user_id)["self"]["qualifications"][0]["has"] == "Y"  # 기존 자격은 해당함이라는 의미를 유지한다.

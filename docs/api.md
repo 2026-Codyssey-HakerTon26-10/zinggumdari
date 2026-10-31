@@ -156,7 +156,7 @@ AI 조건표에는 조건마다 검사 결과가 붙고, 조건표에 빠짐 검
     "has_account": "Y", "joined_date": "2021-03-01", "payment_count": null, "deposit_amount": null,
     "alert_categories": ["주거", "임신출산"], "alert_channel": "이메일", "email": "…",   // 알림 수신 주소. 계정용 이메일은 별도 인증 테이블에 저장하며 알림 수신은 별도 선택
     // ③ 물어본 것만
-    "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고"}],   // "has": "N"이면 "해당 안 됨"이라고 답한 줄(다시 묻지 않는다). 없으면 해당함
+    "qualifications": [{"qual_code": "청년", "target": "본인", "verified": "자기신고"}],   // "has": "N"이면 "해당 안 됨"이라고 답한 줄(다시 묻지 않는다). 없으면 해당함; DB `user_qualifications.has`에 Y/N으로 저장하며 생략 입력과 기존 행은 Y. null·다른 값은 422
     "history": []
   },
   "parents": [                              // 탭을 안 열면 []. 부·모 각각 한 줄

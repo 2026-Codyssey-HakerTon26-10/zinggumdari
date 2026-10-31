@@ -28,6 +28,7 @@
 | 오픈소스 | PostgreSQL | 계정·세션·프로필·알림 저장(`backend/db/`, 스키마는 `backend/db/migrations/`) | PostgreSQL License |
 | 오픈소스 | psycopg 3 (`psycopg[binary]`) | 파이썬에서 PostgreSQL 연결 | LGPL-3.0 |
 | 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
+| 오픈소스 | Mozilla PDF.js (`pdfjs-dist` 6.4.299, https://github.com/mozilla/pdf.js) | 프론트에서 세션 소유 원문 PDF를 렌더링하고 API evidence의 page·bbox 좌표로 근거 강조 | Apache-2.0, 패키지 LICENSE 및 NOTICE 유지 |
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표. NumPy는 검색 점수(글자 2-gram BM25, `backend/search/index.py`에 직접 구현)에도 쓴다 | BSD-3 |
 | 오픈소스(채택·설치 전) | [CuPy](https://github.com/cupy/cupy) — GPU 전용 패키지 계열 `cupy-cuda13x` 또는 `cupy-cuda12x` 중 호환성 검증 후 하나만 고정 | L4 GPU 서버에서 기존 NumPy KNN의 거리 계산·이웃 선택을 GPU로 실행. 결측 제외·k번째 동거리 포함·원본 행 순서 유지. 일반 서버는 전처리·규칙 판정·추천 후처리 담당 | [MIT — CuPy 본체](https://github.com/cupy/cupy/blob/main/LICENSE). [공식 설치 안내](https://docs.cupy.dev/en/stable/install.html). 사용 버전은 설치·GPU 연산 검증 후 기록하며 현재 설치·연동 미완료 |
 | 오픈소스 | pandas, pyarrow | 가상 인구 표 저장(parquet) | BSD-3, Apache-2.0 |
@@ -59,3 +60,4 @@ PostgreSQL 드라이버는 psycopg 3, 마이그레이션은 별도 도구 없이
 - NVIDIA L4는 실행 확인된 GPU다. 기존 표의 V100 지급 자원 항목과 동일 자원이라고 추정하지 않으며, V100 사용 여부는 별도 확인한다.
 - `[ctk]` 옵션 등을 통해 NVIDIA CUDA 런타임·컴파일 구성요소를 설치하면, 실제 설치된 패키지명·버전·공식 출처·해당 이용 조건을 별도로 기록한다. 이 구성요소는 CuPy 본체의 MIT 라이선스에 포함된 것으로 취급하지 않는다. 설치 내역이 아직 없으므로 사용 완료 자원으로 기재하지 않는다.
 - 별도 GPU 전송 데이터 생성기는 채택 보류 중이며, 이번 CuPy 채택에 포함되지 않는다.
+
