@@ -261,6 +261,8 @@ def test_after_merge_passes_uploader_only(monkeypatch):
     monkeypatch.setitem(sys.modules, "backend.notify.api", mod)
     assert ing._after_merge(["upload:x"], account_id="A1") == {"notifications": 1}
     assert calls == [(["upload:x"], "A1")]
+    assert ing._after_merge(["upload:x"], account_id=None)["status"] == "skipped"   # 계정을 모르면 전체로 보내지 않는다
+    assert len(calls) == 1
 
     def rebuild_old(*, rule_ids, today=None):
         calls.append("everyone")
