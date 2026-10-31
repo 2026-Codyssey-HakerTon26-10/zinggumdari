@@ -7,6 +7,10 @@ import smtplib
 import ssl
 
 
+class DeliveryRecordError(RuntimeError):
+    """SMTP는 수락했지만 기록이 미확정인 상태. 자동 재발송하지 않는다."""
+
+
 def send_email(profile, notification, *, category, record_sent, smtp_factory=smtplib.SMTP):
     settings = profile["self"]
     if (settings.get("alert_channel") != "이메일"
@@ -27,5 +31,8 @@ def send_email(profile, notification, *, category, record_sent, smtp_factory=smt
         refused = smtp.send_message(message)
         if refused:
             raise smtplib.SMTPRecipientsRefused(refused)
-    record_sent(profile["user_id"], notification["id"], datetime.now(timezone.utc).isoformat())
+    try:
+        record_sent(profile["user_id"], notification["id"], datetime.now(timezone.utc).isoformat())
+    except Exception:
+        raise DeliveryRecordError("SMTP 수락 후 기록 실패: 발송 상태 확인이 필요합니다") from None
     return True

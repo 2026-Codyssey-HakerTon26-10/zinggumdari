@@ -6,8 +6,8 @@ import pytest
 from fastapi import FastAPI, HTTPException
 from fastapi.testclient import TestClient
 
-from backend.notify.service import notification
-from backend.notify.email import send_email
+from backend.notify.service import notification, rebuild
+from backend.notify.email import send_email, DeliveryRecordError
 from backend.notify.router import create_router
 
 TODAY = date(2026, 10, 31)
@@ -59,3 +59,48 @@ def test_routes_require_session_and_pass_owner_to_store():
     store.list.return_value = []
     assert client.get("/notifications?user_id=other").json() == []
     store.list.assert_called_once_with("owner")
+
+
+def test_rebuild_forwards_date_and_skips_irrelevant_cards():
+    future = date(2031, 1, 15)
+    judge = MagicMock(return_value={"r": {"verdict": "needs_check", "no_subject": True}})
+    save = MagicMock()
+    rebuild([{"user_id": "u"}], [RULE], judge, save, today=future)
+    judge.assert_called_once_with({"user_id": "u"}, [RULE], today=future)
+    save.assert_not_called()
+    judge.return_value = {"r": {"verdict": "needs_check", "superseded_by": "manual:r"}}
+    rebuild([{"user_id": "u"}], [RULE], judge, save, today=future)
+    save.assert_not_called()
+    judge.return_value = {"r": {"verdict": "needs_check"}}
+    rebuild([{"user_id": "u"}], [RULE], judge, save, today=future, rule_ids=[])
+    save.assert_not_called()
+
+
+def test_future_open_date_uses_planner_window():
+    trusted = {**RULE, "conditions": [dict(status="reviewed", evidence=["d:l1"])]}
+    event = dict(kind="apply_open", due="2031", title="부모님 신청 시기를 확인해 보세요", evidence=["d:l1"])
+    assert notification("u", trusted, {"verdict": "opens_later"}, today=date(2031, 1, 15), event=event)
+    event.update(kind="closing", due="2027-02-01", notify_from="2026-10-31")
+    assert notification("u", trusted, {"verdict": "needs_check"}, today=TODAY, event=event)
+    assert not notification("u", trusted, {"verdict": "needs_check"}, today=date(2026, 10, 30), event=event)
+
+
+def test_smtp_accepted_but_record_failed_is_distinct(monkeypatch):
+    monkeypatch.setenv("SMTP_HOST", "smtp.example.invalid")
+    monkeypatch.setenv("MAIL_FROM", "demo@example.invalid")
+    profile = dict(user_id="u", self=dict(email="demo@example.invalid", alert_channel="이메일", alert_categories=["주거"]))
+    factory = MagicMock()
+    factory.return_value.__enter__.return_value.send_message.return_value = {}
+    record = MagicMock(side_effect=RuntimeError("private DB error"))
+    with pytest.raises(DeliveryRecordError, match="기록 실패"):
+        send_email(profile, dict(id="n", title="안내"), category="주거", record_sent=record, smtp_factory=factory)
+    factory.return_value.__enter__.return_value.send_message.assert_called_once()
+
+
+def test_test_email_does_not_expose_recipient_exception():
+    store = MagicMock()
+    store.test_email.side_effect = smtplib.SMTPRecipientsRefused({"private@example.invalid": (550, "refused")})
+    app = FastAPI()
+    app.include_router(create_router(store, lambda: "owner", lambda: "admin"))
+    response = TestClient(app).post("/notify/test-email")
+    assert response.status_code == 503 and "private" not in response.text

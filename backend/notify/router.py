@@ -6,8 +6,10 @@ require_user는 세션 소유 프로필 ID, require_admin은 관리 권한을 �
 """
 
 from datetime import date
+import smtplib
 
 from fastapi import APIRouter, Depends, HTTPException
+from backend.notify.email import DeliveryRecordError
 
 
 def create_router(store, require_user, require_admin):
@@ -30,6 +32,9 @@ def create_router(store, require_user, require_admin):
 
     @router.post("/notify/test-email")
     def test_email(user_id: str = Depends(require_user)):
-        return store.test_email(user_id)
+        try:
+            return store.test_email(user_id)
+        except (smtplib.SMTPException, OSError, DeliveryRecordError):
+            raise HTTPException(503, "메일 처리 상태를 확인해 주세요") from None
 
     return router

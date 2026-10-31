@@ -23,3 +23,18 @@ SMTP는 STARTTLS를 사용하고 비밀번호를 로그에 남기지 않는다. 
 인구 기반 알림은 population.recommend의 필터를 통과한 item만 explore_notification에 전달한다.
 
 현재 인증·DB·플래너가 없어 실제 main 등록과 실메일 발송은 연결 후 검증해야 한다.
+
+judge(profile, rules, today=today)는 알림과 동일한 기준일을 받아야 한다.
+superseded_by와 no_subject 카드는 알림에서 제외한다. opens_later는 검증된 날짜 이벤트만 허용한다.
+due는 발송일이다. D-90 등의 발송일은 플래너가 계산한다. 여러 날 표시할 경우 플래너가
+notify_from(ISO 날짜)을 제공하면 그 날부터 due까지 생성한다. 숫자 90을 알림 코드에 넣지 않는다.
+
+공고 투입 연결점은 backend.notify.api.connect(handler)다. handler는 rule_ids와 today를 받아
+service.rebuild의 동일 인자에 전달한다. 모든 규칙은 판정에 주되 알림 대상만 rule_ids로 제한한다.
+
+ID 중복 upsert는 기존 read, created, emailed_at을 유지해야 한다. 메일 발송은 upsert 후
+DB에서 다시 읽은 레코드로 판단해야 한다. 생성 직후의 read=False 레코드를 바로 발송하지 않는다.
+SMTP는 정확히 한 번 발송을 보장하지 않는다. 최소 한 번 정책에서는 중복 가능성이 있다.
+SMTP 수락 후 record_sent가 실패하면 DeliveryRecordError가 발생하며, 어댑터는 해당 작업을
+delivery_unknown으로 분리하고 자동 재발송을 멈춘다. 수락 결과를 확인해 기록만 복구하거나,
+중복 가능성을 인지한 명시적 재시도를 선택해야 한다. SMTP 수락 전 실패만 retryable로 처리한다.

@@ -5,10 +5,13 @@ from hashlib import sha256
 
 
 def notification(user_id, rule, result, *, today, event=None):
-    if result.get("verdict") not in {"eligible", "needs_check"}:
+    if result.get("superseded_by") or result.get("no_subject"):
+        return None
+    allowed = {"eligible", "needs_check", "opens_later"} if event else {"eligible", "needs_check"}
+    if result.get("verdict") not in allowed:
         return None
     deadline = result.get("deadline")
-    if deadline and date.fromisoformat(deadline) < today:
+    if deadline and deadline not in ("상시", "미정") and date.fromisoformat(deadline) < today:
         return None
     kind = "new_rule"
     extra = {}
@@ -29,9 +32,12 @@ def notification(user_id, rule, result, *, today, event=None):
         if not evidence or not evidence <= trusted:
             return None
         due = str(event["due"])
-        # 연도 단위 부모 알림도 재현한다. 과거 날짜의 알림은 생성하지 않는다.
+        # due는 발송일이다. 미리 알리는 날짜도 플래너가 계산해 전달한다.
+        # 알림 창은 상수로 만들지 않고 플래너의 notify_from부터 due까지로 받는다.
         due_date = date(int(due), 1, 1) if len(due) == 4 else date.fromisoformat(due)
-        if due_date > today or (len(due) == 4 and due_date.year != today.year) or (len(due) != 4 and due_date != today):
+        start = date.fromisoformat(event.get("notify_from", due_date.isoformat()))
+        active = due_date.year == today.year if len(due) == 4 else start <= today <= due_date
+        if not active:
             return None
         title = event["title"]
         if not eligible and "신청할 수 있어요" in title:
@@ -56,12 +62,14 @@ def explore_notification(user_id, item, similar, *, today):
                 label=similar["label"], assignment=similar["assignment"])
 
 
-def rebuild(profiles, rules, judge, save, *, today, events=None):
+def rebuild(profiles, rules, judge, save, *, today, events=None, rule_ids=None):
     """save(user_id, 알림)는 ID별 upsert. 프로필·날짜를 LLM에 보내지 않는다."""
     count = 0
     for profile in profiles:
-        results = judge(profile, rules)
+        results = judge(profile, rules, today=today)
         for rule in rules:
+            if rule_ids is not None and rule["id"] not in rule_ids:
+                continue
             result = results[rule["id"]]
             candidates = [notification(profile["user_id"], rule, result, today=today)]
             if events:
