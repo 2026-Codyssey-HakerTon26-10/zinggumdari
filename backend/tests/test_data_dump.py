@@ -40,6 +40,9 @@ def test_api_error_shapes():
     ("예산 소진 시까지", "미정", None),
     ("", "미정", None),
     ("출생일로부터 60일 이내", "기타", None),
+    ("2026년 상반기", "기간", "2026-06-30"),
+    ("2026년 하반기 중 공고", "기간", "2026-12-31"),
+    ("매년 3~4월(※ 자세한 사항은 옥천군 홈페이지 공고문 참고)", "기타", None),
 ])
 def test_parse_deadline(text, kind, day):
     d = parse_deadline(text)
