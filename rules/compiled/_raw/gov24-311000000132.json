@@ -1,0 +1,13 @@
+{
+ "key": "6a1d47132b593af9eea3a1e3093b5998bf982c94ed175ffc5dc0aa5da03dd281",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6569,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 323
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장난감나라\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"장난감나라 연회비\", \"찾아가는 장난감 붕붕이\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"장애영유아가정\", \"한부모가족\", \"다문화가정\", \"국가유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

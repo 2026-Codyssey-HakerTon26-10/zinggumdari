@@ -1,0 +1,17 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 만5~ 만18세 기초, 차상위가구 유청소년", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 「국민기초생활보장법」에 따른 생계, 의료, 주거, 교육급여 수급 가구 및 차상위* 계층", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "* 차상위 장애, 자활근로, 본인부담경감, 차상위계층 확인서 발급대상(구 우선돌봄차상위)/ 법정 한부모 보호가구", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 기초 생활수급권자 가구 중 만 5세~만 18세 유·청소년", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 신청자가 없는 경우 동일 연령 차상위계층까지 확대 가능", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 대상자 우선순위", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "1순위 : 신규 및 30개월* 미만 이용자 중 생계·의료·주거급여 대상자", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "2순위 : 신규 및 30개월* 미만 이용자 중 차상위계층, 법정한부모가정 대상자", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "3순위 : 30개월 이상 이용자 중 생계·의료·주거급여 대상자", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "4순위 : 30개월 이상 이용자 중 차상위계층, 법정한부모가정 대상자", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "* 스포츠강좌이용권 최근 4년간 누적 결제 횟수", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "자세한 날짜는 읍면동 주민센터에 따라 다를 수 있음", "mark": false}
+]

@@ -1,0 +1,77 @@
+{
+ "id": "gov24:324000000105",
+ "source": "gov24",
+ "name": "배움나눔사업",
+ "org": "서울특별시 강동구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강동구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "저소득 가정 교육비",
+  "교육급여 수급자"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "교육급여 수급자",
+    "한부모가족",
+    "초중고학생교육비 지원 대상자"
+   ],
+   "evidence": [
+    "gov24-324000000105:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-324000000105:l3"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001534&bnefType=all&svcId=324000000105",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 0,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "fd3117ff8aa171bb2a9bd2f14bae839f212020656ec55015922fe4865701c774",
+  "raw": "rules/compiled/_raw/gov24-324000000105.json",
+  "at": "2026-11-01T03:59"
+ }
+}

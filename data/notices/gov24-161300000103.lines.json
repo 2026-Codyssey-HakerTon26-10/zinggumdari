@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "전세보증금 3억원 이하, 연소득 기준 이하(청년 5천만원, 신혼부부 7.5천만원, 청년 외 6천만원)인 무주택 임차인이 납입한 전세보증금반환보증 보증료(40만원 상한)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "(지원제외대상)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 외국인 및 국내에 거주하지 않는 재외국민", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "-「민간임대주택에 관한 특별법」에 따른 등록임대사업자의 임대주택에 거주하는 임차인", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "* 등록임대사업자는 임대보증금보증 가입이 의무이며, 만약 등록임대사업자가 임대보증금보증에 들지 않고 임차인이 전세보증금반환보증에 가입한 경우, ｢민간임대주택에 관한 특별법｣ 제49조 제7항 제3호에 따라 임대인에게 보증료 청구 가능", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 임차인이 법인인 경우(회사 지원 숙소 등)", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 보증료 지원을 받았던 보증과 동일한 보증서 번호로 재신청하는 경우", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 그 밖에 해당 지자체장이 지원이 적합하지 않다고 판단하는 경우", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "전세보증금 3억원 이하, 연소득 기준 이하(청년 5천만원, 신혼부부 7.5천만원, 청년 외 6천만원)인 무주택 임차인이 납입한 전세보증금반환보증 보증료(40만원 상한)", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

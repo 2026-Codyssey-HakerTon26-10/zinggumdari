@@ -1,0 +1,126 @@
+{
+ "id": "gov24:129000000007:main",
+ "source": "gov24",
+ "name": "군인 재해보상 유족급여 지급",
+ "org": "국방부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "군인유족급여",
+  "재해보상",
+  "순직유족연금"
+ ],
+ "conditions": [
+  {
+   "field": "relation",
+   "op": "in",
+   "value": [
+    "배우자",
+    "자녀",
+    "부모",
+    "손자녀",
+    "조부모"
+   ],
+   "evidence": [
+    "gov24-129000000007:l3"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:배우자",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "employment_status",
+   "op": "==",
+   "value": "재직",
+   "evidence": [
+    "gov24-129000000007:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:재직",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "부사관 이상의 현역 군인(지원에 의하지 아니하고 임용된 부사관은 제외)",
+   "evidence": [
+    "gov24-129000000007:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "공무상 부상이나 질병으로 장해가 되어 퇴직했거나, 퇴직 후 퇴직 전의 공무상 부상이나 질병으로 장해가 되어 상이연금을 받을 권리가 있는 사람이 사망한 경우 또는 공무상 사망으로 인정된 경우",
+   "evidence": [
+    "gov24-129000000007:l6",
+    "gov24-129000000007:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-129000000007:l8"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=744797&bnefType=all&svcId=129000000007",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1633108d2a0c8a6af393eba53356fcb0c9243f22d75ed2255b5d683b0704912b",
+  "raw": "rules/compiled/_raw/gov24-129000000007.json",
+  "at": "2026-11-01T03:55"
+ }
+}

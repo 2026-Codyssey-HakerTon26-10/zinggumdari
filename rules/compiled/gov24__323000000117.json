@@ -1,0 +1,104 @@
+{
+ "id": "gov24:323000000117",
+ "source": "gov24",
+ "name": "출산축하금 지원",
+ "org": "서울특별시 송파구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "송파구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "신생아 축하금",
+  "출산 지원금"
+ ],
+ "conditions": [
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 6,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-323000000117:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "2021-12-31",
+   "evidence": [
+    "gov24-323000000117:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:op_mismatch",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<",
+   "value": 6,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-323000000117:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "fail:unit_mismatch",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005969&bnefType=all&svcId=323000000117",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9bd94d83d143542962a39d9c340204c2bc244b359ffafa6472c5663fbb92b60c",
+  "raw": "rules/compiled/_raw/gov24-323000000117.json",
+  "at": "2026-11-01T03:59"
+ }
+}

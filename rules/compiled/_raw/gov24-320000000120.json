@@ -1,0 +1,13 @@
+{
+ "key": "388d438264a7fd7b05d6d8cf5b5d708fc86caffb2d2d307a69a061bc7bfb806f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6450,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 308
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"국가보훈대상자 위문금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"위문금\",\"국가보훈\",\"보훈대상자\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"국가보훈대상자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]},{\"track\":\"main\",\"name\":\"국가보훈대상자 위문금 지원 시 위문금\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"시위문금\",\"독립유공자손자녀\",\"유족형제자매\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"독립유공자손자녀\",\"선순위유족의형제자매\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

@@ -1,0 +1,75 @@
+{
+ "id": "gov24:323000000111",
+ "source": "gov24",
+ "name": "저소득 한부모가족 지원",
+ "org": "서울특별시 송파구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "송파구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "한부모가족",
+  "저소득 지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-323000000111:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-323000000111:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005172&bnefType=all&svcId=323000000111",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1af0e5fa3f76ae1e5a878b1f994ba889b3b224d26a91a64250496b3aa13b850c",
+  "raw": "rules/compiled/_raw/gov24-323000000111.json",
+  "at": "2026-11-01T03:59"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "aeef11db66e5df846c86dc62642bd51be2bd24f0d4309bb87389d7ee5b555ac6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6458,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 262
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"양육비 이행 지원 서비스\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"양육비 지원\", \"미성년 자녀 양육\"], \"conditions\": [{\"field\": \"children_count\", \"op\": \">=\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l4\"], \"any_of\": null}, {\"field\": \"youngest_child_age\", \"op\": \"<\", \"value\": 19, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

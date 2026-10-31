@@ -1,0 +1,128 @@
+{
+ "id": "gov24:GPV000000070:main-2",
+ "source": "gov24",
+ "name": "제대군인 교육지원 자녀교육지원",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "cash",
+ "aliases": [
+  "제대군인 자녀 교육비",
+  "군인 자녀 교육지원"
+ ],
+ "conditions": [
+  {
+   "field": "history",
+   "op": "in",
+   "value": [
+    "10년 이상 군복무"
+   ],
+   "evidence": [
+    "gov24-gpv000000070:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "국가보훈부 생활수준 조사 결과 지원 대상으로 결정",
+   "evidence": [
+    "gov24-gpv000000070:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": ">=",
+   "value": 14,
+   "evidence": [
+    "gov24-gpv000000070:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 18,
+   "evidence": [
+    "gov24-gpv000000070:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-gpv000000070:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2948&bnefType=all&svcId=GPV000000070",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f752ebf1cfbd2825ff91fd031d2633bc63821f4853ebf757fbe800da683d88cd",
+  "raw": "rules/compiled/_raw/gov24-gpv000000070.json",
+  "at": "2026-11-01T04:02"
+ }
+}

@@ -1,0 +1,179 @@
+{
+ "id": "gov24:145000000111",
+ "source": "gov24",
+ "name": "연탄쿠폰",
+ "org": "산업통상부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "연탄",
+  "난방",
+  "에너지"
+ ],
+ "conditions": [
+  {
+   "field": "tenure_type",
+   "op": "==",
+   "value": "자가",
+   "evidence": [
+    "gov24-145000000111:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:자가",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "기초생활수급자"
+      ]
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "차상위"
+      ]
+     },
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ],
+      "income_basis": "median_pct"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-145000000111:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "fail:b0.2:no_value",
+    "unit": "fail:b0.2:no_value",
+    "keyword": "fail:b0.2:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 60,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-145000000111:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-145000000111:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-145000000111:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-145000000111:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-145000000111:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-145000000111:l11"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2114213&bnefType=all&svcId=145000000111",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 1,
+  "labeled": {
+   "definition": 2,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 5
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6117774480b12a82314a3e0156fcc57a5f32202a46253ee9354594e4f5ed2ce1",
+  "raw": "rules/compiled/_raw/gov24-145000000111.json",
+  "at": "2026-11-01T03:56"
+ }
+}

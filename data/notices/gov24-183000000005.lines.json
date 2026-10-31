@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "ㅇ중·고등학교에 취학중인 교육지원대상자(유공자 본인 및 자녀, 전몰·순직·사망·행불자의 배우자)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "ㅇ대학에 취학중인 국가유공자(애국지사, 고엽제후유의증환자, 5.18민주유공자, 특수임무유공자,보훈보상대상자 포함)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "본인 및 전몰·순직·사망·행불자의 배우자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "* 전몰군경·순직군경·전상군경·공상군경·재해부상·재해사망군경의 자녀(부모가 모두 사망한 25세 미만인 사람자로 한정)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "ㅇ「장애인 등에 대한 특수교육법」의 특수교육 대상자로서 특수교육을 받는 교육지원대상자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 중학생 124천원 - 고등학생 144~186천원 - 대학생 236천원 - 특수학교 534~718천원", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

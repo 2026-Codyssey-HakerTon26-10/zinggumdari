@@ -1,0 +1,13 @@
+{
+ "key": "a3b027b16d96f7412255da1ca71e085eb98e445b9c45cdba589ce0a47df5f8dc",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6653,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 251
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"결혼이민여성 농업교육 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"결혼이민여성 농업교육\", \"다문화가족 농촌정착\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"결혼이민여성\", \"evidence\": [\"l2\", \"l3\", \"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"out_of_scope\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

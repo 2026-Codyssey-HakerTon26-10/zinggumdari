@@ -1,0 +1,13 @@
+{
+ "key": "36ea428736b0a665fa2d8e7473c93e7f86933203473478c138b0872948529db1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6428,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 312
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"계절 취약계층 어르신 보호·강화를 위한 냉난방물품 지원\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"냉난방물품 지원\",\"저소득 어르신 지원\",\"계절 취약계층\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"법정 저소득\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"법정 저소득\"],\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"기타 사각지대 저소득\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "∙ I유형", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "-(요건심사형) 15세~69세 구직자 중 중위소득 60% 이하, 재산 4억 이하(15~34세 청년은 재산 5억원 이하)이면서, 최근 2년 이내 100일 또는 800시간 이상의 취업경험이 있는 분", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "-(선발형) 15세~69세 구직자 중 요건심사형 중 취업경험 요건을 충족하지 못한 분( 15~34세 청년은 중위소득 120% 이하, 재산 5억원 이하, 취업경험은 선발시 고려)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "∙ II유형: 15세~69세 구직자 중 I유형에 해당하지 않는 가구단위 중위소득 100% 이하(청년은 소득 무관)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "∙ I유형", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "-(요건심사형) 15세~69세 구직자 중 중위소득 60% 이하, 재산 4억 이하(15~34세 청년은 재산 5억원 이하)이면서, 최근 2년 이내 100일 또는 800시간 이상의 취업경험이 있는 분", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "-(선발형) 15세~69세 구직자 중 요건심사형 중 취업경험 요건을 충족하지 못한 분( 15~34세 청년은 중위소득 120% 이하, 재산 5억원 이하, 취업경험은 선발시 고려)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "∙ II유형: 15세~69세 구직자 중 I유형에 해당하지 않는 가구단위 중위소득 100% 이하(청년은 소득 무관)", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

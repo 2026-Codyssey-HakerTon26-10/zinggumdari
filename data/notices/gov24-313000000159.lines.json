@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 기준 중위소득 120%이하 가정의 만 4세~12세 아동", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 우선순위", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 1순위 : 기초생활수급자", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 2순위 : 한부모 가정", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "-3순위 : 다문화 가정", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

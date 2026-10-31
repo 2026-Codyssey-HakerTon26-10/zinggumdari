@@ -1,0 +1,60 @@
+{
+ "id": "gov24:138300000023",
+ "source": "gov24",
+ "name": "찾아가는 폭력예방교육 서비스 제공",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "폭력예방교육",
+  "찾아가는 교육"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "노인, 장애인, 이주민, 학부모, 농산어촌·도서·벽지·접적 지역 거주 주민",
+   "evidence": [
+    "gov24-138300000023:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=509468&bnefType=all&svcId=138300000023",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "630d9b3766f59dba0b6328f963f443abb108417cec091e25ec258301ea5f1697",
+  "raw": "rules/compiled/_raw/gov24-138300000023.json",
+  "at": "2026-11-01T03:55"
+ }
+}

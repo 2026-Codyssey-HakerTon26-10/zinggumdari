@@ -1,0 +1,13 @@
+{
+ "key": "c634784616e84deb8a5e975826680abb6ea1b7e867b08e9dad5a538583d45946",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6506,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 700
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득 장애인 생활안정 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"저소득 장애인 지원\", \"장애인 학용품비\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 1, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"저소득 장애인 생활안정 지원 초등학교\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"초등학교 입학자녀 학용품비\", \"저소득 초등학생 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"초등학교 입학자녀\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"저소득 장애인 생활안정 지원 중고등학교\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"중고등학교 입학자녀 학용품비\", \"저소득 중고등학생 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"중고등학교 입학자녀\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

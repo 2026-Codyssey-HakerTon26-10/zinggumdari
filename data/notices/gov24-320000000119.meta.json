@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-320000000119",
+  "title": "관악구 국가보훈대상자 보훈수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2110221&bnefType=all&svcId=320000000119",
+  "fetched_at": "2026-10-31",
+  "sha256": "7f675ac6a0688050a8306f0d894d9570dffb65ba733820e4a061139016ccb5b4",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

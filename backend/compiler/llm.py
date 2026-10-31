@@ -22,6 +22,8 @@ DEFAULT_BASE_URL = "https://copa.codyssey.kr"
 DEFAULT_MODEL = "claude-opus-4-8"
 DEFAULT_MODEL_BULK = "claude-haiku-4"
 STRUCTURED_BETA = "structured-outputs-2025-11-13"
+# 정상 종료로 보는 stop_reason. max_tokens는 받아 두고 call_json이 「잘림」으로 거부한다
+STOP_REASONS = {"end_turn", "stop_sequence", "max_tokens"}
 
 
 class LLMError(RuntimeError):
@@ -87,10 +89,43 @@ def _post(body: dict, *, timeout: float) -> dict:
         "anthropic-beta": STRUCTURED_BETA,
         "content-type": "application/json",
     }
-    r = httpx.post(f"{base}/v1/messages", headers=headers, json=body, timeout=timeout)
-    if r.status_code != 200:
-        raise LLMError(f"HTTP {r.status_code}: {r.text[:300]}")
-    return r.json()
+    # 스트리밍으로 받는다. 긴 공고(입력 2만 토큰 넘게, 출력 수천 토큰)는 한 번에 받으면 게이트웨이가 504로 끊는다
+    # httpx의 timeout은 읽기 사이 간격이라 스트림이 조금씩 오면 끝나지 않는다. 전체 시간은 따로 묶는다
+    text, out, stopped = [], {"content": [], "model": body["model"], "usage": {}, "stop_reason": None}, False
+    deadline = time.monotonic() + timeout
+    with httpx.stream("POST", f"{base}/v1/messages", headers=headers, json={**body, "stream": True},
+                      timeout=timeout) as r:
+        if r.status_code != 200:
+            raise LLMError(f"HTTP {r.status_code}: {r.read().decode(errors='replace')[:300]}")
+        for line in r.iter_lines():
+            if time.monotonic() > deadline:
+                raise LLMError(f"응답이 {timeout:.0f}초 안에 끝나지 않았습니다")
+            if not line.startswith("data:"):
+                continue
+            try:
+                event = json.loads(line[5:])
+            except json.JSONDecodeError as e:
+                raise LLMError(f"스트림 이벤트를 읽지 못했습니다: {line[:120]}") from e
+            kind = event.get("type")
+            if kind == "message_start":
+                msg = event.get("message", {})
+                out["model"] = msg.get("model", out["model"])
+                out["usage"] = dict(msg.get("usage") or {})
+            elif kind == "content_block_delta" and event.get("delta", {}).get("type") == "text_delta":
+                text.append(event["delta"]["text"])
+            elif kind == "message_delta":
+                out["stop_reason"] = event.get("delta", {}).get("stop_reason")
+                out["usage"].update(event.get("usage") or {})
+            elif kind == "message_stop":
+                stopped = True
+            elif kind == "error":
+                raise LLMError(f"스트림 오류: {json.dumps(event.get('error'), ensure_ascii=False)[:300]}")
+    # 종료 이벤트 없이 연결이 끊기면 받은 데까지가 우연히 JSON이어도 잘린 응답이다. 실패로 보내 재시도·캐시 재생을 타게 한다
+    if not stopped or out["stop_reason"] not in STOP_REASONS:
+        raise LLMError(f"응답이 정상 종료되지 않았습니다(message_stop {'있음' if stopped else '없음'}, "
+                       f"stop_reason {out['stop_reason']})")
+    out["content"] = [{"type": "text", "text": "".join(text)}]
+    return out
 
 
 def call_json(system: str, content: str | list, schema: dict, *, model: str | None = None,

@@ -1,0 +1,13 @@
+{
+ "key": "4fbd3736e99c61ed730be0600160432d36e89ad1e172fb4c972659a573e181dc",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6573,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 281
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"제대군인 주택우선공급\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"rent\",\"aliases\":[\"제대군인\",\"장기복무\",\"주택우선공급\"],\"conditions\":[{\"field\":\"history\",\"op\":\"in\",\"value\":[\"국가보훈부 등록 10년 이상 장기복무 제대군인\"],\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"has_account\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

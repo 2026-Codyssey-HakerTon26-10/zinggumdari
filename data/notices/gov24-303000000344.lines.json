@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 낙상우려 위험요인으로 주거환경 개선이 필요한 65세이상 어르신", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 의료·요양·돌봄 등 복합적인 지원이 필요한 통합돌봄 대상으로 선정된 어르신 및 장애인", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 기초생활수급자, 차상위계층 등 취약계층 어르신", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 기타 낙상 방지 등 일상생활의 안전과 주거환경 개선이 시급한 어르신", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

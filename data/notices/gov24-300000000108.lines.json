@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 출산장려 건강보험료 지원", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 지원대상 : 부 또는 모와 함께 종로구에 주민등록을 두고 거주하고 있는 둘째 이상의 영유아", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 지원자격 : 부 또는 모의 거주기간은 10개월 이상", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "ㆍ 거주기간 10개원 이상인 경우 : 신청월 다음달에 지원", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "ㆍ 거주기간 10개월 미만인 경우 : 10개월 경과일의 다음달에 지원", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

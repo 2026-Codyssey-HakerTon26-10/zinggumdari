@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200000002",
+  "title": "의료급여 틀니·치과임플란트 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=746547&bnefType=all&svcId=135200000002",
+  "fetched_at": "2026-10-31",
+  "sha256": "e2689e1ecab7aa6f00a1fc94cd19baeaf19d1f0dce2531799ef3f16fdd918ec6",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

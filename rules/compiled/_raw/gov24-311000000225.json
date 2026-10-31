@@ -1,0 +1,13 @@
+{
+ "key": "1eda43981649047b2377aa625f6bd9a5669340003b51fad25e6960a7ef9c59b7",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6422,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 348
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"1인가구 전입 생활 지원 은빛SOL 라이프\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"은빛SOL라이프\",\"1인가구지원\",\"전입생활지원\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":63,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"!=\",\"value\":\"은평구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"은평구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"household_size\",\"op\":\"==\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

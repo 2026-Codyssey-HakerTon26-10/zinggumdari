@@ -1,0 +1,203 @@
+{
+ "id": "gov24:307000000150",
+ "source": "gov24",
+ "name": "성북구푸드마켓센터 이용 지원",
+ "org": "서울특별시 성북구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "성북구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "푸드마켓",
+  "식품지원",
+  "생활용품지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "긴급지원대상자"
+   ],
+   "evidence": [
+    "gov24-307000000150:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "차상위계층"
+   ],
+   "evidence": [
+    "gov24-307000000150:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "주거",
+    "교육"
+   ],
+   "evidence": [
+    "gov24-307000000150:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:주거",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "생계의료급여 수급신청 탈락자",
+    "중지자"
+   ],
+   "evidence": [
+    "gov24-307000000150:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "의료"
+   ],
+   "evidence": [
+    "gov24-307000000150:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "타 식품지원사업 지원대상자 아님",
+   "evidence": [
+    "gov24-307000000150:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-307000000150:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-307000000150:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-307000000150:l9"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-307000000150:l6"
+ ],
+ "documents": [
+  "신분증"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=810604&bnefType=all&svcId=307000000150",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 2,
+  "labeled": {
+   "definition": 1,
+   "procedure": 2,
+   "exclusive": 1,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "2f5fa12797849aaa9f09699968908d46e7df3d916f30e0207d4c8fac4e96a61c",
+  "raw": "rules/compiled/_raw/gov24-307000000150.json",
+  "at": "2026-11-01T03:57"
+ }
+}

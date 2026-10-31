@@ -1,0 +1,13 @@
+{
+ "key": "ac8b4d88b537827e5dd1841b59cb610eae08a2e927294e048f83db268bda492d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6384,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 190
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"산모·신생아건강관리지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"산모건강관리\", \"신생아건강관리\", \"출산지원\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

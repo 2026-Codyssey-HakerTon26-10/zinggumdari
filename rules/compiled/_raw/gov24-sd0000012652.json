@@ -1,0 +1,13 @@
+{
+ "key": "453bc5d305084cda4708dd44e2527d7194cc1728c3c327a66d5e9ad30eedc87f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6689,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 452
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"사회적 약자의 지재권 보호 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"지재권 보호\",\"사회적 약자 지원\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"의료급여수급권자\",\"국가유공자\",\"유가족\",\"장애인\",\"학생\",\"소기업\",\"중기업\",\"5.18민주유공자\",\"고엽제후유증환자\",\"특수임무유공자\",\"독립유공자\",\"참전유공자\",\"다문화가족\",\"한부모가족\",\"청년창업자\",\"차상위계층\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l5\",\"l6\",\"l7\",\"l8\",\"l10\",\"l11\",\"l12\",\"l13\",\"l14\",\"l15\",\"l16\",\"l17\",\"l18\",\"l19\",\"l20\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":6,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l9\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<\",\"value\":19,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l9\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":125,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l21\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l22\",\"label\":\"procedure\"},{\"line\":\"l23\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

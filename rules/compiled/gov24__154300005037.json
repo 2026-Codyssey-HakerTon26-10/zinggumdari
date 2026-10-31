@@ -1,0 +1,108 @@
+{
+ "id": "gov24:154300005037",
+ "source": "gov24",
+ "name": "농촌취약계층주거개선",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "농촌주거개선",
+  "취약계층주거"
+ ],
+ "conditions": [
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "생계",
+    "의료",
+    "주거",
+    "교육"
+   ],
+   "evidence": [
+    "gov24-154300005037:l2",
+    "gov24-154300005037:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:생계",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "차상위"
+   ],
+   "evidence": [
+    "gov24-154300005037:l2",
+    "gov24-154300005037:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "소년소녀가장, 조손가구, 독거노인, 장애인, 다문화가정, 한부모가정 등으로서 시장·군수·구청장이 지원이 필요하다고 인정하는 저소득 가구",
+   "evidence": [
+    "gov24-154300005037:l2",
+    "gov24-154300005037:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149942&bnefType=all&svcId=154300005037",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b87116057a6d5842e15389a62fbc34d835a8967902b77b966fa645fee597259b",
+  "raw": "rules/compiled/_raw/gov24-154300005037.json",
+  "at": "2026-11-01T03:56"
+ }
+}

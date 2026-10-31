@@ -1,0 +1,20 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원 대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 18세 이상의 등록한 장애인 중 장애인연금법*상 중증장애인에 해당하지 않는 자로 국민기초생활보장수급자 및 차상위계층(종전 3~6급인 자)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "*장애인연금법 제2조 제1호, 같은 법 시행령 제2조, 장애 정도 판정 기준 제5장", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 수급자격 : 생계· 의료·주거·교육급여수급자, 차상위계층", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 연령 기준", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 연령 : 신청 월 현재 18세 이상인 자, 다만 18세~20세로서 초·중등교육법 제2조에 따른 학교*에 재학(휴학도 포함됨) 중인 자는 제외", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "* 신청일이 속하는 월의 말일까지 18세가 되는 자는 포함", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "* 장애인 등에 대한 특수교육법에 따른 학교도 포함", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 기타 기준", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 등록한 장애인", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 신청일 현재, 장애인복지법 제32조에 따라 등록한 장애인", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 장애정도 : 장애인연금법* 상 중증장애인에 해당하지 않는 자", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "*장애인연금법 제2조 제1호, 같은 법 시행령 제2조, 장애정도판정기준 제5장", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l18", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

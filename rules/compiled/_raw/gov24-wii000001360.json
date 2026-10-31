@@ -1,0 +1,13 @@
+{
+ "key": "9ffcc65cf69ce7985a60dac41d565bb3eb741afd7fafabc84865c3bd82fead7a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6894,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 321
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"제대군인 대부지원\", \"subject\": \"self\", \"domain\": \"fund_loan\", \"benefit_type\": \"loan\", \"aliases\": [\"제대군인 대출\", \"보훈 대부\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장기복무제대군인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"is_homeless\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

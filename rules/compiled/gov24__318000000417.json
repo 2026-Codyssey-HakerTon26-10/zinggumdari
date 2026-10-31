@@ -1,0 +1,105 @@
+{
+ "id": "gov24:318000000417",
+ "source": "gov24",
+ "name": "취약계층을 위한 우리동네 동물병원 안내",
+ "org": "서울특별시 영등포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "영등포구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "동물병원 지원",
+  "반려동물 의료비 지원"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "관내",
+   "evidence": [
+    "gov24-318000000417:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위계층",
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-318000000417:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "개 또는 고양이 소유",
+   "evidence": [
+    "gov24-318000000417:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2167920&bnefType=all&svcId=318000000417",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "ad235b9cb5d0da27d7d810239e37b5d6cfd2e26a5caaa30488b86597c3f52c3c",
+  "raw": "rules/compiled/_raw/gov24-318000000417.json",
+  "at": "2026-11-01T03:58"
+ }
+}

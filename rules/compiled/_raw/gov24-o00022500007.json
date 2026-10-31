@@ -1,0 +1,13 @@
+{
+ "key": "f62470d0b1d3846a7b70a986e66c6984ead25b345bc08fd70dd6f65af7fb0ba3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6513,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 475
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"거주자우선주차 배점 가산점(임산부 및 영유아 보육 세대)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"임산부 주차\", \"영유아 보육 세대 주차\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"관악구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"임산부(출산 후 6개월까지) 본인명의 차량에 임산부 자동차 표지 부착\", \"evidence\": [\"l3\"], \"any_of\": [[{\"field\": \"pregnant\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"due_month\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"출산 후 6개월까지\"}]]}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": [[{\"field\": \"youngest_child_age\", \"op\": \"<=\", \"value\": 7, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

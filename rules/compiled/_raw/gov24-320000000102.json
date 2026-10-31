@@ -1,0 +1,13 @@
+{
+ "key": "cd50fbd2a950bae016a57d482a2a5d0a887413870db94e583be655be587b2d56",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6403,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 283
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"youth\", \"name\": \"으뜸관악 청년통장 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"청년통장\", \"관악 청년\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 34, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"employment_status\", \"op\": \"==\", \"value\": \"재직\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

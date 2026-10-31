@@ -1,0 +1,13 @@
+{
+ "key": "8e79dfb8bf5b9bbd7c78cbb093bb0013e367f76a01dbe90ce84d9c9ef30e73fe",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6742,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 327
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국가근로장학금\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"근로장학금\", \"국가장학금\"], \"conditions\": [{\"field\": \"employment_status\", \"op\": \"==\", \"value\": \"재학\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"성적 C0 수준(70점/100점) 이상\", \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 9, \"income_basis\": \"recognized\", \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

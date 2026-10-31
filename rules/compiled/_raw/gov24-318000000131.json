@@ -1,0 +1,13 @@
+{
+ "key": "e448f394123127f0d472e0e7936f84c07314f1b005f6d14abb5af6bb3a2739ec",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7282,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 371
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"구민 AI(정보화)교육\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"AI교육\", \"정보화교육\", \"디지털교육\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"특수교육대상자\", \"기초생활수급자\", \"고령자\", \"국가유공자\", \"결혼이민자\", \"사회복지서비스이용자\", \"보호대상아동\", \"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\", \"l5\", \"l6\", \"l7\", \"l9\", \"l12\", \"l13\", \"l14\", \"l15\", \"l16\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"procedure\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l8\", \"label\": \"definition\"}, {\"line\": \"l10\", \"label\": \"definition\"}, {\"line\": \"l11\", \"label\": \"definition\"}, {\"line\": \"l17\", \"label\": \"definition\"}, {\"line\": \"l18\", \"label\": \"procedure\"}, {\"line\": \"l19\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,183 @@
+{
+ "id": "gov24:135200005016:main",
+ "source": "gov24",
+ "name": "전문아동보호비 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "아동보호",
+  "위기아동"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "즉각분리 또는 응급조치에 따라 원가정에서 분리된 학대피해아동, 2세 이하 아동, 장애아동, 경계선지능아동",
+   "evidence": [
+    "gov24-135200005016:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "학대피해아동, 2세 이하 영아, 장애아동, 경계선지능아동",
+   "evidence": [
+    "gov24-135200005016:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "사회복지사"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "보육교사"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "유아교육 교사"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "초중등교육 교사"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "의료인"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "청소년상담사"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "심리 관련 학과 졸업 후 해당 분야 경력 3년 이상"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-135200005016:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "위탁부모 중 1인 이상이 전문가정위탁 부모교육 이수",
+   "evidence": [
+    "gov24-135200005016:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005016:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005016:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005016:l21"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=809604&bnefType=all&svcId=135200005016",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f1993ea2ffb6cb0abe61bcb3975c714105a2ce747c62e6d9b52e75dd2441a1e8",
+  "raw": "rules/compiled/_raw/gov24-135200005016.json",
+  "at": "2026-11-01T03:55"
+ }
+}

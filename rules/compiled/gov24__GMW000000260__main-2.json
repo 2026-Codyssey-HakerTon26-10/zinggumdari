@@ -1,0 +1,119 @@
+{
+ "id": "gov24:GMW000000260:main-2",
+ "source": "gov24",
+ "name": "여성장애인 출산비용지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "여성장애인 출산지원",
+  "장애인 출산비용"
+ ],
+ "conditions": [
+  {
+   "field": "gender",
+   "op": "==",
+   "value": "여",
+   "evidence": [
+    "gov24-gmw000000260:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-gmw000000260:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "N",
+      "text": "출산한 자"
+     },
+     {
+      "field": "other",
+      "text": "임신기간 4개월(16주) 이상의 태아를 유산·사산한 자"
+     }
+    ],
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "N",
+      "text": "출산한 자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-gmw000000260:l8",
+    "gov24-gmw000000260:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:N",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=717971&bnefType=all&svcId=GMW000000260",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 3,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6379317b152accc1b31bfd5c43cf0e8a0365e8f4dd2240f826bc6e2767449336",
+  "raw": "rules/compiled/_raw/gov24-gmw000000260.json",
+  "at": "2026-11-01T04:02"
+ }
+}

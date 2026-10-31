@@ -1,0 +1,13 @@
+{
+ "key": "e8c9a8ce321cff6f1d8ed8dbb58cf7382efb64c1bbd44167a28cb10aa1394015",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6524,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 279
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"등유바우처\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"난방유지원\",\"기름보일러지원\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"생계급여수급자\",\"의료급여수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\",\"소년소녀가정\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"기름보일러 사용\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000000126",
+  "title": "서울 청년수당 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002456&bnefType=all&svcId=611000000126",
+  "fetched_at": "2026-10-31",
+  "sha256": "28646c44ef741b65ab5e6369054de6a4335fa7d5ce3bf6226a2a5f388c449537",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

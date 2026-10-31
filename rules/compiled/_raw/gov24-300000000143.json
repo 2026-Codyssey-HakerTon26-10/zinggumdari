@@ -1,0 +1,13 @@
+{
+ "key": "eb3d7ab21d24211fb821460ea2cfbe59f8e06daaccf54079c14ed4d0d53a9a7d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7216,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 755
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"구립 미술관 관람료 감면\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"미술관 관람료\", \"관람료 감면\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"국빈\", \"외교사절단\", \"국가유공자\", \"독립유공자\", \"참전유공자\", \"고엽제후유의증환자\", \"5·18민주유공자\", \"특수임무유공자\", \"의사상자\", \"국군포로\", \"억류지출신포로가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\", \"l8\", \"l9\", \"l10\", \"l11\", \"l12\", \"l13\", \"l14\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 6, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"==\", \"value\": \"생계\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l15\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l21\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"종로구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l21\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"out_of_scope\"}, {\"line\": \"l16\", \"label\": \"out_of_scope\"}, {\"line\": \"l17\", \"label\": \"out_of_scope\"}, {\"line\": \"l18\", \"label\": \"out_of_scope\"}, {\"line\": \"l19\", \"label\": \"out_of_scope\"}, {\"line\": \"l20\", \"label\": \"not_condition\"}, {\"line\": \"l22\", \"label\": \"out_of_scope\"}, {\"line\": \"l23\", \"label\": \"procedure\"}, {\"line\": \"l24\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-137100000236",
+  "title": "통합문화이용권(문화누리카드)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=753387&bnefType=all&svcId=137100000236",
+  "fetched_at": "2026-10-31",
+  "sha256": "5a784d7da2b53208857da1f2d6f4843533dbb670c7ea1184a4023e23d6effc16",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

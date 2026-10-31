@@ -1,0 +1,11 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원기준: 의료수급자가 아닌 기준중위소득 60%이하의 종로구 지역 가입자 중 아래의 요건을 충족하는 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 주민등록상 65세 이상 노인거주세대", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 장애인복지법에 따라 등록한 장애인이 있는 세대", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 한부모가족지원법에 따른 한부모가족", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 그 밖에 구청장이 지원이 필요하다고 인정하는 세대로 최저보험료 이하의 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 2026년 최저보험료: 22,800원", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

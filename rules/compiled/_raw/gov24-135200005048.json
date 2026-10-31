@@ -1,0 +1,13 @@
+{
+ "key": "7b4e6ecf7065e276b9ea1bdb51228cd74da4aba4a5b57e7139aaa2e4eff86091",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6465,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 178
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"위기임신 및 보호출산 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"위기임산부\", \"보호출산\", \"보호출산산모\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

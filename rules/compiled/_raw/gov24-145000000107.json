@@ -1,0 +1,13 @@
+{
+ "key": "ea566180aa875c3ed6e683faf9eda844a790cd7b6ca4cdd968be97a1e50b6073",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6774,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 279
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득층 에너지효율개선(냉방지원)\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"에너지효율개선\",\"냉방지원\",\"저소득층\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l7\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"!=\",\"value\":\"자가\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l9\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"definition\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

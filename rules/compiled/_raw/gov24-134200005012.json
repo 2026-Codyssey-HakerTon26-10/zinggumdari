@@ -1,0 +1,13 @@
+{
+ "key": "0a47e15edc1f1cea7231789ab3ae234e06a6a9ee905370f6f4eaa21979d30660",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6758,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 374
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"가정양육수당 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"가정양육수당\",\"영유아 양육\",\"보육료 지원\"],\"conditions\":[{\"field\":\"youngest_child_age\",\"op\":\">=\",\"value\":24,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l7\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<\",\"value\":86,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l7\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"어린이집, 유치원(특수학교 포함), 종일제 아이돌봄서비스 등을 이용하지 않는 가정양육\",\"evidence\":[\"l2\",\"l7\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"exclusive\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"definition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"exclusive\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

@@ -1,0 +1,72 @@
+{
+ "id": "gov24:161300000101:youth",
+ "source": "gov24",
+ "name": "통합공공임대주택 공급 청년",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "공공임대주택",
+  "청년임대"
+ ],
+ "conditions": [
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 150,
+   "income_basis": "median_pct",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-161300000101:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000101:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2103502&bnefType=all&svcId=161300000101",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1da1be625b1fe8c5738217aee94cf05d29a486a5a004b6f5ea28cf5be5d8f290",
+  "raw": "rules/compiled/_raw/gov24-161300000101.json",
+  "at": "2026-11-01T03:56"
+ }
+}

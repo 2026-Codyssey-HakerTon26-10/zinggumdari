@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sse000000020",
+  "title": "재가급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=716770&bnefType=all&svcId=SSE000000020",
+  "fetched_at": "2026-10-31",
+  "sha256": "3ebd72a3d3866bff57f55464c43339cd146af2b913ae397f1a2e00dd209edfd1",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

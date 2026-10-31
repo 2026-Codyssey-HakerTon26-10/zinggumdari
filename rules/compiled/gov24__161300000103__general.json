@@ -1,0 +1,115 @@
+{
+ "id": "gov24:161300000103:general",
+ "source": "gov24",
+ "name": "전세보증금반환보증 보증료 지원",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "전세보증금",
+  "보증료 지원",
+  "전세금 반환"
+ ],
+ "conditions": [
+  {
+   "field": "deposit",
+   "op": "<=",
+   "value": 30000,
+   "evidence": [
+    "gov24-161300000103:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 6000,
+   "income_basis": "absolute_annual",
+   "evidence": [
+    "gov24-161300000103:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "fail:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-161300000103:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-161300000103:l11"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-161300000103:l4",
+  "gov24-161300000103:l5",
+  "gov24-161300000103:l7",
+  "gov24-161300000103:l8"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2126303&bnefType=all&svcId=161300000103",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 2,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "015d66322e9c868ff599988565a6abad16b143e9bdd3b978b923794ebdc4ab3e",
+  "raw": "rules/compiled/_raw/gov24-161300000103.json",
+  "at": "2026-11-01T03:56"
+ }
+}

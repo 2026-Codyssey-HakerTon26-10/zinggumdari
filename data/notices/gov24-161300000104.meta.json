@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-161300000104",
+  "title": "K-패스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2143816&bnefType=all&svcId=161300000104",
+  "fetched_at": "2026-10-31",
+  "sha256": "d22f9397615c27e5876c3ff39921b28b568efd7e6997073b07da18220d51842f",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

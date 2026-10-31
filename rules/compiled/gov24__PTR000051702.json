@@ -1,0 +1,99 @@
+{
+ "id": "gov24:PTR000051702",
+ "source": "gov24",
+ "name": "부도 임대주택 경락 자금 융자",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "부도임대주택",
+  "경락자금",
+  "임차인대출"
+ ],
+ "conditions": [
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "evidence": [
+    "gov24-ptr000051702:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "N",
+   "evidence": [
+    "gov24-ptr000051702:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:N",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "주택도시기금 임대 건설자금이 지원된 부도임대주택을 경매 낙찰받은 임차인",
+   "evidence": [
+    "gov24-ptr000051702:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=739250&bnefType=all&svcId=PTR000051702",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c325b54fc4c8e542189efd4f5ddb96faa59cd3b647d3b92a77d43d985221106a",
+  "raw": "rules/compiled/_raw/gov24-ptr000051702.json",
+  "at": "2026-11-01T04:02"
+ }
+}

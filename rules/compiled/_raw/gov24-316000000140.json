@@ -1,0 +1,13 @@
+{
+ "key": "fff5aae8a9ad3e0e17b352c4111aaa0e56b73adea1afdfb8a2628fea5eb1919f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6439,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 376
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"입양축하금 지급(장애아동)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"입양축하금\", \"장애아동 입양\", \"입양 지원금\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"구로구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 6, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"입양신고일 6개월 전부터 계속하여 실제 거주\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "026371ed9886996cc57880c1804c1185c1cb3c2b581bdeb1b7778ca8abc408e7",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6482,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 604
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"어르신 생일축하 및 저소득 국민건강보험료 지원\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"노인 건강보험료 지원\", \"저소득 어르신 지원\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [], \"any_of\": [[{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"lives_alone\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"산정금액 최저보험료(22,340원) 이하\"}], [{\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"산정금액 최저보험료(22,340원) 이하\"}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"산정금액 최저보험료(22,340원) 이하\"}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

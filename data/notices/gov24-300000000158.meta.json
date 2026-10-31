@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-300000000158",
+  "title": "노인 구강보건사업",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100804&bnefType=all&svcId=300000000158",
+  "fetched_at": "2026-10-31",
+  "sha256": "3de4d17e220c9f7301371f86a7c646fe102f6be984e9293ce6e595c54bebfa2d",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

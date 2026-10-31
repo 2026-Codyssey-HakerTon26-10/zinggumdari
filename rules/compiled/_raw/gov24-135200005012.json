@@ -1,0 +1,13 @@
+{
+ "key": "5be29ec34c792a87f7969de6b1689814b95fb50768feca22c30092195ebc672b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6581,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 353
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"자산형성지원사업(희망저축Ⅱ)\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"희망저축\",\"자산형성\"],\"conditions\":[{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":50,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"주거급여수급\",\"교육급여수급\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"in\",\"value\":[\"재직\",\"자영업\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"income_self\",\"op\":\">\",\"value\":0,\"income_basis\":\"absolute_monthly\",\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"근로·사업소득 있음\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

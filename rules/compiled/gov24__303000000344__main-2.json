@@ -1,0 +1,92 @@
+{
+ "id": "gov24:303000000344:main-2",
+ "source": "gov24",
+ "name": "성동구 통합돌봄 낙상방지 홈케어 서비스 - 통합돌봄 대상",
+ "org": "서울특별시 성동구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "성동구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "낙상방지",
+  "홈케어",
+  "통합돌봄"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-303000000344:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "의료·요양·돌봄 등 복합적인 지원이 필요한 통합돌봄 대상으로 선정",
+   "evidence": [
+    "gov24-303000000344:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-303000000344:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2167319&bnefType=all&svcId=303000000344",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c3f60590b2c6e540d37c85ac77a996c49370f0b4c88399fa0c80866386b41305",
+  "raw": "rules/compiled/_raw/gov24-303000000344.json",
+  "at": "2026-11-01T03:57"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "f3f0270f2eef92cb61c1050c9513e922542f407ef7b56250e69a86a2f0efcf56",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6643,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 616
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"관악구민종합체육센터 부설주차장 요금 감면\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"discount\", \"aliases\": [\"주차요금 감면\", \"장애인 주차요금\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"장애인\", \"국가유공자\", \"고엽제휴유증환자\", \"5.18민주유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l4\", \"l5\", \"l8\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"경차 및 저공해차량\", \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"유공납세자 및 모범납세자\", \"evidence\": [\"l7\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \"in\", \"value\": [\"2\", \"3\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l9\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"자원봉사증 소지자\", \"evidence\": [\"l10\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"전기자동차 소지자\", \"evidence\": [\"l11\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"병역명문가\", \"evidence\": [\"l12\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"exclusive\"}, {\"line\": \"l14\", \"label\": \"procedure\"}, {\"line\": \"l15\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

@@ -1,0 +1,115 @@
+{
+ "id": "gov24:154300000011",
+ "source": "gov24",
+ "name": "귀농 농업창업 및 주택구입지원 사업",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "귀농",
+  "농업창업",
+  "주택구입"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "농촌 외 지역에서 농업 외 산업분야 종사자가 농업을 전업으로 하거나 농식품 가공·서비스업을 겸업하기 위해 농촌으로 이주하여 농업에 종사",
+   "evidence": [
+    "gov24-154300000011:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농촌지역 거주 비농업인이 농업을 전업으로 하거나 농식품 가공·서비스업을 겸업하기 위해 농업에 종사",
+   "evidence": [
+    "gov24-154300000011:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농촌 외 지역 농업 외 산업분야 종사자로서 당해연도 농촌지역으로 전입 예정",
+   "evidence": [
+    "gov24-154300000011:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "지원요건(이주기한, 거주기간, 교육이수실적 등)을 갖추고 지원제외대상에 해당하지 않으며 선정심사위원회 심사를 거쳐 선정",
+   "evidence": [
+    "gov24-154300000011:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=594253&bnefType=all&svcId=154300000011",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "3dff4950f230e62de2c8158bdb0c15cfbb0068fc54f033fb62364d7163a77663",
+  "raw": "rules/compiled/_raw/gov24-154300000011.json",
+  "at": "2026-11-01T03:56"
+ }
+}

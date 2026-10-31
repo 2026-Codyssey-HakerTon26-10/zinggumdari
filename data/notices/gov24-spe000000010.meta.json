@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-spe000000010",
+  "title": "장애수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=681344&bnefType=all&svcId=SPE000000010",
+  "fetched_at": "2026-10-31",
+  "sha256": "aa27cd9172eeaf57de287abdca0ff26d04ffd9efc6f94928ba794b4fa5aecf3e",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

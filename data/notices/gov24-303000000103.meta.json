@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-303000000103",
+  "title": "장애인 활동지원(추가2)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000905&bnefType=all&svcId=303000000103",
+  "fetched_at": "2026-10-31",
+  "sha256": "ff8153711b284cc5b94e4339f16b64dd979ac9bef4399b7a1a921bc9205c3e59",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,13 @@
+{
+ "key": "d06141b433aad6081d8eb0057788aa76fac63446bd9dca8e51a1c58f1dac5c78",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6814,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 532
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"복권기금 꿈사다리 장학사업\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"꿈사다리 장학금\",\"저소득층 장학금\",\"중고생 장학금\"],\"conditions\":[{\"field\":\"age\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"재학\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"한부모가족\",\"차상위\"],\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l7\"],\"any_of\":null}],\"documents\":[]},{\"track\":\"sos\",\"name\":\"복권기금 꿈사다리 장학사업 SOS장학금\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"SOS장학금\",\"긴급구난 장학금\"],\"conditions\":[{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"재학\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"긴급한 위기 상황에 처하여 갑작스럽게 학업 지속이 어려운 상황\",\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"definition\"},{\"line\":\"l9\",\"label\":\"exclusive\"},{\"line\":\"l10\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

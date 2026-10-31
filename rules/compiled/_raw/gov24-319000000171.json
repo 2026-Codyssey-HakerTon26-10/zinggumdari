@@ -1,0 +1,13 @@
+{
+ "key": "cd46f08150a7ca3fde156450ae801fe9ac5ff0662583110c769583834eb5dc3e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6555,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 375
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"동작구 전세피해임차인 지원금\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기 피해자 지원\",\"주거안정 지원\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l5\"],\"any_of\":null},{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"전세사기피해자\"],\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2025-07-14\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

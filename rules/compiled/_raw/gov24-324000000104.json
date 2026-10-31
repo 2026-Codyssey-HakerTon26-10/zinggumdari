@@ -1,0 +1,13 @@
+{
+ "key": "6428fb9217ef8377530e37cd9507a2220e8c944554d635ae28a5361d24875b3d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6394,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 177
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"반려식물 보급\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"노인 반려식물\", \"식물 보급\"], \"conditions\": [{\"field\": \"care_wanted\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

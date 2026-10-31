@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sse000000030",
+  "title": "기타재가급여 (장기요양보험 복지용구)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=716766&bnefType=all&svcId=SSE000000030",
+  "fetched_at": "2026-10-31",
+  "sha256": "f512fb413b87541dc7d682957f75e0a8bd268bf6e542691471f205bfea439657",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

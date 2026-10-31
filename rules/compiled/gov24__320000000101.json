@@ -1,0 +1,255 @@
+{
+ "id": "gov24:320000000101",
+ "source": "gov24",
+ "name": "예방접종 지원",
+ "org": "서울특별시 관악구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "관악구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "국가예방접종",
+  "무료예방접종"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 12,
+   "evidence": [
+    "gov24-320000000101:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-320000000101:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 17
+     },
+     {
+      "field": "gender",
+      "op": "==",
+      "value": "여"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 18
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 26
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "저소득층"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": "==",
+      "value": 12
+     },
+     {
+      "field": "gender",
+      "op": "==",
+      "value": "남"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-320000000101:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.2:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "HBsAg 양성 또는 HBeAg 양성 산모로부터 출생한 영유아",
+   "evidence": [
+    "gov24-320000000101:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "간염 항체 미형성자",
+   "evidence": [
+    "gov24-320000000101:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "군인 및 농부 등 신증후군출혈열 고위험군",
+   "evidence": [
+    "gov24-320000000101:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "보균자 접촉자, 유행지역 여행자 등 장티푸스 고위험군",
+   "evidence": [
+    "gov24-320000000101:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 14
+     }
+    ],
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-320000000101:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1000814&bnefType=all&svcId=320000000101",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 8,
+  "used": 7,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "3f741065743216e109953b71d50ea2aac3ac90ea54bd5cfbc63858ff57a727bb",
+  "raw": "rules/compiled/_raw/gov24-320000000101.json",
+  "at": "2026-11-01T03:59"
+ }
+}

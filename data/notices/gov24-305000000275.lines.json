@@ -1,0 +1,13 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 신청대상", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 서울특별시 동대문구의 주택을 임차한 임차인 中", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "· 전세사기피해자등(「전세사기피해자법」제2조제4항 적용)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "· 전세피해확인서 발급자(주택도시보증공사[HUG])", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "※ 보증금 회수를 위한 법정절차 진행한 피해자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "(보증금지급명령, 보증금반환청구소송, 손해배상을 진행한 전세사기피해자)", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 신청요건: 보증금 회수를 위한 법적절차(보증금지급명령, 보증금반환청구소송, 손해배상)를 이행한 자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "* 자세한 사항은 '동대문구 전세피해임차인 지원사업 공고문' 반드시 참고", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "2025.01.23.~", "mark": true}
+]

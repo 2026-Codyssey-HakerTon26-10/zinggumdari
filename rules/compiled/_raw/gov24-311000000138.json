@@ -1,0 +1,13 @@
+{
+ "key": "3162fbaa458fa743c8f455a48e668dc2db54a5530c52da38796cad66ac07906e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6895,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 487
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"부모성장을 위한 심리지원서비스\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"부모 심리지원\",\"임신부 정신건강\",\"양육자 상담\"],\"conditions\":[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"children_count\",\"op\":\">=\",\"value\":1,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<=\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":140,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[],[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"정신건강증진센터\",\"동주민센터\",\"자치구사례관리대상자\",\"보건소돌봄서비스의뢰자\"],\"income_basis\":null,\"as_of\":null,\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

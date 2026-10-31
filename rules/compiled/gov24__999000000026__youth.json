@@ -1,0 +1,261 @@
+{
+ "id": "gov24:999000000026:youth",
+ "source": "gov24",
+ "name": "행복주택 공급 청년",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "행복주택",
+  "청년 주거"
+ ],
+ "conditions": [
+  {
+   "field": "marital_status",
+   "op": "==",
+   "value": "미혼",
+   "evidence": [
+    "gov24-999000000026:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-999000000026:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 19
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 39
+     }
+    ],
+    [
+     {
+      "field": "employment_status",
+      "op": "in",
+      "value": [
+       "재직",
+       "구직"
+      ],
+      "text": "소득이 있는 업무에 종사중이거나 퇴직 후 1년 이내 구직급여 수급자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "예술인(소득이 있는 업무종사기간 5년 이하)"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000026:l15",
+    "gov24-999000000026:l16",
+    "gov24-999000000026:l17"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.0:not_in_evidence:재직",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "is_householder",
+      "op": "==",
+      "value": "세대주"
+     },
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 1
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 120,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "is_householder",
+      "op": "==",
+      "value": "세대주"
+     },
+     {
+      "field": "household_size",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 110,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "is_householder",
+      "op": "==",
+      "value": "세대주"
+     },
+     {
+      "field": "household_size",
+      "op": ">",
+      "value": 2
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct"
+     }
+    ],
+    [
+     {
+      "field": "is_householder",
+      "op": "==",
+      "value": "세대원"
+     },
+     {
+      "field": "income_self",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "urban_worker_pct",
+      "text": "세대원주가 아닌 세대원일 경우 본인 월평균소득"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-999000000026:l18",
+    "gov24-999000000026:l19"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:세대주",
+    "comparator": "fail:b0.1:op_mismatch",
+    "unit": "ok",
+    "keyword": "fail:b0.2:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "본인(본인이 세대주인 경우 세대내) 총자산 2.73억원 이하, 자동차 3,708만원 이하",
+   "evidence": [
+    "gov24-999000000026:l20"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000026:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000026:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000026:l10"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999079&bnefType=all&svcId=999000000026",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 32,
+  "used": 7,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7dc705940d434a5102b08b2051491c6e2f300cda70d034ed8268bb1aff6d8719",
+  "raw": "rules/compiled/_raw/gov24-999000000026.json",
+  "at": "2026-11-01T04:00"
+ }
+}

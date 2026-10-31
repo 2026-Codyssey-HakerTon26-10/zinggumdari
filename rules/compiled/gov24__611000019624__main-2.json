@@ -1,0 +1,70 @@
+{
+ "id": "gov24:611000019624:main-2",
+ "source": "gov24",
+ "name": "자녀출산 무주택가구 주거비 지원 - 중복수혜금지",
+ "org": "서울특별시",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [],
+ "conditions": [
+  {
+   "field": "other",
+   "as_of": "application_date",
+   "text": "주거 관련 정부 및 서울시 정책 수혜 중이 아님",
+   "evidence": [
+    "gov24-611000019624:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019624:l3"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149821&bnefType=all&svcId=611000019624",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 29,
+  "used": 1,
+  "labeled": {
+   "definition": 2,
+   "procedure": 14,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "e715359f8a01e68f90a379786dcbff5b650c8158116170a638fbaea782e0d4c4",
+  "raw": "rules/compiled/_raw/gov24-611000019624.json",
+  "at": "2026-11-01T03:59"
+ }
+}

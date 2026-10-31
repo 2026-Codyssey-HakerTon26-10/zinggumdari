@@ -1,0 +1,13 @@
+{
+ "key": "a2ac975a818f79bf31852d273ba72d9c5728ffc7dcee06a75e546c7d318f80eb",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6474,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 301
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"부도 임대주택 경락 자금 융자\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"부도임대주택\",\"경락자금\",\"임차인대출\"],\"conditions\":[{\"field\":\"is_householder\",\"op\":\"==\",\"value\":\"세대주\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"N\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"주택도시기금 임대 건설자금이 지원된 부도임대주택을 경매 낙찰받은 임차인\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

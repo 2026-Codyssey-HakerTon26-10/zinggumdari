@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-147100000004",
+  "title": "사회복지시설 급식관리 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=806140&bnefType=all&svcId=147100000004",
+  "fetched_at": "2026-10-31",
+  "sha256": "f15dba93c3a57a54c6d79a1667970eef88722fdc0f1b17d160e0ed661fbe7c5a",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

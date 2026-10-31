@@ -1,0 +1,173 @@
+{
+ "id": "gov24:319000000117:main",
+ "source": "gov24",
+ "name": "부모성장을 위한 심리지원서비스",
+ "org": "서울특별시 동작구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "동작구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "부모심리지원",
+  "양육자심리지원"
+ ],
+ "conditions": [
+  {
+   "field": "income_recognized",
+   "op": "<=",
+   "value": 140,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-319000000117:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "pregnant",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 140,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 1
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 18
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 140,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "이혼·사별"
+      ]
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 18
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 140,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "relation",
+      "op": "in",
+      "value": [
+       "부",
+       "모"
+      ]
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 18
+     },
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 140,
+      "income_basis": "median_pct"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-319000000117:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.0:not_in_evidence",
+    "comparator": "fail:b1.0:no_value",
+    "unit": "fail:b1.0:no_value",
+    "keyword": "fail:b2.0:keyword_not_in_evidence",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "서비스 욕구 있음",
+   "evidence": [
+    "gov24-319000000117:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004268&bnefType=all&svcId=319000000117",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "d116c3960c4aaa25307541bfc49d9c6550185a0190f0c4701d4b294f6c591cf2",
+  "raw": "rules/compiled/_raw/gov24-319000000117.json",
+  "at": "2026-11-01T03:59"
+ }
+}

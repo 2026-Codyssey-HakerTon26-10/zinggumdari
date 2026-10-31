@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000019636",
+  "title": "서울형 가사서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2159251&bnefType=all&svcId=611000019636",
+  "fetched_at": "2026-10-31",
+  "sha256": "74ea2d02423be3fe1724c09517d4ec47b316fd66a6063f2472474a7d848e6da7",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

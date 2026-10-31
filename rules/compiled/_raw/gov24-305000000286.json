@@ -1,0 +1,13 @@
+{
+ "key": "74f40d91242f438f9f3147eb707d88186a7fd647320526e4c0ae87786254857f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6454,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 361
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"임신부 백일해 예방접종 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"백일해 예방접종\",\"임신부 접종\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동대문구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"due_month\",\"op\":\">=\",\"value\":\"2024-01\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"임신 27주 이상 36주 이내\"},{\"field\":\"due_month\",\"op\":\"<=\",\"value\":\"2024-09\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"임신 27주 이상 36주 이내\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"임신기간에 접종하지 않은 분만 2주 이내 산모\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

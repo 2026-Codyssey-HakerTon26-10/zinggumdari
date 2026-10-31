@@ -1,0 +1,61 @@
+{
+ "id": "gov24:137100000032",
+ "source": "gov24",
+ "name": "문화로 치유 지원",
+ "org": "문화체육관광부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "문화치유",
+  "심리지원",
+  "정신건강"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "학폭 피·가해자, 정신건강 상담수요자, 경도인지장애 및 치매 위험자, 고립·운둔 청년, 심리·정서적 위기 청소년, 문화로 치유지원이 필요한 국민",
+   "evidence": [
+    "gov24-137100000032:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999117&bnefType=all&svcId=137100000032",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "61550089cefa5d5b2b91325879447e9cb6d2f92c47a3f78bdec690603b84e349",
+  "raw": "rules/compiled/_raw/gov24-137100000032.json",
+  "at": "2026-11-01T03:55"
+ }
+}

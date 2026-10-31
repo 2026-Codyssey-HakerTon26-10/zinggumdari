@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 서울특별시교육청 관내 국·공·사립 초·중·고등학교, 특수학교, 각종학교, 방송통신학교, 학력인정 평생교육시설 학생(만 22세 미만)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 법정저소득 자격(국민기초생활수급자, 한부모가족보호대상자, 법정차상위대상자) 소지자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 중위소득 60%이하", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 기타 법무부장관이 추천하는 난민인정자, 특별기여자 또는 그 자녀", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 1가구당 최연소 학생 1명 (1가구당 1회선)", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

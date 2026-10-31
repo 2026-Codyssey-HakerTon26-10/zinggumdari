@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000176",
+  "title": "구강진료 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803550&bnefType=all&svcId=304000000176",
+  "fetched_at": "2026-10-31",
+  "sha256": "fb510a663e6e3df1324103081cc82b394d751a64f8b585389d6bc5e84237e05e",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

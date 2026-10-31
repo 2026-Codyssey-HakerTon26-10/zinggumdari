@@ -1,0 +1,84 @@
+{
+ "id": "gov24:318000000424",
+ "source": "gov24",
+ "name": "어르신 대상 불소도포 서비스 제공",
+ "org": "서울특별시 영등포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "영등포구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "불소도포",
+  "치아관리",
+  "구강보건"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-318000000424:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "전체 틀니 이용자 및 임플란트·씌운 치아 등이 많을 경우 제외",
+   "evidence": [
+    "gov24-318000000424:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2168416&bnefType=all&svcId=318000000424",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "8c29e95f9955c9053e166ee4ffcbfcd70fa7d8926b1eae40088b76275c1735a3",
+  "raw": "rules/compiled/_raw/gov24-318000000424.json",
+  "at": "2026-11-01T03:58"
+ }
+}

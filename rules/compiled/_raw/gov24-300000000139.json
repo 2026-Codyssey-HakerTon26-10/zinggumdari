@@ -1,0 +1,13 @@
+{
+ "key": "5b5d82fb7342532af93c251abd25842eeba2e25067e9b80a216e2edd67947961",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6655,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 703
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"종로구 산모신생아 건강관리 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"산모신생아 건강관리\",\"출산 지원\",\"신생아 관리\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"종로구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":10,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":[[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"application_date\",\"text\":null}],[{\"field\":\"children_count\",\"op\":\">=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"children_count\",\"op\":\">=\",\"value\":3,\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"희귀난치성질환자인 산모\"}],[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"북한이탈주민산모\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"결혼이민산모\"}],[{\"field\":\"age\",\"op\":\"<=\",\"value\":18,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null}]]},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"P30D\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l8\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "2663497c5d24a91271219ca3cfde43c3fb4377554d43b2c0ac18a661f204ed1a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7686,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 461
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"폭력피해자 주거지원\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"rent\",\"aliases\":[\"가정폭력피해자\",\"성폭력피해자\",\"스토킹피해자\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"가정폭력·성폭력·스토킹 등 피해자 및 동반가족으로 자립·자활을 원하며, 의지가 있는 사람\",\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"장기 보호시설 입주자 또는 이주여성\",\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l11\",\"label\":\"not_condition\"},{\"line\":\"l12\",\"label\":\"procedure\"},{\"line\":\"l13\",\"label\":\"not_condition\"},{\"line\":\"l14\",\"label\":\"definition\"},{\"line\":\"l18\",\"label\":\"not_condition\"},{\"line\":\"l19\",\"label\":\"not_condition\"},{\"line\":\"l21\",\"label\":\"not_condition\"},{\"line\":\"l23\",\"label\":\"not_condition\"},{\"line\":\"l24\",\"label\":\"procedure\"},{\"line\":\"l25\",\"label\":\"procedure\"},{\"line\":\"l26\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000044",
+  "title": "지역사회서비스 청년사업단",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999161&bnefType=all&svcId=999000000044",
+  "fetched_at": "2026-10-31",
+  "sha256": "6ca64c17fdc12586218337733b61240e36d8fa1f5bb67f48c33915cd723ed9d6",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

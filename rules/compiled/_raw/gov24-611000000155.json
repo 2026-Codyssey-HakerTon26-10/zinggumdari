@@ -1,0 +1,13 @@
+{
+ "key": "516f21448990bb2c193f9c2e89705c4fec7f09c20c5a037bd5151f87b64639d5",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6435,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 278
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"이주여성 건강관리 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화가족 출산 전후 돌봄서비스\", \"이주여성 돌봄\"], \"conditions\": [{\"field\": \"pregnant\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"결혼이주여성, 배우자, 시부모 등 외국인주민 및 다문화가족\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

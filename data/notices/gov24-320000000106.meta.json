@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-320000000106",
+  "title": "장애인 활동지원(구비추가)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001564&bnefType=all&svcId=320000000106",
+  "fetched_at": "2026-10-31",
+  "sha256": "93846e49ebe1cdbc5fff4035e4d52d659ffe1b002bdaea8c714a73ec3ce9e178",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

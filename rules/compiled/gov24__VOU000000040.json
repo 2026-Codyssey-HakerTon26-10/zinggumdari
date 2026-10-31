@@ -1,0 +1,238 @@
+{
+ "id": "gov24:VOU000000040",
+ "source": "gov24",
+ "name": "가사·간병 방문 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "가사간병",
+  "방문지원",
+  "돌봄서비스"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": "<",
+   "value": 65,
+   "evidence": [
+    "gov24-vou000000040:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 70,
+   "income_basis": "median_pct",
+   "evidence": [
+    "gov24-vou000000040:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-vou000000040:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "6개월 이상 치료를 필요로 하는 중증질환자(보건복지부 장관이 고시한 중증질환 상병 해당자, 최근 3개월 이내 발행된 진단서 또는 소견서 첨부)",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-vou000000040:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "소년소녀가정, 조손가정, 한부모 가정(법정보호 세대)",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-vou000000040:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "의료급여수급자"
+   ],
+   "text": "만 65세미만의 의료급여수급자 중 장기입원 사례관리 퇴원자",
+   "evidence": [
+    "gov24-vou000000040:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "시·군·구청장이 예산의 범위 내에서 장애정도가 심하지 않은 장애인, 질환 및 부상으로 인한 장기치료자 등 가사·간병 서비스가 필요하다고 인정하는 자",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-vou000000040:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "단독으로 일상생활이 가능하거나 실제 생활을 함께 하는 부양 가족이 있는 경우는 선정 지양",
+   "evidence": [
+    "gov24-vou000000040:l11"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "의료기관 입원 중인 이용자(입원기간 동안만 서비스 불가, 단, 입퇴원일은 서비스 제공 가능)",
+   "evidence": [
+    "gov24-vou000000040:l18"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-vou000000040:l8"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-vou000000040:l14",
+  "gov24-vou000000040:l15",
+  "gov24-vou000000040:l16",
+  "gov24-vou000000040:l17"
+ ],
+ "documents": [
+  "진단서 또는 소견서"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=756549&bnefType=all&svcId=VOU000000040",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 14,
+  "used": 7,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 2,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "55961bfdbb7a136bfaf0c8a24286c1c1c22597f92698b0e25dc947b35aaf7899",
+  "raw": "rules/compiled/_raw/gov24-vou000000040.json",
+  "at": "2026-11-01T04:03"
+ }
+}

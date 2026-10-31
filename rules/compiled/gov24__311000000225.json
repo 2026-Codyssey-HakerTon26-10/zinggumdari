@@ -1,0 +1,143 @@
+{
+ "id": "gov24:311000000225",
+ "source": "gov24",
+ "name": "1인가구 전입 생활 지원 은빛SOL 라이프",
+ "org": "서울특별시 은평구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "은평구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "은빛SOL라이프",
+  "1인가구지원",
+  "전입생활지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 18,
+   "evidence": [
+    "gov24-311000000225:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 63,
+   "evidence": [
+    "gov24-311000000225:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sido",
+   "op": "!=",
+   "value": "은평구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-311000000225:l2"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:은평구",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:not_negated",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "은평구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-311000000225:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "household_size",
+   "op": "==",
+   "value": 1,
+   "evidence": [
+    "gov24-311000000225:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2128503&bnefType=all&svcId=311000000225",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "5286848311cb76ad0a84fb147ed7f10a85a5a7a03a0e1a53227f72b0c3659847",
+  "raw": "rules/compiled/_raw/gov24-311000000225.json",
+  "at": "2026-11-01T03:58"
+ }
+}

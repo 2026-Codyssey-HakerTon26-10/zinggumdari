@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-149200000153",
+  "title": "고용보험 미적용자 출산급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=746900&bnefType=all&svcId=149200000153",
+  "fetched_at": "2026-10-31",
+  "sha256": "c411c7f6d7d8f444a577a4b4e345e3ed89449891846437d01fb28a8d7ff013f5",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

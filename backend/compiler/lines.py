@@ -78,9 +78,19 @@ def save_lines(doc_id: str, lines: list[dict], meta: dict | None = None,
     return path
 
 
+def _birth_date_like(front: str) -> bool:
+    """주민등록번호 앞 6자리는 생년월일(YYMMDD)이다. 월과 일이 될 수 없는 숫자는 주민등록번호가 아니다."""
+    return 1 <= int(front[2:4]) <= 12 and 1 <= int(front[4:6]) <= 31
+
+
 def has_rrn(lines: list[dict]) -> bool:
-    """주민등록번호 꼴이 있는 줄이 있는가(/ingest가 거부한다)."""
-    return any(_RRN.search(l.get("text") or "") for l in lines)
+    """주민등록번호 꼴이 있는 줄이 있는가(/ingest가 거부한다).
+
+    LH 행복주택 공고문에는 「(주민등록번호 표시 예시) 123456-1234567」이 들어 있다. 앞자리가 날짜가 될 수 없는
+    이런 예시 번호로 공고 전체를 거부하지 않게, 앞 6자리가 생년월일 꼴일 때만 주민등록번호로 본다.
+    """
+    # 앞 6자리는 맞은 문자열에서 숫자만 골라 잡는다(패턴 모양이 바뀌어도 띄어쓰기나 하이픈에 기대지 않게)
+    return any(_birth_date_like(re.sub(r"\D", "", m.group())[:6]) for l in lines for m in _RRN.finditer(l.get("text") or ""))
 
 
 # --- 형식 가리기 ---

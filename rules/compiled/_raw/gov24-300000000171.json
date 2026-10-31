@@ -1,0 +1,13 @@
+{
+ "key": "a49ff0af92c923703e5d0afbccf98674d3e3ef286138a7347d56ddf2eede7b32",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6569,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 414
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"노인장기요양보험 사업 지원\", \"subject\": \"parent\", \"domain\": \"elderly\", \"benefit_type\": \"service\", \"aliases\": [\"장기요양보험\", \"요양보험 지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"치매, 중풍, 파킨슨병 등 노인성 질병으로 6개월 이상 혼자서 일상생활을 수행하기 어려운 자\", \"evidence\": [\"l4\", \"l5\"], \"any_of\": [[{\"field\": \"age\", \"op\": \"<\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"노인성 질병(치매, 중풍, 파킨슨병 등)\"}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

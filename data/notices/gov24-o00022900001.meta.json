@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-o00022900001",
+  "title": "거주자우선주차 요금감면",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000214&bnefType=all&svcId=O00022900001",
+  "fetched_at": "2026-10-31",
+  "sha256": "8195a57668763630d7396d46eb6b15002b6d80550c66d964566533fd68b10eaf",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

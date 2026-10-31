@@ -1,0 +1,108 @@
+{
+ "id": "gov24:999000000022:general-4",
+ "source": "gov24",
+ "name": "기존주택 전세임대주택 지원사업 긴급지원",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "rent",
+ "aliases": [
+  "전세임대",
+  "긴급지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "긴급지원대상자로 선정되고 시장 등이 주거지원 필요 인정",
+   "evidence": [
+    "gov24-999000000022:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "공공임대주택사업을 위해 주택 대금을 10년 이상 매월 분할 지급받고 주택 매도 2년 이내",
+   "evidence": [
+    "gov24-999000000022:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "income_household",
+   "op": "<=",
+   "value": 100,
+   "income_basis": "urban_worker_pct",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-999000000022:l15"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-999000000022:l21"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999070&bnefType=all&svcId=999000000022",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 44,
+  "used": 2,
+  "labeled": {
+   "definition": 5,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 20
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1e1105349361e3e4a35260b73b7869a67ef3f9bbf9940421310d761c64214e54",
+  "raw": "rules/compiled/_raw/gov24-999000000022.json",
+  "at": "2026-11-01T04:00"
+ }
+}

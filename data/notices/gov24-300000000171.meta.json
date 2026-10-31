@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-300000000171",
+  "title": "노인장기요양보험 사업 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2101114&bnefType=all&svcId=300000000171",
+  "fetched_at": "2026-10-31",
+  "sha256": "5fc6af51d7304481423e24abc3cfb43e7a76ebffd7eb03edcd27d00aedbd1404",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,13 @@
+{
+ "key": "2d0defdaa07c2d7e8bc874cf2ae8a9bc97e49d6176a590646b859c39feab44c2",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7141,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 721
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"꿈나래통장\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"자녀양육\",\"저소득가구\",\"저축지원\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"서울특별시\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":18,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"children_count\",\"op\":\">=\",\"value\":1,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<=\",\"value\":14,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"income_recognized\",\"op\":\">=\",\"value\":51,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":80,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"not_in\",\"value\":[\"기초생활수급자\",\"차상위계층\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l11\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"신청인 본인 명의의 통장 개설 가능\",\"evidence\":[\"l12\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"유사사업(희망두배청년통장, 희망플러스통장, 꿈나래통장, 이룸통장, 디딤씨앗통장) 미참여 또는 참여 이력 없음\",\"evidence\":[\"l13\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"definition\"},{\"line\":\"l9\",\"label\":\"definition\"},{\"line\":\"l10\",\"label\":\"not_condition\"},{\"line\":\"l14\",\"label\":\"not_condition\"},{\"line\":\"l15\",\"label\":\"exclusive\"},{\"line\":\"l16\",\"label\":\"exclusive\"},{\"line\":\"l17\",\"label\":\"exclusive\"},{\"line\":\"l18\",\"label\":\"exclusive\"},{\"line\":\"l19\",\"label\":\"procedure\"},{\"line\":\"l20\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

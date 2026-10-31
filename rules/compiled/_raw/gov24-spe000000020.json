@@ -1,0 +1,13 @@
+{
+ "key": "0f532a786d6d3879218c2e6301e354860927076daf437ef128b98933d77725d3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6874,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 530
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장애아동수당\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"장애아동\", \"아동수당\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<\", \"value\": 18, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l9\", \"l10\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위\"], \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l3\", \"l4\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": \"중증장애인(장애인연금법상 중증장애인에 해당하는 자) 또는 경증장애인(장애인연금법상 중증장애인에 해당하지 않는 자)\", \"evidence\": [\"l12\", \"l13\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"definition\"}, {\"line\": \"l15\", \"label\": \"not_condition\"}, {\"line\": \"l17\", \"label\": \"procedure\"}, {\"line\": \"l18\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

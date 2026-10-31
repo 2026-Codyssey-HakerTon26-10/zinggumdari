@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-311000000120",
+  "title": "국가보훈대상자 보훈예우수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006537&bnefType=all&svcId=311000000120",
+  "fetched_at": "2026-10-31",
+  "sha256": "fb5e092fde55d7e6d0f4b3917a899618928cd412fb01bfbc52072372145d2120",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

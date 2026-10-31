@@ -1,0 +1,8 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 지원대상 : 융자신청 당시 마포구에 주민등록을 두고 실제 거주하는“저소득 주거취약가구”1) 로서 입주보증금 용도로 기금을 사용하고자 하는 공공임대주택2) 입주대기자로 선정된 가구", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 1)「국민기초생활보장법」의 수급자 및 차상위계층, 도시근로자 가구 월평균소득 70%이하의 가구 중 최저주거기준 미달 가구, 비주택 거주 가구 등 주거복지 지원이 필요한 가구", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 2) 영구임대, 매입임대, 기타 재개발 임대 등 공공임대주택(전세임대 및 장기전세 제외)", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

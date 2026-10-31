@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-ptr000051551",
+  "title": "사업자 대출 입주자 앞 대환",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=739255&bnefType=all&svcId=PTR000051551",
+  "fetched_at": "2026-10-31",
+  "sha256": "abb2b83355c77bdddcabf25d3b8183addcdf29e487add4940eac5afdedb838e5",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

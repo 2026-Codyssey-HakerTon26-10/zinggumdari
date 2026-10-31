@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000003310",
+  "title": "북한이탈주민 주거지원금 지급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=82642&bnefType=all&svcId=SD0000003310",
+  "fetched_at": "2026-10-31",
+  "sha256": "e2916b524f5fcffb339acdd82d2fdaa82df3fae357e483d560c65684ec76f79c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

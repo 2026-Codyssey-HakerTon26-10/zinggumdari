@@ -1,0 +1,130 @@
+{
+ "id": "gov24:SD0000007626",
+ "source": "gov24",
+ "name": "장애인 등 대상 무료 우편 서비스(책나래 서비스)",
+ "org": "문화체육관광부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "책나래",
+  "장애인우편",
+  "무료우편"
+ ],
+ "conditions": [
+  {
+   "field": "disability_registered",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-sd0000007626:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "국가유공상이자"
+   ],
+   "evidence": [
+    "gov24-sd0000007626:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "ltc_grade",
+   "op": "not_in",
+   "value": [
+    "없음"
+   ],
+   "evidence": [
+    "gov24-sd0000007626:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:없음",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000007626:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sd0000007626:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [
+  "장애인복지카드",
+  "장애인증명서",
+  "국가유공자증",
+  "특수임무유공자증",
+  "보훈보상대상자증",
+  "지원대상자확인원",
+  "장기요양인정서"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=790129&bnefType=all&svcId=SD0000007626",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 1,
+  "labeled": {
+   "definition": 2,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "af6e23196bfd283123f3d00115647003d076b5bbee4285c972d743ab2f8a4101",
+  "raw": "rules/compiled/_raw/gov24-sd0000007626.json",
+  "at": "2026-11-01T04:02"
+ }
+}

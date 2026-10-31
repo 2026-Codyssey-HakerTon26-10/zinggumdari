@@ -1,0 +1,13 @@
+{
+ "key": "063fcbc377115a763e34040c245ea9637f11a5b7e87b889efe142e7be52d26a0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6560,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 758
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"취약계층 세탁서비스 지원사업\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"세탁서비스\",\"취약계층지원\",\"대형세탁물\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\",\"l4\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":\"65세이상 독거 어르신\"},{\"field\":\"lives_alone\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":\"65세이상 독거 어르신\"}],[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":\"부부노인\"},{\"field\":\"marital_status\",\"op\":\"in\",\"value\":[\"기혼\"],\"income_basis\":null,\"as_of\":null,\"text\":\"부부노인\"}],[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":\"중증장애인\"}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":\"한부모\"}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"조손가족\"],\"income_basis\":null,\"as_of\":null,\"text\":\"조손\"}],[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"소년소녀가정\"],\"income_basis\":null,\"as_of\":null,\"text\":\"소년소녀가정\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"동주민센터에서 추천한 자\"}]]}],\"documents\":[]},{\"track\":\"main\",\"name\":\"취약계층 세탁서비스 지원사업\",\"subject\":\"parent\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"세탁서비스\",\"취약계층지원\",\"대형세탁물\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"차상위\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":\"65세이상\",\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

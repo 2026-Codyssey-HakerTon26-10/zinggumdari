@@ -1,0 +1,13 @@
+{
+ "key": "04df85d21b200f7e3f19b5e174c4d5852f0c403052f8a16b4fb2033e81b07696",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6739,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 440
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"시설입소 장애인 서비스제공\",\"subject\":\"self\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"장애인거주시설\",\"장애인시설입소\",\"장애인서비스\"],\"conditions\":[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"부양자가 없거나 부양을 받을 수 없는 자\",\"evidence\":[\"l4\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"서비스지원 종합조사 결과 충족\",\"evidence\":[\"l4\",\"l5\",\"l6\",\"l7\",\"l8\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"지자체의 시설 입소 적격성 심사를 거쳐 시설 입소 결정\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"not_condition\"},{\"line\":\"l10\",\"label\":\"procedure\"},{\"line\":\"l11\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200005003",
+  "title": "긴급복지 생계지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=900010&bnefType=all&svcId=135200005003",
+  "fetched_at": "2026-10-31",
+  "sha256": "d85c6bd07c2f8bddc68d2ecfb2cb3fddbfa8c9b0fe0c46d88b1343b68f21e485",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

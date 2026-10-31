@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-305000000288",
+  "title": "동대문구 1인가구 청년 건강검진",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2168604&bnefType=all&svcId=305000000288",
+  "fetched_at": "2026-10-31",
+  "sha256": "6bdd6d7558036c539cc6c127d26ca644abadf5321f19d3dfa74e0026628f4ded",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

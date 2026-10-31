@@ -1,0 +1,13 @@
+{
+ "key": "265403a6d3c42f5644eb990af89e3b2f91a14046a1e2869f2002a468a54d9de8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6466,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 262
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"찾아가는 폭력예방교육 서비스 제공\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"폭력예방교육\", \"찾아가는 교육\"], \"conditions\": [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"노인, 장애인, 이주민, 학부모, 농산어촌·도서·벽지·접적 지역 거주 주민\", \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

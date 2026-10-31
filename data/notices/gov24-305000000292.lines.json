@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "무료진료 : 만 65세 이상 서울시민 및 의료급여수급권자,장애인 1~3급, 국가유공자 본인 등.", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "무료상담 : 일반 내 · 외국인 누구나 가능", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

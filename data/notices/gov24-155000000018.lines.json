@@ -1,0 +1,13 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "<소규모 발굴조사 지원사업>", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 단독주택으로서 대지면적 792㎡ 이하이면서 건축연면적 264㎡ 이하인 경우(단, 주택건설사업자가 시행하는 건설공사 제외)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 개인사업자가 자기 사업목적 활용을 위해 설치하는 시설물로서 대지면적 792㎡ 이하이면서 건축연면적 264㎡ 이하인 경우", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 농어업시설 및 소규모 공장인 경우 대지면적 2,644㎡ 이하인 경우", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "<매장유산 진단조사 지원사업>", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 단독주택, 제1‧2종 근린생활시설, 운동시설, 창고시설, 공장(단, 표본‧시굴조사에 한해 지원)", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

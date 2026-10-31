@@ -1,0 +1,224 @@
+{
+ "id": "gov24:149200000153",
+ "source": "gov24",
+ "name": "고용보험 미적용자 출산급여",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "출산급여",
+  "고용보험 미적용 출산",
+  "출산휴가급여"
+ ],
+ "conditions": [
+  {
+   "field": "pregnant",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-149200000153:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:Y",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "employment_status",
+   "op": "!=",
+   "value": "재학",
+   "evidence": [
+    "gov24-149200000153:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:재학",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "자영업"
+     },
+     {
+      "field": "other",
+      "text": "피고용인 없는 단독·공동 사업자"
+     }
+    ],
+    [
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "자영업"
+     },
+     {
+      "field": "other",
+      "text": "임신 진단 이후 피고용인 1인까지만 채용"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "특수형태근로종사자 또는 프리랜서"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "고용보험 피보험자이나 180일 요건 미충족"
+     },
+     {
+      "field": "residence_months",
+      "op": ">=",
+      "value": 1
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "고용보험법 적용제외 사업의 근로자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "소정근로시간 월 60시간 이상 또는 3개월 이상 계속 근로자 또는 일용근로자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-149200000153:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:자영업",
+    "comparator": "fail:b3.1:no_value",
+    "unit": "fail:b3.1:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "P1Y",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-149200000153:l25"
+   ],
+   "checks": {
+    "schema": "fail:value_not_number",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000153:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000153:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000153:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000153:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000153:l19"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000153:l20"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=746900&bnefType=all&svcId=149200000153",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 19,
+  "used": 2,
+  "labeled": {
+   "definition": 7,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 6
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c411c7f6d7d8f444a577a4b4e345e3ed89449891846437d01fb28a8d7ff013f5",
+  "raw": "rules/compiled/_raw/gov24-149200000153.json",
+  "at": "2026-11-01T03:56"
+ }
+}

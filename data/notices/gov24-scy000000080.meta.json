@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-scy000000080",
+  "title": "아동발달지원계좌(디딤씨앗통장) 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=7537&bnefType=all&svcId=SCY000000080",
+  "fetched_at": "2026-10-31",
+  "sha256": "1c0e6d18c847d211030af0056b0bd5066dcc29461a0c7dcc87197eb123371268",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

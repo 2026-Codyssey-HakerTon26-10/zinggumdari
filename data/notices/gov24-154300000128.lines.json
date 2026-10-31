@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 대상자: 60세 이상, 영농경력 5년 이상 농업인(은퇴직불형의 경우 65세 이상 79세 이하, 영농경력 10년 이상 농업인)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 대상농지(담보농지): 공부상 지목이 전,답,과수원이면서 실제 영농에 이용중인 농지로 2년 이상 보유(주소지에서 30킬로미터 이내)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 단, 근저당이 설정된 농지는 채권최고액이 담보농지 가격의 100분의 15 미만인 경우 가입 허용", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 그 외 '농지연금 기간형 지원방식의 가입연령, 담보농지의 기준 및 위험부담금 산출에 적용되는 요율' 고시 제4조의 요건을 충족할 것", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 대상자: 60세 이상, 영농경력 5년 이상 농업인(은퇴직불형의 경우 65세 이상, 79세 이하, 영농경력 10년 이상 농업인)", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 대상농지(담보농지): 공부상 지목이 전,답,과수원이면서 실제 영농에 이용중인 농지로 2년 이상 보유(주소지에서 30킬로미터 이내)", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 단, 근저당이 설정된 농지는 채권최고액이 담보농지 가격의 100분의 15 미만인 경우 가입 허용", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 그 외 '농지연금 기간형 지원방식의 가입연령, 담보농지의 기준 및 위험부담금 산출에 적용되는 요율' 고시 제4조의 요건을 충족할 것", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

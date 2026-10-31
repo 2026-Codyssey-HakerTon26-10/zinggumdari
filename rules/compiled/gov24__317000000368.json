@@ -1,0 +1,204 @@
+{
+ "id": "gov24:317000000368",
+ "source": "gov24",
+ "name": "금천구 전세피해 지원사업(소송수행경비)",
+ "org": "서울특별시 금천구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "금천구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "전세사기피해",
+  "전세피해지원",
+  "소송경비지원"
+ ],
+ "conditions": [
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-317000000368:l2",
+    "gov24-317000000368:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-317000000368:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "금천구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-317000000368:l2",
+    "gov24-317000000368:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "전세사기피해자법 제2조제4항의 전세사기피해자등 또는 HUG 전세피해확인서 발급자",
+   "evidence": [
+    "gov24-317000000368:l2",
+    "gov24-317000000368:l7",
+    "gov24-317000000368:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "금천구 소재 임차주택에 대한 전세사기피해",
+   "evidence": [
+    "gov24-317000000368:l6",
+    "gov24-317000000368:l7",
+    "gov24-317000000368:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "보증금 회수를 위한 법적 절차 이행 시 경비가 필요한 자",
+   "evidence": [
+    "gov24-317000000368:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": ">=",
+   "value": "2026-01-01",
+   "evidence": [
+    "gov24-317000000368:l20"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "2026-12-31",
+   "evidence": [
+    "gov24-317000000368:l20"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2140020&bnefType=all&svcId=317000000368",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 14,
+  "used": 6,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 7
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "db74564f3432c4742c0cc2975a82e6f1967eacc979783ae08a86c23170929456",
+  "raw": "rules/compiled/_raw/gov24-317000000368.json",
+  "at": "2026-11-01T03:58"
+ }
+}

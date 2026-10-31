@@ -1,0 +1,97 @@
+{
+ "id": "gov24:O00022900001",
+ "source": "gov24",
+ "name": "거주자우선주차 요금감면",
+ "org": "서울특별시노원구시설관리공단",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "discount",
+ "aliases": [
+  "장애인 주차요금",
+  "국가유공자 주차요금"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "장애인",
+    "국가유공자",
+    "고엽제후유의증환자",
+    "의사상자",
+    "독립유공자"
+   ],
+   "evidence": [
+    "gov24-o00022900001:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "경형자동차 또는 환경친화적자동차 또는 다둥이카드소지자 또는 5·18민주유공자 또는 보훈보상대상자 또는 시장·구청장 지정 승용차공동이용자동차 월정기권 발행이용자",
+   "evidence": [
+    "gov24-o00022900001:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-o00022900001:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2000214&bnefType=all&svcId=O00022900001",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "8195a57668763630d7396d46eb6b15002b6d80550c66d964566533fd68b10eaf",
+  "raw": "rules/compiled/_raw/gov24-o00022900001.json",
+  "at": "2026-11-01T04:02"
+ }
+}

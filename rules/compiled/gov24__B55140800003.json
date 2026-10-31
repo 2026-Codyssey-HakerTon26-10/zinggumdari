@@ -1,0 +1,278 @@
+{
+ "id": "gov24:B55140800003",
+ "source": "gov24",
+ "name": "내집마련 디딤돌 대출",
+ "org": "국토교통부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "디딤돌대출",
+  "주택구입대출"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 6000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "marital_status",
+      "op": "!=",
+      "value": "신혼"
+     },
+     {
+      "field": "history",
+      "op": "!=",
+      "value": "과거 주택 소유"
+     }
+    ],
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 7000,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "history",
+      "op": "==",
+      "value": "생애 최초 주택구입"
+     }
+    ],
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 8500,
+      "income_basis": "absolute_annual"
+     },
+     {
+      "field": "marital_status",
+      "op": "==",
+      "value": "신혼"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-b55140800003:l2",
+    "gov24-b55140800003:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.2:unverifiable",
+    "comparator": "fail:b0.1:not_negated",
+    "unit": "ok",
+    "keyword": "fail:b1.0:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "evidence": [
+    "gov24-b55140800003:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-b55140800003:l2",
+    "gov24-b55140800003:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "house_price",
+      "op": "<=",
+      "value": 50000
+     },
+     {
+      "field": "children_count",
+      "op": "<",
+      "value": 2
+     }
+    ],
+    [
+     {
+      "field": "house_price",
+      "op": "<=",
+      "value": 60000
+     },
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 2
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-b55140800003:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:b0.1:op_mismatch",
+    "unit": "ok",
+    "keyword": "fail:b0.0:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "전용면적 85㎡ 이하(수도권 제외, 읍·면 지역은 100㎡ 이하)",
+   "evidence": [
+    "gov24-b55140800003:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "evidence": [
+    "gov24-b55140800003:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:negated_context",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 30
+     },
+     {
+      "field": "is_householder",
+      "op": "==",
+      "value": "세대주"
+     }
+    ],
+    [
+     {
+      "field": "is_householder",
+      "op": "==",
+      "value": "세대원"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-b55140800003:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:b0.0:negated_context",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "구매용도만 가능(상환, 보전용도 불가)",
+   "evidence": [
+    "gov24-b55140800003:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999071&bnefType=all&svcId=B55140800003",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 4,
+  "labeled": {
+   "definition": 0,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 1,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "476282abc795a6509b1afe37472e2d98fa0a2623a520d845d701283fbc8c54bc",
+  "raw": "rules/compiled/_raw/gov24-b55140800003.json",
+  "at": "2026-11-01T04:02"
+ }
+}

@@ -1,0 +1,6 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "구에 주민등록을 두고 거주하고 있는 출생신고를 한 모든 영아의 부 또는 모로 하며, 대상자녀는 주민등록상 동일 세대원이어야 한다.", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "출생 후 60일이내 신청", "mark": true}
+]

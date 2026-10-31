@@ -1,0 +1,145 @@
+{
+ "id": "gov24:302000000113:newborn",
+ "source": "gov24",
+ "name": "출산지원금 지원 신생아",
+ "org": "서울특별시 용산구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "용산구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "셋째아",
+  "넷째아",
+  "출산지원"
+ ],
+ "conditions": [
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 3,
+   "evidence": [
+    "gov24-302000000113:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": ">=",
+   "value": "2022-01-01",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-302000000113:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:other_field_word:거주",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 1,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-302000000113:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "fail:unit_mismatch",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "용산구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-302000000113:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "residence_months",
+   "op": ">=",
+   "value": 12,
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-302000000113:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004945&bnefType=all&svcId=302000000113",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "c22e07c0b4aa45ea5140bc5bc167dc45bfc0af4b9bbd61c3f21487e79e512750",
+  "raw": "rules/compiled/_raw/gov24-302000000113.json",
+  "at": "2026-11-01T03:57"
+ }
+}

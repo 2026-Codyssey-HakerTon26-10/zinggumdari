@@ -1,0 +1,342 @@
+{
+ "id": "gov24:423000000362",
+ "source": "gov24",
+ "name": "아이돌봄 서비스",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "아이돌봄",
+  "영아종일제",
+  "시간제돌봄"
+ ],
+ "conditions": [
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 36,
+   "evidence": [
+    "gov24-423000000362:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "youngest_child_age",
+   "op": "<=",
+   "value": 144,
+   "evidence": [
+    "gov24-423000000362:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "한부모"
+      ]
+     },
+     {
+      "field": "employment_status",
+      "op": "in",
+      "value": [
+       "재직",
+       "자영업"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "한부모"
+      ]
+     },
+     {
+      "field": "employment_status",
+      "op": "in",
+      "value": [
+       "구직"
+      ]
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "장애인"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "한부모"
+      ]
+     },
+     {
+      "field": "employment_status",
+      "op": "in",
+      "value": [
+       "구직"
+      ]
+     },
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 2
+     }
+    ],
+    [
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "children_count",
+      "op": ">=",
+      "value": 2
+     },
+     {
+      "field": "employment_status",
+      "op": "!=",
+      "value": "구직"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "다문화가정"
+      ]
+     },
+     {
+      "field": "children_count",
+      "op": "==",
+      "value": 2
+     },
+     {
+      "field": "youngest_child_age",
+      "op": "<=",
+      "value": 144
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "쌍둥이 이상 다태아 가정이 부모 모두 육아휴직 사용 중인 경우 양육공백 인정됨."
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "모의 출산으로 출생 아동의 형제자매에 돌봄 공백이 발생한 경우, 임신판정일로부터 출산후 90일 범위내에서 이용 가능"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-423000000362:l24"
+   ],
+   "checks": {
+    "schema": "fail:b0.0:value_not_in_vocab:한부모",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:한부모",
+    "comparator": "fail:b2.2:no_value",
+    "unit": "fail:b2.2:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "employment_type",
+   "op": "==",
+   "value": "맞벌이",
+   "evidence": [
+    "gov24-423000000362:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l11"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l13"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l14"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l15"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l16"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l21"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-423000000362:l23"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "gov24-423000000362:l12",
+  "gov24-423000000362:l17",
+  "gov24-423000000362:l30",
+  "gov24-423000000362:l31"
+ ],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=746602&bnefType=all&svcId=423000000362",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 24,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 4,
+   "out_of_scope": 0,
+   "not_condition": 7
+  },
+  "unaccounted": 12
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a8cb9836545aa84679b1878838d7d93db67280950a43d867e6ab5c456647f22a",
+  "raw": "rules/compiled/_raw/gov24-423000000362.json",
+  "at": "2026-11-01T03:59"
+ }
+}

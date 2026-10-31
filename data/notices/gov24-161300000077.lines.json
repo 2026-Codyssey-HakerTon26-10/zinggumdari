@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 대상자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 사업수행 능력을 구비하고 10년 이상 임대를 목적으로 주택건설사업계획승인 또는 건축허가를 받아 주택 또는 준주택을 건설하는 임대사업자로서 사업자등록증을 소지한 다음 각 호의 자로 한다.", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "1. 주택건설사업 등록업자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "2. 주택건설사업 등록업자와 공동으로 사업을 수행하는 토지소유자", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "3. 주택건설사업 등록업자를 시공자로하여 주택을 건설하는 고용자", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "4. 29세대이하 (준)주택 건설의 경우 토지소유자", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 대출대상주택", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 대상주택은 세대(가구)당 주거전용면적이 85㎡이하인 단독주택(다가구), 30호 이상 단지형 단독주택, 다세대주택 등 공동주택 및 제231조의 21 제1호의 준주택으로 한다. (단, 계좌별 대출대상 세대수 4호미만은 대출대상 제외)", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 일정 심사요건 이상을 충족하는 자", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

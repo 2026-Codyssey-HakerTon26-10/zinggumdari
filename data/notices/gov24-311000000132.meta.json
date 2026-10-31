@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-311000000132",
+  "title": "장난감나라",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2100504&bnefType=all&svcId=311000000132",
+  "fetched_at": "2026-10-31",
+  "sha256": "800eb4bc67c2a83c60e16e19f3b92feb77dffd32ca43c82d07bb8cb4fcaa274f",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

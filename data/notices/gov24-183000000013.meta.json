@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-183000000013",
+  "title": "고엽제환자 2세 수당",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156417&bnefType=all&svcId=183000000013",
+  "fetched_at": "2026-10-31",
+  "sha256": "98a0245bf3b829b119e9dcb533bb189294c8598d82cfb4ff28be04c2f2a7d8a9",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

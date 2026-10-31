@@ -1,0 +1,122 @@
+{
+ "id": "gov24:sse000000170",
+ "source": "gov24",
+ "name": "기초연금",
+ "org": "보건복지부",
+ "region": {
+  "unknown": true
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "cash",
+ "aliases": [
+  "기초연금",
+  "노령연금",
+  "어르신 연금"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-sse000000170:l2",
+    "gov24-sse000000170:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "가구의 소득인정액이 선정기준액 이하(단독가구 247만원, 부부가구 395.2만원, 2026년)",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-sse000000170:l2",
+    "gov24-sse000000170:l7",
+    "gov24-sse000000170:l8",
+    "gov24-sse000000170:l9",
+    "gov24-sse000000170:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "공무원·사립학교교직원·군인·별정우체국직원연금 수급권자 및 배우자는 원칙적으로 제외(퇴직일시금 수령자, 퇴직유족일시금 수령 후 5년 경과자 등 예외)",
+   "evidence": [
+    "gov24-sse000000170:l21",
+    "gov24-sse000000170:l22"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-sse000000170:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [
+  "신분증",
+  "사회복지서비스 및 급여 제공(변경) 신청서",
+  "소득·재산 신고서",
+  "금융 정보 등(금융, 신용, 보험정보) 제공 동의서(본인, 배우자)",
+  "통장 사본"
+ ],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=72548&bnefType=all&svcId=SSE000000170",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 24,
+  "used": 7,
+  "labeled": {
+   "definition": 8,
+   "procedure": 2,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 6
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-opus-4-8",
+  "prompt": "v1",
+  "doc_sha256": "7cbfa35de9533c151d28fd406ec9b7c912da5ececd1876a112a87330cd0de495",
+  "raw": "eval/compiled/_raw/gov24-sse000000170.json",
+  "at": "2026-11-01T03:39"
+ }
+}

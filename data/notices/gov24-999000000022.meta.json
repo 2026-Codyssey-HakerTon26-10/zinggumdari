@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000022",
+  "title": "기존주택 전세임대주택 지원사업",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999070&bnefType=all&svcId=999000000022",
+  "fetched_at": "2026-10-31",
+  "sha256": "1e1105349361e3e4a35260b73b7869a67ef3f9bbf9940421310d761c64214e54",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

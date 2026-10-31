@@ -1,0 +1,64 @@
+{
+ "id": "gov24:174000000029",
+ "source": "gov24",
+ "name": "출산 관련 서비스 통합처리 신청(행복출산)",
+ "org": "행정안전부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "행복출산",
+  "출산서비스",
+  "부모급여"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "출생신고 시 또는 출생신고 이후 신청",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-174000000029:l2",
+    "gov24-174000000029:l7"
+   ],
+   "as_of": "application_date",
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=593069&bnefType=all&svcId=174000000029",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 7,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 4
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "334f04d1ca815af21e79fd10b7ef30abdff6458c404b272e3b9ae1d945846016",
+  "raw": "rules/compiled/_raw/gov24-174000000029.json",
+  "at": "2026-11-01T03:56"
+ }
+}

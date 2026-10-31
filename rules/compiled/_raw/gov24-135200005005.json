@@ -1,0 +1,13 @@
+{
+ "key": "87441051aff1c7a4fa3f437b2db7bf1a0ba57b2d8c863eecf75eb84491e02da5",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6866,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 759
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"긴급복지 의료지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"긴급의료비\",\"의료지원\"],\"conditions\":[{\"field\":\"income_household\",\"op\":\"<=\",\"value\":1923.179,\"income_basis\":\"absolute_monthly\",\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l5\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":3149.469,\"income_basis\":\"absolute_monthly\",\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l6\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":4019.277,\"income_basis\":\"absolute_monthly\",\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l7\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":4871.054,\"income_basis\":\"absolute_monthly\",\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l8\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":5667.539,\"income_basis\":\"absolute_monthly\",\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l9\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":6416.964,\"income_basis\":\"absolute_monthly\",\"as_of\":null,\"text\":null,\"evidence\":[\"l4\",\"l10\"],\"any_of\":null},{\"field\":\"household_size\",\"op\":\">=\",\"value\":7,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l11\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"재산: 대도시 24,100만 원, 중소도시 15,200만 원, 농어촌 13,000만 원 이하 (주거용 재산 공제: 대도시 6,900만 원, 중소도시 4,200만 원, 농어촌 3,500만 원 이하)\",\"evidence\":[\"l12\",\"l13\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"금융 재산: 생활준비금 + 600만 원 이하 (주거 지원은 200만 원 추가)\",\"evidence\":[\"l14\",\"l15\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"중한 질병 또는 부상으로 인한 의료비 감당 곤란\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l16\",\"label\":\"procedure\"},{\"line\":\"l17\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

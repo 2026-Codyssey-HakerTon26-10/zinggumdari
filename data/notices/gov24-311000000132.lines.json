@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 장난감나라 연회비 면제", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 기초생활수급자, 장애영유아가정, 2자녀이상, 한부모, 다문화(외국인),국가유공자(유족)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 찾아가는 장난감 붕붕이 이용요금 면제", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 기초생활수급자, 장애영유아, 2자녀이상(둘째임신부포함),한부모, 다문화(외국인),국가유공자(유족)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "면제대상 월2회 배송료면제 (3회째부터 배송료 부담후 추가이용가능", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

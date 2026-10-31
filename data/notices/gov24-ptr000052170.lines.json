@@ -1,0 +1,20 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 개인", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 과학기술 분야에 취업하였으나, 임신, 출산, 육아, 가족 구성원 돌봄 등의 이유로 경력이 단절된 여성과학기술인", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 학위 취득 후, 임신, 출산, 육아, 가족 구성원 돌봄 등의 이유로 미취업 중인 여성과학기술인", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 이공계 학사이상 학위 소지자(학사 학위자의 경우, 6개월 이상 경력이 있는 자)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 기관", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 경력단절 여성과학기술인을 활용하고자 하는 기관", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 과학기술 분야 연구기관 및 대학, 민간기업 연구소", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 개인", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 이공계 학위 소지 또는 연구개발 관련 경력 보유한 여성", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "- 경력단절 사유 및 현황, 향후 경력개발 계획, 기존 경력 등을 평가하여 60점 이상 획득한 자", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "○ 기관", "mark": false},
+  {"id": "l14", "page": null, "bbox": null, "text": "- 과학기술 분야 연구기관 및 대학, 민간기업 연구소", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 복귀 여성인력에 기준연봉 3,000만원 이상 지급 가능한 기관", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "- 근무환경, 재무건전성, 연구개발현황 등을 평가하여 60점 이상 획득한 기관", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l18", "page": null, "bbox": null, "text": "홈페이지(www.wbridge.or.kr) 참고", "mark": false}
+]

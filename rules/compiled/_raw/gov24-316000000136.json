@@ -1,0 +1,13 @@
+{
+ "key": "f70ccd1949bd1b7e7f708772d573f8eed8b9da32cce6771324af4b6b9108412a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6449,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 321
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"구로형 산후조리비용 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"산후조리\",\"출산지원\",\"산모지원\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"구로구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":80,\"income_basis\":\"median_pct\",\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"다문화 가정 임산부 포함(부부 모두 외국인인 경우 제외)\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

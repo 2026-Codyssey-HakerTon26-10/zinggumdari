@@ -1,0 +1,13 @@
+{
+ "key": "6bd9f90afc56a778fd1e31d8182f523b45e7f1d2cd3fcc86cf94b74f56c648a6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6938,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 544
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득층 에너지효율개선(난방지원)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"에너지효율개선\", \"난방지원\", \"저소득층 난방\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"복지사각지대저소득가구\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"주거급여법 제8조에 따른 수선유지비 지급 대상가구 제외\", \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"공공주택 특별법 제2조제1호가목에 따른 공공임대주택 가구 제외(기존전세임대는 가능)\", \"evidence\": [\"l6\"], \"any_of\": null}, {\"field\": \"history\", \"op\": \"!=\", \"value\": \"동사업지원\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l7\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"definition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

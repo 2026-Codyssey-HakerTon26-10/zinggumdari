@@ -1,0 +1,13 @@
+{
+ "key": "4ce2c72d0ade2c41c186f2f2499f83327996a621633911a82cf65ba8550d316b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6531,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 381
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"출산양육지원금 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"출산지원금\", \"양육지원금\", \"신생아지원\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"강남구\", \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 12, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l5\"], \"any_of\": null}, {\"field\": \"household_size\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

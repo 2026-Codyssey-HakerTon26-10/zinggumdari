@@ -1,0 +1,89 @@
+{
+ "id": "gov24:308000000102",
+ "source": "gov24",
+ "name": "국가보훈대상자 사망위로금 지원",
+ "org": "서울특별시 강북구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "강북구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "국가유공자 사망위로금",
+  "보훈대상자 위로금"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "국가유공자"
+   ],
+   "evidence": [
+    "gov24-308000000102:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "relation",
+   "op": "in",
+   "value": [
+    "배우자",
+    "자녀",
+    "부모"
+   ],
+   "evidence": [
+    "gov24-308000000102:l3"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:배우자",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001010&bnefType=all&svcId=308000000102",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 0
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b4ee527ab4276edfa3fa38faf4b9c6996e32c806c5880898e266695c7677cc42",
+  "raw": "rules/compiled/_raw/gov24-308000000102.json",
+  "at": "2026-11-01T03:57"
+ }
+}

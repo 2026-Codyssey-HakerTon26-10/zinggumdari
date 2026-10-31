@@ -1,0 +1,13 @@
+{
+ "key": "601d9c079f636b05c1d0ddc56697be8467ee4c2a288bf3200940d3fd8f8afe8a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6596,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 242
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"청년성장프로젝트\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"청년 지원\",\"청년 프로젝트\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":15,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":34,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"not_condition\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

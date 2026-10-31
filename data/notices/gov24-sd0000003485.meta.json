@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000003485",
+  "title": "농업종합자금 지원 (원예, 축산, 가공사업 등)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999097&bnefType=all&svcId=SD0000003485",
+  "fetched_at": "2026-10-31",
+  "sha256": "c4fcb16674c6ebd67e028445ce346871e4378862da23f0ecb13b38f7967092b9",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

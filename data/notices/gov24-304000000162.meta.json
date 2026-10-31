@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000162",
+  "title": "청년 행정아르바이트",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803612&bnefType=all&svcId=304000000162",
+  "fetched_at": "2026-10-31",
+  "sha256": "7d7f5a66809a835f886c6c5bccf12b63c9bace23066d23facddf8aebd107aedc",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

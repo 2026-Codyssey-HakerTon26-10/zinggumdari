@@ -1,0 +1,136 @@
+{
+ "id": "gov24:154300000022",
+ "source": "gov24",
+ "name": "농업 경영·기술 심층컨설팅",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "농업경영컨설팅",
+  "농업기술지원"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "농업경영체 등록"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "청년농 영농정착지원사업 선정자 중 독립경영 예정자"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-154300000022:l3",
+    "gov24-154300000022:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "법인경영체의 경우 설립 후 운영실적 1년 이상",
+   "evidence": [
+    "gov24-154300000022:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "법인경영체의 경우 총 출자금 5천만원 이상",
+   "evidence": [
+    "gov24-154300000022:l13"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "법인경영체의 경우 자본금이 자부담금 이상으로 확보되었고, 자기자본이 자부담금의 50% 이상 확보(단, 자기자본이 자부담금 이상이면 자본금은 자부담금의 50% 이상 확보해도 가능)",
+   "evidence": [
+    "gov24-154300000022:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300000022:l9"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=593893&bnefType=all&svcId=154300000022",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "90a925c954b7d8a5df518b3f35a40b634358b77711876a27755cdbc5790ab959",
+  "raw": "rules/compiled/_raw/gov24-154300000022.json",
+  "at": "2026-11-01T03:56"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "d6834b4e7b3109aca10c1fffc78084fa9577403b048df53496f801838b324b51",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6827,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 295
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"출산 관련 서비스 통합처리 신청(행복출산)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"행복출산\", \"출산서비스\", \"부모급여\"], \"conditions\": [{\"field\": \"apply_date\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": \"출생신고 시 또는 출생신고 이후 신청\", \"evidence\": [\"l2\", \"l7\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "a0aa422dad38151c95cc2caa2ccd66a4a32060f14fc9dadc6f5891831c2f4e43",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6465,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 210
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"상병급여\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"실업급여\",\"상병수당\"],\"conditions\":[{\"field\":\"history\",\"op\":\"in\",\"value\":[\"실업신고 이후 질병·부상·출산\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"구직\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

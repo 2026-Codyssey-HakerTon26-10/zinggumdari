@@ -1,0 +1,13 @@
+{
+ "key": "cb8c94568e34bf94a697c354d91c22325a0ba72a935311b9ff5bfc3eb641581b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6497,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 643
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국가보훈대상자 자녀 등 양육지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"보훈대상자 자녀 양육\", \"국가유공자 자녀 지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<\", \"value\": 20, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\", \"l5\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"독립유공자\", \"국가유공자\", \"5.18민주유공자\", \"특수임무유공자\", \"보훈보상대상자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"부양의무자 없음\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"국가보훈대상자 자녀 등 양육지원 - 손자녀\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"보훈대상자 손자녀 양육\", \"독립유공자 손자녀 지원\"], \"conditions\": [{\"field\": \"age\", \"op\": \"<\", \"value\": 20, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l5\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"독립유공자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"부양의무자 없음\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

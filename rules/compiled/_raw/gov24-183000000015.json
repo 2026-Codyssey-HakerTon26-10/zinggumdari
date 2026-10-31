@@ -1,0 +1,13 @@
+{
+ "key": "1ed5707242cc25b2ff114dc4c450f3e2eef41ce385ac898bcba76d063f8ca9f4",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7322,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 366
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"국가유공자 등 보상금\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"국가유공자 보상금\", \"독립유공자 보상금\"], \"conditions\": [{\"field\": \"relation\", \"op\": \"in\", \"value\": [\"본인\", \"배우자\", \"자녀\", \"손자녀\", \"며느리\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l9\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"definition\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"procedure\"}, {\"line\": \"l15\", \"label\": \"procedure\"}, {\"line\": \"l16\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

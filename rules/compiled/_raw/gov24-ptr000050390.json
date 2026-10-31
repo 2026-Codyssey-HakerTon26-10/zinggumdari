@@ -1,0 +1,13 @@
+{
+ "key": "3ff0f41863ab1afe2da2fe3a9a948046f22d956de2ff2ee174a10bf8778b1335",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7034,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 449
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"산모·신생아 건강관리 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"산모 건강관리\", \"신생아 건강관리\"], \"conditions\": [{\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [], \"any_of\": [[{\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\", \"주거\", \"교육\"], \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"차상위\"], \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null}], [{\"field\": \"income_household\", \"op\": \"<=\", \"value\": 150, \"income_basis\": \"median_pct\", \"as_of\": \"application_date\", \"text\": null}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"procedure\"}, {\"line\": \"l14\", \"label\": \"not_condition\"}, {\"line\": \"l15\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

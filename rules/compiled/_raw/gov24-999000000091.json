@@ -1,0 +1,13 @@
+{
+ "key": "b5be1c99f55cfa8be646fe4ca6285daf6d5af5c698fcff14b4436b9785c14f3b",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6755,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 499
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"발달장애인 부모교육지원사업\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"발달장애인 부모교육\", \"장애인 부모 지원\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"발달장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\", \"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"발달장애인의 부모, 보호자, 가족\", \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<\", \"value\": 9, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l5\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"발달장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"N\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"발달장애(지적, 자폐성) 의심\"}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:00"
+}

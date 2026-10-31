@@ -1,0 +1,185 @@
+{
+ "id": "gov24:304000000111",
+ "source": "gov24",
+ "name": "저소득 독거어르신 안부확인(음료배달) 서비스",
+ "org": "서울특별시 광진구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "광진구"
+ },
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "독거노인 안부확인",
+  "어르신 음료배달"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-304000000111:l2",
+    "gov24-304000000111:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "lives_alone",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-304000000111:l2",
+    "gov24-304000000111:l3",
+    "gov24-304000000111:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "생계"
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "생계"
+     },
+     {
+      "field": "other",
+      "text": "만성질환자"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "차상위"
+     },
+     {
+      "field": "disability_registered",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "==",
+      "value": "차상위"
+     },
+     {
+      "field": "other",
+      "text": "만성질환자"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "사회적 관례 단절 및 질병, 장애 등 특별한 사유로 방문 안부확인 보호 필요"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-304000000111:l2",
+    "gov24-304000000111:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:생계",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "중증희귀질환자",
+   "evidence": [
+    "gov24-304000000111:l2",
+    "gov24-304000000111:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-304000000111:l4"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001662&bnefType=all&svcId=304000000111",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f53b92583d433ba4fd9271bf3174e36f1ac6773edd3ca633901eae5e7ccdd8e0",
+  "raw": "rules/compiled/_raw/gov24-304000000111.json",
+  "at": "2026-11-01T03:57"
+ }
+}

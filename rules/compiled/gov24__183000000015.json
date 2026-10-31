@@ -1,0 +1,68 @@
+{
+ "id": "gov24:183000000015",
+ "source": "gov24",
+ "name": "국가유공자 등 보상금",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "국가유공자 보상금",
+  "독립유공자 보상금"
+ ],
+ "conditions": [
+  {
+   "field": "relation",
+   "op": "in",
+   "value": [
+    "본인",
+    "배우자",
+    "자녀",
+    "손자녀",
+    "며느리"
+   ],
+   "evidence": [
+    "gov24-183000000015:l2",
+    "gov24-183000000015:l9"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:본인",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156419&bnefType=all&svcId=183000000015",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 11,
+  "used": 2,
+  "labeled": {
+   "definition": 2,
+   "procedure": 6,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a61ed798de7f24383a9cec61f3ad53380b0518a34b854060a282883a10cef3a9",
+  "raw": "rules/compiled/_raw/gov24-183000000015.json",
+  "at": "2026-11-01T03:56"
+ }
+}

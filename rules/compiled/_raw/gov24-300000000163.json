@@ -1,0 +1,13 @@
+{
+ "key": "fba97223356dcc4b565b2b29a616d7765c78ca3d13eff7f1003384369937e11d",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6899,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 107
+ },
+ "raw_text": "{\"rules\":[],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"out_of_scope\"},{\"line\":\"l4\",\"label\":\"out_of_scope\"},{\"line\":\"l5\",\"label\":\"out_of_scope\"},{\"line\":\"l6\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

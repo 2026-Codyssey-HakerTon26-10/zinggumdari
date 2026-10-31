@@ -1,0 +1,18 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 장애인", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 국가유공자", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 독립유공자", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 참전유공자", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 기초생활수급자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 고엽제후유의증 환자", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 5·18 민주유공자", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 특수임무유공자", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 의사상자", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 국군포로", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 병역명문가 예우대상자 및 가족", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "○ 65세 이상 서대문 구민", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "○ 다둥이행복카드 발급자(부모) 및 자녀", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "접수강좌별 상이(홈페이지 확인 필수)", "mark": true}
+]

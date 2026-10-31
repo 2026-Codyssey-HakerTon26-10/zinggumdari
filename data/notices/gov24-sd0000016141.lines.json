@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "65세 이상 연령에서 폐렴구균 23가 다당 백신(PPSV23)을 접종하지 않은 성인 (1961.12.31. 이전 출생자, 2026년 기준)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "※ 65세 이상 연령에서 PPSV23 접종했다면 → 추가접종 불필요(비용지원 불가)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "※ 65세 미만 연령에서 PPSV23 접종했다면 → 의사와 추가접종 상의 필요", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "주민등록 생년월일을 기준으로 당해 지원대상자이면서, 65세 이상 연령에서 PPSV 접종이력이 없는 자", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

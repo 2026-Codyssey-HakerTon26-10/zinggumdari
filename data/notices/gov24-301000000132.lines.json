@@ -1,0 +1,9 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 중구관내 기초생계, 의료급여 대상자 중", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 만70세이상 어르신세대", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 기초생계,의료급여 대상자 중 심한 장애세대", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 한부모가족지원법의 한부모가족세대", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-301000000132",
+  "title": "저소득주민 유료방송 시청료 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1005701&bnefType=all&svcId=301000000132",
+  "fetched_at": "2026-10-31",
+  "sha256": "29df251bfe748b3862197f8fa57009a1cebdeb77dd5c3c66f0d0bce0a1bad9b0",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

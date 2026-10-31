@@ -1,0 +1,13 @@
+{
+ "key": "6b72abc6b7d9a39c7b6290a850643c5e2276679609869128fbc46e4e7039003f",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6410,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 369
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"광진119주택 지원\", \"subject\": \"self\", \"domain\": \"housing\", \"benefit_type\": \"rent\", \"aliases\": [\"긴급주거\", \"재해주택\", \"저소득가구\"], \"conditions\": [{\"field\": \"is_homeless\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"광진구\", \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"화재·재해 등으로 인한 긴급주거상실\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

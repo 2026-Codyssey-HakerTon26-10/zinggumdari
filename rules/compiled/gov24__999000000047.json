@@ -1,0 +1,84 @@
+{
+ "id": "gov24:999000000047",
+ "source": "gov24",
+ "name": "치매 환자 공공후견 지원",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "치매 후견",
+  "노인 후견",
+  "공공후견"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "치매환자",
+   "evidence": [
+    "gov24-999000000047:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "기초생활수급자",
+    "차상위",
+    "기초연금수급자"
+   ],
+   "evidence": [
+    "gov24-999000000047:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999167&bnefType=all&svcId=999000000047",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "574574a6c9ef21bd501e694c418547f091aa854d6f1dd8b4504782768d28efaf",
+  "raw": "rules/compiled/_raw/gov24-999000000047.json",
+  "at": "2026-11-01T04:00"
+ }
+}

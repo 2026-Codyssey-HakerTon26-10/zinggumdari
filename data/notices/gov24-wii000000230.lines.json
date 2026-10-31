@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 국공립유치원, 초·중·고등학교에 재학 또는 지역아동센터에 소속된 다문화 학생", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 국공립유치원, 초·중·고등학교에 재학 중이거나 남북하나재단에 소속된 탈북학생", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 멘티 : 학교에서 참가 희망 학생을 추천", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 멘토 :지도교수 1인 추천을 받은 멘토링 참여 대학 재학생", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 희망 시간대·과목 등을 고려하여 대학생과 다문화학생을 매칭", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 저소득층·한부모가정, 기초학력 부족학생 등 취약계층 다문화학생이 멘토링 혜택을 누릴 수 있도록 우선 매칭", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

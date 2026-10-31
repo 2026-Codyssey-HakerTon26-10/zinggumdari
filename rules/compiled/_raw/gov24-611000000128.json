@@ -1,0 +1,13 @@
+{
+ "key": "dfcd83bf42b1b6b5d54b27290be544667facaa75d04e3d951de2312ad5c9b8dd",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6644,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 564
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"서울형 기초보장제도 생계급여 등 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"서울형 기초보장\", \"생계급여\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"income_recognized\", \"op\": \"<=\", \"value\": 48, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"재산 155백만원 이하(주거용재산 포함시 254백만원 이하)\", \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"금융재산 3천 6백만원 이하\", \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"국민기초생활보장제도 자동차 기준 적합자(소득환산율 100% 적용 차량 소유자 선정 제외)\", \"evidence\": [\"l4\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"고소득(연1.3억, 세전)·고재산(12억) 부양의무자 없음\", \"evidence\": [\"l5\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"procedure\"}, {\"line\": \"l7\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

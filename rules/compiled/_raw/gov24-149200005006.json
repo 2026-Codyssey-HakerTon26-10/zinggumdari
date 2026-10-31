@@ -1,0 +1,13 @@
+{
+ "key": "41413eeae98d8c8fa55de9c8deaacdf441b556e4d4fdc21f9c64ba78e5c6c844",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6424,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 259
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"청년 일경험 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"청년 일경험\",\"청년 취업 지원\",\"청년 경험\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":15,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":34,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null},{\"field\":\"employment_status\",\"op\":\"==\",\"value\":\"구직\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

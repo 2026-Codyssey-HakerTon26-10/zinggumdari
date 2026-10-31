@@ -1,0 +1,13 @@
+{
+ "key": "344348fc76f39017dd647641d5c700399ee0c6c722ce5577915defbef51bd6fb",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6406,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 210
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"다자녀 가구 하수도사용료 감면\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"discount\",\"aliases\":[\"다자녀 하수도\",\"하수도 감면\",\"자녀 감면\"],\"conditions\":[{\"field\":\"children_count\",\"op\":\">=\",\"value\":2,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<=\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

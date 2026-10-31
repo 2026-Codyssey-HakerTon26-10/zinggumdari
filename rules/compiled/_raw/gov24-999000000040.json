@@ -1,0 +1,13 @@
+{
+ "key": "ee8d3ade69c2e7e6b1fb2b14bc5f43081f03d124b679a5aff3030d8e89e140df",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6533,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 179
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"긴급복지 장제비 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"장제비\",\"장례비\",\"사망\"],\"conditions\":[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"definition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"not_condition\"}]}",
+ "at": "2026-11-01T04:00"
+}

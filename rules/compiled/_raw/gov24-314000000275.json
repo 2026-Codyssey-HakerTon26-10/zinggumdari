@@ -1,0 +1,13 @@
+{
+ "key": "c62bf2b9989e462c74193c04335a33985cc8d68027471c2923a04e0f0f82c053",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6518,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 745
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"general\", \"name\": \"전기자전거 보조금 지원 일반대상\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"전기자전거\", \"보조금\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"양천구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 24, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"전기자전거 보조금 지원 특별대상\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"전기자전거\", \"보조금\", \"틈새계층\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"양천구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"residence_months\", \"op\": \">=\", \"value\": 24, \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\", \"국가유공자\", \"북한이탈주민\", \"장애인\", \"한부모가족\", \"다자녀가구\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,125 @@
+{
+ "id": "gov24:WII000000820",
+ "source": "gov24",
+ "name": "한부모가족복지시설 지원",
+ "org": "성평등가족부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "한부모가족",
+  "저소득 한부모",
+  "한부모 복지"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-wii000000820:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "evidence": [
+    "gov24-wii000000820:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 24,
+      "as_of": "application_date"
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "한부모가족"
+      ]
+     }
+    ],
+    [
+     {
+      "field": "income_recognized",
+      "op": "<=",
+      "value": 100,
+      "income_basis": "median_pct",
+      "as_of": "application_date"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-wii000000820:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999192&bnefType=all&svcId=WII000000820",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 2,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6f2ec41f3017f247d9142741178be0efcc3ef30b6c7292b1f77ae7c5ae42472b",
+  "raw": "rules/compiled/_raw/gov24-wii000000820.json",
+  "at": "2026-11-01T04:03"
+ }
+}

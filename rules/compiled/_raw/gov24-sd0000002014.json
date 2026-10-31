@@ -1,0 +1,13 @@
+{
+ "key": "777958ca9e8eff49fd7dd103a362976c008b7b602b94a14e098638609ade33e3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6761,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 414
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"해산급여\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"출산급여\",\"산모지원\"],\"conditions\":[{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\",\"주거\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l7\"],\"any_of\":null},{\"field\":\"pregnant\",\"op\":\"in\",\"value\":[\"Y\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\",\"l7\"],\"any_of\":[[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"의료기관의 진단서 등으로 증명된 사산 또는 유산\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"모자보건법 제14조에 따른 합법적인 인공임신중절수술\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"definition\"},{\"line\":\"l5\",\"label\":\"definition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"definition\"},{\"line\":\"l10\",\"label\":\"definition\"},{\"line\":\"l11\",\"label\":\"procedure\"},{\"line\":\"l12\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

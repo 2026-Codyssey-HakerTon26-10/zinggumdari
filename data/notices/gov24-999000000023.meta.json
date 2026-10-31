@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000023",
+  "title": "영구임대주택공급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=573411&bnefType=all&svcId=999000000023",
+  "fetched_at": "2026-10-31",
+  "sha256": "e295cce7d2178f19c5509a5b9b62f06f3b740677a47ad870789c351e62f57e10",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

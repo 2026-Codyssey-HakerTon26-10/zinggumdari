@@ -1,0 +1,13 @@
+{
+ "key": "65243770c36a7d1ef264b1303c180fe5e41cfa9e33742c67e98961d8f38d237e",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6791,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 415
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"산림복지소외자 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"산림복지\", \"취약계층 지원\", \"산림치유\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"저소득가정\", \"어르신\", \"장애인\", \"성매매피해자\", \"청년\", \"경력단절여성\", \"북한이탈주민\", \"가정폭력피해자\", \"한부모가족\", \"결혼이민자\", \"갱생보호대상자\", \"범죄구조피해자\", \"실직자\", \"노숙인\", \"약물중독자\", \"조손가정\", \"저신용자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"procedure\"}, {\"line\": \"l3\", \"label\": \"definition\"}, {\"line\": \"l5\", \"label\": \"definition\"}, {\"line\": \"l6\", \"label\": \"definition\"}, {\"line\": \"l7\", \"label\": \"definition\"}, {\"line\": \"l8\", \"label\": \"procedure\"}, {\"line\": \"l9\", \"label\": \"procedure\"}, {\"line\": \"l10\", \"label\": \"procedure\"}, {\"line\": \"l11\", \"label\": \"procedure\"}, {\"line\": \"l12\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

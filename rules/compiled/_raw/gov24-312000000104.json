@@ -1,0 +1,13 @@
+{
+ "key": "24516d05c3f8b716911ed30c15b31585b44a1c1c315140e75be53de0d3f3c9b1",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6454,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 354
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 장애인 생일축하 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"장애인 생일축하\",\"저소득 장애인 지원\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"==\",\"value\":\"생계\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"장애정도가 심한 장애인\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<\",\"value\":65,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

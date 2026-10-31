@@ -1,0 +1,123 @@
+{
+ "id": "gov24:PTR000050397",
+ "source": "gov24",
+ "name": "요양기관 외 출산 시 출산비 지급",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "출산비 지급",
+  "가정출산 지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "요양기관 외 출산(가정, 특정 장소)",
+   "evidence": [
+    "gov24-ptr000050397:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "apply_date",
+      "op": "<=",
+      "value": "2027-12-31",
+      "as_of": "application_date",
+      "text": "출산한 지 3년 이내"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-ptr000050397:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence",
+    "comparator": "fail:b0.0:no_value",
+    "unit": "fail:b0.0:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "아직 출산비 지원을 받지 않은 가정",
+   "evidence": [
+    "gov24-ptr000050397:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "건강보험가입자 또는 피부양자(해외출산 제외, 본인이 출산하지 않은 입양 자녀는 지급 제외)",
+   "evidence": [
+    "gov24-ptr000050397:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=50397&bnefType=all&svcId=PTR000050397",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "a59690b7b1f4fbf4a8e3fe973b3600c5c3c5bf048af1a9239101a55aa2c75988",
+  "raw": "rules/compiled/_raw/gov24-ptr000050397.json",
+  "at": "2026-11-01T04:02"
+ }
+}

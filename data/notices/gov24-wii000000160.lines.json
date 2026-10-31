@@ -1,0 +1,11 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 무주택 전후 납북피해자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "-한국토지주택공사 등에서 납북피해자 대상 주택 배정물량(공공 분양, 공공임대, 분납임대 등)을 통보해오는 경우, 신청을 받아서 기관추천", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "-한국토지주택공사에서 특별분양 추천 요청의 경우 : 통일부 홈페이지에 공고하고, 신청자가 제출한 서류를 검토하여 기관추천", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "-납북피해 자(가족)가 주택 신청을 위해 납북피해자 확인서 발급 요청 시, 제출서류를 검토하여 납북피해자 확인서 발급", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 무주택 전후 납북피해자의 무주택기간, 연령, 가구원 수, 납북기간, 당해 주택건설지역 거주 기간을 고려하여 선발", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "공고일까지 통일부 납북자대책팀으로 신청", "mark": true}
+]

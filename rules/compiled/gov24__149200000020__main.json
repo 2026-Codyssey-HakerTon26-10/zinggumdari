@@ -1,0 +1,158 @@
+{
+ "id": "gov24:149200000020:main",
+ "source": "gov24",
+ "name": "산재근로자사회심리재활지원",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "산재근로자 심리재활",
+  "산재 사회심리지원"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "산재노동자",
+    "유족연금수급자격자",
+    "간병급여수급권자",
+    "상병보상연금수급권자"
+   ],
+   "evidence": [
+    "gov24-149200000020:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "심리상담 서비스 대상: 산재노동자 및 유족연금수급자격자, 간병급여 및 상병보상연금 수급권자의 배우자·자녀",
+   "evidence": [
+    "gov24-149200000020:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "employment_status",
+   "op": "in",
+   "value": [
+    "입원",
+    "통원"
+   ],
+   "evidence": [
+    "gov24-149200000020:l4"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:입원",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "장해등급 제1급",
+       "장해등급 제2급",
+       "장해등급 제3급",
+       "장해등급 제4급",
+       "장해등급 제5급",
+       "장해등급 제6급",
+       "장해등급 제7급",
+       "장해등급 제8급",
+       "장해등급 제9급",
+       "장해등급 제10급",
+       "장해등급 제11급",
+       "장해등급 제12급",
+       "장해등급 제13급",
+       "장해등급 제14급"
+      ]
+     },
+     {
+      "field": "residence_months",
+      "op": "<=",
+      "value": 60
+     }
+    ],
+    [
+     {
+      "field": "residence_months",
+      "op": ">=",
+      "value": 24
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-149200000020:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b0.1:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999023&bnefType=all&svcId=149200000020",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "23d2a627e11209f2d323c832c4575c711b8b6a3bdb28c14f84da15f245e25545",
+  "raw": "rules/compiled/_raw/gov24-149200000020.json",
+  "at": "2026-11-01T03:56"
+ }
+}

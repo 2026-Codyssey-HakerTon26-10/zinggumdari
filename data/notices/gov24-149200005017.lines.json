@@ -1,0 +1,18 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 고용보험 피보험 단위기간이 3개월 이상일 것", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 출산(유산·사산)일 현재 고용보험 피보험자격을 유지한 경우: 출산(유산·사산)일 이전에 예술인 또는 노무제공자로서 피보험 단위기간이 3개월 이상일 것", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 출산(유산·사산)일 현재 고용보험 피보험자격을 상실한 경우: 출산(유산·사산)일 이전 18개월 동안 예술인 또는 노무제공자로서의 피보험 단위기간이 3개월 이상일 것", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 출산전후급여등 지급기간에 노무제공을 하지 않을 것", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 다만, 그 지급기간 중 노무제공 또는 자영업으로 발생한 소득이 각각 고용노동부장관이 정하여 고시하는 금액 미만인 경우에는 노무제공을 하지 않은 것으로 봄", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 출산 또는 유산·사산을 한 날부터 12개월 이내에 신청할 것", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 고용보험 피보험 단위기간이 3개월 이상일 것", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 출산(유산·사산)일 현재 고용보험 피보험자격을 유지한 경우: 출산(유산·사산)일 이전에 예술인 또는 노무제공자로서 피보험 단위기간이 3개월 이상일 것", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "- 출산(유산·사산)일 현재 고용보험 피보험자격을 상실한 경우: 출산(유산·사산)일 이전 18개월 동안 예술인 또는 노무제공자로서의 피보험 단위기간이 3개월 이상일 것", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 출산전후급여등 지급기간에 노무제공을 하지 않을 것", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "- 다만, 그 지급기간 중 노무제공 또는 자영업으로 발생한 소득이 각각 고용노동부장관이 정하여 고시하는 금액 미만인 경우에는 노무제공을 하지 않은 것으로 봄", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "○ 출산 또는 유산·사산을 한 날부터 12개월 이내에 신청할 것", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "출산 또는 유산ㆍ사산을 한 날부터 12개월 이내", "mark": true}
+]

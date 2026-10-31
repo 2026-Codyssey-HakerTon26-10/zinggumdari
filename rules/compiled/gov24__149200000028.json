@@ -1,0 +1,114 @@
+{
+ "id": "gov24:149200000028",
+ "source": "gov24",
+ "name": "진폐근로자복지지원",
+ "org": "고용노동부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "진폐근로자 자녀 지원",
+  "진폐 장해판정 자녀"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "광업 분진작업에 종사하고 산업재해보상보험법상 진폐 장해판정을 받은 진폐근로자의 자녀",
+   "evidence": [
+    "gov24-149200000028:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "초중등교육법 제2조 제2호에 따른 중학교 및 고등공민학교에 입학 예정이거나 재학 중"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "초중등교육법 제2조 제3호에 따른 고등학교 및 고등기술학교에 입학예정이거나 재학 중"
+     }
+    ],
+    [
+     {
+      "field": "other",
+      "text": "평생교육법 제31조에 따른 학교형태의 평생교육시설 중 고등학교 학력이 인정되는 시설에 입학 예정이거나 재학 중"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-149200000028:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000028:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-149200000028:l6"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999037&bnefType=all&svcId=149200000028",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "d1d1906062f31a1d1b2cf558dba2a713459707825c6932f3ffb2915572a22f4d",
+  "raw": "rules/compiled/_raw/gov24-149200000028.json",
+  "at": "2026-11-01T03:56"
+ }
+}

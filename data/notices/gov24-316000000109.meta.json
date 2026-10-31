@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-316000000109",
+  "title": "저소득 어르신 무료급식 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1001687&bnefType=all&svcId=316000000109",
+  "fetched_at": "2026-10-31",
+  "sha256": "fc28c249926a5e3abe2b673df24ef26a5ec0b126327c0ef83232efbfe772974f",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000146",
+  "title": "중개수수료 무료지원 서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803300&bnefType=all&svcId=304000000146",
+  "fetched_at": "2026-10-31",
+  "sha256": "08501b2493579dad6245077b8207d87366bc9416e8c28134a0be4d20afed656c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

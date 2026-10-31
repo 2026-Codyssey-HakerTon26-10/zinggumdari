@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000134",
+  "title": "광진119주택 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803194&bnefType=all&svcId=304000000134",
+  "fetched_at": "2026-10-31",
+  "sha256": "c3c73a4ae23e1ed35c53e6cab9c8c3ccec12813abdc4dfe75eaececed4da652b",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

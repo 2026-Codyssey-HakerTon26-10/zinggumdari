@@ -1,0 +1,13 @@
+{
+ "key": "41251b586a125772fb3399dd8f707b891ee15e93f0a3e5c8409997ac9b204efe",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6739,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 217
+ },
+ "raw_text": "{\"rules\": [], \"labels\": [{\"line\": \"l1\", \"label\": \"definition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"not_condition\"}, {\"line\": \"l6\", \"label\": \"not_condition\"}, {\"line\": \"l7\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l9\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"out_of_scope\"}, {\"line\": \"l11\", \"label\": \"out_of_scope\"}, {\"line\": \"l12\", \"label\": \"procedure\"}, {\"line\": \"l13\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

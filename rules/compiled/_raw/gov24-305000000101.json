@@ -1,0 +1,13 @@
+{
+ "key": "8f9e69f9ee4b912e6e3fb817acace752b188fb0b2acab5324437aa817222d9a8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6438,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 421
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"노인 성인용 보행기 지원\",\"subject\":\"parent\",\"domain\":\"elderly\",\"benefit_type\":\"service\",\"aliases\":[\"보행기 지원\",\"노인 보조기구\",\"거동 불편\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"livelihood_status\",\"op\":\"in\",\"value\":[\"생계\",\"의료\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"장기요양등급외 판정자 또는 거동이 불편하여 성인용 보행기가 필요한 어르신\",\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"ltc_grade\",\"op\":\"==\",\"value\":\"없음\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"거동이 불편하여 성인용 보행기가 필요\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"거동이 불편하여 성인용 보행기가 필요\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

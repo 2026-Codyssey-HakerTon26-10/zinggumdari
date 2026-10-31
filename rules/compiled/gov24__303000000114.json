@@ -1,0 +1,85 @@
+{
+ "id": "gov24:303000000114",
+ "source": "gov24",
+ "name": "산후조리비용 지원",
+ "org": "서울특별시 성동구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "성동구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "산후조리",
+  "출산지원",
+  "신생아"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "성동구",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-303000000114:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "신생아 출생일 기준 60일 이내",
+   "reason": "malformed",
+   "evidence": [
+    "gov24-303000000114:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2101901&bnefType=all&svcId=303000000114",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "078d6def25ddb9a6e278db34cc8fe0220c6ad57837554ced8f46c90303c508a7",
+  "raw": "rules/compiled/_raw/gov24-303000000114.json",
+  "at": "2026-11-01T03:57"
+ }
+}

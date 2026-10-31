@@ -1,0 +1,13 @@
+{
+ "key": "cf48afe06bb1c6deded8a39d69fb52d3137a5ce3d022bddbb0f846cf2af8df93",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6437,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 363
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"다자녀특별장려금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"다자녀장려금\",\"자녀장려금\",\"다자녀지원\"],\"conditions\":[{\"field\":\"children_count\",\"op\":\"==\",\"value\":3,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<\",\"value\":6,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]},{\"track\":\"main\",\"name\":\"다자녀특별장려금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"다자녀장려금\",\"자녀장려금\",\"다자녀지원\"],\"conditions\":[{\"field\":\"children_count\",\"op\":\">=\",\"value\":4,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"youngest_child_age\",\"op\":\"<\",\"value\":6,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

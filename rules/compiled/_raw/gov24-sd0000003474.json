@@ -1,0 +1,13 @@
+{
+ "key": "133a6f9588e0184d465cf74536f765e7f6cc28c5ca0a0083dc32e1638d8280df",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6483,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 155
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"온가족보듬사업\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"다문화가족\", \"한부모가족\", \"조손가족\"], \"conditions\": [], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"definition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

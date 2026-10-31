@@ -1,0 +1,19 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 중한 질병 또는 부상으로 인하여 발생한 의료비를 감당하기 곤란한 사람 (지원 요청 후 사망한 자 포함)", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 소득 : 기준 중위소득 75% 이하", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 1인 가구 1,923,179원", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 2인 가구 3,149,469원", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 3인 가구 4,019,277원", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 4인 가구 4,871,054원", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 5인 가구 5,667,539원", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "- 6인 가구 6,416,964원", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "* 7인 이상 가구의 경우, 1인 증가시마다 719,399원씩 증가", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 재산 : 대도시 24,100만 원, 중소도시 15,200만 원, 농어촌 13,000만 원 이하", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "+ 주거용 재산의 공제 한도액 대도시 6,900만 원, 중소도시 4,200만 원, 농어촌 3,500만 원 이하", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "○ 금융 재산 : 가구원수별 일상생활유지를 위해 필요한 금액(생활준비금)에 600만원을 합산한 금액 이하(단, 주거 지원은 200만 원 추가한 금액 이하)", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "- 1인 가구 8,564천원, 4인 기준 12,494천원 이하", "mark": true},
+  {"id": "l16", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l17", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

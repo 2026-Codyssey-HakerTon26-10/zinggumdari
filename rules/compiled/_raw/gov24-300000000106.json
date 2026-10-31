@@ -1,0 +1,13 @@
+{
+ "key": "9fd1b15f804a731be89e9346296e67669936c4cf3755f6b0ffa11e3d2a962b26",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6526,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 351
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"지자체(취약계층) 인플루엔자 예방접종 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"인플루엔자 예방접종\",\"독감 예방접종\",\"취약계층 예방접종\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":14,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":64,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"종로구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"기초생활수급자\",\"중증장애인\",\"국가유공자\",\"사회복지시설 거주자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

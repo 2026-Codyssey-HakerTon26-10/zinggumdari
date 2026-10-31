@@ -1,0 +1,99 @@
+{
+ "id": "gov24:WII000000080",
+ "source": "gov24",
+ "name": "북향민 자녀 교육 지원",
+ "org": "통일부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "북한이탈주민 자녀",
+  "새터민 자녀"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "북향민 자녀(북한 출생, 제3국 출생, 국내 출생 포함)",
+   "evidence": [
+    "gov24-wii000000080:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "2030-12-31",
+   "as_of": "application_date",
+   "text": "대학 등에 최초로 신입학 또는 편입한 날부터 6년의 범위",
+   "evidence": [
+    "gov24-wii000000080:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000080:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-wii000000080:l8"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999198&bnefType=all&svcId=WII000000080",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 1,
+  "labeled": {
+   "definition": 2,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "d0b86e0391e5c0283f949a70df6c067a63602766acd1f80ceddb4d91ec1bb1ea",
+  "raw": "rules/compiled/_raw/gov24-wii000000080.json",
+  "at": "2026-11-01T04:03"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "84ac5b0838187d932c2d663c5803cfac63d23c7ee8025c38815ea890996ac628",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6609,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 283
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"고엽제환자 2세 수당\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"고엽제 2세\",\"고엽제환자 자녀\"],\"conditions\":[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"고엽제후유증환자로 결정·등록되거나 인정된 고엽제환자의 자녀\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"고엽제환자 2세 질병·장애 판정(척추이분증, 말초신경병, 하지마비척추병변)\",\"evidence\":[\"l2\",\"l3\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

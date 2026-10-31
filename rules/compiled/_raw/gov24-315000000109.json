@@ -1,0 +1,13 @@
+{
+ "key": "94ab2b7b65934871be9f20d6e8c11d8b3f4946f62f8b6df148b02bf25ebd0bcf",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6461,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 410
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득주민 국민건강보험료 등 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"저소득 노인 지원\",\"장애인 가구 지원\"],\"conditions\":[{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"강서구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"국민건강보험료 부과금액이 월 최저 보험료 이하\",\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":null,\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"age\",\"op\":\">=\",\"value\":65,\"income_basis\":null,\"as_of\":null,\"text\":\"65세 이상 노인으로만 구성된 세대\"},{\"field\":\"household_size\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"노인으로만 구성\"}],[{\"field\":\"disability_registered\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":\"등록장애인이 포함된 세대\"}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

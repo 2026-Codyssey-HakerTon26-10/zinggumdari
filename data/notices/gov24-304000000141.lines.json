@@ -1,0 +1,7 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 법정 저소득층 및 다문화 가정, 장애인, 2자녀 이상 가정 출생아", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "- 출생일로부터 10일 이내 출생아의 부 또는 모 신청", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "출생일로부터 10일 이내", "mark": true}
+]

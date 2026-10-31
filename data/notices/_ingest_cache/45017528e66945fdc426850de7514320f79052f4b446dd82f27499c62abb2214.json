@@ -1,0 +1,2513 @@
+{
+  "log": {
+    "doc_id": "upload-20261101-35ed25b3",
+    "lines": 1761,
+    "section": {
+      "from": "p6-l1",
+      "to": "p39-l11",
+      "found_by": "heading",
+      "lines": 758
+    },
+    "marked": 993,
+    "llm_calls": 1,
+    "schema_retries": 0,
+    "rules": 6,
+    "conditions": 143,
+    "auto_verified": 10,
+    "needs_review": 133,
+    "fails": [
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:student",
+        "field": "marital_status",
+        "check": "value",
+        "reason": "not_in_evidence:미혼",
+        "evidence": [
+          "upload-20261101-35ed25b3:p8-l8"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:student",
+        "field": null,
+        "check": "comparator",
+        "reason": "b0.0:op_mismatch",
+        "evidence": [
+          "upload-20261101-35ed25b3:p8-l9",
+          "upload-20261101-35ed25b3:p8-l10"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:student",
+        "field": null,
+        "check": "keyword",
+        "reason": "b0.1:keyword_not_in_clause",
+        "evidence": [
+          "upload-20261101-35ed25b3:p8-l9",
+          "upload-20261101-35ed25b3:p8-l10"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:youth",
+        "field": "marital_status",
+        "check": "value",
+        "reason": "not_in_evidence:미혼",
+        "evidence": [
+          "upload-20261101-35ed25b3:p10-l21"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:youth",
+        "field": null,
+        "check": "comparator",
+        "reason": "b0.0:op_mismatch",
+        "evidence": [
+          "upload-20261101-35ed25b3:p10-l22",
+          "upload-20261101-35ed25b3:p10-l23",
+          "upload-20261101-35ed25b3:p10-l24"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:youth",
+        "field": null,
+        "check": "keyword",
+        "reason": "b0.1:keyword_not_in_clause",
+        "evidence": [
+          "upload-20261101-35ed25b3:p10-l22",
+          "upload-20261101-35ed25b3:p10-l23",
+          "upload-20261101-35ed25b3:p10-l24"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "value",
+        "reason": "b2.0:not_in_evidence",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l18",
+          "upload-20261101-35ed25b3:p13-l19",
+          "upload-20261101-35ed25b3:p13-l20"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "comparator",
+        "reason": "b2.0:no_value",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l18",
+          "upload-20261101-35ed25b3:p13-l19",
+          "upload-20261101-35ed25b3:p13-l20"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "unit",
+        "reason": "b2.0:no_value",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l18",
+          "upload-20261101-35ed25b3:p13-l19",
+          "upload-20261101-35ed25b3:p13-l20"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "comparator",
+        "reason": "b0.0:no_comparator",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l21",
+          "upload-20261101-35ed25b3:p13-l22"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "keyword",
+        "reason": "b1.0:keyword_not_in_clause",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l21",
+          "upload-20261101-35ed25b3:p13-l22"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "value",
+        "reason": "b0.0:not_in_evidence:외벌이",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l23",
+          "upload-20261101-35ed25b3:p13-l24",
+          "upload-20261101-35ed25b3:p13-l25"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "comparator",
+        "reason": "b0.1:op_mismatch",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l23",
+          "upload-20261101-35ed25b3:p13-l24",
+          "upload-20261101-35ed25b3:p13-l25"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:newlywed",
+        "field": null,
+        "check": "keyword",
+        "reason": "b0.2:keyword_not_in_clause",
+        "evidence": [
+          "upload-20261101-35ed25b3:p13-l23",
+          "upload-20261101-35ed25b3:p13-l24",
+          "upload-20261101-35ed25b3:p13-l25"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:elderly",
+        "field": null,
+        "check": "comparator",
+        "reason": "b0.0:op_mismatch",
+        "evidence": [
+          "upload-20261101-35ed25b3:p17-l4",
+          "upload-20261101-35ed25b3:p17-l5"
+        ]
+      },
+      {
+        "rule_id": "upload:upload-20261101-35ed25b3:elderly",
+        "field": null,
+        "check": "keyword",
+        "reason": "b0.1:keyword_not_in_clause",
+        "evidence": [
+          "upload-20261101-35ed25b3:p17-l4",
+          "upload-20261101-35ed25b3:p17-l5"
+        ]
+      }
+    ],
+    "unaccounted": [
+      "upload-20261101-35ed25b3:p8-l8",
+      "upload-20261101-35ed25b3:p10-l18",
+      "upload-20261101-35ed25b3:p10-l19",
+      "upload-20261101-35ed25b3:p10-l21",
+      "upload-20261101-35ed25b3:p10-l25",
+      "upload-20261101-35ed25b3:p10-l26",
+      "upload-20261101-35ed25b3:p10-l27",
+      "upload-20261101-35ed25b3:p10-l28",
+      "upload-20261101-35ed25b3:p10-l29",
+      "upload-20261101-35ed25b3:p10-l30",
+      "upload-20261101-35ed25b3:p10-l31",
+      "upload-20261101-35ed25b3:p10-l32",
+      "upload-20261101-35ed25b3:p10-l33",
+      "upload-20261101-35ed25b3:p13-l5",
+      "upload-20261101-35ed25b3:p13-l6",
+      "upload-20261101-35ed25b3:p13-l9",
+      "upload-20261101-35ed25b3:p13-l20",
+      "upload-20261101-35ed25b3:p13-l23",
+      "upload-20261101-35ed25b3:p21-l38",
+      "upload-20261101-35ed25b3:p8-l8",
+      "upload-20261101-35ed25b3:p10-l18",
+      "upload-20261101-35ed25b3:p10-l19",
+      "upload-20261101-35ed25b3:p10-l21",
+      "upload-20261101-35ed25b3:p10-l25",
+      "upload-20261101-35ed25b3:p10-l26",
+      "upload-20261101-35ed25b3:p10-l27",
+      "upload-20261101-35ed25b3:p10-l28",
+      "upload-20261101-35ed25b3:p10-l29",
+      "upload-20261101-35ed25b3:p10-l30",
+      "upload-20261101-35ed25b3:p10-l31",
+      "upload-20261101-35ed25b3:p10-l32",
+      "upload-20261101-35ed25b3:p10-l33",
+      "upload-20261101-35ed25b3:p13-l5",
+      "upload-20261101-35ed25b3:p13-l6",
+      "upload-20261101-35ed25b3:p13-l9",
+      "upload-20261101-35ed25b3:p13-l20",
+      "upload-20261101-35ed25b3:p13-l23",
+      "upload-20261101-35ed25b3:p21-l38",
+      "upload-20261101-35ed25b3:p8-l8",
+      "upload-20261101-35ed25b3:p10-l18",
+      "upload-20261101-35ed25b3:p10-l19",
+      "upload-20261101-35ed25b3:p10-l21",
+      "upload-20261101-35ed25b3:p10-l25",
+      "upload-20261101-35ed25b3:p10-l26",
+      "upload-20261101-35ed25b3:p10-l27",
+      "upload-20261101-35ed25b3:p10-l28",
+      "upload-20261101-35ed25b3:p10-l29",
+      "upload-20261101-35ed25b3:p10-l30",
+      "upload-20261101-35ed25b3:p10-l31",
+      "upload-20261101-35ed25b3:p10-l32",
+      "upload-20261101-35ed25b3:p10-l33",
+      "upload-20261101-35ed25b3:p13-l5",
+      "upload-20261101-35ed25b3:p13-l6",
+      "upload-20261101-35ed25b3:p13-l9",
+      "upload-20261101-35ed25b3:p13-l20",
+      "upload-20261101-35ed25b3:p13-l23",
+      "upload-20261101-35ed25b3:p21-l38",
+      "upload-20261101-35ed25b3:p8-l8",
+      "upload-20261101-35ed25b3:p10-l18",
+      "upload-20261101-35ed25b3:p10-l19",
+      "upload-20261101-35ed25b3:p10-l21",
+      "upload-20261101-35ed25b3:p10-l25",
+      "upload-20261101-35ed25b3:p10-l26",
+      "upload-20261101-35ed25b3:p10-l27",
+      "upload-20261101-35ed25b3:p10-l28",
+      "upload-20261101-35ed25b3:p10-l29",
+      "upload-20261101-35ed25b3:p10-l30",
+      "upload-20261101-35ed25b3:p10-l31",
+      "upload-20261101-35ed25b3:p10-l32",
+      "upload-20261101-35ed25b3:p10-l33",
+      "upload-20261101-35ed25b3:p13-l5",
+      "upload-20261101-35ed25b3:p13-l6",
+      "upload-20261101-35ed25b3:p13-l9",
+      "upload-20261101-35ed25b3:p13-l20",
+      "upload-20261101-35ed25b3:p13-l23",
+      "upload-20261101-35ed25b3:p21-l38",
+      "upload-20261101-35ed25b3:p8-l8",
+      "upload-20261101-35ed25b3:p10-l18",
+      "upload-20261101-35ed25b3:p10-l19",
+      "upload-20261101-35ed25b3:p10-l21",
+      "upload-20261101-35ed25b3:p10-l25",
+      "upload-20261101-35ed25b3:p10-l26",
+      "upload-20261101-35ed25b3:p10-l27",
+      "upload-20261101-35ed25b3:p10-l28",
+      "upload-20261101-35ed25b3:p10-l29",
+      "upload-20261101-35ed25b3:p10-l30",
+      "upload-20261101-35ed25b3:p10-l31",
+      "upload-20261101-35ed25b3:p10-l32",
+      "upload-20261101-35ed25b3:p10-l33",
+      "upload-20261101-35ed25b3:p13-l5",
+      "upload-20261101-35ed25b3:p13-l6",
+      "upload-20261101-35ed25b3:p13-l9",
+      "upload-20261101-35ed25b3:p13-l20",
+      "upload-20261101-35ed25b3:p13-l23",
+      "upload-20261101-35ed25b3:p21-l38",
+      "upload-20261101-35ed25b3:p8-l8",
+      "upload-20261101-35ed25b3:p10-l18",
+      "upload-20261101-35ed25b3:p10-l19",
+      "upload-20261101-35ed25b3:p10-l21",
+      "upload-20261101-35ed25b3:p10-l25",
+      "upload-20261101-35ed25b3:p10-l26",
+      "upload-20261101-35ed25b3:p10-l27",
+      "upload-20261101-35ed25b3:p10-l28",
+      "upload-20261101-35ed25b3:p10-l29",
+      "upload-20261101-35ed25b3:p10-l30",
+      "upload-20261101-35ed25b3:p10-l31",
+      "upload-20261101-35ed25b3:p10-l32",
+      "upload-20261101-35ed25b3:p10-l33",
+      "upload-20261101-35ed25b3:p13-l5",
+      "upload-20261101-35ed25b3:p13-l6",
+      "upload-20261101-35ed25b3:p13-l9",
+      "upload-20261101-35ed25b3:p13-l20",
+      "upload-20261101-35ed25b3:p13-l23",
+      "upload-20261101-35ed25b3:p21-l38"
+    ],
+    "model": "claude-opus-4-8",
+    "prompt": "v1",
+    "unread_pages": [],
+    "usage": {
+      "input_tokens": 49369,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 14315
+    }
+  },
+  "rules": [
+    {
+      "id": "upload:upload-20261101-35ed25b3:student",
+      "source": "upload",
+      "name": "인천부평 행복주택 대학생 계층",
+      "org": null,
+      "region": {
+        "unknown": true
+      },
+      "domain": "housing",
+      "subject": "self",
+      "benefit_type": "rent",
+      "aliases": [
+        "행복주택",
+        "대학생 임대",
+        "행복주택 대학생"
+      ],
+      "conditions": [
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "as_of": "notice_date",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l3",
+            "upload-20261101-35ed25b3:p9-l1"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "employment_status",
+                "op": "==",
+                "value": "재학",
+                "text": "대학 재학중이거나 다음 학기 입학·복학 예정"
+              }
+            ],
+            [
+              {
+                "field": "other",
+                "text": "취업준비생: 대학 또는 고등학교 졸업·중퇴 2년 이내"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l5",
+            "upload-20261101-35ed25b3:p8-l6"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "marital_status",
+          "op": "==",
+          "value": "미혼",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l8"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "fail:not_in_evidence:미혼",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 1
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 120,
+                "income_basis": "urban_worker_pct",
+                "text": "부모+본인 합산"
+              }
+            ],
+            [
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 2
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 110,
+                "income_basis": "urban_worker_pct"
+              }
+            ],
+            [
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 100,
+                "income_basis": "urban_worker_pct",
+                "text": "3인 이상"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l9",
+            "upload-20261101-35ed25b3:p8-l10"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "fail:b0.0:op_mismatch",
+            "unit": "ok",
+            "keyword": "fail:b0.1:keyword_not_in_clause",
+            "pair": "ok",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "본인 총 자산가액 10,800만원 이하",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l20"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "자동차가액 산출대상 자동차 미소유",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l20"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l8"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l18"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l19"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l21"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l25"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l26"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l27"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l28"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l29"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l30"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l31"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l32"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l33"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l5"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l6"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l9"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l20"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l23"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p21-l38"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "exclusive_evidence": [
+        "upload-20261101-35ed25b3:p7-l9",
+        "upload-20261101-35ed25b3:p7-l10",
+        "upload-20261101-35ed25b3:p7-l30",
+        "upload-20261101-35ed25b3:p7-l31",
+        "upload-20261101-35ed25b3:p7-l32",
+        "upload-20261101-35ed25b3:p7-l33",
+        "upload-20261101-35ed25b3:p7-l34",
+        "upload-20261101-35ed25b3:p7-l36",
+        "upload-20261101-35ed25b3:p7-l37"
+      ],
+      "documents": [
+        "재학증명서",
+        "입학증명서",
+        "등록금납부확인서",
+        "졸업예정증명서",
+        "졸업증명서",
+        "제적증명서",
+        "주민등록표등본",
+        "주민등록표초본",
+        "가족관계증명서"
+      ],
+      "detail_url": null,
+      "updated": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "coverage": {
+        "marked": 562,
+        "used": 6,
+        "labeled": {
+          "definition": 215,
+          "procedure": 227,
+          "exclusive": 9,
+          "out_of_scope": 47,
+          "not_condition": 14
+        },
+        "unaccounted": 19
+      },
+      "compiled": {
+        "model": "claude-opus-4-8",
+        "prompt": "v1",
+        "doc_sha256": "45017528e66945fdc426850de7514320f79052f4b446dd82f27499c62abb2214",
+        "raw": "rules/uploads/_raw/upload-20261101-35ed25b3.json",
+        "at": "2026-11-01T03:52"
+      }
+    },
+    {
+      "id": "upload:upload-20261101-35ed25b3:youth",
+      "source": "upload",
+      "name": "인천부평 행복주택 청년 계층",
+      "org": null,
+      "region": {
+        "unknown": true
+      },
+      "domain": "housing",
+      "subject": "self",
+      "benefit_type": "rent",
+      "aliases": [
+        "행복주택",
+        "청년 임대",
+        "행복주택 청년"
+      ],
+      "conditions": [
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "as_of": "notice_date",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l14",
+            "upload-20261101-35ed25b3:p11-l35"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "age",
+                "op": ">=",
+                "value": 19,
+                "text": "청년"
+              },
+              {
+                "field": "age",
+                "op": "<=",
+                "value": 39
+              }
+            ],
+            [
+              {
+                "field": "other",
+                "text": "사회초년생: 소득있는 업무 종사기간 총 5년 이내"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l16",
+            "upload-20261101-35ed25b3:p10-l17"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "ok",
+            "keyword": "ok",
+            "pair": "ok",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "marital_status",
+          "op": "==",
+          "value": "미혼",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l21"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "fail:not_in_evidence:미혼",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 1
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 120,
+                "income_basis": "urban_worker_pct"
+              }
+            ],
+            [
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 2
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 110,
+                "income_basis": "urban_worker_pct"
+              }
+            ],
+            [
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 100,
+                "income_basis": "urban_worker_pct",
+                "text": "3인 이상"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l22",
+            "upload-20261101-35ed25b3:p10-l23",
+            "upload-20261101-35ed25b3:p10-l24"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "fail:b0.0:op_mismatch",
+            "unit": "ok",
+            "keyword": "fail:b0.1:keyword_not_in_clause",
+            "pair": "ok",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "해당세대 총 자산가액 25,100만원 이하",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l34"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "자동차가액 4,542만원 이하",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l34"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "has_account",
+          "op": "==",
+          "value": "Y",
+          "text": "입주전까지 주택청약종합저축 가입사실 증명",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l35"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l8"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l18"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l19"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l21"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l25"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l26"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l27"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l28"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l29"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l30"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l31"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l32"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l33"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l5"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l6"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l9"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l20"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l23"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p21-l38"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "exclusive_evidence": [
+        "upload-20261101-35ed25b3:p7-l9",
+        "upload-20261101-35ed25b3:p7-l10",
+        "upload-20261101-35ed25b3:p7-l30",
+        "upload-20261101-35ed25b3:p7-l31",
+        "upload-20261101-35ed25b3:p7-l32",
+        "upload-20261101-35ed25b3:p7-l33",
+        "upload-20261101-35ed25b3:p7-l34",
+        "upload-20261101-35ed25b3:p7-l36",
+        "upload-20261101-35ed25b3:p7-l37"
+      ],
+      "documents": [
+        "국민연금 가입증명서",
+        "건강보험자격득실확인서",
+        "고용보험 수급자격증",
+        "예술활동증명서",
+        "주택청약종합저축통장 사본",
+        "주민등록표등본",
+        "가족관계증명서"
+      ],
+      "detail_url": null,
+      "updated": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "coverage": {
+        "marked": 562,
+        "used": 9,
+        "labeled": {
+          "definition": 215,
+          "procedure": 227,
+          "exclusive": 9,
+          "out_of_scope": 47,
+          "not_condition": 14
+        },
+        "unaccounted": 19
+      },
+      "compiled": {
+        "model": "claude-opus-4-8",
+        "prompt": "v1",
+        "doc_sha256": "45017528e66945fdc426850de7514320f79052f4b446dd82f27499c62abb2214",
+        "raw": "rules/uploads/_raw/upload-20261101-35ed25b3.json",
+        "at": "2026-11-01T03:52"
+      }
+    },
+    {
+      "id": "upload:upload-20261101-35ed25b3:newlywed",
+      "source": "upload",
+      "name": "인천부평 행복주택 신혼부부·한부모가족 계층",
+      "org": null,
+      "region": {
+        "unknown": true
+      },
+      "domain": "housing",
+      "subject": "self",
+      "benefit_type": "rent",
+      "aliases": [
+        "행복주택",
+        "신혼부부 임대",
+        "한부모가족 임대"
+      ],
+      "conditions": [
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "as_of": "notice_date",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l13",
+            "upload-20261101-35ed25b3:p13-l14"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "marital_status",
+                "op": "==",
+                "value": "신혼",
+                "text": "혼인중"
+              }
+            ],
+            [
+              {
+                "field": "marital_status",
+                "op": "==",
+                "value": "예비부부",
+                "text": "혼인계획, 입주전 혼인증명"
+              }
+            ],
+            [
+              {
+                "field": "children_count",
+                "op": ">=",
+                "value": 1,
+                "text": "한부모가족: 6세 이하 자녀(태아포함)"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l18",
+            "upload-20261101-35ed25b3:p13-l19",
+            "upload-20261101-35ed25b3:p13-l20"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "fail:b2.0:not_in_evidence",
+            "comparator": "fail:b2.0:no_value",
+            "unit": "fail:b2.0:no_value",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "marriage_years",
+                "op": "<=",
+                "value": 7
+              }
+            ],
+            [
+              {
+                "field": "youngest_child_age",
+                "op": "<=",
+                "value": 6,
+                "text": "6세 이하 자녀(태아포함)"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l21",
+            "upload-20261101-35ed25b3:p13-l22"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "fail:b0.0:no_comparator",
+            "unit": "ok",
+            "keyword": "fail:b1.0:keyword_not_in_clause",
+            "pair": "ok",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "employment_type",
+                "op": "==",
+                "value": "외벌이"
+              },
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 2
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 110,
+                "income_basis": "urban_worker_pct"
+              }
+            ],
+            [
+              {
+                "field": "employment_type",
+                "op": "==",
+                "value": "외벌이"
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 100,
+                "income_basis": "urban_worker_pct",
+                "text": "3인 이상"
+              }
+            ],
+            [
+              {
+                "field": "employment_type",
+                "op": "==",
+                "value": "맞벌이"
+              },
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 2
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 130,
+                "income_basis": "urban_worker_pct"
+              }
+            ],
+            [
+              {
+                "field": "employment_type",
+                "op": "==",
+                "value": "맞벌이"
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 120,
+                "income_basis": "urban_worker_pct",
+                "text": "3인 이상"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l23",
+            "upload-20261101-35ed25b3:p13-l24",
+            "upload-20261101-35ed25b3:p13-l25"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "fail:b0.0:not_in_evidence:외벌이",
+            "comparator": "fail:b0.1:op_mismatch",
+            "unit": "ok",
+            "keyword": "fail:b0.2:keyword_not_in_clause",
+            "pair": "ok",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "해당세대 총 자산 합산가액 34,500만원 이하",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l34"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "자동차가액 4,542만원 이하",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l35"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "has_account",
+          "op": "==",
+          "value": "Y",
+          "text": "본인 또는 배우자 1인 입주전까지 주택청약종합저축 가입(한부모는 본인만)",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l36",
+            "upload-20261101-35ed25b3:p13-l37"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l8"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l18"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l19"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l21"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l25"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l26"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l27"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l28"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l29"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l30"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l31"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l32"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l33"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l5"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l6"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l9"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l20"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l23"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p21-l38"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "exclusive_evidence": [
+        "upload-20261101-35ed25b3:p7-l9",
+        "upload-20261101-35ed25b3:p7-l10",
+        "upload-20261101-35ed25b3:p7-l30",
+        "upload-20261101-35ed25b3:p7-l31",
+        "upload-20261101-35ed25b3:p7-l32",
+        "upload-20261101-35ed25b3:p7-l33",
+        "upload-20261101-35ed25b3:p7-l34",
+        "upload-20261101-35ed25b3:p7-l36",
+        "upload-20261101-35ed25b3:p7-l37"
+      ],
+      "documents": [
+        "혼인관계증명서",
+        "행복주택 예비신혼부부 신청 확인서",
+        "행복주택 예비신혼부부 세대구성 확인서",
+        "주민등록표등본",
+        "가족관계증명서",
+        "임신진단서",
+        "입양관계증명서",
+        "주택청약종합저축통장 사본"
+      ],
+      "detail_url": null,
+      "updated": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "coverage": {
+        "marked": 562,
+        "used": 12,
+        "labeled": {
+          "definition": 215,
+          "procedure": 227,
+          "exclusive": 9,
+          "out_of_scope": 47,
+          "not_condition": 14
+        },
+        "unaccounted": 19
+      },
+      "compiled": {
+        "model": "claude-opus-4-8",
+        "prompt": "v1",
+        "doc_sha256": "45017528e66945fdc426850de7514320f79052f4b446dd82f27499c62abb2214",
+        "raw": "rules/uploads/_raw/upload-20261101-35ed25b3.json",
+        "at": "2026-11-01T03:52"
+      }
+    },
+    {
+      "id": "upload:upload-20261101-35ed25b3:elderly",
+      "source": "upload",
+      "name": "인천부평 행복주택 고령자 계층",
+      "org": null,
+      "region": {
+        "unknown": true
+      },
+      "domain": "housing",
+      "subject": "self",
+      "benefit_type": "rent",
+      "aliases": [
+        "행복주택",
+        "고령자 임대",
+        "노인 임대"
+      ],
+      "conditions": [
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "as_of": "notice_date",
+          "evidence": [
+            "upload-20261101-35ed25b3:p17-l3"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "field": "age",
+          "op": ">=",
+          "value": 65,
+          "as_of": "notice_date",
+          "evidence": [
+            "upload-20261101-35ed25b3:p17-l3"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "ok",
+            "keyword": "ok",
+            "pair": "ok",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "any_of": [
+            [
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 1
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 120,
+                "income_basis": "urban_worker_pct"
+              }
+            ],
+            [
+              {
+                "field": "household_size",
+                "op": "==",
+                "value": 2
+              },
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 110,
+                "income_basis": "urban_worker_pct"
+              }
+            ],
+            [
+              {
+                "field": "income_household",
+                "op": "<=",
+                "value": 100,
+                "income_basis": "urban_worker_pct",
+                "text": "3인 이상"
+              }
+            ]
+          ],
+          "evidence": [
+            "upload-20261101-35ed25b3:p17-l4",
+            "upload-20261101-35ed25b3:p17-l5"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "fail:b0.0:op_mismatch",
+            "unit": "ok",
+            "keyword": "fail:b0.1:keyword_not_in_clause",
+            "pair": "ok",
+            "layer": "ok"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "해당세대 총 자산가액 34,500만원 이하",
+          "evidence": [
+            "upload-20261101-35ed25b3:p17-l14"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "자동차가액 4,542만원 이하",
+          "evidence": [
+            "upload-20261101-35ed25b3:p17-l14"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l8"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l18"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l19"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l21"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l25"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l26"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l27"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l28"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l29"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l30"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l31"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l32"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l33"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l5"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l6"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l9"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l20"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l23"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p21-l38"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "exclusive_evidence": [
+        "upload-20261101-35ed25b3:p7-l9",
+        "upload-20261101-35ed25b3:p7-l10",
+        "upload-20261101-35ed25b3:p7-l30",
+        "upload-20261101-35ed25b3:p7-l31",
+        "upload-20261101-35ed25b3:p7-l32",
+        "upload-20261101-35ed25b3:p7-l33",
+        "upload-20261101-35ed25b3:p7-l34",
+        "upload-20261101-35ed25b3:p7-l36",
+        "upload-20261101-35ed25b3:p7-l37"
+      ],
+      "documents": [
+        "장애인등록증",
+        "국가유공자 확인원",
+        "주민등록표등본",
+        "가족관계증명서"
+      ],
+      "detail_url": null,
+      "updated": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "coverage": {
+        "marked": 562,
+        "used": 4,
+        "labeled": {
+          "definition": 215,
+          "procedure": 227,
+          "exclusive": 9,
+          "out_of_scope": 47,
+          "not_condition": 14
+        },
+        "unaccounted": 19
+      },
+      "compiled": {
+        "model": "claude-opus-4-8",
+        "prompt": "v1",
+        "doc_sha256": "45017528e66945fdc426850de7514320f79052f4b446dd82f27499c62abb2214",
+        "raw": "rules/uploads/_raw/upload-20261101-35ed25b3.json",
+        "at": "2026-11-01T03:52"
+      }
+    },
+    {
+      "id": "upload:upload-20261101-35ed25b3:housing_benefit",
+      "source": "upload",
+      "name": "인천부평 행복주택 주거급여수급자 계층",
+      "org": null,
+      "region": {
+        "unknown": true
+      },
+      "domain": "housing",
+      "subject": "self",
+      "benefit_type": "rent",
+      "aliases": [
+        "행복주택",
+        "주거급여 임대",
+        "주거급여수급자"
+      ],
+      "conditions": [
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "as_of": "notice_date",
+          "evidence": [
+            "upload-20261101-35ed25b3:p19-l3"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "field": "livelihood_status",
+          "op": "==",
+          "value": "주거",
+          "as_of": "notice_date",
+          "text": "주거급여수급자",
+          "evidence": [
+            "upload-20261101-35ed25b3:p19-l3",
+            "upload-20261101-35ed25b3:p19-l4"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l8"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l18"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l19"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l21"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l25"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l26"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l27"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l28"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l29"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l30"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l31"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l32"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l33"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l5"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l6"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l9"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l20"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l23"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p21-l38"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "exclusive_evidence": [
+        "upload-20261101-35ed25b3:p7-l9",
+        "upload-20261101-35ed25b3:p7-l10",
+        "upload-20261101-35ed25b3:p7-l30",
+        "upload-20261101-35ed25b3:p7-l31",
+        "upload-20261101-35ed25b3:p7-l32",
+        "upload-20261101-35ed25b3:p7-l33",
+        "upload-20261101-35ed25b3:p7-l34",
+        "upload-20261101-35ed25b3:p7-l36",
+        "upload-20261101-35ed25b3:p7-l37"
+      ],
+      "documents": [
+        "주거급여 수급자증명서",
+        "주민등록표등본",
+        "가족관계증명서"
+      ],
+      "detail_url": null,
+      "updated": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "coverage": {
+        "marked": 562,
+        "used": 2,
+        "labeled": {
+          "definition": 215,
+          "procedure": 227,
+          "exclusive": 9,
+          "out_of_scope": 47,
+          "not_condition": 14
+        },
+        "unaccounted": 19
+      },
+      "compiled": {
+        "model": "claude-opus-4-8",
+        "prompt": "v1",
+        "doc_sha256": "45017528e66945fdc426850de7514320f79052f4b446dd82f27499c62abb2214",
+        "raw": "rules/uploads/_raw/upload-20261101-35ed25b3.json",
+        "at": "2026-11-01T03:52"
+      }
+    },
+    {
+      "id": "upload:upload-20261101-35ed25b3:existing_resident",
+      "source": "upload",
+      "name": "인천부평 행복주택 기존거주자",
+      "org": null,
+      "region": {
+        "unknown": true
+      },
+      "domain": "housing",
+      "subject": "self",
+      "benefit_type": "rent",
+      "aliases": [
+        "행복주택",
+        "기존거주자",
+        "철거민 임대"
+      ],
+      "conditions": [
+        {
+          "field": "is_homeless",
+          "op": "==",
+          "value": "Y",
+          "as_of": "notice_date",
+          "evidence": [
+            "upload-20261101-35ed25b3:p20-l4"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "ok",
+            "comparator": "ok",
+            "unit": "na",
+            "keyword": "ok",
+            "pair": "na",
+            "layer": "ok"
+          },
+          "status": "auto_verified"
+        },
+        {
+          "field": "other",
+          "text": "지구내 기존거주자 중 지자체가 우선공급대상자로 선정하여 LH에 통보한 사람",
+          "evidence": [
+            "upload-20261101-35ed25b3:p20-l3",
+            "upload-20261101-35ed25b3:p20-l5"
+          ],
+          "checks": {
+            "schema": "ok",
+            "evidence": "ok",
+            "value": "na",
+            "comparator": "na",
+            "unit": "na",
+            "keyword": "na",
+            "pair": "na",
+            "layer": "na"
+          },
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p8-l8"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l18"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l19"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l21"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l25"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l26"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l27"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l28"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l29"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l30"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l31"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l32"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p10-l33"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l5"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l6"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l9"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l20"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p13-l23"
+          ],
+          "status": "needs_review"
+        },
+        {
+          "field": "other",
+          "text": "원문 조건 미반영",
+          "reason": "unaccounted",
+          "evidence": [
+            "upload-20261101-35ed25b3:p21-l38"
+          ],
+          "status": "needs_review"
+        }
+      ],
+      "exclusive_evidence": [
+        "upload-20261101-35ed25b3:p7-l9",
+        "upload-20261101-35ed25b3:p7-l10",
+        "upload-20261101-35ed25b3:p7-l30",
+        "upload-20261101-35ed25b3:p7-l31",
+        "upload-20261101-35ed25b3:p7-l32",
+        "upload-20261101-35ed25b3:p7-l33",
+        "upload-20261101-35ed25b3:p7-l34",
+        "upload-20261101-35ed25b3:p7-l36",
+        "upload-20261101-35ed25b3:p7-l37"
+      ],
+      "documents": [],
+      "detail_url": null,
+      "updated": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "coverage": {
+        "marked": 562,
+        "used": 3,
+        "labeled": {
+          "definition": 215,
+          "procedure": 227,
+          "exclusive": 9,
+          "out_of_scope": 47,
+          "not_condition": 14
+        },
+        "unaccounted": 19
+      },
+      "compiled": {
+        "model": "claude-opus-4-8",
+        "prompt": "v1",
+        "doc_sha256": "45017528e66945fdc426850de7514320f79052f4b446dd82f27499c62abb2214",
+        "raw": "rules/uploads/_raw/upload-20261101-35ed25b3.json",
+        "at": "2026-11-01T03:52"
+      }
+    }
+  ],
+  "notice": "개인 서류를 올리지 마세요. 주민등록번호가 보이면 받지 않습니다.",
+  "at": "2026-11-01T03:52:41",
+  "lines_fp": "15062db939c585ad2cf191684f36f73eebc38cb7c77f1f3e64ea9b73c00185a7"
+}

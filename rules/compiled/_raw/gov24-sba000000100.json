@@ -1,0 +1,13 @@
+{
+ "key": "152929b2f0183234f24b6e3a87971fce2cb99b4ad1a284bd2233966e173f6571",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6815,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 586
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"자활근로(기초, 차상위)\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"자활사업\", \"자활근로사업\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l4\", \"l5\", \"l6\", \"l7\"], \"any_of\": [[{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"차상위계층\"], \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"income_recognized\", \"op\": \"<=\", \"value\": 50, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null}]]}, {\"field\": \"age\", \"op\": \">=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l9\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \"<=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l9\"], \"any_of\": null}, {\"field\": \"qual_code\", \"op\": \"not_in\", \"value\": [\"조건부과유예자\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l11\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"not_condition\"}, {\"line\": \"l14\", \"label\": \"procedure\"}, {\"line\": \"l15\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

@@ -1,0 +1,123 @@
+{
+ "id": "gov24:313000000155:youth",
+ "source": "gov24",
+ "name": "청년 면접정장 대여사업",
+ "org": "서울특별시 마포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "마포구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "면접정장 대여",
+  "청년 정장 지원"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "마포구",
+   "evidence": [
+    "gov24-313000000155:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "employment_status",
+   "op": "==",
+   "value": "구직",
+   "evidence": [
+    "gov24-313000000155:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "apply_date",
+   "op": ">=",
+   "value": "2026-01-26",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-313000000155:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "apply_date",
+   "op": "<=",
+   "value": "2026-12-18",
+   "as_of": "application_date",
+   "evidence": [
+    "gov24-313000000155:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149716&bnefType=all&svcId=313000000155",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "6791f7e3256880fc8a574fd0ef279b6e43eec619359828bb7eea711ab7b42192",
+  "raw": "rules/compiled/_raw/gov24-313000000155.json",
+  "at": "2026-11-01T03:58"
+ }
+}

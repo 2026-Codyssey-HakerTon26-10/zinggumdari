@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000001510",
+  "title": "원폭피해자지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=46708&bnefType=all&svcId=WII000001510",
+  "fetched_at": "2026-10-31",
+  "sha256": "87cf1e96ba1867a5bac5a61baec617660be0d109e7ab39d3a106b92270d13d6c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

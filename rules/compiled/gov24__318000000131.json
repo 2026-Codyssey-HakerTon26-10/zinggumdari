@@ -1,0 +1,156 @@
+{
+ "id": "gov24:318000000131",
+ "source": "gov24",
+ "name": "구민 AI(정보화)교육",
+ "org": "서울특별시 영등포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "영등포구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "AI교육",
+  "정보화교육",
+  "디지털교육"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "장애인",
+    "특수교육대상자",
+    "기초생활수급자",
+    "고령자",
+    "국가유공자",
+    "결혼이민자",
+    "사회복지서비스이용자",
+    "보호대상아동",
+    "한부모가족"
+   ],
+   "evidence": [
+    "gov24-318000000131:l4",
+    "gov24-318000000131:l5",
+    "gov24-318000000131:l6",
+    "gov24-318000000131:l7",
+    "gov24-318000000131:l9",
+    "gov24-318000000131:l12",
+    "gov24-318000000131:l13",
+    "gov24-318000000131:l14",
+    "gov24-318000000131:l15",
+    "gov24-318000000131:l16"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l14"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l15"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-318000000131:l16"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2109814&bnefType=all&svcId=318000000131",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 8
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "94bb22e39a7e1ae32e1fc1408f104c48f86c3e9340c36cda526578ee8a025b80",
+  "raw": "rules/compiled/_raw/gov24-318000000131.json",
+  "at": "2026-11-01T03:58"
+ }
+}

@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 국민기초생활 보장법 제2조 제1호에 따른 국민기초생활수급자 및 같은 법 제2조 제10호에 따른 차상위계층", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 복지 사각지대 일반 저소득 가구(지자체 추천)", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "※ 수급가구 중 주거급여 “자가” 집수리 대상 가구는 지원제외", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "※ 차상위계층 가구는 “자가”, “임차” 구분 없이 모두 지원 가능", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 국민기초생활 보장법 제2조 제1호의 국민기초생활 수급권자 및 같은 법 제2조 제10호의 차상위계층", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 복지 사각지대 일반 저소득 가구 중 주택 에너지효율이 불량하다고 지자체장이 추천한 자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "※ 단, 수급가구 중 주거급여 “자가” 집수리 대상 가구는 지원제외", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "※ 차상위계층 가구는 “자가”, “임차” 구분 없이 모두 지원 가능", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "접수기관 별 상이", "mark": true}
+]

@@ -1,0 +1,13 @@
+{
+ "key": "0f367816dfa3e22ea593d570c4651da2b79573c93ec14b23f6eecec9fed8b4b9",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6401,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 211
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"법정 한부모가족 명절격려금 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"한부모가족\",\"명절격려금\",\"한부모\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":null,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000001460",
+  "title": "출산전후(유산ㆍ사산)휴가 급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=758582&bnefType=all&svcId=WII000001460",
+  "fetched_at": "2026-10-31",
+  "sha256": "703b3eb9de07fc550d3fc59d453026464d3122581524c0753a632af63677e6fc",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

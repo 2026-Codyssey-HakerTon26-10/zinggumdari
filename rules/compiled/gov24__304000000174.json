@@ -1,0 +1,162 @@
+{
+ "id": "gov24:304000000174",
+ "source": "gov24",
+ "name": "구민건강검진(무료)",
+ "org": "서울특별시 광진구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "광진구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "무료건강검진",
+  "광진구건강검진"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-304000000174:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "sido",
+   "op": "==",
+   "value": "서울특별시",
+   "evidence": [
+    "gov24-304000000174:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:서울특별시",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "광진구",
+   "evidence": [
+    "gov24-304000000174:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "sigungu",
+      "op": "==",
+      "value": "광진구"
+     }
+    ],
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "의료급여수급권자"
+      ]
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-304000000174:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b1.0:unverifiable",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "livelihood_status",
+   "op": "in",
+   "value": [
+    "의료"
+   ],
+   "evidence": [
+    "gov24-304000000174:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=803548&bnefType=all&svcId=304000000174",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "f8d64b4d21078c97019ca5cda95201f9bf5ad47ed622eceb4353ba3477690196",
+  "raw": "rules/compiled/_raw/gov24-304000000174.json",
+  "at": "2026-11-01T03:57"
+ }
+}

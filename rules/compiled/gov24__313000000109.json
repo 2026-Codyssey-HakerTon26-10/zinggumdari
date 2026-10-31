@@ -1,0 +1,170 @@
+{
+ "id": "gov24:313000000109",
+ "source": "gov24",
+ "name": "저소득 어르신 보행보조차 지원",
+ "org": "서울특별시 마포구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "마포구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "보행보조차",
+  "어르신 지원",
+  "거동불편"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-313000000109:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "생계",
+       "의료"
+      ]
+     },
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "기타"
+     }
+    ],
+    [
+     {
+      "field": "livelihood_status",
+      "op": "in",
+      "value": [
+       "주거",
+       "차상위"
+      ]
+     },
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "기타"
+     }
+    ],
+    [
+     {
+      "field": "basic_pension",
+      "op": "==",
+      "value": "Y"
+     },
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "기타"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-313000000109:l3"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:의료",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "fail:b0.1:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "거동불편",
+   "evidence": [
+    "gov24-313000000109:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-313000000109:l3"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-313000000109:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-313000000109:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1003351&bnefType=all&svcId=313000000109",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 3
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "b4506ec405d4b6b7512ebd00ba2cdd8d964fa88ce5c6b289b4e67a4f9476b544",
+  "raw": "rules/compiled/_raw/gov24-313000000109.json",
+  "at": "2026-11-01T03:58"
+ }
+}

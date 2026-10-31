@@ -1,0 +1,13 @@
+{
+ "key": "dd7c2d77f7abe7e9fbaf348afa7b933db7795525bc8c109b5758614d86469b80",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6461,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 498
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"장애인가정 홈헬퍼 지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"장애인 홈헬퍼\", \"장애인 가정 지원\"], \"conditions\": [{\"field\": \"sido\", \"op\": \"==\", \"value\": \"서울특별시\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"임신 및 출산 예정 또는 만 9세 미만 자녀 양육\", \"evidence\": [\"l2\"], \"any_of\": [[{\"field\": \"pregnant\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"due_month\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"youngest_child_age\", \"op\": \"<\", \"value\": 9, \"income_basis\": null, \"as_of\": null, \"text\": null}]]}, {\"field\": \"income_household\", \"op\": \"<=\", \"value\": 120, \"income_basis\": \"median_pct\", \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

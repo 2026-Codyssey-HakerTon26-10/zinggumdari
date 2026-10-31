@@ -1,0 +1,13 @@
+{
+ "key": "a12c65716de435044b646f5677e377e0fb1fcd164be017b92f79e63081913747",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6556,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 408
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"동작구 전세피해임차인 지원금(월세 실비 지원)\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"cash\",\"aliases\":[\"전세사기피해자\",\"월세지원\",\"동작구\"],\"conditions\":[{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"tenure_type\",\"op\":\"==\",\"value\":\"전세\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l5\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"전세사기 특별법 적용 피해자 결정문 소지\",\"evidence\":[\"l2\",\"l6\"],\"any_of\":null}],\"documents\":[\"전세사기피해자(등) 결정문\"]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"definition\"},{\"line\":\"l4\",\"label\":\"procedure\"},{\"line\":\"l7\",\"label\":\"procedure\"},{\"line\":\"l8\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

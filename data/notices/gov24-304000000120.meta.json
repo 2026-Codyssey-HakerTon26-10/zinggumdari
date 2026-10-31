@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-304000000120",
+  "title": "재가급여 본인부담금 지원(구비)",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1006703&bnefType=all&svcId=304000000120",
+  "fetched_at": "2026-10-31",
+  "sha256": "756132ef0289768138d534073d01870ab7ec6645b8f784c56dfcd2072527718c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

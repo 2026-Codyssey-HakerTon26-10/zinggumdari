@@ -1,0 +1,201 @@
+{
+ "id": "gov24:154300005042",
+ "source": "gov24",
+ "name": "영농도우미 지원",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "영농도우미",
+  "농업인 지원",
+  "농사 도움"
+ ],
+ "conditions": [
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "사고 또는 질병으로 2주 이상 진단을 받았거나 3일 이상 입원"
+     },
+     {
+      "field": "other",
+      "text": "4대 중증 질환(암, 심장 질환(고혈압 제외), 뇌혈관 질환, 희귀 난치성 질환) 진단을 받고 최근 6개월 이내 통원 치료"
+     },
+     {
+      "field": "other",
+      "text": "제1∼2급 법정감염병(코로나19 포함) 확진자 또는 접촉자로 의료기관으로부터 통보를 받아 격리 중"
+     },
+     {
+      "field": "other",
+      "text": "안전교육이 포함된 농업인 교육과정에 1일 이상 참석"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-154300005042:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "other",
+      "text": "초등학교 4학년 이하의 자녀가 사고 또는 질병으로 2주 이상 진단을 받았거나 3일 이상 입원"
+     },
+     {
+      "field": "other",
+      "text": "초등학교 4학년 이하의 자녀가 4대 중증 질환 진단을 받고 최근 6개월 이내 통원 치료"
+     },
+     {
+      "field": "other",
+      "text": "초등학교 4학년 이하의 자녀가 제1∼2급 법정감염병 확진자 또는 접촉자로 격리 중"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-154300005042:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l6"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l12"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l13"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l14"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l15"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-154300005042:l16"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2156143&bnefType=all&svcId=154300005042",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 13,
+  "used": 2,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 10
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "efb2331e0ecc9cd34625fb976773522c51d136672b7c0402674236ad70a658e1",
+  "raw": "rules/compiled/_raw/gov24-154300005042.json",
+  "at": "2026-11-01T03:56"
+ }
+}

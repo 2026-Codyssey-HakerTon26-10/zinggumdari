@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-135200005027",
+  "title": "일상돌봄 서비스",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2123106&bnefType=all&svcId=135200005027",
+  "fetched_at": "2026-10-31",
+  "sha256": "76e027f9cbbaf4f265dcb73f95b4854317f7ebc30f18cd1910347fd4db0d5129",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

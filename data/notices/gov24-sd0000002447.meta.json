@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-sd0000002447",
+  "title": "개발제한구역 생활비용보조 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=756619&bnefType=all&svcId=SD0000002447",
+  "fetched_at": "2026-10-31",
+  "sha256": "1770cc02aff3ce6f803deea99967e146ae604ad78ab5d287ad7cbb9f9bb02f08",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

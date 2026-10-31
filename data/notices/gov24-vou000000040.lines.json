@@ -1,0 +1,22 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 만 65세 미만의 기준중위소득 70% 이하 계층 중 아래에 해당하는 사람으로 가사간병 서비스가 필요한 자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 가사간병 서비스 대상자", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "- 장애정도가 심한 장애인", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 6개월 이상 치료를 필요로 하는 중증질환자(보건복지부 장관이 고시한 중증질환 상병 해당자로, 최근 3개월 이내 발행된 진단서 또는 소견서 첨부)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- 희귀난치성 질환자(보건복지부 장관이 고시한 희귀난치성 질환 상병 해당자로, 진단서 또는 소견서 첨부)", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "- 소년소녀가정, 조손가정, 한부모 가정(법정보호 세대) * 이 경우 서비스 대상자는 자녀, 손자녀가 됨", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "- 만 65세미만의 의료급여수급자 중 장기입원 사례관리 퇴원자", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "- 기타 시·군·구청장이 예산의 범위 내에서 장애정도가 심하지 않은 장애인, 질환 및 부상으로 인한 장기치료자 등 가사·간병 서비스가 필요하다고 인정하는 자", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "○ 지원대상자에 해당하는 경우(만65세미만의 의료급여수급자 중 장기입원사례관리퇴원자 제외)라도 단독으로 일상생활이 가능하거나 실제 생활을 함께 하는 부양 가족이 있는 경우는 선정 지양", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "○ 장애인 활동지원 등급판정을 받은 자는 활동지원서비스를 우선활용(만65세미만의 의료급여수급자 중 장기입원 사례관리 퇴원자 제외)", "mark": true},
+  {"id": "l13", "page": null, "bbox": null, "text": "* 장애인 활동지원서비스 미신청자 및 등급판정 제외자는 가사간병 방문지원 서비스 신청 가능", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "※ 중복수혜불가 조건", "mark": true},
+  {"id": "l15", "page": null, "bbox": null, "text": "○ 국고로 지원되는 아래의 동일 또는 유사 돌봄 서비스를 받고 있는 자", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "- 장애인 활동 지원 서비스, 노인맞춤돌봄서비스, 노인장기요양보험급여 수급자", "mark": true},
+  {"id": "l17", "page": null, "bbox": null, "text": "○ 국민기초생활보장법 제32조에 따른 보장시설 입소자", "mark": false},
+  {"id": "l18", "page": null, "bbox": null, "text": "○ 의료기관 입원 중인 이용자(입원기간 동안만 서비스 불가, 단, 입퇴원일은 서비스 제공 가능)", "mark": true},
+  {"id": "l19", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l20", "page": null, "bbox": null, "text": "자세한 날짜는 읍면동 주민센터에 따라 다를 수 있음", "mark": false}
+]

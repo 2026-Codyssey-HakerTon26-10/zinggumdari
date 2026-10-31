@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-ssi000000020",
+  "title": "한부모가족 아동양육비 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=87903&bnefType=all&svcId=SSI000000020",
+  "fetched_at": "2026-10-31",
+  "sha256": "e5faab181ba684221a2e1c7ea2001ea2d1af7e198cfc3100a0bd219d96005ef4",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

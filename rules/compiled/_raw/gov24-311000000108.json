@@ -1,0 +1,13 @@
+{
+ "key": "89fa69d7e0a2232ab5e35b8c6faefddfd78f7fd5d98bbbbd153e065054105761",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6424,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 181
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"저소득 주민 국민건강보험료 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"건강보험료 지원\",\"저소득층 보험료\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"장애인\",\"노인\",\"수급자\",\"차상위\",\"국가유공자\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

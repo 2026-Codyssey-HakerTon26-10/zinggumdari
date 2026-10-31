@@ -1,0 +1,85 @@
+{
+ "id": "gov24:321000000131",
+ "source": "gov24",
+ "name": "다자녀가정 실내바닥매트 지원",
+ "org": "서울특별시 서초구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "서초구"
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "다자녀 지원",
+  "바닥매트 지원",
+  "세자녀 이상"
+ ],
+ "conditions": [
+  {
+   "field": "sigungu",
+   "op": "==",
+   "value": "서초구",
+   "as_of": "notice_date",
+   "evidence": [
+    "gov24-321000000131:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "children_count",
+   "op": ">=",
+   "value": 3,
+   "evidence": [
+    "gov24-321000000131:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=806027&bnefType=all&svcId=321000000131",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 2,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "142b8157b1f19ca526bedbbff6f1f8bea5fdbb6d99658ee1ae6da899245453ff",
+  "raw": "rules/compiled/_raw/gov24-321000000131.json",
+  "at": "2026-11-01T03:59"
+ }
+}

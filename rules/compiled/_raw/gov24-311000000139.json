@@ -1,0 +1,13 @@
+{
+ "key": "879f827697674172bd8b4c53905d6aa0c272422bee1217ae398b7b33e3aada1a",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6450,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 292
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"셋째아가정 산후건강관리 지원사업\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"셋째아 산후건강관리\",\"신생아 건강관리 지원\",\"산모 건강관리\"],\"conditions\":[{\"field\":\"children_count\",\"op\":\">=\",\"value\":3,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"sigungu\",\"op\":\"==\",\"value\":\"은평구\",\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":1,\"income_basis\":null,\"as_of\":\"notice_date\",\"text\":\"출산일 기준 30일전부터 은평구에 주민등록\",\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

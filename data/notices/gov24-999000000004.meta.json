@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000004",
+  "title": "배우자 출산휴가 급여",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999019&bnefType=all&svcId=999000000004",
+  "fetched_at": "2026-10-31",
+  "sha256": "21e17b8cf64fb14bbc538073a1308cf0969fb43a34e33adff225fe34b9de3beb",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

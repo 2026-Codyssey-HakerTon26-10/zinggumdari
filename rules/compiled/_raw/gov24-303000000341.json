@@ -1,0 +1,13 @@
+{
+ "key": "18574af3e49c290159e7ecbeb1291d528dd9219aa5526fd3e8b8508f679540f3",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6445,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 192
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"구민 정보화교육\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"정보화교육\", \"구민교육\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"성동구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

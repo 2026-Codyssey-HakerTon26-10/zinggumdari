@@ -1,0 +1,335 @@
+{
+ "id": "web:nhuf-newlywed-jeonse",
+ "source": "web",
+ "name": "신혼부부전용 전세자금 (주택도시기금)",
+ "org": "주택도시기금",
+ "region": {
+  "unknown": true
+ },
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "신혼부부 전세자금대출",
+  "신혼부부 전세대출",
+  "버팀목 신혼"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "주택도시기금대출, 은행재원 전세자금대출 및 주택담보대출 미이용자(중복대출 금지)",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l347",
+    "nhuf-newlywed-jeonse:l348",
+    "nhuf-newlywed-jeonse:l349"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "주택임대차계약을 체결하고 임차보증금의 5% 이상을 지불한 자",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l355"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_householder",
+   "op": "==",
+   "value": "세대주",
+   "as_of": "application_date",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l356"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 19,
+   "as_of": "application_date",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l356"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence",
+    "comparator": "fail:no_value",
+    "unit": "fail:no_value",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "is_homeless",
+   "op": "==",
+   "value": "Y",
+   "text": "세대주를 포함한 세대원 전원이 무주택",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l361"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "income_couple",
+      "op": "<=",
+      "value": 7500,
+      "income_basis": "absolute_annual"
+     }
+    ],
+    [
+     {
+      "field": "income_self",
+      "op": "<=",
+      "value": 5000,
+      "income_basis": "absolute_annual",
+      "text": "부부합산 7.5천만원 초과하나 대출신청인 소득 5천만원 이하"
+     }
+    ]
+   ],
+   "evidence": [
+    "nhuf-newlywed-jeonse:l362",
+    "nhuf-newlywed-jeonse:l363"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "대출신청인 및 배우자 합산 순자산가액이 소득 3분위 전체가구 평균값 이하(2026년 기준 3.45억원)",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l365",
+    "nhuf-newlywed-jeonse:l366"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "신용정보 및 해제정보가 남아있는 경우 대출 불가(신용도 요건)",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l369"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "대출접수일 현재 공공임대주택에 입주하고 있는 경우 불가",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l374"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "신혼",
+       "기혼"
+      ]
+     },
+     {
+      "field": "marriage_years",
+      "op": "<=",
+      "value": 7
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "==",
+      "value": "예비부부",
+      "text": "3개월 이내 결혼 예정하여 세대구성 예정 가구"
+     }
+    ]
+   ],
+   "evidence": [
+    "nhuf-newlywed-jeonse:l331",
+    "nhuf-newlywed-jeonse:l376"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:기혼",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "deposit",
+   "op": "<=",
+   "value": 40000,
+   "text": "수도권 임차보증금 4억원 이하",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l397"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "fail:no_comparator",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "임차 전용면적 85㎡(읍면지역 100㎡) 이하 주택, 주거용 오피스텔 85㎡ 이하",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l394"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "nhuf-newlywed-jeonse:l376"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [
+  "nhuf-newlywed-jeonse:l350",
+  "nhuf-newlywed-jeonse:l351",
+  "nhuf-newlywed-jeonse:l352",
+  "nhuf-newlywed-jeonse:l354",
+  "nhuf-newlywed-jeonse:l485",
+  "nhuf-newlywed-jeonse:l486"
+ ],
+ "documents": [
+  "건강보험자격득실확인서",
+  "사업자등록증(또는 사업자등록증명원)",
+  "혼인관계증명서",
+  "주민등록등본"
+ ],
+ "detail_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020401.jsp",
+ "updated": "2026-11-01",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 243,
+  "used": 15,
+  "labeled": {
+   "definition": 4,
+   "procedure": 31,
+   "exclusive": 6,
+   "out_of_scope": 126,
+   "not_condition": 61
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-opus-4-8",
+  "prompt": "v1",
+  "doc_sha256": "9df0bb80c7f7e64def8a4de422cab349c85374a51342730837dc12c163970c16",
+  "raw": "eval/compiled/_raw/nhuf-newlywed-jeonse.json",
+  "at": "2026-11-01T03:40"
+ }
+}

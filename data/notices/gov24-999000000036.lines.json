@@ -1,0 +1,12 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 5∼69세 장애인(출생연도 1957∼2021년)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 1순위: 만 5~18세 기초생활수급자(생계·의료·주거·교육), 차상위 계층, 법정 한부모 가족", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "○ 2순위: 만 19세 이상 기초생활수급자(생계·의료·주거·교육)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 3순위: 만 19세 이상 차상위 계층, 법정 한부모 가족", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 4순위: 만 5~18세 비 저소득층", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 5순위: 만 19세 이상 비 저소득층", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "○ 매년 11월 중 전국 동시 신청, 이후 시·군·구 모집 현황에 따라 수시 신청 가능", "mark": false}
+]

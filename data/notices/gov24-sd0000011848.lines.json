@@ -1,0 +1,15 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "('23년 가입자 기준)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "ㅇ 고용보험 피보험자수 5인이상~50인 미만 제조,건설업종의 '중소기업', 해당 기업에 정규직으로 취업한 ‘청년’", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "ㅇ (청년) 만 15~34세(군 복무기간 포함 39세까지) 정규직 신규 취업자로서,", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "- 생애 최초 취업자(고용보험 최초 취득자),", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "- ‘최종학교 졸업 후 고용보험 총 가입기간 12개월 이하’인 경우 가입 가능", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "ㅇ (기업) 고용보험 피보험자수 5인 이상~50인* 미만 제조, 건설업종 중소기업", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "ㆍ 가입대상 청년 채용일 직전 3개월 평균 고용보험 피보험자수", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "* '22년 가입자까지는 가입연도 지원기준에 따라 지원", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "ㅇ 지원대상별(청년, 기업) 가입자격을 갖춘경우 선정기준 없이 지원한도 내 지원", "mark": true},
+  {"id": "l12", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "-", "mark": false}
+]

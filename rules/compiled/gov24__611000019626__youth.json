@@ -1,0 +1,238 @@
+{
+ "id": "gov24:611000019626:youth",
+ "source": "gov24",
+ "name": "서울런 청년",
+ "org": "서울특별시",
+ "region": {
+  "sido": "서울",
+  "sigungu": null
+ },
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "service",
+ "aliases": [
+  "청소년 지원",
+  "저소득 청소년"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 6,
+   "evidence": [
+    "gov24-611000019626:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<=",
+   "value": 24,
+   "evidence": [
+    "gov24-611000019626:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "한부모"
+      ]
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 63,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "marital_status",
+      "op": "in",
+      "value": [
+       "한부모"
+      ]
+     },
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "청소년한부모"
+      ]
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 72,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 60,
+      "income_basis": "median_pct"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-611000019626:l3"
+   ],
+   "checks": {
+    "schema": "fail:b0.0:value_not_in_vocab:한부모",
+    "evidence": "ok",
+    "value": "fail:b1.1:unverifiable",
+    "comparator": "fail:b0.1:no_comparator",
+    "unit": "ok",
+    "keyword": "fail:b1.2:keyword_not_in_clause",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "학교밖청소년",
+    "다문화",
+    "북한이탈주민",
+    "북한이탈주민자녀",
+    "국가보훈자",
+    "독립유공자자녀",
+    "독립유공자손자녀",
+    "가족돌봄청년",
+    "관외시아동보호시설보호아동",
+    "가족쉼터보호아동",
+    "건강장애학생"
+   ],
+   "evidence": [
+    "gov24-611000019626:l4",
+    "gov24-611000019626:l5",
+    "gov24-611000019626:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "가족돌봄청년"
+      ]
+     },
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 120,
+      "income_basis": "median_pct"
+     }
+    ],
+    [
+     {
+      "field": "income_household",
+      "op": "<=",
+      "value": 60,
+      "income_basis": "median_pct"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-611000019626:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "fail:b0.1:no_comparator",
+    "unit": "fail:b1.0:no_value",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019626:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-611000019626:l5"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2150021&bnefType=all&svcId=611000019626",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 3,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "69311a7d8aa208d01156e11e90690293811627d259d98dfd6d0b368da4c5c870",
+  "raw": "rules/compiled/_raw/gov24-611000019626.json",
+  "at": "2026-11-01T03:59"
+ }
+}

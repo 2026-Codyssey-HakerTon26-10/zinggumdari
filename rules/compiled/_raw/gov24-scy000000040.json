@@ -1,0 +1,13 @@
+{
+ "key": "a97334ae16e16d0c70745096f80024efb17c73f206f2de60638e233c81486bfe",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6537,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 200
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"입양비용지원\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"cash\", \"aliases\": [\"입양 지원\", \"입양비용\"], \"conditions\": [{\"field\": \"apply_date\", \"op\": \">=\", \"value\": \"2026-01-01\", \"income_basis\": null, \"as_of\": \"notice_date\", \"text\": null, \"evidence\": [\"l2\", \"l4\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"not_condition\"}, {\"line\": \"l5\", \"label\": \"procedure\"}, {\"line\": \"l6\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

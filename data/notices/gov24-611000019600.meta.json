@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000019600",
+  "title": "서울시 엄마 북(Book)돋움",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2120101&bnefType=all&svcId=611000019600",
+  "fetched_at": "2026-10-31",
+  "sha256": "cfb7fcf80a0a4a5547e9665513de7fecd2e3a7065ec843d3dd10a37d4fdf2da9",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

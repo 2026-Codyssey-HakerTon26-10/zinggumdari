@@ -1,0 +1,214 @@
+{
+ "id": "gov24:135200005017",
+ "source": "gov24",
+ "name": "한국형 상병수당 시범사업",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "상병수당",
+  "질병 수당"
+ ],
+ "conditions": [
+  {
+   "field": "sido",
+   "op": "in",
+   "value": [
+    "서울특별시",
+    "경기도",
+    "충청남도",
+    "전라남도",
+    "경상북도",
+    "경상남도",
+    "충청북도",
+    "강원도"
+   ],
+   "evidence": [
+    "gov24-135200005017:l2",
+    "gov24-135200005017:l3",
+    "gov24-135200005017:l4"
+   ],
+   "checks": {
+    "schema": "fail:value_not_in_vocab:강원도",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:강원도",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "sigungu",
+   "op": "in",
+   "value": [
+    "종로구",
+    "부천시",
+    "천안시",
+    "순천시",
+    "포항시",
+    "창원시",
+    "안양시",
+    "용인시",
+    "달서구",
+    "익산시",
+    "충주시",
+    "홍성군",
+    "전주시",
+    "원주시"
+   ],
+   "evidence": [
+    "gov24-135200005017:l2",
+    "gov24-135200005017:l3",
+    "gov24-135200005017:l4"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "na",
+    "keyword": "fail:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 15,
+   "evidence": [
+    "gov24-135200005017:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "age",
+   "op": "<",
+   "value": 65,
+   "evidence": [
+    "gov24-135200005017:l6"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "employment_status",
+   "op": "in",
+   "value": [
+    "재직",
+    "자영업"
+   ],
+   "evidence": [
+    "gov24-135200005017:l5"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:자영업",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "has_account",
+      "op": "==",
+      "value": "Y"
+     }
+    ],
+    [
+     {
+      "field": "employment_status",
+      "op": "==",
+      "value": "재직"
+     },
+     {
+      "field": "subscription_months",
+      "op": ">=",
+      "value": 2
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-135200005017:l12"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:not_in_evidence:Y",
+    "comparator": "fail:b1.1:no_value",
+    "unit": "fail:b1.1:no_value",
+    "keyword": "fail:b0.0:keyword_not_in_evidence",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-135200005017:l12"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=811600&bnefType=all&svcId=135200005017",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 14,
+  "used": 4,
+  "labeled": {
+   "definition": 7,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "8116e87bf4c5ddbaa9964c50673aba9d558a46e5a539449a71009a3d612bfe90",
+  "raw": "rules/compiled/_raw/gov24-135200005017.json",
+  "at": "2026-11-01T03:55"
+ }
+}

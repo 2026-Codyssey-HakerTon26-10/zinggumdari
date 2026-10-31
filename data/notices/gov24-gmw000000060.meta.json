@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-gmw000000060",
+  "title": "노인복지 민간단체 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=173719&bnefType=all&svcId=GMW000000060",
+  "fetched_at": "2026-10-31",
+  "sha256": "adbebec1ce736375f281d09ee36438970c218e3c4c0f30930a099aa634a6a795",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

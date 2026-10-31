@@ -1,0 +1,13 @@
+{
+ "key": "196f146e0425eef169616bf96fa504d8f112e4bcf0dda1a36631a9bf17168983",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 7151,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 435
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"디딤돌 운전면허 지원센터\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"운전면허 지원\", \"장애인 운전면허\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"등록장애인\", \"국가유공상이자\", \"기초생활수급자\", \"한부모가족\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\", \"l14\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 18, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l9\", \"l20\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l2\", \"label\": \"not_condition\"}, {\"line\": \"l8\", \"label\": \"not_condition\"}, {\"line\": \"l10\", \"label\": \"not_condition\"}, {\"line\": \"l11\", \"label\": \"not_condition\"}, {\"line\": \"l12\", \"label\": \"not_condition\"}, {\"line\": \"l13\", \"label\": \"not_condition\"}, {\"line\": \"l18\", \"label\": \"not_condition\"}, {\"line\": \"l19\", \"label\": \"not_condition\"}, {\"line\": \"l21\", \"label\": \"not_condition\"}, {\"line\": \"l22\", \"label\": \"not_condition\"}, {\"line\": \"l23\", \"label\": \"procedure\"}, {\"line\": \"l24\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T04:02"
+}

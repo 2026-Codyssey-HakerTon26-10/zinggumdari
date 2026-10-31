@@ -1,0 +1,13 @@
+{
+ "key": "1304659b40f888c8cb4f208770ebd99aaf908e936d3fdf6cbd7e4e9152cad7fc",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6450,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 316
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"출생아 작명 서비스\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"신생아 작명\", \"출생아 이름짓기\"], \"conditions\": [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\", \"한부모가족\", \"다문화가정\", \"장애인\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"children_count\", \"op\": \">=\", \"value\": 2, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"apply_date\", \"op\": \"<=\", \"value\": 10, \"income_basis\": null, \"as_of\": \"application_date\", \"text\": null, \"evidence\": [\"l5\"], \"any_of\": []}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}

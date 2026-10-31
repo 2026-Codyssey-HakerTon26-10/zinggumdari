@@ -1,0 +1,14 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "<저소득층 급식비 지원>", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "○ 저소득층 수급 자격자(기초, 한 부모, 법정 차상위)인 학생", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "○ 가구의 소득인정액이 시도교육청별 지원기준에 해당하는 학생", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "※ 소득 인정액은 시ㆍ도별로 상이함(관할 교육청으로 문의)", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "○ 학교별 학교장 추천이 결정된 학생 등", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "<참고사항>", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 현재 전국적으로 무상급식(점심)이 실시되고 있어, 저소득층 대상 교육비 지원(급식비) 여부에 대한 구체적인 내용은 반드시 해당 시도교육청에 문의하여 확인", "mark": true},
+  {"id": "l9", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "지원대상과 동일", "mark": true},
+  {"id": "l11", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

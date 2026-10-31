@@ -1,0 +1,203 @@
+{
+ "id": "gov24:154300000128",
+ "source": "gov24",
+ "name": "농지연금",
+ "org": "농림축산식품부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "농지담보대출",
+  "영농자금"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 60,
+   "evidence": [
+    "gov24-154300000128:l2",
+    "gov24-154300000128:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 60
+     },
+     {
+      "field": "other",
+      "text": "영농경력 5년 이상"
+     }
+    ],
+    [
+     {
+      "field": "age",
+      "op": ">=",
+      "value": 65
+     },
+     {
+      "field": "age",
+      "op": "<=",
+      "value": 79
+     },
+     {
+      "field": "other",
+      "text": "영농경력 10년 이상"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-154300000128:l2",
+    "gov24-154300000128:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "공부상 지목이 전, 답, 과수원이면서 실제 영농에 이용중인 농지",
+   "evidence": [
+    "gov24-154300000128:l3",
+    "gov24-154300000128:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "담보농지 2년 이상 보유",
+   "evidence": [
+    "gov24-154300000128:l3",
+    "gov24-154300000128:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "주소지에서 30킬로미터 이내",
+   "evidence": [
+    "gov24-154300000128:l3",
+    "gov24-154300000128:l8"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "근저당이 설정된 농지는 채권최고액이 담보농지 가격의 15% 미만",
+   "evidence": [
+    "gov24-154300000128:l4",
+    "gov24-154300000128:l9"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "농지연금 기간형 지원방식의 가입연령, 담보농지의 기준 및 위험부담금 산출에 적용되는 요율 고시 제4조의 요건 충족",
+   "evidence": [
+    "gov24-154300000128:l5",
+    "gov24-154300000128:l10"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=710143&bnefType=all&svcId=154300000128",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 9,
+  "used": 8,
+  "labeled": {
+   "definition": 0,
+   "procedure": 0,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9c0d5967d5caaeda6f2cb0308a419c72f2d54609e3ea99f5c6af6d2d34b94c5c",
+  "raw": "rules/compiled/_raw/gov24-154300000128.json",
+  "at": "2026-11-01T03:56"
+ }
+}

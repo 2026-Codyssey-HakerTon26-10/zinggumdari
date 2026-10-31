@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000025",
+  "title": "주거안정 월세대출",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999077&bnefType=all&svcId=999000000025",
+  "fetched_at": "2026-10-31",
+  "sha256": "379d9bf6af47b595d7158e0b1970d3408b9b8d8ea2f6223a9b5111011ef93d6a",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "◎ 지원대상 : 동대문구에 거주하는 1인가구(1인단독 세대주)", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "※ 청년·중장년 여성 1인가구, 범죄피해를 경험한 남성 1인가구(증빙자료 필수) 우선지원", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "◎ 필수조건 : 전·월세 보증금(전세환산가액) 2억 5천만원 이하", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "※ 아파트 거주자, 자가 소유자 제외", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "※ 전세환산가액 계산법 : 보증금 +(월세×12/5.5%)", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "별도문의", "mark": false}
+]

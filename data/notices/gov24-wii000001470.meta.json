@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-wii000001470",
+  "title": "공공분양 주택공급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999073&bnefType=all&svcId=WII000001470",
+  "fetched_at": "2026-10-31",
+  "sha256": "08ed2a763cf49a264ca1ca928f1e7ea491a149d85c6dd2322bf50d0512b343b6",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

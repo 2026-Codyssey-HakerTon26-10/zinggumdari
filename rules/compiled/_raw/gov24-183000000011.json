@@ -1,0 +1,13 @@
+{
+ "key": "7ccf04720e29eac9d6d088cf828f70f340e9bdaae267ec3da1f5c1174cab8c16",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6457,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 181
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"6·25자녀수당\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"6·25전사자녀\",\"전몰군경자녀\",\"순직군경자녀\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"6·25전몰·순직군경자녀\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

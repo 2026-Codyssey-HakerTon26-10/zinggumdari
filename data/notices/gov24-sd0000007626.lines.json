@@ -1,0 +1,13 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 장애인, 국가유공상이자, 장기요양대상자", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "1. 장애인: 시각, 청각 등 전체 장애인 / (증명서)장애인복지카드, 장애인증명서", "mark": true},
+  {"id": "l4", "page": null, "bbox": null, "text": "2. 국가유공상이자: 상이등급 전체(1-7급) / (증명서) 국가유공자증, 특수임무유공자증, 보훈보상대상자증, 지원대상자확인원", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "3. 장기요양대상자: 장기요양등급 전체/ (증명서) 장기요양인정서", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l7", "page": null, "bbox": null, "text": "○ 장애인 : 보건복지부 등록 장애인", "mark": true},
+  {"id": "l8", "page": null, "bbox": null, "text": "○ 국가유공상이자: 국가보훈부 등록 국가유공상이자", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "○ 장기요양대상자: 국민건강보험공단 인정 장기요양대상자", "mark": true},
+  {"id": "l10", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

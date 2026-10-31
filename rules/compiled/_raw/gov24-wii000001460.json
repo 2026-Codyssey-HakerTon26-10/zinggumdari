@@ -1,0 +1,13 @@
+{
+ "key": "b8b04249ebc03e0b6770678d5acf26069244c594f4d34929f26254faaaebf9d6",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6838,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 549
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"출산전후(유산ㆍ사산)휴가 급여\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"출산휴가 급여\",\"유산휴가 급여\",\"사산휴가 급여\"],\"conditions\":[{\"field\":\"history\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"근로기준법 제74조에 따른 출산전후휴가 또는 유산·사산휴가를 받은 근로자\",\"evidence\":[\"l2\",\"l6\"],\"any_of\":null},{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"휴가가 끝난 날 이전에 고용보험 피보험 단위기간이 합산하여 180일 이상\",\"evidence\":[\"l3\",\"l7\"],\"any_of\":null},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"1개월 후\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l4\",\"l8\",\"l10\"],\"any_of\":[[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"휴가를 시작한 날 이후 1개월부터 신청\"}],[{\"field\":\"other\",\"op\":null,\"value\":null,\"income_basis\":null,\"as_of\":null,\"text\":\"소속 사업장이 우선지원대상기업이 아닌 경우 휴가 시작 후 60일(다태아 75일)이 지난 날 이후 1개월부터 신청\"}]]},{\"field\":\"apply_date\",\"op\":\"<=\",\"value\":\"12개월\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l4\",\"l8\",\"l10\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

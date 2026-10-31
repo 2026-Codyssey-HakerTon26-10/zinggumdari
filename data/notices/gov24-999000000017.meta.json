@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-999000000017",
+  "title": "국가보훈대상자 주택우선공급",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999065&bnefType=all&svcId=999000000017",
+  "fetched_at": "2026-10-31",
+  "sha256": "3459fe3b064de5adb8da14d2ecec05fac2d23f81219f2fde85e9ff36eb126044",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

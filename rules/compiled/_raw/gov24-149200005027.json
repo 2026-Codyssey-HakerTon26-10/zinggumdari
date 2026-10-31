@@ -1,0 +1,13 @@
+{
+ "key": "8787939860c43e96fa37e9422cf611e26b175a9019e131e99adc715133492037",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6646,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 298
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"생활안정자금(융자)(이차보전)\",\"subject\":\"self\",\"domain\":\"fund_loan\",\"benefit_type\":\"loan\",\"aliases\":[\"생활안정자금\",\"이차보전\"],\"conditions\":[{\"field\":\"employment_status\",\"op\":\"in\",\"value\":[\"재직\",\"자영업\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"residence_months\",\"op\":\">=\",\"value\":3,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\"],\"any_of\":null},{\"field\":\"income_household\",\"op\":\"<=\",\"value\":null,\"income_basis\":\"median_pct\",\"as_of\":null,\"text\":\"중위소득(3인 가구) 이하\",\"evidence\":[\"l4\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"not_condition\"},{\"line\":\"l5\",\"label\":\"procedure\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l9\",\"label\":\"procedure\"},{\"line\":\"l10\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:56"
+}

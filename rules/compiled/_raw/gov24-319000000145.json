@@ -1,0 +1,13 @@
+{
+ "key": "2b440ad2aca98e9ee6986b471bb170e2d25aa21b047f7f266a119ecb24c10d71",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6428,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 366
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"임산부 친환경농산물 꾸러미 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"cash\",\"aliases\":[\"임산부 농산물\",\"친환경농산물 지원\",\"산모 지원\"],\"conditions\":[{\"field\":\"sido\",\"op\":\"==\",\"value\":\"동작구\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2025-01-01\",\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2025-01-01\",\"income_basis\":null,\"as_of\":null,\"text\":null}]]},{\"field\":\"apply_date\",\"op\":\">=\",\"value\":\"2025-01-01\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

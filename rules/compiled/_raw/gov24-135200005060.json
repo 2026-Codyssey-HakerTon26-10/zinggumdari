@@ -1,0 +1,13 @@
+{
+ "key": "42d90410701d5441d56fef5002ad0321e71f278ab699a97b63869cd5895255d9",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6803,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 248
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"노숙인 등 복지 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"노숙인 지원\",\"거리 노숙인\",\"노숙인 시설\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":18,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\",\"l9\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l3\",\"l9\"],\"any_of\":[]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l2\",\"label\":\"out_of_scope\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"out_of_scope\"},{\"line\":\"l13\",\"label\":\"procedure\"},{\"line\":\"l14\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:55"
+}

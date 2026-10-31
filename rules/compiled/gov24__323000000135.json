@@ -1,0 +1,64 @@
+{
+ "id": "gov24:323000000135",
+ "source": "gov24",
+ "name": "송파구 전세사기피해자등 지원사업",
+ "org": "서울특별시 송파구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "송파구"
+ },
+ "domain": "housing",
+ "subject": "self",
+ "benefit_type": "cash",
+ "aliases": [
+  "전세사기피해자",
+  "전세피해지원",
+  "송파구주거지원"
+ ],
+ "conditions": [
+  {
+   "field": "other",
+   "text": "송파구 내 주택을 임차한(했던) 자 중 전세사기피해자법에 따른 전세사기피해자등 또는 HUG 전세피해확인서 발급자",
+   "evidence": [
+    "gov24-323000000135:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "na",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "na"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2173817&bnefType=all&svcId=323000000135",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 11,
+  "used": 1,
+  "labeled": {
+   "definition": 1,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 8
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "1a8c40b68d839d5823bb910848000a8aba34ba703a633063b525c3bdb579bbb0",
+  "raw": "rules/compiled/_raw/gov24-323000000135.json",
+  "at": "2026-11-01T03:59"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "key": "28919445e55d0583ee75265521e85be98b4ad2cc722944b3c84c6e1f4707cba0",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6461,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 550
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"저소득어르신급식지원\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"노인급식\", \"결식우려어르신\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 60, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\", \"주거\", \"교육\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"결식우려\", \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}, {\"track\": \"main\", \"name\": \"저소득어르신급식지원 도시락배달·밑반찬배달\", \"subject\": \"parent\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"노인급식\", \"결식우려어르신\"], \"conditions\": [{\"field\": \"age\", \"op\": \">=\", \"value\": 65, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"livelihood_status\", \"op\": \"in\", \"value\": [\"생계\", \"의료\", \"주거\", \"교육\"], \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l3\"], \"any_of\": null}, {\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"결식우려\", \"evidence\": [\"l3\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:59"
+}

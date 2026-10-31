@@ -1,0 +1,61 @@
+{
+ "id": "gov24:137100000033",
+ "source": "gov24",
+ "name": "지역맞춤형 생활체육 활성화(어르신 스포츠강좌 프로그램 지원)",
+ "org": "문화체육관광부",
+ "region": null,
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "어르신 스포츠강좌",
+  "생활체육 지원"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-137100000033:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=790133&bnefType=all&svcId=137100000033",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 5,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 3
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "482a56108566b9f2b292499db807c097a9a04defa7273d3e37b7daffc3e9c9c4",
+  "raw": "rules/compiled/_raw/gov24-137100000033.json",
+  "at": "2026-11-01T03:55"
+ }
+}

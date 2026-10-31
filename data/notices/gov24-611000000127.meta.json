@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000000127",
+  "title": "서울시 청년 월세 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1002457&bnefType=all&svcId=611000000127",
+  "fetched_at": "2026-10-31",
+  "sha256": "1faf8b13a93dfa1cc49baf4ef0fd2ac5089d3366fa3be2c41b495ce7ac71b8ad",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

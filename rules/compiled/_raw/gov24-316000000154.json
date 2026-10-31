@@ -1,0 +1,13 @@
+{
+ "key": "84569ac6fb6c837f971a9fb8c1ae4558e92d5f31f9319dab8e0557bafebad046",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6434,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 478
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"구민 정보화교육\", \"subject\": \"self\", \"domain\": \"welfare\", \"benefit_type\": \"service\", \"aliases\": [\"정보화교육\", \"구민교육\"], \"conditions\": [{\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"구로구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": null, \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"수강료 면제대상: 55세이상 구민, 국민기초생활수급자, 장애인, 결혼이민자 등\", \"evidence\": [\"l3\"], \"any_of\": [[{\"field\": \"age\", \"op\": \">=\", \"value\": 55, \"income_basis\": null, \"as_of\": null, \"text\": null}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"구로구\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"qual_code\", \"op\": \"in\", \"value\": [\"기초생활수급자\"], \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"disability_registered\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null}], [{\"field\": \"other\", \"op\": null, \"value\": null, \"income_basis\": null, \"as_of\": null, \"text\": \"결혼이민자\"}]]}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l4\", \"label\": \"procedure\"}, {\"line\": \"l5\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,13 @@
+{
+ "key": "7e9509d6c9cca6295f868d030324d6830d4c46299b4a15eb036affdd38c65592",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6423,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 340
+ },
+ "raw_text": "{\"rules\": [{\"track\": \"main\", \"name\": \"효도수당\", \"subject\": \"self\", \"domain\": \"elderly\", \"benefit_type\": \"cash\", \"aliases\": [\"노부모 부양\", \"효도 지원\"], \"conditions\": [{\"field\": \"supports_parent_65\", \"op\": \"==\", \"value\": \"Y\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"age\", \"op\": \">=\", \"value\": 100, \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": [[], []]}, {\"field\": \"sigungu\", \"op\": \"==\", \"value\": \"양천구\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}, {\"field\": \"is_householder\", \"op\": \"==\", \"value\": \"세대주\", \"income_basis\": null, \"as_of\": null, \"text\": null, \"evidence\": [\"l2\"], \"any_of\": null}], \"documents\": []}], \"labels\": [{\"line\": \"l1\", \"label\": \"not_condition\"}, {\"line\": \"l3\", \"label\": \"procedure\"}, {\"line\": \"l4\", \"label\": \"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

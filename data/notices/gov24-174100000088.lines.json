@@ -1,0 +1,18 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "▲ 일자리를 구하고 있지만 오랫동안 경력이 단절되어 새로운 일자리를 찾기 어려운 사람", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "▲ 진로,직업선택을 고민하고 있는 청년", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "▲ 직업을 바꾸기 위해 실질적인 도움이 필요한 사람", "mark": false},
+  {"id": "l5", "page": null, "bbox": null, "text": "▲ 일자리를 잃고 처음 실업급여를 신청한 사람", "mark": false},
+  {"id": "l6", "page": null, "bbox": null, "text": "▲ 실업급여를 수급하면서 다시 취업하기 위해 노력하고 있는 사람", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "▲ 직업훈련을 통해 새로운 직업을 찾고 있는 사람", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l9", "page": null, "bbox": null, "text": "▲ 일자리를 구하고 있지만 오랫동안 경력이 단절되어 새로운 일자리를 찾기 어려운 사람", "mark": false},
+  {"id": "l10", "page": null, "bbox": null, "text": "▲ 진로,직업선택을 고민하고 있는 청년", "mark": false},
+  {"id": "l11", "page": null, "bbox": null, "text": "▲ 직업을 바꾸기 위해 실질적인 도움이 필요한 사람", "mark": false},
+  {"id": "l12", "page": null, "bbox": null, "text": "▲ 일자리를 잃고 처음 실업급여를 신청한 사람", "mark": false},
+  {"id": "l13", "page": null, "bbox": null, "text": "▲ 실업급여를 수급하면서 다시 취업하기 위해 노력하고 있는 사람", "mark": true},
+  {"id": "l14", "page": null, "bbox": null, "text": "▲ 직업훈련을 통해 새로운 직업을 찾고 있는 사람", "mark": false},
+  {"id": "l15", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l16", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

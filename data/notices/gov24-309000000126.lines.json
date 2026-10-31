@@ -1,0 +1,6 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 법정 한부모가정", "mark": true},
+  {"id": "l3", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "신청불필요", "mark": false}
+]

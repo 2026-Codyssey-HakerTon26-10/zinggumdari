@@ -1,0 +1,77 @@
+{
+ "id": "gov24:GMW000000110",
+ "source": "gov24",
+ "name": "노인복지용구제공",
+ "org": "보건복지부",
+ "region": null,
+ "domain": "elderly",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "노인용구",
+  "요양용구"
+ ],
+ "conditions": [
+  {
+   "field": "ltc_grade",
+   "op": "in",
+   "value": [
+    "1등급",
+    "2등급",
+    "3등급",
+    "4등급",
+    "5등급",
+    "인지지원등급"
+   ],
+   "evidence": [
+    "gov24-gmw000000110:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:not_in_evidence:1등급",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "ok",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-gmw000000110:l2"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=999131&bnefType=all&svcId=GMW000000110",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 4,
+  "used": 0,
+  "labeled": {
+   "definition": 1,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 1
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "be95a9561db96ad2d76b3fa965b9fa4121a899db3ac7626af86d19155294ac33",
+  "raw": "rules/compiled/_raw/gov24-gmw000000110.json",
+  "at": "2026-11-01T04:02"
+ }
+}

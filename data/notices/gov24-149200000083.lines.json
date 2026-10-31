@@ -1,0 +1,10 @@
+[
+  {"id": "l1", "page": null, "bbox": null, "text": "[지원대상]", "mark": true},
+  {"id": "l2", "page": null, "bbox": null, "text": "○ 유연근무(재택ㆍ원격ㆍ선택근무)를 활용하는 중소ㆍ중견기업 사업주", "mark": false},
+  {"id": "l3", "page": null, "bbox": null, "text": "[선정기준]", "mark": false},
+  {"id": "l4", "page": null, "bbox": null, "text": "<공통> ①주당 소정근로시간이 35시간 이상 40시간 이하, ②근로계약서에 변경된 근로시간ㆍ장소 등에 관한 사항을 규정, ③전자적ㆍ기계적 방식으로 출퇴근 시각을 기록ㆍ관리", "mark": true},
+  {"id": "l5", "page": null, "bbox": null, "text": "<선택근무제> ① 정산기간을 평균하여 주당 연장근로시간이 12시간 이하, , ②취업규칙 등에 제도 도입, ③근로자 대표와 서면 합의", "mark": true},
+  {"id": "l6", "page": null, "bbox": null, "text": "<시차출퇴근> 육아기(만 12세 이하 또는 초등학교 6학년 이하) 자녀를 둔 근로자가 활용할 것", "mark": true},
+  {"id": "l7", "page": null, "bbox": null, "text": "[신청기한]", "mark": false},
+  {"id": "l8", "page": null, "bbox": null, "text": "상시신청", "mark": false}
+]

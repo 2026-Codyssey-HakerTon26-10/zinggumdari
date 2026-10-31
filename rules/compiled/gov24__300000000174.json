@@ -1,0 +1,96 @@
+{
+ "id": "gov24:300000000174",
+ "source": "gov24",
+ "name": "계절 취약계층 어르신 보호·강화를 위한 냉난방물품 지원",
+ "org": "서울특별시 종로구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "종로구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "냉난방물품 지원",
+  "저소득 어르신 지원",
+  "계절 취약계층"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-300000000174:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "any_of": [
+    [
+     {
+      "field": "qual_code",
+      "op": "in",
+      "value": [
+       "법정 저소득"
+      ]
+     },
+     {
+      "field": "other",
+      "text": "기타 사각지대 저소득"
+     }
+    ]
+   ],
+   "evidence": [
+    "gov24-300000000174:l2"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:b0.0:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2101508&bnefType=all&svcId=300000000174",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 3,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 0
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "e6d49a987b3e85e5793f47db07b2a0e5ab36c5d23d40836c5c7af3d1632e0475",
+  "raw": "rules/compiled/_raw/gov24-300000000174.json",
+  "at": "2026-11-01T03:57"
+ }
+}

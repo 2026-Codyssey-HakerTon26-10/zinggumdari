@@ -1,0 +1,13 @@
+{
+ "key": "ae29780b467410cdb74875e8d4f8a05a8fd91751c6790a43292e36db954457c8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6616,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 404
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"한부모가족복지시설 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"한부모가족\",\"저소득 한부모\",\"한부모 복지\"],\"conditions\":[{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"is_homeless\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l5\"],\"any_of\":[[{\"field\":\"age\",\"op\":\"<=\",\"value\":24,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null},{\"field\":\"qual_code\",\"op\":\"in\",\"value\":[\"한부모가족\"],\"income_basis\":null,\"as_of\":null,\"text\":null}],[{\"field\":\"income_recognized\",\"op\":\"<=\",\"value\":100,\"income_basis\":\"median_pct\",\"as_of\":\"application_date\",\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"definition\"},{\"line\":\"l6\",\"label\":\"not_condition\"},{\"line\":\"l7\",\"label\":\"not_condition\"},{\"line\":\"l8\",\"label\":\"procedure\"},{\"line\":\"l9\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T04:03"
+}

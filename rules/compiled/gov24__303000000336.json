@@ -1,0 +1,85 @@
+{
+ "id": "gov24:303000000336",
+ "source": "gov24",
+ "name": "어르신 국가예방접종 지원사업",
+ "org": "서울특별시 성동구",
+ "region": {
+  "sido": "서울",
+  "sigungu": "성동구"
+ },
+ "domain": "welfare",
+ "subject": "parent",
+ "benefit_type": "service",
+ "aliases": [
+  "폐렴구균 예방접종",
+  "인플루엔자 예방접종",
+  "코로나19 예방접종"
+ ],
+ "conditions": [
+  {
+   "field": "age",
+   "op": ">=",
+   "value": 65,
+   "evidence": [
+    "gov24-303000000336:l3",
+    "gov24-303000000336:l5",
+    "gov24-303000000336:l7"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "ok",
+    "comparator": "ok",
+    "unit": "ok",
+    "keyword": "ok",
+    "pair": "ok",
+    "layer": "ok"
+   },
+   "status": "auto_verified"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-303000000336:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-303000000336:l7"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2164741&bnefType=all&svcId=303000000336",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 6,
+  "used": 1,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 2
+  },
+  "unaccounted": 2
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "7b42dddce968fe7dfbc9225aecf14a52c813b4a9c3e1ea496e02a8aeae2ea18a",
+  "raw": "rules/compiled/_raw/gov24-303000000336.json",
+  "at": "2026-11-01T03:57"
+ }
+}

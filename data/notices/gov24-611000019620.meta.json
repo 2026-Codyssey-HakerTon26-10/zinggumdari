@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-611000019620",
+  "title": "꿈나래통장",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=2149019&bnefType=all&svcId=611000019620",
+  "fetched_at": "2026-10-31",
+  "sha256": "18883259515883b4032d1312573657fba049e82acfb34ca6fc31adccad815bdb",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

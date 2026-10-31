@@ -1,0 +1,16 @@
+{
+  "doc_id": "gov24-300000000106",
+  "title": "지자체(취약계층) 인플루엔자 예방접종 지원",
+  "source": "api",
+  "kind": "text",
+  "source_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=1004070&bnefType=all&svcId=300000000106",
+  "fetched_at": "2026-10-31",
+  "sha256": "b26308a855576bb2deda80ebf36e7ec61c9b5fb5a6c273954dbfa9bded29c65c",
+  "pages": null,
+  "text_layer": null,
+  "ocr": null,
+  "unread_pages": [],
+  "pblanc_no": null,
+  "section": null,
+  "rules": []
+}

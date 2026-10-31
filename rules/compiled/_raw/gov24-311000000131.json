@@ -1,0 +1,13 @@
+{
+ "key": "6e4160c12151c4d0c2b1194cbb2f01ed27f749059a261a34ac2603b771b70347",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6419,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 232
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"youth\",\"name\":\"청년 창업인의 집\",\"subject\":\"self\",\"domain\":\"housing\",\"benefit_type\":\"rent\",\"aliases\":[\"청년주택\",\"창업청년\"],\"conditions\":[{\"field\":\"age\",\"op\":\">=\",\"value\":19,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"age\",\"op\":\"<=\",\"value\":39,\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"income_self\",\"op\":\"<=\",\"value\":70,\"income_basis\":\"urban_worker_pct\",\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"not_condition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:58"
+}

@@ -1,0 +1,156 @@
+{
+ "id": "gov24:PTR000051390",
+ "source": "gov24",
+ "name": "국가보훈대상자 대부지원",
+ "org": "국가보훈부",
+ "region": null,
+ "domain": "fund_loan",
+ "subject": "self",
+ "benefit_type": "loan",
+ "aliases": [
+  "보훈대상자 대출",
+  "국가유공자 대부"
+ ],
+ "conditions": [
+  {
+   "field": "qual_code",
+   "op": "in",
+   "value": [
+    "독립유공자",
+    "독립유공자유족",
+    "국가유공자",
+    "국가유공자유족",
+    "5.18민주유공자",
+    "5.18민주유공자유족",
+    "특수임무유공자",
+    "특수임무유공자유족",
+    "재해부상군경",
+    "재해부상공무원",
+    "재해사망군경유족",
+    "재해사망공무원유족"
+   ],
+   "evidence": [
+    "gov24-ptr000051390:l2",
+    "gov24-ptr000051390:l4",
+    "gov24-ptr000051390:l5",
+    "gov24-ptr000051390:l7",
+    "gov24-ptr000051390:l8",
+    "gov24-ptr000051390:l9",
+    "gov24-ptr000051390:l10",
+    "gov24-ptr000051390:l11",
+    "gov24-ptr000051390:l12",
+    "gov24-ptr000051390:l13",
+    "gov24-ptr000051390:l14"
+   ],
+   "checks": {
+    "schema": "ok",
+    "evidence": "ok",
+    "value": "fail:unverifiable",
+    "comparator": "na",
+    "unit": "na",
+    "keyword": "na",
+    "pair": "na",
+    "layer": "ok"
+   },
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l2"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l4"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l5"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l7"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l8"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l9"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l10"
+   ],
+   "status": "needs_review"
+  },
+  {
+   "field": "other",
+   "text": "원문 조건 미반영",
+   "reason": "unaccounted",
+   "evidence": [
+    "gov24-ptr000051390:l11"
+   ],
+   "status": "needs_review"
+  }
+ ],
+ "exclusive_evidence": [],
+ "documents": [],
+ "detail_url": "https://plus.gov.kr/portal/benefitV2/benefitTotalSrvcList/benefitSrvcDtl?svcSeq=106347&bnefType=all&svcId=PTR000051390",
+ "updated": "2026-10-31",
+ "review": {
+  "status": "unreviewed"
+ },
+ "coverage": {
+  "marked": 10,
+  "used": 0,
+  "labeled": {
+   "definition": 0,
+   "procedure": 1,
+   "exclusive": 0,
+   "out_of_scope": 0,
+   "not_condition": 1
+  },
+  "unaccounted": 8
+ },
+ "compiled": {
+  "model": "claude-haiku-4-5-20251001",
+  "prompt": "v1",
+  "doc_sha256": "9c909309dee957ec78694e7100db18c35b5c7e6528c8819838eb1343e10fe813",
+  "raw": "rules/compiled/_raw/gov24-ptr000051390.json",
+  "at": "2026-11-01T04:02"
+ }
+}

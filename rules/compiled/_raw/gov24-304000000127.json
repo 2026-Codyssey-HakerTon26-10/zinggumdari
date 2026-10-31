@@ -1,0 +1,13 @@
+{
+ "key": "a028fcde851f597543a7f32e5cddbd203eb1a6fca5628887f76aa469e760d5d8",
+ "model": "claude-haiku-4-5-20251001",
+ "prompt": "v1",
+ "usage": {
+  "input_tokens": 6390,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "output_tokens": 263
+ },
+ "raw_text": "{\"rules\":[{\"track\":\"main\",\"name\":\"임산부 건강관리 지원\",\"subject\":\"self\",\"domain\":\"welfare\",\"benefit_type\":\"service\",\"aliases\":[\"임산부 지원\",\"산모 건강관리\",\"임신 지원\"],\"conditions\":[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null,\"evidence\":[\"l2\"],\"any_of\":null},{\"field\":\"due_month\",\"op\":\"<=\",\"value\":0,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null,\"evidence\":[\"l2\"],\"any_of\":[[{\"field\":\"pregnant\",\"op\":\"==\",\"value\":\"Y\",\"income_basis\":null,\"as_of\":null,\"text\":null},{\"field\":\"youngest_child_age\",\"op\":\"<=\",\"value\":0,\"income_basis\":null,\"as_of\":\"application_date\",\"text\":null}]]}],\"documents\":[]}],\"labels\":[{\"line\":\"l1\",\"label\":\"definition\"},{\"line\":\"l3\",\"label\":\"procedure\"},{\"line\":\"l4\",\"label\":\"procedure\"}]}",
+ "at": "2026-11-01T03:57"
+}
