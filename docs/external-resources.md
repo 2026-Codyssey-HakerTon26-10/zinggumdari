@@ -14,13 +14,15 @@
 | 외부 API | 한국고용정보원 온통청년 「청년정책 API」 (youthcenter.go.kr) | 청년정책 목록, 나이·소득·혼인·지역 조건 | 이용 조건 (채울 것), 키 심의 |
 | 외부 API | 한국사회보장정보원 「사회서비스 제공기관 정보 검색」 (data.go.kr 15057683), 「사회서비스 공통코드 조회」 (15059061) | 바우처 제도 카드의 가까운 제공기관 (선택, 쓰면 남긴다) | 공공누리 유형 (채울 것) |
 | 외부 서비스 | 이메일 발송 SMTP (서비스명은 채울 것) | 알림 이메일 | 약관 (채울 것) |
-| 외부 API | 네이토 API(대회 지급, Anthropic 방식): Claude Opus 4.8(`claude-opus-4-8`), Claude Haiku 4.5(`claude-haiku-4`) | 공고 원문에서 조건 추출(원문당 1회). Opus는 시연 공고와 시험용 평가, Haiku는 행안부 대량 추출 | 대회 지급 |
+| 외부 API | 네이토 API(대회 지급, Anthropic 방식): Claude Opus 4.8(`claude-opus-4-8`), Claude Haiku 4.5(`claude-haiku-4`) | 공고 원문에서 조건 추출(원문당 1회). Opus는 시연 공고와 시험용 평가, Haiku는 행안부 대량 추출. 스캔 PDF의 글자 인식(tesseract가 없을 때) | 대회 지급 |
 | 외부 서비스 | OpenAI ChatGPT(모델명은 채울 것), Anthropic Claude(모델명은 채울 것) | 비교 사례 질의(발표 6쪽) | 상용 약관(질의만) |
 | 지급 자원 | GPU V100 서버(대회 지급) | 쓰면 용도, 안 쓰면 "미사용" (채울 것) | 대회 |
 | 오픈소스 | FastAPI, uv | API 서버, 패키지 관리 | MIT |
 | 오픈소스 | pydantic | 조건 JSON·프로필 스키마 검증 | MIT |
 | 오픈소스 | httpx | API 덤프 | BSD-3 |
 | 오픈소스 | pdfplumber | 공고 PDF 텍스트 추출 | MIT |
+| 오픈소스 | pypdfium2, Pillow (pdfplumber 의존성) | 스캔 PDF 쪽을 이미지로 그려 글자 인식에 넘기기 | Apache-2.0·BSD-3, MIT-CMU |
+| 오픈소스 | olefile | HWP(5.0) 파일 안의 본문 스트림 읽기. 레코드 해석은 한컴 공개 문서 「한글 문서 파일 형식 5.0」을 보고 직접 구현 | BSD-2 |
 | 오픈소스 | SQLite (python 표준 `sqlite3`) | 프로필·알림 저장 | Public Domain |
 | 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
 | 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표 | BSD-3 |
