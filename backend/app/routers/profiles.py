@@ -68,6 +68,26 @@ def create_profile(body: dict) -> dict:
     return {"user_id": user_id}
 
 
+# 시연 프리셋(SPEC §2). 전부 가상 인물이다. 고르면 새 프로필을 하나 만들고 다른 프로필은 건드리지 않는다
+PRESETS = {"jiwon": {"label": "지원(1999, 예비부부) + 어머니(1966)", "profile": EXAMPLE_PROFILE}}
+
+
+@router.get("/presets")
+def list_presets() -> list[dict]:
+    return [{"id": k, "label": v["label"], "virtual": True} for k, v in PRESETS.items()]
+
+
+@router.post("/presets/{preset_id}")
+def create_from_preset(preset_id: str) -> dict:
+    if preset_id not in PRESETS:
+        raise HTTPException(status_code=404, detail="preset not found")
+    user_id = "U" + secrets.token_hex(4)
+    profile = copy.deepcopy(PRESETS[preset_id]["profile"])
+    profile.update(user_id=user_id, preset=preset_id)
+    _store[user_id] = profile
+    return {"user_id": user_id}
+
+
 @router.get("/{user_id}")
 def get_profile(user_id: str) -> dict:
     return _get(user_id)
