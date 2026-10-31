@@ -78,7 +78,7 @@ export default function MyPage() { // 내 징검다리 화면을 만들어요.
                 <div className="my-breadcrumb"><Link href="/">홈</Link><Icon name="chevron-right" /><span>내 징검다리</span></div> {/* 현재 위치를 안내해요. */}
                 <section className="my-heading"> {/* 페이지 제목과 시연 안내를 묶어요. */}
                     <div><p className="eyebrow">MY STEPPING STONES</p><h1>{nickname} 님의 다음 걸음,<br className="my-mobile-break" /> 미리 준비해 볼까요?</h1><p className="muted">지금 필요한 제도부터 다음 단계에서 열릴 제도까지 함께 살펴봐요.</p></div> {/* 닉네임과 안내 문장을 보여줘요. */}
-                    <span className="my-demo-label"><span />시연용 가상 사례</span> {/* 실제 개인의 판정 결과가 아님을 표시해요. */}
+                    <Link href="/demo" className="button button-secondary">가상 프로필로 추천 카드 체험</Link> {/* 실제 개인의 판정 결과가 아님을 표시해요. */}
                 </section> {/* 제목 영역을 마쳐요. */}
                 <section className="my-profile" aria-label="시연 프로필 요약"> {/* 참고 디자인의 프로필 요약 구성을 보여줘요. */}
                     <div className="my-avatar"><Icon name="user" /></div> {/* 실명이나 사진 대신 기본 아이콘을 사용해요. */}
