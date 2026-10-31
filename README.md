@@ -22,6 +22,81 @@
 └── docs/
 ```
 
+## 아키텍처
+
+LLM은 공고 원문에서 조건을 뽑을 때(원문당 1회)만 쓴다. 판정, 질문 고르기, 단계·날짜 계산, 알림, 검색 순위는 모두 규칙(코드)이라 같은 입력이면 결과가 같다.
+
+### 요청이 오가는 길 (런타임)
+
+```mermaid
+flowchart LR
+  U([브라우저]) --> FE["화면 · Next.js<br/>frontend/"]
+  FE -- "/api/backend/* 같은 출처 프록시<br/>(세션 쿠키 SameSite=Strict)" --> API
+
+  subgraph API["API · FastAPI  backend/app/"]
+    AUTH["/auth/*<br/>가입·로그인·탈퇴"]
+    PROF["/profiles/*<br/>폼 3단계 프로필"]
+    JUDGE["/judge<br/>판정·카드"]
+    SEARCH["/search"]
+    NOTICE["/notices/*<br/>원문·줄"]
+    INGEST["/ingest<br/>공고 투입"]
+    NOTIF["/notifications<br/>/stats/*"]
+  end
+
+  subgraph CORE["규칙 · 계산 (LLM 없음)"]
+    ENGINE["engine/<br/>judge · 카드 · 질문(정보이득)<br/>서류 매핑 · 비슷한 가구"]
+    PLANNER["planner/<br/>단계 넘기기 · 해둘 일 · 날짜"]
+    SRCH["search/<br/>글자 2-gram BM25 · 구간 순위"]
+    NOTIFY["notify/<br/>알림 생성 · 이메일"]
+  end
+
+  subgraph AIREAD["공고 읽기 (원문당 LLM 1회)"]
+    COLLECT["collector/ingest<br/>거부 검사 → 캐시 재생"]
+    COMPILER["compiler/<br/>줄 목록 → 자격 구간 → LLM<br/>→ 검증기 → 빠짐 검사"]
+  end
+
+  DB[(PostgreSQL<br/>계정·세션·프로필·알림)]
+  FILES[("rules/ 조건표<br/>data/notices/ 원문·줄<br/>data/population/ 가상 인구")]
+  LLM{{"네이토 API<br/>(Claude)"}}
+
+  AUTH & PROF --> DB
+  JUDGE --> ENGINE --> PLANNER
+  JUDGE --> DB
+  SEARCH --> SRCH --> ENGINE
+  INGEST --> COLLECT --> COMPILER --> LLM
+  COLLECT --> NOTIFY
+  NOTIF --> NOTIFY --> ENGINE
+  NOTIFY --> DB
+  NOTICE & ENGINE & SRCH & COMPILER --> FILES
+```
+
+- 판정 대상은 언제나 **세션의 본인 프로필**이다. 사용자 업로드 조건표와 근거 줄은 올린 계정에게만 보인다(`backend/app/sources.py`, docs/api.md 「인증·소유권 계약」).
+- 검수 전 AI 조건표는 확정(`eligible`)을 내지 않고, 프로필·다음 단계와 맞는 것만 카드로 올린다. 나머지는 응답 `folded`로 접는다.
+
+### 미리 만들어 두는 것 (오프라인)
+
+```mermaid
+flowchart LR
+  subgraph SRC["입력"]
+    GOV["공공데이터 API<br/>행안부 · 지자체 복지 · 청약홈 · LH"]
+    DOCS["공고 원문<br/>PDF · HWP · 웹"]
+    NEMO["Nemotron-Personas-Korea<br/>(19~39세 1만 명)"]
+  end
+
+  GOV -- "data/dump" --> RAW["data/raw/<br/>덤프 (검색 색인)"]
+  RAW --> NOTICES
+  DOCS -- "notices/store · fetch" --> NOTICES["data/notices/<br/>원문 · 줄 목록(줄 ID·쪽·좌표)"]
+  NOTICES -- "compiler/run<br/>LLM 1회 + 검증기" --> COMPILED["rules/compiled/<br/>AI 조건표 (검수 전·후)"]
+  MANUAL["rules/manual/<br/>손 조건표 (사람 작성·검수)"]
+  COMPILED & MANUAL -- "engine/documents" --> DMAP["docs/documents_map.json<br/>서류 → 발급처"]
+  NEMO -- "population/build" --> POP["data/population/<br/>가상 인구"]
+  POP & COMPILED & MANUAL -- "engine/similar<br/>(이웃 후보 전원 judge)" --> ELIG["eligibility.npz<br/>비슷한 가구 판정표"]
+  COMPILED & MANUAL & POP --> EVAL["eval/<br/>추출 정확도 · 판정 일치 · 함정 페르소나"]
+```
+
+- 시연 중에는 공공데이터 API를 부르지 않는다. 런타임은 덤프와 조건표 파일만 읽는다.
+- 공고 투입의 시연 PDF는 결과를 원문 해시로 캐시해 두고 「캐시 재생」으로 LLM 없이 돌린다(`data/notices/_ingest_cache/`).
+
 ## 준비물
 
 - Python 3.11, [uv](https://docs.astral.sh/uv/)
@@ -47,7 +122,7 @@ uv sync --project backend
 ```
 
 ```bash
-cd frontend && npm install && cd ..
+cd frontend && npm install && cp -n .env.example .env.local && cd ..
 ```
 
 `.env`에 키를 채웁니다. 키는 커밋하지 않습니다.
@@ -64,6 +139,7 @@ cd frontend && npm install && cd ..
 | `CORS_ORIGINS` | 쿠키를 실어 API를 부를 화면 주소(쉼표로 여러 개). 비우면 `http://localhost:3000`. 화면과 API는 같은 사이트여야 한다(docs/api.md 「인증·소유권 계약」) |
 | (uvicorn 옵션) `--forwarded-allow-ips` | `.env`가 아니라 실행 옵션(또는 환경변수 `FORWARDED_ALLOW_IPS`). 화면 프록시가 API와 다른 기계면 그 주소를 넣는다. 로컬은 기본값(`127.0.0.1,::1`)이면 된다. 빠지면 로그인 IP 제한이 모든 사용자를 프록시 하나로 센다 |
 | `DEV_STUB_API` | 쓰지 않는다. `/profiles`, `/judge`는 로그인 세션과 DB(`DATABASE_URL`)로 열린다. 시연은 가입·로그인 → `POST /profiles/presets/jiwon` 순서다 |
+| `ADMIN_TOKEN` | 시연용 관리자 API(`POST /trigger/rebuild`, 헤더 `X-Admin-Token`)를 열 비밀값. 비우면 그 API는 403 |
 | `AI_ELIGIBLE` | 검수 전 AI 조건표도 `eligible`을 낼지. 이번 제출은 비운다(SPEC §5.2) |
 
 ## 실행
@@ -133,9 +209,7 @@ cd frontend && npm install <패키지> && cd ..
 npx create-next-app@latest frontend --ts --tailwind --eslint --app --no-src-dir --import-alias "@/*" --use-npm
 ```
 
-```bash
-cd frontend && npm install react-pdf && cd ..
-```
+원문 PDF 보기는 나중에 `pdfjs-dist`를 더했다(레포에는 이미 있다).
 
 백엔드는 `backend` 폴더를 만들고 그 안에서 uv 프로젝트를 초기화합니다. `--no-package`를 빼면 최신 uv는 `src/` 구조로 만들어 아래 실행 명령과 맞지 않습니다.
 
