@@ -3,10 +3,13 @@
 단계 넘기기·타임라인(planner), 공고별 질문(ask), 비슷한 가구(similar)는 아직 비어 있다.
 """
 
+import logging
 from collections.abc import Callable
 from datetime import date
 
 from backend.engine import judge
+
+log = logging.getLogger(__name__)
 
 DISCLAIMER = "참고용 모의 판정, 실제 자격은 접수 기관의 심사로 결정됩니다"
 SHOWN = {"eligible": 0, "needs_check": 1, "opens_later": 2}   # ineligible은 카드에 올리지 않는다(SPEC §5.2)
@@ -43,6 +46,9 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
             continue
         for row in card["conditions"]:
             row["evidence"] = evidence([e["id"] for e in row["evidence"]])
+            missing = [e["id"] for e in row["evidence"] if e.get("text") is None]
+            if missing:   # 원문이 등록되지 않은 근거 줄(SPEC §8). 줄 ID만 남긴다
+                log.warning("근거 줄 원문 없음: %s", ", ".join(missing))
         card["exclusive_with"] = [
             {"rule_id": x["rule_id"], "name": (by_id.get(x["rule_id"]) or {}).get("name"),
              "both_eligible": card["verdict"] == "eligible"

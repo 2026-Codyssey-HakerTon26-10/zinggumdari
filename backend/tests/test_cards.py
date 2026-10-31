@@ -110,3 +110,36 @@ def test_router_falls_back_to_stub_without_rules(monkeypatch):
     monkeypatch.setattr(sources, "load_rules", lambda: [])
     body = client.post("/judge", json={"user_id": "U7f3a"}).json()
     assert body["cards"][0]["rule_id"] == "manual:hug-newlywed-jeonse"
+
+
+# 업로드 소유권(요청 41) · 근거 줄(요청 40) --------------------------------------------------------
+
+def test_uploads_are_not_read(tmp_path, monkeypatch):
+    import json
+
+    from backend.data import config
+    dirs = {name: tmp_path / name for name in ("manual", "compiled", "uploads")}
+    for d in dirs.values():
+        d.mkdir()
+    (dirs["manual"] / "ok.json").write_text(json.dumps(OK), encoding="utf-8")
+    (dirs["uploads"] / "a.json").write_text(json.dumps(R("upload:a-secret", [C("age", "<=", 34)], source="upload")), encoding="utf-8")
+    monkeypatch.setattr(config, "RULES_DIRS", tuple(dirs.values()))
+    assert [r["id"] for r in sources.load_rules()] == ["manual:ok"]   # 다른 계정이 올린 조건표가 섞이지 않는다
+
+
+def test_manual_rules_have_evidence_text():
+    """커밋된 손 조건표의 근거 줄은 전부 data/notices에 원문이 있어야 한다(SPEC §8)."""
+    missing = []
+    for rule in sources.load_rules():
+        if rule.get("source") != "manual":
+            continue
+        groups = rule.get("conditions") or []
+        ids = [e for c in groups for e in c.get("evidence") or []]
+        missing += [e["id"] for e in sources.evidence(ids) if e["text"] is None]
+    assert missing == []
+
+
+def test_missing_evidence_is_logged(caplog):
+    with caplog.at_level("WARNING"):
+        build_judge(ME, [OK], TODAY)
+    assert "doc:l1" in caplog.text
