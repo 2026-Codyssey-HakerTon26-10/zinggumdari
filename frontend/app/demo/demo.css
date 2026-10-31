@@ -1,5 +1,6 @@
 .demo-main { max-width: 960px; padding-block: 40px 72px; color: #263e4b; } /* 흰색 페이지에서 본문의 폭과 대비를 확보해요. */
-.demo-main > a { color: #006b80; text-decoration: underline; } /* 돌아가기 링크를 알아보기 쉽게 표시해요. */
+.demo-main > a { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 4px; padding: 7px 12px 7px 8px; border: 1px solid #e5e7eb; border-radius: 7px; color: #516d82; font-size: 13px; font-weight: 500; transition: border-color .2s, color .2s; } /* 돌아가기 링크를 버튼처럼 보여줘요. */
+.demo-main > a:hover { border-color: #b5c8d8; color: #2474c7; } /* 돌아가기 링크를 알아보기 쉽게 표시해요. */
 .demo-heading { margin: 32px 0; } /* 제목과 본문 사이를 구분해요. */
 .demo-heading h1 { margin: 12px 0; font-size: clamp(26px, 5vw, 38px); } /* 작은 화면에서도 제목이 맞도록 해요. */
 .demo-heading p, .demo-panel p, .demo-notice { line-height: 1.8; } /* 긴 안내를 읽기 편하게 해요. */
