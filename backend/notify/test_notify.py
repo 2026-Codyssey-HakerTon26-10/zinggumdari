@@ -157,3 +157,28 @@ def test_collector_to_handler_keeps_account_scope(monkeypatch):
     save.reset_mock()
     assert _after_merge(["upload:r"])["status"] == "skipped"
     save.assert_not_called()
+
+
+@pytest.mark.parametrize("rule_ids", [None, []])
+def test_account_without_selected_uploads_excludes_all_uploads(rule_ids):
+    public = {**RULE, "id": "gov24:r", "source": "gov24"}
+    uploads = [{**RULE, "id": "upload:A", "source": "upload"},
+               {**RULE, "id": "upload:B", "source": "upload"}]
+    judge, save = MagicMock(return_value={public["id"]: {"verdict": "needs_check"}}), MagicMock()
+    rebuild([{"user_id": "ua", "account_id": "A"}], [public, *uploads], judge, save,
+            today=TODAY, account_id="A", rule_ids=rule_ids)
+    judge.assert_called_once_with({"user_id": "ua", "account_id": "A"}, [public], today=TODAY)
+    assert save.call_count == (1 if rule_ids is None else 0)
+
+
+def test_selected_upload_does_not_expose_other_accounts_upload():
+    uploads = [{**RULE, "id": "upload:A", "source": "upload"},
+               {**RULE, "id": "upload:B", "source": "upload"}]
+    judge = MagicMock(return_value={"upload:A": {"verdict": "needs_check"}})
+    save = MagicMock()
+    profiles = [{"user_id": "ua", "account_id": "A"}, {"user_id": "ub", "account_id": "B"}]
+    rebuild(profiles, uploads, judge, save, today=TODAY, account_id="A", rule_ids=["upload:A"])
+    judge.assert_called_once_with(profiles[0], [uploads[0]], today=TODAY)
+    assert save.call_count == 1
+    assert save.call_args.args[0] == "ua"
+    assert save.call_args.args[1]["rule_id"] == "upload:A"
