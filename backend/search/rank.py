@@ -79,6 +79,9 @@ def region_rank(doc: dict, sido: str | None, sigungu: str | None) -> int:
     return 0 if region["sigungu"] == sigungu else 4
 
 
+from backend.engine.cards import _niche   # noqa: E402 — 추천 카드와 같은 특정 대상 기준
+
+
 def rerank(hits: list[tuple[dict, float]], q: str, *, rules: dict[str, dict], badges: dict[str, str | None],
            sido: str | None = None, sigungu: str | None = None, today: date | None = None) -> list[tuple[dict, int]]:
     """(문서, 같은 이름으로 묶인 다른 문서 수)를 순위대로. badges는 service_id → 배지(로그인 전이면 None)."""
@@ -88,7 +91,7 @@ def rerank(hits: list[tuple[dict, float]], q: str, *, rules: dict[str, dict], ba
         doc, score = item
         badge = badges.get(doc["service_id"])
         return (relevance_band(doc, q), closed(doc, rules.get(doc["rule_id"] or ""), today),
-                region_rank(doc, sido, sigungu), BADGE_RANK.get(badge, 3) if badge is not None else 0, -score)
+                _niche(doc["name"] or "", {}), region_rank(doc, sido, sigungu), BADGE_RANK.get(badge, 3) if badge is not None else 0, -score)
 
     ordered = sorted(hits, key=key)
     kept: list[list] = []
@@ -103,4 +106,11 @@ def rerank(hits: list[tuple[dict, float]], q: str, *, rules: dict[str, dict], ba
             continue
         seen[name] = len(kept)
         kept.append([doc, 0])
-    return [(doc, n) for doc, n in kept]
+    # 같은 사업의 공급 유형별 조건표(「국민임대주택공급 일반공급 전용 50㎡ 미만」 등)는 첫 하나만 위에 두고 나머지는 뒤로
+    first, rest, families = [], [], set()
+    for doc, n in kept:
+        family = " ".join((doc["name"] or "").split()[:2]) if doc["rule_id"] else None
+        (rest if family and family in families else first).append((doc, n))
+        if family:
+            families.add(family)
+    return first + rest
