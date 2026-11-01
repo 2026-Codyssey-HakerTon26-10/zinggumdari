@@ -79,6 +79,8 @@ def _rank(cards: list[dict], by_id: dict, me: dict, step: str | None, focus_tags
         rule = by_id.get(c["rule_id"]) or {}
         tags = set(stage_tags(rule))
         stage = 0 if step and step in tags else (1 if tags & focus_tags else 2)
+        if rule.get("source") == "upload":
+            stage = -1   # 내가 올린 공고는 방금 고른 것이라 맨 위(공고 투입 뒤 카드 합류가 바로 보이게)
         if _niche(c.get("name") or "", me):
             stage = 3
         region = rule.get("region") or {}
