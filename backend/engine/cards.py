@@ -74,11 +74,14 @@ def _bucket(name: str) -> str:
     return next((b for b, words in BUCKETS if any(w in name for w in words)), "기타")
 
 
-def _rank(cards: list[dict], by_id: dict, me: dict, step: str | None, focus_tags: set, stage_tags) -> list[dict]:
+def _rank(cards: list[dict], by_id: dict, me: dict, step: str | None, focus_tags: set, stage_tags,
+          pinned: frozenset = frozenset()) -> list[dict]:
     def key(c):
         rule = by_id.get(c["rule_id"]) or {}
         tags = set(stage_tags(rule))
         stage = 0 if step and step in tags else (1 if tags & focus_tags else 2)
+        if c["rule_id"] in pinned:
+            stage = 0   # 부모님 타임라인(만 65세·장기요양 신청)에서 열리는 제도는 맨 앞
         if rule.get("source") == "upload":
             stage = -1   # 내가 올린 공고는 방금 고른 것이라 맨 위(공고 투입 뒤 카드 합류가 바로 보이게)
         if _niche(c.get("name") or "", me):
@@ -158,7 +161,8 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
             log.exception("비슷한 가구 계산 실패")
     me = profile.get("self", {})
     cards = (_rank([c for c in cards if c["subject"] == "self"], by_id, me, step, focus_tags, planner.stage_tags)
-             + _rank([c for c in cards if c["subject"] != "self"], by_id, me, step, focus_tags, planner.stage_tags))
+             + _rank([c for c in cards if c["subject"] != "self"], by_id, me, step, focus_tags, planner.stage_tags,
+                     pinned=frozenset(i for s in plan.get("parent") or [] for i in s["opens"])))
     return {
         "user_id": profile.get("user_id"),
         "ask": choose_ask(cards, by_id, profile, focus),
