@@ -7,7 +7,6 @@ export function RecommendationCard({ card, fresh, busy, onEvidence, onQuestion }
     const source = safeLink(card.detail_url); // 원문은 안전한 웹 주소일 때만 링크로 보여줘요.
     const label = card.verdict === "eligible" ? "신청할 수 있어요" : card.verdict === "opens_later" ? "다음 조건에서 열려요" : "확인 필요"; // 서버의 자격 상태를 기존 문구 그대로 표시해요.
     return <article className="recommendation-card"> {/* 각 제도의 요약과 상세 정보를 독립된 카드로 묶어요. */}
-        <p className="recommendation-card-disclaimer">참고용 모의 판정, 실제 자격은 접수 기관 심사로 결정</p> {/* 필수 고지는 모든 카드의 맨 위에 유지해요. */}
         <div className="recommendation-card-body"> {/* 카드 본문에 일관된 여백을 적용해요. */}
             <div className="recommendation-card-badges">{fresh && <span className="recommendation-card-fresh">새로 열림</span>}<span className={`recommendation-card-verdict ${card.verdict === "eligible" ? "is-eligible" : ""}`}>{label}</span>{card.ai_extracted && <span className="recommendation-card-ai">AI 추출</span>}{card.subject === "parent" && card.relation && <span className="recommendation-card-relation">{card.relation === "모" ? "어머니" : "아버지"}</span>}</div> {/* 자격 상태와 추출 방식, 부모 대상을 서로 구분해요. */}
             <h2>{card.name}</h2> {/* 긴 제도 이름도 카드 안에서 자연스럽게 줄바꿈해요. */}

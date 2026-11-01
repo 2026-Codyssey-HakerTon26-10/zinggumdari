@@ -13,7 +13,6 @@ function PolicyCard({ hit, judge }: { hit: SearchHit; judge: SearchResponse["jud
     const badge = !hit.rule_id || hit.badge === "no_rule" ? "조건표 없음 · 자격 판정 불가" : judge === "fake" && hit.badge !== null ? "판정 연결 전 · 확인 필요" : hit.badge === null ? "개인화 판정 없음" : ({ eligible: "신청할 수 있어요", similar: "비슷한 가구 · 자격 확정 아님", needs_check: "확인 필요", ineligible: "현재 조건에 맞지 않음" }[hit.badge]); // 가짜 판정이나 조건표 없는 결과는 신청 가능으로 표시하지 않아요.
     return ( // 일반 텍스트만 출력하고 원문 HTML은 실행하지 않아요.
         <article className="search-policy"> {/* 실제 공고 결과 카드예요. */}
-            <p className="search-policy-disclaimer">참고용 모의 판정, 실제 자격은 접수 기관 심사로 결정</p> {/* 모든 카드 머리에 필수 고지를 표시해요. */}
             <div className="search-policy-top"><span className="search-policy-icon"><Icon name={hit.subject === "parent" ? "family" : "file"} /></span><span className="search-status">{badge}</span></div> {/* 대상과 상태를 글자로도 알려줘요. */}
             <p className="search-policy-category">{hit.subject === "parent" ? "부모님" : "본인"} · {hit.org || "기관 정보 없음"} · {region || "지역 미상"}</p> {/* 알 수 없는 지역을 전국으로 바꾸지 않아요. */}
             <h2>{hit.name}</h2><p className="search-policy-description">{hit.snippet || "요약 정보가 없습니다. 공식 원문을 확인해 주세요."}</p> {/* 검색 요약은 서버 문자열 그대로 안전하게 표시해요. */}

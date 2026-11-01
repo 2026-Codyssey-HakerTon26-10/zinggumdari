@@ -42,7 +42,6 @@
 .search-policy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; } /* 넓은 화면에서 정책 예시를 세 열로 배치합니다. */
 .search-policy { overflow: hidden; padding: 0 23px 5px; border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; transition: border-color .2s, box-shadow .2s; } /* 정책 예시 카드를 흰색과 중립 회색 테두리로 표시합니다. */
 .search-policy:hover { border-color: #d1d5db; box-shadow: 0 8px 24px #00000006; } /* 마우스를 올리면 중립 회색 테두리와 그림자를 강조합니다. */
-.search-policy-disclaimer { margin: 0 -23px 22px; padding: 10px 13px; background: #fff; border-bottom: 1px solid #eef0f3; color: #8191a0; font-size: 13px; letter-spacing: -.025em; } /* 모의 판정 안내도 카드와 같은 흰색으로 유지합니다. */
 .search-policy-top { display: flex; justify-content: space-between; align-items: center; } /* 정책 아이콘과 상태를 나란히 배치합니다. */
 .search-policy-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 12px; background: #eff6fd; color: #2474c7; } /* 분야 아이콘을 파란 배경 안에 둡니다. */
 .search-policy-icon svg { width: 22px; height: 22px; } /* 분야 아이콘의 크기입니다. */
@@ -71,7 +70,6 @@
 @media (max-width: 600px) { .search-hero { padding-bottom: 30px; } .search-breadcrumb { margin-bottom: 28px; } .search-hero h1 { font-size: 32px; } .search-hero-description { font-size: 13px; } .search-form { gap: 8px; padding-left: 14px; } .search-form .button { min-width: 58px; padding-inline: 15px; } .search-suggestions { gap: 9px; font-size: 13px; } .search-desktop-break { display: none; } .search-results-toolbar { gap: 10px; margin: 24px 0; } .search-category-list { gap: 5px; } .search-result-heading > span { display: none; } .search-policy-grid { grid-template-columns: 1fr; gap: 15px; } .search-policy-description { min-height: 0; } .search-bottom-cta { align-items: flex-start; flex-direction: column; padding: 24px; } .search-bottom-cta h2 { font-size: 17px; } } /* 휴대폰에서는 입력창과 카드를 한 열로 편하게 표시합니다. */
 .search-subject { margin: 0; padding: 0; border: 0; } /* 대상 선택을 의미 있는 그룹으로 묶어요. */
 .search-subject legend { margin-bottom: 10px; color: #445b70; font-size: 13px; } /* 필터 적용 시점을 설명해요. */
-.search-policy-disclaimer { color: #445b70; font-size: 13px; line-height: 1.7; } /* 필수 고지의 크기와 대비를 확보해요. */
 .search-status { color: #72551c; font-size: 13px; max-width: 80%; line-height: 1.6; } /* 긴 상태도 줄바꿈하고 대비를 확보해요. */
 .search-policy-description, .search-policy-evidence, .search-notice { color: #526579; } /* 실제 공고 정보를 읽을 수 있는 대비로 표시해요. */
 .search-policy-evidence a { color: #075c91; text-decoration: underline; } /* 공식 원문 링크를 알아보기 쉽게 해요. */

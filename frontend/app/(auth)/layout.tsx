@@ -22,7 +22,6 @@ function AuthIntro() { // 로그인과 회원가입에 공통으로 보일 시�
             <div className="auth-preview-cards"> {/* 필터링 결과 카드 목록이에요. */}
                 {previewCards.map((card) => (
                     <div className={`auth-preview-card auth-preview-card--${card.verdict}`} key={card.name}> {/* 판정 등급별로 색을 구분해요. */}
-                        <p className="auth-preview-card-disclaimer">참고용 모의 판정, 실제 자격은 접수 기관 심사로 결정</p> {/* 카드마다 모의 판정 고지를 먼저 보여줘요. */}
                         <div className="auth-preview-card-top"> {/* 카드 상단 행이에요. */}
                             <span className={`auth-preview-verdict auth-preview-verdict--${card.verdict}`}>{card.verdictLabel}</span> {/* 판정 등급 배지예요. */}
                             <strong className="auth-preview-card-name">{card.name}</strong> {/* 제도 이름이에요. */}
@@ -32,9 +31,6 @@ function AuthIntro() { // 로그인과 회원가입에 공통으로 보일 시�
                     </div>
                 ))}
             </div>
-            <p className="auth-preview-disclaimer"> {/* 가상 판정임을 명시해요. */}
-                참고용 모의 판정 · 실제 자격은 접수 기관 심사로 결정됩니다
-            </p>
         </aside>
     );
 } // 공통 소개 영역을 마칩니다.

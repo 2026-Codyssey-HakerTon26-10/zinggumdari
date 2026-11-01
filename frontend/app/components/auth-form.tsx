@@ -161,7 +161,6 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                             <table className="auth-consent-table">
                                 <tbody>
                                     <tr><th>서비스 범위</th><td>공공 제도 자격 모의 판정, 타임라인 안내, 알림(선택 동의 시)</td></tr>
-                                    <tr><th>판정 고지</th><td>모든 판정은 참고용 모의 판정입니다. 실제 자격 여부는 접수 기관 심사로 결정됩니다.</td></tr>
                                     <tr><th>대출 범위</th><td>기금 대출(버팀목·디딤돌) 자격 판정까지만 안내합니다. 금융사 상품·금리·신청 링크는 제공하지 않습니다.</td></tr>
                                     <tr><th>정보 이용</th><td>입력한 정보는 제도 추천 외 목적으로 사용하지 않습니다.</td></tr>
                                 </tbody>

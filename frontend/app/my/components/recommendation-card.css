@@ -1,5 +1,4 @@
 .recommendation-card { min-width: 0; border: 1px solid #dfe7ef; border-radius: 20px; background: #fff; overflow: hidden; box-shadow: 0 4px 18px #1f436b06; } /* 긴 카드를 단정한 흰색 카드로 보여줘요. */
-.recommendation-card-disclaimer { margin: 0; padding: 12px 20px; border-bottom: 1px solid #eaf0f6; background: #f8fafc; color: #5e7084; font-size: 13px; line-height: 1.7; word-break: keep-all; } /* 모의 판정 고지를 머리에서 항상 읽을 수 있게 해요. */
 .recommendation-card-body { padding: 22px; } /* 카드 내용의 여백을 일정하게 유지해요. */
 .recommendation-card-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-bottom: 15px; } /* 상태와 부가 배지를 한 줄에 모아요. */
 .recommendation-card-badges > span { display: inline-flex; padding: 5px 9px; border-radius: 7px; font-size: 13px; font-weight: 700; line-height: 1.5; } /* 모든 배지를 작고 읽기 쉬운 크기로 맞춰요. */
@@ -31,4 +30,4 @@
 .recommendation-card-question { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 45px; padding: 12px 14px; border: 1px solid #dce8f5; border-radius: 11px; color: #2474c7; background: #f1f7fe; text-align: left; font-size: 13px; font-weight: 650; } /* 질문 버튼을 카드 너비에 맞춰 누르기 쉽게 보여줘요. */
 .recommendation-card-question:hover:not(:disabled) { border-color: #9fc3e9; background: #e8f2ff; } /* 질문 버튼의 조작 가능 상태를 알려줘요. */
 .recommendation-card-question .icon { width: 16px; height: 16px; flex-shrink: 0; } /* 질문으로 이어지는 이동 방향을 보여줘요. */
-@media (max-width: 480px) { .recommendation-card-body { padding: 19px; } .recommendation-card h2 { font-size: 19px; } .recommendation-card-disclaimer { padding-inline: 19px; } } /* 작은 화면에서는 여백을 조금 줄여 내용을 확보해요. */
+@media (max-width: 480px) { .recommendation-card-body { padding: 19px; } .recommendation-card h2 { font-size: 19px; } } /* 작은 화면에서는 여백을 조금 줄여 내용을 확보해요. */

@@ -116,13 +116,10 @@
 .auth-preview-card-condition .icon { width: 11px; height: 11px; flex-shrink: 0; margin-top: 2px; } /* 조건 아이콘 크기예요. */
 .auth-preview-card-quote { display: flex; align-items: flex-start; gap: 5px; margin: 0; color: #9aabb8; font-size: 13px; line-height: 1.6; } /* 원문 출처를 가장 작은 글씨로 표시해요. */
 .auth-preview-card-quote .icon { width: 10px; height: 10px; flex-shrink: 0; margin-top: 2px; } /* 원문 아이콘 크기예요. */
-.auth-preview-disclaimer { margin: 10px 0 0; color: #9aabb8; font-size: 13px; text-align: center; } /* 가상 판정임을 작게 명시해요. */
 @media (max-width: 760px) { .auth-preview-cards { grid-template-columns: repeat(2, 1fr); } .auth-preview-cards > :last-child { display: none; } } /* 작은 화면에서는 카드를 2열로 줄이고 세 번째 카드를 숨겨요. */
 @media (max-width: 400px) { .auth-preview-cards { grid-template-columns: 1fr; } .auth-preview-cards > :last-child { display: block; } } /* 아주 작은 화면에서는 카드를 1열로 표시해요. */
 
 .auth-preview-card--needs-check { background: #fff; border-color: #e5e7eb; } /* 확인 필요 카드도 흰색 중심 디자인을 유지해요. */
-.auth-preview-card-disclaimer { margin: 0 0 10px; color: #4b5563; font-size: 13px; line-height: 1.7; } /* 카드 머리의 필수 고지를 진하고 읽기 쉽게 보여줘요. */
-.auth-preview-disclaimer { color: #4b5563; font-size: 13px; line-height: 1.7; } /* 하단 모의 판정 안내도 충분히 크게 표시해요. */
 .auth-preview-card-quote { color: #64748b; font-size: 13px; } /* 원문 연결 전이라는 안내가 배경에 묻히지 않게 해요. */
 .auth-requirement { color: #64748b; font-size: 13px; } /* 미충족 조건도 읽을 수 있는 진한 색으로 표시해요. */
 .auth-requirement.is-met { color: #185eab; } /* 충족 여부는 글자와 파란색으로 함께 구분해요. */
