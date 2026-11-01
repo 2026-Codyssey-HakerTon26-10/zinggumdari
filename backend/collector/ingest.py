@@ -339,7 +339,8 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     doc_id = _new_doc_id(today)
     try:   # 계정은 등록 순간에 남긴다. 뒤에서 실패해도 탈퇴 때 찾을 수 있게
         meta = store.register(path, doc_id, "upload", source_url, Path(filename).stem or doc_id, today.isoformat(),
-                              extra={"uploaded_by": uploaded_by})
+                              extra={"uploaded_by": uploaded_by},
+                              reuse=store.find_public_by_sha(sha) if replay and cached else None)
     except ValueError as exc:   # 읽을 수 없는 형식, 글자를 하나도 못 읽은 스캔 PDF
         _discard(doc_id)
         raise Rejected(str(exc)) from exc

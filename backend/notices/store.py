@@ -163,6 +163,7 @@ def register(
     pblanc_no: str | None = None,
     notices_dir: Path | None = None,
     extra: dict | None = None,
+    reuse: str | None = None,
 ) -> dict:
     """원문 파일을 data/notices/로 옮기고 줄 목록과 머리를 쓴다. 다시 부르면 덮어쓴다.
 
@@ -176,11 +177,18 @@ def register(
         raise ValueError(f"source는 {SOURCES} 중 하나다")
     base = _base(notices_dir)
     base.mkdir(parents=True, exist_ok=True)
-    try:
-        doc, lines = read_document(doc_id, Path(src), ocr_cache=raw_dir_for(source) / f"{doc_id}.ocr.json",
-                                   llm_ocr=source != "upload")
-    except UnsupportedDocument as exc:
-        raise Unsupported(str(exc)) from exc
+    prior = load_meta(reuse, notices_dir) if reuse else None
+    prior_lines = load_lines(reuse, notices_dir) if prior else None
+    if prior and prior_lines:   # 같은 원문(sha256)을 이미 읽어 둔 공개 원문이 있으면 줄 목록을 그대로 쓴다(재생이 PDF를 다시 읽지 않게)
+        doc = {"kind": "pdf" if prior["kind"] == "pdf" else "text", "sha256": prior["sha256"], "pages": prior.get("pages"),
+               "text_layer": prior.get("text_layer"), "ocr": prior.get("ocr"), "unread_pages": prior.get("unread_pages")}
+        lines = prior_lines
+    else:
+        try:
+            doc, lines = read_document(doc_id, Path(src), ocr_cache=raw_dir_for(source) / f"{doc_id}.ocr.json",
+                                       llm_ocr=source != "upload")
+        except UnsupportedDocument as exc:
+            raise Unsupported(str(exc)) from exc
     kind = doc["kind"]
     if kind == "pdf" and not lines:
         raise ScannedPdf("글자를 읽을 수 없는 PDF(이미지 스캔)는 받지 않는다")
@@ -215,6 +223,15 @@ def register(
     save_lines(doc_id, lines, None, out_dir=base)
     _write_atomic(base / f"{doc_id}.meta.json", json.dumps(meta, ensure_ascii=False, indent=2))
     return meta
+
+
+def find_public_by_sha(sha: str, notices_dir: Path | None = None) -> str | None:
+    """같은 원문 해시를 가진 공개 원문(사용자 업로드 제외)의 doc_id. 업로드 줄은 남에게 넘기지 않는다."""
+    for doc_id in list_doc_ids(notices_dir):
+        meta = load_meta(doc_id, notices_dir) or {}
+        if meta.get("sha256") == sha and meta.get("source") != "upload":
+            return doc_id
+    return None
 
 
 def register_text(text: str, doc_id: str, source: str, source_url: str | None, title: str,
