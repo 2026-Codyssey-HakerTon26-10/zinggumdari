@@ -1,0 +1,11 @@
+.work-main .notice-item { position: relative; margin-block: 10px; padding: 14px 16px 12px 18px; border-radius: 14px; } /* 알림 하나를 촘촘한 카드로 보여줘요. */
+.notice-item::before { content: ""; position: absolute; inset: 12px auto 12px 0; width: 4px; border-radius: 0 4px 4px 0; background: #2474c7; } /* 왼쪽 띠로 알림 종류를 구분해요. */
+.notice-item.is-stage::before { background: #00809a; } .notice-item.is-parent::before { background: #d9692e; } .notice-item.is-date::before { background: #f59e0b; } /* 생애 단계·부모님·날짜 색이에요. */
+.notice-item.is-read { opacity: .65; } /* 읽은 알림은 흐리게 보여요. */
+.work-panel .notice-item-meta { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; color: #8a97a8; font-size: 12px; line-height: 1.4; } /* 종류와 읽음 상태예요. */
+.notice-item-meta span { padding: 2px 8px; border-radius: 6px; color: #185eab; background: #eaf3fd; font-weight: 700; } /* 종류 이름표예요. */
+.notice-item.is-stage .notice-item-meta span { color: #00707f; background: #e6f5f7; } .notice-item.is-parent .notice-item-meta span { color: #b5531f; background: #fdf0e8; } .notice-item.is-date .notice-item-meta span { color: #b45309; background: #fef6e7; }
+.work-panel.notice-item h2 { margin: 0 0 6px; color: #1f2937; font-size: 16px; line-height: 1.5; letter-spacing: -.03em; word-break: keep-all; } /* 알림 제목이에요. */
+.work-panel.notice-item p { margin-block: 2px; font-size: 12.5px; line-height: 1.6; color: #64748b; } /* 날짜 같은 보조 줄이에요. */
+.notice-item .work-actions { gap: 10px; margin-top: 6px; font-size: 13px; } .notice-item .work-actions .button { min-height: 34px; padding: 6px 12px; font-size: 12.5px; } /* 작은 버튼이에요. */
+.work-main .notice-item .work-actions { margin-bottom: 0; } .work-main .notice-item > :last-child { margin-bottom: 0; } /* 카드 아래 빈 여백을 줄여요. */

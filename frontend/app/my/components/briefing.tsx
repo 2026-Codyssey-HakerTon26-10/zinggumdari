@@ -73,17 +73,17 @@ function nowSuggestions({ profile, result, changed, onStage, onParent, onFocus, 
     if (next?.opens.length) {
         const names = next.opens.map((id) => result.cards.find((c) => c.rule_id === id)?.name || result.folded?.items.find((f) => f.rule_id === id)?.name).filter((n): n is string => Boolean(n));
         const prep = todos(next);
-        out.push({ icon: "heart", tone: "next", title: `${STAGE_LABEL[next.step] || "다음 단계에"} 새로 열리는 제도 ${new Set(next.opens).size}개`, detail: `${nameList(names)}${prep.length ? ` · 그 전에 해둘 일: ${prep.join(", ")}` : ""}`, action: { label: `${STAGE_LABEL[next.step] || "다음 단계"} 미리 보기`, run: () => onStage(next.step as Stage) } });
+        out.push({ icon: "heart", tone: "next", title: `${STAGE_LABEL[next.step] || "다음 단계에"} 새로 열리는 제도 ${new Set(next.opens).size}개`, detail: `${nameList(names)}${prep.length ? ` · 그 전에 해둘 일: ${prep.join(", ")}` : ""}`, action: { label: "미리 보기", run: () => onStage(next.step as Stage) } });
     }
     const parent = result.timeline.parent.find((s) => s.year) || result.timeline.parent[0];
     if (parent?.opens.length && profile.consents.parent) {
         const who = parent.relation === "모" ? "어머니" : parent.relation === "부" ? "아버지" : "부모님";
         const more = result.timeline.parent.filter((s) => s !== parent && todos(s).length).map((s) => todos(s).join(", "));
-        out.push({ icon: "family", tone: "parent", title: parent.year ? `${who} ${parent.year}년 만 65세, 열리는 제도 ${parent.opens.length}개` : `${who}께 필요한 제도 ${parent.opens.length}개`, detail: `${parent.apply_from ? `${parent.apply_from} 신청 · ` : ""}${more.length ? `지금 챙길 일: ${more.join(", ")}` : "자녀가 대신 신청을 도울 수 있어요"}`, action: { label: "부모님 챙기기", run: onParent } });
+        out.push({ icon: "family", tone: "parent", title: parent.year ? `${who} ${parent.year}년 만 65세, 열리는 제도 ${parent.opens.length}개` : `${who}께 필요한 제도 ${parent.opens.length}개`, detail: `${parent.apply_from ? `${parent.apply_from} 신청 · ` : ""}${more.length ? `지금 챙길 일: ${more.join(", ")}` : "자녀가 대신 신청을 도울 수 있어요"}`, action: { label: "부모님", run: onParent } });
     }
     const due = (result.timeline.dated || []).find((d) => d.date && dday(d.date));
-    if (due?.date) out.push({ icon: "clock", tone: "date", title: `${due.what} ${dday(due.date)}`, detail: `${due.date}까지 · 놓치지 않게 알림을 켜 둘 수 있어요`, action: { label: "알림 설정", href: "/my/alerts" } });
-    out.push({ icon: "mail", title: "오늘 정리한 내용을 생애주기 리포트로 받아 보세요", detail: "지금 → 결혼 → 자녀 → 부모님까지 한 장에 정리해 드려요", action: { label: "리포트 보기", href: "/api/backend/notify/report", external: true } });
+    if (due?.date) out.push({ icon: "clock", tone: "date", title: `${due.what} ${dday(due.date)}`, detail: `${due.date}까지 · 놓치지 않게 알림을 켜 둘 수 있어요`, action: { label: "알림 켜기", href: "/my/alerts" } });
+    out.push({ icon: "mail", title: "오늘 정리한 내용을 생애주기 리포트로 받아 보세요", detail: "지금 → 결혼 → 자녀 → 부모님까지 한 장에 정리해 드려요", action: { label: "리포트", href: "/api/backend/notify/report", external: true } });
     return out;
 }
 
@@ -92,12 +92,12 @@ function stageSuggestions({ result, baseline, stage, onStage, onFocus }: Props):
     const { opened, closed } = stageDiff(result, baseline);
     const step = baseline?.timeline.self.find((s) => s.step === stage);
     const out: Suggestion[] = [];
-    if (opened.length) out.push({ icon: "plus", tone: "next", title: `${label} 새로 열리는 제도 ${opened.length}개`, detail: nameList(opened.map((c: Card) => c.name), 4), action: { label: "새로 열린 카드 보기", run: () => onFocus("recommendations") } });
+    if (opened.length) out.push({ icon: "plus", tone: "next", title: `${label} 새로 열리는 제도 ${opened.length}개`, detail: nameList(opened.map((c: Card) => c.name), 4), action: { label: "카드 보기", run: () => onFocus("recommendations") } });
     if (closed.length) out.push({ icon: "info", tone: "date", title: `더 이상 해당하지 않는 제도 ${closed.length}개`, detail: `${nameList(closed.map((c) => c.name))} · 미리 신청할 수 있는지 확인해 보세요` });
     const prep = todos(step);
     if (prep.length) out.push({ icon: "check-circle", tone: "now", title: `그 전에 해둘 일: ${prep.join(", ")}`, detail: "공고 원문에 근거가 있는 준비 사항이에요" });
     const after = NEXT[stage];
-    if (after) out.push({ icon: "arrow-right", title: `그다음, ${STAGE_LABEL[after]}?`, detail: "다음 생애 단계도 이어서 살펴볼 수 있어요", action: { label: `${STAGE_LABEL[after]} 보기`, run: () => onStage(after) } });
+    if (after) out.push({ icon: "arrow-right", title: `그다음, ${STAGE_LABEL[after]}?`, detail: "다음 생애 단계도 이어서 살펴볼 수 있어요", action: { label: "이어 보기", run: () => onStage(after) } });
     out.push({ icon: "refresh", title: "지금의 나로 돌아가기", detail: "저장된 내 정보는 바뀌지 않았어요", action: { label: "지금으로", run: () => onStage("") } });
     return out;
 }

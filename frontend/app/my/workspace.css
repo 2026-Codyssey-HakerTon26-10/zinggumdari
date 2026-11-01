@@ -82,3 +82,21 @@
 .work-main .recommendation-controls button:focus-visible { outline: 3px solid #00809a; outline-offset: 4px; } /* 선택 중에도 키보드 초점은 항상 보이게 해요. */
 @media (max-width: 480px) { .work-main { padding-top: 26px; } .work-heading .work-actions { gap: 7px; } .recommendation-subjects { width: 100%; } .work-main .recommendation-subjects button { padding-inline: 10px; font-size: 13px; } .recommendation-stage-copy small { font-size: 13px; } } /* 작은 화면에서도 카드와 탭을 손쉽게 누를 수 있게 해요. */
 .work-anchor { scroll-margin-top: 96px; } /* 브리핑 버튼으로 이동할 때 머리말에 가리지 않게 해요. */
+.notice-sheet-backdrop { position: fixed; inset: 0; z-index: 60; display: flex; align-items: flex-end; justify-content: center; background: #0f172a66; animation: notice-fade .2s ease; } /* 원문 근거를 화면 위 시트로 띄워요. */
+.work-main .notice-sheet { width: min(760px, 100%); max-height: 92dvh; margin: 0; overflow: auto; border-radius: 22px 22px 0 0; padding: 18px 18px 28px; box-shadow: 0 -12px 40px #0f172a26; animation: notice-up .28s ease; } /* 아래에서 올라오는 시트예요. */
+@media (min-width: 761px) { .notice-sheet-backdrop { align-items: center; } .work-main .notice-sheet { border-radius: 22px; max-height: 88vh; } } /* 넓은 화면에서는 가운데 창이에요. */
+.notice-sheet-head { position: sticky; top: -18px; z-index: 2; display: flex; align-items: center; justify-content: space-between; margin: -18px -18px 12px; padding: 14px 18px 10px; background: #fff; border-bottom: 1px solid #eef2f6; } /* 스크롤해도 닫기가 보여요. */
+.notice-sheet-eyebrow { color: #2474c7; font-size: 13px; font-weight: 700; } /* 시트 이름이에요. */
+.work-main .notice-sheet-close, .work-main .notice-pager button { min-height: 34px; padding: 6px 13px; border: 1px solid #d6e3f0; border-radius: 9px; color: #1f4e79; background: #f7fbff; font-size: 13px; font-weight: 650; } /* 시트 안 버튼 모양이에요. */
+.notice-quote { margin: 0 0 14px; padding: 14px 16px; border-left: 4px solid #f5b400; border-radius: 10px; background: #fff8e1; } /* 근거 문장을 크게 인용해요. */
+.notice-quote p { margin: 0; color: #3b2f05; font-size: 16px; font-weight: 600; line-height: 1.6; word-break: keep-all; } /* 근거 문장 글자예요. */
+.notice-quote p + p { margin-top: 8px; } .notice-quote small { margin-left: 8px; color: #8a6d00; font-size: 12px; font-weight: 600; } /* 쪽 번호예요. */
+.notice-sheet h3 { margin: 0 0 6px; font-size: 15px; color: #334155; } .notice-sheet-file { font-size: 13px; } /* 원문 제목과 파일 링크예요. */
+.notice-pager { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; color: #52657a; font-size: 13px; } /* 쪽 넘기기예요. */
+.work-pdf-scroll { overflow: auto; max-height: 62dvh; margin-top: 12px; border: 1px solid #e5e9ef; border-radius: 12px; } /* 원문 쪽을 확대해 근거로 스크롤해요. */
+.work-pdf-scroll .work-pdf-page { margin-top: 0; } /* 스크롤 상자 안의 원문 쪽이에요. */
+@media (max-width: 760px) { .work-pdf-scroll .work-pdf-page { width: 220%; } } /* 휴대전화에서는 원문을 키워 근거 줄이 읽히게 해요. */
+.work-pdf-mark { animation: notice-pulse 1.6s ease 2; } /* 근거 영역이 두 번 깜빡여 눈에 띄어요. */
+@keyframes notice-up { from { transform: translateY(40px); opacity: .4; } } @keyframes notice-fade { from { opacity: 0; } }
+@keyframes notice-pulse { 50% { box-shadow: 0 0 0 6px #ffcf3366; } }
+@media (prefers-reduced-motion: reduce) { .notice-sheet-backdrop, .work-main .notice-sheet, .work-pdf-mark { animation: none; } }
