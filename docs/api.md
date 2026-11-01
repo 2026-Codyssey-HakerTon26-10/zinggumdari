@@ -43,7 +43,7 @@
 
 ```jsonc
 {
-  "id": "manual:hug-newlywed-jeonse",       // 소스 접두어 + ID. gov24:WII…, local:…, central:…, upload:…
+  "id": "manual:hug-newlywed-jeonse",       // 소스 접두어 + ID. gov24:WII…, local:…, central:…, upload:…. AI가 한 원문을 트랙으로 나누면 gov24:WII…:youth처럼 트랙 이름이 붙는다. 검색 문서와 손 조건표 same_as는 앞의 서비스 id(gov24:WII…)로 맞춘다
   "source": "manual",                       // gov24 | local | central | manual | upload
   "name": "신혼부부전용 전세자금",
   "org": "주택도시기금",
@@ -345,7 +345,15 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 
 입력: PDF·HWP·HWPX·텍스트 파일 또는 URL (안내문: "개인 서류를 올리지 마세요", 주민번호 패턴 거부. 이미지 스캔 PDF는 서버 안의 tesseract로만 읽고(없으면 거부. 업로드는 네이토로 보내지 않는다), 암호·배포용 HWP와 HWP 3.x는 거부). 출력: §1 조건 JSON(`source: "upload"`, `review.status: "unreviewed"`) + 로그.
 
-요청은 multipart의 `file` 또는 `url`, `replay`(캐시 재생, 기본 false). 로그인 필수(미인증 401). 안내문은 `GET /ingest/notice`. 받지 않는 입력(위의 거부 대상, 30MB 초과, 내부 주소 URL)은 422.
+요청은 multipart의 `file` 또는 `url`, `replay`(캐시 재생, 기본 false). 안내문은 `GET /ingest/notice`.
+
+| 상태 | 언제 |
+|---|---|
+| 401 | 로그인하지 않았다. 본문을 받기 전에 세션부터 본다 |
+| 400 | `file`도 `url`도 없다 |
+| 413 | 올린 본문이 30MB(폼 여유 1MB 더)를 넘는다. `Content-Length`로 먼저 보고, 길이를 안 밝힌 본문도 받다가 상한에서 끊는다 |
+| 422 | 받지 않는 입력: 위의 거부 대상, 주민등록번호 꼴(본문, 파일 이름, URL. 하이픈 없이 붙여 쓰거나 전각 숫자, 다른 줄표, 줄이나 표 칸으로 나뉜 것, 외국인등록번호 포함. 앞 6자리가 생년월일이 될 수 없는 공고문 예시 번호는 제외), 내부 주소 URL(리다이렉트마다, 실제 접속 IP로 다시 검사), URL로 받은 파일이 30MB 초과, 받는 데 60초 초과, 리다이렉트 3번 초과 |
+| 503 | 읽기(compile)가 실패했고 그 원문의 캐시도 없다 |
 
 ```jsonc
 {"log": { /* 아래 로그 */ }, "rules": [ /* §1 조건 JSON */ ], "notice": "개인 서류를 올리지 마세요. …", "at": "2026-10-31T21:10:00",
@@ -469,12 +477,11 @@ DB 테이블은 시트 그대로다: `users`, `user_housing`, `user_income`, `us
 | `/profiles/*` | 세션 계정의 프로필(DB, 계정당 하나)만 만들고 읽고 고치고 지운다. 미인증 401, 남의 것이나 없는 것은 404(소유 여부를 드러내지 않는다). 두 번째 생성은 409. `GET /profiles/presets`만 로그인 없이 열린다 |
 | `POST /judge` | 세션의 본인 프로필(DB)로 판정한다. 미인증 401, 프로필이 없으면 404, body의 `user_id`가 본인 것이 아니면 403. 사용자 업로드 조건표와 근거 줄은 세션 계정의 것만 읽는다(`load_rules(owner=)`, `evidence(owner=)`) |
 
-아직 안 된 것 (2026-11-01 기준. 담당은 roles.md. `/profiles`·`/judge` 세션 연결, 알림·통계 라우터 등록, 가입 닉네임·필수 동의(필수 칸), 로그인 반복 제한, 탈퇴 업로드 삭제, 배포 CORS 설정은 끝나 위 표로 옮겼다)
+아직 안 된 것 (2026-11-01 기준. 담당은 roles.md. `/profiles`·`/judge` 세션 연결, 알림·통계 라우터 등록, 가입 닉네임·필수 동의(필수 칸), 로그인 반복 제한, 탈퇴 업로드 삭제, 배포 CORS 설정은 끝나 위 표로 옮겼다. 검색의 비슷한 가구 배지는 #47에서 `engine.similar.similar_for`로 연결했다. 가상 인구 캐시(`data/population/`)가 없으면 배지를 달지 않는다)
 
 | 요구(SPEC §4.1, §15) | 지금 | 담당 |
 |---|---|---|
 | 배포 주소에서 쿠키가 실린다 | `CORS_ORIGINS`로 배포 화면 주소를 넣을 수 있다. 화면과 API를 같은 사이트로 둘지(또는 프록시) 배포 구성에서 정한다 | 박범규(배포), 손보람 |
-| 비슷한 가구 배지(`similar`)를 검색에 단다 | `search.ports.connect(similar_rule_ids=…)`가 연결되지 않았다 | 임종한 |
 
 계정 이메일 수집은 이메일 알림 수신 동의가 아니다. 소득·건강 같은 민감정보 동의도 따로 받는다. 실제 연결 값과 인증 비밀정보는 문서와 로그에 남기지 않는다.
 

@@ -9,6 +9,7 @@
 - 외부 자원(빠지면 실격): [docs/external-resources.md](docs/external-resources.md)
 - AI 코딩 도구 공통 규칙: [AGENTS.md.example](AGENTS.md.example)
 - 역할 분담(누가 어느 폴더를 맡나): [docs/roles.md](docs/roles.md)
+- 백엔드2(공고)와 AI 공고 읽기에서 만든 것과 다시 만드는 명령: [docs/backend2-ai.md](docs/backend2-ai.md)
 
 ## 폴더
 
@@ -178,6 +179,24 @@ cd frontend && npm run dev
 ```bash
 uv run --project backend python -m backend.data.dump --source gov24
 ```
+
+손 조건표의 원문 문장(`quote`)을 근거 줄 ID로 바꾸기(원문 줄 목록이 다시 만들어졌을 때도):
+
+```bash
+uv run --project backend python -m backend.compiler.resolve_manual rules/manual/*.json
+```
+
+공고 원문 한 건을 AI로 읽기, 정부24 제도 대량 추출(LLM 키 필요. `--cache-only`는 저장된 원응답으로만 다시 조립해 LLM을 부르지 않는다):
+
+```bash
+uv run --project backend python -m backend.compiler.run --src data/notices/lh-0000061189.pdf --doc-id demo-1 --source upload
+```
+
+```bash
+uv run --project backend python -m backend.compiler.gov24_bulk --cache-only
+```
+
+원문 등록, 공고 투입 캐시, 검색, 대량 추출의 자세한 내용은 [docs/backend2-ai.md](docs/backend2-ai.md).
 
 가상 인구와 비슷한 가구 표 만들기(없으면 `/judge`의 `similar`가 `null`이다. 판정표는 약 2분):
 
