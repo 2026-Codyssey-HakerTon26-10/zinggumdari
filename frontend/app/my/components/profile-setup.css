@@ -6,6 +6,8 @@
 .profile-setup .profile-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; margin-block: 30px 24px; min-width: 0; } /* 관련 입력을 두 열로 배치해요. */
 .profile-setup .profile-fields > label { color: #475569; font-size: 13px; } /* 입력 이름을 읽기 쉬운 크기와 색으로 표시해요. */
 .profile-setup .profile-fields > label > :is(input, select) { min-height: 50px; padding: 13px 14px; border-color: #dce4ed; border-radius: 12px; color: #1f2937; font-size: 14px; background: #fbfcfe; } /* 텍스트 입력도 선택 카드와 같은 모서리와 높이를 사용해요. */
+.profile-setup .profile-fields > label > :is(input, select) { font-size: 16px; } /* 휴대전화 기본: 16px 미만이면 iOS가 입력할 때 화면을 확대해서 키워요. */
+@media (min-width: 561px) { .profile-setup .profile-fields > label > :is(input, select) { font-size: 14px; } } /* 넓은 화면: 기존 글씨 크기로 돌려요. */
 .profile-setup .profile-fields > label > :is(input, select):focus { border-color: #2474c7; background: #fff; } /* 입력 중인 항목을 파란 테두리로 표시해요. */
 .profile-setup .profile-fields > label > input::placeholder { color: #8b97a8; font-weight: 400; } /* 예시 문구를 실제 입력값과 구분해요. */
 .profile-setup .profile-choice { display: block; grid-column: 1 / -1; margin: 0; min-width: 0; } /* 선택지 묶음은 두 열 너비를 모두 사용해요. */

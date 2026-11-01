@@ -19,6 +19,8 @@
 .ingest-file > span:not(.ingest-file-icon), .ingest-file small { color: #6a7e93; font-size: 13px; font-weight: 400; line-height: 1.7; } /* 실제 파일 크기와 허용 형식을 또렷하게 안내해요. */
 .ingest-form .ingest-url { gap: 10px; padding: 22px; border: 1px solid #dbe6f1; border-radius: 18px; background: #f9fbff; color: #38536e; font-size: 14px; } /* 공개 주소도 파일 영역과 같은 느낌으로 입력해요. */
 .ingest-form .ingest-url input { width: 100%; min-height: 50px; padding: 13px 14px; border-color: #c3d4e6; border-radius: 11px; font-size: 15px; } /* 링크 주소를 입력할 공간을 충분히 확보해요. */
+.ingest-form .ingest-url input { font-size: 16px; } /* 휴대전화 기본: 16px 미만이면 iOS가 입력할 때 화면을 확대해서 키워요. */
+@media (min-width: 561px) { .ingest-form .ingest-url input { font-size: 15px; } } /* 넓은 화면: 기존 글씨 크기로 돌려요. */
 .ingest-url > span { color: #6a7e93; font-size: 13px; font-weight: 400; line-height: 1.7; } /* 로그인 없는 공고 원문을 입력하도록 안내해요. */
 .ingest-form .ingest-replay { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 20px; border: 1px solid #e0e7ef; border-radius: 15px; background: #fff; cursor: pointer; } /* 캐시 재생을 독립된 설정 행으로 정돈해요. */
 .ingest-replay-copy { display: grid; gap: 5px; } /* 캐시 설정의 이름과 설명을 함께 읽게 해요. */

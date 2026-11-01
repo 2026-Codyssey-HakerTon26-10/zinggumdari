@@ -1,5 +1,7 @@
 .settings-main { max-width: 860px; } /* 설정 항목을 읽기 좋은 너비로 모아요. */
 .work-main .settings-back { display: inline-flex; align-items: center; gap: 4px; color: #647184; text-decoration: none; font-size: 13px; } /* 추천 화면으로 가는 링크를 가볍게 표시해요. */
+.work-main .settings-back { min-height: 44px; } /* 휴대전화 기본: 돌아가기 링크를 44px 높이로 눌러요. */
+@media (min-width: 521px) { .work-main .settings-back { min-height: auto; } } /* 넓은 화면: 기존 높이로 돌려요. */
 .settings-heading { margin: 28px 0; } /* 화면 제목과 설정 사이의 여백을 확보해요. */
 .settings-eyebrow { color: #2474c7; font-size: 13px; font-weight: 700; } /* 작은 안내에 서비스 색상을 사용해요. */
 .settings-heading h1 { margin: 10px 0 12px; font-size: clamp(26px, 5vw, 34px); letter-spacing: -.04em; } /* 제목이 작은 화면에서도 자연스럽게 줄어들어요. */
