@@ -178,7 +178,16 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 @media (max-width: 360px) { .container { width: calc(100% - 28px); } .brand { gap: 7px; } .brand-name { font-size: 18px; } .brand-caption { display: none; } .header-inner { gap: 8px; } .hero-copy h1 { font-size: 33px; } .journey-summary h2 { font-size: 13px; } .journey-summary p { font-size: 13px; } .journey-summary-icon { width: 31px; height: 31px; } .journey-page { display: none; } .journey-topline { font-size: 13px; } .stone-shape { width: 36px; height: 35px; } .journey-stone { width: 46px; } .stone-label { font-size: 13px; } .section-title { font-size: 23px; } } /* 작은 휴대전화에서도 버튼과 제목이 가로로 넘치지 않게 해요. */
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } } /* 움직임을 줄이도록 설정한 사용자의 선택을 따라요. */
 .header-account-actions { display: flex; align-items: center; gap: 17px; flex-shrink: 0; } /* 계정 메뉴를 기존 서비스 메뉴 옆에 묶어서 배치해요. */
-.header-account-actions > .header-login { display: flex; align-items: center; min-height: 44px; } /* 휴대전화 기본: 햄버거 메뉴 대신 로그인·설정 링크를 헤더에 바로 보여줘요. */
+.header-account-actions > .header-login { display: none; } /* 휴대전화 기본: 로그인·설정 링크는 햄버거 메뉴 안에 둬요. */
+.mobile-nav { position: relative; flex-shrink: 0; } /* 휴대전화 기본: 헤더 오른쪽 끝에 햄버거 메뉴를 둬요. */
+.mobile-nav-toggle { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: #33475b; cursor: pointer; } /* 손가락으로 누르기 쉬운 44px 메뉴 버튼이에요. */
+.mobile-nav-toggle[aria-expanded="true"] { border-color: #b9d4ef; background: #f5f9ff; color: var(--primary); } /* 메뉴가 열려 있음을 버튼 색으로도 알려줘요. */
+.mobile-nav-toggle .icon { width: 22px; height: 22px; } /* 메뉴 아이콘을 버튼 크기에 맞춰요. */
+.mobile-nav-toggle:focus-visible, .mobile-nav-panel a:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; } /* 키보드로 고른 위치를 분명하게 보여줘요. */
+.mobile-nav-panel { position: absolute; top: calc(100% + 8px); right: 0; z-index: 70; display: grid; gap: 4px; width: min(240px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 12px 30px #163b5714; } /* 버튼 아래로 메뉴를 겹쳐 펼쳐요. */
+.mobile-nav-panel a { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: 9px; color: #33475b; font-size: 15px; font-weight: 600; } /* 메뉴 한 줄을 44px 높이로 눌러요. */
+.mobile-nav-panel a:hover, .mobile-nav-panel a[aria-current="page"] { background: #eef5fd; color: var(--primary); } /* 지금 화면과 누를 항목을 파란색으로 보여줘요. */
+@media (min-width: 701px) { .mobile-nav { display: none; } } /* 태블릿 이상: 상단 메뉴가 펼쳐져 있으므로 햄버거를 숨겨요. */
 @media (min-width: 701px) { .header-account-actions > .header-login { display: block; align-items: normal; min-height: auto; } } /* 태블릿 이상: 기존 글자 링크 모양으로 돌려요. */
 .header-login { color: #6b7280; font-size: 13px; font-weight: 600; white-space: nowrap; } /* 로그인 이동 링크를 흰색 바탕의 작은 글자로 보여줘요. */
 .header-login:hover { color: var(--primary); } /* 로그인 링크에 마우스를 올리면 파란색으로 알려줘요. */
