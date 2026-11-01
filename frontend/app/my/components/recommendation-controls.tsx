@@ -23,7 +23,7 @@ export function RecommendationControls({ subject, stage, busy, error, onSubject,
             </div> {/* 단계 선택을 마쳐요. */}
             {stage && <p className="recommendation-preview-note"><Icon name="info" /> 선택한 생활을 가정한 미리보기예요. 실제 신청 조건은 달라질 수 있어요.</p>} {/* 모의 결과를 현재 자격으로 오해하지 않게 해요. */}
         </div>} {/* 생활 단계 영역을 마쳐요. */}
-        {busy && <LoadingState label="맞춤 정보를 불러오고 있습니다." />} {/* 처리 상태를 내부 용어 없이 알려줘요. */}
+        {busy && <LoadingState label="맞춤 정보를 불러오고 있습니다." hint="공고 조건과 입력하신 정보를 맞춰 보고 있어요. 잠시만 기다려 주세요." />} {/* 처리 상태를 내부 용어 없이 알려줘요. */}
         {error && <p role="alert">{error}</p>} {/* 요청이 실패하면 기존 오류를 그대로 안내해요. */}
     </section>; // 선택만 바꾸며 실제 정보 저장은 기존 폼에서 처리해요.
 } // 추천 선택 영역을 마쳐요.

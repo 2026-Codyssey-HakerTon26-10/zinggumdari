@@ -1,12 +1,8 @@
-.loading-state { width: 100%; padding: 26px; border: 1px solid #e5ebf2; border-radius: 18px; background: #f8fbff; color: #526a83; font-size: 14px; } /* 비어 있는 화면 대신 처리 중인 영역을 보여줘요. */
-.loading-state-heading { display: flex; align-items: center; justify-content: center; gap: 11px; min-height: 28px; line-height: 1.7; } /* 문구와 회전 표시를 가운데 정렬해요. */
-.loading-state-spinner { display: inline-block; width: 21px; height: 21px; flex: 0 0 21px; border: 2px solid #dce9f8; border-top-color: #2474c7; border-radius: 50%; animation: loading-state-spin .8s linear infinite; } /* 실제 요청이 끝날 때까지 회전하는 표시예요. */
-.loading-state-placeholder { display: grid; gap: 10px; max-width: 520px; margin: 24px auto 0; } /* 준비 중인 내용을 단순한 선으로 표현해요. */
-.loading-state-placeholder span { height: 12px; border-radius: 8px; background: #e7eef7; animation: loading-state-pulse 1.6s ease-in-out infinite; } /* 처리 중인 화면에 은은한 변화를 줘요. */
-.loading-state-placeholder span:nth-child(2) { width: 84%; } /* 임시 선의 길이를 다르게 보여줘요. */
-.loading-state-placeholder span:nth-child(3) { width: 60%; } /* 임시 선이 실제 문장으로 보이지 않게 해요. */
-.loading-state--compact { display: inline-flex; width: auto; padding: 10px 0; border: 0; border-radius: 0; background: transparent; font-size: 13px; } /* 버튼 옆이나 작은 처리 영역에는 회전 표시와 문구만 써요. */
-.loading-state--compact .loading-state-heading { justify-content: flex-start; gap: 8px; } /* 짧은 안내는 현재 입력 흐름 옆에 붙여요. */
+.loading-state { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 100%; min-height: 220px; padding: 40px 24px; border: 1px solid #e5ebf2; border-radius: 18px; background: #f8fbff; color: #526a83; text-align: center; } /* 회전 동그라미와 안내를 영역 가운데에 세로로 쌓아요. */
+.loading-state-spinner { display: inline-block; width: 44px; height: 44px; flex: 0 0 auto; margin-bottom: 12px; border: 4px solid #dce9f8; border-top-color: #2474c7; border-radius: 50%; animation: loading-state-spin .9s linear infinite; } /* 실제 요청이 끝날 때까지 회전하는 큰 동그라미예요. */
+.loading-state-label { margin: 0; color: #263e4b; font-size: 16px; font-weight: 700; line-height: 1.6; word-break: keep-all; } /* 지금 하는 작업을 굵게 보여줘요. */
+.loading-state-hint { margin: 0; max-width: 420px; color: #687d91; font-size: 14px; line-height: 1.7; word-break: keep-all; } /* 보조 안내는 흐린 색으로 작게 보여줘요. */
+.loading-state--compact { display: inline-flex; flex-direction: row; gap: 8px; width: auto; min-height: 0; padding: 10px 0; border: 0; border-radius: 0; background: transparent; font-size: 13px; text-align: left; } /* 버튼 옆이나 작은 처리 영역에는 회전 표시와 문구만 써요. */
+.loading-state--compact .loading-state-spinner { width: 18px; height: 18px; margin: 0; border-width: 2px; } /* 좁은 자리에서는 회전 표시를 작게 줄여요. */
 @keyframes loading-state-spin { to { transform: rotate(360deg); } } /* 회전 표시를 한 바퀴 돌려요. */
-@keyframes loading-state-pulse { 50% { opacity: .45; } } /* 준비 중인 선을 부드럽게 표시해요. */
-@media (prefers-reduced-motion: reduce) { .loading-state-spinner, .loading-state-placeholder span { animation: none; } } /* 움직임을 줄이는 설정에서도 문구와 표시를 유지해요. */
+@media (prefers-reduced-motion: reduce) { .loading-state-spinner { animation-duration: 2.4s; } } /* 움직임을 줄이는 설정에서는 천천히 돌려 처리 중임만 알려줘요. */
