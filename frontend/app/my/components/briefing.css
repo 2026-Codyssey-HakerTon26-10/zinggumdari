@@ -30,3 +30,13 @@
 @keyframes briefing-dot { 0%, 80%, 100% { transform: scale(.6); opacity: .5; } 40% { transform: scale(1); opacity: 1; } } /* 생각 중 점의 움직임이에요. */
 @media (max-width: 640px) { .briefing { padding: 20px 16px 16px; } .briefing-item { grid-template-columns: 34px minmax(0, 1fr); } .briefing-action { grid-column: 2; justify-self: start; } } /* 좁은 화면에서는 버튼을 설명 아래로 내려요. */
 @media (prefers-reduced-motion: reduce) { .briefing-item { animation: none; opacity: 1; transform: none; } .briefing-thinking span { animation: none; } } /* 움직임을 줄이는 설정을 따라요. */
+.briefing-events { margin-top: 14px; padding: 14px; border: 1px dashed #c9d8e8; border-radius: 14px; background: #fbfdff; } /* 생활 변화를 알려주는 자리예요. */
+.briefing-events > p { display: flex; align-items: center; gap: 6px; margin: 0 0 10px; color: #475569; font-size: 13.5px; font-weight: 600; } /* 생활 변화 안내 문구예요. */
+.briefing-events > p .icon { width: 16px; height: 16px; color: #00809a; } /* 안내 아이콘이에요. */
+.briefing-chips { display: flex; flex-wrap: wrap; gap: 8px; } /* 생활 변화 선택지예요. */
+.briefing-chips button, .briefing-chips a, .briefing-confirm button { min-height: 36px; padding: 7px 13px; border: 1px solid #d6e3f0; border-radius: 999px; color: #1f4e79; background: #fff; font-size: 13px; font-weight: 650; text-decoration: none; cursor: pointer; } /* 한 번에 누르는 칩이에요. */
+.work-main .briefing-chips a { color: #1f4e79; text-decoration: none; } /* 링크 칩도 같은 모양이에요. */
+.briefing-chips button:hover, .briefing-chips a:hover { border-color: #9dbfe3; background: #eef6ff; } /* 누를 수 있음을 알려줘요. */
+.briefing-confirm { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; color: #334155; font-size: 13.5px; } /* 저장 전에 바뀔 칸을 확인해요. */
+.briefing-confirm-actions { display: inline-flex; gap: 6px; } /* 반영·취소 버튼이에요. */
+.briefing-confirm button.is-primary { border-color: #2474c7; color: #fff; background: #2474c7; } /* 반영 버튼을 강조해요. */

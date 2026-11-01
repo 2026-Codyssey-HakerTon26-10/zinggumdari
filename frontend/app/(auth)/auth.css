@@ -154,3 +154,17 @@
 .auth-footer nav a { min-height: 32px; color: #526a83; font-size: 13px; overflow-wrap: anywhere; } /* 작은 화면에서도 이메일을 읽을 수 있게 해요. */
 .auth-footer nav a { display: flex; align-items: center; min-height: 44px; } /* 휴대전화 기본: 하단 링크를 44px 높이로 눌러요. */
 @media (min-width: 761px) { .auth-footer nav a { display: block; align-items: normal; min-height: 32px; } } /* 넓은 화면: 기존 높이로 돌려요. */
+.auth-optional { border: 1px dashed #c9d8e8; border-radius: 12px; background: #fbfdff; } /* 가입 때 고르는 선택 정보 묶음이에요. */
+.auth-optional summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; padding: 13px 14px; cursor: pointer; list-style: none; } /* 접힌 상태에서 한 줄로 보여요. */
+.auth-optional summary::-webkit-details-marker { display: none; } /* 기본 삼각형을 숨겨요. */
+.auth-optional summary span { display: inline-flex; align-items: center; gap: 6px; color: #29465e; font-size: 14px; font-weight: 700; } /* 선택 정보 제목이에요. */
+.auth-optional summary span .icon { width: 16px; height: 16px; color: #2474c7; } /* 제목 아이콘이에요. */
+.auth-optional summary em { padding: 1px 7px; border-radius: 10px; color: #64748b; background: #eef2f6; font-size: 11px; font-style: normal; font-weight: 600; } /* 선택 표시예요. */
+.auth-optional summary small { color: #2474c7; font-size: 12px; } /* 고르면 좋은 점이에요. */
+.auth-optional-body { display: grid; gap: 12px; padding: 0 14px 14px; } /* 펼친 내용이에요. */
+.auth-optional-chips { display: flex; flex-wrap: wrap; gap: 7px; } /* 생활 단계 칩이에요. */
+.auth-optional-chips button { min-height: 38px; padding: 7px 13px; border: 1px solid #dce4ed; border-radius: 999px; color: #475569; background: #fff; font-size: 13px; font-weight: 600; } /* 칩 하나예요. */
+.auth-optional-chips button[aria-checked="true"] { border-color: #2474c7; color: #185eab; background: #eef6ff; box-shadow: 0 0 0 1px #2474c7; } /* 고른 칩이에요. */
+.auth-optional-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } /* 생년월일과 시도를 나란히 둬요. */
+.auth-input--plain { padding-inline: 12px; } /* 아이콘 없는 입력칸이에요. */
+@media (max-width: 420px) { .auth-optional-row { grid-template-columns: minmax(0, 1fr); } } /* 좁은 화면에서는 한 줄씩 둬요. */

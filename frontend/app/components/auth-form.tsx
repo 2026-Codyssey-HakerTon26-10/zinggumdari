@@ -49,10 +49,19 @@ function ConsentItem({ id, label, required, checked, onCheck, open, onToggle, ch
     );
 } // 동의 항목 컴포넌트를 마쳐요.
 
+const SIGNUP_STAGES = [ // 가입 때 고르는 생활 단계와 기본 정보 칸에 미리 채울 값이에요.
+    { key: "single", label: "혼자 사는 청년", fields: { marital_status: "미혼", children_count: 0, household_size: 1 } },
+    { key: "engaged", label: "결혼 준비 중", fields: { marital_status: "예비부부", children_count: 0, household_size: 1 } },
+    { key: "newlywed", label: "갓 결혼했어요", fields: { marital_status: "신혼", children_count: 0, household_size: 2 } },
+    { key: "parent", label: "아이를 키워요", fields: { marital_status: "기혼", children_count: 1, household_size: 3 } },
+];
+const SIDO = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"]; // 기본 정보 폼과 같은 시도 목록이에요.
+
 export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디자인으로 로그인과 회원가입 폼을 만들어요.
     const isSignup = mode === "signup"; // 현재 페이지가 회원가입인지 구분해요.
     const router = useRouter(); // 인증 성공 후 내 징검다리 화면으로 이동해요.
     const [email, setEmail] = useState(""); // 이메일은 서버에 전송한 뒤 상태에서 삭제해요.
+    const [extra, setExtra] = useState({ stage: "", birth_date: "", sido: "" }); // 가입 때 고른 선택 정보예요(서버로 보내지 않아요).
     const [nickname, setNickname] = useState(""); // 실명 대신 사용할 닉네임이에요. 회원가입 성공 시 로컬 스토리지에 저장해요.
     const [password, setPassword] = useState(""); // 비밀번호는 서버로 전송한 뒤 즉시 상태에서 삭제해요.
     const [confirmation, setConfirmation] = useState(""); // 비밀번호 일치 여부를 확인할 때만 사용해요.
@@ -121,6 +130,8 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                 const data = await apiSignup(email.trim(), password, nickname.trim(), { terms: consents.terms, privacy: consents.privacy }); // 계정·닉네임·필수 동의를 저장하고 세션 쿠키를 발급받아요.
                 // 닉네임과 필수 안내 확인만 계정별 임시 보관하고 미지원 선택 동의는 항상 false로 둬요.
                 setAccountData(data.account_id, { nickname: nickname.trim(), consents: { ...consents, email: false, sensitive: false } });
+                const seed = { ...(SIGNUP_STAGES.find((item) => item.key === extra.stage)?.fields || {}), ...(extra.birth_date ? { birth_date: extra.birth_date } : {}), ...(extra.sido ? { sido: extra.sido } : {}) }; // 고른 선택 정보만 남겨요.
+                try { if (Object.keys(seed).length) sessionStorage.setItem("zing_signup_seed", JSON.stringify(seed)); } catch { /* 저장소가 막혀도 가입은 그대로 진행해요. */ }
             } else {
                 await apiLogin(email.trim(), password); // 이메일·비밀번호를 인증하고 세션 쿠키를 받아요.
             }
@@ -142,6 +153,11 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                 <PasswordField id="auth-password" label="비밀번호" value={password} onChange={setPassword} autoComplete={isSignup ? "new-password" : "current-password"} hint={isSignup ? "한글·공백 없이 영문과 숫자를 포함해 8~128자로 입력해 주세요." : undefined} invalid={isPasswordInvalid} onBlur={() => setPasswordTouched(true)} describedBy={isSignup ? "auth-password-requirements" : undefined} /> {/* 화면에 맞는 자동완성과 비밀번호 표시 전환을 제공해요. */}
                 {isSignup && <ul id="auth-password-requirements" className="auth-requirements" aria-label="비밀번호 조건">{[{ label: "8~128자", met: pwStrength.min8 }, { label: "영문 포함", met: pwStrength.hasLetter }, { label: "숫자 포함", met: pwStrength.hasNumber }, { label: "한글·공백 없음", met: pwStrength.asciiOnly }].map((item) => <li className={`auth-requirement${item.met ? " is-met" : ""}`} key={item.label}><Icon name="check" />{item.label}: {item.met ? "충족" : "미충족"}</li>)}</ul>} {/* 색상 외에도 상태를 글자로 표시하고 입력칸에 연결해요. */}
                 {isSignup && <PasswordField id="auth-confirm-password" label="비밀번호 확인" value={confirmation} onChange={setConfirmation} autoComplete="new-password" hint={hasMismatch ? "비밀번호가 일치하지 않아요." : "같은 비밀번호를 한 번 더 입력해 주세요."} invalid={hasMismatch} />} {/* 회원가입에서는 비밀번호를 다시 입력하도록 안내해요. */}
+                {isSignup && <details className="auth-optional"><summary><span><Icon name="sparkles" />나를 조금 알려주세요 <em>선택</em></span><small>가입하자마자 맞춤 추천을 받아요</small></summary><div className="auth-optional-body"> {/* 선택 정보는 다음 화면의 기본 정보 칸을 미리 채우는 데만 써요. */}
+                    <p className="auth-field-label">지금 나의 생활</p><div className="auth-optional-chips" role="radiogroup" aria-label="지금 나의 생활">{SIGNUP_STAGES.map((item) => <button key={item.key} type="button" role="radio" aria-checked={extra.stage === item.key} onClick={() => setExtra((prev) => ({ ...prev, stage: prev.stage === item.key ? "" : item.key }))}>{item.label}</button>)}</div>
+                    <div className="auth-optional-row"><label className="auth-field"><span className="auth-field-label">생년월일</span><input className="auth-input auth-input--plain" type="date" min="1900-01-01" max={new Date().toISOString().slice(0, 10)} value={extra.birth_date} onChange={(event) => setExtra((prev) => ({ ...prev, birth_date: event.target.value }))} /></label><label className="auth-field"><span className="auth-field-label">사는 곳(시도)</span><select className="auth-input auth-input--plain" value={extra.sido} onChange={(event) => setExtra((prev) => ({ ...prev, sido: event.target.value }))}><option value="">선택 안 함</option>{SIDO.map((value) => <option key={value}>{value}</option>)}</select></label></div>
+                    <p className="auth-field-hint">이 기기에만 잠시 보관했다가 다음 화면의 기본 정보 칸을 미리 채워요. 저장은 그 화면에서 직접 확인한 뒤에 해요.</p>
+                </div></details>}
 
                 {isSignup ? (
                     // 회원가입 동의 섹션 — 전체 동의 + 필수 2개 + 선택 2개로 구성해요.

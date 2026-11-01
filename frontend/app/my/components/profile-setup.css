@@ -34,3 +34,5 @@
 .profile-setup .profile-preset-options { display: flex; flex-wrap: wrap; gap: 8px; } /* 프리셋이 늘어나도 줄바꿈해요. */
 .profile-setup .profile-preset-options .button { display: inline-flex; align-items: center; gap: 7px; } /* 아이콘과 라벨을 한 줄로 맞춰요. */
 .profile-setup .profile-preset-options .icon { width: 15px; height: 15px; } /* 버튼 아이콘을 글자 크기에 맞춰요. */
+.profile-setup .profile-seeded { display: flex; align-items: center; gap: 6px; margin-top: 18px; padding: 10px 14px; border-radius: 10px; color: #0f766e; background: #e6f6f3; font-size: 13px; font-weight: 600; } /* 가입 때 고른 정보로 채웠음을 알려줘요. */
+.profile-setup .profile-seeded .icon { width: 15px; height: 15px; } /* 안내 아이콘 크기예요. */

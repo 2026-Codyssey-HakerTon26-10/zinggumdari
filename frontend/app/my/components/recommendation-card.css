@@ -31,3 +31,10 @@
 .recommendation-card-question:hover:not(:disabled) { border-color: #9fc3e9; background: #e8f2ff; } /* 질문 버튼의 조작 가능 상태를 알려줘요. */
 .recommendation-card-question .icon { width: 16px; height: 16px; flex-shrink: 0; } /* 질문으로 이어지는 이동 방향을 보여줘요. */
 @media (max-width: 480px) { .recommendation-card-body { padding: 19px; } .recommendation-card h2 { font-size: 19px; } } /* 작은 화면에서는 여백을 조금 줄여 내용을 확보해요. */
+.recommendation-card-fit { display: grid; gap: 6px; margin: 4px 0 14px; } /* 왜 추천했는지 보여주는 줄이에요. */
+.recommendation-card-fit p { margin: 0; color: #475569; font-size: 13px; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; } /* 조건 요약은 본문보다 작게 보여줘요. */
+.recommendation-card-fit .fit-label { display: inline-flex; align-items: center; gap: 3px; margin-right: 7px; padding: 1px 7px 1px 5px; border-radius: 6px; font-size: 11.5px; font-weight: 700; white-space: nowrap; } /* 조건 묶음의 이름표예요. */
+.recommendation-card-fit .fit-label .icon { width: 12px; height: 12px; } /* 이름표 아이콘 크기예요. */
+.recommendation-card-fit .is-match { color: #0f766e; background: #e6f6f3; } /* 맞는 조건은 초록빛이에요. */
+.recommendation-card-fit .is-later { color: #b45309; background: #fef6e7; } /* 다음 단계 조건은 호박색이에요. */
+.recommendation-card-fit .is-left { color: #52657a; background: #f1f5f9; } /* 남은 확인은 회색이에요. */
