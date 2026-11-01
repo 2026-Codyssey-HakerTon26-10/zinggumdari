@@ -7,6 +7,8 @@
 .work-panel p, .work-panel li { line-height: 1.8; margin-block: 10px; } /* 긴 조건도 읽기 쉬운 간격으로 보여줘요. */
 .work-panel h2, .work-panel h3 { margin-bottom: 16px; } /* 제목 아래에 여백을 둬요. */
 .work-cards { display: grid; align-items: start; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; } /* 카드가 작은 화면에서는 한 열로 배치돼요. */
+.work-card-question { grid-column: 1 / -1; scroll-margin-top: 96px; } /* 질문 보기를 누른 카드 바로 아래에 질문을 한 줄 전체 너비로 펼쳐요. */
+.work-card-question > .work-panel { margin-block: 0; } /* 카드 사이 간격은 목록 간격만 사용해요. */
 .work-disclaimer { font-size: 13px; font-weight: 600; border-bottom: 1px solid #d9e1e5; padding-bottom: 12px; } /* 필수 고지를 카드 머리에 표시해요. */
 .work-badge { color: #72551c; font-weight: 700; } /* 판정 상태를 글자로 구분해요. */
 .work-form fieldset { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 18px; border: 0; padding: 0; margin-block: 20px; } /* 폼을 반응형으로 배치해요. */
