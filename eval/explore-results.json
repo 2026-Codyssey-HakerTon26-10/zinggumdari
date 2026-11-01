@@ -1,0 +1,196 @@
+{
+  "k": 20,
+  "scenarios": {
+    "1": {
+      "20": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.0048,
+        "recall_at_5": 0.11428571428571428
+      },
+      "baseline_popular": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.0048,
+        "recall_at_5": 0.11428571428571428
+      },
+      "baseline_random": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.0016,
+        "recall_at_5": 0.0380952380952381
+      }
+    },
+    "3": {
+      "20": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.006400000000000001,
+        "recall_at_5": 0.1523809523809524
+      },
+      "baseline_popular": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.006400000000000001,
+        "recall_at_5": 0.1523809523809524
+      },
+      "baseline_random": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.004399999999999999,
+        "recall_at_5": 0.10476190476190476
+      }
+    },
+    "8": {
+      "20": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.014000000000000007,
+        "recall_at_5": 0.3333333333333333
+      },
+      "baseline_popular": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.014000000000000007,
+        "recall_at_5": 0.3333333333333333
+      },
+      "baseline_random": {
+        "n": 500,
+        "recall_n": 105,
+        "precision_at_5": 0.008400000000000003,
+        "recall_at_5": 0.2
+      }
+    }
+  },
+  "demo_enabled": true,
+  "purpose": "test",
+  "seed": 42,
+  "basis": "가상 인구(가정 분포) 기준. 정답도 같은 규칙에서 나온 값",
+  "selection": {
+    "k": 20,
+    "n": 500,
+    "scenarios": {
+      "1": {
+        "20": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.002,
+          "recall_at_5": 0.05154639175257732
+        },
+        "50": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.002,
+          "recall_at_5": 0.05154639175257732
+        },
+        "100": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.002,
+          "recall_at_5": 0.05154639175257732
+        },
+        "baseline_popular": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.002,
+          "recall_at_5": 0.05154639175257732
+        },
+        "baseline_random": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.0008,
+          "recall_at_5": 0.020618556701030927
+        }
+      },
+      "3": {
+        "20": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.007600000000000003,
+          "recall_at_5": 0.1958762886597938
+        },
+        "50": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.007600000000000003,
+          "recall_at_5": 0.1958762886597938
+        },
+        "100": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.007600000000000003,
+          "recall_at_5": 0.1958762886597938
+        },
+        "baseline_popular": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.007600000000000003,
+          "recall_at_5": 0.1958762886597938
+        },
+        "baseline_random": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.0031999999999999997,
+          "recall_at_5": 0.08247422680412371
+        }
+      },
+      "8": {
+        "20": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.010400000000000005,
+          "recall_at_5": 0.26804123711340205
+        },
+        "50": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.010400000000000005,
+          "recall_at_5": 0.26804123711340205
+        },
+        "100": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.010400000000000005,
+          "recall_at_5": 0.26804123711340205
+        },
+        "baseline_popular": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.010400000000000005,
+          "recall_at_5": 0.26804123711340205
+        },
+        "baseline_random": {
+          "n": 500,
+          "recall_n": 97,
+          "precision_at_5": 0.006800000000000001,
+          "recall_at_5": 0.17525773195876287
+        }
+      }
+    }
+  },
+  "split": {
+    "pool": 9000,
+    "validation": 500,
+    "test": 500,
+    "seed": 42
+  },
+  "rules": 17,
+  "rules_with_positive": 1,
+  "positive_share": 0.01250326797385621,
+  "today": "2026-11-01",
+  "population_sha256": "fd3e1440dc3cc613c5d4c343ab18b29d755fca99919e2e8982ed7f573ba12131",
+  "engine_sha256": "d6ebf8c44441d78dd07fe3b0d7f251311ee13edbb8253cd495d18576fc46a753",
+  "limitation": "가상 인구(가정 분포) 기준이며 정답은 같은 규칙 엔진의 확정 판정이다. 가상 인구에 자산 등 칸이 없어 확정 판정이 나오는 제도가 rules_with_positive개로 적고, 이 범위에서 KNN은 무작위보다 높고 인기순과 같다. 시군구 제도와 부모 제도는 범위 밖이다.",
+  "precision_at_5": 0.008400000000000003,
+  "recall_at_5": 0.19999999999999998,
+  "baseline_question_only": null,
+  "variant_rule_bins": null,
+  "baseline_popular": {
+    "precision_at_5": 0.008400000000000003,
+    "recall_at_5": 0.19999999999999998
+  },
+  "baseline_random": {
+    "precision_at_5": 0.004800000000000001,
+    "recall_at_5": 0.11428571428571428
+  }
+}
