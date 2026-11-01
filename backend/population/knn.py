@@ -66,28 +66,42 @@ def recommend(matrix, query, eligibility, rules, verdicts, *, tags, known_fields
     candidates = []
     for j, rule in enumerate(rules):
         mine = verdicts.get(rule["id"], {})
-        region = rule.get("region")
-        if (rule.get("subject") != "self" or mine.get("verdict") != "needs_check"
-                or mine.get("superseded_by") or mine.get("no_subject")):
-            continue
-        if region and (region.get("unknown") or (region.get("sido") and region["sido"] != sido)
-                       or (region.get("sigungu") and region["sigungu"] != sigungu)):
-            continue
-        deadline = mine.get("deadline")
-        end = closing_date(deadline)
+        end = open_to(rule, mine, sido=sido, sigungu=sigungu, today=today)
         prevalence = float(y[idx, j].mean())
-        if end < today or prevalence < .3:
+        if end is None or prevalence < .3:
             continue
         fields = sorted(set(mine.get("blocking_fields", [])))
         item = {key: rule[key] for key in ("name", "subject", "benefit_type")}
         item.update(rule_id=rule["id"], prevalence=prevalence,
                     my_verdict="needs_check", blocking_fields=fields)
         candidates.append((-prevalence, len(fields), end, rule["id"], item))
-    kinds = Counter()
-    for *_, item in sorted(candidates):
-        if kinds[item["benefit_type"]] < 2:
-            result["items"].append(item)
-            kinds[item["benefit_type"]] += 1
-        if len(result["items"]) == 5:
-            break
+    result["items"] = top_by_type(candidates)
     return result
+
+
+def open_to(rule, mine, *, sido, sigungu, today):
+    """정책 필터(나 대상, 내 판정 확인 필요, 지역, 마감). 통과하면 마감일, 아니면 None.
+
+    평가의 기준선(eval/knn_test.py)도 같은 필터를 쓴다.
+    """
+    region = rule.get("region")
+    if (rule.get("subject") != "self" or mine.get("verdict") != "needs_check"
+            or mine.get("superseded_by") or mine.get("no_subject")):
+        return None
+    if region and (region.get("unknown") or (region.get("sido") and region["sido"] != sido)
+                   or (region.get("sigungu") and region["sigungu"] != sigungu)):
+        return None
+    end = closing_date(mine.get("deadline"))
+    return None if end < today else end
+
+
+def top_by_type(candidates, *, per_type=2, limit=5):
+    """(정렬 키..., item) 튜플을 정렬해 혜택 종류마다 per_type개, 모두 limit개까지 고른다."""
+    picked, kinds = [], Counter()
+    for *_, item in sorted(candidates, key=lambda c: c[:-1]):
+        if kinds[item["benefit_type"]] < per_type:
+            picked.append(item)
+            kinds[item["benefit_type"]] += 1
+        if len(picked) == limit:
+            break
+    return picked
