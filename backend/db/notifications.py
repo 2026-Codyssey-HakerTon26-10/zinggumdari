@@ -35,13 +35,13 @@ def mark_read(conn: psycopg.Connection, user_id: str, notification_id: str) -> d
 
 
 def upsert(conn: psycopg.Connection, user_id: str, item: dict) -> None:
-    """알림 ID로 upsert. 같은 ID면 title만 갱신한다(read·emailed_at은 그대로 둔다)."""
+    """알림 ID로 upsert. 같은 ID면 title과 extra 칸만 갱신한다(read·emailed_at은 그대로 둔다)."""
     extra = {k: v for k, v in item.items()
              if k not in ("id", "kind", "subject", "rule_id", "title", "created", "due", "read", "emailed_at")}
     conn.execute(
         "INSERT INTO notifications (id, user_id, kind, subject, rule_id, title, created, due, extra) "
         "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) "
-        "ON CONFLICT (id) DO UPDATE SET title = EXCLUDED.title",
+        "ON CONFLICT (id) DO UPDATE SET title = EXCLUDED.title, extra = notifications.extra || EXCLUDED.extra",
         (item["id"], user_id, item["kind"], item["subject"], item["rule_id"],
          item["title"], item["created"], item.get("due"), json.dumps(extra)),
     )

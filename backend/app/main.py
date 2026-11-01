@@ -130,7 +130,9 @@ class _NotifyStore:
             from backend.db import connect
             from backend.db import notifications as db_notif
             with connect() as conn:
-                return db_notif.list_for_user(conn, user_id)
+                rows = db_notif.list_for_user(conn, user_id)
+        # 생애주기 알림은 받은 날이 같아 ID 순으로 섞인다. 신혼 → 자녀 → 다자녀 → 날짜 → 부모님 순서로 둔다
+        return sorted(rows, key=lambda n: (n.get("kind") == "lifecycle", n.get("order", 0) if n.get("kind") == "lifecycle" else 0))
 
     def mark_read(self, user_id: str, notification_id: str):
         with _db_errors("알림 읽음"):
@@ -201,8 +203,8 @@ class _NotifyStore:
         from backend.notify import lifecycle
 
         today = today or date.today()
-        _, result, names = self.lifecycle(user_id, today)
-        items = lifecycle.notifications(user_id, result, names, today=today)
+        profile, result, names = self.lifecycle(user_id, today)
+        items = lifecycle.notifications(user_id, result, names, today=today, me=profile.get("self"))
         with connect() as conn:
             for item in items:
                 db_notif.upsert(conn, user_id, item)

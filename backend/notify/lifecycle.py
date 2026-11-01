@@ -14,8 +14,12 @@ RELATION = {"모": "어머니", "부": "아버지"}
 DISCLAIMER = "참고용 모의 판정입니다. 실제 자격은 접수 기관 심사로 결정됩니다."
 
 
-def _names(ids, names, limit=None):
+def _names(ids, names, limit=None, me=None):
+    """특정 대상(한부모·장애 등) 제도는 뒤로. 카드 순서와 같은 기준이다."""
+    from backend.engine.cards import _niche
+
     out = [names[i] for i in dict.fromkeys(ids) if names.get(i)]
+    out.sort(key=lambda n: _niche(n, me or {}))
     return out[:limit] if limit else out
 
 
@@ -24,19 +28,20 @@ def _summary(items):
 
 
 def _todos(step):
-    return list(dict.fromkeys(TODO_LABEL.get(t["action"], t.get("read_as") or t["action"]) for t in step.get("todo") or []))
+    return list(dict.fromkeys(TODO_LABEL.get(t["action"], t.get("read_as") or t["action"])
+                              for t in step.get("todo") or [] if t.get("status") != "met"))   # 이미 된 것은 해둘 일이 아니다
 
 
 def _id(user_id, *key):
     return "n_" + sha256(repr((user_id, "lifecycle") + key).encode()).hexdigest()[:32]
 
 
-def notifications(user_id, result, names, *, today):
+def notifications(user_id, result, names, *, today, me=None):
     """타임라인 한 단계마다 알림 하나. 같은 단계·같은 제도 묶음이면 ID가 같아 다시 만들어도 하나다."""
     out = []
     timeline = result.get("timeline") or {}
     for step in timeline.get("self") or []:
-        opened = _names(step.get("opens") or [], names)
+        opened = _names(step.get("opens") or [], names, me=me)
         if not opened:
             continue
         todos = _todos(step)
@@ -44,7 +49,8 @@ def notifications(user_id, result, names, *, today):
         if todos:
             title += f" · 미리 해둘 일: {', '.join(todos)}"
         out.append(dict(id=_id(user_id, "self", step["step"], tuple(step["opens"])), kind="lifecycle", subject="self",
-                        rule_id=step["opens"][0], title=title, created=today.isoformat(), read=False, step=step["step"]))
+                        rule_id=step["opens"][0], title=title, created=today.isoformat(), read=False, step=step["step"],
+                        order=len(out)))
     for step in timeline.get("parent") or []:
         opened = _names(step.get("opens") or [], names)
         if not opened:
@@ -60,7 +66,8 @@ def notifications(user_id, result, names, *, today):
             if step.get("why"):
                 title += f" ({step['why']})"
         item = dict(id=_id(user_id, "parent", step["step"], tuple(step["opens"])), kind="lifecycle", subject="parent",
-                    rule_id=step["opens"][0], title=title, created=today.isoformat(), read=False, step=step["step"])
+                    rule_id=step["opens"][0], title=title, created=today.isoformat(), read=False, step=step["step"],
+                    order=50 + len(out))
         if step.get("year"):
             item["due"] = str(step["year"])
         out.append(item)
@@ -74,7 +81,7 @@ def notifications(user_id, result, names, *, today):
             continue
         out.append(dict(id=_id(user_id, "dated", d["what"], d["date"]), kind="lifecycle", subject="self",
                         rule_id=d.get("rule_id") or "dated", title=f"다가오는 날짜: {d['what']} ({d['date']})",
-                        created=today.isoformat(), due=d["date"], read=False))
+                        created=today.isoformat(), due=d["date"], read=False, order=20 + len(out)))
     return out
 
 
@@ -94,7 +101,7 @@ def report(profile, result, names, *, today):
         now_lines.append(f"· 그 밖에 확인할 제도 {len(check) - 5}개")
     sections.append(("지금", f"{me.get('marital_status') or '현재'} 단계 · {me.get('sido') or ''} {me.get('sigungu') or ''}".strip(), now_lines or ["지금 단계에서 새로 확인할 제도가 없어요."]))
     for step in timeline.get("self") or []:
-        opened = _names(step.get("opens") or [], names, 5)
+        opened = _names(step.get("opens") or [], names, 5, me=me)
         closed = _names(step.get("closes") or [], names, 3)
         lines = [f"+ 열려요: {n}" for n in opened] + [f"− 닫혀요: {n}" for n in closed]
         todos = _todos(step)
