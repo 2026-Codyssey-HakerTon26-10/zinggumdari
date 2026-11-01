@@ -40,12 +40,12 @@ await send("Emulation.setUserAgentOverride", { userAgent: "Mozilla/5.0 (iPhone; 
 await send("Page.addScriptToEvaluateOnNewDocument", { source: `
 (() => {
   const CAPTIONS = ${CAPTIONS};
-  const css = '#__cap{position:fixed;left:10px;right:10px;bottom:86px;z-index:99990;padding:10px 13px;border-radius:14px;background:rgba(15,23,42,.86);color:#fff;font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:opacity .3s;pointer-events:none}#__cap b{display:block;font-size:15px;line-height:1.4;letter-spacing:-.03em}#__cap span{display:block;margin-top:4px;font-size:11.5px;line-height:1.5;color:#cbd5e1;letter-spacing:-.02em}#__card{position:fixed;inset:0;z-index:99995;display:flex;flex-direction:column;justify-content:center;padding:36px;background:linear-gradient(160deg,#0b3b6e,#00809a 60%,#d9692e);color:#fff;font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;transition:opacity .6s;pointer-events:none}#__card h1{margin:0;font-size:30px;line-height:1.35;letter-spacing:-.05em}#__card p{margin:16px 0 0;font-size:15px;line-height:1.7;color:#e2f3f6}#__card small{position:absolute;left:36px;bottom:48px;font-size:13px;opacity:.85}';
+  const css = '#__cap{position:fixed;left:12px;right:12px;bottom:92px;z-index:100000;text-align:center;color:#fff;font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:18px;font-weight:800;line-height:1.45;letter-spacing:-.03em;word-break:keep-all;-webkit-text-stroke:5px #000;paint-order:stroke fill;text-shadow:0 2px 6px rgba(0,0,0,.45);pointer-events:none}#__card{position:fixed;inset:0;z-index:99995;display:flex;flex-direction:column;justify-content:center;padding:36px;background:linear-gradient(160deg,#0b3b6e,#00809a 60%,#d9692e);color:#fff;font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;transition:opacity .6s;pointer-events:none}#__card h1{margin:0;font-size:30px;line-height:1.35;letter-spacing:-.05em}#__card p{margin:16px 0 0;font-size:15px;line-height:1.7;color:#e2f3f6}#__card small{position:absolute;left:36px;bottom:48px;font-size:13px;opacity:.85}';
   const mount = () => { if (!document.getElementById('__style')) { const s = document.createElement('style'); s.id = '__style'; s.textContent = css; document.head.appendChild(s); } };
-  window.__cap = (title, logic) => { mount(); try { sessionStorage.setItem('__cap', JSON.stringify([title, logic])); } catch {} if (!CAPTIONS) return; let el = document.getElementById('__cap'); if (!title) { el && el.remove(); return; } if (!el) { el = document.createElement('div'); el.id = '__cap'; document.body.appendChild(el); } el.innerHTML = '<b></b>' + (logic ? '<span></span>' : ''); el.querySelector('b').textContent = title; if (logic) el.querySelector('span').textContent = logic; };
+  window.__cap = (text) => { mount(); try { sessionStorage.setItem('__cap', JSON.stringify(text || '')); } catch {} if (!CAPTIONS) return; let el = document.getElementById('__cap'); if (!text) { el && el.remove(); return; } if (!el) { el = document.createElement('div'); el.id = '__cap'; document.body.appendChild(el); } el.textContent = text; };
   window.__card = (h, p, small) => { mount(); let el = document.getElementById('__card'); if (!h) { if (el) { el.style.opacity = 0; setTimeout(() => el.remove(), 650); } return; } if (!el) { el = document.createElement('div'); el.id = '__card'; document.body.appendChild(el); } el.innerHTML = '<h1></h1><p></p><small></small>'; el.querySelector('h1').innerHTML = h; el.querySelector('p').innerHTML = p || ''; el.querySelector('small').textContent = small || ''; };
   window.__tap = (x, y) => { const d = document.createElement('div'); d.style.cssText = 'position:fixed;left:' + (x - 21) + 'px;top:' + (y - 21) + 'px;width:42px;height:42px;border-radius:50%;background:rgba(36,116,199,.28);border:2px solid rgba(36,116,199,.85);z-index:99999;pointer-events:none;transition:transform .5s,opacity .5s'; document.body.appendChild(d); requestAnimationFrame(() => { d.style.transform = 'scale(1.7)'; d.style.opacity = '0'; }); setTimeout(() => d.remove(), 600); };
-  document.addEventListener('DOMContentLoaded', () => { try { const c = JSON.parse(sessionStorage.getItem('__cap') || 'null'); if (c) window.__cap(c[0], c[1]); } catch {} });
+  document.addEventListener('DOMContentLoaded', () => { try { const c = JSON.parse(sessionStorage.getItem('__cap') || 'null'); if (c) window.__cap(c); } catch {} });
 })();` });
 
 // 프레임 수집
@@ -69,7 +69,11 @@ const smooth = async (top) => { await js(`window.scrollTo({ top: ${top}, behavio
 
 let t0 = Date.now();
 const at = async (sec) => { const wait = t0 + sec * 1000 - Date.now(); if (wait > 0) await sleep(wait); else console.log(`  (장면이 ${(-wait / 1000).toFixed(1)}초 늦음)`); };
-const scene = async (n) => { const s = SCENES[n - 1]; await at(s.start); console.log(`장면 ${n} ${s.title}`); await js(`window.__cap(${JSON.stringify(s.title)}, ${JSON.stringify(s.logic)})`); };
+const scene = async (n) => { const s = SCENES[n - 1]; await at(s.start); console.log(`장면 ${n} ${s.title}`); };
+// 자막 = 나레이션 조각(cues.json). 시간표대로 바꾸고, 페이지를 옮겨도 다시 그린다.
+const CUES = JSON.parse(readFileSync(new URL("./cues.json", import.meta.url)));
+let shown = null, ticking = true;
+const ticker = (async () => { while (ticking) { const t = (Date.now() - t0) / 1000; const cue = CUES.find((c) => c.start <= t && t < c.end); const text = cue ? cue.text : ""; try { if (text !== shown || Math.random() < 0.1) { await js(`window.__cap && window.__cap(${JSON.stringify(text)})`); shown = text; } } catch { /* 페이지 이동 중 */ } await sleep(100); } })();
 
 await go("/");
 await send("Page.startScreencast", { format: "jpeg", quality: 88, maxWidth: W * DPR, maxHeight: H * DPR, everyNthFrame: 1 });
@@ -150,7 +154,7 @@ await scrollTo(".recommendation-card", "안산신길2", "start"); await sleep(26
 await scene(9);
 await tap(".mobile-tab-bar a, nav a", "알림", { scroll: false }).catch(async () => go("/notifications"));
 await until(`document.querySelector(".notice-item")`); await sleep(4200);
-await go("/api/backend/notify/report"); await js(`window.__cap(${JSON.stringify(SCENES[8].title)}, ${JSON.stringify(SCENES[8].logic)})`);
+await go("/api/backend/notify/report"); shown = null;
 await sleep(1500); await smooth(520); await sleep(2000);
 
 // 10. 마무리
@@ -158,7 +162,7 @@ await scene(10);
 await js(`window.__card("나의 오늘도,<br>부모님의 내일도.", "묻기 전에 다음 생애 단계와 부모님 것까지<br>먼저 챙겨 주는 서비스", "징검다리")`);
 await at(120);
 
-await send("Page.stopScreencast"); await sleep(300);
+ticking = false; await ticker; await send("Page.stopScreencast"); await sleep(300);
 writeFileSync(join(OUT, "frames.json"), JSON.stringify({ t0: t0 / 1000, end: 120, frames }));
 ws.close(); chrome.kill();
 console.log(`프레임 ${frames.length}개, ${((Date.now() - t0) / 1000).toFixed(1)}초`);
