@@ -46,6 +46,61 @@ def _explain(card: dict) -> str:
             f"질문 {grades.count('질문')}개")
 
 
+# 추천 순서: 이번 단계에 맞는 제도 → 확정에 가까운 것 → 내 지역 제도. 같은 분야(예: 전세대출)가 위를 다 차지하지 않게 섞는다.
+BUCKETS = (("주거", ("전세", "주택", "임대", "청약", "대출", "디딤돌", "버팀목", "월세", "보증금", "행복주택", "희망타운")),
+           ("출산·육아", ("임신", "출산", "신생아", "아동", "양육", "보육", "육아", "아이", "자녀", "다자녀")),
+           ("일자리", ("취업", "구직", "일자리", "고용", "창업", "직업", "훈련", "인턴")),
+           ("건강", ("건강", "의료", "진료", "검진", "예방접종", "마음", "치과", "요양", "돌봄")),
+           ("자산", ("적금", "저축", "계좌", "자산", "통장", "연금")),
+           ("생활·문화", ("문화", "교통", "요금", "감면", "할인", "바우처", "이용권", "여행")))
+SPREAD = 4   # 같은 분야 카드가 이미 나온 만큼 이 칸 수만큼 뒤로 민다
+
+
+NICHE = ("한부모", "장애", "북한이탈", "다문화", "저소득", "국가유공자", "보훈", "군무원", "청소년", "영재", "수급", "차상위",
+         "기초생활", "노숙", "미혼모", "탈북", "결혼이민", "농업인", "어업인", "제대군인", "의료급여", "에너지바우처", "농지")
+
+
+def _niche(name: str, me: dict) -> bool:
+    """특정 대상(한부모·장애인 등) 제도. 프로필에 그 표시가 없으면 '모름'일 뿐이라 위로 올리지 않는다."""
+    mine = " ".join(str(q.get("qual_code", "")) for q in me.get("qualifications") or []) + \
+        (" 장애" if me.get("disability_registered") == "Y" else "") + \
+        (" 수급 차상위 저소득 기초생활" if me.get("livelihood_status") not in (None, "해당없음") else "")
+    if any(w in name and w not in mine for w in NICHE):
+        return True
+    return ("아동" in name or "어린이" in name) and not me.get("children_count")
+
+
+def _bucket(name: str) -> str:
+    return next((b for b, words in BUCKETS if any(w in name for w in words)), "기타")
+
+
+def _rank(cards: list[dict], by_id: dict, me: dict, step: str | None, focus_tags: set, stage_tags) -> list[dict]:
+    def key(c):
+        rule = by_id.get(c["rule_id"]) or {}
+        tags = set(stage_tags(rule))
+        stage = 0 if step and step in tags else (1 if tags & focus_tags else 2)
+        if _niche(c.get("name") or "", me):
+            stage = 3
+        region = rule.get("region") or {}
+        local = 0 if region.get("sigungu") and region.get("sigungu") == me.get("sigungu") else \
+            1 if region.get("sido") and region.get("sido") == me.get("sido") else 2
+        unknown = sum(1 for x in c["conditions"] if x["ok"] is None) / max(len(c["conditions"]), 1)
+        return (stage, SHOWN[c["verdict"]], local, c["ai_extracted"], round(unknown, 1))
+
+    ordered, dupes, names = [], [], set()
+    for c in sorted(cards, key=key):   # 이름이 같은 조건표(지자체별 중복 등)는 앞의 것 하나만 위에 두고 나머지는 맨 뒤로
+        (dupes if c.get("name") in names else ordered).append(c)
+        names.add(c.get("name"))
+    out, seen = [], {}
+    while ordered:
+        i = min(range(len(ordered)), key=lambda j: j + SPREAD * seen.get(_bucket(ordered[j].get("name") or ""), 0))
+        card = ordered.pop(i)
+        b = _bucket(card.get("name") or "")
+        seen[b] = seen.get(b, 0) + 1
+        out.append(card)
+    return out + dupes
+
+
 def build_judge(profile: dict, rules: list[dict], today: date | None = None,
                 evidence: Callable[[list[str]], list[dict]] = _no_lines, step: str | None = None,
                 focus: str | None = None, similar: Callable[[dict, dict], dict | None] | None = None) -> dict:
@@ -96,7 +151,9 @@ def build_judge(profile: dict, rules: list[dict], today: date | None = None,
             near = similar(profile, results)
         except Exception:   # 가상 인구 캐시가 깨져도 카드는 내보낸다
             log.exception("비슷한 가구 계산 실패")
-    cards.sort(key=lambda c: (c["subject"] != "self", c["ai_extracted"], SHOWN[c["verdict"]]))
+    me = profile.get("self", {})
+    cards = (_rank([c for c in cards if c["subject"] == "self"], by_id, me, step, focus_tags, planner.stage_tags)
+             + _rank([c for c in cards if c["subject"] != "self"], by_id, me, step, focus_tags, planner.stage_tags))
     return {
         "user_id": profile.get("user_id"),
         "ask": choose_ask(cards, by_id, profile, focus),
