@@ -187,10 +187,16 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .mobile-nav-panel { position: absolute; top: calc(100% + 8px); right: 0; z-index: 70; display: grid; gap: 4px; width: min(240px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 12px 30px #163b5714; } /* 버튼 아래로 메뉴를 겹쳐 펼쳐요. */
 .mobile-nav-panel a { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: 9px; color: #33475b; font-size: 15px; font-weight: 600; } /* 메뉴 한 줄을 44px 높이로 눌러요. */
 .mobile-nav-panel a:hover, .mobile-nav-panel a[aria-current="page"] { background: #eef5fd; color: var(--primary); } /* 지금 화면과 누를 항목을 파란색으로 보여줘요. */
+.mobile-nav-panel .mobile-nav-logout { display: flex; align-items: center; width: 100%; min-height: 44px; margin-top: 4px; padding: 0 12px; border: 0; border-top: 1px solid var(--line); border-radius: 0 0 9px 9px; background: transparent; color: #b4232a; font: inherit; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; } /* 메뉴 맨 아래에 구분선과 빨간 글씨로 로그아웃을 둬요. */
+.mobile-nav-panel .mobile-nav-logout:hover:not(:disabled) { background: #fdf1f1; } /* 누를 수 있는 상태를 알려줘요. */
+.mobile-nav-panel .mobile-nav-logout:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; } /* 키보드로 고른 위치를 보여줘요. */
+.mobile-nav-panel .mobile-nav-logout:disabled, .header-logout:disabled { opacity: .6; cursor: wait; } /* 요청 중에는 다시 누를 수 없음을 알려줘요. */
 @media (min-width: 701px) { .mobile-nav { display: none; } } /* 태블릿 이상: 상단 메뉴가 펼쳐져 있으므로 햄버거를 숨겨요. */
 @media (min-width: 701px) { .header-account-actions > .header-login { display: block; align-items: normal; min-height: auto; } } /* 태블릿 이상: 기존 글자 링크 모양으로 돌려요. */
 .header-login { color: #6b7280; font-size: 13px; font-weight: 600; white-space: nowrap; } /* 로그인 이동 링크를 흰색 바탕의 작은 글자로 보여줘요. */
 .header-login:hover { color: var(--primary); } /* 로그인 링크에 마우스를 올리면 파란색으로 알려줘요. */
+.header-logout { padding: 0; border: 0; background: transparent; font-family: inherit; cursor: pointer; } /* 로그아웃 버튼을 로그인·설정과 같은 글자 링크 모양으로 맞춰요. */
+.header-logout:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; border-radius: 4px; } /* 키보드로 고른 위치를 보여줘요. */
 @media (max-width: 700px) { .header-account-actions { margin-left: auto; gap: 11px; } .header-login { font-size: 13px; } } /* 휴대전화에서도 로그인과 회원가입 버튼을 나란히 보여줘요. */
 .hero-banner-dots { display: flex; align-items: center; gap: 7px; margin-top: 22px; } /* 배너 선택 점을 가로로 나열해요. */
 .hero-banner-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: #cdd9e5; cursor: pointer; transition: background .25s, width .25s; } /* 선택하지 않은 점은 연한 회색으로 표시해요. */
