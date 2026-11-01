@@ -14,7 +14,7 @@
 | 외부 API | 한국고용정보원 온통청년 「청년정책 API」 (youthcenter.go.kr) | 덤프 코드(`youth`)만 있다. 인증키를 발급받지 않아 받은 데이터가 없고 서비스에 쓰지 않는다 | 온통청년 회원 전용, 담당자 심사 후 인증키 발급(오픈 API 안내 페이지). 그 밖의 이용 조건은 안내 페이지에 표기 없음 |
 | 외부 서비스(채택·실발송 검증 전) | Google Gmail SMTP | 수신을 선택한 프로필의 이메일 알림. 2026-11-01 사용자 확인으로 Gmail 채택, 실제 계정 인증·수신 검증은 별도 | [Google 서비스 약관](https://policies.google.com/terms?hl=ko), [Gmail 공식 연결 안내](https://support.google.com/mail/answer/7126229?hl=ko) |
 | 외부 API | 네이토 API(대회 지급, Anthropic 방식): Claude Opus 4.8(`claude-opus-4-8`), Claude Haiku 4.5(`claude-haiku-4`) | 공고 원문에서 조건 추출(원문당 1회). Opus는 시연 공고와 개발용 평가, Haiku는 행안부 대량 추출. 스캔 PDF의 글자 인식(tesseract가 없을 때) | 대회 지급 |
-| 외부 서비스 | OpenAI ChatGPT, Anthropic Claude(정확한 모델명은 채울 것 — 사용자 요청으로 확인 보류) | 팀 개발 질의·코드 작성 보조에 사용(2026-11-01 사용자 확인). 발표 비교 실험 완료로 간주하지 않음 | 각 서비스 이용약관 |
+| 외부 서비스 | OpenAI ChatGPT, Anthropic Claude Sonnet 4.6(네이토 API) | 팀 개발 질의·코드 작성 보조에 사용(2026-11-01 사용자 확인). 발표 비교 실험 완료로 간주하지 않음 | 각 서비스 이용약관 |
 | 지급 자원 | GPU V100 서버(대회 지급) | 사용 중. KNN·CuPy 구성이 GPU 서버에 배치돼 있다는 사용자 파악 내용을 2026-11-01 기록. 실제 서버 기종·설치 버전·GPU 연산·성능은 직접 검증하지 않았고 L4와 동일 자원으로 간주하지 않음 | 대회 |
 | 오픈소스 | FastAPI, uv | API 서버, 패키지 관리 | MIT |
 | 오픈소스 | pydantic | 조건 JSON·프로필 스키마 검증 | MIT |
