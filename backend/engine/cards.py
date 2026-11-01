@@ -89,6 +89,9 @@ def _rank(cards: list[dict], by_id: dict, me: dict, step: str | None, focus_tags
         unknown = sum(1 for x in c["conditions"] if x["ok"] is None) / max(len(c["conditions"]), 1)
         return (stage, SHOWN[c["verdict"]], local, c["ai_extracted"], round(unknown, 1))
 
+    mine = [c for c in sorted(cards, key=key) if (by_id.get(c["rule_id"]) or {}).get("source") == "upload"
+            and not _niche(c.get("name") or "", me)]   # 내가 올린 공고는 분야 섞기 없이 묶어서 맨 위
+    cards = [c for c in cards if c not in mine]
     ordered, dupes, names = [], [], set()
     for c in sorted(cards, key=key):   # 이름이 같은 조건표(지자체별 중복 등)는 앞의 것 하나만 위에 두고 나머지는 맨 뒤로
         (dupes if c.get("name") in names else ordered).append(c)
@@ -100,7 +103,7 @@ def _rank(cards: list[dict], by_id: dict, me: dict, step: str | None, focus_tags
         b = _bucket(card.get("name") or "")
         seen[b] = seen.get(b, 0) + 1
         out.append(card)
-    return out + dupes
+    return mine + out + dupes
 
 
 def build_judge(profile: dict, rules: list[dict], today: date | None = None,
