@@ -36,3 +36,22 @@ def send_email(profile, notification, *, category, record_sent, smtp_factory=smt
     except Exception:
         raise DeliveryRecordError("SMTP 수락 후 기록 실패: 발송 상태 확인이 필요합니다") from None
     return True
+
+
+def send_report(to, subject, text, html, *, smtp_factory=smtplib.SMTP):
+    """생애주기 리포트 한 통(텍스트 + HTML). 수신 동의 확인은 부르는 쪽이 한다."""
+    host, sender = os.environ.get("SMTP_HOST"), os.environ.get("MAIL_FROM")
+    if not host or not sender:
+        raise ValueError("SMTP_HOST와 MAIL_FROM이 필요합니다")
+    message = EmailMessage()
+    message["From"], message["To"], message["Subject"] = sender, to, subject
+    message.set_content(text)
+    message.add_alternative(html, subtype="html")
+    with smtp_factory(host, int(os.environ.get("SMTP_PORT", "587")), timeout=15) as smtp:
+        smtp.starttls(context=ssl.create_default_context())
+        if os.environ.get("SMTP_USER"):
+            smtp.login(os.environ["SMTP_USER"], os.environ.get("SMTP_PASSWORD", ""))
+        refused = smtp.send_message(message)
+        if refused:
+            raise smtplib.SMTPRecipientsRefused(refused)
+    return True
