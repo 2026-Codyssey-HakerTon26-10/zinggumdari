@@ -28,6 +28,9 @@ export type Stage = "" | "newlywed" | "child" | "multi_child"; // 모의 단계�
 export const me = (signal?: AbortSignal) => api<Me>("/auth/me", { signal }); // 매번 서버 세션으로 본인 계정을 확인해요.
 export const getProfile = (id: string, signal?: AbortSignal) => api<FullProfile>(`/profiles/${encodeURIComponent(id)}`, { signal }); // 세션 소유 프로필만 조회해요.
 export const patchProfile = (id: string, data: object) => api<FullProfile>(`/profiles/${encodeURIComponent(id)}`, { method: "PATCH", body: JSON.stringify(data) }); // 화면의 명시적 저장만 서버에 반영해요.
+export type Preset = { id: string; label: string; virtual: boolean }; // 시연용 가상 프로필 목록의 한 줄이에요.
+export const presets = (signal?: AbortSignal) => api<Preset[]>("/profiles/presets", { signal }); // 로그인 없이 열리는 가상 프리셋 목록이에요.
+export const createFromPreset = (id: string) => api<{ user_id: string; preset: string }>(`/profiles/presets/${encodeURIComponent(id)}`, { method: "POST" }); // 프로필이 없는 세션 계정에만 만들고 기존 프로필은 덮어쓰지 않아요(409).
 export const judge = (step: Stage, rule_id?: string, signal?: AbortSignal) => api<Judge>("/judge", { method: "POST", body: JSON.stringify({ step: step || null, rule_id: rule_id || null }), signal }); // 클라이언트 사용자 ID로 판정 대상을 바꾸지 않아요.
 export function message(error: unknown) { return error instanceof ServiceError ? error.message : "요청을 완료하지 못했습니다. 다시 시도해 주세요."; } // 알 수 없는 오류의 내부 정보는 숨겨요.
 export function safeLink(value?: string | null) { try { const url = new URL(value || ""); return ["https:", "http:"].includes(url.protocol) && !url.username && !url.password ? url.href : null; } catch { return null; } } // 외부 링크는 HTTP(S)만 허용해요.

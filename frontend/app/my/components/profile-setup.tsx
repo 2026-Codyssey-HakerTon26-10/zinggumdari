@@ -1,6 +1,6 @@
 "use client"; // 가입 후 최소 프로필을 저장하는 폼이에요.
-import { useState, type FormEvent } from "react"; // 입력과 저장 실패 상태를 관리해요.
-import { api, message } from "../../lib/service-api"; // 계정 세션으로 프로필을 만들어요.
+import { useEffect, useState, type FormEvent } from "react"; // 입력과 저장 실패 상태, 프리셋 목록을 관리해요.
+import { api, createFromPreset, message, presets, type Preset } from "../../lib/service-api"; // 계정 세션으로 프로필을 만들어요.
 import { Icon } from "../../components/ui"; // 기존 아이콘으로 정보 입력과 다음 이동을 안내해요.
 import "./profile-setup.css"; // 기본 정보 폼에만 새 선택 카드 스타일을 적용해요.
 function ProfileChoice({ name, label, options }: { name: string; label: string; options: string[] }) { // 같은 이름의 라디오 선택지를 한 묶음으로 만들어요.
@@ -8,6 +8,11 @@ function ProfileChoice({ name, label, options }: { name: string; label: string; 
 } // 선택지 묶음을 마쳐요.
 export function ProfileSetup({ nickname, onSaved }: { nickname: string; onSaved: () => void }) { // 기존 프로필이 없는 계정에만 보여줘요.
     const [busy, setBusy] = useState(false); const [error, setError] = useState(""); // 중복 제출과 실패 안내를 관리해요.
+    const [list, setList] = useState<Preset[]>([]); // 서버가 알려준 시연용 가상 프로필만 보여줘요.
+    useEffect(() => { const controller = new AbortController(); void presets(controller.signal).then((rows) => { if (!controller.signal.aborted && Array.isArray(rows)) setList(rows.filter((row) => typeof row?.id === "string" && typeof row?.label === "string")); }).catch(() => { /* 목록을 못 받아도 직접 입력 폼은 그대로 써요. */ }); return () => controller.abort(); }, []); // 화면을 떠나면 요청을 취소해요.
+    async function start(id: string) { // 가상 프리셋으로 프로필을 만들고 추천을 다시 불러와요.
+        if (busy) return; setBusy(true); setError(""); try { await createFromPreset(id); onSaved(); } catch (cause) { setError(message(cause)); } finally { setBusy(false); } // 이미 프로필이 있으면 409 안내를 그대로 보여줘요.
+    } // 프리셋 시작을 마쳐요.
     async function submit(event: FormEvent<HTMLFormElement>) { // 입력한 원값으로만 최소 프로필을 만들어요.
         event.preventDefault(); if (busy) return; const form = new FormData(event.currentTarget); if (String(form.get("nickname") || "").trim().length < 2) { setError("닉네임을 공백 제외 2자 이상 입력해 주세요."); return; } setBusy(true); setError(""); // 브라우저 주소에 입력값을 남기지 않아요.
         try { await api("/profiles", { method: "POST", body: JSON.stringify({ self: { nickname: String(form.get("nickname")).trim(), gender: form.get("gender"), birth_date: form.get("birth_date"), sido: form.get("sido"), sigungu: String(form.get("sigungu")).trim(), marital_status: form.get("marital_status"), children_count: Number(form.get("children_count")), household_size: Number(form.get("household_size")), employment_status: form.get("employment_status") }, consents: { sensitive: false, parent: false }, parents: [] }) }); onSaved(); } // 민감정보·부모님 동의는 기본 false예요.
@@ -17,6 +22,10 @@ export function ProfileSetup({ nickname, onSaved }: { nickname: string; onSaved:
         <span className="profile-step"><Icon name="user" /> 나를 알아가는 첫걸음</span> {/* 내부 단계 번호 대신 친근한 시작 안내를 보여줘요. */}
         <h2 id="profile-setup-title">나에게 맞는 제도를 찾아볼까요?</h2> {/* 정보를 입력하는 목적을 먼저 안내해요. */}
         <p className="profile-intro">기본 정보만 알려주세요. 지금의 생활에 맞춰 추천해 드릴게요.</p> {/* 입력 전에 부담이 적은 설명을 보여줘요. */}
+        {list.length > 0 && <div className="profile-presets" role="group" aria-label="시연용 가상 프로필로 시작"> {/* 시연 동선을 위해 가상 프로필 버튼을 폼 위에 둬요. */}
+            <p><span className="profile-preset-badge">시연용 가상 사례</span>가상 프로필로 바로 둘러볼 수 있어요. 실제 정보가 아니며, 이 계정에 프로필이 없을 때만 만들어져요.</p> {/* 가상 데이터임과 덮어쓰지 않음을 알려줘요. */}
+            <div className="profile-preset-options">{list.map((preset) => <button type="button" className="button button-secondary" key={preset.id} disabled={busy} onClick={() => void start(preset.id)}><Icon name="sparkles" />{preset.label}</button>)}</div> {/* 서버가 준 라벨만 표시해요. */}
+        </div>}
         <form onSubmit={submit} className="work-form"> {/* 기존 저장 함수를 그대로 연결해요. */}
             <fieldset className="profile-fields" disabled={busy}> {/* 저장하는 동안 모든 입력을 함께 잠가요. */}
                 <label>닉네임<input name="nickname" defaultValue={nickname} placeholder="어떻게 불러드릴까요?" required minLength={2} maxLength={16} autoComplete="nickname" /></label> {/* 실명 대신 닉네임만 입력받아요. */}

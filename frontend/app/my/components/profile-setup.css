@@ -26,3 +26,9 @@
 .profile-setup .profile-next { display: flex; justify-content: center; gap: 10px; width: 100%; min-height: 52px; margin-top: 24px; border-radius: 12px; font-size: 15px; } /* 다음 버튼을 넓게 만들어 진행 방향을 분명하게 보여줘요. */
 @media (max-width: 560px) { .profile-setup .profile-fields { grid-template-columns: minmax(0, 1fr); gap: 22px; } .profile-setup .profile-choice-option { flex-basis: 90px; max-width: none; } .profile-setup .profile-section-label { padding-top: 20px; } } /* 휴대전화에서는 입력을 한 열로 바꾸고 선택 카드를 자동으로 줄바꿈해요. */
 @media (prefers-reduced-motion: reduce) { .profile-setup .profile-choice-option span { transition: none; } } /* 움직임을 줄이는 사용자의 설정을 따라요. */
+.profile-setup .profile-presets { margin-top: 22px; padding: 16px 18px; border: 1px dashed #c9d8e8; border-radius: 14px; background: #fbfdff; } /* 가상 프리셋을 직접 입력 폼과 구분된 점선 상자에 담아요. */
+.profile-setup .profile-presets p { margin: 0 0 12px; color: #64748b; font-size: 13px; word-break: keep-all; } /* 가상 사례 안내를 차분하게 보여줘요. */
+.profile-setup .profile-preset-badge { display: inline-block; margin-right: 8px; padding: 3px 9px; border: 1px solid #dce4ed; border-radius: 20px; background: #fff; color: #475569; font-size: 11px; font-weight: 700; } /* 가상 사례임을 작은 배지로 표시해요. */
+.profile-setup .profile-preset-options { display: flex; flex-wrap: wrap; gap: 8px; } /* 프리셋이 늘어나도 줄바꿈해요. */
+.profile-setup .profile-preset-options .button { display: inline-flex; align-items: center; gap: 7px; } /* 아이콘과 라벨을 한 줄로 맞춰요. */
+.profile-setup .profile-preset-options .icon { width: 15px; height: 15px; } /* 버튼 아이콘을 글자 크기에 맞춰요. */
