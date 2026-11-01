@@ -1,0 +1,32 @@
+.briefing { position: relative; margin-block: 8px 24px; padding: 24px 24px 18px; border: 1px solid #d6e6f5; border-radius: 20px; background: linear-gradient(135deg, #f4f9ff 0%, #ffffff 55%, #f3fbfc 100%); box-shadow: 0 12px 36px #1f456610; overflow: hidden; } /* 추천 위에 놓이는 브리핑 카드예요. */
+.briefing::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, #2474c7, #00809a, #d9692e); } /* 나·다음 단계·부모님 색을 잇는 띠예요. */
+.briefing-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; } /* 아바타와 제목을 한 줄로 둬요. */
+.briefing-avatar { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 14px; color: #fff; background: linear-gradient(135deg, #2474c7, #00809a); box-shadow: 0 6px 16px #2474c733; } /* 먼저 제안하는 안내자를 표시해요. */
+.briefing-avatar .icon { width: 22px; height: 22px; } /* 아바타 아이콘 크기예요. */
+.briefing-eyebrow { color: #2474c7; font-size: 12px; font-weight: 700; letter-spacing: .02em; } /* 브리핑 이름이에요. */
+.briefing h2 { margin: 2px 0 0; color: #1f2937; font-size: clamp(19px, 3vw, 23px); letter-spacing: -.04em; word-break: keep-all; } /* 오늘의 한 줄 요약이에요. */
+.briefing-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; } /* 제안 목록이에요. */
+.briefing-item { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 13px 14px; border: 1px solid #e3ebf3; border-radius: 14px; background: #fff; opacity: 0; transform: translateY(6px); animation: briefing-in .38s ease forwards; } /* 제안이 차례로 나타나요. */
+.briefing-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; color: #52657a; background: #f1f5f9; } /* 제안 종류 아이콘이에요. */
+.briefing-icon .icon { width: 19px; height: 19px; } /* 아이콘 크기예요. */
+.briefing-item.is-now .briefing-icon { color: #2474c7; background: #eaf3fd; } /* 지금 할 일은 파란색이에요. */
+.briefing-item.is-next .briefing-icon { color: #00809a; background: #e6f5f7; } /* 다음 단계는 물빛이에요. */
+.briefing-item.is-parent .briefing-icon { color: #d9692e; background: #fdf0e8; } /* 부모님은 감빛이에요. */
+.briefing-item.is-date .briefing-icon { color: #b45309; background: #fef6e7; } /* 날짜·주의는 호박색이에요. */
+.briefing-copy { display: grid; gap: 2px; min-width: 0; } /* 제목과 설명을 위아래로 둬요. */
+.briefing-copy strong { color: #1f2937; font-size: 15px; font-weight: 700; line-height: 1.45; word-break: keep-all; } /* 제안 제목이에요. */
+.briefing-copy small { color: #64748b; font-size: 13px; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; } /* 근거가 되는 제도 이름과 준비 사항이에요. */
+.work-main .briefing-action, .briefing-action { display: inline-flex; align-items: center; gap: 4px; min-height: 38px; padding: 8px 12px 8px 14px; border: 1px solid #d6e3f0; border-radius: 10px; color: #185eab; background: #f7fbff; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background .15s, border-color .15s, transform .15s; } /* 제안마다 한 번에 실행하는 버튼이에요. */
+.briefing-action:hover { border-color: #9dbfe3; background: #eef6ff; transform: translateY(-1px); } /* 누를 수 있음을 알려줘요. */
+.briefing-action .icon { width: 15px; height: 15px; } /* 버튼 화살표 크기예요. */
+.briefing-thinking { display: flex; align-items: center; gap: 6px; padding: 18px 4px; color: #52657a; font-size: 14px; } /* 다시 판정하는 동안의 상태예요. */
+.briefing-thinking span { width: 7px; height: 7px; border-radius: 50%; background: #2474c7; animation: briefing-dot 1s infinite ease-in-out; } /* 생각 중 점이에요. */
+.briefing-thinking span:nth-child(2) { animation-delay: .15s; background: #00809a; } /* 두 번째 점이에요. */
+.briefing-thinking span:nth-child(3) { animation-delay: .3s; margin-right: 6px; background: #d9692e; } /* 세 번째 점이에요. */
+.briefing-note { display: flex; align-items: center; gap: 6px; margin-top: 14px; color: #8a97a8; font-size: 12px; } /* 판정 방식 고지예요. */
+.briefing-note .icon { width: 14px; height: 14px; } /* 고지 아이콘 크기예요. */
+.recommendation-card-fresh { display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 20px; color: #fff; background: #00809a; font-size: 11px; font-weight: 700; } /* 넘긴 단계에서 새로 열린 카드 표시예요. */
+@keyframes briefing-in { to { opacity: 1; transform: none; } } /* 제안이 올라오며 나타나요. */
+@keyframes briefing-dot { 0%, 80%, 100% { transform: scale(.6); opacity: .5; } 40% { transform: scale(1); opacity: 1; } } /* 생각 중 점의 움직임이에요. */
+@media (max-width: 640px) { .briefing { padding: 20px 16px 16px; } .briefing-item { grid-template-columns: 34px minmax(0, 1fr); } .briefing-action { grid-column: 2; justify-self: start; } } /* 좁은 화면에서는 버튼을 설명 아래로 내려요. */
+@media (prefers-reduced-motion: reduce) { .briefing-item { animation: none; opacity: 1; transform: none; } .briefing-thinking span { animation: none; } } /* 움직임을 줄이는 설정을 따라요. */

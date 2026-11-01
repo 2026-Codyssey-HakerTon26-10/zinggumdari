@@ -82,3 +82,4 @@
 .recommendation-feedback { margin-top: 16px; color: #2474c7; font-size: 14px; } /* 진행 상태를 차분하게 보여줘요. */
 .work-main .recommendation-controls button:focus-visible { outline: 3px solid #00809a; outline-offset: 4px; } /* 선택 중에도 키보드 초점은 항상 보이게 해요. */
 @media (max-width: 480px) { .work-main { padding-top: 26px; } .work-heading .work-actions { gap: 7px; } .recommendation-subjects { width: 100%; } .work-main .recommendation-subjects button { padding-inline: 10px; font-size: 13px; } .recommendation-stage-copy small { font-size: 13px; } } /* 작은 화면에서도 카드와 탭을 손쉽게 누를 수 있게 해요. */
+.work-anchor { scroll-margin-top: 96px; } /* 브리핑 버튼으로 이동할 때 머리말에 가리지 않게 해요. */
