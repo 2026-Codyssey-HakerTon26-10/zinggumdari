@@ -1,8 +1,9 @@
-# 징검
+# 징검다리
 
-생애주기에 맞춰, 다음 단계에서 열리는 제도를 그 단계가 오기 전에 먼저 보여줍니다. 그 전에 해둘 일과 공고문 원문의 근거까지 보여주고, 원하면 부모님 것도 같이 봅니다.
+서비스 이름은 징검다리(줄여서 징검)입니다. 생애주기에 맞춰, 다음 단계에서 열리는 제도를 그 단계가 오기 전에 먼저 보여줍니다. 그 전에 해둘 일과 공고문 원문의 근거까지 보여주고, 원하면 부모님 것도 같이 봅니다.
 코디세이 AI 해커톤 2026, 주제 ① AI 기반 추천 서비스.
 
+- 배포: 화면 https://zinggumdari.vercel.app (Vercel), API는 Render. 화면은 `/api/backend/*`를 같은 출처 프록시로 API에 넘긴다
 - 왜 만드는가(문제, 근거, 결정과 이유): [Background.md](Background.md)
 - 무엇을 만드는가(기능별 동작과 확인 기준): [SPEC.md](SPEC.md)
 - 데이터 형식(백엔드, AI, 프론트가 주고받는 모양): [docs/api.md](docs/api.md)
@@ -213,6 +214,12 @@ uv run --project backend python -m backend.engine.similar
 uv run --project backend pytest -q
 ```
 
+화면 검사(타입·린트·API 계약 검사·빌드):
+
+```bash
+cd frontend && npx tsc --noEmit && npm run lint && node --test scripts/check-api-contract.cjs scripts/check-auth-validation.cjs && npm run build && cd ..
+```
+
 나머지 명령(공고 읽기 배치, 판정만, 채점)도 같은 방식으로 `uv run --project backend python -m backend.<모듈>`로 실행한다.
 
 ## 의존성 추가
@@ -252,7 +259,7 @@ cd backend && uv add "fastapi[standard]" && cd ..
 ```
 
 ```bash
-uv add --project backend httpx pdfplumber scikit-learn numpy pandas pyarrow python-dotenv
+uv add --project backend duckdb numpy olefile openpyxl pandas pdfplumber "psycopg[binary]" pyarrow
 ```
 
 ```bash

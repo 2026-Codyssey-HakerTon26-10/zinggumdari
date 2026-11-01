@@ -1,9 +1,35 @@
-# 외부 자원 활용 내역 (정본, PPT 9쪽 ⓕ는 이 표를 옮긴다)
+# 외부 자원 활용 내역 (정본, 발표자료 ⓕ는 이 표를 그대로 옮긴다)
 
 > 쓰는 라이브러리, API, 데이터, 모델, 외부 서비스가 늘 때마다 같은 커밋에서 한 줄 추가한다. 미기재 후 사용 확인 = 실격. (채울 것) 칸은 토 09:30 첫 커밋 전에 채운다. 제출본에 (채울 것)이 남으면 안 된다. 안 쓰는 것은 적지 않는다.
 
-| 구분 | 명칭 | 용도 | 라이선스·조건 |
+> 구분은 참가자 가이드 표 그대로 오픈소스, 외부 API, 사전 보유 코드, 기타 네 가지만 쓴다. 데이터, 배포, 개발 도구는 기타로 적는다. 해당 사항이 없으면 "해당 없음"으로 적는다.
+
+| 구분 | 명칭 | 용도 | 라이선스 |
 |---|---|---|---|
+| 오픈소스 | FastAPI, uv, uvicorn(FastAPI[standard] 포함) | API 서버와 실행, 패키지 관리 | MIT, MIT·Apache-2.0, BSD-3 |
+| 오픈소스 | pydantic | 조건 JSON·프로필 스키마 검증 | MIT |
+| 오픈소스 | httpx | API 덤프 | BSD-3 |
+| 오픈소스 | pdfplumber | 공고 PDF 텍스트 추출 | MIT |
+| 오픈소스 | pypdfium2, Pillow (pdfplumber 의존성) | 스캔 PDF 쪽을 이미지로 그려 글자 인식에 넘기기 | Apache-2.0·BSD-3, MIT-CMU |
+| 오픈소스 | olefile | HWP(5.0) 파일 안의 본문 스트림 읽기. 레코드 해석은 한컴 공개 문서 「한글 문서 파일 형식 5.0」을 보고 직접 구현 | BSD-2 |
+| 오픈소스 | Tesseract OCR(kor 학습 데이터) | 스캔 PDF 글자 인식과 줄 좌표(선택 설치). 깔린 PC에서만 쓰고, 없으면 네이토 API | Apache-2.0 |
+| 오픈소스 | SQLite (python 표준 `sqlite3`) | 기존 구현의 프로필·알림 저장. PostgreSQL 전환 완료 전 사용 이력 유지 | Public Domain |
+| 오픈소스 | PostgreSQL | 계정·세션·프로필·알림 저장(`backend/db/`, 스키마는 `backend/db/migrations/`) | PostgreSQL License |
+| 오픈소스 | psycopg 3 (`psycopg[binary]`) | 파이썬에서 PostgreSQL 연결 | LGPL-3.0 |
+| 오픈소스 | Next.js, React, Tailwind CSS(`@tailwindcss/turbopack`) | 화면 | MIT |
+| 오픈소스 | Mozilla PDF.js (`pdfjs-dist` 6.4.299, https://github.com/mozilla/pdf.js) | 프론트에서 세션 소유 원문 PDF를 렌더링하고 API evidence의 page·bbox 좌표로 근거 강조 | Apache-2.0, 패키지 LICENSE 및 NOTICE 유지 |
+| 오픈소스 | NumPy | 가상 인구 비슷한 가구의 최근접 이웃(`backend/population/knn.py`에 직접 구현), 평가 지표, 검색 점수(글자 2-gram BM25, `backend/search/index.py`에 직접 구현) | BSD-3 |
+| 오픈소스 | [CuPy](https://github.com/cupy/cupy) | GPU V100 서버에서 가상 인구 KNN 거리 계산을 돌리는 구성(설계와 계산 원리는 `docs/01_KNN_CuPy_기능과_계산원리.md`). 레포 의존성에는 넣지 않았고 기본 실행 경로는 NumPy다 | MIT |
+| 오픈소스 | pandas, pyarrow | 가상 인구 표 저장(parquet) | BSD-3, Apache-2.0 |
+| 오픈소스 | DuckDB | Hugging Face의 parquet에서 필요한 열·행만 읽기(가상 인구 원본) | MIT |
+| 오픈소스 | openpyxl | 가상 인구를 팀 시트와 같은 탭의 xlsx로 내보내기 | MIT |
+| 오픈소스 | python-dotenv | `.env` 읽기 | BSD-3 |
+| 오픈소스 | pytest | 테스트 | MIT |
+| 오픈소스 | Python 3.11, Node.js 20 | 백엔드와 화면 실행 환경 | PSF License, MIT |
+| 오픈소스 | TypeScript | 화면 코드 타입 검사 | Apache-2.0 |
+| 오픈소스 | ESLint, eslint-config-next | 화면 코드 정적 검사 | MIT |
+| 오픈소스 | @types/node, @types/react, @types/react-dom | 화면 코드 타입 정의 | MIT |
+| 오픈소스 | FFmpeg | 시연 영상 프레임을 MP4로 인코딩(`scripts/demo/assemble.py`) | LGPL-2.1 이상(빌드 구성에 따라 GPL-2.0 이상) |
 | 외부 API | 행정안전부 「대한민국 공공서비스(혜택) 정보」 (data.go.kr 15113968, gov24/v3) | 서비스 목록, 상세, 지원조건 코드 → 규칙 컴파일 입력. 상세의 지원대상, 선정기준, 신청기한을 대량 추출 원문으로 쓴다(`data/notices/gov24-*`, 626건). 검색 색인(`data/raw/gov24_*`) | data.go.kr 표기: 이용허락범위 제한 없음, 무료(공공누리 유형 표기 없음) — [공식 메타데이터](https://www.data.go.kr/catalog/15113968/openapi.json), 2026-11-01 확인 |
 | 외부 API | 한국사회보장정보원 「지자체복지서비스」 (data.go.kr 15108347) | 시도, 시군구, 생애주기, 산문 4칸, 검색 색인(`data/raw/ssis_local*`) | data.go.kr 표기: 이용허락범위 제한 없음, 무료(공공누리 유형 표기 없음) — [공식 메타데이터](https://www.data.go.kr/catalog/15108347/openapi.json), 2026-11-01 확인 |
 | 외부 API | 한국사회보장정보원 「중앙부처복지서비스」 (data.go.kr 15090532) | 덤프 코드(`backend/data/sources.py`의 `ssis_central`)만 있다. 활용신청이 승인되지 않아(SERVICE_KEY_IS_NOT_REGISTERED) 받은 데이터가 없고 서비스에 쓰지 않는다 | data.go.kr 표기: 이용허락범위 제한 없음, 무료(공공누리 유형 표기 없음) — [공식 메타데이터](https://www.data.go.kr/catalog/15090532/openapi.json), 2026-11-01 확인 |
@@ -12,45 +38,29 @@
 | 외부 API | 한국토지주택공사 「분양임대공고별 상세정보 조회 서비스」 (data.go.kr 15057999) | 공고문 PDF 첨부 링크, 공급 일정(`data/raw/lh_detail`) | data.go.kr 표기: 이용허락범위 제한 없음, 무료(공공누리 유형 표기 없음) — [공식 메타데이터](https://www.data.go.kr/catalog/15057999/openapi.json), 2026-11-01 확인 |
 | 외부 API | 한국토지주택공사 「분양임대공고별 공급정보 조회 서비스」 (data.go.kr 15056765) | 덤프 코드(`lh_supply`)만 있다. 활용신청이 승인되지 않아 받은 데이터가 없고 서비스에 쓰지 않는다 | data.go.kr 표기: 이용허락범위 제한 없음, 무료(공공누리 유형 표기 없음) — [공식 메타데이터](https://www.data.go.kr/catalog/15056765/openapi.json), 2026-11-01 확인 |
 | 외부 API | 한국고용정보원 온통청년 「청년정책 API」 (youthcenter.go.kr) | 덤프 코드(`youth`)만 있다. 인증키를 발급받지 않아 받은 데이터가 없고 서비스에 쓰지 않는다 | 온통청년 회원 전용, 담당자 심사 후 인증키 발급(오픈 API 안내 페이지). 그 밖의 이용 조건은 안내 페이지에 표기 없음 |
-| 외부 서비스(채택·실발송 검증 전) | Google Gmail SMTP | 수신을 선택한 프로필의 이메일 알림. 2026-11-01 사용자 확인으로 Gmail 채택, 실제 계정 인증·수신 검증은 별도 | [Google 서비스 약관](https://policies.google.com/terms?hl=ko), [Gmail 공식 연결 안내](https://support.google.com/mail/answer/7126229?hl=ko) |
-| 외부 API | 네이토 API(대회 지급, Anthropic 방식): Claude Opus 4.8(`claude-opus-4-8`), Claude Haiku 4.5(`claude-haiku-4`) | 공고 원문에서 조건 추출(원문당 1회). Opus는 시연 공고와 개발용 평가, Haiku는 행안부 대량 추출. 스캔 PDF의 글자 인식(tesseract가 없을 때) | 대회 지급 |
-| 외부 서비스 | OpenAI ChatGPT, Anthropic Claude Sonnet 4.6(네이토 API) | 팀 개발 질의·코드 작성 보조에 사용(2026-11-01 사용자 확인). 발표 비교 실험 완료로 간주하지 않음 | 각 서비스 이용약관 |
-| 지급 자원 | GPU V100 서버(대회 지급) | 사용 중. KNN·CuPy 구성이 GPU 서버에 배치돼 있다는 사용자 파악 내용을 2026-11-01 기록. 실제 서버 기종·설치 버전·GPU 연산·성능은 직접 검증하지 않았고 L4와 동일 자원으로 간주하지 않음 | 대회 |
-| 오픈소스 | FastAPI, uv | API 서버, 패키지 관리 | MIT |
-| 오픈소스 | pydantic | 조건 JSON·프로필 스키마 검증 | MIT |
-| 오픈소스 | httpx | API 덤프 | BSD-3 |
-| 오픈소스 | pdfplumber | 공고 PDF 텍스트 추출 | MIT |
-| 오픈소스 | pypdfium2, Pillow (pdfplumber 의존성) | 스캔 PDF 쪽을 이미지로 그려 글자 인식에 넘기기 | Apache-2.0·BSD-3, MIT-CMU |
-| 오픈소스 | olefile | HWP(5.0) 파일 안의 본문 스트림 읽기. 레코드 해석은 한컴 공개 문서 「한글 문서 파일 형식 5.0」을 보고 직접 구현 | BSD-2 |
-| 오픈소스(선택) | Tesseract OCR(kor 학습 데이터) | 스캔 PDF 글자 인식과 줄 좌표. 깔린 PC에서만 쓰고, 없으면 네이토 API | Apache-2.0 |
-| 데이터 | 한컴 「한글 문서 파일 형식 5.0」 공개 문서 | HWP 레코드 구조 참고(코드는 직접 작성) | 한컴 공개 문서(출처 표기) |
-| 오픈소스 | SQLite (python 표준 `sqlite3`) | 기존 구현의 프로필·알림 저장. PostgreSQL 전환 완료 전 사용 이력 유지 | Public Domain |
-| 오픈소스 | PostgreSQL | 계정·세션·프로필·알림 저장(`backend/db/`, 스키마는 `backend/db/migrations/`) | PostgreSQL License |
-| 오픈소스 | psycopg 3 (`psycopg[binary]`) | 파이썬에서 PostgreSQL 연결 | LGPL-3.0 |
-| 오픈소스 | Next.js, React, Tailwind CSS | 화면 | MIT |
-| 오픈소스 | Mozilla PDF.js (`pdfjs-dist` 6.4.299, https://github.com/mozilla/pdf.js) | 프론트에서 세션 소유 원문 PDF를 렌더링하고 API evidence의 page·bbox 좌표로 근거 강조 | Apache-2.0, 패키지 LICENSE 및 NOTICE 유지 |
-| 오픈소스 | scikit-learn, NumPy | 가상 인구 비슷한 가구(최근접 이웃), 평가 지표. NumPy는 검색 점수(글자 2-gram BM25, `backend/search/index.py`에 직접 구현)에도 쓴다 | BSD-3 |
-| 오픈소스(사용자 배치 보고·서버 검증 대기) | [CuPy](https://github.com/cupy/cupy) — 실제 GPU 전용 패키지명·버전은 서버 설치 내역 확인 대기 | GPU 서버에서 기존 NumPy KNN의 거리 계산·이웃 선택을 실행하는 구성. 설계의 L4 구성과 V100 사용 보고를 구분한다. 결측 제외·k번째 동거리 포함·원본 행 순서 유지. 일반 서버는 전처리·규칙 판정·추천 후처리 담당 | [MIT — CuPy 본체](https://github.com/cupy/cupy/blob/main/LICENSE). [공식 설치 안내](https://docs.cupy.dev/en/stable/install.html). 사용자는 GPU 서버의 KNN·CuPy 배치를 보고했으며, 정확한 설치 버전·연동·GPU 연산은 직접 검증 전 |
-| 오픈소스 | pandas, pyarrow | 가상 인구 표 저장(parquet) | BSD-3, Apache-2.0 |
-| 오픈소스 | DuckDB | Hugging Face의 parquet에서 필요한 열·행만 읽기(가상 인구 원본) | MIT |
-| 오픈소스 | openpyxl | 가상 인구를 팀 시트와 같은 탭의 xlsx로 내보내기 | MIT |
-| 오픈소스 | python-dotenv | `.env` 읽기 | BSD-3 |
-| 오픈소스 | pytest | 테스트 | MIT |
-| 오픈소스 | react-pdf, pdf.js | 원문 PDF 보기와 근거 줄 하이라이트 | MIT, Apache-2.0 |
-| 데이터 | 보건복지부 「2026년 기준 중위소득」 보도자료 (2025-07-31) | 소득 밴드 상수 (1~6인) | 공공저작물 |
-| 데이터 | 보건복지부 기초연금 2026년 선정기준액 고시 (단독 247만, 부부 395.2만) | 카드 note·조건표 | 공공저작물 |
-| 데이터 | 손 조건표 17개 원문: 주택도시기금, 서울주거포털, 복지로, 보건복지부, LH, 국가법령정보센터, 정부24(각 `rules/manual/*.json`의 `detail_url`, 원문은 `data/notices/`) | 손 조건표 근거 | 공공저작물 (링크 기재) |
-| 데이터 | 국가법령정보센터 「주택공급에 관한 규칙」(국토교통부령 제1592호, 2026-06-15 시행) PDF (https://www.law.go.kr/법령/주택공급에관한규칙, `data/notices/law-housing-supply.pdf`) | 청약 특별공급 손 조건표(신혼부부, 생애최초, 다자녀)의 근거 | 공공저작물(법령, 저작권 보호 대상 아님) |
-| 데이터 | 복지로 공지 「2026년 청년월세 지원 신청 안내」(2026-03-20, https://www.bokjiro.go.kr/ssis-tbu/cms/pc/customer/notice/1309500_1141.html, `data/notices/bokjiro-youth-rent-2026.txt`) | 시연 함정 청년월세(2026) 손 조건표의 신청 기간 근거 | 공공저작물 (링크 기재) |
-| 데이터 | 서울시 보도자료 「청년 임차보증금 이자지원」(2026-05-19, https://www.seoul.go.kr/news/news_report.do?nttNo=458236) | 서울 청년 임차보증금 이자지원 조건표의 기혼 부부합산 소득 해석(note) | 공공저작물 (링크 기재) |
-| 데이터 | 공고 투입 시연용 PDF 2건: LH 「안산신길2 A-6블록 신혼희망타운(공공분양) 입주자모집공고」(https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69223600, `data/notices/lh-0000061189.pdf`), 「인천부평(도시재생뉴딜) 행복주택 입주자 최초 모집」(https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69040764, `data/notices/lh-2015122300020925.pdf`). 읽은 결과는 `data/notices/_ingest_cache/`에 캐시 | 시연 | 공공저작물 |
-| 데이터 | LH 공고문 PDF 8건(LH 상세 API의 첨부 링크에서 2026-10-31에 받음, `data/notices/lh-<공고ID>.pdf`). 신혼희망타운: 시흥하중 A1 잔여세대(공고ID 0000061165, https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69083286), 안산신길2 A-6(0000061189, fileid=69223600), 인천가정2 A-2 잔여세대(0000061197, fileid=69224266). 행복주택: 전주1산단(2015122300020916, fileid=68998825), 완주삼례A-1(2015122300020917, fileid=68998510), 인천부평 도시재생뉴딜(2015122300020925, fileid=69040764). 다자녀 매입임대: 경남 의령군 화정면(2015122300020928, fileid=69107811), 경남 거창군 신원면(2015122300020933, fileid=69108015) | 원문 줄 목록과 근거 줄, LH 다자녀 매입임대 손 조건표 근거, 공고 읽기 입력 | 공공저작물 (출처 기재) |
-| 데이터 | 정부24 발급 서비스 목록 | 서류 사전 발급처 확인 | 공공 |
-| 데이터 | NVIDIA Nemotron-Personas-Korea (https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea), 19~39세 1만 명의 10개 열(`data/raw/nemotron/`) | 가상 인구 뼈대(성별, 나이, 지역, 혼인, 가구 형태, 직업, 페르소나 글) | CC BY 4.0 (출처 표기) |
-| 데이터 | 통계청 「2024년 혼인·이혼 통계」 평균 초혼연령(남 33.9세, 여 31.6세, 2025-03-20 발표) | 가상 인구의 혼인 연령 | 공공저작물 |
-| 사전 보유 코드 | 해당 없음. 레포 첫 커밋 시각 2026-10-31 17:16 KST(`12190b9`, 주제 공개 10/30 10:00 이후). 팀원의 기존 파인튜닝·서빙 스크립트 반입 없음 | | |
-| 개발 도구 | Visual Studio Code, Google Antigravity IDE | 팀 개발 IDE(2026-11-01 사용자 확인). IDE 이름을 실제 사용한 AI 모델명으로 대신하지 않음 | [VS Code 제품 라이선스](https://code.visualstudio.com/license), [Antigravity 공식 안내](https://antigravity.google/) 및 해당 서비스 약관 |
-| 기타 | OpenAI Codex, Anthropic Claude Code | 코드 작성·테스트·PR 리뷰 보조. Codex는 평가·제출 작업에 사용했고 Claude Code는 [PR #42](https://github.com/2026-Codyssey-HakerTon26-10/zinggumdari/pull/42)의 생성 표기로 확인 | 상용(각 서비스 이용약관) |
+| 외부 API | 네이토 API(대회 지급, Anthropic 방식): Claude Opus 4.8(요청 `claude-opus-4-8`), Claude Haiku 4.5(요청 `claude-haiku-4`, 응답 모델 `claude-haiku-4-5-20251001`) | 공고 원문에서 조건 추출(원문당 1회). Opus는 시연 공고와 개발용 평가, Haiku는 행안부 대량 추출. 스캔 PDF의 글자 인식(tesseract가 없을 때) | 대회 지급 |
+| 사전 보유 코드 | 해당 없음 | 주제 공개(10/30 10:00) 이후 대회 기간에 직접 개발했다. 레포 첫 커밋 2026-10-31 17:16 KST(`12190b9`). 팀원의 기존 프로젝트·스크립트 반입 없음 | 해당 없음 |
+| 기타 | Google Gmail SMTP | 수신을 선택한 프로필에 이메일 알림 발송. 실제 계정 인증과 수신 검증은 별도 | [Google 서비스 약관](https://policies.google.com/terms?hl=ko), [Gmail 공식 연결 안내](https://support.google.com/mail/answer/7126229?hl=ko) |
+| 기타 | OpenAI ChatGPT, Anthropic Claude Sonnet 4.6(네이토 API) | 팀 개발 질의·코드 작성 보조에 사용(2026-11-01 사용자 확인). 발표 비교 실험 완료로 간주하지 않음 | 각 서비스 이용약관 |
+| 기타 | GPU V100 서버(대회 지급) | CuPy KNN 계산 구성을 올린 GPU 서버(팀원 보고). 서비스 기본 실행 경로(판정·추천)는 CPU에서 돈다 | 대회 지급 자원 |
+| 기타 | (데이터) 한컴 「한글 문서 파일 형식 5.0」 공개 문서 | HWP 레코드 구조 참고(코드는 직접 작성) | 한컴 공개 문서(출처 표기) |
+| 기타 | (데이터) 보건복지부 「2026년 기준 중위소득」 보도자료 (2025-07-31) | 소득 밴드 상수 (1~6인) | 공공저작물 |
+| 기타 | (데이터) 보건복지부 기초연금 2026년 선정기준액 고시 (단독 247만, 부부 395.2만) | 카드 note·조건표 | 공공저작물 |
+| 기타 | (데이터) 손 조건표 17개 원문: 주택도시기금, 서울주거포털, 복지로, 보건복지부, LH, 국가법령정보센터, 정부24(각 `rules/manual/*.json`의 `detail_url`, 원문은 `data/notices/`) | 손 조건표 근거 | 공공저작물 (링크 기재) |
+| 기타 | (데이터) 국가법령정보센터 「주택공급에 관한 규칙」(국토교통부령 제1592호, 2026-06-15 시행) PDF (https://www.law.go.kr/법령/주택공급에관한규칙, `data/notices/law-housing-supply.pdf`) | 청약 특별공급 손 조건표(신혼부부, 생애최초, 다자녀)의 근거 | 공공저작물(법령, 저작권 보호 대상 아님) |
+| 기타 | (데이터) 복지로 공지 「2026년 청년월세 지원 신청 안내」(2026-03-20, https://www.bokjiro.go.kr/ssis-tbu/cms/pc/customer/notice/1309500_1141.html, `data/notices/bokjiro-youth-rent-2026.txt`) | 시연 함정 청년월세(2026) 손 조건표의 신청 기간 근거 | 공공저작물 (링크 기재) |
+| 기타 | (데이터) 서울시 보도자료 「청년 임차보증금 이자지원」(2026-05-19, https://www.seoul.go.kr/news/news_report.do?nttNo=458236) | 서울 청년 임차보증금 이자지원 조건표의 기혼 부부합산 소득 해석(note) | 공공저작물 (링크 기재) |
+| 기타 | (데이터) 공고 투입 시연용 PDF 2건: LH 「안산신길2 A-6블록 신혼희망타운(공공분양) 입주자모집공고」(https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69223600, `data/notices/lh-0000061189.pdf`), 「인천부평(도시재생뉴딜) 행복주택 입주자 최초 모집」(https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69040764, `data/notices/lh-2015122300020925.pdf`). 읽은 결과는 `data/notices/_ingest_cache/`에 캐시 | 시연 | 공공저작물 |
+| 기타 | (데이터) LH 공고문 PDF 8건(LH 상세 API의 첨부 링크에서 2026-10-31에 받음, `data/notices/lh-<공고ID>.pdf`). 신혼희망타운: 시흥하중 A1 잔여세대(공고ID 0000061165, https://apply.lh.or.kr/lhapply/lhFile.do?fileid=69083286), 안산신길2 A-6(0000061189, fileid=69223600), 인천가정2 A-2 잔여세대(0000061197, fileid=69224266). 행복주택: 전주1산단(2015122300020916, fileid=68998825), 완주삼례A-1(2015122300020917, fileid=68998510), 인천부평 도시재생뉴딜(2015122300020925, fileid=69040764). 다자녀 매입임대: 경남 의령군 화정면(2015122300020928, fileid=69107811), 경남 거창군 신원면(2015122300020933, fileid=69108015) | 원문 줄 목록과 근거 줄, LH 다자녀 매입임대 손 조건표 근거, 공고 읽기 입력 | 공공저작물 (출처 기재) |
+| 기타 | (데이터) 정부24 발급 서비스 목록 | 서류 사전 발급처 확인 | 공공 |
+| 기타 | (데이터) NVIDIA Nemotron-Personas-Korea (https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea), 19~39세 1만 명의 10개 열(`data/raw/nemotron/`) | 가상 인구 뼈대(성별, 나이, 지역, 혼인, 가구 형태, 직업, 페르소나 글) | CC BY 4.0 (출처 표기) |
+| 기타 | (데이터) 통계청 「2024년 혼인·이혼 통계」 평균 초혼연령(남 33.9세, 여 31.6세, 2025-03-20 발표) | 가상 인구의 혼인 연령 | 공공저작물 |
+| 기타 | Visual Studio Code, Google Antigravity IDE | 팀 개발 IDE(2026-11-01 사용자 확인). IDE 이름을 실제 사용한 AI 모델명으로 대신하지 않음 | [VS Code 제품 라이선스](https://code.visualstudio.com/license), [Antigravity 공식 안내](https://antigravity.google/) 및 해당 서비스 약관 |
+| 기타 | OpenAI Codex, Anthropic Claude Code(Claude Opus 5.5 등) | 코드 작성·테스트·PR 리뷰 보조. Codex는 평가·제출 작업에 사용했고 Claude Code는 [PR #42](https://github.com/2026-Codyssey-HakerTon26-10/zinggumdari/pull/42)의 생성 표기로 확인 | 상용(각 서비스 이용약관) |
+| 기타 | Google Chrome(헤드리스, DevTools Protocol) | 시연 영상 자동 촬영(`scripts/demo/record.mjs`) | Google Chrome 이용약관 |
+| 기타 | Vercel | 화면 배포(https://zinggumdari.vercel.app)와 API 프록시 | Vercel 이용약관 |
+| 기타 | Render | 백엔드 API 배포 | Render 이용약관 |
+| 기타 | GitHub, GitHub Actions | 소스 저장소와 CI(외부 자원 기재·키 노출 검사, 백엔드 테스트, 화면 빌드) | GitHub 이용약관 |
 
 
 PostgreSQL 드라이버는 psycopg 3, 마이그레이션은 별도 도구 없이 `backend/db/migrations/*.sql` 번호 파일과 적용기(`backend/db/migrate.py`)로 한다. 비밀번호 해시는 파이썬 표준 라이브러리 `hashlib.scrypt`를 쓴다(#38). 외부 패키지를 추가하지 않았으므로 표에 따로 적지 않는다.
