@@ -1,7 +1,10 @@
 "use client"; // 슬라이드 전환이 사용자 화면에서 동작해요.
 
-import { useState, useEffect, useCallback } from "react"; // 현재 배너 번호, 자동 전환, 클릭 핸들러를 관리해요.
+import { useState, useEffect, useCallback, type MouseEvent } from "react"; // 현재 배너 번호, 자동 전환, 클릭 핸들러를 관리해요.
 import Link from "next/link"; // CTA 버튼을 서비스 화면으로 연결해요.
+import { useRouter } from "next/navigation"; // 세션 확인 뒤 알맞은 화면으로 이동해요.
+import { me, ServiceError } from "../lib/service-api"; // HttpOnly 쿠키는 직접 읽지 않고 서버 세션으로 로그인 여부를 확인해요.
+import { authEntryHref, type AuthDestination } from "../lib/auth-validation"; // 비로그인 사용자는 가입 뒤 고른 화면으로 돌아오게 해요.
 import { Icon } from "./ui"; // 공통 아이콘을 그려요.
 import { JourneyPreview } from "./journey-preview"; // 오른쪽에 다섯 단계 그림을 보여줘요.
 
@@ -14,8 +17,8 @@ const banners = [ // 순환할 배너 두 개를 정의해요.
         headlineAccent: "먼저 찾아드려요", // 파란색으로 강조할 핵심 문구예요.
         description: "나와 부모님 정보를 고르기만 하면,\n받을 수 있는 제도와 거의 해당하는 제도를\n공고 원문 근거와 함께 보여드려요.", // 첫 번째 배너의 설명이에요.
         actions: [ // 첫 번째 배너의 CTA 버튼 목록이에요.
-            { href: "/signup", label: "3분 만에 확인하기", icon: "arrow-right", primary: true },
-            { href: "/my?subject=parent", label: "부모님 대신 확인하기", icon: "family", primary: false }, // 로그인 상태에 따라 부모님 추천 흐름을 이어가요.
+            { href: "/my", auth: "/my" as AuthDestination, label: "3분 만에 확인하기", icon: "arrow-right", primary: true }, // 로그인했다면 내 추천으로 바로, 아니면 가입으로 보내요.
+            { href: "/my?subject=parent", auth: "/my?subject=parent" as AuthDestination, label: "부모님 대신 확인하기", icon: "family", primary: false }, // 로그인 상태에 따라 부모님 추천 흐름을 이어가요.
         ],
     },
     {
@@ -24,8 +27,8 @@ const banners = [ // 순환할 배너 두 개를 정의해요.
         headlineAccent: "함께 챙겨드려요", // 두 번째 배너에서 강조할 문구예요.
         description: "기초연금, 돌봄, 장기요양까지.\n부모님 상황에 맞는 제도를 대신 확인해드려요.\n멀리 계셔도 괜찮아요.", // 두 번째 배너의 설명이에요.
         actions: [ // 두 번째 배너의 CTA 버튼 목록이에요.
-            { href: "/my?subject=parent", label: "부모님 혜택 확인하기", icon: "arrow-right", primary: true }, // 이미 로그인했다면 부모님 추천으로 바로 이동해요.
-            { href: "/search", label: "직접 공고 검색하기", icon: "search", primary: false },
+            { href: "/my?subject=parent", auth: "/my?subject=parent" as AuthDestination, label: "부모님 혜택 확인하기", icon: "arrow-right", primary: true }, // 이미 로그인했다면 부모님 추천으로 바로 이동해요.
+            { href: "/search", auth: undefined, label: "직접 공고 검색하기", icon: "search", primary: false }, // 검색은 로그인 없이 열 수 있어요.
         ],
     },
 ];
@@ -35,6 +38,27 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
     const [hovered, setHovered] = useState(false); // 마우스가 배너 위에 있는지만 따로 기억해요.
     const [paused, setPaused] = useState(false); // 사용자가 정지하거나 키보드로 접근한 상태를 유지해요.
     const [reducedMotion, setReducedMotion] = useState(true); // 움직임 설정을 읽기 전에는 자동 전환을 시작하지 않아요.
+    const [session, setSession] = useState<"loading" | "signed_in" | "signed_out" | "unknown">("loading"); // 서버가 확인한 로그인 상태예요.
+    const router = useRouter(); // 클릭 시점에 세션을 확인한 뒤 이동해요.
+
+    useEffect(() => { // 랜딩에 들어오면 서버 세션을 한 번 확인해요.
+        const controller = new AbortController(); // 화면을 떠난 뒤 도착한 응답은 반영하지 않아요.
+        me(controller.signal).then(() => { if (!controller.signal.aborted) setSession("signed_in"); }).catch((cause) => { if (!controller.signal.aborted) setSession(cause instanceof ServiceError && cause.status === 401 ? "signed_out" : "unknown"); }); // 401일 때만 비로그인으로 보고 연결 실패는 따로 구분해요.
+        return () => controller.abort(); // 화면을 떠나면 요청을 취소해요.
+    }, []); // 처음 한 번만 확인해요.
+
+    function actionHref(action: { href: string; auth?: AuthDestination }) { // 로그인 상태에 맞는 이동 주소를 골라요.
+        if (!action.auth || session !== "signed_out") return action.href; // 로그인했거나 확인 중이면 원래 화면 주소를 써요.
+        return authEntryHref("signup", action.auth); // 비로그인이면 가입 뒤 고른 화면으로 돌아오게 해요.
+    } // 주소 선택을 마쳐요.
+
+    async function openAction(event: MouseEvent<HTMLAnchorElement>, auth?: AuthDestination) { // 세션 확인이 끝나기 전 클릭도 올바른 화면으로 보내요.
+        if (!auth || session === "signed_in" || session === "signed_out") return; // 이미 상태를 알면 링크 기본 이동을 그대로 써요.
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return; // 새 탭 열기 같은 브라우저 동작은 막지 않아요.
+        event.preventDefault(); // 확인 전에는 잠시 이동을 멈춰요.
+        try { await me(); router.push(auth); } // 로그인되어 있으면 원하는 화면으로 바로 가요.
+        catch (cause) { router.push(cause instanceof ServiceError && cause.status === 401 ? authEntryHref("signup", auth) : auth); } // 비로그인일 때만 가입으로 보내고, 연결 실패는 화면에서 안내하게 해요.
+    } // 클릭 처리를 마쳐요.
 
     const goNext = useCallback(() => { // 다음 배너로 이동하는 함수예요.
         setCurrent((prev) => (prev + 1) % banners.length); // 마지막 배너 뒤엔 첫 번째로 돌아와요.
@@ -84,7 +108,8 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
                             <Link
                                 key={index} // 같은 위치의 링크 요소를 유지해 불필요한 포커스 손실을 줄여요.
                                 className={`button button-large ${action.primary ? "button-primary" : "button-secondary"}`}
-                                href={action.href}
+                                href={actionHref(action)} // 로그인 상태에 맞는 주소로 이동해요.
+                                onClick={(event) => void openAction(event, action.auth)} // 세션 확인 전 클릭도 처리해요.
                             >
                                 {!action.primary && <Icon name={action.icon} />} {/* 보조 버튼은 왼쪽 아이콘이에요. */}
                                 {action.label}

@@ -7,6 +7,7 @@ import { LoadingState } from "./loading-state"; // 인증 요청 중 진행 상�
 import { SIGNUP_EMAIL_PATTERN, SIGNUP_PASSWORD_PATTERN, validSignupEmail, validSignupPassword, validSignupNickname, validPasswordConfirmation, authDestinationFromSearch, authEntryHref, type AuthDestination } from "../lib/auth-validation"; // 가입 검사와 안전한 다음 화면 규칙을 함께 사용해요.
 import { Icon } from "./ui"; // 기존 서비스와 같은 선 아이콘을 사용해요.
 import { signup as apiSignup, login as apiLogin, AuthError, setAccountData } from "../lib/auth"; // 백엔드 인증 API를 호출해요.
+import { me } from "../lib/service-api"; // 서버 세션으로 이미 로그인했는지 확인해요.
 
 type PasswordFieldProps = { // 두 화면에서 함께 쓰는 비밀번호 입력칸의 설정을 정해요.
     id: string; // 각 입력칸을 구분하는 고유한 이름이에요.
@@ -74,6 +75,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
     const isPasswordInvalid = isSignup && passwordTouched && !validSignupPassword(password); // 한글·공백·문자와 숫자 누락을 비밀번호 칸 가까이 알려줘요.
     const pwStrength = { min8: password.length >= 8 && password.length <= 128, hasLetter: /[A-Za-z]/.test(password), hasNumber: /[0-9]/.test(password), asciiOnly: password.length > 0 && /^[\x21-\x7E]+$/.test(password) }; // 실제 허용 규칙과 같은 영문·숫자·ASCII 조건을 안내해요.
     useEffect(() => { let active = true; void Promise.resolve().then(() => { if (active) setDestination(authDestinationFromSearch(window.location.search)); }); return () => { active = false; }; }, []); // URL 훅 없이 화면에 들어온 뒤 안전한 다음 화면만 보존해요.
+    useEffect(() => { const controller = new AbortController(); me(controller.signal).then(() => { if (!controller.signal.aborted) router.replace(authDestinationFromSearch(window.location.search)); }).catch(() => undefined); return () => controller.abort(); }, [router]); // 이미 로그인한 사용자는 가입·로그인 화면 대신 고른 추천 화면으로 바로 보내요.
     // 전체 동의 상태 계산 — 지원되는 필수 두 항목만 판단해요.
     const allChecked = consents.terms && consents.privacy; // 전체 선택은 현재 지원되는 필수 두 항목만 대상으로 해요.
     const someChecked = (consents.terms || consents.privacy) && !allChecked; // 미지원 선택 동의는 전체 상태에 포함하지 않아요.
