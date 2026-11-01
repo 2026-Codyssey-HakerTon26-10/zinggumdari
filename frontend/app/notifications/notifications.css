@@ -8,10 +8,6 @@
 .notifications-heading-icon { position: relative; display: grid; place-items: center; width: 82px; height: 82px; border: 1px solid #e2edf6; border-radius: 23px; background: #eef6ff; color: #397fc2; transform: rotate(8deg); } /* 제목 옆에 종 모양의 장식을 둡니다. */
 .notifications-heading-icon > svg { width: 33px; height: 33px; transform: rotate(-8deg); } /* 장식 아이콘의 크기와 방향입니다. */
 .notifications-heading-icon > span { position: absolute; top: 21px; right: 22px; width: 8px; height: 8px; border: 2px solid #eef6ff; border-radius: 50%; background: #66a3df; } /* 종 옆에 작은 알림 점을 넣습니다. */
-.notifications-demo-note { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 30px; padding: 16px 18px; border: 1px solid #e5e7eb; border-radius: 10px; background: #fff; color: #7a8ea3; font-size: 13px; line-height: 1.8; } /* 시연 안내 패널을 흰색과 중립 회색 테두리로 표시합니다. */
-.notifications-demo-note > svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: #7399bc; } /* 예시 안내의 아이콘입니다. */
-.notifications-demo-note p { margin: 0; } /* 안내 문구의 기본 여백을 제거합니다. */
-.notifications-demo-note strong { color: #56738e; font-weight: 600; } /* 시연이라는 핵심 문구를 강조합니다. */
 .notifications-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; align-items: start; gap: 28px; } /* 넓은 화면에서 목록과 설정 안내를 두 열로 나눕니다. */
 .notifications-inbox { min-width: 0; } /* 긴 알림 제목이 전체 열을 밀어내지 않게 합니다. */
 .notifications-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; min-height: 51px; border-bottom: 1px solid #e5e7eb; } /* 알림 도구를 중립 회색 경계선 위에 배치합니다. */

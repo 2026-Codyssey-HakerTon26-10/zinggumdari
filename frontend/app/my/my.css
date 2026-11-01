@@ -7,8 +7,6 @@
 .my-heading h1 { margin: 10px 0 12px; font-size: clamp(26px, 3vw, 36px); font-weight: 750; letter-spacing: -1.4px; line-height: 1.4; color: #123653; } /* 대시보드의 주요 제목을 보여줘요. */
 .my-heading .muted { font-size: 14px; } /* 제목 아래 설명을 작게 보여줘요. */
 .my-mobile-break { display: none; } /* 넓은 화면에서는 제목을 한 줄로 보여줘요. */
-.my-demo-label { flex-shrink: 0; display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; background: #fff; border: 1px solid #e5e7eb; border-radius: 30px; font-size: 13px; color: #64798a; } /* 흰색 바탕과 중립 테두리로 가상 사례 배지를 만들어요. */
-.my-demo-label > span { width: 6px; height: 6px; background: #5c91bc; border-radius: 100%; } /* 시연 배지의 작은 점을 그려요. */
 .my-profile { display: flex; align-items: center; gap: 18px; padding: 24px 28px; border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; margin-bottom: 34px; } /* 프로필 요약을 흰색 패널과 중립 테두리에 담아요. */
 .my-avatar { width: 64px; height: 64px; display: grid; place-items: center; background: #eaf4ff; border-radius: 20px; color: #2474c7; flex-shrink: 0; } /* 프로필 아이콘의 배경을 만들어요. */
 .my-avatar svg { width: 31px; height: 31px; } /* 프로필 아이콘 크기를 정해요. */

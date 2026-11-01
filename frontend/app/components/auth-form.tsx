@@ -192,8 +192,6 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) { // 같은 디
                 {feedback && <p className="auth-status" role="alert">{feedback}</p>} {/* 제출 후 안내를 화면과 보조기기에 함께 전달해요. */}
                 <button className="button button-primary auth-submit" type="submit" disabled={loading} aria-busy={loading}>{loading ? (isSignup ? "가입하는 중…" : "로그인 중…") : (isSignup ? "가입하고 시작하기" : "로그인")}{!loading && <Icon name="arrow-right" />}</button> {/* 요청 중에는 버튼을 비활성화하고 상태를 글자로 알려줘요. */}
             </form> {/* 로그인과 회원가입 입력 영역을 마쳐요. */}
-            <div className="auth-divider"><span>또는</span></div> {/* 계정 입력과 화면 둘러보기를 구분해요. */}
-            <Link className="button button-secondary auth-guest" href="/demo">가상 사례로 화면 둘러보기<Icon name="chevron-right" /></Link> {/* 입력 없이 기존 시연 화면으로 이동할 수 있어요. */}
             <p className="auth-switch">{isSignup ? "이미 징검다리 계정이 있으신가요?" : "징검다리가 처음이신가요?"}<Link href={authEntryHref(isSignup ? "login" : "signup", destination)}>{isSignup ? "로그인" : "회원가입"}<Icon name="arrow-right" /></Link></p> {/* 두 계정 화면을 서로 연결해요. */}
         </section> // 폼 카드의 구성을 마쳐요.
     ); // 폼 화면을 반환해요.

@@ -117,7 +117,7 @@ export function HeroBanner() { // 두 배너를 자동으로 순환해서 보여
                             </Link>
                         ))}
                     </div>
-                    <p className="hero-action-note">회원가입 후 나의 정보를 이어서 살펴봐요 · 현재는 시연용 화면이에요</p> {/* 시작 조건을 안내해요. */}
+                    <p className="hero-action-note">회원가입 후 나의 정보를 이어서 살펴봐요</p> {/* 시작 조건을 안내해요. */}
                     <div className="hero-trust"> {/* 신뢰 안내 요소를 나열해요. */}
                         <span><Icon name="shield" />주민등록번호 입력 없이</span>
                         <span><Icon name="file" />공고 원문 근거와 함께</span>

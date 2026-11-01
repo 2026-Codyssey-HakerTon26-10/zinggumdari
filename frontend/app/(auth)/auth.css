@@ -56,11 +56,6 @@
 .auth-submit:hover { border-color: #185eab; background: #185eab; } /* 주 버튼에 마우스를 올리면 파란색을 조금 진하게 합니다. */
 .auth-submit:disabled { opacity: .5; cursor: not-allowed; } /* 제출할 수 없을 때 버튼을 비활성화합니다. */
 .auth-submit svg { width: 16px; height: 16px; } /* 주 버튼 안의 아이콘 크기입니다. */
-.auth-divider { display: flex; align-items: center; gap: 13px; margin: 24px 0 17px; color: #b2bbc3; font-size: 13px; } /* 다른 시작 방법을 입력 폼과 구분합니다. */
-.auth-divider::before, .auth-divider::after { height: 1px; flex: 1; background: #eef0f3; content: ""; } /* 구분 문구 양쪽에 중립 회색 선을 넣습니다. */
-.auth-guest { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; padding: 11px 15px; border: 1px solid #e5e7eb; border-radius: 9px; background: #fff; color: #718698; font: inherit; font-size: 13px; cursor: pointer; transition: border-color .2s; } /* 로그인 없이 둘러보기는 흰색 보조 버튼으로 표시합니다. */
-.auth-guest:hover { border-color: #bac7d2; } /* 보조 버튼에 마우스를 올리면 경계를 강조합니다. */
-.auth-guest svg { width: 15px; height: 15px; } /* 둘러보기 버튼 안의 아이콘 크기입니다. */
 .auth-switch { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; color: #9aa5af; font-size: 13px; line-height: 1.8; } /* 로그인과 가입 화면 사이를 이동하는 문구입니다. */
 .auth-switch .auth-inline-link { font-weight: 600; } /* 다른 인증 화면으로 가는 링크를 강조합니다. */
 .auth-switch a { display: inline-flex; align-items: center; gap: 5px; color: #5e88b1; font-weight: 600; } /* 다른 인증 화면으로 가는 링크와 아이콘을 나란히 정렬합니다. */
