@@ -23,6 +23,10 @@ def todos(rule: dict, rows: list[dict], person: dict, today) -> list[dict]:
         action = ACTION.get(cond.get("field"))
         if not action or action == "ltc_grade_apply" or not cond.get("evidence", group.get("evidence")):
             continue
+        if cond["field"] in ("sido", "sigungu") and person.get(cond["field"]) and cond.get("op") in ("==", "in"):
+            want = cond["value"] if isinstance(cond["value"], list) else [cond["value"]]
+            if person[cond["field"]] not in want:
+                continue   # 다른 지역 주민용 조건(가지)이다. 이사하라는 해둘 일로 내지 않는다
         item = {"action": action, "read_as": read_as(cond), "status": STATUS[ok_of.get(id(group))],
                 "evidence": group.get("evidence") or []}
         if cond.get("as_of"):

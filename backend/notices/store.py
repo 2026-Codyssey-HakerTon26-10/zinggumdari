@@ -109,6 +109,30 @@ def save_meta(meta: dict, notices_dir: Path | None = None) -> None:
     _write_atomic(path, json.dumps(meta, ensure_ascii=False, indent=2))
 
 
+_LINES: dict[tuple, tuple] = {}   # (폴더, doc_id) → (파일 시각, 머리, 줄 ID별 줄). 판정마다 원문 수백 개를 다시 읽지 않는다
+
+
+def _doc_lines(doc_id: str, notices_dir: Path | None) -> tuple[dict | None, dict]:
+    """근거 줄 조회용 읽기 전용 캐시. 머리·줄 파일이 바뀌면(시각·크기) 다시 읽는다."""
+    base = _base(notices_dir)
+    paths = (base / f"{doc_id}.meta.json", base / f"{doc_id}.lines.json")
+    stamp = tuple((st.st_mtime_ns, st.st_size) if (st := _stat(p)) else None for p in paths)
+    hit = _LINES.get((str(base), doc_id))
+    if hit and hit[0] == stamp:
+        return hit[1], hit[2]
+    meta, lines = _read(paths[0]), _read(paths[1])
+    value = (meta, {ln["id"]: ln for ln in lines or []})
+    _LINES[(str(base), doc_id)] = (stamp, *value)
+    return value
+
+
+def _stat(path: Path):
+    try:
+        return path.stat()
+    except OSError:
+        return None
+
+
 def evidence(ids: list[str], notices_dir: Path | None = None, owner: str | None = None) -> list[dict]:
     """근거 ID 목록 → [{"id", "page", "bbox", "text"}]. 카드의 evidence 모양(api.md §3).
 
@@ -120,11 +144,10 @@ def evidence(ids: list[str], notices_dir: Path | None = None, owner: str | None 
     for eid in ids:
         doc_id, _, line_id = eid.partition(":")
         if doc_id not in cache:
-            meta = load_meta(doc_id, notices_dir) if valid_doc_id(doc_id) else None
+            meta, lines = _doc_lines(doc_id, notices_dir) if valid_doc_id(doc_id) else (None, {})
             allowed = bool(meta) and (meta.get("source") != "upload"
                                       or bool(owner and meta.get("uploaded_by") and meta["uploaded_by"] == owner))
-            lines = load_lines(doc_id, notices_dir) if allowed else None
-            cache[doc_id] = {ln["id"]: ln for ln in lines or []}
+            cache[doc_id] = lines if allowed else {}
         ln = cache[doc_id].get(line_id)
         out.append({"id": eid, "page": ln and ln["page"], "bbox": ln and ln["bbox"], "text": ln and ln["text"]})
     return out
