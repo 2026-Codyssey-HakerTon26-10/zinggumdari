@@ -1,6 +1,14 @@
 export type SearchHit = { service_id: string; rule_id: string | null; name: string; org: string | null; region: { sido?: string | null; sigungu?: string | null; unknown?: boolean } | string | null; subject: "self" | "parent"; snippet: string; badge: "eligible" | "similar" | "needs_check" | "ineligible" | "no_rule" | null; detail_url: string | null; updated: string | null }; // 검색 API에서 화면이 사용하는 결과 모양이에요.
 export type SearchResponse = { q: string; results: SearchHit[]; judge: "engine" | "fake" }; // 검색어와 판정 연결 상태를 결과와 함께 받아요.
 export type SearchSubject = "all" | "self" | "parent"; // 서버가 지원하는 대상 필터만 사용해요.
+export function formatSourceDate(value: string | null): string { // 원문의 숫자 날짜를 읽기 쉬운 형식으로 표시해요.
+    if (!value) return "원문에서 확인 필요"; // 기준일이 없으면 날짜를 지어내지 않아요.
+    const compact = /^(\d{4})(\d{2})(\d{2})(?:\d{2})?$/.exec(value); // API의 연월일과 연월일시 표기만 변환해요.
+    if (!compact) return value; // 이미 표시 가능한 날짜나 다른 원문 값은 그대로 남겨요.
+    const date = `${compact[1]}-${compact[2]}-${compact[3]}`; // 원문의 연월일 순서를 유지해 구분선을 넣어요.
+    const parsed = new Date(`${date}T00:00:00Z`); // 실제 달력에 있는 날짜인지 확인해요.
+    return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === date ? date : value; // 잘못된 원문 날짜를 임의로 보정하지 않아요.
+} // 기준일 표시를 마쳐요.
 export function safeSourceUrl(value: string | null): string | null { // 외부 공고 링크를 클릭하기 전에 주소 형식을 제한해요.
     try { // 잘못된 URL 때문에 카드 렌더링이 중단되지 않게 해요.
         const url = new URL(value ?? ""); // 절대 URL만 허용해요.

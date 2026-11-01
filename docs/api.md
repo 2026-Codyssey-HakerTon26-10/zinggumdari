@@ -4,6 +4,39 @@
 > 아홉 모양이다. ① 조건 JSON(규칙표 한 행) ② 프로필(폼 결과, 나, 부모) ③ 판정 결과 ④ 서류 사전 ⑤ 알림 ⑥ 공고 투입. ①이 핵심이다: AI 공고 읽기의 출력, 손 조건표의 양식, 규칙 엔진의 입력, 공고 투입의 출력이 전부 이 모양이다. ⑦ 비슷한 가구(`data/population/`) ⑧ 검색 결과(`GET /search`) ⑨ 원문과 줄(`GET /notices/…`, `data/notices/*.lines.json`).
 > AI 공고 읽기 진입점(스텁을 먼저 커밋해 다른 사람이 붙을 수 있게): `to_lines(doc_id: str, src: str | Path) -> list[Line]`(원문 → 줄, §8. `str`은 언제나 원문 텍스트, 파일은 `Path`로 준다. `llm_ocr=True`는 우리가 넣는 공고 원문만: 스캔 쪽을 네이토로 글자 인식한다), `compile(doc_id: str, lines: list[Line], source: str) -> list[Rule]`(자격 구간 → LLM 1회 → 검증기 → 빠짐 검사), `verify(rule: Rule, lines: list[Line]) -> Rule`(검증기만. 손 조건표에도 돌린다).
 
+## 0. 엔드포인트 한눈에
+
+모양은 각 절에 있다. 「로그인」은 세션 쿠키(`session`)가 있어야 한다는 뜻이고, 없으면 401이다. 「선택」은 로그인하면 내 것까지 보이고(개인화·내 업로드), 안 해도 공개 데이터는 보인다.
+
+| 메서드 | 경로 | 로그인 | 하는 일 | 절 |
+|---|---|---|---|---|
+| GET | `/health` | 아니오 | 서버 살아 있는지(`{"status": "ok"}`) | — |
+| POST | `/auth/signup` | 아니오 | 가입(이메일·비밀번호·닉네임·필수 동의), 세션 쿠키 발급 | 인증 |
+| POST | `/auth/login` | 아니오 | 로그인, 세션 쿠키 발급. 실패가 몰리면 429 | 인증 |
+| POST | `/auth/logout` | 아니오 | 지금 세션 폐기, 쿠키 삭제 | 인증 |
+| GET | `/auth/me` | 로그인 | 내 계정(닉네임·동의 시각)과 프로필 연결(`user_id`) | 인증 |
+| DELETE | `/auth/me` | 로그인 | 탈퇴. 계정·프로필·알림·세션·내 업로드 삭제 | 인증 |
+| GET | `/profiles/presets` | 아니오 | 시연 프리셋 목록(가상) | §10.2 |
+| POST | `/profiles/presets/{preset_id}` | 로그인 | 프리셋으로 내 프로필 만들기 | §10.2 |
+| POST | `/profiles` | 로그인 | 내 프로필 만들기(계정당 하나, 두 번째는 409) | §2, §10.3 |
+| GET | `/profiles/{user_id}` | 로그인 | 내 프로필 읽기(남의 것·없는 것은 404) | §2, §10.3 |
+| PATCH | `/profiles/{user_id}` | 로그인 | ② 알림 설정, ③ 공고별 확인 답, 부모님, 동의 | §2, §10.3 |
+| DELETE | `/profiles/{user_id}` | 로그인 | 내 프로필만 삭제(계정은 남음) | §10.3 |
+| POST | `/judge` | 로그인 | 판정: 카드·질문·타임라인·비슷한 가구·접힌 AI 조건표(`?today=`) | §3, §10.4 |
+| GET | `/search` | 선택 | 검색과 배지(`q`, `tag`, `subject`, `?today=`) | §7 |
+| GET | `/notices` | 선택 | 볼 수 있는 원문 머리 목록 | §8 |
+| GET | `/notices/{doc_id}` | 선택 | 원문 머리와 줄 목록 | §8 |
+| GET | `/notices/{doc_id}/file` | 선택 | 원문 파일(PDF 등) | §8 |
+| GET | `/ingest/notice` | 아니오 | 공고 투입 화면 안내문 | §6 |
+| POST | `/ingest` | 로그인 | 공고 투입(파일 또는 URL, `replay`) | §6 |
+| GET | `/notifications` | 로그인 | 내 알림 목록 | §5 |
+| PATCH | `/notifications/{notification_id}/read` | 로그인 | 읽음 | §5 |
+| POST | `/notify/test-email` | 로그인 | 시연용 메일 한 통 | §5 |
+| POST | `/trigger/rebuild` | 관리자(`X-Admin-Token` = `.env`의 `ADMIN_TOKEN`) | 새 조건표로 전 프로필 재판정(시연) | §5 |
+| GET | `/stats/coverage` | 아니오 | 조건표 수, 미반영 줄, 평가 결과 | §3 아래 |
+| GET | `/stats/explore` | 아니오 | 비슷한 가구 정확도(시험 평가 전이면 `not_evaluated`) | §5 아래 |
+
+
 ## 1. 조건 JSON (`rules/compiled/*.json`, `rules/manual/*.json`)
 
 제도 하나 = 파일 하나. 자동 추출과 손 작성이 같은 모양이어야 규칙 수 비교와 평가가 선다. 아래 숫자와 원문 줄은 모양을 보이는 예시다. 손 조건표의 값은 원문에서만 옮긴다.

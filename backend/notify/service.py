@@ -75,6 +75,9 @@ def rebuild(profiles, rules, judge, save, *, today, events=None, rule_ids=None, 
             if rule_ids is not None and rule["id"] not in rule_ids:
                 continue
             result = results[rule["id"]]
+            from backend.engine.cards import _niche
+            if _niche(rule.get("name") or "", profile.get("self") or {}):
+                continue   # 한부모·장애 등 특정 대상 제도는 그 표시가 없는 사람에게 알리지 않는다
             candidates = [notification(profile["user_id"], rule, result, today=today)]
             if events:
                 candidates += [notification(profile["user_id"], rule, result, today=today, event=e)

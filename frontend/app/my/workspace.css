@@ -6,12 +6,15 @@
 .work-panel { border: 1px solid #d9e1e5; border-radius: 16px; background: #fff; padding: 24px; margin-block: 20px; overflow-wrap: anywhere; } /* 카드와 폼을 흰색 패널에 담아요. */
 .work-panel p, .work-panel li { line-height: 1.8; margin-block: 10px; } /* 긴 조건도 읽기 쉬운 간격으로 보여줘요. */
 .work-panel h2, .work-panel h3 { margin-bottom: 16px; } /* 제목 아래에 여백을 둬요. */
-.work-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; } /* 카드가 작은 화면에서는 한 열로 배치돼요. */
+.work-cards { display: grid; align-items: start; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; } /* 카드가 작은 화면에서는 한 열로 배치돼요. */
 .work-disclaimer { font-size: 13px; font-weight: 600; border-bottom: 1px solid #d9e1e5; padding-bottom: 12px; } /* 필수 고지를 카드 머리에 표시해요. */
 .work-badge { color: #72551c; font-weight: 700; } /* 판정 상태를 글자로 구분해요. */
 .work-form fieldset { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 18px; border: 0; padding: 0; margin-block: 20px; } /* 폼을 반응형으로 배치해요. */
 .work-form label { display: flex; flex-direction: column; gap: 8px; font-weight: 600; } /* 입력 이름을 항상 표시해요. */
 .work-form input, .work-form select, .work-form textarea { padding: 12px; border: 1px solid #7c8f99; border-radius: 8px; background: #fff; color: #263e4b; font: inherit; min-width: 0; } /* 입력란은 흰색과 충분한 대비를 사용해요. */
+.work-form label:has(> input[type="checkbox"]) { flex-direction: row; align-items: flex-start; gap: 10px; line-height: 1.7; cursor: pointer; } /* 동의와 관심 분야는 체크 상자 옆에 설명을 이어서 보여줘요. */
+.work-form input[type="checkbox"] { flex-shrink: 0; width: 19px; height: 19px; margin-top: 4px; padding: 0; accent-color: var(--primary); } /* 체크 상자에는 일반 입력창의 큰 여백을 적용하지 않아요. */
+.work-form > .button + .button { margin-left: 12px; text-decoration: none; } /* 설정 저장 뒤 추천으로 돌아갈 이동 버튼을 함께 보여줘요. */
 .work-main button { cursor: pointer; } /* 버튼을 조작할 수 있음을 표시해요. */
 .work-main button:disabled { opacity: .6; cursor: wait; } /* 요청 중에는 중복 조작을 막아요. */
 .work-main button[aria-pressed="true"] { outline: 2px solid #00809a; outline-offset: 3px; } /* 현재 선택을 색 이외의 테두리로도 구분해요. */

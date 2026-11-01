@@ -464,7 +464,7 @@
   },
   "agreement_source": {
     "population_sha256": "fd3e1440dc3cc613c5d4c343ab18b29d755fca99919e2e8982ed7f573ba12131",
-    "engine_sha256": "a4ce51fb844b7fc5eabf6f0361eeb764ae32d9ac0d4bc0266cb9cbc9573c6c7f",
+    "engine_sha256": "d6ebf8c44441d78dd07fe3b0d7f251311ee13edbb8253cd495d18576fc46a753",
     "today": "2026-11-01",
     "households": 9000,
     "skipped_parent_rules": [

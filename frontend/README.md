@@ -54,3 +54,33 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - `/notifications`: 실제 알림과 읽음 저장. 실제 이메일 발송 완료를 의미하지 않습니다.
 - PDF는 `pdfjs-dist`로 렌더링하고 서버 `evidence.page/bbox`만 강조합니다. 좌표 없는 OCR 근거는 텍스트로 표시합니다.
 - 자격 질문의 예·아니오는 `has: Y/N`으로 DB에 저장됩니다. 사용 전 `0005_qualification_has.sql`까지 기존 마이그레이션 명령으로 적용해야 합니다. 생년월일은 최신 계약의 `birth_date`를 사용합니다.
+
+# 🟩 Vercel·Render 연결 확인
+
+## 🟢 화면과 API 주소
+
+- Vercel의 Root Directory는 `frontend`입니다. 기존 `NEXT_PUBLIC_API_BASE`에는 Render Web Service의 HTTPS 원점을 설정합니다. DB 주소와 `/api` 경로를 넣지 않습니다.
+- 브라우저의 인증·프로필·추천·검색·업로드는 `/api/backend/*`를 사용합니다. Next.js가 같은 출처에서 전달하므로 세션 쿠키를 직접 읽거나 브라우저 저장소에 복사하지 않습니다.
+- 공개 별칭 `/api/health`, `/api/search`도 같은 설정에서 각각 백엔드 `/health`, `/search`로 전달합니다. 별도 도메인을 하드코딩한 `vercel.json`은 사용하지 않습니다.
+- Vercel 환경변수 변경 후에는 새 배포가 필요합니다. 서버의 첫 연결이 느릴 수 있어 일반 요청은 최대 90초, 공고 투입은 기존 15분 제한을 사용합니다. 이 값은 플랫폼 자체의 제한을 늘리지 않습니다.
+
+## 🟢 Render 시작 설정
+
+레포 루트를 기준으로 사용자가 설정한 Start Command입니다. [Render 포트 바인딩 안내](https://render.com/docs/web-services#port-binding)대로 `0.0.0.0`과 `$PORT`를 사용합니다.
+
+```bash
+uv run --project backend python -m backend.db.migrate && uv run --project backend uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+```
+
+- Render의 `DATABASE_URL`과 마이그레이션이 준비되어야 가입·로그인·저장이 됩니다. DBeaver 연결만으로 테이블 적용까지 확인된 것은 아닙니다.
+- HTTPS 배포의 `COOKIE_SECURE=1` 설정을 확인합니다. 키·비밀번호·DB URL은 문서나 화면에 붙이지 않습니다.
+- `/health` 성공은 프로세스 응답 확인입니다. DB 저장까지 확인하려면 가상 계정의 가입 → 기본 정보 → 질문 저장 → 설정 재조회가 필요합니다.
+
+## 🟢 클라이언트 오류 처리 회귀 확인
+
+추가 패키지 없이 기존 TypeScript와 Node의 기본 테스트 도구로 실행합니다. 실제 API나 DB에 요청하지 않습니다.
+
+```bash
+cd frontend
+node --test scripts/check-api-contract.cjs
+```

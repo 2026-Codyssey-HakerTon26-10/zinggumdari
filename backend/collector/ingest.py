@@ -296,7 +296,29 @@ def _merge(doc_id: str, meta: dict, lines: list[dict], rules: list[dict], sha: s
         if replay_warning:
             out["replay_warning"] = replay_warning
     out["alerts"] = _after_merge([r["id"] for r in rules], account_id=uploaded_by)
+    out["rules"] = [_for_screen(r) for r in rules]   # 화면용 사본. 저장·캐시한 조건표는 그대로다
     return out
+
+
+def _for_screen(rule: dict) -> dict:
+    """투입 결과 표에 칸 이름 대신 읽은 문장(카드와 같은 read_as)과 「16쪽 31줄」 꼴 근거를 싣는다."""
+    from backend.engine.read_as import read_as
+
+    def where(eid: str) -> str:
+        line = eid.partition(":")[2]
+        m = re.fullmatch(r"p(\d+)-l(\d+)", line) or re.fullmatch(r"l(\d+)", line)
+        if not m:
+            return eid
+        return f"{m.group(1)}쪽 {m.group(2)}줄" if m.lastindex == 2 else f"{m.group(1)}줄"
+
+    conds = []
+    for c in rule.get("conditions") or []:
+        try:
+            text = c.get("text") or read_as(c)
+        except Exception:   # noqa: BLE001 — 읽을 수 없는 조건은 칸 이름으로 둔다
+            text = c.get("text") or c.get("field") or "원문 조건"
+        conds.append({**c, "text": text, "evidence": [where(e) for e in c.get("evidence") or []]})
+    return {**rule, "conditions": conds}
 
 
 UNQUOTE_ROUNDS = 3   # %252D 같은 이중 인코딩까지. 그 이상 겹친 인코딩은 풀지 않는다
@@ -339,7 +361,8 @@ def ingest(path: Path, filename: str, source_url: str | None = None, replay: boo
     doc_id = _new_doc_id(today)
     try:   # 계정은 등록 순간에 남긴다. 뒤에서 실패해도 탈퇴 때 찾을 수 있게
         meta = store.register(path, doc_id, "upload", source_url, Path(filename).stem or doc_id, today.isoformat(),
-                              extra={"uploaded_by": uploaded_by})
+                              extra={"uploaded_by": uploaded_by},
+                              reuse=store.find_public_by_sha(sha) if replay and cached else None)
     except ValueError as exc:   # 읽을 수 없는 형식, 글자를 하나도 못 읽은 스캔 PDF
         _discard(doc_id)
         raise Rejected(str(exc)) from exc

@@ -3,7 +3,7 @@
  *  AGENTS.md §3: 키·토큰을 커밋하지 않는다 — API 주소만 환경변수로 받아요.
  */
 
-const BASE = "/api/backend"; // 환경변수가 없으면 로컬 기본값을 사용해요.
+import { api, ServiceError } from "./service-api"; // 세션과 같은 출처 요청·시간 제한·안전한 오류 처리를 함께 사용해요.
 
 export class AuthError extends Error { // API 오류를 상태코드와 함께 전달해요.
     constructor(public readonly status: number, message: string) {
@@ -14,15 +14,12 @@ export class AuthError extends Error { // API 오류를 상태코드와 함께 �
 
 // 내부 fetch 래퍼 — credentials: "include"로 HttpOnly 세션 쿠키를 주고받아요.
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
-    const res = await fetch(`${BASE}${path}`, {
-        credentials: "include", // cross-origin 세션 쿠키 전송에 필수예요.
-        headers: { "Content-Type": "application/json", ...init.headers },
-        ...init,
-    });
-    if (res.status === 204) return null as T; // 빈 응답(logout 등)은 null을 반환해요.
-    const body = await res.json().catch(() => ({}));
-    if (!res.ok) throw new AuthError(res.status, body.detail ?? "오류가 발생했습니다.");
-    return body as T;
+    try { return (await api<T>(path, init)) ?? null as T; } // 느린 첫 기동에도 기다리되 빈 응답은 기존 계약대로 반환해요.
+    catch (cause) { // 서버의 검증 객체나 입력값을 그대로 화면에 출력하지 않아요.
+        if (!(cause instanceof ServiceError)) throw new AuthError(0, "서버에 연결하지 못했습니다. 잠시 후 다시 시도해 주세요."); // 연결 오류를 사용자 안내로 바꿔요.
+        const detail = cause.status === 401 && path === "/auth/login" ? "이메일 또는 비밀번호가 올바르지 않습니다." : cause.status === 409 ? "이미 사용 중인 이메일입니다. 로그인해 주세요." : cause.status === 429 ? "로그인 시도가 많습니다. 잠시 후 다시 시도해 주세요." : cause.message; // 인증 상황에 맞는 안내를 보여줘요.
+        throw new AuthError(cause.status, detail); // 기존 폼이 처리하는 오류 형식을 유지해요.
+    } // 인증 오류 처리를 마쳐요.
 }
 
 export interface MeResponse {
