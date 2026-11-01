@@ -74,3 +74,4 @@
 .search-policy-description, .search-policy-evidence, .search-notice { color: #526579; } /* 실제 공고 정보를 읽을 수 있는 대비로 표시해요. */
 .search-policy-evidence a { color: #075c91; text-decoration: underline; } /* 공식 원문 링크를 알아보기 쉽게 해요. */
 .search-page button:focus-visible, .search-page a:focus-visible { outline: 3px solid #00809a; outline-offset: 4px; } /* 결과 링크와 버튼의 키보드 초점을 표시해요. */
+.search-snapshot-note { margin: 0 0 16px; padding: 12px 14px; border: 1px solid #f1dfb4; border-radius: 10px; background: #fffaf0; color: #7a5a17; font-size: 14px; line-height: 1.7; } /* 저장해 둔 결과임을 노란 안내 상자로 알려요. */
