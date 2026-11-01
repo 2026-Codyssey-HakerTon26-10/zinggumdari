@@ -1,8 +1,8 @@
 .recommendation-card { min-width: 0; border: 1px solid #dfe7ef; border-radius: 20px; background: #fff; overflow: hidden; box-shadow: 0 4px 18px #1f436b06; } /* 긴 카드를 단정한 흰색 카드로 보여줘요. */
-.recommendation-card-disclaimer { margin: 0; padding: 12px 20px; border-bottom: 1px solid #eaf0f6; background: #f8fafc; color: #5e7084; font-size: 11px; line-height: 1.7; word-break: keep-all; } /* 모의 판정 고지를 머리에서 항상 읽을 수 있게 해요. */
+.recommendation-card-disclaimer { margin: 0; padding: 12px 20px; border-bottom: 1px solid #eaf0f6; background: #f8fafc; color: #5e7084; font-size: 13px; line-height: 1.7; word-break: keep-all; } /* 모의 판정 고지를 머리에서 항상 읽을 수 있게 해요. */
 .recommendation-card-body { padding: 22px; } /* 카드 내용의 여백을 일정하게 유지해요. */
 .recommendation-card-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-bottom: 15px; } /* 상태와 부가 배지를 한 줄에 모아요. */
-.recommendation-card-badges > span { display: inline-flex; padding: 5px 9px; border-radius: 7px; font-size: 11px; font-weight: 700; line-height: 1.5; } /* 모든 배지를 작고 읽기 쉬운 크기로 맞춰요. */
+.recommendation-card-badges > span { display: inline-flex; padding: 5px 9px; border-radius: 7px; font-size: 13px; font-weight: 700; line-height: 1.5; } /* 모든 배지를 작고 읽기 쉬운 크기로 맞춰요. */
 .recommendation-card-verdict { background: #fff3dc; color: #875e1b; } /* 확인이 필요한 상태는 따뜻한 색으로 표시해요. */
 .recommendation-card-verdict.is-eligible { background: #e7f3ed; color: #276442; } /* 신청 가능 상태는 서버가 eligible을 보낸 경우에만 강조해요. */
 .recommendation-card-ai { background: #edf3ff; color: #3d65aa; } /* AI 추출 조건표라는 부가 정보를 별도로 표시해요. */
@@ -12,21 +12,21 @@
 .recommendation-card-details { border-top: 1px solid #edf1f5; } /* 조건과 서류를 구분하는 얇은 선을 그려요. */
 .recommendation-card-details summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 15px 0; color: #43586c; font-size: 13px; font-weight: 650; list-style: none; cursor: pointer; } /* 상세를 열 수 있다는 동작을 한 줄로 보여줘요. */
 .recommendation-card-details summary::-webkit-details-marker { display: none; } /* 기본 펼침 표시 대신 서비스 아이콘을 사용해요. */
-.recommendation-card-details summary > span { display: flex; align-items: center; gap: 8px; color: #8190a1; font-size: 12px; } /* 조건 수와 펼침 방향을 제목 옆에 표시해요. */
+.recommendation-card-details summary > span { display: flex; align-items: center; gap: 8px; color: #8190a1; font-size: 13px; } /* 조건 수와 펼침 방향을 제목 옆에 표시해요. */
 .recommendation-card-details summary .icon { width: 15px; height: 15px; flex-shrink: 0; } /* 펼침 아이콘을 작은 크기로 유지해요. */
 .recommendation-card-details[open] summary > .icon, .recommendation-card-details[open] summary > span > .icon { transform: rotate(180deg); } /* 열린 상세는 위쪽 화살표로 구분해요. */
-.recommendation-card-detail-body { padding-bottom: 15px; color: #5c6e80; font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; } /* 상세 조건은 카드 안에서 읽기 쉬운 크기로 보여줘요. */
+.recommendation-card-detail-body { padding-bottom: 15px; color: #5c6e80; font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; } /* 상세 조건은 카드 안에서 읽기 쉬운 크기로 보여줘요. */
 .recommendation-card-detail-body p { margin: 0 0 8px; } /* 상세 설명의 불필요한 여백을 줄여요. */
 .recommendation-card-detail-body ul { margin: 0; padding: 0; list-style: none; } /* 조건과 서류를 깔끔한 목록으로 나열해요. */
 .recommendation-card-detail-body li + li { margin-top: 13px; padding-top: 13px; border-top: 1px solid #edf1f5; } /* 긴 상세에서도 각 조건을 구분해요. */
 .recommendation-card-condition { display: grid; gap: 5px; } /* 조건 문장과 실제 상태를 줄을 나눠 표시해요. */
-.recommendation-card-condition strong { color: #50667b; font-size: 11px; } /* 서버가 준 조건 등급을 그대로 보여줘요. */
-.recommendation-card-evidence { display: inline-flex; align-items: center; gap: 5px; min-height: 36px; margin-top: 5px; padding: 7px 10px; border: 1px solid #dde8f3; border-radius: 8px; background: #f8fbff; color: #2474c7; font-size: 11px; } /* 각 조건의 근거를 별도 버튼으로 확인해요. */
+.recommendation-card-condition strong { color: #50667b; font-size: 13px; } /* 서버가 준 조건 등급을 그대로 보여줘요. */
+.recommendation-card-evidence { display: inline-flex; align-items: center; gap: 5px; min-height: 36px; margin-top: 5px; padding: 7px 10px; border: 1px solid #dde8f3; border-radius: 8px; background: #f8fbff; color: #2474c7; font-size: 13px; } /* 각 조건의 근거를 별도 버튼으로 확인해요. */
 .recommendation-card-evidence .icon { width: 14px; height: 14px; } /* 근거 버튼의 문서 아이콘을 작게 보여줘요. */
-.recommendation-card-source { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-block: 17px; border-top: 1px solid #edf1f5; color: #75879a; font-size: 11px; line-height: 1.7; } /* 기준일과 원문을 카드 끝에서 바로 확인해요. */
-.work-main .recommendation-card a { display: inline-flex; align-items: center; gap: 4px; color: #2474c7; text-decoration: none; font-size: 12px; font-weight: 600; } /* 원문과 발급처 링크를 쉽게 알아보게 해요. */
+.recommendation-card-source { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-block: 17px; border-top: 1px solid #edf1f5; color: #75879a; font-size: 13px; line-height: 1.7; } /* 기준일과 원문을 카드 끝에서 바로 확인해요. */
+.work-main .recommendation-card a { display: inline-flex; align-items: center; gap: 4px; color: #2474c7; text-decoration: none; font-size: 13px; font-weight: 600; } /* 원문과 발급처 링크를 쉽게 알아보게 해요. */
 .recommendation-card a .icon { width: 14px; height: 14px; } /* 외부 이동 아이콘을 링크에 붙여요. */
-.recommendation-card-question { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 45px; padding: 12px 14px; border: 1px solid #dce8f5; border-radius: 11px; color: #2474c7; background: #f1f7fe; text-align: left; font-size: 12px; font-weight: 650; } /* 질문 버튼을 카드 너비에 맞춰 누르기 쉽게 보여줘요. */
+.recommendation-card-question { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 45px; padding: 12px 14px; border: 1px solid #dce8f5; border-radius: 11px; color: #2474c7; background: #f1f7fe; text-align: left; font-size: 13px; font-weight: 650; } /* 질문 버튼을 카드 너비에 맞춰 누르기 쉽게 보여줘요. */
 .recommendation-card-question:hover:not(:disabled) { border-color: #9fc3e9; background: #e8f2ff; } /* 질문 버튼의 조작 가능 상태를 알려줘요. */
 .recommendation-card-question .icon { width: 16px; height: 16px; flex-shrink: 0; } /* 질문으로 이어지는 이동 방향을 보여줘요. */
 @media (max-width: 480px) { .recommendation-card-body { padding: 19px; } .recommendation-card h2 { font-size: 19px; } .recommendation-card-disclaimer { padding-inline: 19px; } } /* 작은 화면에서는 여백을 조금 줄여 내용을 확보해요. */

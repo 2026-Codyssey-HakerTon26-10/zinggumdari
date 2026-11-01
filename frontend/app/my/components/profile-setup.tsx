@@ -1,4 +1,5 @@
 "use client"; // 가입 후 최소 프로필을 저장하는 폼이에요.
+import { LoadingState } from "../../components/loading-state"; // 요청 중에는 회전 표시와 처리 안내를 보여줘요.
 import { useEffect, useState, type FormEvent } from "react"; // 입력과 저장 실패 상태, 프리셋 목록을 관리해요.
 import { api, createFromPreset, message, presets, type Preset } from "../../lib/service-api"; // 계정 세션으로 프로필을 만들어요.
 import { Icon } from "../../components/ui"; // 기존 아이콘으로 정보 입력과 다음 이동을 안내해요.
@@ -41,7 +42,7 @@ export function ProfileSetup({ nickname, onSaved }: { nickname: string; onSaved:
                 <ProfileChoice name="employment_status" label="취업 상태" options={["재학", "구직", "재직", "자영업", "육아휴직", "기타"]} /> {/* 취업 상태도 선택 카드로 입력해요. */}
             </fieldset> {/* 기본 정보 입력 묶음을 마쳐요. */}
             <p className="profile-privacy"><Icon name="shield" />소득·건강 정보는 필요한 때 별도 동의 후 입력해 주세요.</p> {/* 민감정보는 현재 폼에서 받지 않는다고 안내해요. */}
-            {error && <p role="alert">{error}</p>} {/* 저장 실패가 있으면 입력값을 유지하며 안내해요. */}
+            {busy && <LoadingState label="기본 정보를 저장하고 있습니다." compact />}{error && <p role="alert">{error}</p>} {/* 저장 실패가 있으면 입력값을 유지하며 안내해요. */}
             <button className="button button-primary profile-next" disabled={busy}>{busy ? "저장 중…" : <>다음으로<Icon name="arrow-right" /></>}</button> {/* 짧은 다음 이동 문구로 저장 후 추천 화면을 열어요. */}
         </form> {/* 기본 정보 폼을 마쳐요. */}
     </section>; // 실제 세션 계정에만 저장하며 가상 프리셋으로 덮어쓰지 않아요.

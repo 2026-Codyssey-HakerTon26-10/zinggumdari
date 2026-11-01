@@ -1,6 +1,7 @@
 "use client"; // 추천 대상과 살펴볼 생활 단계를 직접 선택해요.
 import { Icon } from "../../components/ui"; // 서비스에서 쓰던 아이콘을 그대로 사용해요.
 import type { Stage } from "../../lib/service-api"; // 서버가 지원하는 단계 값만 선택해요.
+import { LoadingState } from "../../components/loading-state"; // 단계 전환 중에도 같은 로딩 표시를 보여줘요.
 const stages: { value: Stage; label: string; description: string; icon: string }[] = [ // 저장 값과 화면에 보이는 안내를 함께 정의해요.
     { value: "", label: "지금의 나", description: "현재 정보로 살펴보기", icon: "leaf" }, // 실제 프로필로 확인하는 기본 선택이에요.
     { value: "newlywed", label: "결혼하면", description: "둘이 시작하는 생활", icon: "heart" }, // 신혼을 가정한 추천을 보여줘요.
@@ -22,7 +23,7 @@ export function RecommendationControls({ subject, stage, busy, error, onSubject,
             </div> {/* 단계 선택을 마쳐요. */}
             {stage && <p className="recommendation-preview-note"><Icon name="info" /> 선택한 생활을 가정한 미리보기예요. 실제 신청 조건은 달라질 수 있어요.</p>} {/* 모의 결과를 현재 자격으로 오해하지 않게 해요. */}
         </div>} {/* 생활 단계 영역을 마쳐요. */}
-        {busy && <p className="recommendation-feedback" role="status">맞는 정보를 불러오고 있어요.</p>} {/* 처리 상태를 내부 용어 없이 알려줘요. */}
+        {busy && <LoadingState label="맞춤 정보를 불러오고 있습니다." />} {/* 처리 상태를 내부 용어 없이 알려줘요. */}
         {error && <p role="alert">{error}</p>} {/* 요청이 실패하면 기존 오류를 그대로 안내해요. */}
     </section>; // 선택만 바꾸며 실제 정보 저장은 기존 폼에서 처리해요.
 } // 추천 선택 영역을 마쳐요.

@@ -1,4 +1,5 @@
 "use client"; // 공고별 빈 칸 하나만 물어보고 명시적으로 저장해요.
+import { LoadingState } from "../../components/loading-state"; // 요청 중에는 회전 표시와 처리 안내를 보여줘요.
 import { useId, useState, type FormEvent } from "react"; // 질문마다 다른 이름과 선택한 답을 관리해요.
 import Link from "next/link"; // 별도 동의 설정으로 이동해요.
 import { Icon } from "../../components/ui"; // 기존 서비스 아이콘으로 선택과 이동을 안내해요.
@@ -29,7 +30,7 @@ export function QuestionForm({ question, profile, simulated, onSaved }: { questi
                 {question.subject === "parent" && <fieldset className="question-parent-fields"><legend>누구의 정보인가요?</legend><div className="question-options">{profile.parents.map((parent) => <label className="question-option" key={String(parent.relation)}><input className="question-radio" type="radio" name={`${questionId}-parent`} value={String(parent.relation)} checked={relation === String(parent.relation)} onChange={(event) => setRelation(event.target.value)} required /><span className="question-option-surface"><span className="question-option-label">{parent.relation === "모" ? "어머니" : "아버지"}</span><span className="question-option-check"><Icon name="check" /></span></span></label>)}</div></fieldset>} {/* 부모님 답변도 선택한 분에게만 저장해요. */}
                 {typed && <label className="question-value">{option.label}{option.unit ? ` (${option.unit})` : ""}<input type={String(option.value)} min={option.value === "number" ? question.field === "household_size" ? 1 : 0 : question.field === "birth_date" ? "1900-01-01" : undefined} max={question.field === "birth_date" ? new Date().toISOString().slice(0, 10) : undefined} maxLength={option.value === "text" ? 100 : undefined} required value={value} onChange={(event) => setValue(event.target.value)} step={option.value === "number" ? option.unit ? "any" : 1 : undefined} /></label>} {/* 직접 입력이 필요한 답은 기존 서버 입력 형식을 유지해요. */}
             </fieldset> {/* 질문 입력 영역을 마쳐요. */}
-            {error && <p role="alert">{error}</p>} {/* 저장에 실패하면 같은 화면에서 원인을 안내해요. */}
+            {busy && <LoadingState label="답변을 저장하고 있습니다." compact />}{error && <p role="alert">{error}</p>} {/* 저장에 실패하면 같은 화면에서 원인을 안내해요. */}
             <div className="question-footer"><span>선택한 정보는 다음 추천에 반영돼요.</span><button className="button button-primary question-next" type="submit" disabled={busy || choice === ""}>{busy ? "저장 중…" : "다음으로"}<Icon name="arrow-right" /></button></div> {/* 다음 동작을 짧고 분명하게 안내해요. */}
         </form>} {/* 답변을 제출한 뒤에만 기존 저장 흐름을 실행해요. */}
     </section>; // 질문 카드를 마쳐요.

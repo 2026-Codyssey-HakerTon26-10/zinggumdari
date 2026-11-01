@@ -1,5 +1,6 @@
 "use client"; // 검색 요청과 결과 상태를 사용자의 조작에 맞춰 바꿔요.
 import { useEffect, useRef, useState, type FormEvent } from "react"; // 요청 취소·입력·화면 상태를 관리해요.
+import { LoadingState } from "../components/loading-state"; // 검색 중인 결과 영역을 로딩으로 표시해요.
 import Link from "next/link"; // 사이트 안의 이동에는 Next 링크를 사용해요.
 import { Icon, SiteHeader, SiteFooter } from "../components/ui"; // 기존 공통 디자인을 유지해요.
 import { safeSourceUrl, formatSourceDate, searchPolicies, type SearchHit, type SearchResponse, type SearchSubject } from "./search-api"; // 실제 공개 검색 API와 원문 날짜 표시 계약을 가져와요.
@@ -59,6 +60,7 @@ export default function SearchPage() { // 목업 대신 실제 공개 검색 결
                 <div className="search-notice"><Icon name="file" /><p><strong>로그인 없이 공개 공고를 검색합니다.</strong> 검색어는 검색 처리를 위해 API로 전송하며 화면 저장소에는 저장하지 않습니다. 개인화 배지가 없으면 자격을 판정한 결과가 아닙니다.</p></div> {/* 실제 네트워크 동작을 정확히 설명해요. */}
                 <div className="search-results-toolbar"><fieldset className="search-subject"><legend>검색 대상 · 검색 시 적용</legend><div className="search-category-list">{subjects.map((item) => <button key={item.value} type="button" className={subject === item.value ? "is-active" : ""} aria-pressed={subject === item.value} onClick={() => setSubject(item.value)}>{item.label}</button>)}</div></fieldset><button className="search-reset" type="button" onClick={reset}><Icon name="refresh" />초기화</button></div> {/* API에 없는 분야 필터 대신 대상 필터를 사용해요. */}
                 <div className="search-result-heading" role="status"><p>{view.status === "idle" ? "검색어를 입력해 주세요." : view.status === "loading" ? "공고를 검색하고 있습니다." : view.status === "ready" ? `‘${view.data.q}’ · ${subjects.find((item) => item.value === lastRequest.subject)?.label} · 검색 결과 ${view.data.results.length}개 (최대 20개)` : "검색에 실패했습니다."}</p></div> {/* 결과 개수는 서버가 반환한 목록 기준이에요. */}
+                {view.status === "loading" && <LoadingState label="맞춤 공고를 검색하고 있습니다." />} {/* 검색 완료 전까지 로딩 표시를 유지해요. */}
                 {view.status === "error" && <div className="search-empty" role="alert"><h2>검색을 완료하지 못했습니다</h2><p>{view.message}</p>{lastRequest.query && <button type="button" className="button button-secondary" onClick={() => { setQuery(lastRequest.query); setSubject(lastRequest.subject); void runSearch(lastRequest.query, lastRequest.subject); }}>다시 시도</button>}</div>} {/* 이전 조건으로 명시적으로 재시도할 수 있어요. */}
                 {view.status === "ready" && view.data.results.length === 0 && <div className="search-empty"><h2>검색 결과가 없습니다</h2><p>다른 검색어나 검색 대상을 선택해 다시 검색해 주세요.</p></div>} {/* 통신 실패와 빈 목록을 구분해요. */}
                 {view.status === "ready" && <div className="search-policy-grid">{view.data.results.map((hit) => <PolicyCard key={hit.service_id} hit={hit} judge={view.data.judge} />)}</div>} {/* 로컬 샘플 대신 API 결과만 표시해요. */}

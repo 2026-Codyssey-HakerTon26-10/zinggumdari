@@ -1,0 +1,57 @@
+.alerts-main { max-width: 1080px; } /* 긴 설정을 읽기 좋은 너비로 모아요. */
+.work-main .alerts-back { display: inline-flex; align-items: center; gap: 4px; color: #647184; font-size: 14px; text-decoration: none; } /* 추천 화면으로 돌아가는 링크를 작고 선명하게 보여줘요. */
+.alerts-heading { margin: 30px 0 34px; } /* 소개 문구와 설정 카드 사이에 충분한 여백을 둬요. */
+.alerts-eyebrow { display: inline-flex; align-items: center; gap: 7px; color: #2474c7; font-size: 13px; font-weight: 700; } /* 알림 설정이라는 맥락을 작은 아이콘으로 표시해요. */
+.alerts-eyebrow .icon { width: 17px; height: 17px; } /* 작은 안내에 맞게 아이콘 크기를 조절해요. */
+.alerts-heading h1 { margin: 14px 0 16px; font-size: clamp(28px, 4.5vw, 38px); letter-spacing: -.045em; line-height: 1.35; color: #24374b; } /* 화면 제목을 두 줄로 편하게 읽도록 배치해요. */
+.alerts-heading > p { margin: 0; color: #647184; font-size: 15px; line-height: 1.85; } /* 소개 문구도 휴대전화에서 읽을 수 있는 크기로 보여줘요. */
+.alerts-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; } /* 큰 화면에서는 설정 카드를 두 열로 보여줘요. */
+.alerts-card { min-width: 0; padding: 26px; border: 1px solid #e2eaf3; border-radius: 22px; background: #fff; } /* 설정 항목마다 독립된 흰색 카드를 사용해요. */
+.alerts-card-wide { grid-column: 1 / -1; } /* 민감정보 동의는 전체 너비로 명확하게 구분해요. */
+.alerts-card-heading { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 24px; } /* 아이콘과 설명을 카드 위쪽에 묶어요. */
+.alerts-card-icon { display: grid; place-items: center; flex-shrink: 0; width: 43px; height: 43px; border-radius: 14px; color: #2474c7; background: #edf5ff; } /* 항목을 바로 알아볼 수 있는 아이콘 배경이에요. */
+.alerts-card-heading > div { min-width: 0; } /* 긴 제목도 카드 너비를 넘지 않게 해요. */
+.alerts-card-heading h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 6px; font-size: 18px; font-weight: 700; letter-spacing: -.035em; line-height: 1.45; } /* 설정 제목과 선택 표시를 나란히 보여줘요. */
+.alerts-card-heading p { margin: 0; color: #647184; font-size: 13px; line-height: 1.75; word-break: keep-all; } /* 입력이 필요한 이유를 짧게 설명해요. */
+.alerts-optional { padding: 3px 8px; border-radius: 6px; background: #eef3f9; color: #617287; font-size: 13px; font-weight: 600; } /* 선택 정보임을 별도 배지로 알려줘요. */
+.alerts-main .alerts-form fieldset { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 0; min-width: 0; padding: 0; border: 0; } /* 기존 폼 스타일을 설정 카드 안에서 한 열로 정리해요. */
+.alerts-main .alerts-form fieldset label { min-width: 0; gap: 9px; color: #425469; font-size: 14px; font-weight: 600; } /* 입력 이름이 작아지지 않도록 크기를 정해요. */
+.alerts-main .alerts-form input:not([type="checkbox"]), .alerts-main .alerts-form select { width: 100%; min-height: 48px; border: 1px solid #d5e0ec; border-radius: 11px; padding: 12px 13px; background: #fbfcfe; color: #263e4b; font-size: 14px; font-weight: 400; } /* 값을 입력하거나 선택할 영역을 넓게 제공해요. */
+.alerts-main .alerts-form input:not([type="checkbox"]):focus, .alerts-main .alerts-form select:focus { border-color: #2474c7; background: #fff; } /* 입력 중인 항목을 테두리로 구분해요. */
+.alerts-help { display: flex; align-items: flex-start; gap: 6px; margin: 18px 0 0; color: #647184; font-size: 13px; font-weight: 400; line-height: 1.85; word-break: keep-all; } /* 모름과 동의의 도움말을 충분한 줄 간격으로 보여줘요. */
+.alerts-help > .icon { width: 16px; height: 16px; flex-shrink: 0; margin-top: 4px; color: #7891ac; } /* 안내 아이콘을 문장 첫 줄에 맞춰요. */
+.alerts-main .alerts-form .alerts-consent { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 18px; padding: 18px; border: 1px solid #e4ebf4; border-radius: 15px; background: #f7faff; } /* 별도 동의 내용을 토글 옆에 크게 보여줘요. */
+.alerts-consent > span { display: grid; gap: 5px; min-width: 0; } /* 동의 제목과 설명을 묶어요. */
+.alerts-consent strong { color: #30455d; font-size: 14px; font-weight: 700; } /* 선택하는 동의의 이름을 진하게 표시해요. */
+.alerts-consent small { color: #647184; font-size: 13px; font-weight: 400; line-height: 1.8; } /* 동의 내용도 최소 글자 크기를 유지해요. */
+.alerts-main .alerts-form input.alerts-toggle { position: relative; appearance: none; flex-shrink: 0; width: 46px; height: 28px; min-width: 46px; margin: 0; padding: 0; border: 1px solid #aebed0; border-radius: 999px; background: #bac6d4; cursor: pointer; transition: background .18s, border-color .18s; } /* 실제 체크박스를 누르기 쉬운 토글 모양으로 보여줘요. */
+.alerts-main .alerts-form input.alerts-toggle::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px #263e4b22; transition: transform .18s; } /* 토글의 현재 위치를 밝은 손잡이로 표시해요. */
+.alerts-main .alerts-form input.alerts-toggle:checked { border-color: #2474c7; background: #2474c7; } /* 체크한 동의는 파란색으로 구분해요. */
+.alerts-main .alerts-form input.alerts-toggle:checked::after { transform: translateX(18px); } /* 켠 토글의 손잡이를 오른쪽으로 옮겨요. */
+.alerts-main .alerts-form input.alerts-toggle:disabled { opacity: .55; cursor: wait; } /* 저장 중에는 동의 변경을 막아요. */
+.alerts-main .alerts-form .alerts-income-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 24px; } /* 동의 후 보이는 소득 입력을 두 열로 배치해요. */
+.alerts-main .alerts-form .alerts-category-options { display: flex; flex-wrap: wrap; gap: 10px; } /* 여러 관심 분야를 줄바꿈할 수 있는 선택 칩으로 보여줘요. */
+.alerts-main .alerts-form .alerts-category { position: relative; display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 7px; min-height: 45px; padding: 11px 14px; border: 1px solid #dbe4ef; border-radius: 12px; color: #647184; background: #fff; cursor: pointer; } /* 관심 분야의 터치 영역을 충분히 확보해요. */
+.alerts-category input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; } /* 체크박스의 키보드 조작은 유지하고 모양만 카드로 바꿔요. */
+.alerts-category > .icon { width: 15px; height: 15px; opacity: 0; } /* 선택하지 않은 항목도 체크 자리만큼 너비를 유지해요. */
+.alerts-main .alerts-form .alerts-category:has(input:checked) { border-color: #2474c7; color: #185eab; background: #edf5ff; } /* 선택한 분야는 배경과 테두리를 함께 바꿔요. */
+.alerts-category:has(input:checked) > .icon { opacity: 1; } /* 선택한 분야에는 체크 표시도 보여줘요. */
+.alerts-category:has(input:focus-visible) { outline: 3px solid #00809a; outline-offset: 4px; } /* 숨긴 체크박스의 키보드 초점은 카드에 표시해요. */
+.alerts-category:has(input:disabled) { opacity: .6; cursor: wait; } /* 저장 중에는 관심 분야도 바꾸지 못하게 해요. */
+.alerts-main .alerts-form .alerts-email-field { margin-top: 20px; font-size: 14px; color: #425469; } /* 선택 후 보이는 이메일을 다른 입력과 같은 모양으로 표시해요. */
+.alerts-save-area { grid-column: 1 / -1; display: grid; gap: 16px; padding: 24px 0 0; } /* 저장과 다음 이동을 모든 입력 뒤에 모아요. */
+.alerts-save-actions { display: flex; flex-wrap: wrap; gap: 12px; } /* 저장과 추천 복귀 버튼 사이에 간격을 둬요. */
+.alerts-main .alerts-save-actions .button { min-height: 50px; gap: 9px; padding-inline: 23px; font-size: 14px; text-decoration: none; } /* 주요 행동을 모바일에서도 누르기 쉬운 크기로 보여줘요. */
+.alerts-save-area > p:not(.alerts-feedback) { margin: 0; color: #647184; font-size: 13px; line-height: 1.8; } /* 저장 전 주의점을 버튼 아래에 표시해요. */
+.alerts-feedback { display: flex; align-items: flex-start; gap: 9px; margin: 0; padding: 16px 18px; border: 1px solid #c6ddce; border-radius: 13px; color: #25633b; background: #f1faf4; font-size: 14px; line-height: 1.8; } /* 저장 성공 안내를 분명한 상태 메시지로 보여줘요. */
+.alerts-feedback > .icon { flex-shrink: 0; margin-top: 3px; } /* 결과 아이콘이 긴 문장에 눌리지 않게 해요. */
+.alerts-main .alerts-feedback.is-error { color: #922626; border-color: #e5bcbc; background: #fff8f8; } /* 저장 실패는 성공 안내와 다른 모양으로 표시해요. */
+.alerts-empty { display: grid; justify-items: start; gap: 16px; padding: 30px; border: 1px solid #e2eaf3; border-radius: 22px; background: #fff; } /* 프로필 없음과 불러오기 실패도 같은 카드 안에서 안내해요. */
+.alerts-empty > .icon { color: #2474c7; } /* 안내의 시작을 아이콘으로 표시해요. */
+.alerts-empty h2 { margin: 0; font-size: 20px; } /* 빈 화면의 이유를 읽기 쉬운 제목으로 알려줘요. */
+.alerts-empty p { margin: 0; color: #647184; font-size: 14px; line-height: 1.8; } /* 다음 행동에 필요한 설명을 보여줘요. */
+.alerts-main .alerts-empty .button { gap: 8px; font-size: 14px; text-decoration: none; } /* 빈 화면에서도 바로 이어갈 수 있는 버튼을 제공해요. */
+.alerts-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; } /* 화면에는 제목으로 안내하고 보조기기에는 필드 묶음 이름을 전달해요. */
+@media (max-width: 760px) { .alerts-form { grid-template-columns: 1fr; gap: 16px; } .alerts-card { padding: 23px; } .alerts-card-wide, .alerts-save-area { grid-column: auto; } .alerts-main .alerts-form fieldset { grid-template-columns: repeat(2, minmax(0, 1fr)); } } /* 좁은 화면에서는 카드가 한 열로 이어지도록 바꿔요. */
+@media (max-width: 520px) { .alerts-heading { margin-top: 25px; } .alerts-heading > p { font-size: 14px; } .alerts-card { padding: 22px 18px; border-radius: 18px; } .alerts-card-heading { gap: 11px; } .alerts-card-heading h2 { font-size: 17px; } .alerts-main .alerts-form fieldset, .alerts-main .alerts-form .alerts-income-fields { grid-template-columns: 1fr; } .alerts-main .alerts-form .alerts-consent { padding: 15px 13px; gap: 12px; } .alerts-save-actions { flex-direction: column; } .alerts-save-actions .button { width: 100%; } .alerts-empty { padding: 24px; } } /* 휴대전화에서는 입력란과 저장 버튼을 모두 한 열로 보여줘요. */
+@media (prefers-reduced-motion: reduce) { .alerts-main .alerts-form input.alerts-toggle, .alerts-main .alerts-form input.alerts-toggle::after { transition: none; } } /* 움직임을 줄이는 사용자 설정을 존중해요. */

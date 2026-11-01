@@ -1,7 +1,7 @@
 .settings-main { max-width: 860px; } /* 설정 항목을 읽기 좋은 너비로 모아요. */
 .work-main .settings-back { display: inline-flex; align-items: center; gap: 4px; color: #647184; text-decoration: none; font-size: 13px; } /* 추천 화면으로 가는 링크를 가볍게 표시해요. */
 .settings-heading { margin: 28px 0; } /* 화면 제목과 설정 사이의 여백을 확보해요. */
-.settings-eyebrow { color: #2474c7; font-size: 12px; font-weight: 700; } /* 작은 안내에 서비스 색상을 사용해요. */
+.settings-eyebrow { color: #2474c7; font-size: 13px; font-weight: 700; } /* 작은 안내에 서비스 색상을 사용해요. */
 .settings-heading h1 { margin: 10px 0 12px; font-size: clamp(26px, 5vw, 34px); letter-spacing: -.04em; } /* 제목이 작은 화면에서도 자연스럽게 줄어들어요. */
 .settings-heading p { color: #647184; font-size: 14px; line-height: 1.7; } /* 설정 화면의 목적을 짧게 설명해요. */
 .settings-main .settings-account { display: flex; align-items: center; gap: 16px; border-color: #e5ebf2; border-radius: 22px; padding: 24px; } /* 계정과 로그아웃 버튼을 한 줄에 배치해요. */
@@ -16,15 +16,15 @@
 .settings-option-icon { display: grid; width: 40px; height: 40px; flex-shrink: 0; place-items: center; border-radius: 13px; background: #f0f5fb; color: #2474c7; } /* 설정 종류마다 익숙한 아이콘을 보여줘요. */
 .settings-option > span:nth-child(2) { display: grid; gap: 5px; flex: 1; } /* 제목과 설명을 묶고 이동 화살표를 오른쪽에 놓아요. */
 .settings-option strong { font-size: 15px; } /* 설정 항목의 제목을 강조해요. */
-.settings-option small { color: #647184; font-size: 12px; line-height: 1.7; } /* 링크를 열기 전에 어떤 정보가 있는지 알려줘요. */
+.settings-option small { color: #647184; font-size: 13px; line-height: 1.7; } /* 링크를 열기 전에 어떤 정보가 있는지 알려줘요. */
 .settings-option > .icon { flex-shrink: 0; color: #94a3b8; width: 17px; } /* 이동 방향을 작은 화살표로 안내해요. */
 .settings-privacy { display: flex; align-items: flex-start; gap: 9px; padding: 18px 4px; color: #647184; } /* 정보 삭제와 동의 안내를 차분하게 표시해요. */
 .settings-privacy > .icon { flex-shrink: 0; margin-top: 2px; color: #6d8ca7; width: 17px; } /* 정보 보호 안내 아이콘을 문장 옆에 맞춰요. */
-.settings-privacy p { margin: 0; font-size: 12px; line-height: 1.8; } /* 동의 안내를 충분한 줄 간격으로 보여줘요. */
+.settings-privacy p { margin: 0; font-size: 13px; line-height: 1.8; } /* 동의 안내를 충분한 줄 간격으로 보여줘요. */
 .settings-main .settings-delete { margin-top: 30px; border-color: #ede5e5; border-radius: 20px; } /* 탈퇴 항목을 다른 설정과 떨어뜨려 배치해요. */
 .settings-delete h2 { font-size: 16px; } /* 탈퇴 제목을 명확하게 표시해요. */
 .settings-main .settings-delete p { color: #647184; font-size: 13px; } /* 삭제의 범위를 버튼 전에 설명해요. */
-.settings-delete .settings-delete-account { font-size: 12px; } /* 삭제할 계정을 다시 확인할 수 있어요. */
+.settings-delete .settings-delete-account { font-size: 13px; } /* 삭제할 계정을 다시 확인할 수 있어요. */
 .settings-main .settings-delete-button { gap: 7px; margin-top: 12px; border: 1px solid #e4cccc; background: #fff; color: #9a3535; font-size: 13px; } /* 삭제 버튼을 다른 동작과 구분해요. */
 .settings-main .settings-delete-button:hover:not(:disabled) { border-color: #ba7373; background: #fff7f7; } /* 삭제 버튼의 조작 상태를 알려줘요. */
-@media (max-width: 520px) { .settings-main .settings-account { flex-wrap: wrap; padding: 20px; } .settings-account button { margin-left: 64px; } .work-main .settings-option { padding: 18px; gap: 12px; } .settings-option small { font-size: 11px; } .settings-main .settings-delete-button { width: 100%; } } /* 휴대전화에서는 계정 버튼과 긴 설명을 자연스럽게 줄바꿈해요. */
+@media (max-width: 520px) { .settings-main .settings-account { flex-wrap: wrap; padding: 20px; } .settings-account button { margin-left: 64px; } .work-main .settings-option { padding: 18px; gap: 12px; } .settings-option small { font-size: 13px; } .settings-main .settings-delete-button { width: 100%; } } /* 휴대전화에서는 계정 버튼과 긴 설명을 자연스럽게 줄바꿈해요. */

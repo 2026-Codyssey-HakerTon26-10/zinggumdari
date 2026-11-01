@@ -1,6 +1,6 @@
 .search-page { background: #fff; color: #123653; } /* 검색 화면의 기본 배경과 글자색입니다. */
 .search-hero { padding: 30px 0 45px; background: #fff; border-bottom: 1px solid #eef0f3; } /* 검색 입력 영역도 흰색으로 유지하고 옅은 회색 선으로 구분합니다. */
-.search-breadcrumb { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 42px; color: #7b8b9c; font-size: 12px; } /* 현재 화면의 위치를 작게 보여줍니다. */
+.search-breadcrumb { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 42px; color: #7b8b9c; font-size: 13px; } /* 현재 화면의 위치를 작게 보여줍니다. */
 .search-breadcrumb svg { width: 13px; height: 13px; } /* 경로 화살표의 크기를 줄입니다. */
 .search-hero h1 { margin: 12px 0 16px; font-size: clamp(32px, 4vw, 46px); line-height: 1.4; font-weight: 800; letter-spacing: -.055em; word-break: keep-all; } /* 제목이 작은 화면에서도 자연스럽게 줄바꿈됩니다. */
 .search-hero h1 > span { color: #2474c7; } /* 제목 마침표에 브랜드색을 넣습니다. */
@@ -12,11 +12,11 @@
 .search-form input::placeholder { color: #94a3b3; } /* 검색 예시 안내를 연한 색으로 보여줍니다. */
 .search-form .button { min-width: 83px; min-height: 46px; } /* 검색 버튼을 누르기 편하게 만듭니다. */
 .search-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; } /* 검색 입력의 이름을 보조기기에 제공합니다. */
-.search-suggestions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 17px; font-size: 12px; color: #8090a0; } /* 추천 검색어를 입력창 아래에 나열합니다. */
+.search-suggestions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 17px; font-size: 13px; color: #8090a0; } /* 추천 검색어를 입력창 아래에 나열합니다. */
 .search-suggestions button { padding: 3px 0; border: 0; background: transparent; color: #5a7b9b; cursor: pointer; } /* 추천 검색어를 바로 선택할 수 있게 합니다. */
 .search-suggestions button:hover { color: #2474c7; text-decoration: underline; } /* 추천 검색어의 선택 가능성을 보여줍니다. */
 .search-results { padding-top: 32px; padding-bottom: 64px; } /* 검색 결과 바깥의 여백을 정합니다. */
-.search-notice { display: flex; align-items: flex-start; gap: 10px; padding: 15px 18px; border: 1px solid #eef0f3; border-radius: 10px; background: #fff; color: #7a8998; font-size: 12px; line-height: 1.7; } /* 시연 안내도 흰색 배경과 중립 회색 테두리로 표시합니다. */
+.search-notice { display: flex; align-items: flex-start; gap: 10px; padding: 15px 18px; border: 1px solid #eef0f3; border-radius: 10px; background: #fff; color: #7a8998; font-size: 13px; line-height: 1.7; } /* 시연 안내도 흰색 배경과 중립 회색 테두리로 표시합니다. */
 .search-notice > svg { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; color: #6889a6; } /* 안내 아이콘의 크기를 정합니다. */
 .search-notice p { margin: 0; } /* 안내 안쪽의 불필요한 문단 여백을 제거합니다. */
 .search-notice strong { color: #536b80; font-weight: 600; } /* 시연 안내의 핵심을 강조합니다. */
@@ -24,28 +24,28 @@
 .search-category-list { display: flex; flex-wrap: wrap; gap: 8px; } /* 분야 버튼이 화면 폭에 맞춰 줄바꿈됩니다. */
 .search-category-list button { min-height: 40px; padding: 9px 20px; border: 1px solid #e5e7eb; border-radius: 999px; background: #fff; color: #748596; font: inherit; font-size: 13px; cursor: pointer; transition: background .2s, border-color .2s; } /* 선택 전 분야 버튼은 흰색과 중립 회색 선으로 표시합니다. */
 .search-category-list button.is-active { border-color: #2474c7; background: #2474c7; color: #fff; font-weight: 600; } /* 선택된 분야를 파란색으로 구분합니다. */
-.search-reset { display: inline-flex; align-items: center; gap: 6px; padding: 8px 0; border: 0; background: transparent; color: #8594a2; font-size: 12px; cursor: pointer; white-space: nowrap; } /* 검색 조건 초기화 버튼입니다. */
+.search-reset { display: inline-flex; align-items: center; gap: 6px; padding: 8px 0; border: 0; background: transparent; color: #8594a2; font-size: 13px; cursor: pointer; white-space: nowrap; } /* 검색 조건 초기화 버튼입니다. */
 .search-reset svg { width: 14px; height: 14px; } /* 초기화 아이콘의 크기입니다. */
-.search-result-heading { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 18px; color: #7c8c9a; font-size: 12px; } /* 결과 설명과 예시 개수를 보여줍니다. */
+.search-result-heading { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 18px; color: #7c8c9a; font-size: 13px; } /* 결과 설명과 예시 개수를 보여줍니다. */
 .search-result-heading p { margin: 0; color: #445b70; font-size: 14px; } /* 결과 제목의 기본 모습입니다. */
 .search-result-heading p > span { margin-left: 7px; color: #2474c7; font-weight: 700; } /* 결과 개수에 브랜드색을 넣습니다. */
 .search-policy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; } /* 넓은 화면에서 정책 예시를 세 열로 배치합니다. */
 .search-policy { overflow: hidden; padding: 0 23px 5px; border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; transition: border-color .2s, box-shadow .2s; } /* 정책 예시 카드를 흰색과 중립 회색 테두리로 표시합니다. */
 .search-policy:hover { border-color: #d1d5db; box-shadow: 0 8px 24px #00000006; } /* 마우스를 올리면 중립 회색 테두리와 그림자를 강조합니다. */
-.search-policy-disclaimer { margin: 0 -23px 22px; padding: 10px 13px; background: #fff; border-bottom: 1px solid #eef0f3; color: #8191a0; font-size: 9px; letter-spacing: -.025em; } /* 모의 판정 안내도 카드와 같은 흰색으로 유지합니다. */
+.search-policy-disclaimer { margin: 0 -23px 22px; padding: 10px 13px; background: #fff; border-bottom: 1px solid #eef0f3; color: #8191a0; font-size: 13px; letter-spacing: -.025em; } /* 모의 판정 안내도 카드와 같은 흰색으로 유지합니다. */
 .search-policy-top { display: flex; justify-content: space-between; align-items: center; } /* 정책 아이콘과 상태를 나란히 배치합니다. */
 .search-policy-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 12px; background: #eff6fd; color: #2474c7; } /* 분야 아이콘을 파란 배경 안에 둡니다. */
 .search-policy-icon svg { width: 22px; height: 22px; } /* 분야 아이콘의 크기입니다. */
-.search-status { padding: 5px 9px; border-radius: 6px; background: #fff5e4; color: #af8538; font-size: 10px; font-weight: 600; } /* 미판정 상태를 확인 필요로 표시합니다. */
-.search-policy-category { margin: 22px 0 8px; color: #8a99a6; font-size: 11px; } /* 분야와 시연 예시 표기를 보여줍니다. */
+.search-status { padding: 5px 9px; border-radius: 6px; background: #fff5e4; color: #af8538; font-size: 13px; font-weight: 600; } /* 미판정 상태를 확인 필요로 표시합니다. */
+.search-policy-category { margin: 22px 0 8px; color: #8a99a6; font-size: 13px; } /* 분야와 시연 예시 표기를 보여줍니다. */
 .search-policy h2 { margin: 0 0 12px; font-size: 18px; font-weight: 700; letter-spacing: -.04em; line-height: 1.5; word-break: keep-all; } /* 정책명 예시가 잘 읽히도록 표시합니다. */
-.search-policy-description { min-height: 46px; margin: 0 0 24px; color: #7f8f9e; font-size: 12px; line-height: 1.8; word-break: keep-all; } /* 카드 설명의 간격을 일정하게 맞춥니다. */
+.search-policy-description { min-height: 46px; margin: 0 0 24px; color: #7f8f9e; font-size: 13px; line-height: 1.8; word-break: keep-all; } /* 카드 설명의 간격을 일정하게 맞춥니다. */
 .search-policy-details { border-top: 1px solid #eef0f3; } /* 상세 펼침을 중립 회색 선으로 구분합니다. */
-.search-policy-details summary { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; color: #58718b; font-size: 12px; cursor: pointer; list-style: none; } /* 상세 내용을 누를 수 있는 제목입니다. */
+.search-policy-details summary { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; color: #58718b; font-size: 13px; cursor: pointer; list-style: none; } /* 상세 내용을 누를 수 있는 제목입니다. */
 .search-policy-details summary::-webkit-details-marker { display: none; } /* 브라우저 기본 삼각형을 숨깁니다. */
 .search-policy-details summary svg { width: 15px; height: 15px; transition: transform .2s; } /* 상세 펼침 화살표입니다. */
 .search-policy-details[open] summary svg { transform: rotate(90deg); } /* 펼쳐진 상태를 화살표 방향으로 알려줍니다. */
-.search-policy-evidence { margin-bottom: 16px; padding: 13px; border: 1px solid #eef0f3; border-radius: 8px; background: #fff; color: #7d8c9b; font-size: 11px; line-height: 1.8; } /* 원문 연결 상태를 흰색 상세 영역 안에 표시합니다. */
+.search-policy-evidence { margin-bottom: 16px; padding: 13px; border: 1px solid #eef0f3; border-radius: 8px; background: #fff; color: #7d8c9b; font-size: 13px; line-height: 1.8; } /* 원문 연결 상태를 흰색 상세 영역 안에 표시합니다. */
 .search-policy-evidence p { margin: 0 0 8px; } /* 상세 문단 사이의 간격입니다. */
 .search-policy-evidence p:last-child { margin-bottom: 0; } /* 마지막 문단의 아래 여백을 제거합니다. */
 .search-policy-evidence strong { color: #536e87; font-weight: 600; } /* 자격 판정 불가 안내를 강조합니다. */
@@ -55,14 +55,14 @@
 .search-empty p { margin: 0 0 24px; color: #8998a6; font-size: 13px; } /* 다른 검색을 권하는 설명입니다. */
 .search-bottom-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 48px; padding: 30px; border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; } /* 아래 이동 안내도 흰색 패널과 중립 회색 선으로 구성합니다. */
 .search-bottom-cta h2 { margin: 8px 0; font-size: 19px; letter-spacing: -.04em; } /* 다음 화면 안내 제목입니다. */
-.search-bottom-cta p { margin: 0; color: #7e91a2; font-size: 12px; line-height: 1.8; } /* 다음 화면에서 할 수 있는 일을 설명합니다. */
-.search-bottom-cta .button { flex-shrink: 0; font-size: 12px; } /* 이동 버튼의 폭이 줄어들지 않게 합니다. */
+.search-bottom-cta p { margin: 0; color: #7e91a2; font-size: 13px; line-height: 1.8; } /* 다음 화면에서 할 수 있는 일을 설명합니다. */
+.search-bottom-cta .button { flex-shrink: 0; font-size: 13px; } /* 이동 버튼의 폭이 줄어들지 않게 합니다. */
 @media (max-width: 900px) { .search-policy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } } /* 중간 화면에서는 정책 예시를 두 열로 배치합니다. */
-@media (max-width: 600px) { .search-hero { padding-bottom: 30px; } .search-breadcrumb { margin-bottom: 28px; } .search-hero h1 { font-size: 32px; } .search-hero-description { font-size: 13px; } .search-form { gap: 8px; padding-left: 14px; } .search-form input { font-size: 12px; } .search-form .button { min-width: 58px; padding-inline: 15px; } .search-suggestions { gap: 9px; font-size: 11px; } .search-desktop-break { display: none; } .search-results-toolbar { gap: 10px; margin: 24px 0; } .search-category-list { gap: 5px; } .search-category-list button { min-height: 36px; padding: 8px 12px; font-size: 11px; } .search-result-heading > span { display: none; } .search-policy-grid { grid-template-columns: 1fr; gap: 15px; } .search-policy-description { min-height: 0; } .search-bottom-cta { align-items: flex-start; flex-direction: column; padding: 24px; } .search-bottom-cta h2 { font-size: 17px; } } /* 휴대폰에서는 입력창과 카드를 한 열로 편하게 표시합니다. */
+@media (max-width: 600px) { .search-hero { padding-bottom: 30px; } .search-breadcrumb { margin-bottom: 28px; } .search-hero h1 { font-size: 32px; } .search-hero-description { font-size: 13px; } .search-form { gap: 8px; padding-left: 14px; } .search-form input { font-size: 13px; } .search-form .button { min-width: 58px; padding-inline: 15px; } .search-suggestions { gap: 9px; font-size: 13px; } .search-desktop-break { display: none; } .search-results-toolbar { gap: 10px; margin: 24px 0; } .search-category-list { gap: 5px; } .search-category-list button { min-height: 36px; padding: 8px 12px; font-size: 13px; } .search-result-heading > span { display: none; } .search-policy-grid { grid-template-columns: 1fr; gap: 15px; } .search-policy-description { min-height: 0; } .search-bottom-cta { align-items: flex-start; flex-direction: column; padding: 24px; } .search-bottom-cta h2 { font-size: 17px; } } /* 휴대폰에서는 입력창과 카드를 한 열로 편하게 표시합니다. */
 .search-subject { margin: 0; padding: 0; border: 0; } /* 대상 선택을 의미 있는 그룹으로 묶어요. */
 .search-subject legend { margin-bottom: 10px; color: #445b70; font-size: 13px; } /* 필터 적용 시점을 설명해요. */
-.search-policy-disclaimer { color: #445b70; font-size: 12px; line-height: 1.7; } /* 필수 고지의 크기와 대비를 확보해요. */
-.search-status { color: #72551c; font-size: 12px; max-width: 80%; line-height: 1.6; } /* 긴 상태도 줄바꿈하고 대비를 확보해요. */
+.search-policy-disclaimer { color: #445b70; font-size: 13px; line-height: 1.7; } /* 필수 고지의 크기와 대비를 확보해요. */
+.search-status { color: #72551c; font-size: 13px; max-width: 80%; line-height: 1.6; } /* 긴 상태도 줄바꿈하고 대비를 확보해요. */
 .search-policy-description, .search-policy-evidence, .search-notice { color: #526579; } /* 실제 공고 정보를 읽을 수 있는 대비로 표시해요. */
 .search-policy-evidence a { color: #075c91; text-decoration: underline; } /* 공식 원문 링크를 알아보기 쉽게 해요. */
 .search-page button:focus-visible, .search-page a:focus-visible { outline: 3px solid #00809a; outline-offset: 4px; } /* 결과 링크와 버튼의 키보드 초점을 표시해요. */

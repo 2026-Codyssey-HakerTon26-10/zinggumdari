@@ -39,5 +39,5 @@ function AuthIntro() { // 로그인과 회원가입에 공통으로 보일 시�
     );
 } // 공통 소개 영역을 마칩니다.
 export default function AuthLayout({ children }: { children: ReactNode }) { // 인증 화면을 공통 레이아웃 안에 배치합니다.
-    return <div className="auth-page"><header className="auth-header"><div className="auth-header-inner"><Brand /><Link href="/" className="auth-home-link">홈으로 돌아가기<Icon name="arrow-right" /></Link></div></header><main id="main-content" className="auth-main"><AuthIntro />{children}</main><footer className="auth-footer"><span>© 2026 징검다리 · 코디세이 AI 해커톤 프로젝트</span><span>공공기관이 운영하는 서비스가 아닙니다.</span></footer></div>; // 상단 브랜드와 본문, 프로젝트 안내를 흰색 화면에 배치합니다.
+    return <div className="auth-page"><header className="auth-header"><div className="auth-header-inner"><Brand /><Link href="/" className="auth-home-link">홈으로 돌아가기<Icon name="arrow-right" /></Link></div></header><main id="main-content" className="auth-main"><AuthIntro />{children}</main><footer className="auth-footer"><span>© 2026 징검다리 · 코디세이 AI 해커톤 프로젝트</span><span>공공기관이 운영하는 서비스가 아닙니다.</span><nav aria-label="개인정보와 문의"><Link href="/privacy">개인정보처리방침</Link><a href="mailto:chobolimkyu@gmail.com">chobolimkyu@gmail.com</a></nav></footer></div>; // 상단 브랜드와 본문, 프로젝트 안내를 흰색 화면에 배치합니다.
 } // 공통 인증 레이아웃을 마칩니다.

@@ -15,7 +15,7 @@ const banners = [ // 순환할 배너 두 개를 정의해요.
         description: "나와 부모님 정보를 고르기만 하면,\n받을 수 있는 제도와 거의 해당하는 제도를\n공고 원문 근거와 함께 보여드려요.", // 첫 번째 배너의 설명이에요.
         actions: [ // 첫 번째 배너의 CTA 버튼 목록이에요.
             { href: "/signup", label: "3분 만에 확인하기", icon: "arrow-right", primary: true },
-            { href: "/login", label: "부모님 대신 확인하기", icon: "family", primary: false },
+            { href: "/my?subject=parent", label: "부모님 대신 확인하기", icon: "family", primary: false }, // 로그인 상태에 따라 부모님 추천 흐름을 이어가요.
         ],
     },
     {
@@ -24,7 +24,7 @@ const banners = [ // 순환할 배너 두 개를 정의해요.
         headlineAccent: "함께 챙겨드려요", // 두 번째 배너에서 강조할 문구예요.
         description: "기초연금, 돌봄, 장기요양까지.\n부모님 상황에 맞는 제도를 대신 확인해드려요.\n멀리 계셔도 괜찮아요.", // 두 번째 배너의 설명이에요.
         actions: [ // 두 번째 배너의 CTA 버튼 목록이에요.
-            { href: "/login", label: "부모님 혜택 확인하기", icon: "arrow-right", primary: true },
+            { href: "/my?subject=parent", label: "부모님 혜택 확인하기", icon: "arrow-right", primary: true }, // 이미 로그인했다면 부모님 추천으로 바로 이동해요.
             { href: "/search", label: "직접 공고 검색하기", icon: "search", primary: false },
         ],
     },

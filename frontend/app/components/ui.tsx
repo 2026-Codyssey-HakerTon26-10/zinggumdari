@@ -66,6 +66,8 @@ export function SiteFooter() { // 서비스의 성격을 분명히 알리는 하
                     <Link href="/#how-it-works">서비스 소개</Link> {/* 사용 방법으로 이동해요. */}
                     <Link href="/search">공고 검색</Link> {/* 검색 화면으로 이동해요. */}
                     <Link href="/my?subject=parent">부모님 챙김</Link> {/* 부모님 진단 화면으로 이동해요. */}
+                    <Link href="/privacy">개인정보처리방침</Link> {/* 개인정보 수집과 삭제 방법을 공개 안내로 연결해요. */}
+                    <a href="mailto:chobolimkyu@gmail.com">chobolimkyu@gmail.com</a> {/* 사용자가 요청한 문의 이메일을 표시해요. */}
                 </div>
             </div>
             <div className="container footer-bottom"> {/* 저작권과 안내를 하단에 표시해요. */}

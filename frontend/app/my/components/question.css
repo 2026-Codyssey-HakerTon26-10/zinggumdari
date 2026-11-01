@@ -21,7 +21,7 @@
 .question-form .question-value { margin-top: 22px; } /* 직접 입력란과 선택 카드 사이 여백을 확보해요. */
 .question-form .question-value input { min-height: 52px; border-color: #cbd9e7; border-radius: 12px; } /* 추가 입력란도 선택 카드와 같은 느낌으로 맞춰요. */
 .question-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 27px; padding-top: 22px; border-top: 1px solid #edf1f6; } /* 저장 안내와 다음 버튼을 하단에 정돈해요. */
-.question-footer > span { color: #738699; font-size: 12px; line-height: 1.7; } /* 정보 반영 안내를 작은 보조 문구로 표시해요. */
+.question-footer > span { color: #738699; font-size: 13px; line-height: 1.7; } /* 정보 반영 안내를 작은 보조 문구로 표시해요. */
 .question-footer .question-next { min-width: 150px; min-height: 50px; border-radius: 13px; gap: 14px; } /* 다음 버튼을 충분히 크고 쉽게 누를 수 있게 해요. */
 .question-panel .question-consent { margin-top: 22px; padding: 16px; border-radius: 14px; background: #f5f8fc; font-size: 14px; } /* 동의가 필요한 상황을 차분한 별도 안내로 보여줘요. */
 @media (max-width: 600px) { .question-options { grid-template-columns: 1fr; gap: 10px; } .question-option-surface { min-height: 61px; padding: 15px 16px; } .question-footer { flex-direction: column; align-items: stretch; gap: 12px; } .question-footer > span { text-align: center; } .question-footer .question-next { width: 100%; } } /* 휴대전화에서는 답과 다음 버튼을 한 열로 넓게 보여줘요. */
